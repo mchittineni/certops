@@ -9,10 +9,10 @@ export const GITHUB_ACTIONS_QUESTIONS_13 = [
     scenario: "A devops automation engineering team is establishing high-availability pipeline standards, runner recovery procedures, and operational resilience baselines for GitHub Actions. The GitHub Actions engineer needs to dynamically label a container image with the repository name, commit SHA, and current Git reference during workflow execution.",
     question: "Which architectural approach or configuration satisfies these CI/CD disaster recovery and operational continuity objectives?",
     options: [
-      { id: 'A', text: "Reference GitHub contexts in expressions: `${{ github.repository }}:${{ github.sha }}` and `${{ github.ref_name }}`." },
-      { id: 'B', text: "Hardcode the repository name and commit hash in the workflow file." },
-      { id: 'C', text: "Store commit SHAs in external databases." },
-      { id: 'D', text: "Run bash string parsing on local git command output." }
+      { id: 'A', text: "Reference the `github` context: `${{ github.repository }}` and `${{ github.sha }}`." },
+      { id: 'B', text: "Reference the `env` context after a step has written the values into it." },
+      { id: 'C', text: "Reference the `runner` context, which carries the checkout's own metadata." },
+      { id: 'D', text: "Parse `git rev-parse HEAD` output in a step and pass it on as an output." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -30,10 +30,10 @@ export const GITHUB_ACTIONS_QUESTIONS_13 = [
     scenario: "A high-throughput software engineering organization experiences massive surges in concurrent build and test requests across thousands of enterprise repositories. The GitHub Actions engineer needs to dynamically label a container image with the repository name, commit SHA, and current Git reference during workflow execution.",
     question: "Which workflow architecture or runner configuration manages this execution volume effectively while preventing queue congestion and latency?",
     options: [
-      { id: 'A', text: "Reference GitHub contexts in expressions: `${{ github.repository }}:${{ github.sha }}` and `${{ github.ref_name }}`." },
-      { id: 'B', text: "Store commit SHAs in external databases." },
-      { id: 'C', text: "Run bash string parsing on local git command output." },
-      { id: 'D', text: "Hardcode the repository name and commit hash in the workflow file." }
+      { id: 'A', text: "Reference the `github` context: `${{ github.repository }}` and `${{ github.sha }}`." },
+      { id: 'B', text: "Reference the `runner` context, which carries the checkout's own metadata." },
+      { id: 'C', text: "Parse `git rev-parse HEAD` output in a step and pass it on as an output." },
+      { id: 'D', text: "Reference the `env` context after a step has written the values into it." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -51,10 +51,10 @@ export const GITHUB_ACTIONS_QUESTIONS_13 = [
     scenario: "A security compliance auditor requires cryptographic supply chain verification, keyless cloud authentication, and automated governance across all GitHub Actions workflows. The GitHub Actions engineer needs to dynamically label a container image with the repository name, commit SHA, and current Git reference during workflow execution.",
     question: "Which solution implements these mandatory CI/CD security and compliance controls?",
     options: [
-      { id: 'A', text: "Store commit SHAs in external databases." },
-      { id: 'B', text: "Run bash string parsing on local git command output." },
-      { id: 'C', text: "Reference GitHub contexts in expressions: `${{ github.repository }}:${{ github.sha }}` and `${{ github.ref_name }}`." },
-      { id: 'D', text: "Hardcode the repository name and commit hash in the workflow file." }
+      { id: 'A', text: "Reference the `runner` context, which carries the checkout's own metadata." },
+      { id: 'B', text: "Parse `git rev-parse HEAD` output in a step and pass it on as an output." },
+      { id: 'C', text: "Reference the `github` context: `${{ github.repository }}` and `${{ github.sha }}`." },
+      { id: 'D', text: "Reference the `env` context after a step has written the values into it." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -72,10 +72,10 @@ export const GITHUB_ACTIONS_QUESTIONS_13 = [
     scenario: "An enterprise is modernizing legacy on-premises CI/CD infrastructure and migrating automated delivery workflows to GitHub Actions. The GitHub Actions engineer needs to dynamically label a container image with the repository name, commit SHA, and current Git reference during workflow execution.",
     question: "Which practice or platform feature enables the engineering team to modernize automated delivery with minimal operational friction?",
     options: [
-      { id: 'A', text: "Reference GitHub contexts in expressions: `${{ github.repository }}:${{ github.sha }}` and `${{ github.ref_name }}`." },
-      { id: 'B', text: "Run bash string parsing on local git command output." },
-      { id: 'C', text: "Hardcode the repository name and commit hash in the workflow file." },
-      { id: 'D', text: "Store commit SHAs in external databases." }
+      { id: 'A', text: "Reference the `github` context: `${{ github.repository }}` and `${{ github.sha }}`." },
+      { id: 'B', text: "Parse `git rev-parse HEAD` output in a step and pass it on as an output." },
+      { id: 'C', text: "Reference the `env` context after a step has written the values into it." },
+      { id: 'D', text: "Reference the `runner` context, which carries the checkout's own metadata." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -93,10 +93,10 @@ export const GITHUB_ACTIONS_QUESTIONS_13 = [
     scenario: "A platform operations team is optimizing system reliability to eliminate single points of failure, accelerate build caching, and ensure secure failure handling. The GitHub Actions engineer needs to dynamically label a container image with the repository name, commit SHA, and current Git reference during workflow execution.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees pipeline availability?",
     options: [
-      { id: 'A', text: "Reference GitHub contexts in expressions: `${{ github.repository }}:${{ github.sha }}` and `${{ github.ref_name }}`." },
-      { id: 'B', text: "Run bash string parsing on local git command output." },
-      { id: 'C', text: "Hardcode the repository name and commit hash in the workflow file." },
-      { id: 'D', text: "Store commit SHAs in external databases." }
+      { id: 'A', text: "Reference the `github` context: `${{ github.repository }}` and `${{ github.sha }}`." },
+      { id: 'B', text: "Parse `git rev-parse HEAD` output in a step and pass it on as an output." },
+      { id: 'C', text: "Reference the `env` context after a step has written the values into it." },
+      { id: 'D', text: "Reference the `runner` context, which carries the checkout's own metadata." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -114,10 +114,10 @@ export const GITHUB_ACTIONS_QUESTIONS_13 = [
     scenario: "A devops automation engineering team is establishing high-availability pipeline standards, runner recovery procedures, and operational resilience baselines for GitHub Actions. The GitHub Actions engineer needs to pass an environment variable to all steps within a job while overriding it with a specialized value for one specific step.",
     question: "Which architectural approach or configuration satisfies these CI/CD disaster recovery and operational continuity objectives?",
     options: [
-      { id: 'A', text: "Define the variable under `env:` at the job level, and define an overriding `env:` block on the specific step." },
-      { id: 'B', text: "Define the variable only at the workflow level and never override it." },
-      { id: 'C', text: "Export the variable in a shell script using export FOO=bar without writing to GITHUB_ENV." },
-      { id: 'D', text: "Hardcode the variable in every single command string." }
+      { id: 'A', text: "Set the variable in the job's `env:` and override it in the step's own `env:`." },
+      { id: 'B', text: "Set the variable at workflow level only, and read it from every step." },
+      { id: 'C', text: "Export the variable in a shell step without writing it to `$GITHUB_ENV`." },
+      { id: 'D', text: "Write the value into each command string wherever the step needs it." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -135,10 +135,10 @@ export const GITHUB_ACTIONS_QUESTIONS_13 = [
     scenario: "A high-throughput software engineering organization experiences massive surges in concurrent build and test requests across thousands of enterprise repositories. The GitHub Actions engineer needs to pass an environment variable to all steps within a job while overriding it with a specialized value for one specific step.",
     question: "Which workflow architecture or runner configuration manages this execution volume effectively while preventing queue congestion and latency?",
     options: [
-      { id: 'A', text: "Define the variable under `env:` at the job level, and define an overriding `env:` block on the specific step." },
-      { id: 'B', text: "Define the variable only at the workflow level and never override it." },
-      { id: 'C', text: "Export the variable in a shell script using export FOO=bar without writing to GITHUB_ENV." },
-      { id: 'D', text: "Hardcode the variable in every single command string." }
+      { id: 'A', text: "Set the variable in the job's `env:` and override it in the step's own `env:`." },
+      { id: 'B', text: "Set the variable at workflow level only, and read it from every step." },
+      { id: 'C', text: "Export the variable in a shell step without writing it to `$GITHUB_ENV`." },
+      { id: 'D', text: "Write the value into each command string wherever the step needs it." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -156,10 +156,10 @@ export const GITHUB_ACTIONS_QUESTIONS_13 = [
     scenario: "A security compliance auditor requires cryptographic supply chain verification, keyless cloud authentication, and automated governance across all GitHub Actions workflows. The GitHub Actions engineer needs to pass an environment variable to all steps within a job while overriding it with a specialized value for one specific step.",
     question: "Which solution implements these mandatory CI/CD security and compliance controls?",
     options: [
-      { id: 'A', text: "Export the variable in a shell script using export FOO=bar without writing to GITHUB_ENV." },
-      { id: 'B', text: "Hardcode the variable in every single command string." },
-      { id: 'C', text: "Define the variable under `env:` at the job level, and define an overriding `env:` block on the specific step." },
-      { id: 'D', text: "Define the variable only at the workflow level and never override it." }
+      { id: 'A', text: "Export the variable in a shell step without writing it to `$GITHUB_ENV`." },
+      { id: 'B', text: "Write the value into each command string wherever the step needs it." },
+      { id: 'C', text: "Set the variable in the job's `env:` and override it in the step's own `env:`." },
+      { id: 'D', text: "Set the variable at workflow level only, and read it from every step." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -177,10 +177,10 @@ export const GITHUB_ACTIONS_QUESTIONS_13 = [
     scenario: "An enterprise is modernizing legacy on-premises CI/CD infrastructure and migrating automated delivery workflows to GitHub Actions. The GitHub Actions engineer needs to pass an environment variable to all steps within a job while overriding it with a specialized value for one specific step.",
     question: "Which practice or platform feature enables the engineering team to modernize automated delivery with minimal operational friction?",
     options: [
-      { id: 'A', text: "Define the variable under `env:` at the job level, and define an overriding `env:` block on the specific step." },
-      { id: 'B', text: "Define the variable only at the workflow level and never override it." },
-      { id: 'C', text: "Export the variable in a shell script using export FOO=bar without writing to GITHUB_ENV." },
-      { id: 'D', text: "Hardcode the variable in every single command string." }
+      { id: 'A', text: "Set the variable in the job's `env:` and override it in the step's own `env:`." },
+      { id: 'B', text: "Set the variable at workflow level only, and read it from every step." },
+      { id: 'C', text: "Export the variable in a shell step without writing it to `$GITHUB_ENV`." },
+      { id: 'D', text: "Write the value into each command string wherever the step needs it." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -198,10 +198,10 @@ export const GITHUB_ACTIONS_QUESTIONS_13 = [
     scenario: "A platform operations team is optimizing system reliability to eliminate single points of failure, accelerate build caching, and ensure secure failure handling. The GitHub Actions engineer needs to pass an environment variable to all steps within a job while overriding it with a specialized value for one specific step.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees pipeline availability?",
     options: [
-      { id: 'A', text: "Define the variable under `env:` at the job level, and define an overriding `env:` block on the specific step." },
-      { id: 'B', text: "Define the variable only at the workflow level and never override it." },
-      { id: 'C', text: "Export the variable in a shell script using export FOO=bar without writing to GITHUB_ENV." },
-      { id: 'D', text: "Hardcode the variable in every single command string." }
+      { id: 'A', text: "Set the variable in the job's `env:` and override it in the step's own `env:`." },
+      { id: 'B', text: "Set the variable at workflow level only, and read it from every step." },
+      { id: 'C', text: "Export the variable in a shell step without writing it to `$GITHUB_ENV`." },
+      { id: 'D', text: "Write the value into each command string wherever the step needs it." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -219,10 +219,10 @@ export const GITHUB_ACTIONS_QUESTIONS_13 = [
     scenario: "A devops automation engineering team is establishing high-availability pipeline standards, runner recovery procedures, and operational resilience baselines for GitHub Actions. The GitHub Actions engineer needs to pass a dynamically calculated version string generated in one step to subsequent steps within the same job.",
     question: "Which architectural approach or configuration satisfies these CI/CD disaster recovery and operational continuity objectives?",
     options: [
-      { id: 'A', text: "Write the value to the GITHUB_OUTPUT environment file: `echo \"version=$VER\" &gt;&gt; \"$GITHUB_OUTPUT\"` and reference `steps.&lt;id&gt;.outputs.version`." },
-      { id: 'B', text: "Write the value to deprecated `::set-output` syntax." },
-      { id: 'C', text: "Declare a global bash variable in a subshell." },
-      { id: 'D', text: "Save the version string in a local temporary file and read it on another machine." }
+      { id: 'A', text: "Write it to `$GITHUB_OUTPUT` and read `steps.&lt;id&gt;.outputs.version` downstream." },
+      { id: 'B', text: "Write it with the `::set-output` workflow command and read it downstream." },
+      { id: 'C', text: "Export it as a shell variable so later steps in the job inherit the value." },
+      { id: 'D', text: "Write it to `$GITHUB_ENV` and read it as an environment variable downstream." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -240,10 +240,10 @@ export const GITHUB_ACTIONS_QUESTIONS_13 = [
     scenario: "A high-throughput software engineering organization experiences massive surges in concurrent build and test requests across thousands of enterprise repositories. The GitHub Actions engineer needs to pass a dynamically calculated version string generated in one step to subsequent steps within the same job.",
     question: "Which workflow architecture or runner configuration manages this execution volume effectively while preventing queue congestion and latency?",
     options: [
-      { id: 'A', text: "Declare a global bash variable in a subshell." },
-      { id: 'B', text: "Save the version string in a local temporary file and read it on another machine." },
-      { id: 'C', text: "Write the value to the GITHUB_OUTPUT environment file: `echo \"version=$VER\" &gt;&gt; \"$GITHUB_OUTPUT\"` and reference `steps.&lt;id&gt;.outputs.version`." },
-      { id: 'D', text: "Write the value to deprecated `::set-output` syntax." }
+      { id: 'A', text: "Export it as a shell variable so later steps in the job inherit the value." },
+      { id: 'B', text: "Write it to `$GITHUB_ENV` and read it as an environment variable downstream." },
+      { id: 'C', text: "Write it to `$GITHUB_OUTPUT` and read `steps.&lt;id&gt;.outputs.version` downstream." },
+      { id: 'D', text: "Write it with the `::set-output` workflow command and read it downstream." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -261,10 +261,10 @@ export const GITHUB_ACTIONS_QUESTIONS_13 = [
     scenario: "A security compliance auditor requires cryptographic supply chain verification, keyless cloud authentication, and automated governance across all GitHub Actions workflows. The GitHub Actions engineer needs to pass a dynamically calculated version string generated in one step to subsequent steps within the same job.",
     question: "Which solution implements these mandatory CI/CD security and compliance controls?",
     options: [
-      { id: 'A', text: "Declare a global bash variable in a subshell." },
-      { id: 'B', text: "Write the value to the GITHUB_OUTPUT environment file: `echo \"version=$VER\" &gt;&gt; \"$GITHUB_OUTPUT\"` and reference `steps.&lt;id&gt;.outputs.version`." },
-      { id: 'C', text: "Write the value to deprecated `::set-output` syntax." },
-      { id: 'D', text: "Save the version string in a local temporary file and read it on another machine." }
+      { id: 'A', text: "Export it as a shell variable so later steps in the job inherit the value." },
+      { id: 'B', text: "Write it to `$GITHUB_OUTPUT` and read `steps.&lt;id&gt;.outputs.version` downstream." },
+      { id: 'C', text: "Write it with the `::set-output` workflow command and read it downstream." },
+      { id: 'D', text: "Write it to `$GITHUB_ENV` and read it as an environment variable downstream." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -282,10 +282,10 @@ export const GITHUB_ACTIONS_QUESTIONS_13 = [
     scenario: "An enterprise is modernizing legacy on-premises CI/CD infrastructure and migrating automated delivery workflows to GitHub Actions. The GitHub Actions engineer needs to pass a dynamically calculated version string generated in one step to subsequent steps within the same job.",
     question: "Which practice or platform feature enables the engineering team to modernize automated delivery with minimal operational friction?",
     options: [
-      { id: 'A', text: "Declare a global bash variable in a subshell." },
-      { id: 'B', text: "Save the version string in a local temporary file and read it on another machine." },
-      { id: 'C', text: "Write the value to the GITHUB_OUTPUT environment file: `echo \"version=$VER\" &gt;&gt; \"$GITHUB_OUTPUT\"` and reference `steps.&lt;id&gt;.outputs.version`." },
-      { id: 'D', text: "Write the value to deprecated `::set-output` syntax." }
+      { id: 'A', text: "Export it as a shell variable so later steps in the job inherit the value." },
+      { id: 'B', text: "Write it to `$GITHUB_ENV` and read it as an environment variable downstream." },
+      { id: 'C', text: "Write it to `$GITHUB_OUTPUT` and read `steps.&lt;id&gt;.outputs.version` downstream." },
+      { id: 'D', text: "Write it with the `::set-output` workflow command and read it downstream." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -303,10 +303,10 @@ export const GITHUB_ACTIONS_QUESTIONS_13 = [
     scenario: "A platform operations team is optimizing system reliability to eliminate single points of failure, accelerate build caching, and ensure secure failure handling. The GitHub Actions engineer needs to pass a dynamically calculated version string generated in one step to subsequent steps within the same job.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees pipeline availability?",
     options: [
-      { id: 'A', text: "Write the value to deprecated `::set-output` syntax." },
-      { id: 'B', text: "Declare a global bash variable in a subshell." },
-      { id: 'C', text: "Write the value to the GITHUB_OUTPUT environment file: `echo \"version=$VER\" &gt;&gt; \"$GITHUB_OUTPUT\"` and reference `steps.&lt;id&gt;.outputs.version`." },
-      { id: 'D', text: "Save the version string in a local temporary file and read it on another machine." }
+      { id: 'A', text: "Write it with the `::set-output` workflow command and read it downstream." },
+      { id: 'B', text: "Export it as a shell variable so later steps in the job inherit the value." },
+      { id: 'C', text: "Write it to `$GITHUB_OUTPUT` and read `steps.&lt;id&gt;.outputs.version` downstream." },
+      { id: 'D', text: "Write it to `$GITHUB_ENV` and read it as an environment variable downstream." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -324,10 +324,10 @@ export const GITHUB_ACTIONS_QUESTIONS_13 = [
     scenario: "A devops automation engineering team is establishing high-availability pipeline standards, runner recovery procedures, and operational resilience baselines for GitHub Actions. The GitHub Actions engineer needs to generate a formatted Markdown table of test coverage and benchmark results visible directly on the GitHub Actions run summary page.",
     question: "Which architectural approach or configuration satisfies these CI/CD disaster recovery and operational continuity objectives?",
     options: [
-      { id: 'A', text: "Append Markdown text directly to the `$GITHUB_STEP_SUMMARY` environment file: `echo \"| Metric | Value |\" &gt;&gt; \"$GITHUB_STEP_SUMMARY\"`." },
-      { id: 'B', text: "Write summary data to standard error." },
-      { id: 'C', text: "Post comments on closed pull requests." },
-      { id: 'D', text: "Take screenshots of terminal outputs." }
+      { id: 'A', text: "Append the Markdown to `$GITHUB_STEP_SUMMARY`, which renders on the run's page." },
+      { id: 'B', text: "Append the Markdown to `$GITHUB_ENV`, which the following steps then render." },
+      { id: 'C', text: "Post the Markdown as a pull request comment from the workflow's own token." },
+      { id: 'D', text: "Upload the Markdown with `actions/upload-artifact` for reviewers to open." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -345,10 +345,10 @@ export const GITHUB_ACTIONS_QUESTIONS_13 = [
     scenario: "A high-throughput software engineering organization experiences massive surges in concurrent build and test requests across thousands of enterprise repositories. The GitHub Actions engineer needs to generate a formatted Markdown table of test coverage and benchmark results visible directly on the GitHub Actions run summary page.",
     question: "Which workflow architecture or runner configuration manages this execution volume effectively while preventing queue congestion and latency?",
     options: [
-      { id: 'A', text: "Take screenshots of terminal outputs." },
-      { id: 'B', text: "Append Markdown text directly to the `$GITHUB_STEP_SUMMARY` environment file: `echo \"| Metric | Value |\" &gt;&gt; \"$GITHUB_STEP_SUMMARY\"`." },
-      { id: 'C', text: "Post comments on closed pull requests." },
-      { id: 'D', text: "Write summary data to standard error." }
+      { id: 'A', text: "Upload the Markdown with `actions/upload-artifact` for reviewers to open." },
+      { id: 'B', text: "Append the Markdown to `$GITHUB_STEP_SUMMARY`, which renders on the run's page." },
+      { id: 'C', text: "Post the Markdown as a pull request comment from the workflow's own token." },
+      { id: 'D', text: "Append the Markdown to `$GITHUB_ENV`, which the following steps then render." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -366,10 +366,10 @@ export const GITHUB_ACTIONS_QUESTIONS_13 = [
     scenario: "A security compliance auditor requires cryptographic supply chain verification, keyless cloud authentication, and automated governance across all GitHub Actions workflows. The GitHub Actions engineer needs to generate a formatted Markdown table of test coverage and benchmark results visible directly on the GitHub Actions run summary page.",
     question: "Which solution implements these mandatory CI/CD security and compliance controls?",
     options: [
-      { id: 'A', text: "Take screenshots of terminal outputs." },
-      { id: 'B', text: "Post comments on closed pull requests." },
-      { id: 'C', text: "Write summary data to standard error." },
-      { id: 'D', text: "Append Markdown text directly to the `$GITHUB_STEP_SUMMARY` environment file: `echo \"| Metric | Value |\" &gt;&gt; \"$GITHUB_STEP_SUMMARY\"`." }
+      { id: 'A', text: "Upload the Markdown with `actions/upload-artifact` for reviewers to open." },
+      { id: 'B', text: "Post the Markdown as a pull request comment from the workflow's own token." },
+      { id: 'C', text: "Append the Markdown to `$GITHUB_ENV`, which the following steps then render." },
+      { id: 'D', text: "Append the Markdown to `$GITHUB_STEP_SUMMARY`, which renders on the run's page." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -387,10 +387,10 @@ export const GITHUB_ACTIONS_QUESTIONS_13 = [
     scenario: "An enterprise is modernizing legacy on-premises CI/CD infrastructure and migrating automated delivery workflows to GitHub Actions. The GitHub Actions engineer needs to generate a formatted Markdown table of test coverage and benchmark results visible directly on the GitHub Actions run summary page.",
     question: "Which practice or platform feature enables the engineering team to modernize automated delivery with minimal operational friction?",
     options: [
-      { id: 'A', text: "Append Markdown text directly to the `$GITHUB_STEP_SUMMARY` environment file: `echo \"| Metric | Value |\" &gt;&gt; \"$GITHUB_STEP_SUMMARY\"`." },
-      { id: 'B', text: "Write summary data to standard error." },
-      { id: 'C', text: "Post comments on closed pull requests." },
-      { id: 'D', text: "Take screenshots of terminal outputs." }
+      { id: 'A', text: "Append the Markdown to `$GITHUB_STEP_SUMMARY`, which renders on the run's page." },
+      { id: 'B', text: "Append the Markdown to `$GITHUB_ENV`, which the following steps then render." },
+      { id: 'C', text: "Post the Markdown as a pull request comment from the workflow's own token." },
+      { id: 'D', text: "Upload the Markdown with `actions/upload-artifact` for reviewers to open." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -408,10 +408,10 @@ export const GITHUB_ACTIONS_QUESTIONS_13 = [
     scenario: "A platform operations team is optimizing system reliability to eliminate single points of failure, accelerate build caching, and ensure secure failure handling. The GitHub Actions engineer needs to generate a formatted Markdown table of test coverage and benchmark results visible directly on the GitHub Actions run summary page.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees pipeline availability?",
     options: [
-      { id: 'A', text: "Post comments on closed pull requests." },
-      { id: 'B', text: "Append Markdown text directly to the `$GITHUB_STEP_SUMMARY` environment file: `echo \"| Metric | Value |\" &gt;&gt; \"$GITHUB_STEP_SUMMARY\"`." },
-      { id: 'C', text: "Write summary data to standard error." },
-      { id: 'D', text: "Take screenshots of terminal outputs." }
+      { id: 'A', text: "Post the Markdown as a pull request comment from the workflow's own token." },
+      { id: 'B', text: "Append the Markdown to `$GITHUB_STEP_SUMMARY`, which renders on the run's page." },
+      { id: 'C', text: "Append the Markdown to `$GITHUB_ENV`, which the following steps then render." },
+      { id: 'D', text: "Upload the Markdown with `actions/upload-artifact` for reviewers to open." }
     ],
     correctAnswers: ['B'],
     type: "single",

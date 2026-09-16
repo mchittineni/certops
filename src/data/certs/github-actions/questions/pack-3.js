@@ -52,7 +52,7 @@ export const GITHUB_ACTIONS_QUESTIONS_3 = [
     question: "Which setting bounds the damage, and what is the default it replaces?",
     options: [
       { id: 'A', text: "retry-limit on the job, replacing a default of three attempts." },
-      { id: 'B', text: "timeout-minutes on the job, replacing a default limit of three hundred and sixty minutes." },
+      { id: 'B', text: "`timeout-minutes` on the job, replacing a default of 360 minutes." },
       { id: 'C', text: "continue-on-error on the job, replacing a default of false." },
       { id: 'D', text: "concurrency on the job, replacing an unlimited default." }
     ],
@@ -72,7 +72,7 @@ export const GITHUB_ACTIONS_QUESTIONS_3 = [
     scenario: "A build requires a toolchain that takes four minutes to install on a bare runner. The team already publishes a container image with the toolchain preinstalled and wants every step of the job to execute inside it.",
     question: "Which job key achieves that?",
     options: [
-      { id: 'A', text: "A container key on the job naming the image, so the runner executes the job steps inside it." },
+      { id: 'A', text: "A `container` key on the job naming the image, so the steps run inside it." },
       { id: 'B', text: "A runs-on value naming the image instead of a runner label." },
       { id: 'C', text: "A first step that runs a docker exec command for each subsequent command." },
       { id: 'D', text: "A services block naming the toolchain image." }
@@ -135,10 +135,10 @@ export const GITHUB_ACTIONS_QUESTIONS_3 = [
     scenario: "A workflow using ubuntu-latest passed on Friday and failed on Monday with no commits in between. The failure is a missing system package that the image previously included. The team needs both an immediate unblock and a way to learn about such changes in advance.",
     question: "Which pair of responses is appropriate?",
     options: [
-      { id: 'A', text: "Add a retry loop around the failing step, since hosted image contents vary run to run." },
-      { id: 'B', text: "Pin runs-on to the specific Ubuntu image version to regain a known-good environment, and install the package explicitly so the workflow no longer depends on undocumented image contents." },
-      { id: 'C', text: "Clear the Actions cache for the repository, which holds the previous image contents." },
-      { id: 'D', text: "Switch to a self-hosted runner, which is the only way to control installed packages." }
+      { id: 'A', text: "Add a retry loop around the failing step, since hosted image contents vary from run to run." },
+      { id: 'B', text: "Pin `runs-on` to a specific image version and install the package explicitly." },
+      { id: 'C', text: "Clear the repository's Actions cache, which is holding the previous image's contents." },
+      { id: 'D', text: "Move to a self-hosted runner, the only way to control what is installed on the host." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -156,10 +156,10 @@ export const GITHUB_ACTIONS_QUESTIONS_3 = [
     scenario: "A build workflow triggered by pull_request cannot post results because fork contributions receive no secrets. The team adds a second workflow triggered by workflow_run on completion of the first, which does have access.",
     question: "Which statement about the second workflow is correct?",
     options: [
-      { id: 'A', text: "It runs using the version of the workflow file on the default branch and in the context of the base repository with secrets available, so it must treat any artifact from the first workflow as untrusted input." },
-      { id: 'B', text: "It runs with the workflow file taken from the pull request head, so a contributor can modify what it does." },
-      { id: 'C', text: "It inherits the read-only token of the first workflow and therefore still cannot post results." },
-      { id: 'D', text: "It only fires when the first workflow concludes successfully, so a failed build never reports." }
+      { id: 'A', text: "It runs from the default branch in the base repository with secrets, so the first run's artifact is untrusted input." },
+      { id: 'B', text: "It runs with the workflow file taken from the pull request head, so a contributor can change what it does." },
+      { id: 'C', text: "It inherits the read-only token of the first workflow, so it still cannot post the results anywhere." },
+      { id: 'D', text: "It only fires when the first workflow concludes successfully, so a failed build never reports at all." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -177,9 +177,9 @@ export const GITHUB_ACTIONS_QUESTIONS_3 = [
     scenario: "A matrix expands three Node versions. Only the Node 20 job should additionally set a flag that marks it as the version whose coverage report is published, and no new combinations should be created.",
     question: "Which matrix construct does that?",
     options: [
-      { id: 'A', text: "An exclude entry for the other two versions, followed by re-adding them." },
-      { id: 'B', text: "A step-level if comparing the Node version, since matrix values cannot be conditional." },
-      { id: 'C', text: "An include entry whose keys match the existing Node 20 combination and which adds the extra key, expanding that combination rather than creating a new one." },
+      { id: 'A', text: "An `exclude` entry for the other two versions, followed by re-adding them afterwards." },
+      { id: 'B', text: "A step-level `if` on the Node version, since matrix values cannot be conditional." },
+      { id: 'C', text: "An `include` entry matching the existing combination, which expands it rather than adding a new one." },
       { id: 'D', text: "A second matrix dimension holding the flag, which doubles the combinations." }
     ],
     correctAnswers: ['C'],
@@ -219,10 +219,10 @@ export const GITHUB_ACTIONS_QUESTIONS_3 = [
     scenario: "A team tries to call a shared workflow by adding a uses key to a step inside an existing job, pointing at the shared file path. The workflow fails to parse.",
     question: "What is the correct form?",
     options: [
-      { id: 'A', text: "The uses key belongs on a step, but the reference must omit the .github/workflows portion of the path." },
-      { id: 'B', text: "The uses key belongs on the job itself, referencing owner, repository, the path under .github/workflows, and a ref, with no steps in that job." },
-      { id: 'C', text: "A reusable workflow is referenced by adding its name to the needs list of the calling job." },
-      { id: 'D', text: "A reusable workflow is referenced by a workflow_call entry in the calling workflow triggers." }
+      { id: 'A', text: "`uses` belongs on a step, and the reference omits the `.github/workflows` portion." },
+      { id: 'B', text: "`uses` belongs on the job, naming owner, repository, the workflows path and a ref, with no steps." },
+      { id: 'C', text: "A reusable workflow is referenced by adding its name to the caller's `needs` list." },
+      { id: 'D', text: "A reusable workflow is referenced by a `workflow_call` entry in the caller's triggers." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -261,10 +261,10 @@ export const GITHUB_ACTIONS_QUESTIONS_3 = [
     scenario: "A platform team maintains an action in a private repository. Workflows in other private repositories of the same organization reference it and fail because the action cannot be found, even though the workflows run with a valid token.",
     question: "Which setting resolves this?",
     options: [
-      { id: 'A', text: "Grant the consuming workflows a permissions block with contents: read for the action repository." },
-      { id: 'B', text: "Add each consuming repository as a collaborator on the action repository." },
-      { id: 'C', text: "In the action repository Actions settings, enable access so its actions and workflows may be used by other repositories in the organization." },
-      { id: 'D', text: "Make the action repository public, which is the only way to share an action." }
+      { id: 'A', text: "Give the consuming workflows a permissions block with `contents: read` for that repository." },
+      { id: 'B', text: "Add each consuming repository as a collaborator on the action's own repository." },
+      { id: 'C', text: "In the action repository's Actions settings, allow other repositories in the organization to use it." },
+      { id: 'D', text: "Make the action repository public, the only way to share an action at all." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -282,10 +282,10 @@ export const GITHUB_ACTIONS_QUESTIONS_3 = [
     scenario: "A maintainer notices that pull requests from people who have never contributed before show workflows in a pending state with a message about approval, while pull requests from regular contributors run immediately.",
     question: "What is happening?",
     options: [
-      { id: 'A', text: "Workflows never run for contributors without write access, and the pending state is permanent." },
-      { id: 'B', text: "The repository has exhausted its concurrent job allowance, so new contributors are queued last." },
-      { id: 'C', text: "Branch protection is requiring a review of the code before any status check may start." },
-      { id: 'D', text: "A repository or organization setting requires approval before workflows run for first-time contributors, and a maintainer approves each run from the pull request checks area." }
+      { id: 'A', text: "Workflows never run for contributors without write access, so the pending state is permanent." },
+      { id: 'B', text: "The repository has exhausted its concurrent job allowance, so new contributors queue last." },
+      { id: 'C', text: "Branch protection requires a review of the code before any status check may start." },
+      { id: 'D', text: "A setting requires approval before a first-time contributor's workflows run." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -303,10 +303,10 @@ export const GITHUB_ACTIONS_QUESTIONS_3 = [
     scenario: "An incident review needs to establish which commit was last deployed to the staging environment, when, and who approved it. The deployment jobs all declare the staging environment.",
     question: "Where is that recorded?",
     options: [
-      { id: 'A', text: "The artifact retention list for the repository." },
-      { id: 'B', text: "The Insights dependency graph for the deployed commit." },
-      { id: 'C', text: "The Actions cache entries for the staging key prefix." },
-      { id: 'D', text: "The environment deployment history, reachable from the repository Environments page, which lists deployments with their commit, time and approvals." }
+      { id: 'A', text: "The repository's artifact retention list for that environment" },
+      { id: 'B', text: "The dependency graph insights for the deployed commit" },
+      { id: 'C', text: "The Actions cache entries under the staging key prefix" },
+      { id: 'D', text: "The environment's deployment history, listing commit, time and approvals" }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -324,10 +324,10 @@ export const GITHUB_ACTIONS_QUESTIONS_3 = [
     scenario: "Two pull requests merge within a minute of each other. Both deployment runs start and race, and the second overwrites part of what the first was still applying. The team wants the second run to wait rather than be cancelled, so both changes land in order.",
     question: "Which configuration expresses that?",
     options: [
-      { id: 'A', text: "A needs relationship between the two workflow runs." },
-      { id: 'B', text: "A max-parallel value of one on the deployment matrix." },
-      { id: 'C', text: "A concurrency block with cancel-in-progress set to true, which is the safe default for deployments." },
-      { id: 'D', text: "A concurrency block with a group naming the environment and cancel-in-progress set to false, so a second run queues until the first completes." }
+      { id: 'A', text: "A `needs` relationship declared between the two deployment workflow runs." },
+      { id: 'B', text: "A `max-parallel` of one on the deployment job's own matrix strategy." },
+      { id: 'C', text: "A `concurrency` block with cancel-in-progress on, the safe default for deploys." },
+      { id: 'D', text: "A `concurrency` group naming the environment with cancel-in-progress off, so runs queue." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -345,10 +345,10 @@ export const GITHUB_ACTIONS_QUESTIONS_3 = [
     scenario: "An auditor needs the complete logs of a workflow run from two months ago as evidence. Retention for the repository is set to ninety days and the run is approaching that boundary.",
     question: "What should be done?",
     options: [
-      { id: 'A', text: "Re-run the workflow so a fresh copy of the logs is created with a new retention window." },
-      { id: 'B', text: "Pin the run from the Actions tab, which exempts it from retention." },
-      { id: 'C', text: "Increase the repository retention setting, which extends retention for runs already recorded." },
-      { id: 'D', text: "Download the run logs archive from the run page, or fetch it through the API or CLI, and store it in the evidence system." }
+      { id: 'A', text: "Re-run the workflow so a fresh copy of the logs gets a new retention window." },
+      { id: 'B', text: "Pin the run from the Actions tab, which exempts it from the retention policy." },
+      { id: 'C', text: "Raise the repository's retention setting, which extends runs already recorded." },
+      { id: 'D', text: "Download the run's log archive from the page, API or CLI, and file it as evidence." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -387,10 +387,10 @@ export const GITHUB_ACTIONS_QUESTIONS_3 = [
     scenario: "An author is writing a Docker container action and wants to read an input named api-url from inside the container without adding it to the args list.",
     question: "Where does the value appear?",
     options: [
-      { id: 'A', text: "As the first positional argument, since undeclared args default to the input order." },
-      { id: 'B', text: "Only through the args list, because container actions have no other input channel." },
-      { id: 'C', text: "In a file named inputs.json placed in the container working directory by the runner." },
-      { id: 'D', text: "As an environment variable whose name is the input name uppercased with non-alphanumeric characters replaced by underscores, prefixed with INPUT_." }
+      { id: 'A', text: "As the first positional argument, since undeclared args follow the order the inputs are declared." },
+      { id: 'B', text: "Only through the `args` list, since a container action has no other channel for its inputs." },
+      { id: 'C', text: "In an `inputs.json` file the runner places in the container's working directory at start." },
+      { id: 'D', text: "As an environment variable named `INPUT_` plus the input name uppercased, with separators replaced." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -429,10 +429,10 @@ export const GITHUB_ACTIONS_QUESTIONS_3 = [
     scenario: "A self-hosted virtual machine is being decommissioned. The administrator wants the runner removed from the organization so that no job is ever dispatched to it, and wants the machine credentials invalidated in the process.",
     question: "What is the correct procedure?",
     options: [
-      { id: 'A', text: "Run the runner configuration script with the remove operation using a removal token, which deregisters the runner and deletes its local credentials, then destroy the machine." },
-      { id: 'B', text: "Power off the machine, since an unreachable runner is dropped from the pool after a short timeout." },
-      { id: 'C', text: "Delete the runner labels, which prevents any job from matching it." },
-      { id: 'D', text: "Rotate the organization registration token, which invalidates every previously registered runner." }
+      { id: 'A', text: "Run the runner's config script with the remove operation and a removal token, then destroy the machine." },
+      { id: 'B', text: "Power the machine off, since an unreachable runner is dropped from the pool after a timeout." },
+      { id: 'C', text: "Delete the runner's labels, which stops any job from matching it in future." },
+      { id: 'D', text: "Rotate the organization registration token, which invalidates every registered runner." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -450,10 +450,10 @@ export const GITHUB_ACTIONS_QUESTIONS_3 = [
     scenario: "A security baseline requires that workflows start with a read-only GITHUB_TOKEN across the whole organization, with any repository needing more having to request it explicitly in the workflow file.",
     question: "How is that baseline applied?",
     options: [
-      { id: 'A', text: "Enable required reviewers on every environment, which downgrades the token." },
-      { id: 'B', text: "Add a permissions block granting contents: read to every workflow file in every repository." },
-      { id: 'C', text: "Remove write access from the Actions bot account in organization member settings." },
-      { id: 'D', text: "Set the default workflow permissions for the organization to read-only, after which a workflow raises its own scope with a permissions block." }
+      { id: 'A', text: "Enable required reviewers on every environment, which downgrades the token's scope." },
+      { id: 'B', text: "Add a permissions block granting `contents: read` to each workflow file everywhere." },
+      { id: 'C', text: "Remove write access from the Actions bot account in the member settings page." },
+      { id: 'D', text: "Set the organization's default workflow permissions to read-only; a workflow then raises its own." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -471,10 +471,10 @@ export const GITHUB_ACTIONS_QUESTIONS_3 = [
     scenario: "A contributor opens a pull request from a fork. The workflow triggered by pull_request runs, but every step that references a repository secret receives an empty string, and the step that tries to push a label fails.",
     question: "Which explanation is correct?",
     options: [
-      { id: 'A', text: "Secrets are withheld only until a maintainer approves the run, after which the same run receives them." },
-      { id: 'B', text: "The secrets exist but must be referenced through the env context in fork pull requests." },
-      { id: 'C', text: "The fork must be added to the repository runner group before secrets are passed." },
-      { id: 'D', text: "Secrets are withheld and the token is read-only for workflows triggered by a fork pull request, because the workflow definition and the code both come from an untrusted source." }
+      { id: 'A', text: "Secrets are withheld only until a maintainer approves the run, which then receives them." },
+      { id: 'B', text: "The secrets exist but must be referenced through the `env` context on fork runs." },
+      { id: 'C', text: "The fork has to be added to the repository's runner group before secrets flow." },
+      { id: 'D', text: "Secrets are withheld and the token is read-only, since definition and code are untrusted." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -492,10 +492,10 @@ export const GITHUB_ACTIONS_QUESTIONS_3 = [
     scenario: "An organization configures OpenID Connect against a cloud provider. A reviewer warns that the trust policy currently matches any repository in the organization, so a workflow in an unrelated repository could assume the production deployment role.",
     question: "How is the trust narrowed correctly?",
     options: [
-      { id: 'A', text: "Move the deployment workflow to a private repository, since the subject claim distinguishes visibility." },
-      { id: 'B', text: "Tighten the subject condition in the cloud trust policy to match the specific repository and the specific branch or environment claim carried in the token." },
-      { id: 'C', text: "Store the role identifier in an environment secret, so only the deployment job knows which role to assume." },
-      { id: 'D', text: "Restrict the id-token permission to the deployment job, which is sufficient because no other job can then request a token." }
+      { id: 'A', text: "Move the deployment workflow into a private repository, since the claim carries visibility." },
+      { id: 'B', text: "Tighten the subject condition in the trust policy to the specific repository and branch or environment." },
+      { id: 'C', text: "Store the role identifier in an environment secret, so only that job knows which to assume." },
+      { id: 'D', text: "Restrict `id-token` to the deployment job, since no other job can then request a token." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -513,10 +513,10 @@ export const GITHUB_ACTIONS_QUESTIONS_3 = [
     scenario: "A team needs hosted runners with more cores than the standard image provides, without taking on the operational burden of self-hosted machines. Access must be limited to that team repositories, and the change must be visible in billing.",
     question: "Which option fits?",
     options: [
-      { id: 'A', text: "Configure larger GitHub-hosted runners at organization level, place them in a runner group limited to those repositories, and target them by their label in runs-on." },
-      { id: 'B', text: "Add a resources block to the job requesting additional cores from the standard hosted pool." },
+      { id: 'A', text: "Configure larger hosted runners at organization level, in a group limited to those repositories." },
+      { id: 'B', text: "Add a resources block to the job requesting more cores from the standard hosted pool." },
       { id: 'C', text: "Run the job in a container with a higher CPU limit, which raises the machine size." },
-      { id: 'D', text: "Register self-hosted runners on larger cloud instances, which is the only way to exceed the standard size." }
+      { id: 'D', text: "Register self-hosted runners on larger instances, the only way past the standard size." }
     ],
     correctAnswers: ['A'],
     type: "single",

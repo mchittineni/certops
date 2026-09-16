@@ -9,10 +9,10 @@ export const GITHUB_ACTIONS_QUESTIONS_17 = [
     scenario: "A devops automation engineering team is establishing high-availability pipeline standards, runner recovery procedures, and operational resilience baselines for GitHub Actions. The GitHub Actions engineer needs to configure a specific Java 17 and Node.js 20 runtime environment with dependency caching on a standard GitHub-hosted runner.",
     question: "Which architectural approach or configuration satisfies these CI/CD disaster recovery and operational continuity objectives?",
     options: [
-      { id: 'A', text: "Run all commands inside a virtual machine running on an engineer's laptop." },
-      { id: 'B', text: "Use `actions/setup-java@v4` with `distribution: 'temurin'` and `actions/setup-node@v4` with `cache: 'npm'`." },
-      { id: 'C', text: "Rely on whatever random versions are pre-installed on the runner host." },
-      { id: 'D', text: "Download and compile Node.js and Java from source code on every build run." }
+      { id: 'A', text: "Use a container job whose image already carries the required toolchain versions." },
+      { id: 'B', text: "Use `actions/setup-java@v4` with a distribution and `actions/setup-node@v4` with caching." },
+      { id: 'C', text: "Use whichever versions the hosted runner image ships with for that release." },
+      { id: 'D', text: "Build the toolchains from source in a setup step so the versions are exact." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -30,10 +30,10 @@ export const GITHUB_ACTIONS_QUESTIONS_17 = [
     scenario: "A high-throughput software engineering organization experiences massive surges in concurrent build and test requests across thousands of enterprise repositories. The GitHub Actions engineer needs to configure a specific Java 17 and Node.js 20 runtime environment with dependency caching on a standard GitHub-hosted runner.",
     question: "Which workflow architecture or runner configuration manages this execution volume effectively while preventing queue congestion and latency?",
     options: [
-      { id: 'A', text: "Use `actions/setup-java@v4` with `distribution: 'temurin'` and `actions/setup-node@v4` with `cache: 'npm'`." },
-      { id: 'B', text: "Rely on whatever random versions are pre-installed on the runner host." },
-      { id: 'C', text: "Run all commands inside a virtual machine running on an engineer's laptop." },
-      { id: 'D', text: "Download and compile Node.js and Java from source code on every build run." }
+      { id: 'A', text: "Use `actions/setup-java@v4` with a distribution and `actions/setup-node@v4` with caching." },
+      { id: 'B', text: "Use whichever versions the hosted runner image ships with for that release." },
+      { id: 'C', text: "Use a container job whose image already carries the required toolchain versions." },
+      { id: 'D', text: "Build the toolchains from source in a setup step so the versions are exact." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -51,10 +51,10 @@ export const GITHUB_ACTIONS_QUESTIONS_17 = [
     scenario: "A security compliance auditor requires cryptographic supply chain verification, keyless cloud authentication, and automated governance across all GitHub Actions workflows. The GitHub Actions engineer needs to configure a specific Java 17 and Node.js 20 runtime environment with dependency caching on a standard GitHub-hosted runner.",
     question: "Which solution implements these mandatory CI/CD security and compliance controls?",
     options: [
-      { id: 'A', text: "Run all commands inside a virtual machine running on an engineer's laptop." },
-      { id: 'B', text: "Use `actions/setup-java@v4` with `distribution: 'temurin'` and `actions/setup-node@v4` with `cache: 'npm'`." },
-      { id: 'C', text: "Rely on whatever random versions are pre-installed on the runner host." },
-      { id: 'D', text: "Download and compile Node.js and Java from source code on every build run." }
+      { id: 'A', text: "Use a container job whose image already carries the required toolchain versions." },
+      { id: 'B', text: "Use `actions/setup-java@v4` with a distribution and `actions/setup-node@v4` with caching." },
+      { id: 'C', text: "Use whichever versions the hosted runner image ships with for that release." },
+      { id: 'D', text: "Build the toolchains from source in a setup step so the versions are exact." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -72,10 +72,10 @@ export const GITHUB_ACTIONS_QUESTIONS_17 = [
     scenario: "An enterprise is modernizing legacy on-premises CI/CD infrastructure and migrating automated delivery workflows to GitHub Actions. The GitHub Actions engineer needs to configure a specific Java 17 and Node.js 20 runtime environment with dependency caching on a standard GitHub-hosted runner.",
     question: "Which practice or platform feature enables the engineering team to modernize automated delivery with minimal operational friction?",
     options: [
-      { id: 'A', text: "Use `actions/setup-java@v4` with `distribution: 'temurin'` and `actions/setup-node@v4` with `cache: 'npm'`." },
-      { id: 'B', text: "Download and compile Node.js and Java from source code on every build run." },
-      { id: 'C', text: "Rely on whatever random versions are pre-installed on the runner host." },
-      { id: 'D', text: "Run all commands inside a virtual machine running on an engineer's laptop." }
+      { id: 'A', text: "Use `actions/setup-java@v4` with a distribution and `actions/setup-node@v4` with caching." },
+      { id: 'B', text: "Build the toolchains from source in a setup step so the versions are exact." },
+      { id: 'C', text: "Use whichever versions the hosted runner image ships with for that release." },
+      { id: 'D', text: "Use a container job whose image already carries the required toolchain versions." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -93,10 +93,10 @@ export const GITHUB_ACTIONS_QUESTIONS_17 = [
     scenario: "A platform operations team is optimizing system reliability to eliminate single points of failure, accelerate build caching, and ensure secure failure handling. The GitHub Actions engineer needs to configure a specific Java 17 and Node.js 20 runtime environment with dependency caching on a standard GitHub-hosted runner.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees pipeline availability?",
     options: [
-      { id: 'A', text: "Rely on whatever random versions are pre-installed on the runner host." },
-      { id: 'B', text: "Run all commands inside a virtual machine running on an engineer's laptop." },
-      { id: 'C', text: "Use `actions/setup-java@v4` with `distribution: 'temurin'` and `actions/setup-node@v4` with `cache: 'npm'`." },
-      { id: 'D', text: "Download and compile Node.js and Java from source code on every build run." }
+      { id: 'A', text: "Use whichever versions the hosted runner image ships with for that release." },
+      { id: 'B', text: "Use a container job whose image already carries the required toolchain versions." },
+      { id: 'C', text: "Use `actions/setup-java@v4` with a distribution and `actions/setup-node@v4` with caching." },
+      { id: 'D', text: "Build the toolchains from source in a setup step so the versions are exact." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -114,10 +114,10 @@ export const GITHUB_ACTIONS_QUESTIONS_17 = [
     scenario: "A devops automation engineering team is establishing high-availability pipeline standards, runner recovery procedures, and operational resilience baselines for GitHub Actions. The GitHub Actions engineer needs to prevent high-volume build artifacts and logs from consuming enterprise storage quotas by retaining development artifacts for only 3 days.",
     question: "Which architectural approach or configuration satisfies these CI/CD disaster recovery and operational continuity objectives?",
     options: [
-      { id: 'A', text: "Specify `retention-days: 3` in the `actions/upload-artifact` step or configure repository retention settings." },
-      { id: 'B', text: "Allow artifacts to default to the 90-day retention period for all temporary builds." },
-      { id: 'C', text: "Disable artifact uploads completely." },
-      { id: 'D', text: "Manually delete artifacts one by one via the web console every morning." }
+      { id: 'A', text: "Set `retention-days: 3` on the upload step, or lower the repository default." },
+      { id: 'B', text: "Leave the artifacts on the 90-day default and prune them by API later." },
+      { id: 'C', text: "Stop uploading the intermediate artifacts and rebuild them when needed." },
+      { id: 'D', text: "Delete the artifacts through the web interface at the end of each week." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -135,10 +135,10 @@ export const GITHUB_ACTIONS_QUESTIONS_17 = [
     scenario: "A high-throughput software engineering organization experiences massive surges in concurrent build and test requests across thousands of enterprise repositories. The GitHub Actions engineer needs to prevent high-volume build artifacts and logs from consuming enterprise storage quotas by retaining development artifacts for only 3 days.",
     question: "Which workflow architecture or runner configuration manages this execution volume effectively while preventing queue congestion and latency?",
     options: [
-      { id: 'A', text: "Disable artifact uploads completely." },
-      { id: 'B', text: "Manually delete artifacts one by one via the web console every morning." },
-      { id: 'C', text: "Specify `retention-days: 3` in the `actions/upload-artifact` step or configure repository retention settings." },
-      { id: 'D', text: "Allow artifacts to default to the 90-day retention period for all temporary builds." }
+      { id: 'A', text: "Stop uploading the intermediate artifacts and rebuild them when needed." },
+      { id: 'B', text: "Delete the artifacts through the web interface at the end of each week." },
+      { id: 'C', text: "Set `retention-days: 3` on the upload step, or lower the repository default." },
+      { id: 'D', text: "Leave the artifacts on the 90-day default and prune them by API later." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -156,10 +156,10 @@ export const GITHUB_ACTIONS_QUESTIONS_17 = [
     scenario: "A security compliance auditor requires cryptographic supply chain verification, keyless cloud authentication, and automated governance across all GitHub Actions workflows. The GitHub Actions engineer needs to prevent high-volume build artifacts and logs from consuming enterprise storage quotas by retaining development artifacts for only 3 days.",
     question: "Which solution implements these mandatory CI/CD security and compliance controls?",
     options: [
-      { id: 'A', text: "Allow artifacts to default to the 90-day retention period for all temporary builds." },
-      { id: 'B', text: "Manually delete artifacts one by one via the web console every morning." },
-      { id: 'C', text: "Disable artifact uploads completely." },
-      { id: 'D', text: "Specify `retention-days: 3` in the `actions/upload-artifact` step or configure repository retention settings." }
+      { id: 'A', text: "Leave the artifacts on the 90-day default and prune them by API later." },
+      { id: 'B', text: "Delete the artifacts through the web interface at the end of each week." },
+      { id: 'C', text: "Stop uploading the intermediate artifacts and rebuild them when needed." },
+      { id: 'D', text: "Set `retention-days: 3` on the upload step, or lower the repository default." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -177,10 +177,10 @@ export const GITHUB_ACTIONS_QUESTIONS_17 = [
     scenario: "An enterprise is modernizing legacy on-premises CI/CD infrastructure and migrating automated delivery workflows to GitHub Actions. The GitHub Actions engineer needs to prevent high-volume build artifacts and logs from consuming enterprise storage quotas by retaining development artifacts for only 3 days.",
     question: "Which practice or platform feature enables the engineering team to modernize automated delivery with minimal operational friction?",
     options: [
-      { id: 'A', text: "Manually delete artifacts one by one via the web console every morning." },
-      { id: 'B', text: "Disable artifact uploads completely." },
-      { id: 'C', text: "Allow artifacts to default to the 90-day retention period for all temporary builds." },
-      { id: 'D', text: "Specify `retention-days: 3` in the `actions/upload-artifact` step or configure repository retention settings." }
+      { id: 'A', text: "Delete the artifacts through the web interface at the end of each week." },
+      { id: 'B', text: "Stop uploading the intermediate artifacts and rebuild them when needed." },
+      { id: 'C', text: "Leave the artifacts on the 90-day default and prune them by API later." },
+      { id: 'D', text: "Set `retention-days: 3` on the upload step, or lower the repository default." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -198,10 +198,10 @@ export const GITHUB_ACTIONS_QUESTIONS_17 = [
     scenario: "A platform operations team is optimizing system reliability to eliminate single points of failure, accelerate build caching, and ensure secure failure handling. The GitHub Actions engineer needs to prevent high-volume build artifacts and logs from consuming enterprise storage quotas by retaining development artifacts for only 3 days.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees pipeline availability?",
     options: [
-      { id: 'A', text: "Allow artifacts to default to the 90-day retention period for all temporary builds." },
-      { id: 'B', text: "Disable artifact uploads completely." },
-      { id: 'C', text: "Specify `retention-days: 3` in the `actions/upload-artifact` step or configure repository retention settings." },
-      { id: 'D', text: "Manually delete artifacts one by one via the web console every morning." }
+      { id: 'A', text: "Leave the artifacts on the 90-day default and prune them by API later." },
+      { id: 'B', text: "Stop uploading the intermediate artifacts and rebuild them when needed." },
+      { id: 'C', text: "Set `retention-days: 3` on the upload step, or lower the repository default." },
+      { id: 'D', text: "Delete the artifacts through the web interface at the end of each week." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -324,10 +324,10 @@ export const GITHUB_ACTIONS_QUESTIONS_17 = [
     scenario: "A devops automation engineering team is establishing high-availability pipeline standards, runner recovery procedures, and operational resilience baselines for GitHub Actions. The GitHub Actions engineer needs to author the metadata manifest for a custom reusable action defining required input parameters, default values, and outputs.",
     question: "Which architectural approach or configuration satisfies these CI/CD disaster recovery and operational continuity objectives?",
     options: [
-      { id: 'A', text: "Hardcode input parameters inside compiled binary files." },
-      { id: 'B', text: "Put metadata inside a standard package.json file." },
-      { id: 'C', text: "Create `action.yml` in the repository root specifying `name`, `description`, `inputs:`, `outputs:`, and `runs:`." },
-      { id: 'D', text: "Declare metadata in a workflow file under `.github/workflows/`." }
+      { id: 'A', text: "Create `action.yml` under `.github/actions/` with the same four sections." },
+      { id: 'B', text: "Declare the inputs and outputs in `package.json` alongside the entry point." },
+      { id: 'C', text: "Create `action.yml` in the root with `name`, `inputs:`, `outputs:` and `runs:`." },
+      { id: 'D', text: "Declare the metadata in a workflow file under `.github/workflows/`." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -345,10 +345,10 @@ export const GITHUB_ACTIONS_QUESTIONS_17 = [
     scenario: "A high-throughput software engineering organization experiences massive surges in concurrent build and test requests across thousands of enterprise repositories. The GitHub Actions engineer needs to author the metadata manifest for a custom reusable action defining required input parameters, default values, and outputs.",
     question: "Which workflow architecture or runner configuration manages this execution volume effectively while preventing queue congestion and latency?",
     options: [
-      { id: 'A', text: "Hardcode input parameters inside compiled binary files." },
-      { id: 'B', text: "Declare metadata in a workflow file under `.github/workflows/`." },
-      { id: 'C', text: "Put metadata inside a standard package.json file." },
-      { id: 'D', text: "Create `action.yml` in the repository root specifying `name`, `description`, `inputs:`, `outputs:`, and `runs:`." }
+      { id: 'A', text: "Create `action.yml` under `.github/actions/` with the same four sections." },
+      { id: 'B', text: "Declare the metadata in a workflow file under `.github/workflows/`." },
+      { id: 'C', text: "Declare the inputs and outputs in `package.json` alongside the entry point." },
+      { id: 'D', text: "Create `action.yml` in the root with `name`, `inputs:`, `outputs:` and `runs:`." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -366,10 +366,10 @@ export const GITHUB_ACTIONS_QUESTIONS_17 = [
     scenario: "A security compliance auditor requires cryptographic supply chain verification, keyless cloud authentication, and automated governance across all GitHub Actions workflows. The GitHub Actions engineer needs to author the metadata manifest for a custom reusable action defining required input parameters, default values, and outputs.",
     question: "Which solution implements these mandatory CI/CD security and compliance controls?",
     options: [
-      { id: 'A', text: "Declare metadata in a workflow file under `.github/workflows/`." },
-      { id: 'B', text: "Hardcode input parameters inside compiled binary files." },
-      { id: 'C', text: "Create `action.yml` in the repository root specifying `name`, `description`, `inputs:`, `outputs:`, and `runs:`." },
-      { id: 'D', text: "Put metadata inside a standard package.json file." }
+      { id: 'A', text: "Declare the metadata in a workflow file under `.github/workflows/`." },
+      { id: 'B', text: "Create `action.yml` under `.github/actions/` with the same four sections." },
+      { id: 'C', text: "Create `action.yml` in the root with `name`, `inputs:`, `outputs:` and `runs:`." },
+      { id: 'D', text: "Declare the inputs and outputs in `package.json` alongside the entry point." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -387,10 +387,10 @@ export const GITHUB_ACTIONS_QUESTIONS_17 = [
     scenario: "An enterprise is modernizing legacy on-premises CI/CD infrastructure and migrating automated delivery workflows to GitHub Actions. The GitHub Actions engineer needs to author the metadata manifest for a custom reusable action defining required input parameters, default values, and outputs.",
     question: "Which practice or platform feature enables the engineering team to modernize automated delivery with minimal operational friction?",
     options: [
-      { id: 'A', text: "Create `action.yml` in the repository root specifying `name`, `description`, `inputs:`, `outputs:`, and `runs:`." },
-      { id: 'B', text: "Declare metadata in a workflow file under `.github/workflows/`." },
-      { id: 'C', text: "Hardcode input parameters inside compiled binary files." },
-      { id: 'D', text: "Put metadata inside a standard package.json file." }
+      { id: 'A', text: "Create `action.yml` in the root with `name`, `inputs:`, `outputs:` and `runs:`." },
+      { id: 'B', text: "Declare the metadata in a workflow file under `.github/workflows/`." },
+      { id: 'C', text: "Create `action.yml` under `.github/actions/` with the same four sections." },
+      { id: 'D', text: "Declare the inputs and outputs in `package.json` alongside the entry point." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -408,10 +408,10 @@ export const GITHUB_ACTIONS_QUESTIONS_17 = [
     scenario: "A platform operations team is optimizing system reliability to eliminate single points of failure, accelerate build caching, and ensure secure failure handling. The GitHub Actions engineer needs to author the metadata manifest for a custom reusable action defining required input parameters, default values, and outputs.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees pipeline availability?",
     options: [
-      { id: 'A', text: "Create `action.yml` in the repository root specifying `name`, `description`, `inputs:`, `outputs:`, and `runs:`." },
-      { id: 'B', text: "Put metadata inside a standard package.json file." },
-      { id: 'C', text: "Declare metadata in a workflow file under `.github/workflows/`." },
-      { id: 'D', text: "Hardcode input parameters inside compiled binary files." }
+      { id: 'A', text: "Create `action.yml` in the root with `name`, `inputs:`, `outputs:` and `runs:`." },
+      { id: 'B', text: "Declare the inputs and outputs in `package.json` alongside the entry point." },
+      { id: 'C', text: "Declare the metadata in a workflow file under `.github/workflows/`." },
+      { id: 'D', text: "Create `action.yml` under `.github/actions/` with the same four sections." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -429,10 +429,10 @@ export const GITHUB_ACTIONS_QUESTIONS_17 = [
     scenario: "A devops automation engineering team is establishing high-availability pipeline standards, runner recovery procedures, and operational resilience baselines for GitHub Actions. The GitHub Actions engineer needs to bundle a series of setup commands and test scripts into a composite action while ensuring commands execute in bash on all platforms.",
     question: "Which architectural approach or configuration satisfies these CI/CD disaster recovery and operational continuity objectives?",
     options: [
-      { id: 'A', text: "Composite actions do not support running shell commands." },
-      { id: 'B', text: "Define `runs: using: \"composite\"` and specify `shell: bash` on every `run:` step within the composite action." },
-      { id: 'C', text: "Call external webhooks instead of local steps." },
-      { id: 'D', text: "Omit the `shell:` specification and let steps fail on Windows runners." }
+      { id: 'A', text: "Set `runs: using: 'node20'` with the shell commands in the entry point." },
+      { id: 'B', text: "Set `runs: using: 'composite'` and give every `run:` step a `shell:`." },
+      { id: 'C', text: "Set `runs: using: 'docker'` and put the commands in the entrypoint." },
+      { id: 'D', text: "Set `runs: using: 'composite'` and omit `shell:` so the default applies." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -450,10 +450,10 @@ export const GITHUB_ACTIONS_QUESTIONS_17 = [
     scenario: "A high-throughput software engineering organization experiences massive surges in concurrent build and test requests across thousands of enterprise repositories. The GitHub Actions engineer needs to bundle a series of setup commands and test scripts into a composite action while ensuring commands execute in bash on all platforms.",
     question: "Which workflow architecture or runner configuration manages this execution volume effectively while preventing queue congestion and latency?",
     options: [
-      { id: 'A', text: "Define `runs: using: \"composite\"` and specify `shell: bash` on every `run:` step within the composite action." },
-      { id: 'B', text: "Omit the `shell:` specification and let steps fail on Windows runners." },
-      { id: 'C', text: "Call external webhooks instead of local steps." },
-      { id: 'D', text: "Composite actions do not support running shell commands." }
+      { id: 'A', text: "Set `runs: using: 'composite'` and give every `run:` step a `shell:`." },
+      { id: 'B', text: "Set `runs: using: 'composite'` and omit `shell:` so the default applies." },
+      { id: 'C', text: "Set `runs: using: 'docker'` and put the commands in the entrypoint." },
+      { id: 'D', text: "Set `runs: using: 'node20'` with the shell commands in the entry point." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -471,10 +471,10 @@ export const GITHUB_ACTIONS_QUESTIONS_17 = [
     scenario: "A security compliance auditor requires cryptographic supply chain verification, keyless cloud authentication, and automated governance across all GitHub Actions workflows. The GitHub Actions engineer needs to bundle a series of setup commands and test scripts into a composite action while ensuring commands execute in bash on all platforms.",
     question: "Which solution implements these mandatory CI/CD security and compliance controls?",
     options: [
-      { id: 'A', text: "Define `runs: using: \"composite\"` and specify `shell: bash` on every `run:` step within the composite action." },
-      { id: 'B', text: "Omit the `shell:` specification and let steps fail on Windows runners." },
-      { id: 'C', text: "Call external webhooks instead of local steps." },
-      { id: 'D', text: "Composite actions do not support running shell commands." }
+      { id: 'A', text: "Set `runs: using: 'composite'` and give every `run:` step a `shell:`." },
+      { id: 'B', text: "Set `runs: using: 'composite'` and omit `shell:` so the default applies." },
+      { id: 'C', text: "Set `runs: using: 'docker'` and put the commands in the entrypoint." },
+      { id: 'D', text: "Set `runs: using: 'node20'` with the shell commands in the entry point." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -492,10 +492,10 @@ export const GITHUB_ACTIONS_QUESTIONS_17 = [
     scenario: "An enterprise is modernizing legacy on-premises CI/CD infrastructure and migrating automated delivery workflows to GitHub Actions. The GitHub Actions engineer needs to bundle a series of setup commands and test scripts into a composite action while ensuring commands execute in bash on all platforms.",
     question: "Which practice or platform feature enables the engineering team to modernize automated delivery with minimal operational friction?",
     options: [
-      { id: 'A', text: "Define `runs: using: \"composite\"` and specify `shell: bash` on every `run:` step within the composite action." },
-      { id: 'B', text: "Omit the `shell:` specification and let steps fail on Windows runners." },
-      { id: 'C', text: "Call external webhooks instead of local steps." },
-      { id: 'D', text: "Composite actions do not support running shell commands." }
+      { id: 'A', text: "Set `runs: using: 'composite'` and give every `run:` step a `shell:`." },
+      { id: 'B', text: "Set `runs: using: 'composite'` and omit `shell:` so the default applies." },
+      { id: 'C', text: "Set `runs: using: 'docker'` and put the commands in the entrypoint." },
+      { id: 'D', text: "Set `runs: using: 'node20'` with the shell commands in the entry point." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -513,10 +513,10 @@ export const GITHUB_ACTIONS_QUESTIONS_17 = [
     scenario: "A platform operations team is optimizing system reliability to eliminate single points of failure, accelerate build caching, and ensure secure failure handling. The GitHub Actions engineer needs to bundle a series of setup commands and test scripts into a composite action while ensuring commands execute in bash on all platforms.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees pipeline availability?",
     options: [
-      { id: 'A', text: "Call external webhooks instead of local steps." },
-      { id: 'B', text: "Composite actions do not support running shell commands." },
-      { id: 'C', text: "Define `runs: using: \"composite\"` and specify `shell: bash` on every `run:` step within the composite action." },
-      { id: 'D', text: "Omit the `shell:` specification and let steps fail on Windows runners." }
+      { id: 'A', text: "Set `runs: using: 'docker'` and put the commands in the entrypoint." },
+      { id: 'B', text: "Set `runs: using: 'node20'` with the shell commands in the entry point." },
+      { id: 'C', text: "Set `runs: using: 'composite'` and give every `run:` step a `shell:`." },
+      { id: 'D', text: "Set `runs: using: 'composite'` and omit `shell:` so the default applies." }
     ],
     correctAnswers: ['C'],
     type: "single",

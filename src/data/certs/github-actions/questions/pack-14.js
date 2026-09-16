@@ -9,10 +9,10 @@ export const GITHUB_ACTIONS_QUESTIONS_14 = [
     scenario: "A devops automation engineering team is establishing high-availability pipeline standards, runner recovery procedures, and operational resilience baselines for GitHub Actions. The GitHub Actions engineer needs to run end-to-end integration tests requiring an active Redis cache and PostgreSQL database without installing them on the host runner.",
     question: "Which architectural approach or configuration satisfies these CI/CD disaster recovery and operational continuity objectives?",
     options: [
-      { id: 'A', text: "Define `services: redis: image: redis` and `postgres: image: postgres` at the job level with ports and environment variables." },
-      { id: 'B', text: "Install PostgreSQL and Redis from source on the runner host operating system in a script." },
-      { id: 'C', text: "Connect to live production database instances over the public internet." },
-      { id: 'D', text: "Mock all database operations in memory." }
+      { id: 'A', text: "Declare job-level `services:` for redis and postgres with their ports." },
+      { id: 'B', text: "Install redis and postgres on the runner from packages in a setup step." },
+      { id: 'C', text: "Point the tests at a shared staging database reachable from the runner." },
+      { id: 'D', text: "Replace both dependencies with in-memory fakes for the test job only." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -30,10 +30,10 @@ export const GITHUB_ACTIONS_QUESTIONS_14 = [
     scenario: "A high-throughput software engineering organization experiences massive surges in concurrent build and test requests across thousands of enterprise repositories. The GitHub Actions engineer needs to run end-to-end integration tests requiring an active Redis cache and PostgreSQL database without installing them on the host runner.",
     question: "Which workflow architecture or runner configuration manages this execution volume effectively while preventing queue congestion and latency?",
     options: [
-      { id: 'A', text: "Define `services: redis: image: redis` and `postgres: image: postgres` at the job level with ports and environment variables." },
-      { id: 'B', text: "Install PostgreSQL and Redis from source on the runner host operating system in a script." },
-      { id: 'C', text: "Connect to live production database instances over the public internet." },
-      { id: 'D', text: "Mock all database operations in memory." }
+      { id: 'A', text: "Declare job-level `services:` for redis and postgres with their ports." },
+      { id: 'B', text: "Install redis and postgres on the runner from packages in a setup step." },
+      { id: 'C', text: "Point the tests at a shared staging database reachable from the runner." },
+      { id: 'D', text: "Replace both dependencies with in-memory fakes for the test job only." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -51,10 +51,10 @@ export const GITHUB_ACTIONS_QUESTIONS_14 = [
     scenario: "A security compliance auditor requires cryptographic supply chain verification, keyless cloud authentication, and automated governance across all GitHub Actions workflows. The GitHub Actions engineer needs to run end-to-end integration tests requiring an active Redis cache and PostgreSQL database without installing them on the host runner.",
     question: "Which solution implements these mandatory CI/CD security and compliance controls?",
     options: [
-      { id: 'A', text: "Mock all database operations in memory." },
-      { id: 'B', text: "Connect to live production database instances over the public internet." },
-      { id: 'C', text: "Install PostgreSQL and Redis from source on the runner host operating system in a script." },
-      { id: 'D', text: "Define `services: redis: image: redis` and `postgres: image: postgres` at the job level with ports and environment variables." }
+      { id: 'A', text: "Replace both dependencies with in-memory fakes for the test job only." },
+      { id: 'B', text: "Point the tests at a shared staging database reachable from the runner." },
+      { id: 'C', text: "Install redis and postgres on the runner from packages in a setup step." },
+      { id: 'D', text: "Declare job-level `services:` for redis and postgres with their ports." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -72,10 +72,10 @@ export const GITHUB_ACTIONS_QUESTIONS_14 = [
     scenario: "An enterprise is modernizing legacy on-premises CI/CD infrastructure and migrating automated delivery workflows to GitHub Actions. The GitHub Actions engineer needs to run end-to-end integration tests requiring an active Redis cache and PostgreSQL database without installing them on the host runner.",
     question: "Which practice or platform feature enables the engineering team to modernize automated delivery with minimal operational friction?",
     options: [
-      { id: 'A', text: "Define `services: redis: image: redis` and `postgres: image: postgres` at the job level with ports and environment variables." },
-      { id: 'B', text: "Install PostgreSQL and Redis from source on the runner host operating system in a script." },
-      { id: 'C', text: "Connect to live production database instances over the public internet." },
-      { id: 'D', text: "Mock all database operations in memory." }
+      { id: 'A', text: "Declare job-level `services:` for redis and postgres with their ports." },
+      { id: 'B', text: "Install redis and postgres on the runner from packages in a setup step." },
+      { id: 'C', text: "Point the tests at a shared staging database reachable from the runner." },
+      { id: 'D', text: "Replace both dependencies with in-memory fakes for the test job only." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -93,10 +93,10 @@ export const GITHUB_ACTIONS_QUESTIONS_14 = [
     scenario: "A platform operations team is optimizing system reliability to eliminate single points of failure, accelerate build caching, and ensure secure failure handling. The GitHub Actions engineer needs to run end-to-end integration tests requiring an active Redis cache and PostgreSQL database without installing them on the host runner.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees pipeline availability?",
     options: [
-      { id: 'A', text: "Mock all database operations in memory." },
-      { id: 'B', text: "Connect to live production database instances over the public internet." },
-      { id: 'C', text: "Install PostgreSQL and Redis from source on the runner host operating system in a script." },
-      { id: 'D', text: "Define `services: redis: image: redis` and `postgres: image: postgres` at the job level with ports and environment variables." }
+      { id: 'A', text: "Replace both dependencies with in-memory fakes for the test job only." },
+      { id: 'B', text: "Point the tests at a shared staging database reachable from the runner." },
+      { id: 'C', text: "Install redis and postgres on the runner from packages in a setup step." },
+      { id: 'D', text: "Declare job-level `services:` for redis and postgres with their ports." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -324,10 +324,10 @@ export const GITHUB_ACTIONS_QUESTIONS_14 = [
     scenario: "A devops automation engineering team is establishing high-availability pipeline standards, runner recovery procedures, and operational resilience baselines for GitHub Actions. The GitHub Actions engineer needs to prevent CI workflows from triggering when developers only update Markdown documentation files in the `docs/` folder.",
     question: "Which architectural approach or configuration satisfies these CI/CD disaster recovery and operational continuity objectives?",
     options: [
-      { id: 'A', text: "Delete the docs folder from the Git repository." },
-      { id: 'B', text: "Use Git commit message tags exclusively." },
-      { id: 'C', text: "Specify `paths-ignore: ['docs/**', '**.md']` under the push or pull_request trigger." },
-      { id: 'D', text: "Run the workflow anyway and cancel it after 10 minutes." }
+      { id: 'A', text: "Set `paths: ['docs/**']` on the trigger for that workflow." },
+      { id: 'B', text: "Use a `[skip ci]` marker in the documentation commits." },
+      { id: 'C', text: "Set `paths-ignore: ['docs/**', '**.md']` on the trigger." },
+      { id: 'D', text: "Add an `if:` on the job testing the changed file paths." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -345,10 +345,10 @@ export const GITHUB_ACTIONS_QUESTIONS_14 = [
     scenario: "A high-throughput software engineering organization experiences massive surges in concurrent build and test requests across thousands of enterprise repositories. The GitHub Actions engineer needs to prevent CI workflows from triggering when developers only update Markdown documentation files in the `docs/` folder.",
     question: "Which workflow architecture or runner configuration manages this execution volume effectively while preventing queue congestion and latency?",
     options: [
-      { id: 'A', text: "Specify `paths-ignore: ['docs/**', '**.md']` under the push or pull_request trigger." },
-      { id: 'B', text: "Run the workflow anyway and cancel it after 10 minutes." },
-      { id: 'C', text: "Delete the docs folder from the Git repository." },
-      { id: 'D', text: "Use Git commit message tags exclusively." }
+      { id: 'A', text: "Set `paths-ignore: ['docs/**', '**.md']` on the trigger." },
+      { id: 'B', text: "Add an `if:` on the job testing the changed file paths." },
+      { id: 'C', text: "Set `paths: ['docs/**']` on the trigger for that workflow." },
+      { id: 'D', text: "Use a `[skip ci]` marker in the documentation commits." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -366,10 +366,10 @@ export const GITHUB_ACTIONS_QUESTIONS_14 = [
     scenario: "A security compliance auditor requires cryptographic supply chain verification, keyless cloud authentication, and automated governance across all GitHub Actions workflows. The GitHub Actions engineer needs to prevent CI workflows from triggering when developers only update Markdown documentation files in the `docs/` folder.",
     question: "Which solution implements these mandatory CI/CD security and compliance controls?",
     options: [
-      { id: 'A', text: "Use Git commit message tags exclusively." },
-      { id: 'B', text: "Delete the docs folder from the Git repository." },
-      { id: 'C', text: "Run the workflow anyway and cancel it after 10 minutes." },
-      { id: 'D', text: "Specify `paths-ignore: ['docs/**', '**.md']` under the push or pull_request trigger." }
+      { id: 'A', text: "Use a `[skip ci]` marker in the documentation commits." },
+      { id: 'B', text: "Set `paths: ['docs/**']` on the trigger for that workflow." },
+      { id: 'C', text: "Add an `if:` on the job testing the changed file paths." },
+      { id: 'D', text: "Set `paths-ignore: ['docs/**', '**.md']` on the trigger." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -387,10 +387,10 @@ export const GITHUB_ACTIONS_QUESTIONS_14 = [
     scenario: "An enterprise is modernizing legacy on-premises CI/CD infrastructure and migrating automated delivery workflows to GitHub Actions. The GitHub Actions engineer needs to prevent CI workflows from triggering when developers only update Markdown documentation files in the `docs/` folder.",
     question: "Which practice or platform feature enables the engineering team to modernize automated delivery with minimal operational friction?",
     options: [
-      { id: 'A', text: "Specify `paths-ignore: ['docs/**', '**.md']` under the push or pull_request trigger." },
-      { id: 'B', text: "Run the workflow anyway and cancel it after 10 minutes." },
-      { id: 'C', text: "Delete the docs folder from the Git repository." },
-      { id: 'D', text: "Use Git commit message tags exclusively." }
+      { id: 'A', text: "Set `paths-ignore: ['docs/**', '**.md']` on the trigger." },
+      { id: 'B', text: "Add an `if:` on the job testing the changed file paths." },
+      { id: 'C', text: "Set `paths: ['docs/**']` on the trigger for that workflow." },
+      { id: 'D', text: "Use a `[skip ci]` marker in the documentation commits." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -408,10 +408,10 @@ export const GITHUB_ACTIONS_QUESTIONS_14 = [
     scenario: "A platform operations team is optimizing system reliability to eliminate single points of failure, accelerate build caching, and ensure secure failure handling. The GitHub Actions engineer needs to prevent CI workflows from triggering when developers only update Markdown documentation files in the `docs/` folder.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees pipeline availability?",
     options: [
-      { id: 'A', text: "Run the workflow anyway and cancel it after 10 minutes." },
-      { id: 'B', text: "Use Git commit message tags exclusively." },
-      { id: 'C', text: "Delete the docs folder from the Git repository." },
-      { id: 'D', text: "Specify `paths-ignore: ['docs/**', '**.md']` under the push or pull_request trigger." }
+      { id: 'A', text: "Add an `if:` on the job testing the changed file paths." },
+      { id: 'B', text: "Use a `[skip ci]` marker in the documentation commits." },
+      { id: 'C', text: "Set `paths: ['docs/**']` on the trigger for that workflow." },
+      { id: 'D', text: "Set `paths-ignore: ['docs/**', '**.md']` on the trigger." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -429,10 +429,10 @@ export const GITHUB_ACTIONS_QUESTIONS_14 = [
     scenario: "A devops automation engineering team is establishing high-availability pipeline standards, runner recovery procedures, and operational resilience baselines for GitHub Actions. The GitHub Actions engineer needs to pass an API token stored in repository secrets to an action step while ensuring the raw secret value is redacted from build logs.",
     question: "Which architectural approach or configuration satisfies these CI/CD disaster recovery and operational continuity objectives?",
     options: [
-      { id: 'A', text: "Reference the secret via `${{ secrets.API_TOKEN }}` in the step's `env:` block; GitHub automatically masks the value in console output." },
-      { id: 'B', text: "Echo the secret to stdout to verify its content." },
-      { id: 'C', text: "Commit the secret token directly to the workflow YAML file." },
-      { id: 'D', text: "Store the secret in an unencrypted GitHub Issue." }
+      { id: 'A', text: "Reference `${{ secrets.API_TOKEN }}` in the step's `env:`, which the runner masks in logs." },
+      { id: 'B', text: "Reference the secret in a `run:` step and echo it once to confirm it is populated." },
+      { id: 'C', text: "Reference an organization variable holding the token, which is masked the same way." },
+      { id: 'D', text: "Reference the secret through `${{ vars.API_TOKEN }}`, which resolves at job start." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -450,10 +450,10 @@ export const GITHUB_ACTIONS_QUESTIONS_14 = [
     scenario: "A high-throughput software engineering organization experiences massive surges in concurrent build and test requests across thousands of enterprise repositories. The GitHub Actions engineer needs to pass an API token stored in repository secrets to an action step while ensuring the raw secret value is redacted from build logs.",
     question: "Which workflow architecture or runner configuration manages this execution volume effectively while preventing queue congestion and latency?",
     options: [
-      { id: 'A', text: "Reference the secret via `${{ secrets.API_TOKEN }}` in the step's `env:` block; GitHub automatically masks the value in console output." },
-      { id: 'B', text: "Echo the secret to stdout to verify its content." },
-      { id: 'C', text: "Commit the secret token directly to the workflow YAML file." },
-      { id: 'D', text: "Store the secret in an unencrypted GitHub Issue." }
+      { id: 'A', text: "Reference `${{ secrets.API_TOKEN }}` in the step's `env:`, which the runner masks in logs." },
+      { id: 'B', text: "Reference the secret in a `run:` step and echo it once to confirm it is populated." },
+      { id: 'C', text: "Reference an organization variable holding the token, which is masked the same way." },
+      { id: 'D', text: "Reference the secret through `${{ vars.API_TOKEN }}`, which resolves at job start." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -471,10 +471,10 @@ export const GITHUB_ACTIONS_QUESTIONS_14 = [
     scenario: "A security compliance auditor requires cryptographic supply chain verification, keyless cloud authentication, and automated governance across all GitHub Actions workflows. The GitHub Actions engineer needs to pass an API token stored in repository secrets to an action step while ensuring the raw secret value is redacted from build logs.",
     question: "Which solution implements these mandatory CI/CD security and compliance controls?",
     options: [
-      { id: 'A', text: "Reference the secret via `${{ secrets.API_TOKEN }}` in the step's `env:` block; GitHub automatically masks the value in console output." },
-      { id: 'B', text: "Echo the secret to stdout to verify its content." },
-      { id: 'C', text: "Commit the secret token directly to the workflow YAML file." },
-      { id: 'D', text: "Store the secret in an unencrypted GitHub Issue." }
+      { id: 'A', text: "Reference `${{ secrets.API_TOKEN }}` in the step's `env:`, which the runner masks in logs." },
+      { id: 'B', text: "Reference the secret in a `run:` step and echo it once to confirm it is populated." },
+      { id: 'C', text: "Reference an organization variable holding the token, which is masked the same way." },
+      { id: 'D', text: "Reference the secret through `${{ vars.API_TOKEN }}`, which resolves at job start." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -492,10 +492,10 @@ export const GITHUB_ACTIONS_QUESTIONS_14 = [
     scenario: "An enterprise is modernizing legacy on-premises CI/CD infrastructure and migrating automated delivery workflows to GitHub Actions. The GitHub Actions engineer needs to pass an API token stored in repository secrets to an action step while ensuring the raw secret value is redacted from build logs.",
     question: "Which practice or platform feature enables the engineering team to modernize automated delivery with minimal operational friction?",
     options: [
-      { id: 'A', text: "Reference the secret via `${{ secrets.API_TOKEN }}` in the step's `env:` block; GitHub automatically masks the value in console output." },
-      { id: 'B', text: "Echo the secret to stdout to verify its content." },
-      { id: 'C', text: "Commit the secret token directly to the workflow YAML file." },
-      { id: 'D', text: "Store the secret in an unencrypted GitHub Issue." }
+      { id: 'A', text: "Reference `${{ secrets.API_TOKEN }}` in the step's `env:`, which the runner masks in logs." },
+      { id: 'B', text: "Reference the secret in a `run:` step and echo it once to confirm it is populated." },
+      { id: 'C', text: "Reference an organization variable holding the token, which is masked the same way." },
+      { id: 'D', text: "Reference the secret through `${{ vars.API_TOKEN }}`, which resolves at job start." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -513,10 +513,10 @@ export const GITHUB_ACTIONS_QUESTIONS_14 = [
     scenario: "A platform operations team is optimizing system reliability to eliminate single points of failure, accelerate build caching, and ensure secure failure handling. The GitHub Actions engineer needs to pass an API token stored in repository secrets to an action step while ensuring the raw secret value is redacted from build logs.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees pipeline availability?",
     options: [
-      { id: 'A', text: "Store the secret in an unencrypted GitHub Issue." },
-      { id: 'B', text: "Echo the secret to stdout to verify its content." },
-      { id: 'C', text: "Reference the secret via `${{ secrets.API_TOKEN }}` in the step's `env:` block; GitHub automatically masks the value in console output." },
-      { id: 'D', text: "Commit the secret token directly to the workflow YAML file." }
+      { id: 'A', text: "Reference the secret through `${{ vars.API_TOKEN }}`, which resolves at job start." },
+      { id: 'B', text: "Reference the secret in a `run:` step and echo it once to confirm it is populated." },
+      { id: 'C', text: "Reference `${{ secrets.API_TOKEN }}` in the step's `env:`, which the runner masks in logs." },
+      { id: 'D', text: "Reference an organization variable holding the token, which is masked the same way." }
     ],
     correctAnswers: ['C'],
     type: "single",

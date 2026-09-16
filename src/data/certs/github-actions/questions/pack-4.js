@@ -9,10 +9,10 @@ export const GITHUB_ACTIONS_QUESTIONS_4 = [
     scenario: "A cache key must change whenever any lockfile anywhere in a monorepo changes, and must stay identical across runs when none of them have changed, so that unrelated commits reuse the same cache.",
     question: "Which expression produces such a key component?",
     options: [
-      { id: 'A', text: "A reference to github.run_id, which is stable for a given set of inputs." },
-      { id: 'B', text: "A reference to github.sha, which changes only when files change." },
-      { id: 'C', text: "A call to toJSON on the matrix context." },
-      { id: 'D', text: "A call to hashFiles with a glob matching the lockfiles, which returns a single hash over the matched file contents." }
+      { id: 'A', text: "A reference to `github.run_id`, which is stable for a given set of inputs." },
+      { id: 'B', text: "A reference to `github.sha`, which changes only when the files change." },
+      { id: 'C', text: "A `toJSON` call over the matrix context, hashed into the key prefix." },
+      { id: 'D', text: "A `hashFiles` call over the lockfiles, which returns one hash of their contents." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -30,10 +30,10 @@ export const GITHUB_ACTIONS_QUESTIONS_4 = [
     scenario: "A release step derives the version from the number of commits since the last tag. Locally it is correct; in the workflow it always reports zero commits and no tags, even though the repository has many.",
     question: "What is the cause and the fix?",
     options: [
-      { id: 'A', text: "The default token lacks contents: read, so history is truncated." },
-      { id: 'B', text: "The checkout action performs a shallow single-commit clone without tags by default, so fetch-depth must be set to zero to fetch full history and tags." },
-      { id: 'C', text: "Tags are never available to workflows for security reasons, so the version must be passed as an input." },
-      { id: 'D', text: "The runner clock is out of sync, so tag dates are misread; adding a time synchronisation step resolves it." }
+      { id: 'A', text: "The default token lacks `contents: read`, so the history comes back truncated." },
+      { id: 'B', text: "The checkout action clones shallowly without tags, so `fetch-depth: 0` is needed for history." },
+      { id: 'C', text: "Tags are never exposed to a workflow, so the version must arrive as an input." },
+      { id: 'D', text: "The runner clock is out of sync, so the tag dates are read in the wrong order." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -51,10 +51,10 @@ export const GITHUB_ACTIONS_QUESTIONS_4 = [
     scenario: "A workflow triggered by an issue event runs a shell step that interpolates the issue title directly into a command using an expression. A security reviewer flags the step as remotely exploitable.",
     question: "Why is it exploitable, and what is the safe pattern?",
     options: [
-      { id: 'A', text: "The expression is substituted into the script before the shell runs, so a crafted title becomes shell syntax; the value should instead be passed through an env entry and referenced as a shell variable, quoted." },
-      { id: 'B', text: "Issue titles are not masked in logs, so the fix is to add the title to the mask register." },
+      { id: 'A', text: "The expression is substituted before the shell runs, so pass it through `env:` quoted." },
+      { id: 'B', text: "Issue titles are not masked in the logs, so the title should be added to the mask register." },
       { id: 'C', text: "The title may exceed the maximum command length, so it should be truncated before use." },
-      { id: 'D', text: "The step should use single quotes around the expression, which prevents the shell from interpreting the value." }
+      { id: 'D', text: "The step should single-quote the expression, which stops the shell interpreting the value." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -72,10 +72,10 @@ export const GITHUB_ACTIONS_QUESTIONS_4 = [
     scenario: "A maintainer fixes a typo in a comment and does not want the twenty-minute pipeline to run for it, but also does not want to disable the workflow or edit its triggers.",
     question: "Which mechanism skips the run?",
     options: [
-      { id: 'A', text: "Adding a docs label to the commit through the API before pushing." },
-      { id: 'B', text: "Adding an empty file named .noci to the repository root." },
-      { id: 'C', text: "Including a recognised skip directive such as the skip ci marker in the commit message, which suppresses push and pull request triggered runs." },
-      { id: 'D', text: "Pushing with the no-verify flag, which tells the server not to dispatch events." }
+      { id: 'A', text: "Adding a docs label to the commit through the API before it is pushed to the branch." },
+      { id: 'B', text: "Adding an empty file named `.noci` to the root of the repository being pushed." },
+      { id: 'C', text: "A recognised skip directive in the commit message, which suppresses push and pull request runs." },
+      { id: 'D', text: "Pushing with `--no-verify`, which tells the server not to dispatch the event." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -93,10 +93,10 @@ export const GITHUB_ACTIONS_QUESTIONS_4 = [
     scenario: "A workflow triggered by pull_request posts the commit it tested. The reported SHA never matches the latest commit on the contributor branch, and the contributor is confused because the code being tested is clearly theirs.",
     question: "What is being reported, and how is the branch tip obtained instead?",
     options: [
-      { id: 'A', text: "The github.sha value is the SHA of the ephemeral merge commit of the pull request into the base branch; the branch tip is available as the head SHA in the pull request payload." },
-      { id: 'B', text: "The github.sha value is the base branch tip; the contributor commit is only available by running a git command after checkout." },
-      { id: 'C', text: "The github.sha value is a synthetic identifier with no relationship to any commit, so the head SHA must always be read from the API." },
-      { id: 'D', text: "The github.sha value is the SHA of the previous run, because pull request events lag by one commit." }
+      { id: 'A', text: "`github.sha` is the ephemeral merge commit; the branch tip is the head SHA in the event payload." },
+      { id: 'B', text: "`github.sha` is the base branch tip, so the contributor's commit needs a git command." },
+      { id: 'C', text: "`github.sha` is a synthetic identifier, so the head SHA must be read from the API." },
+      { id: 'D', text: "`github.sha` is the previous run's commit, since pull request events lag by one." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -114,10 +114,10 @@ export const GITHUB_ACTIONS_QUESTIONS_4 = [
     scenario: "A matrix runs the same run step on ubuntu-latest and windows-latest. The step contains a short shell script that works on Linux and produces parser errors on Windows.",
     question: "What is the cause and the simplest correction?",
     options: [
-      { id: 'A', text: "Windows runners have no shell available, so the step must be replaced by a JavaScript action." },
-      { id: 'B', text: "Windows runners default to PowerShell for run steps, so the step should declare shell: bash to use the bash available on all hosted images." },
-      { id: 'C', text: "Windows runners require every run step to be a single line, so the script must be collapsed." },
-      { id: 'D', text: "Windows runners interpret the script as a batch file, which is corrected by setting shell: cmd." }
+      { id: 'A', text: "Windows runners have no shell at all, so a JavaScript action is required." },
+      { id: 'B', text: "Windows runners default to PowerShell, so the step should declare `shell: bash`." },
+      { id: 'C', text: "Windows runners take only single-line `run` steps, so the script must collapse." },
+      { id: 'D', text: "Windows runners read the script as a batch file, corrected by `shell: cmd`." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -137,7 +137,7 @@ export const GITHUB_ACTIONS_QUESTIONS_4 = [
     options: [
       { id: 'A', text: "Adding a concurrency group, which deduplicates runs across the fork network." },
       { id: 'B', text: "Storing the credentials as organization secrets, which prevents forks from starting the workflow." },
-      { id: 'C', text: "A job-level if comparing github.repository to the upstream owner and repository name, so the job only runs in the canonical repository." },
+      { id: 'C', text: "A job-level `if` comparing `github.repository` with the upstream owner and name." },
       { id: 'D', text: "Removing the schedule trigger, since scheduled workflows always propagate to forks and cannot be constrained." }
     ],
     correctAnswers: ['C'],
@@ -177,10 +177,10 @@ export const GITHUB_ACTIONS_QUESTIONS_4 = [
     scenario: "An author writes a workflow-level env block whose value references the secrets context, intending every job to inherit the credential. The workflow is rejected with a message that the context is not available at that point.",
     question: "Why, and what is the correct placement?",
     options: [
-      { id: 'A', text: "The workflow must declare a permissions block containing secrets: read before the context resolves." },
-      { id: 'B', text: "The secrets context requires the secret name to be uppercase, and the rejection is a naming error." },
-      { id: 'C', text: "The secrets context is not available in a workflow-level env block, so the reference must move to a job-level or step-level env entry." },
-      { id: 'D', text: "Secrets may only be referenced inside a with block passed to an action." }
+      { id: 'A', text: "The workflow must declare `secrets: read` in its permissions before the context resolves." },
+      { id: 'B', text: "The `secrets` context requires an uppercase name, so this is a naming error." },
+      { id: 'C', text: "The `secrets` context is unavailable in a workflow-level `env`, so move it to job or step level." },
+      { id: 'D', text: "Secrets may only be referenced inside a `with` block passed to an action." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -198,10 +198,10 @@ export const GITHUB_ACTIONS_QUESTIONS_4 = [
     scenario: "A run step contains three commands on separate lines. The second fails, but the step is reported as successful because the third command exits zero. The author expects the step to fail at the first error.",
     question: "Which explanation and remedy is correct?",
     options: [
-      { id: 'A', text: "The default bash invocation used by the runner already enables exit-on-error, so this behaviour indicates the step selected a shell without it, such as sh or a custom shell string, and the fix is to select the default bash shell or enable the option explicitly." },
-      { id: 'B', text: "Exit codes are ignored inside multi-line scripts, so the script must write a failure marker and a later step must read it." },
-      { id: 'C', text: "The step must be split into three separate steps, because a multi-line run step never fails on an intermediate command." },
-      { id: 'D', text: "Only the exit code of the last command determines the step result in every shell, so each command must be joined with a logical and operator." }
+      { id: 'A', text: "The default bash already sets exit-on-error, so the step chose another shell; select bash." },
+      { id: 'B', text: "Exit codes are ignored inside a multi-line script, so it must write a marker file that a later step reads." },
+      { id: 'C', text: "The step has to be split into three, since a multi-line `run` never fails on an intermediate command." },
+      { id: 'D', text: "Only the last command's exit code counts in every shell, so the commands must be joined with `&&`." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -221,7 +221,7 @@ export const GITHUB_ACTIONS_QUESTIONS_4 = [
     options: [
       { id: 'A', text: "Disable the github-actions ecosystem and rely on the moving major version tags instead." },
       { id: 'B', text: "Set open-pull-requests-limit to one, which merges the remaining updates into the allowed pull request." },
-      { id: 'C', text: "Define a groups entry in the Dependabot configuration so related action updates are combined into a single pull request." },
+      { id: 'C', text: "A `groups` entry in the Dependabot configuration, combining the action updates." },
       { id: 'D', text: "Reduce the schedule interval to monthly, which combines the intervening updates into one pull request." }
     ],
     correctAnswers: ['C'],
@@ -240,10 +240,10 @@ export const GITHUB_ACTIONS_QUESTIONS_4 = [
     scenario: "An engineer adds a workflow_dispatch trigger to a workflow on a feature branch and pushes. The Run workflow button does not appear anywhere in the Actions tab, and a colleague insists the syntax is correct.",
     question: "What explains this?",
     options: [
-      { id: 'A', text: "Manual triggers require the workflow to declare a permissions block, which is missing." },
+      { id: 'A', text: "Manual triggers require the workflow to declare a permissions block, which this file is missing." },
       { id: 'B', text: "The button appears only after the workflow has run at least once from another trigger." },
-      { id: 'C', text: "The Actions tab caches the workflow list for up to an hour, so the button will appear shortly." },
-      { id: 'D', text: "The workflow_dispatch and schedule triggers are only recognised once the workflow file exists on the default branch, though a dispatch can then select another branch to run from." }
+      { id: 'C', text: "The Actions tab caches the workflow list for an hour, so the button appears shortly." },
+      { id: 'D', text: "`workflow_dispatch` is recognised only once the file is on the default branch, though it can then run another." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -261,10 +261,10 @@ export const GITHUB_ACTIONS_QUESTIONS_4 = [
     scenario: "A cache is populated by a workflow on a long-lived feature branch. A second feature branch, created from the default branch, runs the same workflow and always misses, even though its lockfile is identical to the first branch.",
     question: "What explains the miss?",
     options: [
-      { id: 'A', text: "Caches are only readable by the workflow run that created them." },
-      { id: 'B', text: "Caches are scoped per branch, and a branch can read caches from its own ref, its base branch and the default branch, but not from an unrelated sibling branch." },
+      { id: 'A', text: "Caches are readable only by the workflow run that created them in the first place." },
+      { id: 'B', text: "Caches are scoped per branch: its own, its base and the default, but not a sibling's." },
       { id: 'C', text: "Caches are scoped per runner, so a different runner never sees an existing entry." },
-      { id: 'D', text: "Caches are evicted whenever any branch writes a new entry with a different key." }
+      { id: 'D', text: "Caches are evicted whenever any branch writes an entry under a different key." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -282,10 +282,10 @@ export const GITHUB_ACTIONS_QUESTIONS_4 = [
     scenario: "A matrix of four jobs each uploads its test results using the same artifact name. Three jobs succeed and the rest fail with a conflict saying the artifact already exists.",
     question: "What is the correct fix?",
     options: [
-      { id: 'A', text: "Reduce max-parallel to one, which allows the uploads to append to the existing artifact." },
-      { id: 'B', text: "Move the upload into a composite action, which handles naming automatically." },
-      { id: 'C', text: "Add a concurrency group so the four uploads are serialised into the same artifact." },
-      { id: 'D', text: "Give each job a distinct artifact name incorporating a matrix value, then merge or download them together in a later job." }
+      { id: 'A', text: "Reduce `max-parallel` to one, so each upload appends to the existing artifact." },
+      { id: 'B', text: "Move the upload into a composite action, which handles the naming itself." },
+      { id: 'C', text: "Add a concurrency group so the four uploads are serialised into one artifact." },
+      { id: 'D', text: "Give each job a distinct artifact name from its matrix value, and merge them in a later job." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -303,10 +303,10 @@ export const GITHUB_ACTIONS_QUESTIONS_4 = [
     scenario: "An organization is comfortable with actions written by GitHub and by publishers that have gone through Marketplace verification, but wants to review anything else before it is used.",
     question: "Which policy setting expresses that directly?",
     options: [
-      { id: 'A', text: "Allow select actions, enabling the options for actions created by GitHub and by Marketplace verified creators, plus an allow list for specific exceptions." },
-      { id: 'B', text: "Allow all actions, combined with a required review of the workflows directory." },
-      { id: 'C', text: "Allow local actions only, then vendor every third-party action into the repository." },
-      { id: 'D', text: "Disable actions, then grant exceptions per repository." }
+      { id: 'A', text: "Allow select actions: those from GitHub and verified creators, plus an allow list." },
+      { id: 'B', text: "Allow all actions, paired with a required review of the workflows directory." },
+      { id: 'C', text: "Allow local actions only, and vendor each third-party action into the repo." },
+      { id: 'D', text: "Disable Actions outright, and grant exceptions one repository at a time." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -345,10 +345,10 @@ export const GITHUB_ACTIONS_QUESTIONS_4 = [
     scenario: "An action author wants continuous integration for the action itself, exercising it end to end against several inputs on every pull request, before any release is tagged.",
     question: "How should the test workflow reference the action?",
     options: [
-      { id: 'A', text: "By owner, repository and the branch name of the pull request head." },
-      { id: 'B', text: "Action repositories cannot test themselves, so a second repository must consume the action." },
-      { id: 'C', text: "By a relative path to the repository root after a checkout step, so the version under test is the working copy rather than a published ref." },
-      { id: 'D', text: "By owner, repository and the latest release tag, then compare the result to the working copy." }
+      { id: 'A', text: "By owner, repository and the branch name of the pull request's head ref." },
+      { id: 'B', text: "Action repositories cannot test themselves, so a second repository is needed." },
+      { id: 'C', text: "By a relative path after a checkout, so the working copy is what gets tested." },
+      { id: 'D', text: "By owner, repository and the latest release tag, compared with the copy." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -366,10 +366,10 @@ export const GITHUB_ACTIONS_QUESTIONS_4 = [
     scenario: "A Docker container action names a Dockerfile in its metadata. Consumers report that the action adds about ninety seconds to every job, and profiling shows the time is spent before the action code starts.",
     question: "Which change addresses the cause?",
     options: [
-      { id: 'A', text: "Reduce the number of declared inputs, since each one adds container startup overhead." },
-      { id: 'B', text: "Move the action to a larger runner, which builds the image faster and is the only available remedy." },
-      { id: 'C', text: "Publish the image to a registry and point the metadata at that prebuilt image reference, so the runner pulls it instead of building it on every job." },
-      { id: 'D', text: "Add a cache step for the Docker layers before the action, which the runner reuses when building the action image." }
+      { id: 'A', text: "Reduce the declared inputs, since each adds to the container's startup overhead." },
+      { id: 'B', text: "Move the job to a larger runner, which builds the image faster on each run." },
+      { id: 'C', text: "Publish the image and point the metadata at it, so the runner pulls not builds." },
+      { id: 'D', text: "Add a Docker layer cache step before the action, which the runner then reuses." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -387,10 +387,10 @@ export const GITHUB_ACTIONS_QUESTIONS_4 = [
     scenario: "A JavaScript action works when run locally after installing packages. Used from a workflow it fails immediately with a module not found error, although the source file is present in the repository at the path named in the metadata.",
     question: "What is missing?",
     options: [
-      { id: 'A', text: "The action must be published to the Marketplace, which triggers a dependency install at publish time." },
-      { id: 'B', text: "The action must commit its runtime dependencies, in practice by bundling the code and its dependencies into a single committed file that the metadata points at, because the runner does not install packages for an action." },
-      { id: 'C', text: "The metadata must list the dependencies under a packages key so the runner installs them." },
-      { id: 'D', text: "The consuming workflow must run a setup-node step and install the action dependencies before using it." }
+      { id: 'A', text: "The action must be published to the Marketplace, which runs a dependency install at publish time." },
+      { id: 'B', text: "The action must commit its bundled dependencies, since the runner installs none." },
+      { id: 'C', text: "The metadata must list the dependencies under a `packages` key so the runner installs them." },
+      { id: 'D', text: "The consuming workflow must run a setup step and install the action's dependencies first." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -429,10 +429,10 @@ export const GITHUB_ACTIONS_QUESTIONS_4 = [
     scenario: "A deployment needs a service account bundle of roughly one hundred kilobytes. Attempting to save it as a secret is rejected because it exceeds the maximum size for a single secret.",
     question: "Which approach is appropriate?",
     options: [
-      { id: 'A', text: "Commit the bundle to the repository encrypted with a passphrase held as a secret, and decrypt it during the run." },
-      { id: 'B', text: "Store the bundle in an external secret manager and keep only the short credential needed to authenticate to it as a GitHub secret, ideally obtained through OpenID Connect." },
-      { id: 'C', text: "Store the bundle as an organization variable, which has no size restriction." },
-      { id: 'D', text: "Split the bundle across several secrets and reassemble it in a step." }
+      { id: 'A', text: "Commit the bundle encrypted with a passphrase held as a secret, decrypting it in the run." },
+      { id: 'B', text: "Keep the bundle in an external secret manager and hold only the short credential to reach it." },
+      { id: 'C', text: "Store the bundle in an organization variable, which carries no size restriction." },
+      { id: 'D', text: "Split the bundle across several secrets and reassemble it inside a step." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -451,8 +451,8 @@ export const GITHUB_ACTIONS_QUESTIONS_4 = [
     question: "Which mechanism enforces that?",
     options: [
       { id: 'A', text: "A required reviewer on the production environment, which also covers workflow edits." },
-      { id: 'B', text: "An organization Actions policy restricting who may edit workflow files." },
-      { id: 'C', text: "A CODEOWNERS entry mapping the workflows directory to the platform team, combined with branch protection requiring review from code owners." },
+      { id: 'B', text: "An organization Actions policy restricting who may edit any workflow file." },
+      { id: 'C', text: "A CODEOWNERS entry for the workflows directory, with branch protection requiring owner review." },
       { id: 'D', text: "A push protection rule blocking commits that touch the workflows directory." }
     ],
     correctAnswers: ['C'],
@@ -471,10 +471,10 @@ export const GITHUB_ACTIONS_QUESTIONS_4 = [
     scenario: "A workflow needs a public API base URL that differs per environment and an API key for the same service. Both currently sit in the workflow file, and the team is moving them out.",
     question: "Where should each go?",
     options: [
-      { id: 'A', text: "Both should be variables, because masking would make the logs unreadable." },
-      { id: 'B', text: "The base URL should be a configuration variable and the API key should be a secret, because variables are stored and displayed in plain text while secrets are encrypted and masked in logs." },
-      { id: 'C', text: "The base URL should be a secret and the API key a variable, so the endpoint is hidden from contributors." },
-      { id: 'D', text: "Both should be secrets, because both relate to an authenticated service." }
+      { id: 'A', text: "Both as variables, since masking the endpoint would make the run logs unreadable." },
+      { id: 'B', text: "The URL as a variable and the key as a secret, since variables are shown in plain text." },
+      { id: 'C', text: "The URL as a secret and the key as a variable, so the endpoint stays hidden." },
+      { id: 'D', text: "Both as secrets, since each relates to the same authenticated service." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -492,10 +492,10 @@ export const GITHUB_ACTIONS_QUESTIONS_4 = [
     scenario: "Self-hosted runners sit in a network where all outbound traffic must traverse an authenticated proxy. The runner registers successfully from an administrator shell but jobs fail to start, and the runner service log shows connection failures.",
     question: "Which configuration is required?",
     options: [
-      { id: 'A', text: "Add the proxy address as a repository secret so the runner reads it at job start." },
-      { id: 'B', text: "Place the runners in a runner group, which routes traffic through the organization proxy." },
-      { id: 'C', text: "Configure the runner proxy environment variables, including the no-proxy exclusions, in the environment of the runner service rather than only in the interactive shell." },
-      { id: 'D', text: "Disable the runner automatic update, which is the component that requires direct connectivity." }
+      { id: 'A', text: "Store the proxy address as a repository secret the runner reads at job start." },
+      { id: 'B', text: "Place the runners in a runner group, which routes traffic through the proxy." },
+      { id: 'C', text: "Set the proxy variables and exclusions in the runner service's own environment." },
+      { id: 'D', text: "Disable the runner's automatic update, the component needing direct access." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -513,10 +513,10 @@ export const GITHUB_ACTIONS_QUESTIONS_4 = [
     scenario: "An enterprise wants open source repositories to keep using Actions freely while private repositories are brought under a stricter review before any workflow runs, and wants the distinction enforced centrally rather than repository by repository.",
     question: "Which capability supports this?",
     options: [
-      { id: 'A', text: "Setting the default workflow permissions to read-only for private repositories, which prevents workflows from running." },
-      { id: 'B', text: "Enterprise Actions policies, which can enable or disable Actions for organizations and can be scoped by repository visibility, with organization-level policies refining but not exceeding the enterprise setting." },
-      { id: 'C', text: "A repository ruleset applied to every private repository that blocks the workflows directory." },
-      { id: 'D', text: "Removing the Actions tab from private repositories through the API." }
+      { id: 'A', text: "Setting the default workflow permissions to read-only for private repositories, which stops them running." },
+      { id: 'B', text: "Enterprise Actions policies, which enable or disable Actions and can be scoped by repository visibility." },
+      { id: 'C', text: "A repository ruleset applied to each private repository that blocks the workflows directory." },
+      { id: 'D', text: "Removing the Actions tab from the private repositories through the REST API." }
     ],
     correctAnswers: ['B'],
     type: "single",

@@ -114,10 +114,10 @@ export const GITHUB_ACTIONS_QUESTIONS_19 = [
     scenario: "A devops automation engineering team is establishing high-availability pipeline standards, runner recovery procedures, and operational resilience baselines for GitHub Actions. The GitHub Actions engineer needs to scale self-hosted runner capacity dynamically on Kubernetes based on workflow queue demand while ensuring clean, ephemeral runner environments.",
     question: "Which architectural approach or configuration satisfies these CI/CD disaster recovery and operational continuity objectives?",
     options: [
-      { id: 'A', text: "Maintain a static pool of 10 persistent virtual machines with shared state." },
-      { id: 'B', text: "Deploy Actions Runner Controller (ARC) on Kubernetes configured with `AutoScalingRunnerSet` and ephemeral runner pods." },
-      { id: 'C', text: "Disable self-hosted runners and use public runners exclusively." },
-      { id: 'D', text: "Manually boot and configure new VMs whenever build queues back up." }
+      { id: 'A', text: "Keep a static pool of ten persistent runner VMs registered to the group." },
+      { id: 'B', text: "Run Actions Runner Controller on Kubernetes with an `AutoScalingRunnerSet`." },
+      { id: 'C', text: "Move the jobs to GitHub-hosted larger runners and retire the self-hosted pool." },
+      { id: 'D', text: "Add runner VMs by hand whenever the queue depth grows beyond a threshold." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -135,10 +135,10 @@ export const GITHUB_ACTIONS_QUESTIONS_19 = [
     scenario: "A high-throughput software engineering organization experiences massive surges in concurrent build and test requests across thousands of enterprise repositories. The GitHub Actions engineer needs to scale self-hosted runner capacity dynamically on Kubernetes based on workflow queue demand while ensuring clean, ephemeral runner environments.",
     question: "Which workflow architecture or runner configuration manages this execution volume effectively while preventing queue congestion and latency?",
     options: [
-      { id: 'A', text: "Disable self-hosted runners and use public runners exclusively." },
-      { id: 'B', text: "Manually boot and configure new VMs whenever build queues back up." },
-      { id: 'C', text: "Maintain a static pool of 10 persistent virtual machines with shared state." },
-      { id: 'D', text: "Deploy Actions Runner Controller (ARC) on Kubernetes configured with `AutoScalingRunnerSet` and ephemeral runner pods." }
+      { id: 'A', text: "Move the jobs to GitHub-hosted larger runners and retire the self-hosted pool." },
+      { id: 'B', text: "Add runner VMs by hand whenever the queue depth grows beyond a threshold." },
+      { id: 'C', text: "Keep a static pool of ten persistent runner VMs registered to the group." },
+      { id: 'D', text: "Run Actions Runner Controller on Kubernetes with an `AutoScalingRunnerSet`." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -156,10 +156,10 @@ export const GITHUB_ACTIONS_QUESTIONS_19 = [
     scenario: "A security compliance auditor requires cryptographic supply chain verification, keyless cloud authentication, and automated governance across all GitHub Actions workflows. The GitHub Actions engineer needs to scale self-hosted runner capacity dynamically on Kubernetes based on workflow queue demand while ensuring clean, ephemeral runner environments.",
     question: "Which solution implements these mandatory CI/CD security and compliance controls?",
     options: [
-      { id: 'A', text: "Manually boot and configure new VMs whenever build queues back up." },
-      { id: 'B', text: "Maintain a static pool of 10 persistent virtual machines with shared state." },
-      { id: 'C', text: "Disable self-hosted runners and use public runners exclusively." },
-      { id: 'D', text: "Deploy Actions Runner Controller (ARC) on Kubernetes configured with `AutoScalingRunnerSet` and ephemeral runner pods." }
+      { id: 'A', text: "Add runner VMs by hand whenever the queue depth grows beyond a threshold." },
+      { id: 'B', text: "Keep a static pool of ten persistent runner VMs registered to the group." },
+      { id: 'C', text: "Move the jobs to GitHub-hosted larger runners and retire the self-hosted pool." },
+      { id: 'D', text: "Run Actions Runner Controller on Kubernetes with an `AutoScalingRunnerSet`." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -177,10 +177,10 @@ export const GITHUB_ACTIONS_QUESTIONS_19 = [
     scenario: "An enterprise is modernizing legacy on-premises CI/CD infrastructure and migrating automated delivery workflows to GitHub Actions. The GitHub Actions engineer needs to scale self-hosted runner capacity dynamically on Kubernetes based on workflow queue demand while ensuring clean, ephemeral runner environments.",
     question: "Which practice or platform feature enables the engineering team to modernize automated delivery with minimal operational friction?",
     options: [
-      { id: 'A', text: "Disable self-hosted runners and use public runners exclusively." },
-      { id: 'B', text: "Manually boot and configure new VMs whenever build queues back up." },
-      { id: 'C', text: "Maintain a static pool of 10 persistent virtual machines with shared state." },
-      { id: 'D', text: "Deploy Actions Runner Controller (ARC) on Kubernetes configured with `AutoScalingRunnerSet` and ephemeral runner pods." }
+      { id: 'A', text: "Move the jobs to GitHub-hosted larger runners and retire the self-hosted pool." },
+      { id: 'B', text: "Add runner VMs by hand whenever the queue depth grows beyond a threshold." },
+      { id: 'C', text: "Keep a static pool of ten persistent runner VMs registered to the group." },
+      { id: 'D', text: "Run Actions Runner Controller on Kubernetes with an `AutoScalingRunnerSet`." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -198,10 +198,10 @@ export const GITHUB_ACTIONS_QUESTIONS_19 = [
     scenario: "A platform operations team is optimizing system reliability to eliminate single points of failure, accelerate build caching, and ensure secure failure handling. The GitHub Actions engineer needs to scale self-hosted runner capacity dynamically on Kubernetes based on workflow queue demand while ensuring clean, ephemeral runner environments.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees pipeline availability?",
     options: [
-      { id: 'A', text: "Deploy Actions Runner Controller (ARC) on Kubernetes configured with `AutoScalingRunnerSet` and ephemeral runner pods." },
-      { id: 'B', text: "Maintain a static pool of 10 persistent virtual machines with shared state." },
-      { id: 'C', text: "Manually boot and configure new VMs whenever build queues back up." },
-      { id: 'D', text: "Disable self-hosted runners and use public runners exclusively." }
+      { id: 'A', text: "Run Actions Runner Controller on Kubernetes with an `AutoScalingRunnerSet`." },
+      { id: 'B', text: "Keep a static pool of ten persistent runner VMs registered to the group." },
+      { id: 'C', text: "Add runner VMs by hand whenever the queue depth grows beyond a threshold." },
+      { id: 'D', text: "Move the jobs to GitHub-hosted larger runners and retire the self-hosted pool." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -219,10 +219,10 @@ export const GITHUB_ACTIONS_QUESTIONS_19 = [
     scenario: "A devops automation engineering team is establishing high-availability pipeline standards, runner recovery procedures, and operational resilience baselines for GitHub Actions. The GitHub Actions engineer needs to prevent untrusted public or external repositories from executing workflows on internal enterprise self-hosted runners.",
     question: "Which architectural approach or configuration satisfies these CI/CD disaster recovery and operational continuity objectives?",
     options: [
-      { id: 'A', text: "Organize self-hosted runners into a Runner Group at the organization or enterprise level and restrict access to approved private repositories." },
-      { id: 'B', text: "Make self-hosted runners available to all public repositories in the enterprise." },
-      { id: 'C', text: "Share the runner registration token on public wikis." },
-      { id: 'D', text: "Allow any repository to use any runner without authorization." }
+      { id: 'A', text: "Put the runners in a runner group and limit it to the approved repositories." },
+      { id: 'B', text: "Put the runners at organization level, available to every repository in it." },
+      { id: 'C', text: "Register the runners per repository so only that repository can use them." },
+      { id: 'D', text: "Put the runners in a runner group open to all repositories, audited after use." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -240,10 +240,10 @@ export const GITHUB_ACTIONS_QUESTIONS_19 = [
     scenario: "A high-throughput software engineering organization experiences massive surges in concurrent build and test requests across thousands of enterprise repositories. The GitHub Actions engineer needs to prevent untrusted public or external repositories from executing workflows on internal enterprise self-hosted runners.",
     question: "Which workflow architecture or runner configuration manages this execution volume effectively while preventing queue congestion and latency?",
     options: [
-      { id: 'A', text: "Share the runner registration token on public wikis." },
-      { id: 'B', text: "Allow any repository to use any runner without authorization." },
-      { id: 'C', text: "Organize self-hosted runners into a Runner Group at the organization or enterprise level and restrict access to approved private repositories." },
-      { id: 'D', text: "Make self-hosted runners available to all public repositories in the enterprise." }
+      { id: 'A', text: "Register the runners per repository so only that repository can use them." },
+      { id: 'B', text: "Put the runners in a runner group open to all repositories, audited after use." },
+      { id: 'C', text: "Put the runners in a runner group and limit it to the approved repositories." },
+      { id: 'D', text: "Put the runners at organization level, available to every repository in it." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -261,10 +261,10 @@ export const GITHUB_ACTIONS_QUESTIONS_19 = [
     scenario: "A security compliance auditor requires cryptographic supply chain verification, keyless cloud authentication, and automated governance across all GitHub Actions workflows. The GitHub Actions engineer needs to prevent untrusted public or external repositories from executing workflows on internal enterprise self-hosted runners.",
     question: "Which solution implements these mandatory CI/CD security and compliance controls?",
     options: [
-      { id: 'A', text: "Allow any repository to use any runner without authorization." },
-      { id: 'B', text: "Make self-hosted runners available to all public repositories in the enterprise." },
-      { id: 'C', text: "Organize self-hosted runners into a Runner Group at the organization or enterprise level and restrict access to approved private repositories." },
-      { id: 'D', text: "Share the runner registration token on public wikis." }
+      { id: 'A', text: "Put the runners in a runner group open to all repositories, audited after use." },
+      { id: 'B', text: "Put the runners at organization level, available to every repository in it." },
+      { id: 'C', text: "Put the runners in a runner group and limit it to the approved repositories." },
+      { id: 'D', text: "Register the runners per repository so only that repository can use them." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -282,10 +282,10 @@ export const GITHUB_ACTIONS_QUESTIONS_19 = [
     scenario: "An enterprise is modernizing legacy on-premises CI/CD infrastructure and migrating automated delivery workflows to GitHub Actions. The GitHub Actions engineer needs to prevent untrusted public or external repositories from executing workflows on internal enterprise self-hosted runners.",
     question: "Which practice or platform feature enables the engineering team to modernize automated delivery with minimal operational friction?",
     options: [
-      { id: 'A', text: "Organize self-hosted runners into a Runner Group at the organization or enterprise level and restrict access to approved private repositories." },
-      { id: 'B', text: "Make self-hosted runners available to all public repositories in the enterprise." },
-      { id: 'C', text: "Share the runner registration token on public wikis." },
-      { id: 'D', text: "Allow any repository to use any runner without authorization." }
+      { id: 'A', text: "Put the runners in a runner group and limit it to the approved repositories." },
+      { id: 'B', text: "Put the runners at organization level, available to every repository in it." },
+      { id: 'C', text: "Register the runners per repository so only that repository can use them." },
+      { id: 'D', text: "Put the runners in a runner group open to all repositories, audited after use." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -303,10 +303,10 @@ export const GITHUB_ACTIONS_QUESTIONS_19 = [
     scenario: "A platform operations team is optimizing system reliability to eliminate single points of failure, accelerate build caching, and ensure secure failure handling. The GitHub Actions engineer needs to prevent untrusted public or external repositories from executing workflows on internal enterprise self-hosted runners.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees pipeline availability?",
     options: [
-      { id: 'A', text: "Organize self-hosted runners into a Runner Group at the organization or enterprise level and restrict access to approved private repositories." },
-      { id: 'B', text: "Make self-hosted runners available to all public repositories in the enterprise." },
-      { id: 'C', text: "Share the runner registration token on public wikis." },
-      { id: 'D', text: "Allow any repository to use any runner without authorization." }
+      { id: 'A', text: "Put the runners in a runner group and limit it to the approved repositories." },
+      { id: 'B', text: "Put the runners at organization level, available to every repository in it." },
+      { id: 'C', text: "Register the runners per repository so only that repository can use them." },
+      { id: 'D', text: "Put the runners in a runner group open to all repositories, audited after use." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -324,10 +324,10 @@ export const GITHUB_ACTIONS_QUESTIONS_19 = [
     scenario: "A devops automation engineering team is establishing high-availability pipeline standards, runner recovery procedures, and operational resilience baselines for GitHub Actions. The GitHub Actions engineer needs to authenticate a GitHub Actions deployment workflow to AWS without storing long-lived IAM user access keys in repository secrets.",
     question: "Which architectural approach or configuration satisfies these CI/CD disaster recovery and operational continuity objectives?",
     options: [
-      { id: 'A', text: "Commit AWS access key IDs directly to the workflow YAML file." },
-      { id: 'B', text: "Disable authentication on AWS APIs." },
-      { id: 'C', text: "Configure an OpenID Connect (OIDC) identity provider in AWS IAM trust policy and use `aws-actions/configure-aws-credentials` with `role-to-assume`." },
-      { id: 'D', text: "Create a permanent IAM user with AdministratorAccess and paste access keys in repository secrets." }
+      { id: 'A', text: "Store a long-lived IAM access key in repository secrets and configure it per job." },
+      { id: 'B', text: "Store the IAM access key in an organization secret scoped to the deploy repos." },
+      { id: 'C', text: "Trust GitHub's OIDC provider in the IAM role and use `role-to-assume` in the workflow." },
+      { id: 'D', text: "Create an IAM user with the deploy policy and rotate its keys on a schedule." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -345,10 +345,10 @@ export const GITHUB_ACTIONS_QUESTIONS_19 = [
     scenario: "A high-throughput software engineering organization experiences massive surges in concurrent build and test requests across thousands of enterprise repositories. The GitHub Actions engineer needs to authenticate a GitHub Actions deployment workflow to AWS without storing long-lived IAM user access keys in repository secrets.",
     question: "Which workflow architecture or runner configuration manages this execution volume effectively while preventing queue congestion and latency?",
     options: [
-      { id: 'A', text: "Configure an OpenID Connect (OIDC) identity provider in AWS IAM trust policy and use `aws-actions/configure-aws-credentials` with `role-to-assume`." },
-      { id: 'B', text: "Commit AWS access key IDs directly to the workflow YAML file." },
-      { id: 'C', text: "Disable authentication on AWS APIs." },
-      { id: 'D', text: "Create a permanent IAM user with AdministratorAccess and paste access keys in repository secrets." }
+      { id: 'A', text: "Trust GitHub's OIDC provider in the IAM role and use `role-to-assume` in the workflow." },
+      { id: 'B', text: "Store a long-lived IAM access key in repository secrets and configure it per job." },
+      { id: 'C', text: "Store the IAM access key in an organization secret scoped to the deploy repos." },
+      { id: 'D', text: "Create an IAM user with the deploy policy and rotate its keys on a schedule." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -366,10 +366,10 @@ export const GITHUB_ACTIONS_QUESTIONS_19 = [
     scenario: "A security compliance auditor requires cryptographic supply chain verification, keyless cloud authentication, and automated governance across all GitHub Actions workflows. The GitHub Actions engineer needs to authenticate a GitHub Actions deployment workflow to AWS without storing long-lived IAM user access keys in repository secrets.",
     question: "Which solution implements these mandatory CI/CD security and compliance controls?",
     options: [
-      { id: 'A', text: "Disable authentication on AWS APIs." },
-      { id: 'B', text: "Commit AWS access key IDs directly to the workflow YAML file." },
-      { id: 'C', text: "Create a permanent IAM user with AdministratorAccess and paste access keys in repository secrets." },
-      { id: 'D', text: "Configure an OpenID Connect (OIDC) identity provider in AWS IAM trust policy and use `aws-actions/configure-aws-credentials` with `role-to-assume`." }
+      { id: 'A', text: "Store the IAM access key in an organization secret scoped to the deploy repos." },
+      { id: 'B', text: "Store a long-lived IAM access key in repository secrets and configure it per job." },
+      { id: 'C', text: "Create an IAM user with the deploy policy and rotate its keys on a schedule." },
+      { id: 'D', text: "Trust GitHub's OIDC provider in the IAM role and use `role-to-assume` in the workflow." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -387,10 +387,10 @@ export const GITHUB_ACTIONS_QUESTIONS_19 = [
     scenario: "An enterprise is modernizing legacy on-premises CI/CD infrastructure and migrating automated delivery workflows to GitHub Actions. The GitHub Actions engineer needs to authenticate a GitHub Actions deployment workflow to AWS without storing long-lived IAM user access keys in repository secrets.",
     question: "Which practice or platform feature enables the engineering team to modernize automated delivery with minimal operational friction?",
     options: [
-      { id: 'A', text: "Configure an OpenID Connect (OIDC) identity provider in AWS IAM trust policy and use `aws-actions/configure-aws-credentials` with `role-to-assume`." },
-      { id: 'B', text: "Create a permanent IAM user with AdministratorAccess and paste access keys in repository secrets." },
-      { id: 'C', text: "Commit AWS access key IDs directly to the workflow YAML file." },
-      { id: 'D', text: "Disable authentication on AWS APIs." }
+      { id: 'A', text: "Trust GitHub's OIDC provider in the IAM role and use `role-to-assume` in the workflow." },
+      { id: 'B', text: "Create an IAM user with the deploy policy and rotate its keys on a schedule." },
+      { id: 'C', text: "Store a long-lived IAM access key in repository secrets and configure it per job." },
+      { id: 'D', text: "Store the IAM access key in an organization secret scoped to the deploy repos." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -408,10 +408,10 @@ export const GITHUB_ACTIONS_QUESTIONS_19 = [
     scenario: "A platform operations team is optimizing system reliability to eliminate single points of failure, accelerate build caching, and ensure secure failure handling. The GitHub Actions engineer needs to authenticate a GitHub Actions deployment workflow to AWS without storing long-lived IAM user access keys in repository secrets.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees pipeline availability?",
     options: [
-      { id: 'A', text: "Configure an OpenID Connect (OIDC) identity provider in AWS IAM trust policy and use `aws-actions/configure-aws-credentials` with `role-to-assume`." },
-      { id: 'B', text: "Create a permanent IAM user with AdministratorAccess and paste access keys in repository secrets." },
-      { id: 'C', text: "Commit AWS access key IDs directly to the workflow YAML file." },
-      { id: 'D', text: "Disable authentication on AWS APIs." }
+      { id: 'A', text: "Trust GitHub's OIDC provider in the IAM role and use `role-to-assume` in the workflow." },
+      { id: 'B', text: "Create an IAM user with the deploy policy and rotate its keys on a schedule." },
+      { id: 'C', text: "Store a long-lived IAM access key in repository secrets and configure it per job." },
+      { id: 'D', text: "Store the IAM access key in an organization secret scoped to the deploy repos." }
     ],
     correctAnswers: ['A'],
     type: "single",

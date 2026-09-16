@@ -30,10 +30,10 @@ export const GITHUB_ACTIONS_QUESTIONS_2 = [
     scenario: "A step runs a script that derives a build identifier. A later step in the same job needs that identifier as an ordinary environment variable rather than through the steps context.",
     question: "Which technique makes it available?",
     options: [
-      { id: 'A', text: "Append a NAME=value line to the file path held in GITHUB_ENV, which the runner applies to every subsequent step in the job." },
-      { id: 'B', text: "Use export in the first step, because all steps in a job share one shell session." },
-      { id: 'C', text: "Add the value to the workflow-level env block using an expression that reads the earlier step." },
-      { id: 'D', text: "Write the value to GITHUB_PATH, which the runner converts into an environment variable." }
+      { id: 'A', text: "Append `NAME=value` to the file named by `GITHUB_ENV`, which later steps in the job see." },
+      { id: 'B', text: "Use `export` in the first step, since every step in a job shares one shell session." },
+      { id: 'C', text: "Add it to the workflow-level `env` with an expression reading the earlier step." },
+      { id: 'D', text: "Write the value to `GITHUB_PATH`, which the runner turns into a variable." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -51,10 +51,10 @@ export const GITHUB_ACTIONS_QUESTIONS_2 = [
     scenario: "A public repository runs a nightly dependency audit on a schedule. The project has had no commits, issues or pull requests for roughly three months, and the maintainer notices the audit stopped running some time ago.",
     question: "What is the most likely explanation?",
     options: [
-      { id: 'A', text: "Scheduled workflows are disabled automatically in a public repository after roughly sixty days without repository activity, and can be re-enabled from the Actions tab." },
-      { id: 'B', text: "Cron expressions expire after ninety days and must be renewed by editing the workflow file." },
-      { id: 'C', text: "Scheduled workflows only run while at least one other workflow has run in the previous week." },
-      { id: 'D', text: "Public repositories do not support the schedule trigger, so the earlier runs were manual." }
+      { id: 'A', text: "Scheduled workflows are disabled after sixty days of inactivity, and can be re-enabled." },
+      { id: 'B', text: "Cron expressions expire after ninety days and must be renewed by editing the file." },
+      { id: 'C', text: "Scheduled workflows run only while another workflow has run in the past week." },
+      { id: 'D', text: "Public repositories do not support the schedule trigger, so those runs were manual." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -96,7 +96,7 @@ export const GITHUB_ACTIONS_QUESTIONS_2 = [
       { id: 'A', text: "The build job uses a wildcard in the matrix value, which the runner expands against the workspace." },
       { id: 'B', text: "The discovery job writes the service list to an artifact and the build job sets its matrix from the downloaded file." },
       { id: 'C', text: "Dynamic matrices are not supported, so the workflow must enumerate every possible service and skip the ones that did not change." },
-      { id: 'D', text: "The discovery job emits a JSON array as a job output, and the build job sets its matrix using fromJSON on that output read through the needs context." }
+      { id: 'D', text: "The discovery job emits a JSON array as an output, and the build job's matrix uses `fromJSON`." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -135,10 +135,10 @@ export const GITHUB_ACTIONS_QUESTIONS_2 = [
     scenario: "A deployment job must pause and wait for one of two named release managers to approve before it touches production, and the production credentials must not be readable by any other job.",
     question: "Which configuration provides both the pause and the credential boundary?",
     options: [
-      { id: 'A', text: "A repository ruleset requiring two approving reviews on the pull request." },
-      { id: 'B', text: "A manual workflow_dispatch trigger that only the release managers have permission to start." },
-      { id: 'C', text: "An if condition on the job comparing github.actor to the two release manager usernames." },
-      { id: 'D', text: "An environment named production carrying required reviewers and holding the credentials as environment secrets, referenced by the job through the environment key." }
+      { id: 'A', text: "A repository ruleset requiring two approving reviews on the pull request first." },
+      { id: 'B', text: "A `workflow_dispatch` trigger only the release managers may start the run from." },
+      { id: 'C', text: "An `if:` on the job comparing `github.actor` against the release managers." },
+      { id: 'D', text: "An environment with required reviewers holding the credentials as environment secrets." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -178,7 +178,7 @@ export const GITHUB_ACTIONS_QUESTIONS_2 = [
     question: "Why does this happen and how is it addressed?",
     options: [
       { id: 'A', text: "Redaction failed because the token exceeds the length limit for masked values, so the token must be shortened." },
-      { id: 'B', text: "Redaction only applies to secrets, and a value computed at run time must be registered with the add-mask workflow command to be redacted." },
+      { id: 'B', text: "Redaction covers secrets only; a derived value must be registered with `add-mask`." },
       { id: 'C', text: "The job needs its permissions block reduced, which enables redaction of derived values." },
       { id: 'D', text: "Derived values are always redacted, so the visible token proves the secret itself was logged earlier in the run." }
     ],
@@ -198,10 +198,10 @@ export const GITHUB_ACTIONS_QUESTIONS_2 = [
     scenario: "A workflow triggered by issue_comment implements a slash command for pull requests. It currently fires for comments on plain issues too, where the command makes no sense and the run fails when it tries to read the pull request.",
     question: "Which condition restricts the run correctly?",
     options: [
-      { id: 'A', text: "A job-level if checking that the github.event.issue.pull_request property is present, which distinguishes a pull request comment from an issue comment." },
-      { id: 'B', text: "A job-level if checking that github.event_name equals pull_request." },
-      { id: 'C', text: "Adding a types filter of created to the issue_comment trigger." },
-      { id: 'D', text: "Replacing the trigger with pull_request_review_comment, which covers comments in the pull request conversation." }
+      { id: 'A', text: "A job-level `if` checking that `github.event.issue.pull_request` is present on the payload." },
+      { id: 'B', text: "A job-level `if` checking that `github.event_name` equals `pull_request`." },
+      { id: 'C', text: "A `types: [created]` filter added to the `issue_comment` trigger itself." },
+      { id: 'D', text: "Replacing the trigger with `pull_request_review_comment` for those comments." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -262,7 +262,7 @@ export const GITHUB_ACTIONS_QUESTIONS_2 = [
     question: "What should be added?",
     options: [
       { id: 'A', text: "A repository custom property set from the workflow using the API." },
-      { id: 'B', text: "A workflow status badge image, whose URL is generated from the workflow page and can be filtered by branch and event." },
+      { id: 'B', text: "A workflow status badge, whose URL comes from the workflow page and takes filters." },
       { id: 'C', text: "A required status check configured in branch protection, which renders in the README automatically." },
       { id: 'D', text: "A scheduled workflow that rewrites a status line in the README after every run." }
     ],
@@ -282,10 +282,10 @@ export const GITHUB_ACTIONS_QUESTIONS_2 = [
     scenario: "Branch protection requires a check named build before merging. The workflow has been changed so that the build job is skipped when only documentation changes, and documentation-only pull requests now sit unmergeable forever waiting for a check that will never report.",
     question: "Which approach resolves this while keeping the protection meaningful?",
     options: [
-      { id: 'A', text: "Keep the job always running but exit early with a success when only documentation changed, so the check always reports a conclusion." },
-      { id: 'B', text: "Add paths-ignore for the documentation directory to the workflow trigger, so the check is not expected." },
-      { id: 'C', text: "Remove build from the required checks list and rely on reviewers noticing failures." },
-      { id: 'D', text: "Convert build into a composite action so branch protection resolves it differently." }
+      { id: 'A', text: "Keep the job running but exit early with success on a docs-only change." },
+      { id: 'B', text: "Add `paths-ignore` for the documentation directory, so the check is not expected." },
+      { id: 'C', text: "Remove build from the required checks and rely on reviewers noticing failures." },
+      { id: 'D', text: "Convert build into a composite action, which branch protection resolves differently." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -303,10 +303,10 @@ export const GITHUB_ACTIONS_QUESTIONS_2 = [
     scenario: "A release script running on an engineer laptop must start a workflow that declares a workflow_dispatch trigger, passing an input value, and then poll for the resulting run.",
     question: "Which approach is appropriate?",
     options: [
-      { id: 'A', text: "Open the Actions tab in a headless browser and submit the form." },
-      { id: 'B', text: "Push an empty commit with a specially formatted message that the workflow parses." },
-      { id: 'C', text: "Send a repository_dispatch event, which is the only programmatic way to start any workflow." },
-      { id: 'D', text: "Use the GitHub CLI workflow run command, or the equivalent REST endpoint for creating a workflow dispatch event, passing the input as a field." }
+      { id: 'A', text: "Drive the Actions tab in a headless browser and submit the dispatch form." },
+      { id: 'B', text: "Push an empty commit whose message the workflow parses for the input." },
+      { id: 'C', text: "Send a `repository_dispatch` event, the only programmatic way to start one." },
+      { id: 'D', text: "Use the CLI's `workflow run`, or the REST dispatch endpoint, passing the input as a field." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -366,10 +366,10 @@ export const GITHUB_ACTIONS_QUESTIONS_2 = [
     scenario: "A JavaScript action starts a tunnel process that must be torn down at the end of the job, including when a later step in the job fails. Putting the teardown in the action main entry point does not help because main returns while the tunnel is still needed.",
     question: "Which metadata feature solves this?",
     options: [
-      { id: 'A', text: "A post entry under runs, naming a script the runner executes at the end of the job, with post-if available to control when it runs." },
-      { id: 'B', text: "A trap registered in the shell by the action, which the runner preserves across steps." },
-      { id: 'C', text: "A separate teardown job with an if condition of always()." },
-      { id: 'D', text: "A cleanup key under runs, which the runner calls after the final step." }
+      { id: 'A', text: "A `post` entry under `runs` naming a script run at job end, with `post-if` to scope it." },
+      { id: 'B', text: "A shell trap registered by the action, which the runner preserves across steps." },
+      { id: 'C', text: "A separate teardown job carrying an `if` condition of `always()` on it." },
+      { id: 'D', text: "A `cleanup` key under `runs`, which the runner calls after the last step." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -387,10 +387,10 @@ export const GITHUB_ACTIONS_QUESTIONS_2 = [
     scenario: "A team has a working action in a public repository. The metadata file sits in a subdirectory next to three other actions in the same repository, and the team wants to publish one of them to the Marketplace.",
     question: "Which change is required before the action can be listed?",
     options: [
-      { id: 'A', text: "Convert the action to a Docker container action, because only container actions are listable." },
-      { id: 'B', text: "Add a workflow that runs the action, because the Marketplace validates behaviour before listing." },
-      { id: 'C', text: "Transfer the repository to an organization, because personal accounts cannot publish." },
-      { id: 'D', text: "Move the action so its metadata file sits at the root of its own repository, since a listing maps to a single action at the repository root." }
+      { id: 'A', text: "Convert it to a Docker container action, since only container actions can be listed." },
+      { id: 'B', text: "Add a workflow that runs it, since the Marketplace validates behaviour first." },
+      { id: 'C', text: "Transfer the repository to an organization, since personal accounts cannot publish." },
+      { id: 'D', text: "Move the metadata file to the root of its own repository, since a listing maps to one action." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -408,10 +408,10 @@ export const GITHUB_ACTIONS_QUESTIONS_2 = [
     scenario: "Workflows using an internally maintained JavaScript action show an annotation warning that the action uses a deprecated Node runtime and will stop working. The action code itself runs correctly today.",
     question: "Which change addresses the warning?",
     options: [
-      { id: 'A', text: "Update the runs.using value in action.yml to the supported Node major version and verify the bundled code runs on it." },
-      { id: 'B', text: "Add a setup-node step before the action in every consuming workflow to select the runtime." },
-      { id: 'C', text: "Change runs.using to composite, which removes any runtime dependency." },
-      { id: 'D', text: "Recompile the action bundle, which embeds the runtime version." }
+      { id: 'A', text: "Update `runs.using` to the supported Node major version and check the bundle runs on it." },
+      { id: 'B', text: "Add a setup-node step before the action in each consuming workflow to pick it." },
+      { id: 'C', text: "Change `runs.using` to composite, which removes the runtime dependency." },
+      { id: 'D', text: "Recompile the action's bundle, which embeds the runtime version in it." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -450,10 +450,10 @@ export const GITHUB_ACTIONS_QUESTIONS_2 = [
     scenario: "A self-hosted fleet of fixed virtual machines is idle overnight and saturated each afternoon, when jobs queue for twenty minutes. The platform team already runs Kubernetes and wants runner capacity to track the queue automatically.",
     question: "Which approach fits?",
     options: [
-      { id: 'A', text: "Deploy Actions Runner Controller with a runner scale set, so ephemeral runner pods are created in response to queued jobs and removed afterwards." },
-      { id: 'B', text: "Register more persistent runners sized for the afternoon peak and accept the overnight idle cost." },
-      { id: 'C', text: "Add the runners to a runner group, which enables automatic scaling for that group." },
-      { id: 'D', text: "Increase the max-parallel value in the matrix strategy of the busiest workflows." }
+      { id: 'A', text: "Deploy Actions Runner Controller with a scale set, so ephemeral pods follow the queue." },
+      { id: 'B', text: "Register persistent runners sized for the afternoon peak and accept the idle cost." },
+      { id: 'C', text: "Add the runners to a runner group, which enables autoscaling for that group." },
+      { id: 'D', text: "Raise `max-parallel` in the matrix strategy of the busiest of the workflows." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -471,10 +471,10 @@ export const GITHUB_ACTIONS_QUESTIONS_2 = [
     scenario: "A fleet contains both ordinary runners and a handful with GPUs. Only the model training job should land on the GPU machines, and it must not start on an ordinary runner even when one is free.",
     question: "How is that expressed?",
     options: [
-      { id: 'A', text: "Apply a custom label such as gpu to those runners and set runs-on to a list containing self-hosted and that label." },
-      { id: 'B', text: "Place the GPU runners in their own runner group and set runs-on to the group name." },
+      { id: 'A', text: "Label those runners `gpu` and set `runs-on` to a list of `self-hosted` and that label." },
+      { id: 'B', text: "Put the GPU runners in their own group and set `runs-on` to the group's name." },
       { id: 'C', text: "Give the GPU runners a higher priority value so the scheduler prefers them." },
-      { id: 'D', text: "Set the runs-on value to the hostname of one of the GPU machines." }
+      { id: 'D', text: "Set `runs-on` to the hostname of one of the GPU machines in the pool." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -492,10 +492,10 @@ export const GITHUB_ACTIONS_QUESTIONS_2 = [
     scenario: "An organization previously restricted workflows to an allow list of actions. A review finds the setting now permits all actions, and nobody admits to changing it. The team needs to know which account made the change and when.",
     question: "Which source answers that?",
     options: [
-      { id: 'A', text: "The security overview, which lists configuration drift across repositories." },
-      { id: 'B', text: "The organization audit log, filtered to the Actions policy events, which records the actor, action and timestamp." },
-      { id: 'C', text: "The commit history of the .github repository." },
-      { id: 'D', text: "The workflow run history, which records the policy in effect for each run." }
+      { id: 'A', text: "The security overview, which lists configuration drift per repository." },
+      { id: 'B', text: "The organization audit log, filtered to the Actions policy events." },
+      { id: 'C', text: "The commit history of the organization's `.github` repository." },
+      { id: 'D', text: "The workflow run history, which records the policy in force." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -513,10 +513,10 @@ export const GITHUB_ACTIONS_QUESTIONS_2 = [
     scenario: "An organization is close to its Actions storage allowance. Investigation shows most of it is nightly build artifacts that nobody consults after a couple of days, kept under the default retention period.",
     question: "Which change reduces the storage without editing every workflow?",
     options: [
-      { id: 'A', text: "Lower the artifact and log retention period in the organization Actions settings, which applies to repositories that do not set a shorter value." },
-      { id: 'B', text: "Switch the nightly builds to self-hosted runners, which store artifacts locally." },
-      { id: 'C', text: "Delete the workflow runs manually each week from the Actions tab." },
-      { id: 'D', text: "Move the artifacts into the Actions cache, which is not counted against storage." }
+      { id: 'A', text: "Lower the artifact and log retention in the organization's Actions settings." },
+      { id: 'B', text: "Move the nightly builds to self-hosted runners, which store artifacts locally." },
+      { id: 'C', text: "Delete the workflow runs by hand from the Actions tab once a week." },
+      { id: 'D', text: "Move the artifacts into the Actions cache, which is not counted as storage." }
     ],
     correctAnswers: ['A'],
     type: "single",

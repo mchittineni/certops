@@ -9,10 +9,10 @@ export const GITHUB_ACTIONS_QUESTIONS_1 = [
     scenario: "A CI workflow takes eleven minutes. Developers push several commits in quick succession to the same pull request branch, and every push starts another run, so four runs of the same branch execute at once and exhaust the concurrency allowance.",
     question: "Which workflow configuration ensures that only the newest run for a branch continues and older in-progress runs are cancelled?",
     options: [
-      { id: 'A', text: "Add an if condition comparing github.run_number to the repository default branch." },
-      { id: 'B', text: "Add a concurrency block with group set to a value derived from the workflow and github.ref, and cancel-in-progress set to true." },
-      { id: 'C', text: "Set strategy.fail-fast to true on the build job." },
-      { id: 'D', text: "Set timeout-minutes to a value lower than the average run duration." }
+      { id: 'A', text: "Add an `if` condition comparing `github.run_number` with the default branch's latest." },
+      { id: 'B', text: "Add a `concurrency` block keyed on the workflow and `github.ref` with cancel-in-progress on." },
+      { id: 'C', text: "Set `strategy.fail-fast: true` on the build job so superseded legs stop early." },
+      { id: 'D', text: "Set `timeout-minutes` below the average run duration so old runs are cut off." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -72,10 +72,10 @@ export const GITHUB_ACTIONS_QUESTIONS_1 = [
     scenario: "A build job computes an image tag from the commit metadata. A later deploy job in the same workflow, declared with needs on the build job, has to use that exact tag. The two jobs run on different runners.",
     question: "Which mechanism makes the tag available to the deploy job?",
     options: [
-      { id: 'A', text: "Store the tag in a repository secret from the build job and read the secret in the deploy job." },
-      { id: 'B', text: "Write the tag to the file referenced by GITHUB_OUTPUT in a step with an id, declare a job-level outputs mapping, and read it through the needs context in the deploy job." },
-      { id: 'C', text: "Write the tag to the file referenced by GITHUB_ENV, which is shared across all jobs in the workflow." },
-      { id: 'D', text: "Write the tag to an environment variable with export so later jobs inherit it." }
+      { id: 'A', text: "Store the tag in a repository secret from the build job and read that secret downstream." },
+      { id: 'B', text: "Write it to `$GITHUB_OUTPUT` in a step with an id, map it as a job output, read it through `needs`." },
+      { id: 'C', text: "Write the tag to `$GITHUB_ENV`, which is shared by every job in the same workflow." },
+      { id: 'D', text: "Export the tag as a shell variable so that the later jobs inherit its value." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -93,10 +93,10 @@ export const GITHUB_ACTIONS_QUESTIONS_1 = [
     scenario: "A workflow caches the dependency directory with a key built from a hash of the lockfile. Whenever a single dependency is added the hash changes, the cache misses completely, and the job spends four minutes downloading every package again.",
     question: "Which change reduces the cost of a lockfile change without ever serving a stale exact match?",
     options: [
-      { id: 'A', text: "Set the cache key to a constant string so it never changes." },
-      { id: 'B', text: "Upload the dependency directory as a build artifact and download it at the start of each run." },
-      { id: 'C', text: "Add restore-keys containing a shorter prefix of the same key so a partial match seeds the directory before installation." },
-      { id: 'D', text: "Replace the lockfile hash in the key with the run identifier so the key is always unique." }
+      { id: 'A', text: "Set the cache key to a constant string so that it never changes between runs." },
+      { id: 'B', text: "Upload the dependency directory as an artifact and download it at each run." },
+      { id: 'C', text: "Add `restore-keys` with a shorter prefix, so a partial match seeds the directory first." },
+      { id: 'D', text: "Replace the lockfile hash with the run identifier so the key is always new." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -114,10 +114,10 @@ export const GITHUB_ACTIONS_QUESTIONS_1 = [
     scenario: "A maintainer wants pull requests from forks to run a workflow that needs a repository secret to post coverage results. The current workflow triggers on pull_request, where secrets are unavailable to fork contributions.",
     question: "Why is switching the trigger to pull_request_target and checking out the pull request head considered dangerous?",
     options: [
-      { id: 'A', text: "pull_request_target runs in the context of the base repository with access to secrets and a writable token, so checking out and executing untrusted fork code lets a contributor exfiltrate those secrets." },
-      { id: 'B', text: "pull_request_target cannot be combined with a permissions block, so the token always has full write access." },
-      { id: 'C', text: "pull_request_target does not provide the pull request number, so the coverage comment cannot be posted." },
-      { id: 'D', text: "pull_request_target only fires when the pull request is merged, so coverage would be reported too late." }
+      { id: 'A', text: "`pull_request_target` runs in the base repository with secrets, so executing fork code exfiltrates them." },
+      { id: 'B', text: "`pull_request_target` cannot be combined with a permissions block, so the token always has write access." },
+      { id: 'C', text: "`pull_request_target` does not supply the pull request number, so the comment cannot be posted." },
+      { id: 'D', text: "`pull_request_target` only fires once the pull request merges, so coverage arrives too late." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -135,7 +135,7 @@ export const GITHUB_ACTIONS_QUESTIONS_1 = [
     scenario: "An operations team wants to start a deployment workflow manually from the Actions tab and pick a target environment from a fixed list of staging or production before the run begins.",
     question: "Which trigger configuration provides that prompt?",
     options: [
-      { id: 'A', text: "A workflow_dispatch trigger declaring an input of type choice with the two allowed options." },
+      { id: 'A', text: "A `workflow_dispatch` trigger with a `choice` input listing the two options." },
       { id: 'B', text: "A repository_dispatch trigger with a client payload." },
       { id: 'C', text: "A schedule trigger with two cron entries, one per environment." },
       { id: 'D', text: "An environment protection rule requiring a reviewer to select the target." }
@@ -157,7 +157,7 @@ export const GITHUB_ACTIONS_QUESTIONS_1 = [
     question: "Which approach transfers the binary to the test jobs?",
     options: [
       { id: 'A', text: "Commit the binary to a temporary branch in the compile job and check that branch out in each test job." },
-      { id: 'B', text: "Upload the binary with the upload-artifact action in the compile job and retrieve it with download-artifact in each test job." },
+      { id: 'B', text: "Upload the binary with `upload-artifact` and fetch it with `download-artifact`." },
       { id: 'C', text: "Rely on the needs relationship, which copies the workspace from the upstream job automatically." },
       { id: 'D', text: "Store the binary with the cache action using a key derived from the commit and restore it in the test jobs." }
     ],
@@ -219,10 +219,10 @@ export const GITHUB_ACTIONS_QUESTIONS_1 = [
     scenario: "Eleven repositories in an organization each maintain a near-identical deployment workflow. The platform team wants one authoritative definition that each repository calls, passing its own service name and inheriting the organization secrets.",
     question: "Which approach fits this requirement?",
     options: [
-      { id: 'A', text: "Publish the workflow as a composite action and reference it as a step in each repository." },
-      { id: 'B', text: "Copy the workflow into each repository and keep the copies aligned with a Dependabot configuration." },
-      { id: 'C', text: "Add the workflow to the organization .github repository, which applies it to every repository automatically." },
-      { id: 'D', text: "Define the shared file with a workflow_call trigger and inputs, then reference it from each repository with the uses keyword at job level, passing secrets: inherit." }
+      { id: 'A', text: "Publish the workflow as a composite action and use it as a step in each repository." },
+      { id: 'B', text: "Copy the workflow into each repository and keep the copies aligned with Dependabot." },
+      { id: 'C', text: "Put the workflow in the organization `.github` repository, which applies it everywhere." },
+      { id: 'D', text: "Give the shared file a `workflow_call` trigger and reference it with `uses:` at job level." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -240,10 +240,10 @@ export const GITHUB_ACTIONS_QUESTIONS_1 = [
     scenario: "A security review finds that workflows reference a community action using a floating major version tag. The reviewer notes that whoever controls the action repository can move that tag to new code at any time, which would execute in every workflow that references it.",
     question: "Which measures address that specific supply chain risk? (Choose two.)",
     options: [
-      { id: 'A', text: "Move the workflow onto self-hosted runners so the action executes inside the corporate network." },
-      { id: 'B', text: "Configure Dependabot with the github-actions ecosystem so pinned references are proposed for update in reviewable pull requests." },
-      { id: 'C', text: "Replace the version tag with the main branch so the newest code is always used." },
-      { id: 'D', text: "Reference the action by its full commit SHA rather than a tag or branch." }
+      { id: 'A', text: "Move the workflow to self-hosted runners so the action runs inside the corporate network." },
+      { id: 'B', text: "Configure Dependabot's github-actions ecosystem so pinned refs are updated in pull requests." },
+      { id: 'C', text: "Replace the version tag with the main branch so the newest code is always in use." },
+      { id: 'D', text: "Reference the action by its full commit SHA rather than by a tag or a branch." }
     ],
     correctAnswers: ['B', 'D'],
     type: "multiple",
@@ -282,10 +282,10 @@ export const GITHUB_ACTIONS_QUESTIONS_1 = [
     scenario: "A calling workflow invokes a reusable workflow that builds a container and determines its digest. A subsequent job in the calling workflow needs that digest to sign the image.",
     question: "How does the calling workflow obtain the digest?",
     options: [
-      { id: 'A', text: "The reusable workflow writes the digest to GITHUB_ENV, which propagates to the caller." },
-      { id: 'B', text: "The reusable workflow declares an outputs block mapping a job output, and the calling workflow reads it from the needs context of the calling job." },
-      { id: 'C', text: "The calling workflow reads the digest from the env context, which reusable workflows populate for their caller." },
-      { id: 'D', text: "The digest can only be transferred by uploading it as an artifact and downloading it in the caller." }
+      { id: 'A', text: "The reusable workflow writes it to `$GITHUB_ENV`, which propagates to the caller." },
+      { id: 'B', text: "The reusable workflow declares `outputs`, and the caller reads them from its `needs` context." },
+      { id: 'C', text: "The caller reads it from the `env` context, which a reusable workflow populates." },
+      { id: 'D', text: "It can only travel as an artifact, uploaded there and downloaded by the caller." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -303,9 +303,9 @@ export const GITHUB_ACTIONS_QUESTIONS_1 = [
     scenario: "A workflow run contains eight jobs. Two of them failed because of a transient registry outage that has since been resolved. Re-running the entire workflow would take twenty-five minutes and repeat six jobs that already passed.",
     question: "What is the appropriate action?",
     options: [
-      { id: 'A', text: "Use Re-run failed jobs on the run, which re-executes the failed jobs and their dependents while reusing the successful results." },
-      { id: 'B', text: "Cancel the run and start it again from the workflow_dispatch button." },
-      { id: 'C', text: "Edit the workflow to add continue-on-error to the two failing jobs and commit the change." },
+      { id: 'A', text: "Use Re-run failed jobs, which re-runs those and their dependents, reusing the rest." },
+      { id: 'B', text: "Cancel the run and start it again from the `workflow_dispatch` button." },
+      { id: 'C', text: "Add `continue-on-error` to the two failing jobs and commit that change." },
       { id: 'D', text: "Push an empty commit to trigger a fresh run of the whole workflow." }
     ],
     correctAnswers: ['A'],
@@ -325,7 +325,7 @@ export const GITHUB_ACTIONS_QUESTIONS_1 = [
     question: "Which source gives that breakdown?",
     options: [
       { id: 'A', text: "The Insights tab of each repository, which reports Actions minutes per contributor." },
-      { id: 'B', text: "The Actions usage metrics and the downloadable usage report available from the organization billing settings." },
+      { id: 'B', text: "The Actions usage metrics and the usage report from the billing settings." },
       { id: 'C', text: "The annotations shown on the summary page of each individual workflow run." },
       { id: 'D', text: "The audit log filtered on the workflows category." }
     ],
@@ -408,7 +408,7 @@ export const GITHUB_ACTIONS_QUESTIONS_1 = [
     scenario: "An action is at version 1.4.2. The maintainer wants consumers who reference the major version to pick up backward-compatible fixes without editing their workflows, while consumers who need reproducibility can pin exactly.",
     question: "Which release practice supports both audiences?",
     options: [
-      { id: 'A', text: "Publish an immutable tag for each release and additionally maintain a moving major version tag that is repointed to the newest compatible release." },
+      { id: 'A', text: "Publish an immutable tag per release and keep a moving major tag pointed at the newest." },
       { id: 'B', text: "Publish each release as a separate repository named after its version." },
       { id: 'C', text: "Publish only immutable tags for each patch release and tell consumers to update their references on every release." },
       { id: 'D', text: "Ask consumers to reference the default branch, and cut a tag only for breaking changes." }
@@ -429,10 +429,10 @@ export const GITHUB_ACTIONS_QUESTIONS_1 = [
     scenario: "A deployment workflow authenticates to a cloud provider with a static access key pair stored as repository secrets. Security requires that no long-lived cloud credential exists in GitHub, while the workflow keeps its ability to deploy.",
     question: "Which configuration meets that requirement?",
     options: [
-      { id: 'A', text: "Rotate the access key pair automatically every twenty-four hours with a scheduled workflow." },
-      { id: 'B', text: "Store the access key pair in an environment secret protected by required reviewers." },
-      { id: 'C', text: "Configure OpenID Connect trust between the cloud provider and GitHub, grant the job id-token: write, and exchange the short-lived token for a scoped cloud role." },
-      { id: 'D', text: "Move the access key pair from repository secrets to organization secrets scoped to selected repositories." }
+      { id: 'A', text: "Rotate the access key pair every twenty-four hours from a scheduled workflow." },
+      { id: 'B', text: "Hold the access key pair in an environment secret behind required reviewers." },
+      { id: 'C', text: "Trust OIDC, grant `id-token: write`, and exchange it for a scoped role." },
+      { id: 'D', text: "Move the access key pair to an organization secret scoped to those repositories." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -513,10 +513,10 @@ export const GITHUB_ACTIONS_QUESTIONS_1 = [
     scenario: "An enterprise wants workflows to use actions authored inside the enterprise plus a small reviewed list of third-party actions, and to block everything else in the Marketplace without reviewing each workflow file by hand.",
     question: "Which policy configuration achieves this?",
     options: [
-      { id: 'A', text: "Disable Actions entirely for the enterprise and re-enable it per repository as requests arrive." },
-      { id: 'B', text: "Require a CODEOWNERS review on the workflows directory in every repository." },
-      { id: 'C', text: "Enable secret scanning push protection, which blocks workflows that reference unapproved actions." },
-      { id: 'D', text: "Set the Actions permissions policy to allow enterprise actions plus specified actions, and populate the allow list with the reviewed third-party references." }
+      { id: 'A', text: "Disable Actions for the enterprise and re-enable it per repository as requests come in." },
+      { id: 'B', text: "Require a CODEOWNERS review on the workflows directory in each of the repositories." },
+      { id: 'C', text: "Enable push protection, which blocks workflows referencing unapproved actions." },
+      { id: 'D', text: "Set the policy to enterprise plus specified actions, with the reviewed refs listed." }
     ],
     correctAnswers: ['D'],
     type: "single",
