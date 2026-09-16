@@ -52,7 +52,7 @@ export const HASHICORP_TFA_QUESTIONS_2 = [
     question: "How does Terraform distinguish between multiple configurations of the same provider?",
     options: [
       { id: 'A', text: "A default provider block plus a second one with an `alias`, selected per resource" },
-      { id: 'B', text: "By keeping two state files in the same directory, one per region" },
+      { id: 'B', text: "By keeping two separate state files in the same directory, one per region" },
       { id: 'C', text: "By installing two Terraform versions, one configured per region" },
       { id: 'D', text: "Terraform forbids two regions in one configuration entirely" }
     ],
@@ -264,7 +264,7 @@ export const HASHICORP_TFA_QUESTIONS_2 = [
       { id: 'A', text: "On the developer's company Git server" },
       { id: 'B', text: "Inside the cloud provider's root billing console" },
       { id: 'C', text: "Remotely in a secure, isolated container runner managed by Terraform Cloud" },
-      { id: 'D', text: "Locally on the developer's laptop using local memory" }
+      { id: 'D', text: "Locally on the developer's own laptop, using its memory and credentials" }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -304,7 +304,7 @@ export const HASHICORP_TFA_QUESTIONS_2 = [
     question: "In Terraform Cloud, what does a Workspace represent?",
     options: [
       { id: 'A', text: "A management unit with its own state, variables and run history" },
-      { id: 'B', text: "A user's login account within the organisation" },
+      { id: 'B', text: "A single user's login account within the organisation" },
       { id: 'C', text: "A physical region in which the runs execute" },
       { id: 'D', text: "A temporary branch created for each change" }
     ],
@@ -368,7 +368,7 @@ export const HASHICORP_TFA_QUESTIONS_2 = [
     options: [
       { id: 'A', text: "In a file named providers.json" },
       { id: 'B', text: "In environment variables" },
-      { id: 'C', text: "Inside the provider \"aws\" block directly" },
+      { id: 'C', text: "Directly inside each provider \"aws\" block in the root" },
       { id: 'D', text: "Inside the terraform { required_providers { ... } } block" }
     ],
     correctAnswers: ['D'],
@@ -388,7 +388,7 @@ export const HASHICORP_TFA_QUESTIONS_2 = [
     question: "Which hostname namespace in a provider source address represents an internal private registry?",
     options: [
       { id: 'A', text: "A custom enterprise domain (e.g. terraform.company.internal/it-ops/baremetal)" },
-      { id: 'B', text: "Only the public registry hostname, registry.terraform.io" },
+      { id: 'B', text: "Only the public registry hostname, registry.terraform.io, is permitted" },
       { id: 'C', text: "Only a git host such as github.com, by its clone URL" },
       { id: 'D', text: "No custom hostname; the source must be a local path" }
     ],
@@ -429,7 +429,7 @@ export const HASHICORP_TFA_QUESTIONS_2 = [
     scenario: "A developer runs terraform init and checks in the newly generated dependency lock file to Git.",
     question: "What is the primary architectural purpose of the .terraform.lock.hcl dependency lock file?",
     options: [
-      { id: 'A', text: "It locks the state file so concurrent users cannot edit it" },
+      { id: 'A', text: "It locks the state file so that two concurrent users cannot edit it" },
       { id: 'B', text: "It pins the provider versions and their checksums for every run of the project" },
       { id: 'C', text: "It prevents developers from modifying .tf files" },
       { id: 'D', text: "It stores encrypted API passwords" }
@@ -472,7 +472,7 @@ export const HASHICORP_TFA_QUESTIONS_2 = [
     question: "How does Terraform prevent concurrent state corruption when using Amazon S3 as a backend?",
     options: [
       { id: 'A', text: "Through a DynamoDB lock table, so the second run is refused the lock" },
-      { id: 'B', text: "By creating two separate AWS accounts automatically" },
+      { id: 'B', text: "By creating two separate AWS accounts for the runs automatically" },
       { id: 'C', text: "By queuing the second user in an SQS message queue" },
       { id: 'D', text: "The S3 backend does not support locking" }
     ],

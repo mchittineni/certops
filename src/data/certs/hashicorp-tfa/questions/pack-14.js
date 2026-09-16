@@ -326,7 +326,7 @@ export const HASHICORP_TFA_QUESTIONS_14 = [
     options: [
       { id: 'A', text: "Log into the cloud console to find the instance IP by hand." },
       { id: 'B', text: "Execute `terraform output -raw instance_public_ip` to extract the raw string value." },
-      { id: 'C', text: "Run `terraform plan` and parse terminal text output with regex." },
+      { id: 'C', text: "Run `terraform plan` and parse the address out of the terminal output with regex." },
       { id: 'D', text: "Read the address out of the state document with a JSON query." }
     ],
     correctAnswers: ['B'],
@@ -347,7 +347,7 @@ export const HASHICORP_TFA_QUESTIONS_14 = [
     options: [
       { id: 'A', text: "Execute `terraform output -raw instance_public_ip` to extract the raw string value." },
       { id: 'B', text: "Read the address out of the state document with a JSON query." },
-      { id: 'C', text: "Run `terraform plan` and parse terminal text output with regex." },
+      { id: 'C', text: "Run `terraform plan` and parse the address out of the terminal output with regex." },
       { id: 'D', text: "Log into the cloud console to find the instance IP by hand." }
     ],
     correctAnswers: ['A'],
@@ -368,7 +368,7 @@ export const HASHICORP_TFA_QUESTIONS_14 = [
     options: [
       { id: 'A', text: "Log into the cloud console to find the instance IP by hand." },
       { id: 'B', text: "Execute `terraform output -raw instance_public_ip` to extract the raw string value." },
-      { id: 'C', text: "Run `terraform plan` and parse terminal text output with regex." },
+      { id: 'C', text: "Run `terraform plan` and parse the address out of the terminal output with regex." },
       { id: 'D', text: "Read the address out of the state document with a JSON query." }
     ],
     correctAnswers: ['B'],
@@ -388,7 +388,7 @@ export const HASHICORP_TFA_QUESTIONS_14 = [
     question: "Which practice or platform feature enables the engineering team to modernize provisioning workflows with minimal operational friction?",
     options: [
       { id: 'A', text: "Execute `terraform output -raw instance_public_ip` to extract the raw string value." },
-      { id: 'B', text: "Run `terraform plan` and parse terminal text output with regex." },
+      { id: 'B', text: "Run `terraform plan` and parse the address out of the terminal output with regex." },
       { id: 'C', text: "Log into the cloud console to find the instance IP by hand." },
       { id: 'D', text: "Read the address out of the state document with a JSON query." }
     ],
@@ -411,7 +411,7 @@ export const HASHICORP_TFA_QUESTIONS_14 = [
       { id: 'A', text: "Log into the cloud console to find the instance IP by hand." },
       { id: 'B', text: "Read the address out of the state document with a JSON query." },
       { id: 'C', text: "Execute `terraform output -raw instance_public_ip` to extract the raw string value." },
-      { id: 'D', text: "Run `terraform plan` and parse terminal text output with regex." }
+      { id: 'D', text: "Run `terraform plan` and parse the address out of the terminal output with regex." }
     ],
     correctAnswers: ['C'],
     type: "single",

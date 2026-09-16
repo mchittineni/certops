@@ -94,7 +94,7 @@ export const HASHICORP_TFA_QUESTIONS_4 = [
     question: "How can teams import existing infrastructure into state declaratively using code rather than running imperative CLI commands?",
     options: [
       { id: 'A', text: "By declaring an `import` block with its `to` and `id` arguments" },
-      { id: 'B', text: "Terraform does not support declarative imports" },
+      { id: 'B', text: "Terraform does not support importing declaratively in code" },
       { id: 'C', text: "By using the terraform_import resource" },
       { id: 'D', text: "By writing a shell script in user_data" }
     ],

@@ -9,7 +9,7 @@ export const HASHICORP_TFA_QUESTIONS_12 = [
     scenario: "An enterprise cloud operations team is establishing high-availability standards, automated state recovery procedures, and infrastructure resilience baselines with Terraform. The Terraform engineer needs to understand how Terraform communicates with diverse cloud APIs (AWS, Azure, GCP, GitHub, Datadog) through a unified workflow.",
     question: "Which architectural approach or configuration satisfies these infrastructure disaster recovery and operational resilience objectives?",
     options: [
-      { id: 'A', text: "Terraform Core evaluates HCL configurations and dependency graphs, communicating with external Provider plugins over gRPC." },
+      { id: 'A', text: "Terraform Core evaluates the configuration graph and calls provider plugins over gRPC." },
       { id: 'B', text: "Terraform Core ships the cloud API clients inside its own binary, with no plugins." },
       { id: 'C', text: "Providers run as web services in the cloud, while Terraform Core runs locally without plugins." },
       { id: 'D', text: "Terraform executes raw bash scripts to talk to cloud APIs." }
@@ -32,7 +32,7 @@ export const HASHICORP_TFA_QUESTIONS_12 = [
     options: [
       { id: 'A', text: "Providers run as web services in the cloud, while Terraform Core runs locally without plugins." },
       { id: 'B', text: "Terraform executes raw bash scripts to talk to cloud APIs." },
-      { id: 'C', text: "Terraform Core evaluates HCL configurations and dependency graphs, communicating with external Provider plugins over gRPC." },
+      { id: 'C', text: "Terraform Core evaluates the configuration graph and calls provider plugins over gRPC." },
       { id: 'D', text: "Terraform Core ships the cloud API clients inside its own binary, with no plugins." }
     ],
     correctAnswers: ['C'],
@@ -51,7 +51,7 @@ export const HASHICORP_TFA_QUESTIONS_12 = [
     scenario: "A cloud security auditor requires strict protection of sensitive state data, verified provider dependencies, and automated governance across all Terraform pipelines. The Terraform engineer needs to understand how Terraform communicates with diverse cloud APIs (AWS, Azure, GCP, GitHub, Datadog) through a unified workflow.",
     question: "Which solution implements these mandatory infrastructure as code security and governance controls?",
     options: [
-      { id: 'A', text: "Terraform Core evaluates HCL configurations and dependency graphs, communicating with external Provider plugins over gRPC." },
+      { id: 'A', text: "Terraform Core evaluates the configuration graph and calls provider plugins over gRPC." },
       { id: 'B', text: "Providers run as web services in the cloud, while Terraform Core runs locally without plugins." },
       { id: 'C', text: "Terraform executes raw bash scripts to talk to cloud APIs." },
       { id: 'D', text: "Terraform Core ships the cloud API clients inside its own binary, with no plugins." }
@@ -74,7 +74,7 @@ export const HASHICORP_TFA_QUESTIONS_12 = [
     options: [
       { id: 'A', text: "Terraform executes raw bash scripts to talk to cloud APIs." },
       { id: 'B', text: "Terraform Core ships the cloud API clients inside its own binary, with no plugins." },
-      { id: 'C', text: "Terraform Core evaluates HCL configurations and dependency graphs, communicating with external Provider plugins over gRPC." },
+      { id: 'C', text: "Terraform Core evaluates the configuration graph and calls provider plugins over gRPC." },
       { id: 'D', text: "Providers run as web services in the cloud, while Terraform Core runs locally without plugins." }
     ],
     correctAnswers: ['C'],
@@ -96,7 +96,7 @@ export const HASHICORP_TFA_QUESTIONS_12 = [
       { id: 'A', text: "Providers run as web services in the cloud, while Terraform Core runs locally without plugins." },
       { id: 'B', text: "Terraform Core ships the cloud API clients inside its own binary, with no plugins." },
       { id: 'C', text: "Terraform executes raw bash scripts to talk to cloud APIs." },
-      { id: 'D', text: "Terraform Core evaluates HCL configurations and dependency graphs, communicating with external Provider plugins over gRPC." }
+      { id: 'D', text: "Terraform Core evaluates the configuration graph and calls provider plugins over gRPC." }
     ],
     correctAnswers: ['D'],
     type: "single",

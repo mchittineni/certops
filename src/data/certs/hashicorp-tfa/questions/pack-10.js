@@ -51,10 +51,10 @@ export const HASHICORP_TFA_QUESTIONS_10 = [
     scenario: "A developer writes comments in an HCL configuration file.",
     question: "Which three comment styles are officially supported by HashiCorp Configuration Language (HCL)?",
     options: [
-      { id: 'A', text: "REM and :: only" },
-      { id: 'B', text: "# only" },
+      { id: 'A', text: "REM (single-line) and :: (single-line) only" },
+      { id: 'B', text: "# (single-line) only, as in shell scripts" },
       { id: 'C', text: "# (single-line), // (single-line), and /* */ (multi-line block)" },
-      { id: 'D', text: "-- (single-line), % (single-line), and <!-- -->" }
+      { id: 'D', text: "-- (single-line), % (single-line), and REM (multi-line block)" }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -220,9 +220,9 @@ export const HASHICORP_TFA_QUESTIONS_10 = [
     question: "Which function converts this object into a uniform map(string)?",
     options: [
       { id: 'A', text: "tomap({ name = \"app\", env = \"prod\" })" },
-      { id: 'B', text: "as_map({ ... })" },
-      { id: 'C', text: "dict({ ... })" },
-      { id: 'D', text: "map_convert({ ... })" }
+      { id: 'B', text: "as_map({ name = \"app\", env = \"prod\" })" },
+      { id: 'C', text: "dict({ name = \"app\", env = \"prod\" })" },
+      { id: 'D', text: "map_convert({ name = \"app\", env = \"prod\" })" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -388,9 +388,9 @@ export const HASHICORP_TFA_QUESTIONS_10 = [
     question: "Which function returns true if a given value is present in a list or set?",
     options: [
       { id: 'A', text: "contains([\"us-east-1\", \"us-west-2\", \"eu-west-1\"], var.region)" },
-      { id: 'B', text: "in(var.region, [\"us-east-1\", ...])" },
-      { id: 'C', text: "includes([\"us-east-1\", ...], var.region)" },
-      { id: 'D', text: "has([\"us-east-1\", ...], var.region)" }
+      { id: 'B', text: "in(var.region, [\"us-east-1\", \"us-west-2\", \"eu-west-1\"])" },
+      { id: 'C', text: "includes([\"us-east-1\", \"us-west-2\", \"eu-west-1\"], var.region)" },
+      { id: 'D', text: "has([\"us-east-1\", \"us-west-2\", \"eu-west-1\"], var.region)" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -430,7 +430,7 @@ export const HASHICORP_TFA_QUESTIONS_10 = [
     question: "How does the length() function behave when passed a list versus a string?",
     options: [
       { id: 'A', text: "On a list it counts the elements; on a string it counts the characters" },
-      { id: 'B', text: "length() only works on lists; it fails on strings" },
+      { id: 'B', text: "`length()` works only on lists; on a string it raises an error" },
       { id: 'C', text: "length() returns the memory byte size" },
       { id: 'D', text: "length() returns a boolean" }
     ],

@@ -136,7 +136,7 @@ export const HASHICORP_TFA_QUESTIONS_5 = [
     question: "How does `terraform output` display this value when run without flags in the terminal?",
     options: [
       { id: 'A', text: "It outputs a cryptographic hash" },
-      { id: 'B', text: "It outputs the cleartext password" },
+      { id: 'B', text: "It prints the cleartext password like any other output" },
       { id: 'C', text: "It generates an error" },
       { id: 'D', text: "It prints `&lt;sensitive&gt;` in place of the value" }
     ],
@@ -324,9 +324,9 @@ export const HASHICORP_TFA_QUESTIONS_5 = [
     scenario: "A team references a shared company module hosted on a private GitHub repository: `git::https://github.com/example/terraform-aws-vpc.git`.",
     question: "Which URL query parameter pins the module to a specific release tag or commit SHA?",
     options: [
-      { id: 'A', text: "?branch=v2.1.0" },
-      { id: 'B', text: "?tag=v2.1.0" },
-      { id: 'C', text: "?version=v2.1.0" },
+      { id: 'A', text: "?branch=v2.1.0 (or ?branch=main)" },
+      { id: 'B', text: "?tag=v2.1.0 (or ?tag=commit-hash)" },
+      { id: 'C', text: "?version=v2.1.0 (or ?version=latest)" },
       { id: 'D', text: "?ref=v2.1.0 (or ?ref=commit-hash)" }
     ],
     correctAnswers: ['D'],
@@ -388,7 +388,7 @@ export const HASHICORP_TFA_QUESTIONS_5 = [
     question: "How are variable values passed into a child module call?",
     options: [
       { id: 'A', text: "As explicit input arguments inside the module block (e.g. cidr_block = var.corporate_cidr)" },
-      { id: 'B', text: "Child modules automatically inherit all root variables implicitly" },
+      { id: 'B', text: "Child modules automatically inherit all of the root module's variables implicitly" },
       { id: 'C', text: "Via environment variables only" },
       { id: 'D', text: "By exporting global state" }
     ],
@@ -408,10 +408,10 @@ export const HASHICORP_TFA_QUESTIONS_5 = [
     scenario: "A developer edits code inside an external Git repository referenced by a child module (`?ref=main`). Running `terraform plan` does not pick up the updated code from GitHub.",
     question: "Which command instructs Terraform to re-evaluate and download updated module source code?",
     options: [
-      { id: 'A', text: "terraform sync" },
-      { id: 'B', text: "terraform plan -refresh" },
+      { id: 'A', text: "terraform sync (or terraform refresh)" },
+      { id: 'B', text: "terraform plan -refresh (or -refresh-only)" },
       { id: 'C', text: "terraform init (or terraform get -update)" },
-      { id: 'D', text: "terraform module update" }
+      { id: 'D', text: "terraform module update (or module get)" }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -492,7 +492,7 @@ export const HASHICORP_TFA_QUESTIONS_5 = [
     scenario: "A developer uses the standard local backend and creates two workspaces: `default` and `development`.",
     question: "Where is the state file for the development workspace stored on the local filesystem?",
     options: [
-      { id: 'A', text: "In the root directory as terraform.tfstate" },
+      { id: 'A', text: "In the root of the working directory, as terraform.tfstate" },
       { id: 'B', text: "In the terraform.tfstate.d/development/terraform.tfstate directory" },
       { id: 'C', text: "In the .terraform/modules directory" },
       { id: 'D', text: "In ~/.terraform/workspaces/development" }
