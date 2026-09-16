@@ -117,7 +117,7 @@ export const GITHUB_GHAS_QUESTIONS_18 = [
       { id: 'A', text: "Set `queries: security-extended`, which adds the argument-handling queries to the suite." },
       { id: 'B', text: "Write a model pack declaring the CLI's argument parser as an additional taint source." },
       { id: 'C', text: "Set `threat-models: [local, remote]` so arguments and environment variables count as sources." },
-      { id: 'D', text: "Keep the default threat model, which treats network sockets and HTTP parameters as sources." }
+      { id: 'D', text: "Keep the default threat model, which treats only network sockets and HTTP parameters as sources." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -137,7 +137,7 @@ export const GITHUB_GHAS_QUESTIONS_18 = [
     options: [
       { id: 'A', text: "Write a model pack declaring the CLI's argument parser as an additional taint source." },
       { id: 'B', text: "Set `queries: security-extended`, which adds the argument-handling queries to the suite." },
-      { id: 'C', text: "Keep the default threat model, which treats network sockets and HTTP parameters as sources." },
+      { id: 'C', text: "Keep the default threat model, which treats only network sockets and HTTP parameters as sources." },
       { id: 'D', text: "Set `threat-models: [local, remote]` so arguments and environment variables count as sources." }
     ],
     correctAnswers: ['D'],
@@ -157,7 +157,7 @@ export const GITHUB_GHAS_QUESTIONS_18 = [
     question: "Which secret scanning feature or remediation workflow prevents sensitive credential exposure?",
     options: [
       { id: 'A', text: "Write a model pack declaring the CLI's argument parser as an additional taint source." },
-      { id: 'B', text: "Keep the default threat model, which treats network sockets and HTTP parameters as sources." },
+      { id: 'B', text: "Keep the default threat model, which treats only network sockets and HTTP parameters as sources." },
       { id: 'C', text: "Set `threat-models: [local, remote]` so arguments and environment variables count as sources." },
       { id: 'D', text: "Set `queries: security-extended`, which adds the argument-handling queries to the suite." }
     ],
@@ -180,7 +180,7 @@ export const GITHUB_GHAS_QUESTIONS_18 = [
       { id: 'A', text: "Set `queries: security-extended`, which adds the argument-handling queries to the suite." },
       { id: 'B', text: "Write a model pack declaring the CLI's argument parser as an additional taint source." },
       { id: 'C', text: "Set `threat-models: [local, remote]` so arguments and environment variables count as sources." },
-      { id: 'D', text: "Keep the default threat model, which treats network sockets and HTTP parameters as sources." }
+      { id: 'D', text: "Keep the default threat model, which treats only network sockets and HTTP parameters as sources." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -199,7 +199,7 @@ export const GITHUB_GHAS_QUESTIONS_18 = [
     question: "Which governance policy or GHAS enterprise feature guarantees continuous regulatory compliance?",
     options: [
       { id: 'A', text: "Set `threat-models: [local, remote]` so arguments and environment variables count as sources." },
-      { id: 'B', text: "Keep the default threat model, which treats network sockets and HTTP parameters as sources." },
+      { id: 'B', text: "Keep the default threat model, which treats only network sockets and HTTP parameters as sources." },
       { id: 'C', text: "Set `queries: security-extended`, which adds the argument-handling queries to the suite." },
       { id: 'D', text: "Write a model pack declaring the CLI's argument parser as an additional taint source." }
     ],
@@ -327,7 +327,7 @@ export const GITHUB_GHAS_QUESTIONS_18 = [
       { id: 'A', text: "Split the analysis by language so each CodeQL job builds a smaller database." },
       { id: 'B', text: "Keep the default runner and add `--threads=1` so the analysis uses less memory." },
       { id: 'C', text: "Move the analysis to a larger hosted runner and pass `--ram` to the CodeQL init step." },
-      { id: 'D', text: "Restrict the analysis to the paths changed in the pull request with a path filter." }
+      { id: 'D', text: "Restrict the analysis to only the paths changed in the pull request with a path filter." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -346,7 +346,7 @@ export const GITHUB_GHAS_QUESTIONS_18 = [
     question: "Which Dependabot practice or supply chain security configuration defends the software lifecycle effectively?",
     options: [
       { id: 'A', text: "Move the analysis to a larger hosted runner and pass `--ram` to the CodeQL init step." },
-      { id: 'B', text: "Restrict the analysis to the paths changed in the pull request with a path filter." },
+      { id: 'B', text: "Restrict the analysis to only the paths changed in the pull request with a path filter." },
       { id: 'C', text: "Split the analysis by language so each CodeQL job builds a smaller database." },
       { id: 'D', text: "Keep the default runner and add `--threads=1` so the analysis uses less memory." }
     ],
@@ -366,7 +366,7 @@ export const GITHUB_GHAS_QUESTIONS_18 = [
     scenario: "A security operations team is enforcing zero-trust credential hygiene, push protection guardrails, and automated token revocation across developer workflows. The AppSec engineer needs to prevent CodeQL analysis jobs from running out of memory (OOM) on massive enterprise monorepos with millions of lines of code.",
     question: "Which secret scanning feature or remediation workflow prevents sensitive credential exposure?",
     options: [
-      { id: 'A', text: "Restrict the analysis to the paths changed in the pull request with a path filter." },
+      { id: 'A', text: "Restrict the analysis to only the paths changed in the pull request with a path filter." },
       { id: 'B', text: "Keep the default runner and add `--threads=1` so the analysis uses less memory." },
       { id: 'C', text: "Split the analysis by language so each CodeQL job builds a smaller database." },
       { id: 'D', text: "Move the analysis to a larger hosted runner and pass `--ram` to the CodeQL init step." }
@@ -390,7 +390,7 @@ export const GITHUB_GHAS_QUESTIONS_18 = [
       { id: 'A', text: "Split the analysis by language so each CodeQL job builds a smaller database." },
       { id: 'B', text: "Keep the default runner and add `--threads=1` so the analysis uses less memory." },
       { id: 'C', text: "Move the analysis to a larger hosted runner and pass `--ram` to the CodeQL init step." },
-      { id: 'D', text: "Restrict the analysis to the paths changed in the pull request with a path filter." }
+      { id: 'D', text: "Restrict the analysis to only the paths changed in the pull request with a path filter." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -410,7 +410,7 @@ export const GITHUB_GHAS_QUESTIONS_18 = [
     options: [
       { id: 'A', text: "Keep the default runner and add `--threads=1` so the analysis uses less memory." },
       { id: 'B', text: "Split the analysis by language so each CodeQL job builds a smaller database." },
-      { id: 'C', text: "Restrict the analysis to the paths changed in the pull request with a path filter." },
+      { id: 'C', text: "Restrict the analysis to only the paths changed in the pull request with a path filter." },
       { id: 'D', text: "Move the analysis to a larger hosted runner and pass `--ram` to the CodeQL init step." }
     ],
     correctAnswers: ['D'],
@@ -429,7 +429,7 @@ export const GITHUB_GHAS_QUESTIONS_18 = [
     scenario: "An enterprise application security team is deploying GitHub Advanced Security (GHAS) across hundreds of repositories to establish automated vulnerability management and compliance guardrails. The AppSec engineer needs to trace tainted data correctly in an enterprise Java application where input flows through an interface implemented by multiple classes.",
     question: "Which architectural approach or GHAS configuration satisfies these enterprise security rollout objectives?",
     options: [
-      { id: 'A', text: "Add a model pack that declares each interface method as a taint step for the analysis." },
+      { id: 'A', text: "Add a model pack that declares each of the interface's methods as a taint step for the whole analysis." },
       { id: 'B', text: "Rely on CodeQL's call graph, which resolves virtual dispatch and tracks taint through interfaces." },
       { id: 'C', text: "Add a custom query that follows the concrete implementations the build actually links." },
       { id: 'D', text: "Extend the default suite with the security-extended queries, which cross interfaces." }
@@ -450,7 +450,7 @@ export const GITHUB_GHAS_QUESTIONS_18 = [
     scenario: "A devsecops engineering team is securing the software supply chain against malicious open-source packages, known CVEs, and license compliance violations across build pipelines. The AppSec engineer needs to trace tainted data correctly in an enterprise Java application where input flows through an interface implemented by multiple classes.",
     question: "Which Dependabot practice or supply chain security configuration defends the software lifecycle effectively?",
     options: [
-      { id: 'A', text: "Add a model pack that declares each interface method as a taint step for the analysis." },
+      { id: 'A', text: "Add a model pack that declares each of the interface's methods as a taint step for the whole analysis." },
       { id: 'B', text: "Extend the default suite with the security-extended queries, which cross interfaces." },
       { id: 'C', text: "Rely on CodeQL's call graph, which resolves virtual dispatch and tracks taint through interfaces." },
       { id: 'D', text: "Add a custom query that follows the concrete implementations the build actually links." }
@@ -472,7 +472,7 @@ export const GITHUB_GHAS_QUESTIONS_18 = [
     question: "Which secret scanning feature or remediation workflow prevents sensitive credential exposure?",
     options: [
       { id: 'A', text: "Add a custom query that follows the concrete implementations the build actually links." },
-      { id: 'B', text: "Add a model pack that declares each interface method as a taint step for the analysis." },
+      { id: 'B', text: "Add a model pack that declares each of the interface's methods as a taint step for the whole analysis." },
       { id: 'C', text: "Rely on CodeQL's call graph, which resolves virtual dispatch and tracks taint through interfaces." },
       { id: 'D', text: "Extend the default suite with the security-extended queries, which cross interfaces." }
     ],
@@ -495,7 +495,7 @@ export const GITHUB_GHAS_QUESTIONS_18 = [
       { id: 'A', text: "Rely on CodeQL's call graph, which resolves virtual dispatch and tracks taint through interfaces." },
       { id: 'B', text: "Extend the default suite with the security-extended queries, which cross interfaces." },
       { id: 'C', text: "Add a custom query that follows the concrete implementations the build actually links." },
-      { id: 'D', text: "Add a model pack that declares each interface method as a taint step for the analysis." }
+      { id: 'D', text: "Add a model pack that declares each of the interface's methods as a taint step for the whole analysis." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -515,7 +515,7 @@ export const GITHUB_GHAS_QUESTIONS_18 = [
     options: [
       { id: 'A', text: "Rely on CodeQL's call graph, which resolves virtual dispatch and tracks taint through interfaces." },
       { id: 'B', text: "Add a custom query that follows the concrete implementations the build actually links." },
-      { id: 'C', text: "Add a model pack that declares each interface method as a taint step for the analysis." },
+      { id: 'C', text: "Add a model pack that declares each of the interface's methods as a taint step for the whole analysis." },
       { id: 'D', text: "Extend the default suite with the security-extended queries, which cross interfaces." }
     ],
     correctAnswers: ['A'],

@@ -114,7 +114,7 @@ export const GITHUB_GHAS_QUESTIONS_14 = [
     scenario: "An enterprise application security team is deploying GitHub Advanced Security (GHAS) across hundreds of repositories to establish automated vulnerability management and compliance guardrails. The AppSec engineer needs to automatically dismiss low-severity development dependency alerts while automatically opening urgent PRs for production CVEs.",
     question: "Which architectural approach or GHAS configuration satisfies these enterprise security rollout objectives?",
     options: [
-      { id: 'A', text: "Configure Dependabot to open pull requests only for runtime dependencies, grouped weekly." },
+      { id: 'A', text: "Configure Dependabot to open pull requests only for the runtime dependencies, grouped weekly." },
       { id: 'B', text: "Configure Dependabot auto-triage rules on severity, dependency scope and patch availability." },
       { id: 'C', text: "Configure a scheduled workflow that dismisses development-scope alerts through the API." },
       { id: 'D', text: "Configure the alert threshold at the organization level so only criticals are surfaced." }
@@ -137,7 +137,7 @@ export const GITHUB_GHAS_QUESTIONS_14 = [
     options: [
       { id: 'A', text: "Configure Dependabot auto-triage rules on severity, dependency scope and patch availability." },
       { id: 'B', text: "Configure a scheduled workflow that dismisses development-scope alerts through the API." },
-      { id: 'C', text: "Configure Dependabot to open pull requests only for runtime dependencies, grouped weekly." },
+      { id: 'C', text: "Configure Dependabot to open pull requests only for the runtime dependencies, grouped weekly." },
       { id: 'D', text: "Configure the alert threshold at the organization level so only criticals are surfaced." }
     ],
     correctAnswers: ['A'],
@@ -158,7 +158,7 @@ export const GITHUB_GHAS_QUESTIONS_14 = [
     options: [
       { id: 'A', text: "Configure Dependabot auto-triage rules on severity, dependency scope and patch availability." },
       { id: 'B', text: "Configure a scheduled workflow that dismisses development-scope alerts through the API." },
-      { id: 'C', text: "Configure Dependabot to open pull requests only for runtime dependencies, grouped weekly." },
+      { id: 'C', text: "Configure Dependabot to open pull requests only for the runtime dependencies, grouped weekly." },
       { id: 'D', text: "Configure the alert threshold at the organization level so only criticals are surfaced." }
     ],
     correctAnswers: ['A'],
@@ -180,7 +180,7 @@ export const GITHUB_GHAS_QUESTIONS_14 = [
       { id: 'A', text: "Configure the alert threshold at the organization level so only criticals are surfaced." },
       { id: 'B', text: "Configure a scheduled workflow that dismisses development-scope alerts through the API." },
       { id: 'C', text: "Configure Dependabot auto-triage rules on severity, dependency scope and patch availability." },
-      { id: 'D', text: "Configure Dependabot to open pull requests only for runtime dependencies, grouped weekly." }
+      { id: 'D', text: "Configure Dependabot to open pull requests only for the runtime dependencies, grouped weekly." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -200,7 +200,7 @@ export const GITHUB_GHAS_QUESTIONS_14 = [
     options: [
       { id: 'A', text: "Configure Dependabot auto-triage rules on severity, dependency scope and patch availability." },
       { id: 'B', text: "Configure a scheduled workflow that dismisses development-scope alerts through the API." },
-      { id: 'C', text: "Configure Dependabot to open pull requests only for runtime dependencies, grouped weekly." },
+      { id: 'C', text: "Configure Dependabot to open pull requests only for the runtime dependencies, grouped weekly." },
       { id: 'D', text: "Configure the alert threshold at the organization level so only criticals are surfaced." }
     ],
     correctAnswers: ['A'],
@@ -430,7 +430,7 @@ export const GITHUB_GHAS_QUESTIONS_14 = [
     question: "Which architectural approach or GHAS configuration satisfies these enterprise security rollout objectives?",
     options: [
       { id: 'A', text: "Set a `registries` block in `.github/dependabot.yml` with a Dependabot secret for the token." },
-      { id: 'B', text: "Set an Actions organization secret with the token, which Dependabot reads when it runs." },
+      { id: 'B', text: "Set an Actions organization secret holding the token, which Dependabot reads when it next runs." },
       { id: 'C', text: "Mirror the internal registry into a public proxy so no authentication is needed at all." },
       { id: 'D', text: "Commit a `.npmrc` with the registry token so the resolver authenticates on each run." }
     ],
@@ -450,7 +450,7 @@ export const GITHUB_GHAS_QUESTIONS_14 = [
     scenario: "A devsecops engineering team is securing the software supply chain against malicious open-source packages, known CVEs, and license compliance violations across build pipelines. The AppSec engineer needs to enable Dependabot to check for updates and security advisories on proprietary internal packages hosted in a private Artifactory registry.",
     question: "Which Dependabot practice or supply chain security configuration defends the software lifecycle effectively?",
     options: [
-      { id: 'A', text: "Set an Actions organization secret with the token, which Dependabot reads when it runs." },
+      { id: 'A', text: "Set an Actions organization secret holding the token, which Dependabot reads when it next runs." },
       { id: 'B', text: "Commit a `.npmrc` with the registry token so the resolver authenticates on each run." },
       { id: 'C', text: "Mirror the internal registry into a public proxy so no authentication is needed at all." },
       { id: 'D', text: "Set a `registries` block in `.github/dependabot.yml` with a Dependabot secret for the token." }
@@ -472,7 +472,7 @@ export const GITHUB_GHAS_QUESTIONS_14 = [
     question: "Which secret scanning feature or remediation workflow prevents sensitive credential exposure?",
     options: [
       { id: 'A', text: "Set a `registries` block in `.github/dependabot.yml` with a Dependabot secret for the token." },
-      { id: 'B', text: "Set an Actions organization secret with the token, which Dependabot reads when it runs." },
+      { id: 'B', text: "Set an Actions organization secret holding the token, which Dependabot reads when it next runs." },
       { id: 'C', text: "Mirror the internal registry into a public proxy so no authentication is needed at all." },
       { id: 'D', text: "Commit a `.npmrc` with the registry token so the resolver authenticates on each run." }
     ],
@@ -495,7 +495,7 @@ export const GITHUB_GHAS_QUESTIONS_14 = [
       { id: 'A', text: "Mirror the internal registry into a public proxy so no authentication is needed at all." },
       { id: 'B', text: "Commit a `.npmrc` with the registry token so the resolver authenticates on each run." },
       { id: 'C', text: "Set a `registries` block in `.github/dependabot.yml` with a Dependabot secret for the token." },
-      { id: 'D', text: "Set an Actions organization secret with the token, which Dependabot reads when it runs." }
+      { id: 'D', text: "Set an Actions organization secret holding the token, which Dependabot reads when it next runs." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -514,7 +514,7 @@ export const GITHUB_GHAS_QUESTIONS_14 = [
     question: "Which governance policy or GHAS enterprise feature guarantees continuous regulatory compliance?",
     options: [
       { id: 'A', text: "Mirror the internal registry into a public proxy so no authentication is needed at all." },
-      { id: 'B', text: "Set an Actions organization secret with the token, which Dependabot reads when it runs." },
+      { id: 'B', text: "Set an Actions organization secret holding the token, which Dependabot reads when it next runs." },
       { id: 'C', text: "Commit a `.npmrc` with the registry token so the resolver authenticates on each run." },
       { id: 'D', text: "Set a `registries` block in `.github/dependabot.yml` with a Dependabot secret for the token." }
     ],

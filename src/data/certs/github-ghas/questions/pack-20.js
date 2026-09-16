@@ -114,7 +114,7 @@ export const GITHUB_GHAS_QUESTIONS_20 = [
     scenario: "An enterprise application security team is deploying GitHub Advanced Security (GHAS) across hundreds of repositories to establish automated vulnerability management and compliance guardrails. The AppSec engineer needs to enable external security researchers to report vulnerabilities privately without disclosing zero-day bugs in public issues.",
     question: "Which architectural approach or GHAS configuration satisfies these enterprise security rollout objectives?",
     options: [
-      { id: 'A', text: "Enable private vulnerability reporting, and hold the fix in a private mirror repository." },
+      { id: 'A', text: "Enable private vulnerability reporting, and hold the fix in a private mirror of the repository." },
       { id: 'B', text: "Direct reporters to a `SECURITY.md` mailbox, and track the fix in a private issue." },
       { id: 'C', text: "Direct reporters to open a draft advisory themselves, and fix on the default branch." },
       { id: 'D', text: "Enable private vulnerability reporting, and use security advisories to fix in a private fork." }
@@ -138,7 +138,7 @@ export const GITHUB_GHAS_QUESTIONS_20 = [
       { id: 'A', text: "Enable private vulnerability reporting, and use security advisories to fix in a private fork." },
       { id: 'B', text: "Direct reporters to open a draft advisory themselves, and fix on the default branch." },
       { id: 'C', text: "Direct reporters to a `SECURITY.md` mailbox, and track the fix in a private issue." },
-      { id: 'D', text: "Enable private vulnerability reporting, and hold the fix in a private mirror repository." }
+      { id: 'D', text: "Enable private vulnerability reporting, and hold the fix in a private mirror of the repository." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -158,7 +158,7 @@ export const GITHUB_GHAS_QUESTIONS_20 = [
     options: [
       { id: 'A', text: "Direct reporters to open a draft advisory themselves, and fix on the default branch." },
       { id: 'B', text: "Enable private vulnerability reporting, and use security advisories to fix in a private fork." },
-      { id: 'C', text: "Enable private vulnerability reporting, and hold the fix in a private mirror repository." },
+      { id: 'C', text: "Enable private vulnerability reporting, and hold the fix in a private mirror of the repository." },
       { id: 'D', text: "Direct reporters to a `SECURITY.md` mailbox, and track the fix in a private issue." }
     ],
     correctAnswers: ['B'],
@@ -180,7 +180,7 @@ export const GITHUB_GHAS_QUESTIONS_20 = [
       { id: 'A', text: "Direct reporters to open a draft advisory themselves, and fix on the default branch." },
       { id: 'B', text: "Direct reporters to a `SECURITY.md` mailbox, and track the fix in a private issue." },
       { id: 'C', text: "Enable private vulnerability reporting, and use security advisories to fix in a private fork." },
-      { id: 'D', text: "Enable private vulnerability reporting, and hold the fix in a private mirror repository." }
+      { id: 'D', text: "Enable private vulnerability reporting, and hold the fix in a private mirror of the repository." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -201,7 +201,7 @@ export const GITHUB_GHAS_QUESTIONS_20 = [
       { id: 'A', text: "Enable private vulnerability reporting, and use security advisories to fix in a private fork." },
       { id: 'B', text: "Direct reporters to open a draft advisory themselves, and fix on the default branch." },
       { id: 'C', text: "Direct reporters to a `SECURITY.md` mailbox, and track the fix in a private issue." },
-      { id: 'D', text: "Enable private vulnerability reporting, and hold the fix in a private mirror repository." }
+      { id: 'D', text: "Enable private vulnerability reporting, and hold the fix in a private mirror of the repository." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -429,10 +429,10 @@ export const GITHUB_GHAS_QUESTIONS_20 = [
     scenario: "An enterprise application security team is deploying GitHub Advanced Security (GHAS) across hundreds of repositories to establish automated vulnerability management and compliance guardrails. The AppSec engineer needs to understand how GitHub Advanced Security licenses are counted and how to optimize license consumption across an enterprise.",
     question: "Which architectural approach or GHAS configuration satisfies these enterprise security rollout objectives?",
     options: [
-      { id: 'A', text: "Track 'active committers' who have pushed code to GHAS-enabled private repositories within the last 90 days." },
+      { id: 'A', text: "Track 'active committers' who pushed to GHAS-enabled private repositories in the last 90 days." },
       { id: 'B', text: "Assume licenses are billed based on the total number of employee email accounts in the company." },
       { id: 'C', text: "Believe that an engineer requires five separate licenses if they commit to five different repositories." },
-      { id: 'D', text: "Assume read-only repository viewers consume full GHAS committer licenses." }
+      { id: 'D', text: "Assume that read-only repository viewers consume full GHAS committer licenses." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -451,8 +451,8 @@ export const GITHUB_GHAS_QUESTIONS_20 = [
     question: "Which Dependabot practice or supply chain security configuration defends the software lifecycle effectively?",
     options: [
       { id: 'A', text: "Assume licenses are billed based on the total number of employee email accounts in the company." },
-      { id: 'B', text: "Track 'active committers' who have pushed code to GHAS-enabled private repositories within the last 90 days." },
-      { id: 'C', text: "Assume read-only repository viewers consume full GHAS committer licenses." },
+      { id: 'B', text: "Track 'active committers' who pushed to GHAS-enabled private repositories in the last 90 days." },
+      { id: 'C', text: "Assume that read-only repository viewers consume full GHAS committer licenses." },
       { id: 'D', text: "Believe that an engineer requires five separate licenses if they commit to five different repositories." }
     ],
     correctAnswers: ['B'],
@@ -471,10 +471,10 @@ export const GITHUB_GHAS_QUESTIONS_20 = [
     scenario: "A security operations team is enforcing zero-trust credential hygiene, push protection guardrails, and automated token revocation across developer workflows. The AppSec engineer needs to understand how GitHub Advanced Security licenses are counted and how to optimize license consumption across an enterprise.",
     question: "Which secret scanning feature or remediation workflow prevents sensitive credential exposure?",
     options: [
-      { id: 'A', text: "Track 'active committers' who have pushed code to GHAS-enabled private repositories within the last 90 days." },
+      { id: 'A', text: "Track 'active committers' who pushed to GHAS-enabled private repositories in the last 90 days." },
       { id: 'B', text: "Assume licenses are billed based on the total number of employee email accounts in the company." },
       { id: 'C', text: "Believe that an engineer requires five separate licenses if they commit to five different repositories." },
-      { id: 'D', text: "Assume read-only repository viewers consume full GHAS committer licenses." }
+      { id: 'D', text: "Assume that read-only repository viewers consume full GHAS committer licenses." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -492,10 +492,10 @@ export const GITHUB_GHAS_QUESTIONS_20 = [
     scenario: "A software development group is implementing CodeQL code scanning to detect complex security flaws, taint vulnerabilities, and code quality defects early in pull requests. The AppSec engineer needs to understand how GitHub Advanced Security licenses are counted and how to optimize license consumption across an enterprise.",
     question: "Which CodeQL feature or workflow configuration enables developers to catch and fix vulnerabilities before merge?",
     options: [
-      { id: 'A', text: "Track 'active committers' who have pushed code to GHAS-enabled private repositories within the last 90 days." },
+      { id: 'A', text: "Track 'active committers' who pushed to GHAS-enabled private repositories in the last 90 days." },
       { id: 'B', text: "Assume licenses are billed based on the total number of employee email accounts in the company." },
       { id: 'C', text: "Believe that an engineer requires five separate licenses if they commit to five different repositories." },
-      { id: 'D', text: "Assume read-only repository viewers consume full GHAS committer licenses." }
+      { id: 'D', text: "Assume that read-only repository viewers consume full GHAS committer licenses." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -513,10 +513,10 @@ export const GITHUB_GHAS_QUESTIONS_20 = [
     scenario: "A corporate compliance officer requires comprehensive audit log streaming, repository ruleset enforcement, and centralized visibility into security posture and remediation trends. The AppSec engineer needs to understand how GitHub Advanced Security licenses are counted and how to optimize license consumption across an enterprise.",
     question: "Which governance policy or GHAS enterprise feature guarantees continuous regulatory compliance?",
     options: [
-      { id: 'A', text: "Track 'active committers' who have pushed code to GHAS-enabled private repositories within the last 90 days." },
+      { id: 'A', text: "Track 'active committers' who pushed to GHAS-enabled private repositories in the last 90 days." },
       { id: 'B', text: "Assume licenses are billed based on the total number of employee email accounts in the company." },
       { id: 'C', text: "Believe that an engineer requires five separate licenses if they commit to five different repositories." },
-      { id: 'D', text: "Assume read-only repository viewers consume full GHAS committer licenses." }
+      { id: 'D', text: "Assume that read-only repository viewers consume full GHAS committer licenses." }
     ],
     correctAnswers: ['A'],
     type: "single",

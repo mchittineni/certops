@@ -114,7 +114,7 @@ export const GITHUB_GHAS_QUESTIONS_17 = [
     scenario: "An enterprise application security team is deploying GitHub Advanced Security (GHAS) across hundreds of repositories to establish automated vulnerability management and compliance guardrails. The AppSec engineer needs to display findings from third-party security tools (e.g., Snyk, Checkmarx, SonarQube, Trivy) alongside CodeQL in GitHub Security.",
     question: "Which architectural approach or GHAS configuration satisfies these enterprise security rollout objectives?",
     options: [
-      { id: 'A', text: "Have the third-party tools emit SARIF and publish it as a workflow artifact per run." },
+      { id: 'A', text: "Have the third-party tools emit SARIF and publish it as a workflow artifact on each run." },
       { id: 'B', text: "Have the third-party tools post their findings as pull request review comments." },
       { id: 'C', text: "Have the third-party tools emit SARIF and upload it with `codeql-action/upload-sarif`." },
       { id: 'D', text: "Have the third-party tools write their findings into repository issues by API." }
@@ -137,7 +137,7 @@ export const GITHUB_GHAS_QUESTIONS_17 = [
     options: [
       { id: 'A', text: "Have the third-party tools emit SARIF and upload it with `codeql-action/upload-sarif`." },
       { id: 'B', text: "Have the third-party tools write their findings into repository issues by API." },
-      { id: 'C', text: "Have the third-party tools emit SARIF and publish it as a workflow artifact per run." },
+      { id: 'C', text: "Have the third-party tools emit SARIF and publish it as a workflow artifact on each run." },
       { id: 'D', text: "Have the third-party tools post their findings as pull request review comments." }
     ],
     correctAnswers: ['A'],
@@ -158,7 +158,7 @@ export const GITHUB_GHAS_QUESTIONS_17 = [
     options: [
       { id: 'A', text: "Have the third-party tools emit SARIF and upload it with `codeql-action/upload-sarif`." },
       { id: 'B', text: "Have the third-party tools write their findings into repository issues by API." },
-      { id: 'C', text: "Have the third-party tools emit SARIF and publish it as a workflow artifact per run." },
+      { id: 'C', text: "Have the third-party tools emit SARIF and publish it as a workflow artifact on each run." },
       { id: 'D', text: "Have the third-party tools post their findings as pull request review comments." }
     ],
     correctAnswers: ['A'],
@@ -179,7 +179,7 @@ export const GITHUB_GHAS_QUESTIONS_17 = [
     options: [
       { id: 'A', text: "Have the third-party tools write their findings into repository issues by API." },
       { id: 'B', text: "Have the third-party tools post their findings as pull request review comments." },
-      { id: 'C', text: "Have the third-party tools emit SARIF and publish it as a workflow artifact per run." },
+      { id: 'C', text: "Have the third-party tools emit SARIF and publish it as a workflow artifact on each run." },
       { id: 'D', text: "Have the third-party tools emit SARIF and upload it with `codeql-action/upload-sarif`." }
     ],
     correctAnswers: ['D'],
@@ -200,7 +200,7 @@ export const GITHUB_GHAS_QUESTIONS_17 = [
     options: [
       { id: 'A', text: "Have the third-party tools emit SARIF and upload it with `codeql-action/upload-sarif`." },
       { id: 'B', text: "Have the third-party tools write their findings into repository issues by API." },
-      { id: 'C', text: "Have the third-party tools emit SARIF and publish it as a workflow artifact per run." },
+      { id: 'C', text: "Have the third-party tools emit SARIF and publish it as a workflow artifact on each run." },
       { id: 'D', text: "Have the third-party tools post their findings as pull request review comments." }
     ],
     correctAnswers: ['A'],
@@ -324,10 +324,10 @@ export const GITHUB_GHAS_QUESTIONS_17 = [
     scenario: "An enterprise application security team is deploying GitHub Advanced Security (GHAS) across hundreds of repositories to establish automated vulnerability management and compliance guardrails. The AppSec engineer needs to ensure that any pull request introducing a new High or Critical CodeQL security finding is automatically blocked from merging.",
     question: "Which architectural approach or GHAS configuration satisfies these enterprise security rollout objectives?",
     options: [
-      { id: 'A', text: "Configure a branch protection rule or ruleset requiring the CodeQL code scanning status check to pass before merging." },
+      { id: 'A', text: "Require the CodeQL code scanning status check to pass in a ruleset before merging." },
       { id: 'B', text: "Allow developers to merge pull requests with known critical vulnerabilities and fix them post-release." },
-      { id: 'C', text: "Run CodeQL scans only once a month against the main branch." },
-      { id: 'D', text: "Disable branch protection to maximize development velocity." }
+      { id: 'C', text: "Run the CodeQL scans only once a month against the main branch." },
+      { id: 'D', text: "Disable branch protection entirely to maximize development velocity." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -345,10 +345,10 @@ export const GITHUB_GHAS_QUESTIONS_17 = [
     scenario: "A devsecops engineering team is securing the software supply chain against malicious open-source packages, known CVEs, and license compliance violations across build pipelines. The AppSec engineer needs to ensure that any pull request introducing a new High or Critical CodeQL security finding is automatically blocked from merging.",
     question: "Which Dependabot practice or supply chain security configuration defends the software lifecycle effectively?",
     options: [
-      { id: 'A', text: "Configure a branch protection rule or ruleset requiring the CodeQL code scanning status check to pass before merging." },
+      { id: 'A', text: "Require the CodeQL code scanning status check to pass in a ruleset before merging." },
       { id: 'B', text: "Allow developers to merge pull requests with known critical vulnerabilities and fix them post-release." },
-      { id: 'C', text: "Run CodeQL scans only once a month against the main branch." },
-      { id: 'D', text: "Disable branch protection to maximize development velocity." }
+      { id: 'C', text: "Run the CodeQL scans only once a month against the main branch." },
+      { id: 'D', text: "Disable branch protection entirely to maximize development velocity." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -366,10 +366,10 @@ export const GITHUB_GHAS_QUESTIONS_17 = [
     scenario: "A security operations team is enforcing zero-trust credential hygiene, push protection guardrails, and automated token revocation across developer workflows. The AppSec engineer needs to ensure that any pull request introducing a new High or Critical CodeQL security finding is automatically blocked from merging.",
     question: "Which secret scanning feature or remediation workflow prevents sensitive credential exposure?",
     options: [
-      { id: 'A', text: "Configure a branch protection rule or ruleset requiring the CodeQL code scanning status check to pass before merging." },
+      { id: 'A', text: "Require the CodeQL code scanning status check to pass in a ruleset before merging." },
       { id: 'B', text: "Allow developers to merge pull requests with known critical vulnerabilities and fix them post-release." },
-      { id: 'C', text: "Run CodeQL scans only once a month against the main branch." },
-      { id: 'D', text: "Disable branch protection to maximize development velocity." }
+      { id: 'C', text: "Run the CodeQL scans only once a month against the main branch." },
+      { id: 'D', text: "Disable branch protection entirely to maximize development velocity." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -387,10 +387,10 @@ export const GITHUB_GHAS_QUESTIONS_17 = [
     scenario: "A software development group is implementing CodeQL code scanning to detect complex security flaws, taint vulnerabilities, and code quality defects early in pull requests. The AppSec engineer needs to ensure that any pull request introducing a new High or Critical CodeQL security finding is automatically blocked from merging.",
     question: "Which CodeQL feature or workflow configuration enables developers to catch and fix vulnerabilities before merge?",
     options: [
-      { id: 'A', text: "Configure a branch protection rule or ruleset requiring the CodeQL code scanning status check to pass before merging." },
+      { id: 'A', text: "Require the CodeQL code scanning status check to pass in a ruleset before merging." },
       { id: 'B', text: "Allow developers to merge pull requests with known critical vulnerabilities and fix them post-release." },
-      { id: 'C', text: "Run CodeQL scans only once a month against the main branch." },
-      { id: 'D', text: "Disable branch protection to maximize development velocity." }
+      { id: 'C', text: "Run the CodeQL scans only once a month against the main branch." },
+      { id: 'D', text: "Disable branch protection entirely to maximize development velocity." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -409,9 +409,9 @@ export const GITHUB_GHAS_QUESTIONS_17 = [
     question: "Which governance policy or GHAS enterprise feature guarantees continuous regulatory compliance?",
     options: [
       { id: 'A', text: "Allow developers to merge pull requests with known critical vulnerabilities and fix them post-release." },
-      { id: 'B', text: "Disable branch protection to maximize development velocity." },
-      { id: 'C', text: "Run CodeQL scans only once a month against the main branch." },
-      { id: 'D', text: "Configure a branch protection rule or ruleset requiring the CodeQL code scanning status check to pass before merging." }
+      { id: 'B', text: "Disable branch protection entirely to maximize development velocity." },
+      { id: 'C', text: "Run the CodeQL scans only once a month against the main branch." },
+      { id: 'D', text: "Require the CodeQL code scanning status check to pass in a ruleset before merging." }
     ],
     correctAnswers: ['D'],
     type: "single",
