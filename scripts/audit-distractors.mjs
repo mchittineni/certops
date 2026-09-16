@@ -21,7 +21,12 @@
  * rewritten. Pass --strict to exit non-zero when a threshold is breached, which
  * is how this becomes a build gate once the rewrite lands.
  *
- * Run: npm run audit:distractors [-- --strict] [-- --cert <id>]
+ * --strict fails while any bank breaches, so it cannot guard a corpus that still
+ * holds filler banks awaiting real questions. --min-passing <n> is the ratchet
+ * for that state: it fails only when the number of passing banks drops below n,
+ * so the banks already rewritten cannot regress while the rest are worked on.
+ *
+ * Run: npm run audit:distractors [-- --strict] [-- --min-passing <n>] [-- --cert <id>]
  */
 import { loadAllContent, flatten } from './lib/content-io.mjs';
 import { scoreCertification, THRESHOLDS, LENGTH_BAND } from './lib/distractor-metrics.mjs';
@@ -29,6 +34,14 @@ import { scoreCertification, THRESHOLDS, LENGTH_BAND } from './lib/distractor-me
 const argv = process.argv.slice(2);
 const strict = argv.includes('--strict');
 const only = argv.includes('--cert') ? argv[argv.indexOf('--cert') + 1] : null;
+const minPassing = argv.includes('--min-passing')
+  ? Number(argv[argv.indexOf('--min-passing') + 1])
+  : null;
+
+if (minPassing !== null && !Number.isInteger(minPassing)) {
+  console.error('--min-passing needs a whole number, as in --min-passing 24.');
+  process.exit(2);
+}
 
 const content = await loadAllContent();
 const rows = [];
@@ -87,9 +100,11 @@ console.log(
 );
 
 const breached = rows.filter(r => r.breached);
+const passing = rows.length - breached.length;
+
+console.log(`\n${passing} of ${rows.length} certification(s) pass every target.`);
 
 if (breached.length) {
-  console.log(`\n${breached.length} of ${rows.length} certification(s) breach at least one target.`);
   const sample = rows.find(r => r.worst.length);
   if (sample) {
     console.log(`\nExample items leaking all three ways (${sample.certId}):`);
@@ -100,3 +115,11 @@ if (breached.length) {
 }
 
 if (strict && breached.length) process.exit(1);
+
+if (minPassing !== null && passing < minPassing) {
+  console.error(
+    `\nRegression: ${passing} certification(s) pass, but at least ${minPassing} are expected. ` +
+    `A bank that used to meet every target no longer does.`
+  );
+  process.exit(1);
+}
