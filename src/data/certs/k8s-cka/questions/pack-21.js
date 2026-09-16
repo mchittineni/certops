@@ -11,7 +11,7 @@ export const K8S_CKA_QUESTIONS_21 = [
     options: [
       { id: 'A', text: "Adopt one Ingress per team with a shared `ingressClassName`, and route by host inside each one." },
       { id: 'B', text: "Adopt a service mesh and express the routing as `VirtualService` objects owned by each team." },
-      { id: 'C', text: "Adopt the Gateway API: `GatewayClass` for the provider, `Gateway` for the operator, `HTTPRoute` for teams." },
+      { id: 'C', text: "Adopt the Gateway API: `GatewayClass`, `Gateway` for the operator, `HTTPRoute` for the teams." },
       { id: 'D', text: "Adopt Ingress with controller-specific annotations, which each team sets on its own resource." }
     ],
     correctAnswers: ['C'],
@@ -33,7 +33,7 @@ export const K8S_CKA_QUESTIONS_21 = [
       { id: 'A', text: "Adopt one Ingress per team with a shared `ingressClassName`, and route by host inside each one." },
       { id: 'B', text: "Adopt Ingress with controller-specific annotations, which each team sets on its own resource." },
       { id: 'C', text: "Adopt a service mesh and express the routing as `VirtualService` objects owned by each team." },
-      { id: 'D', text: "Adopt the Gateway API: `GatewayClass` for the provider, `Gateway` for the operator, `HTTPRoute` for teams." }
+      { id: 'D', text: "Adopt the Gateway API: `GatewayClass`, `Gateway` for the operator, `HTTPRoute` for the teams." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -53,7 +53,7 @@ export const K8S_CKA_QUESTIONS_21 = [
     options: [
       { id: 'A', text: "Adopt Ingress with controller-specific annotations, which each team sets on its own resource." },
       { id: 'B', text: "Adopt one Ingress per team with a shared `ingressClassName`, and route by host inside each one." },
-      { id: 'C', text: "Adopt the Gateway API: `GatewayClass` for the provider, `Gateway` for the operator, `HTTPRoute` for teams." },
+      { id: 'C', text: "Adopt the Gateway API: `GatewayClass`, `Gateway` for the operator, `HTTPRoute` for the teams." },
       { id: 'D', text: "Adopt a service mesh and express the routing as `VirtualService` objects owned by each team." }
     ],
     correctAnswers: ['C'],
@@ -72,7 +72,7 @@ export const K8S_CKA_QUESTIONS_21 = [
     scenario: "An enterprise is modernizing on-premises virtualized infrastructure and migrating core enterprise workloads into production Kubernetes clusters. The Kubernetes administrator needs to implement modern, extensible service networking that cleanly separates infrastructure provider duties from application developer routing rules.",
     question: "Which operational pattern or feature enables the engineering team to achieve seamless workload execution with minimal complexity?",
     options: [
-      { id: 'A', text: "Adopt the Gateway API: `GatewayClass` for the provider, `Gateway` for the operator, `HTTPRoute` for teams." },
+      { id: 'A', text: "Adopt the Gateway API: `GatewayClass`, `Gateway` for the operator, `HTTPRoute` for the teams." },
       { id: 'B', text: "Adopt Ingress with controller-specific annotations, which each team sets on its own resource." },
       { id: 'C', text: "Adopt one Ingress per team with a shared `ingressClassName`, and route by host inside each one." },
       { id: 'D', text: "Adopt a service mesh and express the routing as `VirtualService` objects owned by each team." }
@@ -94,7 +94,7 @@ export const K8S_CKA_QUESTIONS_21 = [
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees cluster stability?",
     options: [
       { id: 'A', text: "Adopt Ingress with controller-specific annotations, which each team sets on its own resource." },
-      { id: 'B', text: "Adopt the Gateway API: `GatewayClass` for the provider, `Gateway` for the operator, `HTTPRoute` for teams." },
+      { id: 'B', text: "Adopt the Gateway API: `GatewayClass`, `Gateway` for the operator, `HTTPRoute` for the teams." },
       { id: 'C', text: "Adopt a service mesh and express the routing as `VirtualService` objects owned by each team." },
       { id: 'D', text: "Adopt one Ingress per team with a shared `ingressClassName`, and route by host inside each one." }
     ],
@@ -115,7 +115,7 @@ export const K8S_CKA_QUESTIONS_21 = [
     question: "Which architectural approach or configuration satisfies these cluster reliability and recovery requirements?",
     options: [
       { id: 'A', text: "Add a server block to the CoreDNS ConfigMap forwarding `corp.internal` to the enterprise resolver." },
-      { id: 'B', text: "Add the enterprise resolver to each node's `/etc/resolv.conf` and use `dnsPolicy: Default`." },
+      { id: 'B', text: "Add the enterprise resolver to every one of the nodes' `/etc/resolv.conf` and use `dnsPolicy: Default`." },
       { id: 'C', text: "Add `hostAliases` entries for the corporate records to each workload's own pod template." },
       { id: 'D', text: "Add a `dnsConfig` block on every pod naming the enterprise resolver as its nameserver." }
     ],
@@ -135,7 +135,7 @@ export const K8S_CKA_QUESTIONS_21 = [
     scenario: "A production Kubernetes cluster experiences massive surges in application traffic and high scheduling demands across large worker node pools. The Kubernetes administrator needs to configure Kubernetes cluster pods to resolve internal corporate domain names (e.g., `corp.internal`) via an on-premises enterprise DNS server.",
     question: "Which architectural approach should the administrator select to manage this demand efficiently without cluster instability?",
     options: [
-      { id: 'A', text: "Add the enterprise resolver to each node's `/etc/resolv.conf` and use `dnsPolicy: Default`." },
+      { id: 'A', text: "Add the enterprise resolver to every one of the nodes' `/etc/resolv.conf` and use `dnsPolicy: Default`." },
       { id: 'B', text: "Add a server block to the CoreDNS ConfigMap forwarding `corp.internal` to the enterprise resolver." },
       { id: 'C', text: "Add a `dnsConfig` block on every pod naming the enterprise resolver as its nameserver." },
       { id: 'D', text: "Add `hostAliases` entries for the corporate records to each workload's own pod template." }
@@ -156,7 +156,7 @@ export const K8S_CKA_QUESTIONS_21 = [
     scenario: "A compliance auditor requires strict isolation of cluster resources, least-privilege administrative access, and secure network traffic policies across all namespaces. The Kubernetes administrator needs to configure Kubernetes cluster pods to resolve internal corporate domain names (e.g., `corp.internal`) via an on-premises enterprise DNS server.",
     question: "Which solution implements these mandatory Kubernetes security and governance controls?",
     options: [
-      { id: 'A', text: "Add the enterprise resolver to each node's `/etc/resolv.conf` and use `dnsPolicy: Default`." },
+      { id: 'A', text: "Add the enterprise resolver to every one of the nodes' `/etc/resolv.conf` and use `dnsPolicy: Default`." },
       { id: 'B', text: "Add a server block to the CoreDNS ConfigMap forwarding `corp.internal` to the enterprise resolver." },
       { id: 'C', text: "Add a `dnsConfig` block on every pod naming the enterprise resolver as its nameserver." },
       { id: 'D', text: "Add `hostAliases` entries for the corporate records to each workload's own pod template." }
@@ -178,7 +178,7 @@ export const K8S_CKA_QUESTIONS_21 = [
     question: "Which operational pattern or feature enables the engineering team to achieve seamless workload execution with minimal complexity?",
     options: [
       { id: 'A', text: "Add a server block to the CoreDNS ConfigMap forwarding `corp.internal` to the enterprise resolver." },
-      { id: 'B', text: "Add the enterprise resolver to each node's `/etc/resolv.conf` and use `dnsPolicy: Default`." },
+      { id: 'B', text: "Add the enterprise resolver to every one of the nodes' `/etc/resolv.conf` and use `dnsPolicy: Default`." },
       { id: 'C', text: "Add `hostAliases` entries for the corporate records to each workload's own pod template." },
       { id: 'D', text: "Add a `dnsConfig` block on every pod naming the enterprise resolver as its nameserver." }
     ],
@@ -199,7 +199,7 @@ export const K8S_CKA_QUESTIONS_21 = [
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees cluster stability?",
     options: [
       { id: 'A', text: "Add a server block to the CoreDNS ConfigMap forwarding `corp.internal` to the enterprise resolver." },
-      { id: 'B', text: "Add the enterprise resolver to each node's `/etc/resolv.conf` and use `dnsPolicy: Default`." },
+      { id: 'B', text: "Add the enterprise resolver to every one of the nodes' `/etc/resolv.conf` and use `dnsPolicy: Default`." },
       { id: 'C', text: "Add `hostAliases` entries for the corporate records to each workload's own pod template." },
       { id: 'D', text: "Add a `dnsConfig` block on every pod naming the enterprise resolver as its nameserver." }
     ],
@@ -431,7 +431,7 @@ export const K8S_CKA_QUESTIONS_21 = [
     options: [
       { id: 'A', text: "Rely on `EndpointSlices`, which split large endpoint sets into slices of at most 100." },
       { id: 'B', text: "Rely on the legacy `Endpoints` object, which kube-proxy reads in a single watch." },
-      { id: 'C', text: "Split the workload across several Services so each carries a smaller endpoint set." },
+      { id: 'C', text: "Split the workload across several Services so that each carries a smaller endpoint set." },
       { id: 'D', text: "Switch kube-proxy to IPVS mode, which removes the endpoint object from the path." }
     ],
     correctAnswers: ['A'],
@@ -452,7 +452,7 @@ export const K8S_CKA_QUESTIONS_21 = [
     options: [
       { id: 'A', text: "Rely on `EndpointSlices`, which split large endpoint sets into slices of at most 100." },
       { id: 'B', text: "Rely on the legacy `Endpoints` object, which kube-proxy reads in a single watch." },
-      { id: 'C', text: "Split the workload across several Services so each carries a smaller endpoint set." },
+      { id: 'C', text: "Split the workload across several Services so that each carries a smaller endpoint set." },
       { id: 'D', text: "Switch kube-proxy to IPVS mode, which removes the endpoint object from the path." }
     ],
     correctAnswers: ['A'],
@@ -474,7 +474,7 @@ export const K8S_CKA_QUESTIONS_21 = [
       { id: 'A', text: "Rely on `EndpointSlices`, which split large endpoint sets into slices of at most 100." },
       { id: 'B', text: "Switch kube-proxy to IPVS mode, which removes the endpoint object from the path." },
       { id: 'C', text: "Rely on the legacy `Endpoints` object, which kube-proxy reads in a single watch." },
-      { id: 'D', text: "Split the workload across several Services so each carries a smaller endpoint set." }
+      { id: 'D', text: "Split the workload across several Services so that each carries a smaller endpoint set." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -494,7 +494,7 @@ export const K8S_CKA_QUESTIONS_21 = [
     options: [
       { id: 'A', text: "Rely on `EndpointSlices`, which split large endpoint sets into slices of at most 100." },
       { id: 'B', text: "Rely on the legacy `Endpoints` object, which kube-proxy reads in a single watch." },
-      { id: 'C', text: "Split the workload across several Services so each carries a smaller endpoint set." },
+      { id: 'C', text: "Split the workload across several Services so that each carries a smaller endpoint set." },
       { id: 'D', text: "Switch kube-proxy to IPVS mode, which removes the endpoint object from the path." }
     ],
     correctAnswers: ['A'],
@@ -513,7 +513,7 @@ export const K8S_CKA_QUESTIONS_21 = [
     scenario: "A cluster operations team is hardening infrastructure to eliminate single points of failure, streamline node maintenance, and automate self-healing. The Kubernetes administrator needs to maintain efficient network routing and minimize control plane memory overhead for a microservice scaled to over 5,000 pod replicas.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees cluster stability?",
     options: [
-      { id: 'A', text: "Split the workload across several Services so each carries a smaller endpoint set." },
+      { id: 'A', text: "Split the workload across several Services so that each carries a smaller endpoint set." },
       { id: 'B', text: "Switch kube-proxy to IPVS mode, which removes the endpoint object from the path." },
       { id: 'C', text: "Rely on `EndpointSlices`, which split large endpoint sets into slices of at most 100." },
       { id: 'D', text: "Rely on the legacy `Endpoints` object, which kube-proxy reads in a single watch." }

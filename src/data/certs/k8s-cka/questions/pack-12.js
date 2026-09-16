@@ -12,7 +12,7 @@ export const K8S_CKA_QUESTIONS_12 = [
       { id: 'A', text: "Disable PersistentVolumeClaims and write state directly to pod ephemeral container storage." },
       { id: 'B', text: "Manually create static PersistentVolumes in every possible availability zone." },
       { id: 'C', text: "Set `volumeBindingMode: Immediate` so storage is provisioned before the pod scheduler selects a node." },
-      { id: 'D', text: "Configure a StorageClass with `volumeBindingMode: WaitForFirstConsumer` and appropriate CSI provisioner parameters." }
+      { id: 'D', text: "Configure a StorageClass with `volumeBindingMode: WaitForFirstConsumer` and CSI parameters." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -30,7 +30,7 @@ export const K8S_CKA_QUESTIONS_12 = [
     scenario: "A production Kubernetes cluster experiences massive surges in application traffic and high scheduling demands across large worker node pools. The Kubernetes administrator needs to provision stateful storage dynamically while ensuring storage disks are provisioned in the same availability zone where the scheduled pod lands.",
     question: "Which architectural approach should the administrator select to manage this demand efficiently without cluster instability?",
     options: [
-      { id: 'A', text: "Configure a StorageClass with `volumeBindingMode: WaitForFirstConsumer` and appropriate CSI provisioner parameters." },
+      { id: 'A', text: "Configure a StorageClass with `volumeBindingMode: WaitForFirstConsumer` and CSI parameters." },
       { id: 'B', text: "Set `volumeBindingMode: Immediate` so storage is provisioned before the pod scheduler selects a node." },
       { id: 'C', text: "Manually create static PersistentVolumes in every possible availability zone." },
       { id: 'D', text: "Disable PersistentVolumeClaims and write state directly to pod ephemeral container storage." }
@@ -51,7 +51,7 @@ export const K8S_CKA_QUESTIONS_12 = [
     scenario: "A compliance auditor requires strict isolation of cluster resources, least-privilege administrative access, and secure network traffic policies across all namespaces. The Kubernetes administrator needs to provision stateful storage dynamically while ensuring storage disks are provisioned in the same availability zone where the scheduled pod lands.",
     question: "Which solution implements these mandatory Kubernetes security and governance controls?",
     options: [
-      { id: 'A', text: "Configure a StorageClass with `volumeBindingMode: WaitForFirstConsumer` and appropriate CSI provisioner parameters." },
+      { id: 'A', text: "Configure a StorageClass with `volumeBindingMode: WaitForFirstConsumer` and CSI parameters." },
       { id: 'B', text: "Set `volumeBindingMode: Immediate` so storage is provisioned before the pod scheduler selects a node." },
       { id: 'C', text: "Manually create static PersistentVolumes in every possible availability zone." },
       { id: 'D', text: "Disable PersistentVolumeClaims and write state directly to pod ephemeral container storage." }
@@ -73,7 +73,7 @@ export const K8S_CKA_QUESTIONS_12 = [
     question: "Which operational pattern or feature enables the engineering team to achieve seamless workload execution with minimal complexity?",
     options: [
       { id: 'A', text: "Manually create static PersistentVolumes in every possible availability zone." },
-      { id: 'B', text: "Configure a StorageClass with `volumeBindingMode: WaitForFirstConsumer` and appropriate CSI provisioner parameters." },
+      { id: 'B', text: "Configure a StorageClass with `volumeBindingMode: WaitForFirstConsumer` and CSI parameters." },
       { id: 'C', text: "Set `volumeBindingMode: Immediate` so storage is provisioned before the pod scheduler selects a node." },
       { id: 'D', text: "Disable PersistentVolumeClaims and write state directly to pod ephemeral container storage." }
     ],
@@ -95,7 +95,7 @@ export const K8S_CKA_QUESTIONS_12 = [
     options: [
       { id: 'A', text: "Manually create static PersistentVolumes in every possible availability zone." },
       { id: 'B', text: "Disable PersistentVolumeClaims and write state directly to pod ephemeral container storage." },
-      { id: 'C', text: "Configure a StorageClass with `volumeBindingMode: WaitForFirstConsumer` and appropriate CSI provisioner parameters." },
+      { id: 'C', text: "Configure a StorageClass with `volumeBindingMode: WaitForFirstConsumer` and CSI parameters." },
       { id: 'D', text: "Set `volumeBindingMode: Immediate` so storage is provisioned before the pod scheduler selects a node." }
     ],
     correctAnswers: ['C'],

@@ -9,7 +9,7 @@ export const K8S_CKA_QUESTIONS_13 = [
     scenario: "A platform engineering team is establishing high-availability standards and operational disaster recovery procedures for enterprise Kubernetes clusters. The Kubernetes administrator needs to diagnose why a container in a production pod crashes immediately upon startup and enters CrashLoopBackOff.",
     question: "Which architectural approach or configuration satisfies these cluster reliability and recovery requirements?",
     options: [
-      { id: 'A', text: "Run `kubectl logs &lt;pod&gt; --previous` for the prior container, and read the exit code from `describe`." },
+      { id: 'A', text: "Run `kubectl logs &lt;pod&gt; --previous` and read the exit code from `describe`." },
       { id: 'B', text: "Run `kubectl logs &lt;pod&gt; -f` and wait for the next crash to observe the failure live." },
       { id: 'C', text: "Run `kubectl describe pod` and raise the memory limit until the container stops restarting." },
       { id: 'D', text: "Run `kubectl get events -A` and correlate the restarts with the node's own health events." }
@@ -30,7 +30,7 @@ export const K8S_CKA_QUESTIONS_13 = [
     scenario: "A production Kubernetes cluster experiences massive surges in application traffic and high scheduling demands across large worker node pools. The Kubernetes administrator needs to diagnose why a container in a production pod crashes immediately upon startup and enters CrashLoopBackOff.",
     question: "Which architectural approach should the administrator select to manage this demand efficiently without cluster instability?",
     options: [
-      { id: 'A', text: "Run `kubectl logs &lt;pod&gt; --previous` for the prior container, and read the exit code from `describe`." },
+      { id: 'A', text: "Run `kubectl logs &lt;pod&gt; --previous` and read the exit code from `describe`." },
       { id: 'B', text: "Run `kubectl logs &lt;pod&gt; -f` and wait for the next crash to observe the failure live." },
       { id: 'C', text: "Run `kubectl describe pod` and raise the memory limit until the container stops restarting." },
       { id: 'D', text: "Run `kubectl get events -A` and correlate the restarts with the node's own health events." }
@@ -51,7 +51,7 @@ export const K8S_CKA_QUESTIONS_13 = [
     scenario: "A compliance auditor requires strict isolation of cluster resources, least-privilege administrative access, and secure network traffic policies across all namespaces. The Kubernetes administrator needs to diagnose why a container in a production pod crashes immediately upon startup and enters CrashLoopBackOff.",
     question: "Which solution implements these mandatory Kubernetes security and governance controls?",
     options: [
-      { id: 'A', text: "Run `kubectl logs &lt;pod&gt; --previous` for the prior container, and read the exit code from `describe`." },
+      { id: 'A', text: "Run `kubectl logs &lt;pod&gt; --previous` and read the exit code from `describe`." },
       { id: 'B', text: "Run `kubectl logs &lt;pod&gt; -f` and wait for the next crash to observe the failure live." },
       { id: 'C', text: "Run `kubectl describe pod` and raise the memory limit until the container stops restarting." },
       { id: 'D', text: "Run `kubectl get events -A` and correlate the restarts with the node's own health events." }
@@ -72,7 +72,7 @@ export const K8S_CKA_QUESTIONS_13 = [
     scenario: "An enterprise is modernizing on-premises virtualized infrastructure and migrating core enterprise workloads into production Kubernetes clusters. The Kubernetes administrator needs to diagnose why a container in a production pod crashes immediately upon startup and enters CrashLoopBackOff.",
     question: "Which operational pattern or feature enables the engineering team to achieve seamless workload execution with minimal complexity?",
     options: [
-      { id: 'A', text: "Run `kubectl logs &lt;pod&gt; --previous` for the prior container, and read the exit code from `describe`." },
+      { id: 'A', text: "Run `kubectl logs &lt;pod&gt; --previous` and read the exit code from `describe`." },
       { id: 'B', text: "Run `kubectl logs &lt;pod&gt; -f` and wait for the next crash to observe the failure live." },
       { id: 'C', text: "Run `kubectl describe pod` and raise the memory limit until the container stops restarting." },
       { id: 'D', text: "Run `kubectl get events -A` and correlate the restarts with the node's own health events." }
@@ -93,7 +93,7 @@ export const K8S_CKA_QUESTIONS_13 = [
     scenario: "A cluster operations team is hardening infrastructure to eliminate single points of failure, streamline node maintenance, and automate self-healing. The Kubernetes administrator needs to diagnose why a container in a production pod crashes immediately upon startup and enters CrashLoopBackOff.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees cluster stability?",
     options: [
-      { id: 'A', text: "Run `kubectl logs &lt;pod&gt; --previous` for the prior container, and read the exit code from `describe`." },
+      { id: 'A', text: "Run `kubectl logs &lt;pod&gt; --previous` and read the exit code from `describe`." },
       { id: 'B', text: "Run `kubectl describe pod` and raise the memory limit until the container stops restarting." },
       { id: 'C', text: "Run `kubectl get events -A` and correlate the restarts with the node's own health events." },
       { id: 'D', text: "Run `kubectl logs &lt;pod&gt; -f` and wait for the next crash to observe the failure live." }
@@ -114,7 +114,7 @@ export const K8S_CKA_QUESTIONS_13 = [
     scenario: "A platform engineering team is establishing high-availability standards and operational disaster recovery procedures for enterprise Kubernetes clusters. The Kubernetes administrator needs to determine why a high-throughput Java microservice container was killed unexpectedly with exit code 137.",
     question: "Which architectural approach or configuration satisfies these cluster reliability and recovery requirements?",
     options: [
-      { id: 'A', text: "Read the container's logs for a stack trace and set `restartPolicy: Never` to preserve it." },
+      { id: 'A', text: "Read the container's own logs for a stack trace and set `restartPolicy: Never` to preserve it." },
       { id: 'B', text: "Read `kubectl top pod` for the CPU figure and raise the container's CPU limit to match." },
       { id: 'C', text: "Read `kubectl describe pod` for `OOMKilled` and exit code 137, then adjust the memory limit." },
       { id: 'D', text: "Read the node's disk pressure condition, since eviction also shows as a restart loop." }
@@ -137,7 +137,7 @@ export const K8S_CKA_QUESTIONS_13 = [
     options: [
       { id: 'A', text: "Read `kubectl describe pod` for `OOMKilled` and exit code 137, then adjust the memory limit." },
       { id: 'B', text: "Read the node's disk pressure condition, since eviction also shows as a restart loop." },
-      { id: 'C', text: "Read the container's logs for a stack trace and set `restartPolicy: Never` to preserve it." },
+      { id: 'C', text: "Read the container's own logs for a stack trace and set `restartPolicy: Never` to preserve it." },
       { id: 'D', text: "Read `kubectl top pod` for the CPU figure and raise the container's CPU limit to match." }
     ],
     correctAnswers: ['A'],
@@ -158,7 +158,7 @@ export const K8S_CKA_QUESTIONS_13 = [
     options: [
       { id: 'A', text: "Read `kubectl describe pod` for `OOMKilled` and exit code 137, then adjust the memory limit." },
       { id: 'B', text: "Read the node's disk pressure condition, since eviction also shows as a restart loop." },
-      { id: 'C', text: "Read the container's logs for a stack trace and set `restartPolicy: Never` to preserve it." },
+      { id: 'C', text: "Read the container's own logs for a stack trace and set `restartPolicy: Never` to preserve it." },
       { id: 'D', text: "Read `kubectl top pod` for the CPU figure and raise the container's CPU limit to match." }
     ],
     correctAnswers: ['A'],
@@ -179,7 +179,7 @@ export const K8S_CKA_QUESTIONS_13 = [
     options: [
       { id: 'A', text: "Read the node's disk pressure condition, since eviction also shows as a restart loop." },
       { id: 'B', text: "Read `kubectl top pod` for the CPU figure and raise the container's CPU limit to match." },
-      { id: 'C', text: "Read the container's logs for a stack trace and set `restartPolicy: Never` to preserve it." },
+      { id: 'C', text: "Read the container's own logs for a stack trace and set `restartPolicy: Never` to preserve it." },
       { id: 'D', text: "Read `kubectl describe pod` for `OOMKilled` and exit code 137, then adjust the memory limit." }
     ],
     correctAnswers: ['D'],
@@ -198,7 +198,7 @@ export const K8S_CKA_QUESTIONS_13 = [
     scenario: "A cluster operations team is hardening infrastructure to eliminate single points of failure, streamline node maintenance, and automate self-healing. The Kubernetes administrator needs to determine why a high-throughput Java microservice container was killed unexpectedly with exit code 137.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees cluster stability?",
     options: [
-      { id: 'A', text: "Read the container's logs for a stack trace and set `restartPolicy: Never` to preserve it." },
+      { id: 'A', text: "Read the container's own logs for a stack trace and set `restartPolicy: Never` to preserve it." },
       { id: 'B', text: "Read the node's disk pressure condition, since eviction also shows as a restart loop." },
       { id: 'C', text: "Read `kubectl top pod` for the CPU figure and raise the container's CPU limit to match." },
       { id: 'D', text: "Read `kubectl describe pod` for `OOMKilled` and exit code 137, then adjust the memory limit." }
@@ -430,7 +430,7 @@ export const K8S_CKA_QUESTIONS_13 = [
     question: "Which architectural approach or configuration satisfies these cluster reliability and recovery requirements?",
     options: [
       { id: 'A', text: "Check the node's disk usage, prune unreferenced images with `crictl`, and grow the filesystem." },
-      { id: 'B', text: "Raise the pods' memory requests so the kubelet ranks them above the eviction threshold." },
+      { id: 'B', text: "Raise the pods' memory requests so that the kubelet ranks them all above the eviction threshold." },
       { id: 'C', text: "Raise the kubelet's `evictionHard` thresholds so the node tolerates the fuller disk." },
       { id: 'D', text: "Add an `emptyDir` `sizeLimit` to each pod so no workload can fill the node's disk." }
     ],
@@ -451,7 +451,7 @@ export const K8S_CKA_QUESTIONS_13 = [
     question: "Which architectural approach should the administrator select to manage this demand efficiently without cluster instability?",
     options: [
       { id: 'A', text: "Check the node's disk usage, prune unreferenced images with `crictl`, and grow the filesystem." },
-      { id: 'B', text: "Raise the pods' memory requests so the kubelet ranks them above the eviction threshold." },
+      { id: 'B', text: "Raise the pods' memory requests so that the kubelet ranks them all above the eviction threshold." },
       { id: 'C', text: "Raise the kubelet's `evictionHard` thresholds so the node tolerates the fuller disk." },
       { id: 'D', text: "Add an `emptyDir` `sizeLimit` to each pod so no workload can fill the node's disk." }
     ],
@@ -471,7 +471,7 @@ export const K8S_CKA_QUESTIONS_13 = [
     scenario: "A compliance auditor requires strict isolation of cluster resources, least-privilege administrative access, and secure network traffic policies across all namespaces. The Kubernetes administrator needs to resolve an issue where pods on a worker node are evicted with reason `Evicted` and condition `DiskPressure: True`.",
     question: "Which solution implements these mandatory Kubernetes security and governance controls?",
     options: [
-      { id: 'A', text: "Raise the pods' memory requests so the kubelet ranks them above the eviction threshold." },
+      { id: 'A', text: "Raise the pods' memory requests so that the kubelet ranks them all above the eviction threshold." },
       { id: 'B', text: "Raise the kubelet's `evictionHard` thresholds so the node tolerates the fuller disk." },
       { id: 'C', text: "Check the node's disk usage, prune unreferenced images with `crictl`, and grow the filesystem." },
       { id: 'D', text: "Add an `emptyDir` `sizeLimit` to each pod so no workload can fill the node's disk." }
@@ -495,7 +495,7 @@ export const K8S_CKA_QUESTIONS_13 = [
       { id: 'A', text: "Raise the kubelet's `evictionHard` thresholds so the node tolerates the fuller disk." },
       { id: 'B', text: "Add an `emptyDir` `sizeLimit` to each pod so no workload can fill the node's disk." },
       { id: 'C', text: "Check the node's disk usage, prune unreferenced images with `crictl`, and grow the filesystem." },
-      { id: 'D', text: "Raise the pods' memory requests so the kubelet ranks them above the eviction threshold." }
+      { id: 'D', text: "Raise the pods' memory requests so that the kubelet ranks them all above the eviction threshold." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -513,7 +513,7 @@ export const K8S_CKA_QUESTIONS_13 = [
     scenario: "A cluster operations team is hardening infrastructure to eliminate single points of failure, streamline node maintenance, and automate self-healing. The Kubernetes administrator needs to resolve an issue where pods on a worker node are evicted with reason `Evicted` and condition `DiskPressure: True`.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees cluster stability?",
     options: [
-      { id: 'A', text: "Raise the pods' memory requests so the kubelet ranks them above the eviction threshold." },
+      { id: 'A', text: "Raise the pods' memory requests so that the kubelet ranks them all above the eviction threshold." },
       { id: 'B', text: "Add an `emptyDir` `sizeLimit` to each pod so no workload can fill the node's disk." },
       { id: 'C', text: "Raise the kubelet's `evictionHard` thresholds so the node tolerates the fuller disk." },
       { id: 'D', text: "Check the node's disk usage, prune unreferenced images with `crictl`, and grow the filesystem." }

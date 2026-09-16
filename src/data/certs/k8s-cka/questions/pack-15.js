@@ -11,7 +11,7 @@ export const K8S_CKA_QUESTIONS_15 = [
     options: [
       { id: 'A', text: "Run `etcdctl endpoint health` and `endpoint status` to check quorum, leader and alarms." },
       { id: 'B', text: "Run `etcdctl member list` and remove the member that is failing its health check." },
-      { id: 'C', text: "Run `etcdctl defrag` on each member to reclaim the space the keyspace has grown into." },
+      { id: 'C', text: "Run `etcdctl defrag` on each member to reclaim the space the keyspace has grown into over time." },
       { id: 'D', text: "Run `etcdctl snapshot save` and restore it onto a fresh member to clear the alarm." }
     ],
     correctAnswers: ['A'],
@@ -33,7 +33,7 @@ export const K8S_CKA_QUESTIONS_15 = [
       { id: 'A', text: "Run `etcdctl member list` and remove the member that is failing its health check." },
       { id: 'B', text: "Run `etcdctl endpoint health` and `endpoint status` to check quorum, leader and alarms." },
       { id: 'C', text: "Run `etcdctl snapshot save` and restore it onto a fresh member to clear the alarm." },
-      { id: 'D', text: "Run `etcdctl defrag` on each member to reclaim the space the keyspace has grown into." }
+      { id: 'D', text: "Run `etcdctl defrag` on each member to reclaim the space the keyspace has grown into over time." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -52,7 +52,7 @@ export const K8S_CKA_QUESTIONS_15 = [
     question: "Which solution implements these mandatory Kubernetes security and governance controls?",
     options: [
       { id: 'A', text: "Run `etcdctl endpoint health` and `endpoint status` to check quorum, leader and alarms." },
-      { id: 'B', text: "Run `etcdctl defrag` on each member to reclaim the space the keyspace has grown into." },
+      { id: 'B', text: "Run `etcdctl defrag` on each member to reclaim the space the keyspace has grown into over time." },
       { id: 'C', text: "Run `etcdctl snapshot save` and restore it onto a fresh member to clear the alarm." },
       { id: 'D', text: "Run `etcdctl member list` and remove the member that is failing its health check." }
     ],
@@ -72,7 +72,7 @@ export const K8S_CKA_QUESTIONS_15 = [
     scenario: "An enterprise is modernizing on-premises virtualized infrastructure and migrating core enterprise workloads into production Kubernetes clusters. The Kubernetes administrator needs to diagnose an etcd control plane issue where the API server becomes unresponsive and returns 500 Internal Server Errors.",
     question: "Which operational pattern or feature enables the engineering team to achieve seamless workload execution with minimal complexity?",
     options: [
-      { id: 'A', text: "Run `etcdctl defrag` on each member to reclaim the space the keyspace has grown into." },
+      { id: 'A', text: "Run `etcdctl defrag` on each member to reclaim the space the keyspace has grown into over time." },
       { id: 'B', text: "Run `etcdctl member list` and remove the member that is failing its health check." },
       { id: 'C', text: "Run `etcdctl snapshot save` and restore it onto a fresh member to clear the alarm." },
       { id: 'D', text: "Run `etcdctl endpoint health` and `endpoint status` to check quorum, leader and alarms." }
@@ -96,7 +96,7 @@ export const K8S_CKA_QUESTIONS_15 = [
       { id: 'A', text: "Run `etcdctl member list` and remove the member that is failing its health check." },
       { id: 'B', text: "Run `etcdctl endpoint health` and `endpoint status` to check quorum, leader and alarms." },
       { id: 'C', text: "Run `etcdctl snapshot save` and restore it onto a fresh member to clear the alarm." },
-      { id: 'D', text: "Run `etcdctl defrag` on each member to reclaim the space the keyspace has grown into." }
+      { id: 'D', text: "Run `etcdctl defrag` on each member to reclaim the space the keyspace has grown into over time." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -324,7 +324,7 @@ export const K8S_CKA_QUESTIONS_15 = [
     scenario: "A platform engineering team is establishing high-availability standards and operational disaster recovery procedures for enterprise Kubernetes clusters. The Kubernetes administrator needs to troubleshoot an active, distroless production container that lacks a shell, curl, or debugging utilities without restarting the pod.",
     question: "Which architectural approach or configuration satisfies these cluster reliability and recovery requirements?",
     options: [
-      { id: 'A', text: "Run `kubectl debug -it &lt;pod&gt; --image=busybox --target=&lt;container&gt;` to attach an ephemeral container." },
+      { id: 'A', text: "Run `kubectl debug -it &lt;pod&gt; --image=busybox --target=&lt;container&gt;`" },
       { id: 'B', text: "Run `kubectl exec -it &lt;pod&gt; -- sh`, which needs a shell the distroless image does not ship." },
       { id: 'C', text: "Run `kubectl cp &lt;pod&gt;:/proc /tmp/proc` and read the process state from the copy." },
       { id: 'D', text: "Run `kubectl debug node/&lt;node&gt; -it --image=busybox` and inspect the container from the host." }
@@ -345,7 +345,7 @@ export const K8S_CKA_QUESTIONS_15 = [
     scenario: "A production Kubernetes cluster experiences massive surges in application traffic and high scheduling demands across large worker node pools. The Kubernetes administrator needs to troubleshoot an active, distroless production container that lacks a shell, curl, or debugging utilities without restarting the pod.",
     question: "Which architectural approach should the administrator select to manage this demand efficiently without cluster instability?",
     options: [
-      { id: 'A', text: "Run `kubectl debug -it &lt;pod&gt; --image=busybox --target=&lt;container&gt;` to attach an ephemeral container." },
+      { id: 'A', text: "Run `kubectl debug -it &lt;pod&gt; --image=busybox --target=&lt;container&gt;`" },
       { id: 'B', text: "Run `kubectl exec -it &lt;pod&gt; -- sh`, which needs a shell the distroless image does not ship." },
       { id: 'C', text: "Run `kubectl cp &lt;pod&gt;:/proc /tmp/proc` and read the process state from the copy." },
       { id: 'D', text: "Run `kubectl debug node/&lt;node&gt; -it --image=busybox` and inspect the container from the host." }
@@ -368,7 +368,7 @@ export const K8S_CKA_QUESTIONS_15 = [
     options: [
       { id: 'A', text: "Run `kubectl cp &lt;pod&gt;:/proc /tmp/proc` and read the process state from the copy." },
       { id: 'B', text: "Run `kubectl debug node/&lt;node&gt; -it --image=busybox` and inspect the container from the host." },
-      { id: 'C', text: "Run `kubectl debug -it &lt;pod&gt; --image=busybox --target=&lt;container&gt;` to attach an ephemeral container." },
+      { id: 'C', text: "Run `kubectl debug -it &lt;pod&gt; --image=busybox --target=&lt;container&gt;`" },
       { id: 'D', text: "Run `kubectl exec -it &lt;pod&gt; -- sh`, which needs a shell the distroless image does not ship." }
     ],
     correctAnswers: ['C'],
@@ -387,7 +387,7 @@ export const K8S_CKA_QUESTIONS_15 = [
     scenario: "An enterprise is modernizing on-premises virtualized infrastructure and migrating core enterprise workloads into production Kubernetes clusters. The Kubernetes administrator needs to troubleshoot an active, distroless production container that lacks a shell, curl, or debugging utilities without restarting the pod.",
     question: "Which operational pattern or feature enables the engineering team to achieve seamless workload execution with minimal complexity?",
     options: [
-      { id: 'A', text: "Run `kubectl debug -it &lt;pod&gt; --image=busybox --target=&lt;container&gt;` to attach an ephemeral container." },
+      { id: 'A', text: "Run `kubectl debug -it &lt;pod&gt; --image=busybox --target=&lt;container&gt;`" },
       { id: 'B', text: "Run `kubectl exec -it &lt;pod&gt; -- sh`, which needs a shell the distroless image does not ship." },
       { id: 'C', text: "Run `kubectl cp &lt;pod&gt;:/proc /tmp/proc` and read the process state from the copy." },
       { id: 'D', text: "Run `kubectl debug node/&lt;node&gt; -it --image=busybox` and inspect the container from the host." }
@@ -408,7 +408,7 @@ export const K8S_CKA_QUESTIONS_15 = [
     scenario: "A cluster operations team is hardening infrastructure to eliminate single points of failure, streamline node maintenance, and automate self-healing. The Kubernetes administrator needs to troubleshoot an active, distroless production container that lacks a shell, curl, or debugging utilities without restarting the pod.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees cluster stability?",
     options: [
-      { id: 'A', text: "Run `kubectl debug -it &lt;pod&gt; --image=busybox --target=&lt;container&gt;` to attach an ephemeral container." },
+      { id: 'A', text: "Run `kubectl debug -it &lt;pod&gt; --image=busybox --target=&lt;container&gt;`" },
       { id: 'B', text: "Run `kubectl exec -it &lt;pod&gt; -- sh`, which needs a shell the distroless image does not ship." },
       { id: 'C', text: "Run `kubectl cp &lt;pod&gt;:/proc /tmp/proc` and read the process state from the copy." },
       { id: 'D', text: "Run `kubectl debug node/&lt;node&gt; -it --image=busybox` and inspect the container from the host." }
