@@ -178,9 +178,9 @@ export const HASHICORP_TFA_QUESTIONS_3 = [
     question: "Which utility resource from the HashiCorp null provider is traditionally used to encapsulate standalone provisioners?",
     options: [
       { id: 'A', text: "`null_resource`, or `terraform_data`" },
-      { id: 'B', text: "local_file" },
-      { id: 'C', text: "dummy_resource" },
-      { id: 'D', text: "custom_resource" }
+      { id: 'B', text: "`local_file`, from the local provider" },
+      { id: 'C', text: "`dummy_resource`, from the null provider" },
+      { id: 'D', text: "`custom_resource`, from the null provider" }
     ],
     correctAnswers: ['A'],
     type: "single",

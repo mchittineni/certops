@@ -30,9 +30,9 @@ export const HASHICORP_TFA_QUESTIONS_7 = [
     scenario: "A team investigates how Terraform tracks state versions and prevents accidental overwriting of newer state files with stale backups.",
     question: "What two state metadata fields ensure state integrity across updates?",
     options: [
-      { id: 'A', text: "git_commit and author_name" },
-      { id: 'B', text: "checksum and cloud_id" },
-      { id: 'C', text: "version and timestamp only" },
+      { id: 'A', text: "The committing user's git_commit and author_name" },
+      { id: 'B', text: "A content checksum and the cloud account id" },
+      { id: 'C', text: "The format version number and the write timestamp" },
       { id: 'D', text: "The lineage identifier and the incrementing serial" }
     ],
     correctAnswers: ['D'],
@@ -432,7 +432,7 @@ export const HASHICORP_TFA_QUESTIONS_7 = [
       { id: 'A', text: "It refreshes, sees the tag, and plans an in-place update to remove it" },
       { id: 'B', text: "Terraform ignores the tag difference completely" },
       { id: 'C', text: "Terraform crashes and refuses to plan" },
-      { id: 'D', text: "Terraform automatically copies the tag into main.tf" }
+      { id: 'D', text: "Terraform automatically copies the tag back into main.tf for you" }
     ],
     correctAnswers: ['A'],
     type: "single",

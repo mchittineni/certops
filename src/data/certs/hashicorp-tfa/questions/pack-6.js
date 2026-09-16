@@ -199,9 +199,9 @@ export const HASHICORP_TFA_QUESTIONS_6 = [
     question: "How can the root module declare that the entire applications module depends on the EKS cluster module?",
     options: [
       { id: 'A', text: "`depends_on = [module.eks_cluster]` on the module" },
-      { id: 'B', text: "after = [module.eks_cluster]" },
-      { id: 'C', text: "wait_for = [module.eks_cluster]" },
-      { id: 'D', text: "order = 2" }
+      { id: 'B', text: "`after = [module.eks_cluster]` on the module" },
+      { id: 'C', text: "`wait_for = [module.eks_cluster]` on the module" },
+      { id: 'D', text: "`order = 2` on each of the module blocks" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -220,9 +220,9 @@ export const HASHICORP_TFA_QUESTIONS_6 = [
     question: "In addition to Git and the public Registry, which of the following is a valid native source protocol supported by Terraform for loading modules?",
     options: [
       { id: 'A', text: "S3 buckets and GCS buckets, by their own source prefixes" },
-      { id: 'B', text: "FTP servers, by an ftp:// source prefix" },
-      { id: 'C', text: "NFS mounts, by an absolute local path" },
-      { id: 'D', text: "Docker images, by a docker:// prefix" }
+      { id: 'B', text: "FTP servers, by their own ftp:// source prefix" },
+      { id: 'C', text: "NFS mounts, by an absolute local filesystem path" },
+      { id: 'D', text: "Docker images, by their own docker:// prefix" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -241,7 +241,7 @@ export const HASHICORP_TFA_QUESTIONS_6 = [
     question: "How can the module author enforce this rule and provide a custom error message natively inside the variable definition?",
     options: [
       { id: 'A', text: "By writing a bash script in main.tf" },
-      { id: 'B', text: "Variable validation is not supported in modules" },
+      { id: 'B', text: "Variable validation is not supported inside reusable child modules" },
       { id: 'C', text: "By a `validation` block whose condition uses `contains()` on the list" },
       { id: 'D', text: "By using a Sentinel policy only" }
     ],
@@ -389,7 +389,7 @@ export const HASHICORP_TFA_QUESTIONS_6 = [
     options: [
       { id: 'A', text: "None: remote state exposes only the input variable values" },
       { id: 'B', text: "Every output of every child module, exposed automatically" },
-      { id: 'C', text: "Every resource attribute in the state, whatever is output" },
+      { id: 'C', text: "Every resource attribute recorded in the state, whether or not it is output" },
       { id: 'D', text: "Only the root module outputs defined in the networking configuration's outputs.tf" }
     ],
     correctAnswers: ['D'],
@@ -408,7 +408,7 @@ export const HASHICORP_TFA_QUESTIONS_6 = [
     scenario: "A developer is locally testing modifications to a vendor-provided module without modifying the original source code files in Git.",
     question: "Which naming convention tells Terraform to load a file last and merge/override specific block arguments?",
     options: [
-      { id: 'A', text: "Files in the overrides/ folder" },
+      { id: 'A', text: "Files placed in an `overrides/` folder beside the root" },
       { id: 'B', text: "Files starting with test_" },
       { id: 'C', text: "Files ending in .dev.tf" },
       { id: 'D', text: "Files ending in `override.tf` or `override.tf.json`" }
@@ -494,7 +494,7 @@ export const HASHICORP_TFA_QUESTIONS_6 = [
     options: [
       { id: 'A', text: "By writing the subnet IDs to a local text file" },
       { id: 'B', text: "Using global HCL variables" },
-      { id: 'C', text: "By capturing module.vpc.subnet_ids and passing it as an input argument inside the module \"web_app\" block" },
+      { id: 'C', text: "By capturing `module.vpc.subnet_ids` and passing it as an input to `module.web_app`" },
       { id: 'D', text: "Sibling modules can read each other's outputs directly without root module involvement" }
     ],
     correctAnswers: ['C'],

@@ -52,7 +52,7 @@ export const HASHICORP_TFA_QUESTIONS_8 = [
     question: "How should the backend authenticate to the S3 bucket and DynamoDB table without storing static access keys?",
     options: [
       { id: 'A', text: "By inheriting the instance profile or web identity of the runner host" },
-      { id: 'B', text: "By committing AWS_SECRET_ACCESS_KEY into Git" },
+      { id: 'B', text: "By committing AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY into Git" },
       { id: 'C', text: "By hardcoding credentials into main.tf" },
       { id: 'D', text: "By using unauthenticated public S3 buckets" }
     ],
@@ -75,7 +75,7 @@ export const HASHICORP_TFA_QUESTIONS_8 = [
       { id: 'A', text: "It fails with an error" },
       { id: 'B', text: "It proposes deleting the S3 bucket" },
       { id: 'C', text: "It proposes updating the state only, leaving the cloud untouched" },
-      { id: 'D', text: "It proposes deleting the tags from the S3 bucket" }
+      { id: 'D', text: "It proposes deleting the new tags from the S3 bucket itself" }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -94,7 +94,7 @@ export const HASHICORP_TFA_QUESTIONS_8 = [
     question: "Which command combination achieves this cleanly?",
     options: [
       { id: 'A', text: "cat terraform.tfstate | grep id" },
-      { id: 'B', text: "terraform state list | grep id" },
+      { id: 'B', text: "`terraform state list` piped through `grep` for the ids" },
       { id: 'C', text: "`terraform state pull` piped through `jq` for the ids" },
       { id: 'D', text: "terraform show -raw id" }
     ],
@@ -199,7 +199,7 @@ export const HASHICORP_TFA_QUESTIONS_8 = [
     question: "What did this command modify behind the scenes?",
     options: [
       { id: 'A', text: "It marked the instance tainted in state, leaving the real resource alone" },
-      { id: 'B', text: "It terminated the cloud virtual machine immediately" },
+      { id: 'B', text: "It terminated the cloud virtual machine there and then, before any apply" },
       { id: 'C', text: "It deleted the resource block from main.tf" },
       { id: 'D', text: "It corrupted the dependency lock file" }
     ],
@@ -474,7 +474,7 @@ export const HASHICORP_TFA_QUESTIONS_8 = [
       { id: 'A', text: "Only when the import is run with a flag that includes the group's rules." },
       { id: 'B', text: "No: the rules must always be managed as separate resources to be imported." },
       { id: 'C', text: "No: security group rules cannot be imported by any provider version." },
-      { id: 'D', text: "Yes: where the schema defines inline rules, the provider reads them into the group's state." }
+      { id: 'D', text: "Yes: where the schema defines inline rules, the provider reads them into state." }
     ],
     correctAnswers: ['D'],
     type: "single",

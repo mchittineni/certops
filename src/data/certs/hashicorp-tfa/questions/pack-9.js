@@ -9,9 +9,9 @@ export const HASHICORP_TFA_QUESTIONS_9 = [
     scenario: "A developer uses the expression `\"${var.project}-${var.environment}-${var.region}\"` repeatedly across 25 different resource blocks.",
     question: "Which Terraform feature assigns a reusable local name to a computed expression to adhere to the DRY (Don't Repeat Yourself) principle?",
     options: [
-      { id: 'A', text: "Computed variables block" },
-      { id: 'B', text: "data \"local_expression\"" },
-      { id: 'C', text: "Global variables block" },
+      { id: 'A', text: "A `computed` block holding the composed prefix" },
+      { id: 'B', text: "A `local_expression` data source for the prefix" },
+      { id: 'C', text: "A global variables block holding the prefix" },
       { id: 'D', text: "A `locals` block holding the composed prefix" }
     ],
     correctAnswers: ['D'],
@@ -54,7 +54,7 @@ export const HASHICORP_TFA_QUESTIONS_9 = [
       { id: 'A', text: "A `count` on the nested block over the port list" },
       { id: 'B', text: "A `for` expression inside the ingress block body" },
       { id: 'C', text: "A `dynamic \"ingress\"` block over `var.ports` with a `content` body" },
-      { id: 'D', text: "A `for_each` on the security group resource itself" }
+      { id: 'D', text: "A `for_each` on the security group resource itself, one per port" }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -73,9 +73,9 @@ export const HASHICORP_TFA_QUESTIONS_9 = [
     question: "Which argument inside a dynamic block customizes the iterator label from the default block name?",
     options: [
       { id: 'A', text: "`iterator`, which renames the loop variable" },
-      { id: 'B', text: "as = port_rule" },
-      { id: 'C', text: "variable = port_rule" },
-      { id: 'D', text: "alias = port_rule" }
+      { id: 'B', text: "`as`, which renames the loop variable" },
+      { id: 'C', text: "`variable`, which renames the loop variable" },
+      { id: 'D', text: "`alias`, which renames the loop variable" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -198,9 +198,9 @@ export const HASHICORP_TFA_QUESTIONS_9 = [
     scenario: "A user_data bash script requires injecting a database host URL and port dynamically from Terraform.",
     question: "Which built-in function reads an external file on disk and renders it with template variables?",
     options: [
-      { id: 'A', text: "render(\"scripts/init.sh.tftpl\", { ... })" },
-      { id: 'B', text: "file(\"scripts/init.sh.tftpl\", { ... })" },
-      { id: 'C', text: "template(\"scripts/init.sh.tftpl\", { ... })" },
+      { id: 'A', text: "`render(\"init.sh.tftpl\", { db_host = ..., port = 5432 })`" },
+      { id: 'B', text: "`file(\"init.sh.tftpl\", { db_host = ..., port = 5432 })`" },
+      { id: 'C', text: "`template(\"init.sh.tftpl\", { db_host = ..., port = 5432 })`" },
       { id: 'D', text: "`templatefile(\"init.sh.tftpl\", { db_host = ..., port = 5432 })`" }
     ],
     correctAnswers: ['D'],
@@ -450,7 +450,7 @@ export const HASHICORP_TFA_QUESTIONS_9 = [
     scenario: "A developer evaluates error-handling strategies in HashiCorp Configuration Language.",
     question: "What is the difference in return types between the can() function and the try() function in HCL?",
     options: [
-      { id: 'A', text: "can() is only used in provisioners; try() is used in variables" },
+      { id: 'A', text: "`can()` is only valid inside provisioners; `try()` only inside variable blocks" },
       { id: 'B', text: "There is no difference; they are aliases" },
       { id: 'C', text: "can() returns a string; try() returns an integer" },
       { id: 'D', text: "`can()` returns a boolean for whether it evaluated; `try()` returns the first that does" }

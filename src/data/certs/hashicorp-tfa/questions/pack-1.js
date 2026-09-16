@@ -324,7 +324,7 @@ export const HASHICORP_TFA_QUESTIONS_1 = [
     scenario: "A single monolithic Terraform configuration manages an enterprise's root networking, core production databases, and 50 microservices in one single state file.",
     question: "Why does this monolithic architecture pose a severe operational risk?",
     options: [
-      { id: 'A', text: "Monolithic architectures execute faster than modular designs" },
+      { id: 'A', text: "Monolithic architectures execute faster than modular designs do" },
       { id: 'B', text: "A mistake in one rollout can destroy the shared networking in the same state" },
       { id: 'C', text: "Monolithic state files are not supported by cloud providers" },
       { id: 'D', text: "Terraform cannot manage more than 2 resources per file" }

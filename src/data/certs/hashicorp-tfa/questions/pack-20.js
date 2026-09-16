@@ -431,7 +431,7 @@ export const HASHICORP_TFA_QUESTIONS_20 = [
     options: [
       { id: 'A', text: "Create `staging.tfvars` and `prod.tfvars` and apply using `terraform apply -var-file=prod.tfvars`." },
       { id: 'B', text: "Default values in `variables.tf`, overridden on the command line." },
-      { id: 'C', text: "Prompt the user to type 50 variable values interactively into the terminal prompt." },
+      { id: 'C', text: "Prompt the user to type each of the 50 variable values interactively at the prompt." },
       { id: 'D', text: "Use environment variables exclusively for all complex object structures." }
     ],
     correctAnswers: ['A'],
@@ -450,7 +450,7 @@ export const HASHICORP_TFA_QUESTIONS_20 = [
     scenario: "A large-scale multi-cloud platform experiences rapid infrastructure growth and requires automated, consistent provisioning across complex resource topologies. The Terraform engineer needs to manage different variable values for staging and production environments without changing the underlying `.tf` codebase.",
     question: "Which design pattern or Terraform capability manages this provisioning scale effectively while preventing configuration drift and deployment bottlenecks?",
     options: [
-      { id: 'A', text: "Prompt the user to type 50 variable values interactively into the terminal prompt." },
+      { id: 'A', text: "Prompt the user to type each of the 50 variable values interactively at the prompt." },
       { id: 'B', text: "Default values in `variables.tf`, overridden on the command line." },
       { id: 'C', text: "Use environment variables exclusively for all complex object structures." },
       { id: 'D', text: "Create `staging.tfvars` and `prod.tfvars` and apply using `terraform apply -var-file=prod.tfvars`." }
@@ -473,7 +473,7 @@ export const HASHICORP_TFA_QUESTIONS_20 = [
     options: [
       { id: 'A', text: "Create `staging.tfvars` and `prod.tfvars` and apply using `terraform apply -var-file=prod.tfvars`." },
       { id: 'B', text: "Default values in `variables.tf`, overridden on the command line." },
-      { id: 'C', text: "Prompt the user to type 50 variable values interactively into the terminal prompt." },
+      { id: 'C', text: "Prompt the user to type each of the 50 variable values interactively at the prompt." },
       { id: 'D', text: "Use environment variables exclusively for all complex object structures." }
     ],
     correctAnswers: ['A'],
@@ -494,7 +494,7 @@ export const HASHICORP_TFA_QUESTIONS_20 = [
     options: [
       { id: 'A', text: "Default values in `variables.tf`, overridden on the command line." },
       { id: 'B', text: "Use environment variables exclusively for all complex object structures." },
-      { id: 'C', text: "Prompt the user to type 50 variable values interactively into the terminal prompt." },
+      { id: 'C', text: "Prompt the user to type each of the 50 variable values interactively at the prompt." },
       { id: 'D', text: "Create `staging.tfvars` and `prod.tfvars` and apply using `terraform apply -var-file=prod.tfvars`." }
     ],
     correctAnswers: ['D'],
@@ -516,7 +516,7 @@ export const HASHICORP_TFA_QUESTIONS_20 = [
       { id: 'A', text: "Use environment variables exclusively for all complex object structures." },
       { id: 'B', text: "Default values in `variables.tf`, overridden on the command line." },
       { id: 'C', text: "Create `staging.tfvars` and `prod.tfvars` and apply using `terraform apply -var-file=prod.tfvars`." },
-      { id: 'D', text: "Prompt the user to type 50 variable values interactively into the terminal prompt." }
+      { id: 'D', text: "Prompt the user to type each of the 50 variable values interactively at the prompt." }
     ],
     correctAnswers: ['C'],
     type: "single",
