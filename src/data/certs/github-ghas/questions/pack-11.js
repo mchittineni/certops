@@ -9,10 +9,10 @@ export const GITHUB_GHAS_QUESTIONS_11 = [
     scenario: "An enterprise application security team is deploying GitHub Advanced Security (GHAS) across hundreds of repositories to establish automated vulnerability management and compliance guardrails. The AppSec engineer needs to prevent developers from accidentally pushing hardcoded AWS or OpenAI API tokens to remote GitHub repositories.",
     question: "Which architectural approach or GHAS configuration satisfies these enterprise security rollout objectives?",
     options: [
-      { id: 'A', text: "Allow developers to push secrets and run batch scans every Friday afternoon." },
-      { id: 'B', text: "Disable git commit hooks to accelerate local development speed." },
-      { id: 'C', text: "Instruct developers to memorize all secret token formats and check commits manually." },
-      { id: 'D', text: "Enable Secret Scanning Push Protection across organization repositories to intercept and reject commits containing secrets." }
+      { id: 'A', text: "Enable secret scanning alerts and triage the queue on a weekly cadence." },
+      { id: 'B', text: "Distribute a pre-commit hook that runs the same patterns before each push." },
+      { id: 'C', text: "Enable push protection only for the custom patterns the platform team owns." },
+      { id: 'D', text: "Enable secret scanning push protection across the organization's repositories." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -30,10 +30,10 @@ export const GITHUB_GHAS_QUESTIONS_11 = [
     scenario: "A devsecops engineering team is securing the software supply chain against malicious open-source packages, known CVEs, and license compliance violations across build pipelines. The AppSec engineer needs to prevent developers from accidentally pushing hardcoded AWS or OpenAI API tokens to remote GitHub repositories.",
     question: "Which Dependabot practice or supply chain security configuration defends the software lifecycle effectively?",
     options: [
-      { id: 'A', text: "Allow developers to push secrets and run batch scans every Friday afternoon." },
-      { id: 'B', text: "Enable Secret Scanning Push Protection across organization repositories to intercept and reject commits containing secrets." },
-      { id: 'C', text: "Disable git commit hooks to accelerate local development speed." },
-      { id: 'D', text: "Instruct developers to memorize all secret token formats and check commits manually." }
+      { id: 'A', text: "Enable secret scanning alerts and triage the queue on a weekly cadence." },
+      { id: 'B', text: "Enable secret scanning push protection across the organization's repositories." },
+      { id: 'C', text: "Distribute a pre-commit hook that runs the same patterns before each push." },
+      { id: 'D', text: "Enable push protection only for the custom patterns the platform team owns." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -51,10 +51,10 @@ export const GITHUB_GHAS_QUESTIONS_11 = [
     scenario: "A security operations team is enforcing zero-trust credential hygiene, push protection guardrails, and automated token revocation across developer workflows. The AppSec engineer needs to prevent developers from accidentally pushing hardcoded AWS or OpenAI API tokens to remote GitHub repositories.",
     question: "Which secret scanning feature or remediation workflow prevents sensitive credential exposure?",
     options: [
-      { id: 'A', text: "Enable Secret Scanning Push Protection across organization repositories to intercept and reject commits containing secrets." },
-      { id: 'B', text: "Allow developers to push secrets and run batch scans every Friday afternoon." },
-      { id: 'C', text: "Instruct developers to memorize all secret token formats and check commits manually." },
-      { id: 'D', text: "Disable git commit hooks to accelerate local development speed." }
+      { id: 'A', text: "Enable secret scanning push protection across the organization's repositories." },
+      { id: 'B', text: "Enable secret scanning alerts and triage the queue on a weekly cadence." },
+      { id: 'C', text: "Enable push protection only for the custom patterns the platform team owns." },
+      { id: 'D', text: "Distribute a pre-commit hook that runs the same patterns before each push." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -72,10 +72,10 @@ export const GITHUB_GHAS_QUESTIONS_11 = [
     scenario: "A software development group is implementing CodeQL code scanning to detect complex security flaws, taint vulnerabilities, and code quality defects early in pull requests. The AppSec engineer needs to prevent developers from accidentally pushing hardcoded AWS or OpenAI API tokens to remote GitHub repositories.",
     question: "Which CodeQL feature or workflow configuration enables developers to catch and fix vulnerabilities before merge?",
     options: [
-      { id: 'A', text: "Enable Secret Scanning Push Protection across organization repositories to intercept and reject commits containing secrets." },
-      { id: 'B', text: "Allow developers to push secrets and run batch scans every Friday afternoon." },
-      { id: 'C', text: "Instruct developers to memorize all secret token formats and check commits manually." },
-      { id: 'D', text: "Disable git commit hooks to accelerate local development speed." }
+      { id: 'A', text: "Enable secret scanning push protection across the organization's repositories." },
+      { id: 'B', text: "Enable secret scanning alerts and triage the queue on a weekly cadence." },
+      { id: 'C', text: "Enable push protection only for the custom patterns the platform team owns." },
+      { id: 'D', text: "Distribute a pre-commit hook that runs the same patterns before each push." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -93,10 +93,10 @@ export const GITHUB_GHAS_QUESTIONS_11 = [
     scenario: "A corporate compliance officer requires comprehensive audit log streaming, repository ruleset enforcement, and centralized visibility into security posture and remediation trends. The AppSec engineer needs to prevent developers from accidentally pushing hardcoded AWS or OpenAI API tokens to remote GitHub repositories.",
     question: "Which governance policy or GHAS enterprise feature guarantees continuous regulatory compliance?",
     options: [
-      { id: 'A', text: "Enable Secret Scanning Push Protection across organization repositories to intercept and reject commits containing secrets." },
-      { id: 'B', text: "Allow developers to push secrets and run batch scans every Friday afternoon." },
-      { id: 'C', text: "Instruct developers to memorize all secret token formats and check commits manually." },
-      { id: 'D', text: "Disable git commit hooks to accelerate local development speed." }
+      { id: 'A', text: "Enable secret scanning push protection across the organization's repositories." },
+      { id: 'B', text: "Enable secret scanning alerts and triage the queue on a weekly cadence." },
+      { id: 'C', text: "Enable push protection only for the custom patterns the platform team owns." },
+      { id: 'D', text: "Distribute a pre-commit hook that runs the same patterns before each push." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -114,10 +114,10 @@ export const GITHUB_GHAS_QUESTIONS_11 = [
     scenario: "An enterprise application security team is deploying GitHub Advanced Security (GHAS) across hundreds of repositories to establish automated vulnerability management and compliance guardrails. The AppSec engineer needs to ensure compromised cloud access tokens published in public or private repositories are revoked immediately by the token issuer.",
     question: "Which architectural approach or GHAS configuration satisfies these enterprise security rollout objectives?",
     options: [
-      { id: 'A', text: "Rely on GitHub Partner Pattern Secret Scanning, which sends real-time leak notifications to token partners for automated validation and revocation." },
-      { id: 'B', text: "Manually email customer support at the cloud provider whenever a token leak occurs." },
-      { id: 'C', text: "Assume leaked tokens will naturally expire without taking containment action." },
-      { id: 'D', text: "Prohibit scanning for vendor tokens to protect developer privacy." }
+      { id: 'A', text: "Rely on partner pattern scanning, which notifies the token issuer so it can revoke the leak." },
+      { id: 'B', text: "Rely on push protection, which blocks the commit before the token reaches the remote at all." },
+      { id: 'C', text: "Rely on the alert webhook, which lets an internal workflow revoke the token on detection." },
+      { id: 'D', text: "Rely on validity checks, which mark the alert active or inactive against the provider." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -135,10 +135,10 @@ export const GITHUB_GHAS_QUESTIONS_11 = [
     scenario: "A devsecops engineering team is securing the software supply chain against malicious open-source packages, known CVEs, and license compliance violations across build pipelines. The AppSec engineer needs to ensure compromised cloud access tokens published in public or private repositories are revoked immediately by the token issuer.",
     question: "Which Dependabot practice or supply chain security configuration defends the software lifecycle effectively?",
     options: [
-      { id: 'A', text: "Prohibit scanning for vendor tokens to protect developer privacy." },
-      { id: 'B', text: "Manually email customer support at the cloud provider whenever a token leak occurs." },
-      { id: 'C', text: "Rely on GitHub Partner Pattern Secret Scanning, which sends real-time leak notifications to token partners for automated validation and revocation." },
-      { id: 'D', text: "Assume leaked tokens will naturally expire without taking containment action." }
+      { id: 'A', text: "Rely on validity checks, which mark the alert active or inactive against the provider." },
+      { id: 'B', text: "Rely on push protection, which blocks the commit before the token reaches the remote at all." },
+      { id: 'C', text: "Rely on partner pattern scanning, which notifies the token issuer so it can revoke the leak." },
+      { id: 'D', text: "Rely on the alert webhook, which lets an internal workflow revoke the token on detection." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -156,10 +156,10 @@ export const GITHUB_GHAS_QUESTIONS_11 = [
     scenario: "A security operations team is enforcing zero-trust credential hygiene, push protection guardrails, and automated token revocation across developer workflows. The AppSec engineer needs to ensure compromised cloud access tokens published in public or private repositories are revoked immediately by the token issuer.",
     question: "Which secret scanning feature or remediation workflow prevents sensitive credential exposure?",
     options: [
-      { id: 'A', text: "Assume leaked tokens will naturally expire without taking containment action." },
-      { id: 'B', text: "Manually email customer support at the cloud provider whenever a token leak occurs." },
-      { id: 'C', text: "Prohibit scanning for vendor tokens to protect developer privacy." },
-      { id: 'D', text: "Rely on GitHub Partner Pattern Secret Scanning, which sends real-time leak notifications to token partners for automated validation and revocation." }
+      { id: 'A', text: "Rely on the alert webhook, which lets an internal workflow revoke the token on detection." },
+      { id: 'B', text: "Rely on push protection, which blocks the commit before the token reaches the remote at all." },
+      { id: 'C', text: "Rely on validity checks, which mark the alert active or inactive against the provider." },
+      { id: 'D', text: "Rely on partner pattern scanning, which notifies the token issuer so it can revoke the leak." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -177,10 +177,10 @@ export const GITHUB_GHAS_QUESTIONS_11 = [
     scenario: "A software development group is implementing CodeQL code scanning to detect complex security flaws, taint vulnerabilities, and code quality defects early in pull requests. The AppSec engineer needs to ensure compromised cloud access tokens published in public or private repositories are revoked immediately by the token issuer.",
     question: "Which CodeQL feature or workflow configuration enables developers to catch and fix vulnerabilities before merge?",
     options: [
-      { id: 'A', text: "Rely on GitHub Partner Pattern Secret Scanning, which sends real-time leak notifications to token partners for automated validation and revocation." },
-      { id: 'B', text: "Manually email customer support at the cloud provider whenever a token leak occurs." },
-      { id: 'C', text: "Assume leaked tokens will naturally expire without taking containment action." },
-      { id: 'D', text: "Prohibit scanning for vendor tokens to protect developer privacy." }
+      { id: 'A', text: "Rely on partner pattern scanning, which notifies the token issuer so it can revoke the leak." },
+      { id: 'B', text: "Rely on push protection, which blocks the commit before the token reaches the remote at all." },
+      { id: 'C', text: "Rely on the alert webhook, which lets an internal workflow revoke the token on detection." },
+      { id: 'D', text: "Rely on validity checks, which mark the alert active or inactive against the provider." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -198,10 +198,10 @@ export const GITHUB_GHAS_QUESTIONS_11 = [
     scenario: "A corporate compliance officer requires comprehensive audit log streaming, repository ruleset enforcement, and centralized visibility into security posture and remediation trends. The AppSec engineer needs to ensure compromised cloud access tokens published in public or private repositories are revoked immediately by the token issuer.",
     question: "Which governance policy or GHAS enterprise feature guarantees continuous regulatory compliance?",
     options: [
-      { id: 'A', text: "Rely on GitHub Partner Pattern Secret Scanning, which sends real-time leak notifications to token partners for automated validation and revocation." },
-      { id: 'B', text: "Manually email customer support at the cloud provider whenever a token leak occurs." },
-      { id: 'C', text: "Assume leaked tokens will naturally expire without taking containment action." },
-      { id: 'D', text: "Prohibit scanning for vendor tokens to protect developer privacy." }
+      { id: 'A', text: "Rely on partner pattern scanning, which notifies the token issuer so it can revoke the leak." },
+      { id: 'B', text: "Rely on push protection, which blocks the commit before the token reaches the remote at all." },
+      { id: 'C', text: "Rely on the alert webhook, which lets an internal workflow revoke the token on detection." },
+      { id: 'D', text: "Rely on validity checks, which mark the alert active or inactive against the provider." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -219,10 +219,10 @@ export const GITHUB_GHAS_QUESTIONS_11 = [
     scenario: "An enterprise application security team is deploying GitHub Advanced Security (GHAS) across hundreds of repositories to establish automated vulnerability management and compliance guardrails. The AppSec engineer needs to detect proprietary internal corporate API keys formatted as `CORP_SEC_[0-9A-Z]{32}` across enterprise repositories.",
     question: "Which architectural approach or GHAS configuration satisfies these enterprise security rollout objectives?",
     options: [
-      { id: 'A', text: "Author a Custom Secret Pattern at the enterprise or organization level, testing the regular expression against historical commit data before publishing." },
-      { id: 'B', text: "Ask developers to write custom bash grep scripts that run on local laptops." },
-      { id: 'C', text: "Hardcode proprietary regex strings inside third-party browser extensions." },
-      { id: 'D', text: "Disable custom secret detection and scan only for public cloud tokens." }
+      { id: 'A', text: "Publish a custom secret pattern at the enterprise level, dry-run against history first." },
+      { id: 'B', text: "Publish the pattern as a push protection bypass rule scoped to the affected repositories." },
+      { id: 'C', text: "Add the pattern to a CodeQL query pack and run it from each repository's scan workflow." },
+      { id: 'D', text: "Add the pattern to a pre-commit hook the platform team distributes to every developer." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -240,10 +240,10 @@ export const GITHUB_GHAS_QUESTIONS_11 = [
     scenario: "A devsecops engineering team is securing the software supply chain against malicious open-source packages, known CVEs, and license compliance violations across build pipelines. The AppSec engineer needs to detect proprietary internal corporate API keys formatted as `CORP_SEC_[0-9A-Z]{32}` across enterprise repositories.",
     question: "Which Dependabot practice or supply chain security configuration defends the software lifecycle effectively?",
     options: [
-      { id: 'A', text: "Author a Custom Secret Pattern at the enterprise or organization level, testing the regular expression against historical commit data before publishing." },
-      { id: 'B', text: "Ask developers to write custom bash grep scripts that run on local laptops." },
-      { id: 'C', text: "Hardcode proprietary regex strings inside third-party browser extensions." },
-      { id: 'D', text: "Disable custom secret detection and scan only for public cloud tokens." }
+      { id: 'A', text: "Publish a custom secret pattern at the enterprise level, dry-run against history first." },
+      { id: 'B', text: "Publish the pattern as a push protection bypass rule scoped to the affected repositories." },
+      { id: 'C', text: "Add the pattern to a CodeQL query pack and run it from each repository's scan workflow." },
+      { id: 'D', text: "Add the pattern to a pre-commit hook the platform team distributes to every developer." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -261,10 +261,10 @@ export const GITHUB_GHAS_QUESTIONS_11 = [
     scenario: "A security operations team is enforcing zero-trust credential hygiene, push protection guardrails, and automated token revocation across developer workflows. The AppSec engineer needs to detect proprietary internal corporate API keys formatted as `CORP_SEC_[0-9A-Z]{32}` across enterprise repositories.",
     question: "Which secret scanning feature or remediation workflow prevents sensitive credential exposure?",
     options: [
-      { id: 'A', text: "Author a Custom Secret Pattern at the enterprise or organization level, testing the regular expression against historical commit data before publishing." },
-      { id: 'B', text: "Ask developers to write custom bash grep scripts that run on local laptops." },
-      { id: 'C', text: "Hardcode proprietary regex strings inside third-party browser extensions." },
-      { id: 'D', text: "Disable custom secret detection and scan only for public cloud tokens." }
+      { id: 'A', text: "Publish a custom secret pattern at the enterprise level, dry-run against history first." },
+      { id: 'B', text: "Publish the pattern as a push protection bypass rule scoped to the affected repositories." },
+      { id: 'C', text: "Add the pattern to a CodeQL query pack and run it from each repository's scan workflow." },
+      { id: 'D', text: "Add the pattern to a pre-commit hook the platform team distributes to every developer." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -282,10 +282,10 @@ export const GITHUB_GHAS_QUESTIONS_11 = [
     scenario: "A software development group is implementing CodeQL code scanning to detect complex security flaws, taint vulnerabilities, and code quality defects early in pull requests. The AppSec engineer needs to detect proprietary internal corporate API keys formatted as `CORP_SEC_[0-9A-Z]{32}` across enterprise repositories.",
     question: "Which CodeQL feature or workflow configuration enables developers to catch and fix vulnerabilities before merge?",
     options: [
-      { id: 'A', text: "Disable custom secret detection and scan only for public cloud tokens." },
-      { id: 'B', text: "Author a Custom Secret Pattern at the enterprise or organization level, testing the regular expression against historical commit data before publishing." },
-      { id: 'C', text: "Hardcode proprietary regex strings inside third-party browser extensions." },
-      { id: 'D', text: "Ask developers to write custom bash grep scripts that run on local laptops." }
+      { id: 'A', text: "Add the pattern to a pre-commit hook the platform team distributes to every developer." },
+      { id: 'B', text: "Publish a custom secret pattern at the enterprise level, dry-run against history first." },
+      { id: 'C', text: "Add the pattern to a CodeQL query pack and run it from each repository's scan workflow." },
+      { id: 'D', text: "Publish the pattern as a push protection bypass rule scoped to the affected repositories." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -303,10 +303,10 @@ export const GITHUB_GHAS_QUESTIONS_11 = [
     scenario: "A corporate compliance officer requires comprehensive audit log streaming, repository ruleset enforcement, and centralized visibility into security posture and remediation trends. The AppSec engineer needs to detect proprietary internal corporate API keys formatted as `CORP_SEC_[0-9A-Z]{32}` across enterprise repositories.",
     question: "Which governance policy or GHAS enterprise feature guarantees continuous regulatory compliance?",
     options: [
-      { id: 'A', text: "Hardcode proprietary regex strings inside third-party browser extensions." },
-      { id: 'B', text: "Ask developers to write custom bash grep scripts that run on local laptops." },
-      { id: 'C', text: "Disable custom secret detection and scan only for public cloud tokens." },
-      { id: 'D', text: "Author a Custom Secret Pattern at the enterprise or organization level, testing the regular expression against historical commit data before publishing." }
+      { id: 'A', text: "Add the pattern to a CodeQL query pack and run it from each repository's scan workflow." },
+      { id: 'B', text: "Publish the pattern as a push protection bypass rule scoped to the affected repositories." },
+      { id: 'C', text: "Add the pattern to a pre-commit hook the platform team distributes to every developer." },
+      { id: 'D', text: "Publish a custom secret pattern at the enterprise level, dry-run against history first." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -324,10 +324,10 @@ export const GITHUB_GHAS_QUESTIONS_11 = [
     scenario: "An enterprise application security team is deploying GitHub Advanced Security (GHAS) across hundreds of repositories to establish automated vulnerability management and compliance guardrails. The AppSec engineer needs to help security responders prioritize high-risk active credentials over obsolete, inactive test tokens in secret scanning alerts.",
     question: "Which architectural approach or GHAS configuration satisfies these enterprise security rollout objectives?",
     options: [
-      { id: 'A', text: "Enable Secret Validity Checks to automatically verify token status directly with partner APIs (e.g., AWS, GitHub, Slack)." },
-      { id: 'B', text: "Instruct security analysts to test every leaked token manually against live production APIs." },
-      { id: 'C', text: "Assume all detected secrets are active and permanently delete corresponding repositories." },
-      { id: 'D', text: "Treat all secret alerts with identical priority regardless of whether tokens are valid." }
+      { id: 'A', text: "Enable validity checks, which confirm each token's status with the provider." },
+      { id: 'B', text: "Enable partner pattern scanning, which lets the provider revoke the token itself." },
+      { id: 'C', text: "Enable push protection, so the credential never reaches the remote to begin with." },
+      { id: 'D', text: "Enable auto-triage rules that close alerts on paths the team marks as fixtures." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -345,10 +345,10 @@ export const GITHUB_GHAS_QUESTIONS_11 = [
     scenario: "A devsecops engineering team is securing the software supply chain against malicious open-source packages, known CVEs, and license compliance violations across build pipelines. The AppSec engineer needs to help security responders prioritize high-risk active credentials over obsolete, inactive test tokens in secret scanning alerts.",
     question: "Which Dependabot practice or supply chain security configuration defends the software lifecycle effectively?",
     options: [
-      { id: 'A', text: "Treat all secret alerts with identical priority regardless of whether tokens are valid." },
-      { id: 'B', text: "Enable Secret Validity Checks to automatically verify token status directly with partner APIs (e.g., AWS, GitHub, Slack)." },
-      { id: 'C', text: "Assume all detected secrets are active and permanently delete corresponding repositories." },
-      { id: 'D', text: "Instruct security analysts to test every leaked token manually against live production APIs." }
+      { id: 'A', text: "Enable auto-triage rules that close alerts on paths the team marks as fixtures." },
+      { id: 'B', text: "Enable validity checks, which confirm each token's status with the provider." },
+      { id: 'C', text: "Enable push protection, so the credential never reaches the remote to begin with." },
+      { id: 'D', text: "Enable partner pattern scanning, which lets the provider revoke the token itself." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -366,10 +366,10 @@ export const GITHUB_GHAS_QUESTIONS_11 = [
     scenario: "A security operations team is enforcing zero-trust credential hygiene, push protection guardrails, and automated token revocation across developer workflows. The AppSec engineer needs to help security responders prioritize high-risk active credentials over obsolete, inactive test tokens in secret scanning alerts.",
     question: "Which secret scanning feature or remediation workflow prevents sensitive credential exposure?",
     options: [
-      { id: 'A', text: "Enable Secret Validity Checks to automatically verify token status directly with partner APIs (e.g., AWS, GitHub, Slack)." },
-      { id: 'B', text: "Assume all detected secrets are active and permanently delete corresponding repositories." },
-      { id: 'C', text: "Treat all secret alerts with identical priority regardless of whether tokens are valid." },
-      { id: 'D', text: "Instruct security analysts to test every leaked token manually against live production APIs." }
+      { id: 'A', text: "Enable validity checks, which confirm each token's status with the provider." },
+      { id: 'B', text: "Enable push protection, so the credential never reaches the remote to begin with." },
+      { id: 'C', text: "Enable auto-triage rules that close alerts on paths the team marks as fixtures." },
+      { id: 'D', text: "Enable partner pattern scanning, which lets the provider revoke the token itself." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -387,10 +387,10 @@ export const GITHUB_GHAS_QUESTIONS_11 = [
     scenario: "A software development group is implementing CodeQL code scanning to detect complex security flaws, taint vulnerabilities, and code quality defects early in pull requests. The AppSec engineer needs to help security responders prioritize high-risk active credentials over obsolete, inactive test tokens in secret scanning alerts.",
     question: "Which CodeQL feature or workflow configuration enables developers to catch and fix vulnerabilities before merge?",
     options: [
-      { id: 'A', text: "Instruct security analysts to test every leaked token manually against live production APIs." },
-      { id: 'B', text: "Enable Secret Validity Checks to automatically verify token status directly with partner APIs (e.g., AWS, GitHub, Slack)." },
-      { id: 'C', text: "Treat all secret alerts with identical priority regardless of whether tokens are valid." },
-      { id: 'D', text: "Assume all detected secrets are active and permanently delete corresponding repositories." }
+      { id: 'A', text: "Enable partner pattern scanning, which lets the provider revoke the token itself." },
+      { id: 'B', text: "Enable validity checks, which confirm each token's status with the provider." },
+      { id: 'C', text: "Enable auto-triage rules that close alerts on paths the team marks as fixtures." },
+      { id: 'D', text: "Enable push protection, so the credential never reaches the remote to begin with." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -408,10 +408,10 @@ export const GITHUB_GHAS_QUESTIONS_11 = [
     scenario: "A corporate compliance officer requires comprehensive audit log streaming, repository ruleset enforcement, and centralized visibility into security posture and remediation trends. The AppSec engineer needs to help security responders prioritize high-risk active credentials over obsolete, inactive test tokens in secret scanning alerts.",
     question: "Which governance policy or GHAS enterprise feature guarantees continuous regulatory compliance?",
     options: [
-      { id: 'A', text: "Enable Secret Validity Checks to automatically verify token status directly with partner APIs (e.g., AWS, GitHub, Slack)." },
-      { id: 'B', text: "Instruct security analysts to test every leaked token manually against live production APIs." },
-      { id: 'C', text: "Assume all detected secrets are active and permanently delete corresponding repositories." },
-      { id: 'D', text: "Treat all secret alerts with identical priority regardless of whether tokens are valid." }
+      { id: 'A', text: "Enable validity checks, which confirm each token's status with the provider." },
+      { id: 'B', text: "Enable partner pattern scanning, which lets the provider revoke the token itself." },
+      { id: 'C', text: "Enable push protection, so the credential never reaches the remote to begin with." },
+      { id: 'D', text: "Enable auto-triage rules that close alerts on paths the team marks as fixtures." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -429,10 +429,10 @@ export const GITHUB_GHAS_QUESTIONS_11 = [
     scenario: "An enterprise application security team is deploying GitHub Advanced Security (GHAS) across hundreds of repositories to establish automated vulnerability management and compliance guardrails. The AppSec engineer needs to detect unformatted database passwords, RSA private keys, and high-entropy authentication strings that lack vendor prefixes.",
     question: "Which architectural approach or GHAS configuration satisfies these enterprise security rollout objectives?",
     options: [
-      { id: 'A', text: "Enable AI-powered Generic Secret Detection in Secret Scanning to catch unstructured secrets using machine learning models." },
-      { id: 'B', text: "Disable secret scanning for all non-standard token formats." },
-      { id: 'C', text: "Rely solely on rigid regex patterns that miss unstructured passwords." },
-      { id: 'D', text: "Require developers to write custom regexes for every possible password string." }
+      { id: 'A', text: "Enable AI-powered generic secret detection, which finds unstructured credentials." },
+      { id: 'B', text: "Enable push protection for custom patterns so unstructured secrets are blocked." },
+      { id: 'C', text: "Enable a custom pattern per credential shape the platform team can enumerate." },
+      { id: 'D', text: "Enable validity checks so only credentials that still authenticate are alerted." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -450,10 +450,10 @@ export const GITHUB_GHAS_QUESTIONS_11 = [
     scenario: "A devsecops engineering team is securing the software supply chain against malicious open-source packages, known CVEs, and license compliance violations across build pipelines. The AppSec engineer needs to detect unformatted database passwords, RSA private keys, and high-entropy authentication strings that lack vendor prefixes.",
     question: "Which Dependabot practice or supply chain security configuration defends the software lifecycle effectively?",
     options: [
-      { id: 'A', text: "Rely solely on rigid regex patterns that miss unstructured passwords." },
-      { id: 'B', text: "Enable AI-powered Generic Secret Detection in Secret Scanning to catch unstructured secrets using machine learning models." },
-      { id: 'C', text: "Disable secret scanning for all non-standard token formats." },
-      { id: 'D', text: "Require developers to write custom regexes for every possible password string." }
+      { id: 'A', text: "Enable a custom pattern per credential shape the platform team can enumerate." },
+      { id: 'B', text: "Enable AI-powered generic secret detection, which finds unstructured credentials." },
+      { id: 'C', text: "Enable push protection for custom patterns so unstructured secrets are blocked." },
+      { id: 'D', text: "Enable validity checks so only credentials that still authenticate are alerted." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -471,10 +471,10 @@ export const GITHUB_GHAS_QUESTIONS_11 = [
     scenario: "A security operations team is enforcing zero-trust credential hygiene, push protection guardrails, and automated token revocation across developer workflows. The AppSec engineer needs to detect unformatted database passwords, RSA private keys, and high-entropy authentication strings that lack vendor prefixes.",
     question: "Which secret scanning feature or remediation workflow prevents sensitive credential exposure?",
     options: [
-      { id: 'A', text: "Disable secret scanning for all non-standard token formats." },
-      { id: 'B', text: "Rely solely on rigid regex patterns that miss unstructured passwords." },
-      { id: 'C', text: "Enable AI-powered Generic Secret Detection in Secret Scanning to catch unstructured secrets using machine learning models." },
-      { id: 'D', text: "Require developers to write custom regexes for every possible password string." }
+      { id: 'A', text: "Enable push protection for custom patterns so unstructured secrets are blocked." },
+      { id: 'B', text: "Enable a custom pattern per credential shape the platform team can enumerate." },
+      { id: 'C', text: "Enable AI-powered generic secret detection, which finds unstructured credentials." },
+      { id: 'D', text: "Enable validity checks so only credentials that still authenticate are alerted." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -492,10 +492,10 @@ export const GITHUB_GHAS_QUESTIONS_11 = [
     scenario: "A software development group is implementing CodeQL code scanning to detect complex security flaws, taint vulnerabilities, and code quality defects early in pull requests. The AppSec engineer needs to detect unformatted database passwords, RSA private keys, and high-entropy authentication strings that lack vendor prefixes.",
     question: "Which CodeQL feature or workflow configuration enables developers to catch and fix vulnerabilities before merge?",
     options: [
-      { id: 'A', text: "Rely solely on rigid regex patterns that miss unstructured passwords." },
-      { id: 'B', text: "Require developers to write custom regexes for every possible password string." },
-      { id: 'C', text: "Enable AI-powered Generic Secret Detection in Secret Scanning to catch unstructured secrets using machine learning models." },
-      { id: 'D', text: "Disable secret scanning for all non-standard token formats." }
+      { id: 'A', text: "Enable a custom pattern per credential shape the platform team can enumerate." },
+      { id: 'B', text: "Enable validity checks so only credentials that still authenticate are alerted." },
+      { id: 'C', text: "Enable AI-powered generic secret detection, which finds unstructured credentials." },
+      { id: 'D', text: "Enable push protection for custom patterns so unstructured secrets are blocked." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -513,10 +513,10 @@ export const GITHUB_GHAS_QUESTIONS_11 = [
     scenario: "A corporate compliance officer requires comprehensive audit log streaming, repository ruleset enforcement, and centralized visibility into security posture and remediation trends. The AppSec engineer needs to detect unformatted database passwords, RSA private keys, and high-entropy authentication strings that lack vendor prefixes.",
     question: "Which governance policy or GHAS enterprise feature guarantees continuous regulatory compliance?",
     options: [
-      { id: 'A', text: "Disable secret scanning for all non-standard token formats." },
-      { id: 'B', text: "Require developers to write custom regexes for every possible password string." },
-      { id: 'C', text: "Rely solely on rigid regex patterns that miss unstructured passwords." },
-      { id: 'D', text: "Enable AI-powered Generic Secret Detection in Secret Scanning to catch unstructured secrets using machine learning models." }
+      { id: 'A', text: "Enable push protection for custom patterns so unstructured secrets are blocked." },
+      { id: 'B', text: "Enable validity checks so only credentials that still authenticate are alerted." },
+      { id: 'C', text: "Enable a custom pattern per credential shape the platform team can enumerate." },
+      { id: 'D', text: "Enable AI-powered generic secret detection, which finds unstructured credentials." }
     ],
     correctAnswers: ['D'],
     type: "single",

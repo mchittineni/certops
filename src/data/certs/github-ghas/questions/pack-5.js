@@ -9,10 +9,10 @@ export const GITHUB_GHAS_QUESTIONS_5 = [
     scenario: "A team plans to make a five-year-old private repository public next month. Its secret scanning queue is empty because scanning was only enabled recently on a subset of pattern types.",
     question: "What should happen before the visibility change?",
     options: [
-      { id: 'A', text: "Treat the whole history as about to be published: widen detection including generic patterns, review the resulting findings, rotate anything live, and accept that publishing exposes every commit rather than only the current tree." },
-      { id: 'B', text: "Nothing, because an empty queue at the moment of publication demonstrates the history is clean." },
-      { id: 'C', text: "Change the visibility and rely on the partner program, which will revoke any leaked credentials once the repository is public." },
-      { id: 'D', text: "Squash the history into a single commit, after which no historical credential exists to find." }
+      { id: 'A', text: "Treat the history as about to be published: widen detection and rotate what is live." },
+      { id: 'B', text: "Nothing, because an empty queue at the moment of publication demonstrates the history is already clean." },
+      { id: 'C', text: "Change the visibility and rely on the partner program to revoke whatever leaked once it is public." },
+      { id: 'D', text: "Squash the history into a single commit, after which no historical credential remains to be found." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -30,9 +30,9 @@ export const GITHUB_GHAS_QUESTIONS_5 = [
     scenario: "An internal token format is issued centrally and appears in many repositories across several organizations. A pattern for it currently exists in three repositories, defined separately and already slightly divergent.",
     question: "Where should it be defined?",
     options: [
-      { id: 'A', text: "At the highest scope that covers the affected repositories, since patterns can be defined at repository, organization and enterprise level and a single definition removes the divergence already visible." },
-      { id: 'B', text: "In one repository, with the others referencing it by identifier." },
-      { id: 'C', text: "Only at repository level, since custom patterns are not available above it." },
+      { id: 'A', text: "At the highest scope covering the affected repositories, since one definition removes the divergence." },
+      { id: 'B', text: "In one repository, with each of the others referencing that definition by its identifier." },
+      { id: 'C', text: "Only at repository level, since custom patterns cannot be defined above that scope." },
       { id: 'D', text: "In each repository, so every team can tune it to its own false positive profile." }
     ],
     correctAnswers: ['A'],
@@ -52,9 +52,9 @@ export const GITHUB_GHAS_QUESTIONS_5 = [
     question: "Which option addresses this?",
     options: [
       { id: 'A', text: "Disable push protection and rely on alerts, since the block message cannot be changed." },
-      { id: 'B', text: "Configure the custom link shown on the block, pointing at internal guidance that names the approved secret store and the escalation route." },
-      { id: 'C', text: "Configure a commit message template containing the guidance." },
-      { id: 'D', text: "Add the guidance to each repository README, which is shown alongside the block." }
+      { id: 'B', text: "Configure the custom link on the block, pointing at internal guidance and the escalation route." },
+      { id: 'C', text: "Configure a commit message template that carries the guidance to each developer." },
+      { id: 'D', text: "Add the guidance to each repository's README, which is shown beside the block." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -72,10 +72,10 @@ export const GITHUB_GHAS_QUESTIONS_5 = [
     scenario: "A triage rota handles two kinds of alert: a cloud provider token with a validity status attached, and a generic password-shaped string with none.",
     question: "How should the two be handled differently?",
     options: [
-      { id: 'A', text: "Both should be handled identically, since the alert format is the same." },
-      { id: 'B', text: "Provider matches need more investigation, since a validity check cannot be trusted." },
-      { id: 'C', text: "Generic matches should be dismissed by default and only investigated if reported by a person." },
-      { id: 'D', text: "A provider match can be judged largely from its validity status and rotated through the provider, while a generic match needs a human to establish whether it is a credential at all, what it opens and who owns it, so it costs more per alert and benefits from exclusions for known fixture paths." }
+      { id: 'A', text: "Both should be handled identically, since the alert carries the same fields and the same states either way." },
+      { id: 'B', text: "Provider matches need the deeper investigation, since a validity check reflects the provider's cache rather than the live credential." },
+      { id: 'C', text: "Generic matches should be dismissed by default and looked at only when somebody reports an incident involving them." },
+      { id: 'D', text: "A provider match is judged from its validity status; a generic match needs a person to confirm it is a credential." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -93,10 +93,10 @@ export const GITHUB_GHAS_QUESTIONS_5 = [
     scenario: "A build embedded a configuration file containing a live token into container images that have been published to a registry for four months and pulled by many consumers.",
     question: "What does remediation require beyond the repository?",
     options: [
-      { id: 'A', text: "Fix the repository and rebuild the latest tag, since consumers will pull the newest image." },
-      { id: 'B', text: "No action beyond the repository, since the registry is internal." },
-      { id: 'C', text: "Rotate the credential first, then treat every published image containing it as exposed: rebuild and republish clean images, and remove or mark the affected tags, because the value is retrievable from any pulled image layer regardless of the repository being fixed." },
-      { id: 'D', text: "Delete the configuration file from the image using a new layer, which removes it from the image." }
+      { id: 'A', text: "Fix the repository and rebuild the latest tag, since consumers pull the newest image and the old layers fall out of use." },
+      { id: 'B', text: "Nothing beyond the repository is needed, since the registry is internal and only the build service can pull from it." },
+      { id: 'C', text: "Rotate the credential, then rebuild and republish every image that carried it and retire those tags." },
+      { id: 'D', text: "Delete the configuration file in a new image layer, which removes the value from the image consumers receive." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -114,10 +114,10 @@ export const GITHUB_GHAS_QUESTIONS_5 = [
     scenario: "An external contributor opens a pull request from their fork. Review notices what looks like their own personal cloud key in one of the commits.",
     question: "What is the right response?",
     options: [
-      { id: 'A', text: "Tell the contributor privately and promptly so they can revoke it, since the commit exists in their fork and in the pull request regardless of whether it is merged, and do not merge the commit; the exposure belongs to them but the project should not propagate it." },
-      { id: 'B', text: "Close the pull request without explanation, since the exposure is not the project's concern." },
-      { id: 'C', text: "Merge the pull request and remove the credential in a follow-up commit on the default branch." },
-      { id: 'D', text: "Ask the contributor to force push over the commit, after which the credential is unrecoverable." }
+      { id: 'A', text: "Tell the contributor privately so they can revoke it, and do not merge the commit." },
+      { id: 'B', text: "Close the pull request without explanation, since the credential belongs to the contributor and not to the project." },
+      { id: 'C', text: "Merge the pull request and remove the credential in a follow-up commit on the default branch afterwards." },
+      { id: 'D', text: "Ask the contributor to force push over the commit, after which the credential can no longer be recovered." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -135,10 +135,10 @@ export const GITHUB_GHAS_QUESTIONS_5 = [
     scenario: "Dependabot pull requests currently arrive in the middle of the night in the team's timezone, so the first thing anyone sees each morning is a pile of unreviewed automation.",
     question: "Which configuration adjusts this?",
     options: [
-      { id: 'A', text: "Set a target branch, which controls the delivery time." },
-      { id: 'B', text: "Set the schedule interval only, since the time of day is fixed by the platform." },
-      { id: 'C', text: "Set the schedule interval together with the day, time and timezone for the ecosystem, so updates arrive when someone is present to review them." },
-      { id: 'D', text: "Use a workflow to reschedule the pull requests after they are opened." }
+      { id: 'A', text: "Set a target branch for the ecosystem, which is what controls the delivery time." },
+      { id: 'B', text: "Set the schedule interval alone, since the time of day is fixed by the platform." },
+      { id: 'C', text: "Set the schedule's day, time and timezone for that ecosystem, not just the interval." },
+      { id: 'D', text: "Add a workflow that reschedules the pull requests after they have been opened." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -156,10 +156,10 @@ export const GITHUB_GHAS_QUESTIONS_5 = [
     scenario: "A team on a frozen release wants pull requests for vulnerable dependencies only. They do not want routine version bumps, and they are unsure whether a configuration file is required.",
     question: "What is needed?",
     options: [
-      { id: 'A', text: "Add a configuration file with an interval of never, which disables version updates while enabling security ones." },
-      { id: 'B', text: "Security updates cannot be enabled without version updates, so the team must accept both." },
-      { id: 'C', text: "Enable Dependabot alerts and security updates, which raise fixes for vulnerable dependencies with no configuration file; the file is what turns on scheduled version updates, which they should not add." },
-      { id: 'D', text: "Add a configuration file with an ignore entry for every dependency, leaving only security updates." }
+      { id: 'A', text: "Add a configuration file with an interval of never, which disables version updates while keeping security ones." },
+      { id: 'B', text: "Security updates cannot be enabled without version updates, so the team has to accept both together." },
+      { id: 'C', text: "Enable alerts and security updates, which need no configuration file; the file is what adds scheduled version updates." },
+      { id: 'D', text: "Add a configuration file with an ignore entry for every dependency, leaving only the security updates." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -177,10 +177,10 @@ export const GITHUB_GHAS_QUESTIONS_5 = [
     scenario: "A reviewer is asked what to actually check on a Dependabot pull request, having previously approved them on the basis that tests passed.",
     question: "Which review is appropriate?",
     options: [
-      { id: 'A', text: "Confirm the version number increased and merge, since Dependabot only proposes safe updates." },
-      { id: 'B', text: "Confirm the checks are green, which is sufficient because the test suite defines correctness." },
-      { id: 'C', text: "Read the full diff of the dependency source, since nothing less constitutes review." },
-      { id: 'D', text: "Read the compatibility signal and the release notes and changelog the pull request links, judge the size of the version jump, confirm the checks that ran are meaningful for this dependency, and be more careful where the package has broad privileges or the jump crosses a major version." }
+      { id: 'A', text: "Confirm the version number increased and merge, since Dependabot only ever proposes updates that are safe." },
+      { id: 'B', text: "Confirm the checks are green and merge, which is sufficient because the test suite is what defines correctness." },
+      { id: 'C', text: "Read the full diff of the dependency's own source, since nothing short of that constitutes a review." },
+      { id: 'D', text: "Read the compatibility signal and release notes, and judge the size of the version jump." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -198,10 +198,10 @@ export const GITHUB_GHAS_QUESTIONS_5 = [
     scenario: "A team wants Dependabot to propose updates for a short list of security-sensitive libraries and to leave everything else alone, having found the full update stream unmanageable.",
     question: "Which configuration expresses that most directly?",
     options: [
-      { id: 'A', text: "An ignore entry listing every other dependency in the manifest." },
-      { id: 'B', text: "A groups entry containing only those dependencies." },
-      { id: 'C', text: "Setting the open pull requests limit to the number of dependencies in the list." },
-      { id: 'D', text: "An allow entry naming the dependencies to consider, which restricts version updates to that set rather than enumerating everything to exclude." }
+      { id: 'A', text: "An ignore entry listing every other dependency declared in the manifest file." },
+      { id: 'B', text: "A groups entry containing only those dependencies, with the others left out." },
+      { id: 'C', text: "An open pull request limit equal to the number of dependencies in the list." },
+      { id: 'D', text: "An allow entry naming the dependencies to consider, which restricts updates to that set." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -219,10 +219,10 @@ export const GITHUB_GHAS_QUESTIONS_5 = [
     scenario: "A monorepo holds thirty services, each with its own manifest. Dependency review reports findings without making clear which service a newly introduced dependency belongs to, so triage stalls.",
     question: "Which understanding helps?",
     options: [
-      { id: 'A', text: "Dependency review reports findings without any manifest attribution, so a custom parser is required." },
-      { id: 'B', text: "Dependency review supports only one manifest per repository, so the monorepo must be split." },
-      { id: 'C', text: "Dependency review aggregates all manifests into one and attribution is therefore impossible by design." },
-      { id: 'D', text: "Dependency review compares the resolved graph for the whole repository and reports the manifest each change belongs to, so triage should route on that manifest path, and where services need genuinely different policies they need separate configuration or separate repositories." }
+      { id: 'A', text: "Dependency review reports its findings without manifest attribution, so a custom parser is needed to route them." },
+      { id: 'B', text: "Dependency review supports only one manifest per repository, so the monorepo has to be split up first." },
+      { id: 'C', text: "Dependency review aggregates every manifest into one graph, so attribution is impossible by design." },
+      { id: 'D', text: "Dependency review reports the manifest each change belongs to, so triage routes on it." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -240,10 +240,10 @@ export const GITHUB_GHAS_QUESTIONS_5 = [
     scenario: "One component in a repository declares dependencies with loose version ranges and produces no lockfile. Its entries in the dependency graph are sparse and alerts for it seem unreliable.",
     question: "What is the underlying issue and the improvement?",
     options: [
-      { id: 'A', text: "Alerts require a lockfile in every case, so no improvement is possible without changing package manager." },
-      { id: 'B', text: "The ecosystem is unsupported, so the component must be excluded from alerting." },
-      { id: 'C', text: "The graph infers exact versions from the range by choosing the newest, so the entries are accurate and the problem lies elsewhere." },
-      { id: 'D', text: "Without a lockfile the exact resolved versions are not recorded, so matching against advisories is imprecise; committing a lockfile, or submitting the resolved set from the build through the submission API, gives the graph concrete versions to match." }
+      { id: 'A', text: "Alerts require a lockfile in every ecosystem, so nothing improves without changing the package manager." },
+      { id: 'B', text: "The ecosystem is unsupported by the dependency graph, so the component has to be excluded from alerting." },
+      { id: 'C', text: "The graph infers exact versions by taking the newest in the range, so the entries are accurate and the fault is elsewhere." },
+      { id: 'D', text: "Without a lockfile the resolved versions are unrecorded, so commit one or submit the build's set." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -261,10 +261,10 @@ export const GITHUB_GHAS_QUESTIONS_5 = [
     scenario: "A team is told to add a custom query pack and separately to switch to a broader query suite, and is unsure whether these are two names for one action.",
     question: "How do the two differ?",
     options: [
-      { id: 'A', text: "They are interchangeable names for a collection of queries." },
-      { id: 'B', text: "A pack is a versioned, distributable unit containing queries and their supporting library code, while a suite is a named selection of queries to run; adding a pack makes queries available and choosing a suite decides which of the available queries execute." },
-      { id: 'C', text: "A suite is distributable and versioned, while a pack is a runtime selection." },
-      { id: 'D', text: "A pack contains only custom queries and a suite only queries maintained upstream." }
+      { id: 'A', text: "They are interchangeable names for the same collection of queries, differing only by where they are declared." },
+      { id: 'B', text: "A pack is a versioned unit holding queries and their libraries; a suite is a named selection of which queries run." },
+      { id: 'C', text: "A suite is the versioned, distributable unit, while a pack is the runtime selection of queries to execute." },
+      { id: 'D', text: "A pack holds only custom queries and a suite only the queries maintained upstream by GitHub." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -282,10 +282,10 @@ export const GITHUB_GHAS_QUESTIONS_5 = [
     scenario: "A build generates client code from an interface definition and commits it. Analysis reports many findings in the generated files, which no developer edits and which are regenerated on every change.",
     question: "What is the appropriate handling?",
     options: [
-      { id: 'A', text: "Stop committing the generated code, which is the only supported way to exclude it." },
-      { id: 'B', text: "Exclude the generated paths from analysis so the queue reflects code someone can act on, and where a finding is real raise it against the generator or its templates, since fixing generated output is overwritten on the next build." },
+      { id: 'A', text: "Stop committing the generated code, which is the only supported way to keep it out of the analysis." },
+      { id: 'B', text: "Exclude the generated paths from analysis, and where a finding is real raise it against the generator or its templates." },
       { id: 'C', text: "Fix the findings in the generated files, since the analysis is reporting genuine issues in shipped code." },
-      { id: 'D', text: "Dismiss the findings individually as won't fix each time they reappear." }
+      { id: 'D', text: "Dismiss the findings individually as won't fix each time the generator reproduces them on a build." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -303,10 +303,10 @@ export const GITHUB_GHAS_QUESTIONS_5 = [
     scenario: "Enabling analysis on a mature codebase produces three thousand alerts. Leadership wants scanning to be useful immediately rather than after a multi-year cleanup.",
     question: "Which strategy delivers value first?",
     options: [
-      { id: 'A', text: "Dismiss the entire backlog as won't fix, then treat everything that appears afterwards as new." },
-      { id: 'B', text: "Gate pull requests on newly introduced findings so the code stops getting worse from day one, and work the historical backlog separately as prioritised campaigns rather than as a merge blocker." },
-      { id: 'C', text: "Block all merges until the backlog is cleared, which guarantees the fastest cleanup." },
-      { id: 'D', text: "Keep scanning advisory until the backlog is cleared, then turn on enforcement." }
+      { id: 'A', text: "Dismiss the whole backlog as won't fix, then treat everything appearing afterwards as new work." },
+      { id: 'B', text: "Gate pull requests on newly introduced findings, and work the historical backlog as separate campaigns." },
+      { id: 'C', text: "Block every merge until the backlog is cleared, which guarantees the fastest possible cleanup." },
+      { id: 'D', text: "Keep the scanning advisory until the backlog is cleared, and only then turn on enforcement." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -324,10 +324,10 @@ export const GITHUB_GHAS_QUESTIONS_5 = [
     scenario: "A component is written in a language CodeQL does not support. The organization still needs static analysis findings for it to appear in the same alert list and reporting as everything else.",
     question: "What is the approach?",
     options: [
-      { id: 'A', text: "Accept that the component cannot be covered and record it as an exception." },
-      { id: 'B', text: "Rewrite the component in a supported language." },
-      { id: 'C', text: "Write a CodeQL extractor for the language, which is the only supported route." },
-      { id: 'D', text: "Run a suitable third-party analyser for that language and upload its results as SARIF under its own category, so its findings join the same alert list, reporting and merge protection as CodeQL results." }
+      { id: 'A', text: "Accept that the component cannot be covered and record it as a documented exception to the standard." },
+      { id: 'B', text: "Rewrite the component in one of the supported languages so the existing analysis reaches it." },
+      { id: 'C', text: "Write a CodeQL extractor for the language, which is the only supported route to covering it." },
+      { id: 'D', text: "Run a third-party analyser for the language and upload its SARIF under its own category." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -345,10 +345,10 @@ export const GITHUB_GHAS_QUESTIONS_5 = [
     scenario: "A dashboard counts repositories with zero open code scanning alerts as compliant. A reviewer suspects some of those repositories are not being analysed at all.",
     question: "Which check separates the two?",
     options: [
-      { id: 'A', text: "Check the number of closed alerts, since a clean repository will have historical ones." },
-      { id: 'B', text: "Check whether a recent successful analysis exists for the reference, using the coverage view and the tool status information, because zero alerts with no successful analysis means unmonitored rather than clean." },
-      { id: 'C', text: "Check whether the repository has a workflow file present, which is sufficient evidence that analysis runs." },
-      { id: 'D', text: "Check the repository creation date, since new repositories are clean by definition." }
+      { id: 'A', text: "Check the number of closed alerts, since a genuinely clean repository will have historical ones." },
+      { id: 'B', text: "Check whether a recent successful analysis exists, since zero alerts without one means unmonitored." },
+      { id: 'C', text: "Check whether a workflow file is present, which is sufficient evidence that the analysis runs." },
+      { id: 'D', text: "Check the repository's creation date, since a recently created repository is clean by definition." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -366,10 +366,10 @@ export const GITHUB_GHAS_QUESTIONS_5 = [
     scenario: "In a monorepo owned by eleven teams, code scanning alerts all land in one repository queue and nobody feels responsible for any particular one.",
     question: "Which approach routes them?",
     options: [
-      { id: 'A', text: "Rely on the commit author of the flagged line, which the alert records." },
-      { id: 'B', text: "Split the monorepo into eleven repositories, since alerts cannot be routed by path." },
-      { id: 'C', text: "Map the alert file path to the owning team using the repository code owners definition as the source of truth, driving notification or ticket creation from the alerts API, since ownership in a monorepo is by path rather than by repository." },
-      { id: 'D', text: "Assign every alert to the security team, who forward them onward." }
+      { id: 'A', text: "Route on the commit author of the flagged line, which the alert already records against the finding." },
+      { id: 'B', text: "Split the monorepo into eleven repositories, since alerts cannot be routed by path within one." },
+      { id: 'C', text: "Map the alert's file path to the owning team through the code owners file, and drive tickets from the alerts API." },
+      { id: 'D', text: "Assign every alert to the security team, who forward each one to the team that owns the code." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -387,10 +387,10 @@ export const GITHUB_GHAS_QUESTIONS_5 = [
     scenario: "A repository owner is asked whether opening the repository to a wider internal audience with read access would expose its code scanning alerts to those users.",
     question: "Which statement is accurate?",
     options: [
-      { id: 'A', text: "Alerts are visible only to organization owners in every case." },
-      { id: 'B', text: "Alerts are visible to nobody until they are dismissed or fixed." },
-      { id: 'C', text: "Alerts are visible to anyone who can read the repository, so wider read access exposes them." },
-      { id: 'D', text: "Alert details are available to users with write access, along with administrators and security managers, so granting read access does not expose them, though for a public repository some code scanning alert information is visible more broadly." }
+      { id: 'A', text: "Alert details are available only to organization owners, whatever access the repository itself grants." },
+      { id: 'B', text: "Alert details are hidden from everyone until the alert has been dismissed or the finding fixed." },
+      { id: 'C', text: "Alert details are available to anyone who can read the repository, so wider read access exposes them." },
+      { id: 'D', text: "Alert details go to write access, administrators and security managers, not to readers." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -408,10 +408,10 @@ export const GITHUB_GHAS_QUESTIONS_5 = [
     scenario: "A team wants pull request analysis to spend its time on the change under review rather than re-deriving results for the whole repository on every run.",
     question: "Which statement reflects how this is approached?",
     options: [
-      { id: 'A', text: "Pull request analysis reuses the database from the last default branch run, so no extraction happens." },
-      { id: 'B', text: "Pull request analysis is a text diff scan rather than a semantic analysis, which is why it is fast." },
-      { id: 'C', text: "The analysis still needs a database for the codebase because a change is only meaningful in context, but the pull request run can be optimised, and the presentation is already scoped to what the change introduces so reviewers see only new findings." },
-      { id: 'D', text: "The analysis can be pointed at only the changed files, which is the standard configuration for pull requests." }
+      { id: 'A', text: "The run reuses the database from the last default branch analysis, so no extraction happens for the pull request." },
+      { id: 'B', text: "The run is a text diff scan rather than a semantic analysis, which is the reason it completes so quickly." },
+      { id: 'C', text: "The run still needs a database, since a change is only meaningful in context." },
+      { id: 'D', text: "The run can be pointed at only the changed files, which is the standard configuration for pull requests." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -429,10 +429,10 @@ export const GITHUB_GHAS_QUESTIONS_5 = [
     scenario: "A developer dismisses an injection alert as a false positive, arguing the input is internal. A security reviewer reopens it, arguing the internal service is reachable from a partner network.",
     question: "How should this be resolved and recorded?",
     options: [
-      { id: 'A', text: "Resolve it on the facts of reachability rather than on role seniority, and record the conclusion on the alert so a future reviewer inherits the reasoning; if the finding is accepted rather than wrong, dismiss it as won't fix rather than as a false positive." },
-      { id: 'B', text: "Defer to the developer in all cases, since they know the code." },
-      { id: 'C', text: "Defer to the security reviewer in all cases, since security owns the alert queue." },
-      { id: 'D', text: "Leave the alert open indefinitely, since an unresolved disagreement should not be closed." }
+      { id: 'A', text: "Settle it on reachability rather than seniority, and record the reasoning on the alert itself." },
+      { id: 'B', text: "Defer to the developer in every case, since they hold the context about how the code is actually called." },
+      { id: 'C', text: "Defer to the security reviewer in every case, since the security team owns the alert queue and its thresholds." },
+      { id: 'D', text: "Leave the alert open indefinitely, since an unresolved disagreement should never be closed either way." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -450,10 +450,10 @@ export const GITHUB_GHAS_QUESTIONS_5 = [
     scenario: "A finding will not be fixed this year because the affected component is being replaced. Security accepts the risk, and wants the decision to resurface if the replacement slips rather than being forgotten.",
     question: "Which handling supports that?",
     options: [
-      { id: 'A', text: "Dismiss the alert as won't fix with a comment stating the rationale and the expected replacement date, and track the acceptance in the risk register with a review date, since the alert itself carries no expiry." },
-      { id: 'B', text: "Leave it open so it continues to appear in the backlog until the component is replaced." },
-      { id: 'C', text: "Delete the alert through the API so it does not distort the metrics." },
-      { id: 'D', text: "Dismiss it as a false positive, which is the reason that keeps it out of reporting." }
+      { id: 'A', text: "Dismiss it as won't fix with the rationale and replacement date, tracked in the risk register." },
+      { id: 'B', text: "Leave it open so that it keeps appearing in the backlog until the component has been replaced." },
+      { id: 'C', text: "Delete the alert through the API so that it does not distort the remediation time metrics." },
+      { id: 'D', text: "Dismiss it as a false positive, which is the reason that keeps it out of the reporting." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -471,10 +471,10 @@ export const GITHUB_GHAS_QUESTIONS_5 = [
     scenario: "A repository has no security policy. Reports arrive by direct message to whichever maintainer a reporter can find, and two reports have been lost.",
     question: "What should the policy file cover?",
     options: [
-      { id: 'A', text: "The list of security tools the project runs, so reporters know what is already covered." },
-      { id: 'B', text: "How to report privately including the private reporting route, which versions are supported, what response times a reporter can expect, and any disclosure expectations, placed where the platform surfaces it to someone about to open an issue." },
-      { id: 'C', text: "A statement that the project takes security seriously and a maintainer email address." },
-      { id: 'D', text: "A prohibition on reporting vulnerabilities publicly, with no alternative route given." }
+      { id: 'A', text: "The list of security tools the project already runs, so reporters know what ground is covered before they report." },
+      { id: 'B', text: "How to report privately, which versions are supported, what response times to expect, and the disclosure expectations." },
+      { id: 'C', text: "A statement that the project takes security seriously, together with a maintainer's email address to write to." },
+      { id: 'D', text: "A prohibition on reporting vulnerabilities publicly, with the enforcement policy that applies if one is." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -492,10 +492,10 @@ export const GITHUB_GHAS_QUESTIONS_5 = [
     scenario: "An organization wants to know within a day if anyone disables a security feature, removes a repository from a security configuration, changes a runner group, or alters a custom pattern.",
     question: "Which arrangement detects these?",
     options: [
-      { id: 'A', text: "Require that all such changes go through a pull request, which provides the record." },
-      { id: 'B', text: "Poll security overview daily and compare the coverage view to yesterday's." },
-      { id: 'C', text: "Stream the audit log to the monitoring platform and alert on the configuration event types that represent a weakening, since these are administrative changes rather than alerts and appear nowhere in the security alert feeds." },
-      { id: 'D', text: "Subscribe to the secret scanning and code scanning alert webhooks, which include configuration changes." }
+      { id: 'A', text: "Require that every such change goes through a pull request, which leaves the record the review needs." },
+      { id: 'B', text: "Poll the security overview each day and compare its coverage view against the previous day's." },
+      { id: 'C', text: "Stream the audit log and alert on the configuration events that weaken a control." },
+      { id: 'D', text: "Subscribe to the secret scanning and code scanning alert webhooks, which carry configuration changes." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -513,10 +513,10 @@ export const GITHUB_GHAS_QUESTIONS_5 = [
     scenario: "An organization is defining responsibilities. Proposals range from the security team fixing every alert to each engineering team owning its own findings with security setting policy.",
     question: "Which model scales?",
     options: [
-      { id: 'A', text: "Engineering teams own remediation for their own code because they have the context and the ability to change it, while security owns policy, thresholds, tooling and assurance, with campaigns and reporting used to make ownership visible." },
-      { id: 'B', text: "Whoever is on the triage rota that week owns whatever appears that week." },
-      { id: 'C', text: "The security team owns every fix, which guarantees consistency of judgement." },
-      { id: 'D', text: "Ownership is unnecessary if the thresholds are strict enough, since alerts will be rare." }
+      { id: 'A', text: "Engineering teams own remediation; security owns policy, thresholds and assurance." },
+      { id: 'B', text: "Whoever is on the triage rota that week owns whatever appears in the queue during that week." },
+      { id: 'C', text: "The security team owns every fix, which keeps the judgement consistent across the whole estate." },
+      { id: 'D', text: "Ownership is unnecessary once the thresholds are strict enough, since few alerts will be raised." }
     ],
     correctAnswers: ['A'],
     type: "single",

@@ -9,10 +9,10 @@ export const GITHUB_GHAS_QUESTIONS_9 = [
     scenario: "An enterprise development team is managing security policies, vulnerability scans, and supply chain controls on GitHub.",
     question: "A security team authors a custom QL query for Java targeting invocations of `Runtime.getRuntime().exec()`. Which QL class and predicate identify this method call?",
     options: [
-      { id: 'A', text: "from Class c where c.getName() = 'Runtime' select c" },
-      { id: 'B', text: "from Import i where i.getName() = 'Runtime' select i" },
-      { id: 'C', text: "select exec() from java" },
-      { id: 'D', text: "from MethodCall call where call.getMethod().hasQualifiedName('java.lang', 'Runtime', 'exec') select call" }
+      { id: 'A', text: "`from Class c where c.hasQualifiedName('java.lang', 'Runtime') select c`" },
+      { id: 'B', text: "`from Import i where i.getName() = 'java.lang.Runtime' select i`" },
+      { id: 'C', text: "`from Method m where m.getName() = 'exec' select m.getCallers()`" },
+      { id: 'D', text: "`from MethodCall c where c.getMethod().hasQualifiedName('java.lang','Runtime','exec')`" }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -30,10 +30,10 @@ export const GITHUB_GHAS_QUESTIONS_9 = [
     scenario: "An enterprise security policy mandates pinning all Actions in CI/CD workflows to full immutable 40-character commit SHAs.",
     question: "How should github/codeql-action steps be declared in workflow files?",
     options: [
-      { id: 'A', text: "uses: github/codeql-action/init@latest" },
-      { id: 'B', text: "uses: github/codeql-action/init@v3" },
-      { id: 'C', text: "uses: codeql/init" },
-      { id: 'D', text: "uses: github/codeql-action/init@4f3212b61722c71c2555fb9ccf081dd56aa4038f # v3.25.11" }
+      { id: 'A', text: "`uses: github/codeql-action/init@latest` for the newest release" },
+      { id: 'B', text: "`uses: github/codeql-action/init@v3` for the major version tag" },
+      { id: 'C', text: "`uses: github/codeql-action/init@main` for the tracking branch" },
+      { id: 'D', text: "`uses: github/codeql-action/init@4f3212b6...` pinned by commit SHA" }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -72,10 +72,10 @@ export const GITHUB_GHAS_QUESTIONS_9 = [
     scenario: "A developer writes a custom sanitization function `StringEscapeUtils.escapeHtml4()` to protect against Cross-Site Scripting (XSS).",
     question: "In CodeQL taint tracking, what role does this escape function play in resolving alerts?",
     options: [
-      { id: 'A', text: "It acts as a Sanitizer, halting the propagation of taint from source to sink and resolving the alert" },
-      { id: 'B', text: "It acts as a Source" },
-      { id: 'C', text: "It acts as an external compiler flag" },
-      { id: 'D', text: "It acts as a Sink" }
+      { id: 'A', text: "It acts as a sanitizer, stopping taint propagating to the sink" },
+      { id: 'B', text: "It acts as an additional source of tainted data" },
+      { id: 'C', text: "It acts as a barrier guard on the enclosing branch" },
+      { id: 'D', text: "It acts as the sink the query is looking for" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -93,10 +93,10 @@ export const GITHUB_GHAS_QUESTIONS_9 = [
     scenario: "A self-hosted runner pool executes CodeQL analysis for dozens of repositories. Each job re-downloads and compiles standard query packs from scratch.",
     question: "What mechanism can accelerate query compilation across jobs on persistent self-hosted runners?",
     options: [
-      { id: 'A', text: "Deleting the runner application between jobs" },
-      { id: 'B', text: "Mounting a persistent volume to cache the CodeQL query compilation cache directory (~/.codeql/cache)" },
-      { id: 'C', text: "Disabling all queries except one" },
-      { id: 'D', text: "Running CodeQL without query packs" }
+      { id: 'A', text: "Reinstall the runner application between jobs to clear stale state" },
+      { id: 'B', text: "Mount a persistent volume over the CodeQL compilation cache directory" },
+      { id: 'C', text: "Restrict the run to a single query so compilation is trivial" },
+      { id: 'D', text: "Run the queries from source rather than from a published pack" }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -114,10 +114,10 @@ export const GITHUB_GHAS_QUESTIONS_9 = [
     scenario: "When inspecting a Code Scanning alert, the interface displays both 'Severity: Error' and 'Security Severity: 8.5 (High)'.",
     question: "What is the difference between CodeQL Severity and Security Severity?",
     options: [
-      { id: 'A', text: "They represent the exact same calculation with different labels" },
-      { id: 'B', text: "Severity applies only to pull requests; Security Severity applies only to default branches" },
-      { id: 'C', text: "Severity (Error/Warning/Note) is defined by the query author based on rule type; Security Severity (0.0–10.0) is a CVSS-aligned score indicating security exploitability risk" },
-      { id: 'D', text: "Severity is generated by AI" }
+      { id: 'A', text: "They are the same calculation presented under two different labels in the interface" },
+      { id: 'B', text: "Severity applies on pull requests and security severity on the default branch alone" },
+      { id: 'C', text: "Severity is the query author's rule classification; security severity is a CVSS-aligned score" },
+      { id: 'D', text: "Severity is set per repository, and security severity comes from the advisory feed" }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -156,10 +156,10 @@ export const GITHUB_GHAS_QUESTIONS_9 = [
     scenario: "During extraction of a complex monolithic Java application, the CodeQL analyze step aborts with exit code 137 (OOM killed).",
     question: "How should the advanced setup workflow be adjusted in codeql-action/init or analyze?",
     options: [
-      { id: 'A', text: "queries: none" },
-      { id: 'B', text: "ram: 28000 on a 32 GB Larger Runner" },
-      { id: 'C', text: "threads: 0" },
-      { id: 'D', text: "timeout-minutes: 5" }
+      { id: 'A', text: "`queries: none` on the analyse step" },
+      { id: 'B', text: "`ram: 28000` on a 32 GB larger runner" },
+      { id: 'C', text: "`threads: 0` to use every core" },
+      { id: 'D', text: "`timeout-minutes: 5` on the job" }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -177,10 +177,10 @@ export const GITHUB_GHAS_QUESTIONS_9 = [
     scenario: "A development team wants to ensure that pull requests cannot be merged if CodeQL detects any new Critical security vulnerabilities.",
     question: "What configuration in GitHub branch protection rules enforces this requirement?",
     options: [
-      { id: 'A', text: "Require status checks to pass before merging, selecting the CodeQL analysis job as a required status check" },
-      { id: 'B', text: "Require signed commits" },
-      { id: 'C', text: "Enable auto-merge" },
-      { id: 'D', text: "Require a pull request before merging" }
+      { id: 'A', text: "Require status checks before merging, including the analysis job" },
+      { id: 'B', text: "Require signed commits on the protected default branch" },
+      { id: 'C', text: "Enable auto-merge once the required reviews are in" },
+      { id: 'D', text: "Require a pull request before merging to the branch" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -198,10 +198,10 @@ export const GITHUB_GHAS_QUESTIONS_9 = [
     scenario: "An enterprise development team is managing security policies, vulnerability scans, and supply chain controls on GitHub.",
     question: "Why does GitHub recommend running queries with 'High' or 'Very-High' precision in continuous integration pull request checks?",
     options: [
-      { id: 'A', text: "Precision only applies to secret scanning" },
-      { id: 'B', text: "High-precision queries minimize false positive alerts, maintaining developer trust and avoiding alert fatigue during pull request reviews" },
-      { id: 'C', text: "Low-precision queries are not written in QL" },
-      { id: 'D', text: "Low-precision queries run faster" }
+      { id: 'A', text: "Precision governs how deeply the analysis follows data flow, and deeper analysis is slower" },
+      { id: 'B', text: "High-precision queries keep false positives low, which is what preserves developer trust in the check" },
+      { id: 'C', text: "Low-precision queries are experimental and are not included in any published query pack" },
+      { id: 'D', text: "Low-precision queries are excluded from SARIF upload, so their findings never reach alerts" }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -219,10 +219,10 @@ export const GITHUB_GHAS_QUESTIONS_9 = [
     scenario: "An enterprise development team is managing security policies, vulnerability scans, and supply chain controls on GitHub.",
     question: "A Go application uses CGO to bind with local C libraries. How does CodeQL extract Go source code during the build step?",
     options: [
-      { id: 'A', text: "Go is interpreted and requires no build" },
-      { id: 'B', text: "CodeQL converts Go into Java bytecode" },
-      { id: 'C', text: "Go applications cannot be analyzed if they use CGO" },
-      { id: 'D', text: "CodeQL monitors the Go toolchain (go build / go test) or extracts pure Go source files via the Go AST parser" }
+      { id: 'A', text: "It parses Go as an interpreted language, so no build is required" },
+      { id: 'B', text: "It compiles Go to an intermediate form the extractor then reads" },
+      { id: 'C', text: "It cannot analyse a Go project that binds to C through CGO" },
+      { id: 'D', text: "It watches the Go toolchain as it builds, or parses the pure Go sources" }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -240,10 +240,10 @@ export const GITHUB_GHAS_QUESTIONS_9 = [
     scenario: "A security team executes Snyk CLI in a GitHub Actions workflow and wants the vulnerability results to display natively in GitHub's Code Scanning alerts tab.",
     question: "What file format must Snyk output to be ingested by GitHub Code Scanning?",
     options: [
-      { id: 'A', text: "JSON with custom schema" },
-      { id: 'B', text: "Plain text log output" },
-      { id: 'C', text: "CSV spreadsheet" },
-      { id: 'D', text: "SARIF (Static Analysis Results Interchange Format)" }
+      { id: 'A', text: "JSON against the tool's own schema" },
+      { id: 'B', text: "Plain text, parsed by the upload action" },
+      { id: 'C', text: "CSV, one row per reported finding" },
+      { id: 'D', text: "SARIF, the static analysis interchange format" }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -261,10 +261,10 @@ export const GITHUB_GHAS_QUESTIONS_9 = [
     scenario: "An enterprise development team is managing security policies, vulnerability scans, and supply chain controls on GitHub.",
     question: "What is the difference between Local Data Flow and Global Data Flow in CodeQL analysis?",
     options: [
-      { id: 'A', text: "Local data flow runs on laptops; Global data flow runs on cloud runners" },
-      { id: 'B', text: "Local data flow tracks values within a single function; Global data flow tracks values across multiple function calls and procedural boundaries" },
-      { id: 'C', text: "Local data flow tracks network packets; Global data flow tracks files" },
-      { id: 'D', text: "Local data flow applies to Python; Global data flow applies to C++" }
+      { id: 'A', text: "Local flow runs on the developer's machine; global flow runs on hosted runners" },
+      { id: 'B', text: "Local flow tracks values inside one function; global flow follows them across calls" },
+      { id: 'C', text: "Local flow tracks values in memory; global flow tracks them through the database" },
+      { id: 'D', text: "Local flow is available for Python; global flow only for the compiled languages" }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -282,10 +282,10 @@ export const GITHUB_GHAS_QUESTIONS_9 = [
     scenario: "A developer pushes a commit that sanitizes untrusted input on line 42, addressing a SQL injection vulnerability.",
     question: "What happens to the CodeQL alert on the default branch once the commit is merged?",
     options: [
-      { id: 'A', text: "The alert remains open until manually deleted" },
-      { id: 'B', text: "The alert is moved to a quarantine folder" },
-      { id: 'C', text: "CodeQL automatically detects that the data flow path from source to sink has been broken and marks the alert as 'Closed (fixed)'" },
-      { id: 'D', text: "A notification asks the security team to re-audit" }
+      { id: 'A', text: "The alert stays open until somebody dismisses it by hand" },
+      { id: 'B', text: "The alert moves to a pending state awaiting security review" },
+      { id: 'C', text: "A later analysis no longer finds the path, so the alert closes as fixed" },
+      { id: 'D', text: "The alert reopens on the next run so the fix can be audited" }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -303,10 +303,10 @@ export const GITHUB_GHAS_QUESTIONS_9 = [
     scenario: "A DevOps engineer asks whether CodeQL databases generated in Actions workflows consume billable GitHub storage quotas.",
     question: "Where are CodeQL databases stored by default during workflow runs?",
     options: [
-      { id: 'A', text: "In the user's personal storage quota" },
-      { id: 'B', text: "In Amazon S3 under GitHub's account" },
-      { id: 'C', text: "Permanently in the repository git history" },
-      { id: 'D', text: "In the ephemeral runner workspace, deleted automatically when the job completes unless explicitly uploaded as an artifact" }
+      { id: 'A', text: "In the repository's package storage, counted against its own quota" },
+      { id: 'B', text: "In the platform's object storage, retained for the alert's lifetime" },
+      { id: 'C', text: "In the repository's git history, committed by the analysis workflow" },
+      { id: 'D', text: "In the runner's workspace, discarded when the job ends unless uploaded" }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -345,10 +345,10 @@ export const GITHUB_GHAS_QUESTIONS_9 = [
     scenario: "A security team evaluates a high-severity alert. The path shows untrusted input passing through a base64 decode and an JSON parser before reaching the sink.",
     question: "Why did CodeQL not clear the alert automatically?",
     options: [
-      { id: 'A', text: "Base64 decoding and JSON parsing transform data representations but do not validate or sanitize malicious payloads, meaning the data remains tainted" },
-      { id: 'B', text: "The base64 function is deprecated" },
-      { id: 'C', text: "The developer forgot to add unit tests" },
-      { id: 'D', text: "CodeQL does not understand JSON" }
+      { id: 'A', text: "Decoding and parsing change the representation but do not validate it, so the data stays tainted" },
+      { id: 'B', text: "The decoder is a deprecated API that the analysis no longer models as a taint step" },
+      { id: 'C', text: "The new code has no unit tests, so the analysis cannot confirm the fix is effective" },
+      { id: 'D', text: "The analysis has no model for the JSON library, so it treats its output as a source" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -387,10 +387,10 @@ export const GITHUB_GHAS_QUESTIONS_9 = [
     scenario: "When running CodeQL inside Actions Runner Controller (ARC) ephemeral pods, analysis steps take 20 minutes downloading CodeQL bundles every run.",
     question: "How can platform teams optimize CodeQL action startup times in ephemeral runner pods?",
     options: [
-      { id: 'A', text: "Download CodeQL over FTP" },
-      { id: 'B', text: "Pre-bake the CodeQL bundle into the custom Docker runner container image in the runner tool cache" },
-      { id: 'C', text: "Disable CodeQL on Kubernetes" },
-      { id: 'D', text: "Run jobs sequentially on a single runner" }
+      { id: 'A', text: "Fetch the CodeQL bundle from an internal mirror per job" },
+      { id: 'B', text: "Bake the CodeQL bundle into the runner image's tool cache" },
+      { id: 'C', text: "Run the analysis outside the cluster on hosted runners" },
+      { id: 'D', text: "Run the jobs sequentially so the cache survives between them" }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -408,10 +408,10 @@ export const GITHUB_GHAS_QUESTIONS_9 = [
     scenario: "An enterprise authors a shared pack of proprietary security queries and wants to distribute it securely across 500 enterprise repositories.",
     question: "What artifact distribution mechanism does GitHub support for sharing CodeQL query packs?",
     options: [
-      { id: 'A', text: "Emailing zip files to repository maintainers" },
-      { id: 'B', text: "Pasting queries into repository README files" },
-      { id: 'C', text: "Publishing the pack as an OCI container artifact to GitHub Packages / GitHub Container Registry (ghcr.io)" },
-      { id: 'D', text: "Committing query files into every branch" }
+      { id: 'A', text: "Publish the pack as a release asset on the query repository" },
+      { id: 'B', text: "Publish the pack as a git submodule each repository pulls in" },
+      { id: 'C', text: "Publish the pack as an OCI artifact to the container registry" },
+      { id: 'D', text: "Commit the query files into every repository's own branches" }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -450,10 +450,10 @@ export const GITHUB_GHAS_QUESTIONS_9 = [
     scenario: "A React project includes large third-party bundles in `public/vendor/` that cause out-of-memory errors during CodeQL JavaScript extraction.",
     question: "Which configuration in codeql-action/init excludes these minified files from extraction?",
     options: [
-      { id: 'A', text: "exclude-js: true" },
-      { id: 'B', text: "git rm -rf vendor/" },
-      { id: 'C', text: "paths-ignore: ['**/vendor/**', '**/*.min.js']" },
-      { id: 'D', text: "skip-all-files: true" }
+      { id: 'A', text: "`exclude: ['vendor', 'minified']` in the config" },
+      { id: 'B', text: "`git rm -r --cached vendor/` before the scan" },
+      { id: 'C', text: "`paths-ignore: ['**/vendor/**', '**/*.min.js']`" },
+      { id: 'D', text: "`skip-queries: ['js/**']` on the analyse step" }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -471,10 +471,10 @@ export const GITHUB_GHAS_QUESTIONS_9 = [
     scenario: "When developers click a custom CodeQL alert in GitHub, the interface displays an alert description, risk explanation, and example fix.",
     question: "Where does GitHub extract this rich guidance documentation for custom queries?",
     options: [
-      { id: 'A', text: "From the git commit log" },
-      { id: 'B', text: "From the companion .qhelp XML/Markdown file located alongside the .ql query in the query pack" },
-      { id: 'C', text: "Generated automatically by AI on the fly" },
-      { id: 'D', text: "From an external Wikipedia link" }
+      { id: 'A', text: "From the commit message on the query's own last change" },
+      { id: 'B', text: "From the companion `.qhelp` file beside the query in the pack" },
+      { id: 'C', text: "From the query's metadata block, rendered into prose" },
+      { id: 'D', text: "From the CWE entry the query's metadata references" }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -492,10 +492,10 @@ export const GITHUB_GHAS_QUESTIONS_9 = [
     scenario: "A C++ code scanning run completes, but a banner appears stating 'Extraction warnings occurred for 12 source files'.",
     question: "How can developers investigate which compiler files failed extraction?",
     options: [
-      { id: 'A', text: "Diagnostics cannot be inspected by users" },
-      { id: 'B', text: "Delete the compiler toolchain" },
-      { id: 'C', text: "Re-run the workflow with debugging disabled" },
-      { id: 'D', text: "Check the 'Diagnostics' section on the Code Scanning alerts page or inspect the generated SARIF telemetry" }
+      { id: 'A', text: "Diagnostics are internal and cannot be inspected by the repository" },
+      { id: 'B', text: "Re-run the workflow with the debug option turned off to shorten logs" },
+      { id: 'C', text: "Read the extractor's own log, published as a release asset per run" },
+      { id: 'D', text: "Read the diagnostics section on the alerts page, or the SARIF telemetry" }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -513,10 +513,10 @@ export const GITHUB_GHAS_QUESTIONS_9 = [
     scenario: "An enterprise development team is managing security policies, vulnerability scans, and supply chain controls on GitHub.",
     question: "How does codeql-action ensure it uses the latest compatible CodeQL CLI version on GitHub-hosted runners?",
     options: [
-      { id: 'A', text: "It hardcodes a single CLI version permanently" },
-      { id: 'B', text: "It connects to local developer machines" },
-      { id: 'C', text: "It compiles the CLI from source code on every run" },
-      { id: 'D', text: "It checks GitHub's tool cache on the runner and automatically downloads the latest stable CLI release if not already cached" }
+      { id: 'A', text: "It pins one CLI version per action release and never updates within it" },
+      { id: 'B', text: "It resolves the CLI version from the repository's own configuration file" },
+      { id: 'C', text: "It compiles the CLI from the source bundled with the action on each run" },
+      { id: 'D', text: "It checks the runner's tool cache and downloads the latest stable CLI if absent" }
     ],
     correctAnswers: ['D'],
     type: "single",

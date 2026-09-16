@@ -9,10 +9,10 @@ export const GITHUB_GHAS_QUESTIONS_6 = [
     scenario: "A software developer accidentally commits an active AWS IAM secret access key to a public GitHub repository. Secret Scanning detects the token and alerts the security team within 15 seconds.",
     question: "What is the first and most critical action the security team should execute?",
     options: [
-      { id: 'A', text: "Submit a GitHub support ticket requesting cache deletion of the public repository" },
-      { id: 'B', text: "Add the compromised access key to .gitignore and push a new commit" },
-      { id: 'C', text: "Immediately deactivate or rotate the exposed access key directly inside the AWS Identity and Access Management (IAM) console" },
-      { id: 'D', text: "Delete the commit using git reset --hard HEAD~1 and force-push to the repository" }
+      { id: 'A', text: "Ask support to purge the cached copy of the public repository" },
+      { id: 'B', text: "Add the file to `.gitignore` and push a commit removing it" },
+      { id: 'C', text: "Deactivate or rotate the exposed key in the provider's own console" },
+      { id: 'D', text: "Reset the branch past the commit and force-push the history" }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -30,10 +30,10 @@ export const GITHUB_GHAS_QUESTIONS_6 = [
     scenario: "An enterprise security director notices that developers frequently bypass Push Protection blocks using the web link without executive approval, committing test secrets.",
     question: "Which organizational governance control should the administrator enforce to restrict bypass capabilities?",
     options: [
-      { id: 'A', text: "Configure Push Protection bypass controls at the organization level to require security manager approval before any detected secret can be pushed" },
-      { id: 'B', text: "Revoke write permissions for all developers and require pull requests for every branch" },
-      { id: 'C', text: "Disable Secret Scanning across all private repositories to stop sending alerts" },
-      { id: 'D', text: "Configure pre-commit hooks on individual developer laptops" }
+      { id: 'A', text: "Require security manager approval for each push protection bypass at organization level" },
+      { id: 'B', text: "Revoke write access from developers and route every change through a pull request" },
+      { id: 'C', text: "Turn secret scanning off for the private repositories that raise the most alerts" },
+      { id: 'D', text: "Distribute a pre-commit hook that runs the same patterns on each developer's machine" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -72,10 +72,10 @@ export const GITHUB_GHAS_QUESTIONS_6 = [
     scenario: "Before activating a new custom secret scanning pattern organization-wide, the security architect wants to verify that the pattern will not produce hundreds of false positive alerts.",
     question: "Which feature in GitHub Advanced Security enables this pre-flight pattern verification?",
     options: [
-      { id: 'A', text: "Running the pattern through a local unit test script outside GitHub" },
-      { id: 'B', text: "Publishing the pattern to the public GitHub Marketplace" },
-      { id: 'C', text: "Using the 'Dry run' feature on the custom pattern definition page to inspect prospective matches against historical commits without generating alerts" },
-      { id: 'D', text: "Deploying the pattern to a single disposable public repository" }
+      { id: 'A', text: "Running the expression through a local test script against a clone of the repositories" },
+      { id: 'B', text: "Publishing the pattern in audit mode, which records matches for a week before enforcing" },
+      { id: 'C', text: "The dry run on the pattern definition page, which shows prospective matches without raising alerts" },
+      { id: 'D', text: "Deploying the pattern to one disposable repository seeded with historical commits" }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -93,10 +93,10 @@ export const GITHUB_GHAS_QUESTIONS_6 = [
     scenario: "A developer commits a live GitHub Personal Access Token to a repository. A few seconds later, the developer finds that the token can no longer authenticate against the API.",
     question: "What mechanism caused the personal access token to stop functioning?",
     options: [
-      { id: 'A', text: "The repository's branch protection rules deleted the user account" },
-      { id: 'B', text: "GitHub Actions placed the token in a quarantine vault" },
-      { id: 'C', text: "The git remote rejected the token due to an expired SSL certificate" },
-      { id: 'D', text: "GitHub automatically revoked the token through its integrated partner secret scanning notification service" }
+      { id: 'A', text: "The branch protection rules revoked the account's credentials" },
+      { id: 'B', text: "The Actions runner placed the token into a quarantine vault" },
+      { id: 'C', text: "The remote rejected it because its SSL certificate had expired" },
+      { id: 'D', text: "The partner program notified the provider, which revoked the token" }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -114,10 +114,10 @@ export const GITHUB_GHAS_QUESTIONS_6 = [
     scenario: "An audit identifies that junior developers in an organization can view raw secret alert strings, which allows unauthorized staff to see active production database passwords.",
     question: "How should repository permissions be configured to prevent developers from viewing raw secret tokens?",
     options: [
-      { id: 'A', text: "Remove all developers from the repository collaborators list" },
-      { id: 'B', text: "Disable Secret Scanning on the repository" },
-      { id: 'C', text: "Ensure developers hold standard Write roles without the custom 'View secret scanning alert tokens' permission" },
-      { id: 'D', text: "Encrypt the secret scanning web console with a separate password" }
+      { id: 'A', text: "Remove the developers from the repository's collaborator list entirely" },
+      { id: 'B', text: "Disable secret scanning on the repository holding the credentials" },
+      { id: 'C', text: "Give developers write access without the token-viewing security permission" },
+      { id: 'D', text: "Require a second factor before the security tab can be opened" }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -177,10 +177,10 @@ export const GITHUB_GHAS_QUESTIONS_6 = [
     scenario: "A developer attempts to push code through the GitHub web UI by editing a configuration file that contains a live Slack webhook URL. Push protection is enabled.",
     question: "What is the expected behavior in the GitHub web interface?",
     options: [
-      { id: 'A', text: "GitHub converts the repository from public to private" },
-      { id: 'B', text: "GitHub deletes the file from the repository entirely" },
-      { id: 'C', text: "The commit succeeds but sends a warning email to the organization owner" },
-      { id: 'D', text: "GitHub blocks the commit and displays a modal warning with options to remove the secret or specify a bypass reason" }
+      { id: 'A', text: "The repository's visibility is switched to private until the secret is removed" },
+      { id: 'B', text: "The file is committed with the matched value redacted from the blob" },
+      { id: 'C', text: "The commit succeeds and an email warning goes to the organization owner" },
+      { id: 'D', text: "The commit is blocked, with options to remove the secret or give a bypass reason" }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -219,10 +219,10 @@ export const GITHUB_GHAS_QUESTIONS_6 = [
     scenario: "When viewing a detected secret in the alert dashboard, the status displays 'Active' with a green indicator.",
     question: "How did GitHub determine that the exposed credential is valid without having access to the customer's cloud account?",
     options: [
-      { id: 'A', text: "GitHub decrypted the token using the organization's master key" },
-      { id: 'B', text: "The developer who committed the token manually marked it as active" },
-      { id: 'C', text: "GitHub sent a non-destructive verification request to the partner provider's public validation endpoint using the detected token" },
-      { id: 'D', text: "GitHub logged into the customer's cloud account using stored administrator credentials" }
+      { id: 'A', text: "It decrypted the token with the organization's own encryption key" },
+      { id: 'B', text: "The developer who committed the token marked it active on the alert" },
+      { id: 'C', text: "It sent a non-destructive check to the provider's validation endpoint" },
+      { id: 'D', text: "It signed in to the customer's account with the detected credential" }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -240,10 +240,10 @@ export const GITHUB_GHAS_QUESTIONS_6 = [
     scenario: "A custom secret pattern for internal tokens begins matching random commit hashes in documentation markdown files, causing alert flooding.",
     question: "Which configuration adjustment in the custom pattern definition resolves this issue?",
     options: [
-      { id: 'A', text: "Mark every future alert as 'Won't fix'" },
-      { id: 'B', text: "Disable Secret Scanning on the entire organization" },
-      { id: 'C', text: "Exclude all markdown files from git version control" },
-      { id: 'D', text: "Increase the minimum required character length and define explicit start/end prefix boundaries or regex lookbehind/lookahead assertions" }
+      { id: 'A', text: "Add the documentation paths to the pattern's own exclusion list for the repository" },
+      { id: 'B', text: "Lower the pattern's match threshold so only exact token shapes are reported at all" },
+      { id: 'C', text: "Restrict the pattern to the repositories where that credential format is actually used" },
+      { id: 'D', text: "Raise the minimum length and add explicit start and end boundaries to the expression" }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -261,10 +261,10 @@ export const GITHUB_GHAS_QUESTIONS_6 = [
     scenario: "An enterprise wants to allow department leads to manage Push Protection settings for their respective repositories without granting them full Organization Owner privileges.",
     question: "Which GitHub permission model satisfies this governance requirement?",
     options: [
-      { id: 'A', text: "Store repository admin passwords in a shared spreadsheet" },
-      { id: 'B', text: "Assign the department leads to the Repository Admin role and use organization security configurations with delegated administration" },
-      { id: 'C', text: "Create separate GitHub Enterprise instances for every department" },
-      { id: 'D', text: "Grant department leads Billing Manager access" }
+      { id: 'A', text: "Give the leads organization owner rights, restricted by an approval workflow" },
+      { id: 'B', text: "Give the leads repository admin, with delegated security configuration administration" },
+      { id: 'C', text: "Create a separate enterprise instance for each of the departments involved" },
+      { id: 'D', text: "Give the leads the billing manager role, which carries the settings scope" }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -303,10 +303,10 @@ export const GITHUB_GHAS_QUESTIONS_6 = [
     scenario: "A Chief Information Security Officer (CISO) requests a high-level summary showing the total number of open secret alerts and mean time to remediate (MTTR) across 500 enterprise repositories.",
     question: "Where can the security team view this aggregate telemetry natively in GitHub?",
     options: [
-      { id: 'A', text: "In the GitHub Marketplace billing receipt" },
-      { id: 'B', text: "In the Actions workflow log archive" },
-      { id: 'C', text: "In the repository Insights network graph" },
-      { id: 'D', text: "In the organization or enterprise Security Overview dashboard" }
+      { id: 'A', text: "In the enterprise billing statement" },
+      { id: 'B', text: "In the workflow run's log archive" },
+      { id: 'C', text: "In the repository insights graphs" },
+      { id: 'D', text: "In the organization security overview" }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -324,10 +324,10 @@ export const GITHUB_GHAS_QUESTIONS_6 = [
     scenario: "A customer posts an internal database connection string in a public GitHub Issue comment while filing a bug report.",
     question: "Does GitHub Secret Scanning detect credentials in Issue and Discussion bodies?",
     options: [
-      { id: 'A', text: "Yes, on public repositories Secret Scanning scans Issue titles, descriptions, comments, and Discussions" },
-      { id: 'B', text: "No, Secret Scanning only scans git commit objects" },
-      { id: 'C', text: "Only if the user explicitly triggers a GitHub Actions workflow" },
-      { id: 'D', text: "Only if the repository is configured as a private enterprise repository" }
+      { id: 'A', text: "Yes: on public repositories it scans issue and discussion bodies too" },
+      { id: 'B', text: "No: it scans only the git objects pushed to the repository" },
+      { id: 'C', text: "Only when a workflow submits the content to the scanning API" },
+      { id: 'D', text: "Only on private repositories holding an enterprise licence" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -345,10 +345,10 @@ export const GITHUB_GHAS_QUESTIONS_6 = [
     scenario: "When authoring a custom pattern, the administrator encounters a validation error indicating the regular expression is invalid.",
     question: "Which regular expression feature is restricted in custom secret scanning patterns to ensure search engine efficiency?",
     options: [
-      { id: 'A', text: "Fixed-length string literals" },
-      { id: 'B', text: "Catastrophic nested quantifiers that cause exponential backtracking" },
-      { id: 'C', text: "Case-insensitive matching flags" },
-      { id: 'D', text: "Hexadecimal character classes" }
+      { id: 'A', text: "Fixed-length string literals inside the pattern" },
+      { id: 'B', text: "Nested quantifiers that backtrack exponentially" },
+      { id: 'C', text: "Case-insensitive matching across the whole match" },
+      { id: 'D', text: "Hexadecimal character classes in the expression" }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -366,10 +366,10 @@ export const GITHUB_GHAS_QUESTIONS_6 = [
     scenario: "An engineer dismisses a secret scanning alert as 'Revoked'. Two weeks later, a new commit is pushed to a feature branch containing the exact same secret token.",
     question: "How does GitHub Secret Scanning respond to this commit?",
     options: [
-      { id: 'A', text: "The alert remains closed and no action is taken" },
-      { id: 'B', text: "GitHub suspends the committer's GitHub account" },
-      { id: 'C', text: "GitHub automatically deletes the branch immediately" },
-      { id: 'D', text: "GitHub automatically reopens the alert and notifies repository administrators" }
+      { id: 'A', text: "The alert stays closed and no action is taken" },
+      { id: 'B', text: "The committer's access to the repository is suspended" },
+      { id: 'C', text: "The branch carrying the commit is deleted immediately" },
+      { id: 'D', text: "The alert is reopened and the administrators notified" }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -387,10 +387,10 @@ export const GITHUB_GHAS_QUESTIONS_6 = [
     scenario: "A developer attempts to push a branch containing 3 distinct commits, where commit 1 contains an AWS key and commit 3 contains a Slack token. Push Protection is active.",
     question: "What is the result of the `git push` operation?",
     options: [
-      { id: 'A', text: "Commit 1 and 2 are pushed successfully, while commit 3 is dropped" },
-      { id: 'B', text: "The branch is renamed automatically to quarantine" },
-      { id: 'C', text: "The push is rejected in its entirety, and the CLI error provides distinct remediation URLs for each detected secret" },
-      { id: 'D', text: "All commits are accepted, and warning issues are opened" }
+      { id: 'A', text: "The first two commits land and the third is held back for review" },
+      { id: 'B', text: "The branch is quarantined until a security manager releases it" },
+      { id: 'C', text: "The push is rejected entirely, with a remediation link per detected secret" },
+      { id: 'D', text: "The commits are accepted and an alert is raised for each secret" }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -408,10 +408,10 @@ export const GITHUB_GHAS_QUESTIONS_6 = [
     scenario: "A technical writing team maintains mock API examples in documentation markdown files that frequently trigger false positive custom pattern matches.",
     question: "What is the recommended approach to prevent mock documentation examples from triggering alerts?",
     options: [
-      { id: 'A', text: "Define path exclusions in .github/secret_scanning.yml specifying documentation directories like docs/**" },
-      { id: 'B', text: "Disable Secret Scanning on the entire repository" },
-      { id: 'C', text: "Delete all documentation from the repository" },
-      { id: 'D', text: "Replace all documentation text with binary PDF files" }
+      { id: 'A', text: "Exclude the documentation paths in `.github/secret_scanning.yml`" },
+      { id: 'B', text: "Disable secret scanning on the repository holding the documentation" },
+      { id: 'C', text: "Move the documentation into a separate repository without scanning" },
+      { id: 'D', text: "Replace the example values with strings that match no known pattern" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -429,10 +429,10 @@ export const GITHUB_GHAS_QUESTIONS_6 = [
     scenario: "An enterprise development team is managing security policies, vulnerability scans, and supply chain controls on GitHub.",
     question: "An organization converts an open-source public repository to a private repository. What happens to its Secret Scanning capabilities?",
     options: [
-      { id: 'A', text: "All existing secret alerts are permanently deleted" },
-      { id: 'B', text: "The repository code is made inaccessible to all users" },
-      { id: 'C', text: "Secret Scanning requires an active GitHub Advanced Security (GHAS) license seat to continue running on private repositories" },
-      { id: 'D', text: "Secret Scanning continues running for free without any license required" }
+      { id: 'A', text: "The existing secret scanning alerts are deleted when visibility changes" },
+      { id: 'B', text: "The repository's history is re-scanned and its alerts raised afresh" },
+      { id: 'C', text: "Secret scanning needs a GHAS licence seat to keep running on a private repository" },
+      { id: 'D', text: "Secret scanning keeps running at no cost, as it does on public repositories" }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -471,10 +471,10 @@ export const GITHUB_GHAS_QUESTIONS_6 = [
     scenario: "A developer asks why server-side Push Protection is necessary if the engineering team already has pre-commit hooks installed on developer laptops.",
     question: "What is the primary security limitation of client-side git pre-commit hooks?",
     options: [
-      { id: 'A', text: "Client-side hooks run locally and can be easily bypassed or disabled by any developer using git commit --no-verify" },
-      { id: 'B', text: "Client-side hooks only work on Windows operating systems" },
-      { id: 'C', text: "Client-side hooks cannot inspect commit messages" },
-      { id: 'D', text: "Client-side hooks consume too much cloud bandwidth" }
+      { id: 'A', text: "They run locally and can be bypassed with `git commit --no-verify`" },
+      { id: 'B', text: "They run only on the platforms the hook script was written for" },
+      { id: 'C', text: "They cannot inspect the staged diff, only the commit message" },
+      { id: 'D', text: "They slow each commit enough that developers disable them" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -492,10 +492,10 @@ export const GITHUB_GHAS_QUESTIONS_6 = [
     scenario: "An alert appears in the Secret Scanning tab with status 'Revoked'. The developer asks if they still need to remove the token from git history.",
     question: "What is the security best practice regarding revoked credentials remaining in commit history?",
     options: [
-      { id: 'A', text: "Clean git history or ensure the token cannot be regenerated, and verify that no secondary systems shared that credential format" },
-      { id: 'B', text: "Re-activate the token immediately" },
-      { id: 'C', text: "Leave the revoked token in history because it cannot be exploited" },
-      { id: 'D', text: "Convert the repository to public" }
+      { id: 'A', text: "Ensure the token cannot be reissued, and check no other system shared it" },
+      { id: 'B', text: "Rewrite history to drop the commit, after which no rotation is needed" },
+      { id: 'C', text: "Leave the revoked token in history, since it can no longer be exploited" },
+      { id: 'D', text: "Resolve the alert as a false positive once the token has been revoked" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -513,10 +513,10 @@ export const GITHUB_GHAS_QUESTIONS_6 = [
     scenario: "An enterprise development team is managing security policies, vulnerability scans, and supply chain controls on GitHub.",
     question: "An enterprise administrator defines custom secret patterns at the enterprise account level. How are these patterns distributed to member organizations?",
     options: [
-      { id: 'A', text: "Custom patterns only apply to the enterprise management repository" },
-      { id: 'B', text: "Each organization owner must manually copy and paste the regex patterns into their settings" },
-      { id: 'C', text: "Custom patterns require an individual pull request in every repository" },
-      { id: 'D', text: "The custom patterns automatically apply to all repositories across all organizations belonging to the enterprise" }
+      { id: 'A', text: "The patterns apply only to the management repository itself" },
+      { id: 'B', text: "Each organization owner copies the pattern into its settings" },
+      { id: 'C', text: "Each repository must opt in through a pull request to enable" },
+      { id: 'D', text: "The enterprise patterns apply to every organization beneath it" }
     ],
     correctAnswers: ['D'],
     type: "single",

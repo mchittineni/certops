@@ -9,10 +9,10 @@ export const GITHUB_GHAS_QUESTIONS_4 = [
     scenario: "Push protection is on in eleven repositories where individual maintainers enabled it. Security wants it on across four hundred, including repositories created next month, without asking each team.",
     question: "Which mechanism applies it?",
     options: [
-      { id: 'A', text: "A security configuration that enables secret scanning and push protection, applied to the target repositories and set as the default for newly created ones." },
-      { id: 'B', text: "Asking each maintainer to enable it, tracked as a checklist." },
-      { id: 'C', text: "A repository ruleset containing a push protection rule." },
-      { id: 'D', text: "A script calling the repository settings API nightly for every repository." }
+      { id: 'A', text: "A security configuration enabling both, applied to the repositories and defaulted for new ones." },
+      { id: 'B', text: "Asking each maintainer to enable it, tracked against a checklist per repository." },
+      { id: 'C', text: "A repository ruleset containing a push protection rule for the default branch." },
+      { id: 'D', text: "A script calling the repository settings API nightly across every repository." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -30,10 +30,10 @@ export const GITHUB_GHAS_QUESTIONS_4 = [
     scenario: "The same API key was committed to a configuration file, a shell script and a test fixture in one repository. The team expected three alerts and sees one.",
     question: "What is happening?",
     options: [
-      { id: 'A', text: "Alerts are created per commit, and all three files were changed in one commit." },
-      { id: 'B', text: "Only the first occurrence is scanned; the others are ignored until the first is resolved." },
-      { id: 'C', text: "An alert represents the exposed secret rather than a single occurrence, and it lists every location where that value was found, so remediation is tracked once against the credential." },
-      { id: 'D', text: "Two of the three occurrences were suppressed because they sit in files matching a default exclusion." }
+      { id: 'A', text: "Alerts are created per commit, and all three of those files were changed in the same commit." },
+      { id: 'B', text: "Only the first occurrence is scanned; the rest are ignored until that one has been resolved." },
+      { id: 'C', text: "An alert represents the secret itself, listing every location it was found." },
+      { id: 'D', text: "Two of the three occurrences were suppressed because they sit in a default exclusion path." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -51,10 +51,10 @@ export const GITHUB_GHAS_QUESTIONS_4 = [
     scenario: "A team treats a clean secret scanning queue as proof that no credential exists anywhere in their project, including in build outputs, an attached wiki and a compressed archive committed as a release asset.",
     question: "Which correction do they need?",
     options: [
-      { id: 'A', text: "Scanning covers only the default branch, so the gap is limited to other branches." },
-      { id: 'B', text: "Scanning covers repository content and its history for patterns it can recognise, so credentials inside opaque or compressed artifacts, in places outside that content, or in formats no pattern matches can still exist; a clean queue is evidence about what is scanned rather than proof of absence." },
-      { id: 'C', text: "Scanning covers everything but reports only high confidence matches, so lowering the confidence threshold would close the gap." },
-      { id: 'D', text: "Scanning covers every artifact associated with the repository, so a clean queue is conclusive." }
+      { id: 'A', text: "Scanning covers only the default branch, so the gap is limited to whatever sits on the other branches." },
+      { id: 'B', text: "Scanning covers content and history for patterns it recognises, so unmatched formats survive a clean queue." },
+      { id: 'C', text: "Scanning covers everything but reports only high-confidence matches, so lowering the threshold closes the gap." },
+      { id: 'D', text: "Scanning covers every artifact associated with the repository, so a clean queue really is conclusive." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -72,10 +72,10 @@ export const GITHUB_GHAS_QUESTIONS_4 = [
     scenario: "A review finds a registry password written directly into a workflow file rather than referenced from a secret. The team asks whether the platform would have caught it.",
     question: "Which statement is accurate?",
     options: [
-      { id: 'A', text: "Workflow files are scanned only by code scanning, not by secret scanning." },
-      { id: 'B', text: "Workflow files are repository content like any other, so a recognisable credential in one is detected and push protection would block it, while a value in no known format may not be, which is why review and using the secrets store remain necessary." },
-      { id: 'C', text: "Only values referenced through the secrets context are scanned; literals are ignored." },
-      { id: 'D', text: "Workflow files are excluded from scanning because they legitimately reference secrets." }
+      { id: 'A', text: "Workflow files are covered by code scanning rather than secret scanning, so the detection comes from the CodeQL suite." },
+      { id: 'B', text: "Workflow files are repository content, so a recognisable credential is detected, an unknown format may not be." },
+      { id: 'C', text: "Only values referenced through the secrets context are scanned, so a literal written into the file is ignored." },
+      { id: 'D', text: "Workflow files are excluded from scanning, because they legitimately reference secrets on nearly every line." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -93,10 +93,10 @@ export const GITHUB_GHAS_QUESTIONS_4 = [
     scenario: "An organization is configuring delegated bypass and must decide which group reviews requests. Candidates are the repository maintainers, a central security team, and every user with write access.",
     question: "Which choice best serves the control?",
     options: [
-      { id: 'A', text: "A nominated reviewing group that does not include the requester by default, sized so requests are answered quickly, since a reviewer who is always the same person as the pusher reproduces self-approval." },
-      { id: 'B', text: "The organization owners, since they already hold the highest privilege." },
-      { id: 'C', text: "Everyone with write access, so a request is never delayed." },
-      { id: 'D', text: "A single named individual, so accountability is unambiguous." }
+      { id: 'A', text: "A nominated reviewing group that excludes the requester by default and is large enough to answer quickly." },
+      { id: 'B', text: "The organization owners, since they already hold the highest privilege in the organization." },
+      { id: 'C', text: "Everyone with write access, so that a bypass request is never delayed by reviewer absence." },
+      { id: 'D', text: "A single named individual, so that accountability for each decision is entirely unambiguous." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -114,10 +114,10 @@ export const GITHUB_GHAS_QUESTIONS_4 = [
     scenario: "After enabling push protection, a team proposes standing down the developer training on credential handling on the grounds that mistakes are now impossible.",
     question: "Which correction is warranted?",
     options: [
-      { id: 'A', text: "Push protection blocks recognisable credentials at the point of push and can be bypassed, so it reduces the rate of exposure sharply without eliminating it, and it says nothing about credentials committed before it was enabled." },
-      { id: 'B', text: "Push protection also rotates any credential it detects, so handling practices no longer matter." },
+      { id: 'A', text: "Push protection blocks recognisable credentials and can be bypassed, and covers nothing committed before." },
+      { id: 'B', text: "Push protection also rotates any credential it detects with the provider, so local handling practices no longer matter." },
       { id: 'C', text: "Push protection is complete for the patterns it supports, so only unusual credential formats remain a training topic." },
-      { id: 'D', text: "Push protection prevents all pushes containing any high entropy string, so no training is needed." }
+      { id: 'D', text: "Push protection rejects any push containing a high-entropy string, so credential training is no longer required." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -156,10 +156,10 @@ export const GITHUB_GHAS_QUESTIONS_4 = [
     scenario: "Dependency review works on internal branches and fails on pull requests from forks with a permissions error, which means external contributions are the ones going unchecked.",
     question: "What explains it and what is the remedy?",
     options: [
-      { id: 'A', text: "Dependency review cannot run on fork pull requests at all, so external contributions must be reviewed manually." },
-      { id: 'B', text: "The base repository must add the contributor as a collaborator so the token is elevated." },
-      { id: 'C', text: "The fork must enable its own dependency graph before the base repository can compare." },
-      { id: 'D', text: "A fork pull request runs with a read-only token, so a job needing more will fail; the check should be arranged so the comparison runs with the permissions it needs, for example by granting only the read scopes the action requires or by performing the privileged part in a workflow triggered by the completion of the untrusted run." }
+      { id: 'A', text: "Dependency review cannot run on fork pull requests at all, so external contributions have to be reviewed by hand" },
+      { id: 'B', text: "The base repository must add the contributor as a collaborator, which elevates the token the fork's run receives" },
+      { id: 'C', text: "The fork must enable its own dependency graph before the base repository is able to compare the two manifests" },
+      { id: 'D', text: "A fork's run has a read-only token, so the privileged step must run after the untrusted one" }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -177,10 +177,10 @@ export const GITHUB_GHAS_QUESTIONS_4 = [
     scenario: "A Dependabot alert that was open last week is now closed, and no team member merged an update or dismissed it. The dependency version has not changed.",
     question: "Which explanation fits?",
     options: [
-      { id: 'A', text: "The underlying advisory was withdrawn or its affected version range was corrected, so the dependency no longer matches and the alert closed on its own." },
-      { id: 'B', text: "Alerts close automatically after seven days without action." },
-      { id: 'C', text: "The dependency graph was rebuilt, which clears all existing alerts." },
-      { id: 'D', text: "An alert closes when its severity is recalculated below the repository threshold." }
+      { id: 'A', text: "The advisory was withdrawn or its affected range corrected, so the dependency no longer matches." },
+      { id: 'B', text: "Alerts close automatically after seven days when no action has been taken on them." },
+      { id: 'C', text: "The dependency graph was rebuilt, which clears the alerts raised against the old graph." },
+      { id: 'D', text: "An alert closes once its severity is recalculated below the repository's threshold." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -198,10 +198,10 @@ export const GITHUB_GHAS_QUESTIONS_4 = [
     scenario: "A busy repository merges to its default branch many times a day. Dependabot pull requests rebase repeatedly, each rebase re-runs the full pipeline, and Actions minutes have risen noticeably.",
     question: "Which configuration option addresses the cost?",
     options: [
-      { id: 'A', text: "Set the schedule to daily, which prevents rebasing between runs." },
-      { id: 'B', text: "Enable grouping, which is the only control over rebase behaviour." },
-      { id: 'C', text: "Set the versioning strategy to increase, which avoids branch updates." },
-      { id: 'D', text: "Set the rebase strategy to disabled for that ecosystem, so branches are not automatically rebased on every default branch change, accepting that a stale branch may need a manual rebase before merge." }
+      { id: 'A', text: "Set the schedule to daily, which leaves no window for the default branch to move between runs." },
+      { id: 'B', text: "Enable grouping, which is the only control the configuration offers over rebase behaviour." },
+      { id: 'C', text: "Set the versioning strategy to increase, which stops the branches being updated in place." },
+      { id: 'D', text: "Disable the rebase strategy for that ecosystem, accepting that a stale branch may need rebasing by hand." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -219,10 +219,10 @@ export const GITHUB_GHAS_QUESTIONS_4 = [
     scenario: "A team plans to fix critical and high alerts within a week and to leave the rest. An architect objects that a medium alert in an internet-facing authentication path may matter more than a critical one in a build-time tool.",
     question: "Which position is sound?",
     options: [
-      { id: 'A', text: "Severity should be recalculated per repository by editing the advisory." },
-      { id: 'B', text: "Severity should be ignored entirely in favour of manual assessment of every alert." },
-      { id: 'C', text: "Severity already accounts for the consuming application, so the tiered policy is complete as written." },
-      { id: 'D', text: "Advisory severity is a property of the vulnerability rather than of this deployment, so it is a reasonable default ordering that should be adjusted by exposure and dependency scope, with auto-triage rules encoding the adjustments the team agrees on." }
+      { id: 'A', text: "Advisory severity should be recalculated per repository by editing the advisory to match the local deployment." },
+      { id: 'B', text: "Advisory severity should be ignored entirely in favour of a manual assessment carried out for each alert." },
+      { id: 'C', text: "Advisory severity already accounts for the consuming application, so the tiered policy is complete as written." },
+      { id: 'D', text: "Advisory severity describes the vulnerability, not the deployment, so adjust it by exposure and scope." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -240,10 +240,10 @@ export const GITHUB_GHAS_QUESTIONS_4 = [
     scenario: "An alert names a package not as containing a flaw but as malicious, published under a name close to a popular library. The package is a transitive dependency introduced last week.",
     question: "How does the response differ from an ordinary vulnerability?",
     options: [
-      { id: 'A', text: "Upgrade to the latest version of the package, which will have had the malicious code removed." },
-      { id: 'B', text: "No action is needed for a transitive dependency, since the project does not call it directly." },
-      { id: 'C', text: "Dismiss the alert as a false positive if the build succeeded, since malicious packages fail to install." },
-      { id: 'D', text: "Treat it as an incident rather than an upgrade: the package should be removed rather than bumped, anything it could have accessed during builds should be considered compromised including credentials present on the runner, and the path that introduced it should be identified so the same substitution cannot recur." }
+      { id: 'A', text: "Treat it as an upgrade: move to the latest release of the package, which no longer carries the malicious code in its published artifact." },
+      { id: 'B', text: "Treat it as informational: the package is a transitive dependency the project never calls, so nothing it contained was ever executed." },
+      { id: 'C', text: "Treat it as a false positive: a malicious package fails to install, so a build that succeeded cannot have pulled one in." },
+      { id: 'D', text: "Treat it as an incident: remove the package, treat credentials on the runner as compromised." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -261,10 +261,10 @@ export const GITHUB_GHAS_QUESTIONS_4 = [
     scenario: "A large service takes twenty minutes to build. Running that build inside every code scanning job is the dominant cost, and the team asks whether analysis can avoid it.",
     question: "What is available?",
     options: [
-      { id: 'A', text: "No: extraction for a compiled language always requires observing a build." },
-      { id: 'B', text: "For supported compiled languages the analysis can run in a mode that builds no code, extracting from source directly, which removes the build from the scanning path at some cost in fidelity for constructs that depend on build configuration." },
-      { id: 'C', text: "The build can be skipped by caching the CodeQL database between runs and re-analysing it." },
-      { id: 'D', text: "The build can be replaced by uploading the compiled artifacts, which the extractor reads instead." }
+      { id: 'A', text: "No: extraction for a compiled language always requires the extractor to observe a real build of the project." },
+      { id: 'B', text: "For supported compiled languages the analysis can run in a no-build mode, extracting from source at some cost in fidelity." },
+      { id: 'C', text: "The build can be skipped by caching the CodeQL database between runs and re-analysing the cached copy." },
+      { id: 'D', text: "The build can be replaced by uploading the compiled artifacts, which the extractor reads in its place." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -282,10 +282,10 @@ export const GITHUB_GHAS_QUESTIONS_4 = [
     scenario: "An external system analyses code and uploads SARIF afterwards. The results arrive but are attached to the wrong reference, so pull request annotations never appear.",
     question: "What must the upload specify?",
     options: [
-      { id: 'A', text: "The reference and commit the results describe, supplied explicitly on the upload, because outside a workflow triggered by that commit the platform cannot infer them." },
-      { id: 'B', text: "Nothing extra; the reference is always taken from the default branch." },
-      { id: 'C', text: "The analysis category only, since the reference is inferred from the tool name." },
-      { id: 'D', text: "The workflow run identifier, from which the reference and commit are derived." }
+      { id: 'A', text: "The ref and commit the results describe, since neither can be inferred outside that workflow." },
+      { id: 'B', text: "Nothing further; the ref is always taken to be the repository's default branch." },
+      { id: 'C', text: "The analysis category alone, since the ref is inferred from the tool's own name." },
+      { id: 'D', text: "The workflow run identifier, from which the ref and commit are then derived." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -303,10 +303,10 @@ export const GITHUB_GHAS_QUESTIONS_4 = [
     scenario: "A third-party scanner integration produces alerts that close and reopen whenever surrounding lines shift, so the same underlying finding appears repeatedly as new and its dismissal history is lost.",
     question: "What is wrong with the uploaded results?",
     options: [
-      { id: 'A', text: "The alerts are being uploaded for the wrong commit, which recreates them." },
-      { id: 'B', text: "The uploads are using different categories each run, which resets the alert list." },
-      { id: 'C', text: "The results do not carry stable identity information, so the platform cannot recognise a finding across runs; the tool should emit consistent rule identifiers and the fingerprint information used to track a result when its line number moves." },
-      { id: 'D', text: "Alert tracking only works for CodeQL, so third-party results always churn." }
+      { id: 'A', text: "The results are being uploaded against the wrong commit SHA, which recreates each alert on the following run." },
+      { id: 'B', text: "The uploads use a different category each run, which resets the alert list belonging to that category." },
+      { id: 'C', text: "The results carry no stable identity, so the tool must emit consistent rule IDs and fingerprints." },
+      { id: 'D', text: "Alert tracking is only implemented for CodeQL results, so third-party findings churn on every upload." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -324,10 +324,10 @@ export const GITHUB_GHAS_QUESTIONS_4 = [
     scenario: "A security engineer finds a dangerous pattern in one service and needs to know which of two hundred other repositories contain the same pattern, using semantic analysis rather than text search.",
     question: "Which capability is designed for that?",
     options: [
-      { id: 'A', text: "Code search with a regular expression matching the vulnerable call." },
-      { id: 'B', text: "Enabling the security-and-quality suite everywhere and waiting for the scheduled runs." },
-      { id: 'C', text: "Exporting every repository CodeQL database and grepping the files." },
-      { id: 'D', text: "Multi-repository variant analysis, which runs a CodeQL query against many repositories at once from the editor tooling and returns the matches." }
+      { id: 'A', text: "Code search with a regular expression matching the vulnerable call across the org." },
+      { id: 'B', text: "The security-and-quality suite enabled everywhere, read on the next scheduled run." },
+      { id: 'C', text: "Exporting each repository's CodeQL database and querying them one at a time." },
+      { id: 'D', text: "Multi-repository variant analysis, which runs one query across many repositories at once." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -345,10 +345,10 @@ export const GITHUB_GHAS_QUESTIONS_4 = [
     scenario: "A security review notes that the delivery workflows have never been analysed, although they handle credentials, run untrusted contributions and can publish artifacts.",
     question: "What is possible?",
     options: [
-      { id: 'A', text: "CodeQL can analyse workflow definitions themselves, reporting issues such as untrusted input reaching a run step, so the automation is covered by the same alert and triage machinery as application code." },
-      { id: 'B', text: "Workflow files can only be reviewed manually, since CodeQL analyses programming languages rather than configuration." },
-      { id: 'C', text: "Workflow analysis requires converting the files to a supported language first." },
-      { id: 'D', text: "Secret scanning already covers workflows completely, so no further analysis applies." }
+      { id: 'A', text: "CodeQL can analyse the workflow definitions themselves, so the automation lands in the same alert queue as the code." },
+      { id: 'B', text: "Workflow files can only be reviewed by hand, since CodeQL analyses languages rather than configuration." },
+      { id: 'C', text: "Workflow analysis requires the files to be converted into a supported language before extraction." },
+      { id: 'D', text: "Secret scanning already covers workflows fully, so no further analysis of them applies." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -366,10 +366,10 @@ export const GITHUB_GHAS_QUESTIONS_4 = [
     scenario: "A developer fixes an injection and expects to close the alert by hand, and asks whether leaving it open would misrepresent the state of the code.",
     question: "What happens?",
     options: [
-      { id: 'A', text: "The alert remains open until the next scheduled full analysis, then must be dismissed as won't fix." },
-      { id: 'B', text: "When a later analysis of the same reference no longer finds the result, the alert moves to fixed automatically, which is why dismissal is reserved for findings that will not be fixed rather than for ones that have been." },
-      { id: 'C', text: "The alert closes when the pull request is merged, regardless of whether the finding persists." },
-      { id: 'D', text: "The alert must be closed manually, since the platform cannot know a fix was intentional." }
+      { id: 'A', text: "The alert stays open until the next scheduled full analysis, after which it must be dismissed as won't fix." },
+      { id: 'B', text: "A later analysis no longer finds it, so it closes as fixed; dismissal is for findings that will not be fixed." },
+      { id: 'C', text: "The alert closes when the pull request merges, whether or not the finding still exists on the branch." },
+      { id: 'D', text: "The alert has to be closed by hand, since the platform cannot tell that the fix was intentional." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -387,10 +387,10 @@ export const GITHUB_GHAS_QUESTIONS_4 = [
     scenario: "A regulated team must be able to state exactly which version of the analysis tooling produced a given result, and a floating reference in the workflow makes that impossible.",
     question: "Which approach balances reproducibility against staleness?",
     options: [
-      { id: 'A', text: "Pin the analysis action to an immutable reference and keep it current with automated update pull requests, since an old analysis silently stops detecting newly published query coverage." },
-      { id: 'B', text: "Pin to an immutable reference and leave it, since changing the tooling would invalidate previous results." },
-      { id: 'C', text: "Track the default branch of the action so results always reflect the newest queries." },
-      { id: 'D', text: "Switch to default setup, which reports the tooling version on each alert and needs no pinning." }
+      { id: 'A', text: "Pin the action to an immutable reference and keep it current with automated update PRs." },
+      { id: 'B', text: "Pin the action to an immutable reference and leave it, since changing tooling invalidates results." },
+      { id: 'C', text: "Track the action's default branch so results always reflect the newest published queries." },
+      { id: 'D', text: "Switch to default setup, which reports its tooling version per alert and needs no pinning." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -408,10 +408,10 @@ export const GITHUB_GHAS_QUESTIONS_4 = [
     scenario: "Full analysis takes eighteen minutes, so developers merge before it reports and treat its findings as an after-the-fact chore rather than review feedback.",
     question: "Which combination addresses the underlying problem?",
     options: [
-      { id: 'A', text: "Reduce the query suite permanently to the smallest available set for every run." },
-      { id: 'B', text: "Run a narrower, faster analysis on pull requests and the exhaustive one on a schedule, invest in the analysis cost drivers such as machine size and build mode, and gate merges on the pull request analysis so its result is on the path to merge rather than after it." },
-      { id: 'C', text: "Move the analysis entirely to a nightly schedule, since pull request analysis is optional." },
-      { id: 'D', text: "Keep the full analysis on pull requests and ask developers to wait, since correctness matters more than speed." }
+      { id: 'A', text: "Reduce the query suite permanently to the smallest available set for every run, on pull requests and schedules alike." },
+      { id: 'B', text: "Run a narrower analysis on pull requests, the exhaustive one on a schedule, and gate on the PR run." },
+      { id: 'C', text: "Move the analysis entirely to a nightly schedule, since analysis on pull requests is optional for most languages." },
+      { id: 'D', text: "Keep the full analysis on pull requests and ask developers to wait, since correctness matters more than turnaround." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -429,10 +429,10 @@ export const GITHUB_GHAS_QUESTIONS_4 = [
     scenario: "An organization runs CodeQL alongside two third-party scanners. A triage rota needs to route each alert to the team that owns the relevant tool and rule.",
     question: "Which alert attributes support that routing?",
     options: [
-      { id: 'A', text: "The commit author, since the person who introduced the code owns the finding." },
+      { id: 'A', text: "The commit author on the flagged line, since whoever introduced the code owns the finding." },
       { id: 'B', text: "The severity and the file path, since ownership follows the code rather than the tool." },
-      { id: 'C', text: "The creation timestamp, since tools run on different schedules." },
-      { id: 'D', text: "The tool that reported it and the rule identifier, both available on the alert and in the API, together with the analysis category where several configurations of one tool are in use." }
+      { id: 'C', text: "The creation timestamp, since each tool runs on its own schedule and can be told apart." },
+      { id: 'D', text: "The reporting tool and the rule identifier, plus the analysis category where relevant." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -450,10 +450,10 @@ export const GITHUB_GHAS_QUESTIONS_4 = [
     scenario: "A security team has identified four hundred alerts of one class across sixty repositories that must be fixed this quarter. Emailing a spreadsheet to sixty teams last time produced very little.",
     question: "Which capability is designed for this?",
     options: [
-      { id: 'A', text: "A security campaign, which groups a chosen set of alerts, assigns them to the owning teams with a deadline, and tracks progress against that target in one place." },
-      { id: 'B', text: "A saved filter in security overview shared with each team." },
-      { id: 'C', text: "An organization ruleset blocking merges until the alerts are closed." },
-      { id: 'D', text: "A scheduled workflow that opens an issue per alert in every repository." }
+      { id: 'A', text: "A security campaign, which assigns grouped alerts to owning teams with a deadline." },
+      { id: 'B', text: "A saved filter in the security overview, shared with each of the owning teams." },
+      { id: 'C', text: "An organization ruleset that blocks merges until the grouped alerts are closed." },
+      { id: 'D', text: "A scheduled workflow that opens an issue per alert in each affected repository." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -471,10 +471,10 @@ export const GITHUB_GHAS_QUESTIONS_4 = [
     scenario: "An audit finds that a third of code scanning alerts were dismissed as false positives, and sampling shows several were genuine. Security wants dismissals reviewed without becoming the bottleneck for every alert.",
     question: "Which control fits?",
     options: [
-      { id: 'A', text: "A weekly report of dismissals for retrospective review." },
-      { id: 'B', text: "Removing write access from developers so only security can touch alerts." },
-      { id: 'C', text: "Delegated alert dismissal, which turns a dismissal into a request that a nominated reviewing team approves or denies, leaving ordinary triage unchanged." },
-      { id: 'D', text: "Disabling the false positive dismissal reason so only won't fix remains." }
+      { id: 'A', text: "A weekly report of dismissals, reviewed retrospectively by the security team." },
+      { id: 'B', text: "Removing write access from developers so only security can act on the alerts." },
+      { id: 'C', text: "Delegated alert dismissal, which turns a dismissal into a request a nominated team approves." },
+      { id: 'D', text: "Disabling the false positive reason so only won't fix remains available." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -492,10 +492,10 @@ export const GITHUB_GHAS_QUESTIONS_4 = [
     scenario: "An organization runs GitHub Enterprise Server and is planning its security feature rollout using documentation and demonstrations based on the hosted service.",
     question: "Which expectation should shape the plan?",
     options: [
-      { id: 'A', text: "The two are always identical, so hosted documentation can be followed exactly." },
-      { id: 'B', text: "The self-hosted product receives features first, since releases are validated there." },
-      { id: 'C', text: "Feature availability on a self-hosted server tracks its own release train and lags the hosted service, and some capabilities that depend on hosted infrastructure may be unavailable or require connectivity, so the plan should be validated against the specific server version rather than the hosted documentation." },
-      { id: 'D', text: "Security features are unavailable on a self-hosted server and require migration to the hosted service." }
+      { id: 'A', text: "The two are always identical, so the hosted documentation can be followed exactly as written." },
+      { id: 'B', text: "The self-hosted product receives features first, since each release is validated there before it reaches the hosted service." },
+      { id: 'C', text: "Self-hosted feature availability follows its own release train, so check the plan against that version." },
+      { id: 'D', text: "Security features are unavailable on a self-hosted server, so the estate has to migrate to the hosted service first." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -513,10 +513,10 @@ export const GITHUB_GHAS_QUESTIONS_4 = [
     scenario: "An enterprise tracks findings from every source in one vulnerability management platform. Code scanning, secret scanning and Dependabot findings must appear there with enough context to be assigned and aged.",
     question: "Which integration approach is appropriate?",
     options: [
-      { id: 'A', text: "Grant the platform organization owner access so it can read the interface directly." },
-      { id: 'B', text: "Export a CSV from security overview each month and upload it." },
-      { id: 'C', text: "Consume the alert APIs for each feature at organization scope, driven by webhooks for timeliness and reconciled periodically, carrying the repository, rule or advisory identity, severity and state so the platform can track a finding rather than re-import it." },
-      { id: 'D', text: "Forward the security notification emails to the platform intake address." }
+      { id: 'A', text: "Grant the platform organization owner access so it can read the security interface directly for each repository." },
+      { id: 'B', text: "Export a CSV from the security overview each month and upload it into the platform's intake." },
+      { id: 'C', text: "Consume each feature's alert API at org scope, driven by webhooks and reconciled periodically." },
+      { id: 'D', text: "Forward the organization's security notification emails to the platform's intake address." }
     ],
     correctAnswers: ['C'],
     type: "single",

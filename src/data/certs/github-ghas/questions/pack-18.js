@@ -9,10 +9,10 @@ export const GITHUB_GHAS_QUESTIONS_18 = [
     scenario: "An enterprise application security team is deploying GitHub Advanced Security (GHAS) across hundreds of repositories to establish automated vulnerability management and compliance guardrails. The AppSec engineer needs to optimize CodeQL analysis execution time in a large polyglot repository containing Java, JavaScript, and Python services.",
     question: "Which architectural approach or GHAS configuration satisfies these enterprise security rollout objectives?",
     options: [
-      { id: 'A', text: "Configure a GitHub Actions `strategy: matrix: language: [java-kotlin, javascript-typescript, python]` to run jobs in parallel." },
-      { id: 'B', text: "Run CodeQL sequentially for all three languages in a single job, exceeding the workflow execution timeout." },
-      { id: 'C', text: "Scan only one language and ignore the other two programming languages completely." },
-      { id: 'D', text: "Disable parallel runner allocation to save GitHub Actions compute credits." }
+      { id: 'A', text: "Use a `strategy: matrix` over the three languages so the analyses run in parallel." },
+      { id: 'B', text: "Run the three languages sequentially in one job, which keeps the database shared." },
+      { id: 'C', text: "Split the repository so each language is analysed in its own repository's workflow." },
+      { id: 'D', text: "Run the analysis on a schedule rather than per push, so the runtime does not matter." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -30,10 +30,10 @@ export const GITHUB_GHAS_QUESTIONS_18 = [
     scenario: "A devsecops engineering team is securing the software supply chain against malicious open-source packages, known CVEs, and license compliance violations across build pipelines. The AppSec engineer needs to optimize CodeQL analysis execution time in a large polyglot repository containing Java, JavaScript, and Python services.",
     question: "Which Dependabot practice or supply chain security configuration defends the software lifecycle effectively?",
     options: [
-      { id: 'A', text: "Configure a GitHub Actions `strategy: matrix: language: [java-kotlin, javascript-typescript, python]` to run jobs in parallel." },
-      { id: 'B', text: "Scan only one language and ignore the other two programming languages completely." },
-      { id: 'C', text: "Disable parallel runner allocation to save GitHub Actions compute credits." },
-      { id: 'D', text: "Run CodeQL sequentially for all three languages in a single job, exceeding the workflow execution timeout." }
+      { id: 'A', text: "Use a `strategy: matrix` over the three languages so the analyses run in parallel." },
+      { id: 'B', text: "Split the repository so each language is analysed in its own repository's workflow." },
+      { id: 'C', text: "Run the analysis on a schedule rather than per push, so the runtime does not matter." },
+      { id: 'D', text: "Run the three languages sequentially in one job, which keeps the database shared." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -51,10 +51,10 @@ export const GITHUB_GHAS_QUESTIONS_18 = [
     scenario: "A security operations team is enforcing zero-trust credential hygiene, push protection guardrails, and automated token revocation across developer workflows. The AppSec engineer needs to optimize CodeQL analysis execution time in a large polyglot repository containing Java, JavaScript, and Python services.",
     question: "Which secret scanning feature or remediation workflow prevents sensitive credential exposure?",
     options: [
-      { id: 'A', text: "Configure a GitHub Actions `strategy: matrix: language: [java-kotlin, javascript-typescript, python]` to run jobs in parallel." },
-      { id: 'B', text: "Run CodeQL sequentially for all three languages in a single job, exceeding the workflow execution timeout." },
-      { id: 'C', text: "Scan only one language and ignore the other two programming languages completely." },
-      { id: 'D', text: "Disable parallel runner allocation to save GitHub Actions compute credits." }
+      { id: 'A', text: "Use a `strategy: matrix` over the three languages so the analyses run in parallel." },
+      { id: 'B', text: "Run the three languages sequentially in one job, which keeps the database shared." },
+      { id: 'C', text: "Split the repository so each language is analysed in its own repository's workflow." },
+      { id: 'D', text: "Run the analysis on a schedule rather than per push, so the runtime does not matter." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -72,10 +72,10 @@ export const GITHUB_GHAS_QUESTIONS_18 = [
     scenario: "A software development group is implementing CodeQL code scanning to detect complex security flaws, taint vulnerabilities, and code quality defects early in pull requests. The AppSec engineer needs to optimize CodeQL analysis execution time in a large polyglot repository containing Java, JavaScript, and Python services.",
     question: "Which CodeQL feature or workflow configuration enables developers to catch and fix vulnerabilities before merge?",
     options: [
-      { id: 'A', text: "Configure a GitHub Actions `strategy: matrix: language: [java-kotlin, javascript-typescript, python]` to run jobs in parallel." },
-      { id: 'B', text: "Run CodeQL sequentially for all three languages in a single job, exceeding the workflow execution timeout." },
-      { id: 'C', text: "Scan only one language and ignore the other two programming languages completely." },
-      { id: 'D', text: "Disable parallel runner allocation to save GitHub Actions compute credits." }
+      { id: 'A', text: "Use a `strategy: matrix` over the three languages so the analyses run in parallel." },
+      { id: 'B', text: "Run the three languages sequentially in one job, which keeps the database shared." },
+      { id: 'C', text: "Split the repository so each language is analysed in its own repository's workflow." },
+      { id: 'D', text: "Run the analysis on a schedule rather than per push, so the runtime does not matter." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -93,10 +93,10 @@ export const GITHUB_GHAS_QUESTIONS_18 = [
     scenario: "A corporate compliance officer requires comprehensive audit log streaming, repository ruleset enforcement, and centralized visibility into security posture and remediation trends. The AppSec engineer needs to optimize CodeQL analysis execution time in a large polyglot repository containing Java, JavaScript, and Python services.",
     question: "Which governance policy or GHAS enterprise feature guarantees continuous regulatory compliance?",
     options: [
-      { id: 'A', text: "Disable parallel runner allocation to save GitHub Actions compute credits." },
-      { id: 'B', text: "Configure a GitHub Actions `strategy: matrix: language: [java-kotlin, javascript-typescript, python]` to run jobs in parallel." },
-      { id: 'C', text: "Scan only one language and ignore the other two programming languages completely." },
-      { id: 'D', text: "Run CodeQL sequentially for all three languages in a single job, exceeding the workflow execution timeout." }
+      { id: 'A', text: "Run the analysis on a schedule rather than per push, so the runtime does not matter." },
+      { id: 'B', text: "Use a `strategy: matrix` over the three languages so the analyses run in parallel." },
+      { id: 'C', text: "Split the repository so each language is analysed in its own repository's workflow." },
+      { id: 'D', text: "Run the three languages sequentially in one job, which keeps the database shared." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -114,10 +114,10 @@ export const GITHUB_GHAS_QUESTIONS_18 = [
     scenario: "An enterprise application security team is deploying GitHub Advanced Security (GHAS) across hundreds of repositories to establish automated vulnerability management and compliance guardrails. The AppSec engineer needs to detect command injection in a desktop CLI utility where untrusted input comes from command-line flags rather than remote HTTP requests.",
     question: "Which architectural approach or GHAS configuration satisfies these enterprise security rollout objectives?",
     options: [
-      { id: 'A', text: "Disable taint tracking and assume command-line arguments can never contain malicious shell characters." },
-      { id: 'B', text: "Rewrite the CLI utility as a web service to satisfy CodeQL's default assumptions." },
-      { id: 'C', text: "Configure CodeQL `threat-models: [local, remote]` in the workflow to include command-line arguments and environment variables as sources." },
-      { id: 'D', text: "Rely on default threat models which only consider remote network sockets and HTTP parameters as untrusted sources." }
+      { id: 'A', text: "Set `queries: security-extended`, which adds the argument-handling queries to the suite." },
+      { id: 'B', text: "Write a model pack declaring the CLI's argument parser as an additional taint source." },
+      { id: 'C', text: "Set `threat-models: [local, remote]` so arguments and environment variables count as sources." },
+      { id: 'D', text: "Keep the default threat model, which treats network sockets and HTTP parameters as sources." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -135,10 +135,10 @@ export const GITHUB_GHAS_QUESTIONS_18 = [
     scenario: "A devsecops engineering team is securing the software supply chain against malicious open-source packages, known CVEs, and license compliance violations across build pipelines. The AppSec engineer needs to detect command injection in a desktop CLI utility where untrusted input comes from command-line flags rather than remote HTTP requests.",
     question: "Which Dependabot practice or supply chain security configuration defends the software lifecycle effectively?",
     options: [
-      { id: 'A', text: "Rewrite the CLI utility as a web service to satisfy CodeQL's default assumptions." },
-      { id: 'B', text: "Disable taint tracking and assume command-line arguments can never contain malicious shell characters." },
-      { id: 'C', text: "Rely on default threat models which only consider remote network sockets and HTTP parameters as untrusted sources." },
-      { id: 'D', text: "Configure CodeQL `threat-models: [local, remote]` in the workflow to include command-line arguments and environment variables as sources." }
+      { id: 'A', text: "Write a model pack declaring the CLI's argument parser as an additional taint source." },
+      { id: 'B', text: "Set `queries: security-extended`, which adds the argument-handling queries to the suite." },
+      { id: 'C', text: "Keep the default threat model, which treats network sockets and HTTP parameters as sources." },
+      { id: 'D', text: "Set `threat-models: [local, remote]` so arguments and environment variables count as sources." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -156,10 +156,10 @@ export const GITHUB_GHAS_QUESTIONS_18 = [
     scenario: "A security operations team is enforcing zero-trust credential hygiene, push protection guardrails, and automated token revocation across developer workflows. The AppSec engineer needs to detect command injection in a desktop CLI utility where untrusted input comes from command-line flags rather than remote HTTP requests.",
     question: "Which secret scanning feature or remediation workflow prevents sensitive credential exposure?",
     options: [
-      { id: 'A', text: "Rewrite the CLI utility as a web service to satisfy CodeQL's default assumptions." },
-      { id: 'B', text: "Rely on default threat models which only consider remote network sockets and HTTP parameters as untrusted sources." },
-      { id: 'C', text: "Configure CodeQL `threat-models: [local, remote]` in the workflow to include command-line arguments and environment variables as sources." },
-      { id: 'D', text: "Disable taint tracking and assume command-line arguments can never contain malicious shell characters." }
+      { id: 'A', text: "Write a model pack declaring the CLI's argument parser as an additional taint source." },
+      { id: 'B', text: "Keep the default threat model, which treats network sockets and HTTP parameters as sources." },
+      { id: 'C', text: "Set `threat-models: [local, remote]` so arguments and environment variables count as sources." },
+      { id: 'D', text: "Set `queries: security-extended`, which adds the argument-handling queries to the suite." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -177,10 +177,10 @@ export const GITHUB_GHAS_QUESTIONS_18 = [
     scenario: "A software development group is implementing CodeQL code scanning to detect complex security flaws, taint vulnerabilities, and code quality defects early in pull requests. The AppSec engineer needs to detect command injection in a desktop CLI utility where untrusted input comes from command-line flags rather than remote HTTP requests.",
     question: "Which CodeQL feature or workflow configuration enables developers to catch and fix vulnerabilities before merge?",
     options: [
-      { id: 'A', text: "Disable taint tracking and assume command-line arguments can never contain malicious shell characters." },
-      { id: 'B', text: "Rewrite the CLI utility as a web service to satisfy CodeQL's default assumptions." },
-      { id: 'C', text: "Configure CodeQL `threat-models: [local, remote]` in the workflow to include command-line arguments and environment variables as sources." },
-      { id: 'D', text: "Rely on default threat models which only consider remote network sockets and HTTP parameters as untrusted sources." }
+      { id: 'A', text: "Set `queries: security-extended`, which adds the argument-handling queries to the suite." },
+      { id: 'B', text: "Write a model pack declaring the CLI's argument parser as an additional taint source." },
+      { id: 'C', text: "Set `threat-models: [local, remote]` so arguments and environment variables count as sources." },
+      { id: 'D', text: "Keep the default threat model, which treats network sockets and HTTP parameters as sources." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -198,10 +198,10 @@ export const GITHUB_GHAS_QUESTIONS_18 = [
     scenario: "A corporate compliance officer requires comprehensive audit log streaming, repository ruleset enforcement, and centralized visibility into security posture and remediation trends. The AppSec engineer needs to detect command injection in a desktop CLI utility where untrusted input comes from command-line flags rather than remote HTTP requests.",
     question: "Which governance policy or GHAS enterprise feature guarantees continuous regulatory compliance?",
     options: [
-      { id: 'A', text: "Configure CodeQL `threat-models: [local, remote]` in the workflow to include command-line arguments and environment variables as sources." },
-      { id: 'B', text: "Rely on default threat models which only consider remote network sockets and HTTP parameters as untrusted sources." },
-      { id: 'C', text: "Disable taint tracking and assume command-line arguments can never contain malicious shell characters." },
-      { id: 'D', text: "Rewrite the CLI utility as a web service to satisfy CodeQL's default assumptions." }
+      { id: 'A', text: "Set `threat-models: [local, remote]` so arguments and environment variables count as sources." },
+      { id: 'B', text: "Keep the default threat model, which treats network sockets and HTTP parameters as sources." },
+      { id: 'C', text: "Set `queries: security-extended`, which adds the argument-handling queries to the suite." },
+      { id: 'D', text: "Write a model pack declaring the CLI's argument parser as an additional taint source." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -219,10 +219,10 @@ export const GITHUB_GHAS_QUESTIONS_18 = [
     scenario: "An enterprise application security team is deploying GitHub Advanced Security (GHAS) across hundreds of repositories to establish automated vulnerability management and compliance guardrails. The AppSec engineer needs to teach CodeQL that an internal company validation helper function `isValidUUID()` successfully neutralizes SQL injection risks.",
     question: "Which architectural approach or GHAS configuration satisfies these enterprise security rollout objectives?",
     options: [
-      { id: 'A', text: "Define a custom CodeQL `Sanitizer` or `BarrierGuard` matching calls to `isValidUUID()` in the dataflow configuration." },
-      { id: 'B', text: "Disable CodeQL SQL injection rules completely across the entire enterprise." },
-      { id: 'C', text: "Require developers to manually dismiss thousands of false-positive alerts every month." },
-      { id: 'D', text: "Remove the validation function from source code so developers use manual typecasts." }
+      { id: 'A', text: "Declare the validator as a `Sanitizer` or `BarrierGuard` in the dataflow configuration." },
+      { id: 'B', text: "Disable the SQL injection queries across the enterprise's default scan configuration." },
+      { id: 'C', text: "Dismiss the recurring alerts as false positives with an auto-triage rule per repository." },
+      { id: 'D', text: "Inline the validation at each call site so the analysis sees the check on the taint path." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -240,10 +240,10 @@ export const GITHUB_GHAS_QUESTIONS_18 = [
     scenario: "A devsecops engineering team is securing the software supply chain against malicious open-source packages, known CVEs, and license compliance violations across build pipelines. The AppSec engineer needs to teach CodeQL that an internal company validation helper function `isValidUUID()` successfully neutralizes SQL injection risks.",
     question: "Which Dependabot practice or supply chain security configuration defends the software lifecycle effectively?",
     options: [
-      { id: 'A', text: "Remove the validation function from source code so developers use manual typecasts." },
-      { id: 'B', text: "Require developers to manually dismiss thousands of false-positive alerts every month." },
-      { id: 'C', text: "Disable CodeQL SQL injection rules completely across the entire enterprise." },
-      { id: 'D', text: "Define a custom CodeQL `Sanitizer` or `BarrierGuard` matching calls to `isValidUUID()` in the dataflow configuration." }
+      { id: 'A', text: "Inline the validation at each call site so the analysis sees the check on the taint path." },
+      { id: 'B', text: "Dismiss the recurring alerts as false positives with an auto-triage rule per repository." },
+      { id: 'C', text: "Disable the SQL injection queries across the enterprise's default scan configuration." },
+      { id: 'D', text: "Declare the validator as a `Sanitizer` or `BarrierGuard` in the dataflow configuration." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -261,10 +261,10 @@ export const GITHUB_GHAS_QUESTIONS_18 = [
     scenario: "A security operations team is enforcing zero-trust credential hygiene, push protection guardrails, and automated token revocation across developer workflows. The AppSec engineer needs to teach CodeQL that an internal company validation helper function `isValidUUID()` successfully neutralizes SQL injection risks.",
     question: "Which secret scanning feature or remediation workflow prevents sensitive credential exposure?",
     options: [
-      { id: 'A', text: "Disable CodeQL SQL injection rules completely across the entire enterprise." },
-      { id: 'B', text: "Define a custom CodeQL `Sanitizer` or `BarrierGuard` matching calls to `isValidUUID()` in the dataflow configuration." },
-      { id: 'C', text: "Remove the validation function from source code so developers use manual typecasts." },
-      { id: 'D', text: "Require developers to manually dismiss thousands of false-positive alerts every month." }
+      { id: 'A', text: "Disable the SQL injection queries across the enterprise's default scan configuration." },
+      { id: 'B', text: "Declare the validator as a `Sanitizer` or `BarrierGuard` in the dataflow configuration." },
+      { id: 'C', text: "Inline the validation at each call site so the analysis sees the check on the taint path." },
+      { id: 'D', text: "Dismiss the recurring alerts as false positives with an auto-triage rule per repository." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -282,10 +282,10 @@ export const GITHUB_GHAS_QUESTIONS_18 = [
     scenario: "A software development group is implementing CodeQL code scanning to detect complex security flaws, taint vulnerabilities, and code quality defects early in pull requests. The AppSec engineer needs to teach CodeQL that an internal company validation helper function `isValidUUID()` successfully neutralizes SQL injection risks.",
     question: "Which CodeQL feature or workflow configuration enables developers to catch and fix vulnerabilities before merge?",
     options: [
-      { id: 'A', text: "Define a custom CodeQL `Sanitizer` or `BarrierGuard` matching calls to `isValidUUID()` in the dataflow configuration." },
-      { id: 'B', text: "Disable CodeQL SQL injection rules completely across the entire enterprise." },
-      { id: 'C', text: "Require developers to manually dismiss thousands of false-positive alerts every month." },
-      { id: 'D', text: "Remove the validation function from source code so developers use manual typecasts." }
+      { id: 'A', text: "Declare the validator as a `Sanitizer` or `BarrierGuard` in the dataflow configuration." },
+      { id: 'B', text: "Disable the SQL injection queries across the enterprise's default scan configuration." },
+      { id: 'C', text: "Dismiss the recurring alerts as false positives with an auto-triage rule per repository." },
+      { id: 'D', text: "Inline the validation at each call site so the analysis sees the check on the taint path." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -303,10 +303,10 @@ export const GITHUB_GHAS_QUESTIONS_18 = [
     scenario: "A corporate compliance officer requires comprehensive audit log streaming, repository ruleset enforcement, and centralized visibility into security posture and remediation trends. The AppSec engineer needs to teach CodeQL that an internal company validation helper function `isValidUUID()` successfully neutralizes SQL injection risks.",
     question: "Which governance policy or GHAS enterprise feature guarantees continuous regulatory compliance?",
     options: [
-      { id: 'A', text: "Remove the validation function from source code so developers use manual typecasts." },
-      { id: 'B', text: "Require developers to manually dismiss thousands of false-positive alerts every month." },
-      { id: 'C', text: "Disable CodeQL SQL injection rules completely across the entire enterprise." },
-      { id: 'D', text: "Define a custom CodeQL `Sanitizer` or `BarrierGuard` matching calls to `isValidUUID()` in the dataflow configuration." }
+      { id: 'A', text: "Inline the validation at each call site so the analysis sees the check on the taint path." },
+      { id: 'B', text: "Dismiss the recurring alerts as false positives with an auto-triage rule per repository." },
+      { id: 'C', text: "Disable the SQL injection queries across the enterprise's default scan configuration." },
+      { id: 'D', text: "Declare the validator as a `Sanitizer` or `BarrierGuard` in the dataflow configuration." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -324,10 +324,10 @@ export const GITHUB_GHAS_QUESTIONS_18 = [
     scenario: "An enterprise application security team is deploying GitHub Advanced Security (GHAS) across hundreds of repositories to establish automated vulnerability management and compliance guardrails. The AppSec engineer needs to prevent CodeQL analysis jobs from running out of memory (OOM) on massive enterprise monorepos with millions of lines of code.",
     question: "Which architectural approach or GHAS configuration satisfies these enterprise security rollout objectives?",
     options: [
-      { id: 'A', text: "Disable CodeQL static analysis because monorepos are too large to scan." },
-      { id: 'B', text: "Run CodeQL on small 2-core runners with swap disabled, expecting jobs to finish." },
-      { id: 'C', text: "Configure larger GitHub-hosted runners (e.g., 16-core / 64GB RAM) and pass `--ram=60000` to the CodeQL initialization step." },
-      { id: 'D', text: "Reduce source code quality by deleting half of the company's microservices." }
+      { id: 'A', text: "Split the analysis by language so each CodeQL job builds a smaller database." },
+      { id: 'B', text: "Keep the default runner and add `--threads=1` so the analysis uses less memory." },
+      { id: 'C', text: "Move the analysis to a larger hosted runner and pass `--ram` to the CodeQL init step." },
+      { id: 'D', text: "Restrict the analysis to the paths changed in the pull request with a path filter." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -345,10 +345,10 @@ export const GITHUB_GHAS_QUESTIONS_18 = [
     scenario: "A devsecops engineering team is securing the software supply chain against malicious open-source packages, known CVEs, and license compliance violations across build pipelines. The AppSec engineer needs to prevent CodeQL analysis jobs from running out of memory (OOM) on massive enterprise monorepos with millions of lines of code.",
     question: "Which Dependabot practice or supply chain security configuration defends the software lifecycle effectively?",
     options: [
-      { id: 'A', text: "Configure larger GitHub-hosted runners (e.g., 16-core / 64GB RAM) and pass `--ram=60000` to the CodeQL initialization step." },
-      { id: 'B', text: "Reduce source code quality by deleting half of the company's microservices." },
-      { id: 'C', text: "Disable CodeQL static analysis because monorepos are too large to scan." },
-      { id: 'D', text: "Run CodeQL on small 2-core runners with swap disabled, expecting jobs to finish." }
+      { id: 'A', text: "Move the analysis to a larger hosted runner and pass `--ram` to the CodeQL init step." },
+      { id: 'B', text: "Restrict the analysis to the paths changed in the pull request with a path filter." },
+      { id: 'C', text: "Split the analysis by language so each CodeQL job builds a smaller database." },
+      { id: 'D', text: "Keep the default runner and add `--threads=1` so the analysis uses less memory." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -366,10 +366,10 @@ export const GITHUB_GHAS_QUESTIONS_18 = [
     scenario: "A security operations team is enforcing zero-trust credential hygiene, push protection guardrails, and automated token revocation across developer workflows. The AppSec engineer needs to prevent CodeQL analysis jobs from running out of memory (OOM) on massive enterprise monorepos with millions of lines of code.",
     question: "Which secret scanning feature or remediation workflow prevents sensitive credential exposure?",
     options: [
-      { id: 'A', text: "Reduce source code quality by deleting half of the company's microservices." },
-      { id: 'B', text: "Run CodeQL on small 2-core runners with swap disabled, expecting jobs to finish." },
-      { id: 'C', text: "Disable CodeQL static analysis because monorepos are too large to scan." },
-      { id: 'D', text: "Configure larger GitHub-hosted runners (e.g., 16-core / 64GB RAM) and pass `--ram=60000` to the CodeQL initialization step." }
+      { id: 'A', text: "Restrict the analysis to the paths changed in the pull request with a path filter." },
+      { id: 'B', text: "Keep the default runner and add `--threads=1` so the analysis uses less memory." },
+      { id: 'C', text: "Split the analysis by language so each CodeQL job builds a smaller database." },
+      { id: 'D', text: "Move the analysis to a larger hosted runner and pass `--ram` to the CodeQL init step." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -387,10 +387,10 @@ export const GITHUB_GHAS_QUESTIONS_18 = [
     scenario: "A software development group is implementing CodeQL code scanning to detect complex security flaws, taint vulnerabilities, and code quality defects early in pull requests. The AppSec engineer needs to prevent CodeQL analysis jobs from running out of memory (OOM) on massive enterprise monorepos with millions of lines of code.",
     question: "Which CodeQL feature or workflow configuration enables developers to catch and fix vulnerabilities before merge?",
     options: [
-      { id: 'A', text: "Disable CodeQL static analysis because monorepos are too large to scan." },
-      { id: 'B', text: "Run CodeQL on small 2-core runners with swap disabled, expecting jobs to finish." },
-      { id: 'C', text: "Configure larger GitHub-hosted runners (e.g., 16-core / 64GB RAM) and pass `--ram=60000` to the CodeQL initialization step." },
-      { id: 'D', text: "Reduce source code quality by deleting half of the company's microservices." }
+      { id: 'A', text: "Split the analysis by language so each CodeQL job builds a smaller database." },
+      { id: 'B', text: "Keep the default runner and add `--threads=1` so the analysis uses less memory." },
+      { id: 'C', text: "Move the analysis to a larger hosted runner and pass `--ram` to the CodeQL init step." },
+      { id: 'D', text: "Restrict the analysis to the paths changed in the pull request with a path filter." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -408,10 +408,10 @@ export const GITHUB_GHAS_QUESTIONS_18 = [
     scenario: "A corporate compliance officer requires comprehensive audit log streaming, repository ruleset enforcement, and centralized visibility into security posture and remediation trends. The AppSec engineer needs to prevent CodeQL analysis jobs from running out of memory (OOM) on massive enterprise monorepos with millions of lines of code.",
     question: "Which governance policy or GHAS enterprise feature guarantees continuous regulatory compliance?",
     options: [
-      { id: 'A', text: "Run CodeQL on small 2-core runners with swap disabled, expecting jobs to finish." },
-      { id: 'B', text: "Disable CodeQL static analysis because monorepos are too large to scan." },
-      { id: 'C', text: "Reduce source code quality by deleting half of the company's microservices." },
-      { id: 'D', text: "Configure larger GitHub-hosted runners (e.g., 16-core / 64GB RAM) and pass `--ram=60000` to the CodeQL initialization step." }
+      { id: 'A', text: "Keep the default runner and add `--threads=1` so the analysis uses less memory." },
+      { id: 'B', text: "Split the analysis by language so each CodeQL job builds a smaller database." },
+      { id: 'C', text: "Restrict the analysis to the paths changed in the pull request with a path filter." },
+      { id: 'D', text: "Move the analysis to a larger hosted runner and pass `--ram` to the CodeQL init step." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -429,10 +429,10 @@ export const GITHUB_GHAS_QUESTIONS_18 = [
     scenario: "An enterprise application security team is deploying GitHub Advanced Security (GHAS) across hundreds of repositories to establish automated vulnerability management and compliance guardrails. The AppSec engineer needs to trace tainted data correctly in an enterprise Java application where input flows through an interface implemented by multiple classes.",
     question: "Which architectural approach or GHAS configuration satisfies these enterprise security rollout objectives?",
     options: [
-      { id: 'A', text: "Refactor the entire application into procedural spaghetti code without interfaces or polymorphism." },
-      { id: 'B', text: "Rely on CodeQL's semantic call graph resolution, which computes virtual dispatch targets and tracks taint through interface implementations." },
-      { id: 'C', text: "Assume static analysis engines can only track direct, static function invocations." },
-      { id: 'D', text: "Disable taint tracking across interface boundaries." }
+      { id: 'A', text: "Add a model pack that declares each interface method as a taint step for the analysis." },
+      { id: 'B', text: "Rely on CodeQL's call graph, which resolves virtual dispatch and tracks taint through interfaces." },
+      { id: 'C', text: "Add a custom query that follows the concrete implementations the build actually links." },
+      { id: 'D', text: "Extend the default suite with the security-extended queries, which cross interfaces." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -450,10 +450,10 @@ export const GITHUB_GHAS_QUESTIONS_18 = [
     scenario: "A devsecops engineering team is securing the software supply chain against malicious open-source packages, known CVEs, and license compliance violations across build pipelines. The AppSec engineer needs to trace tainted data correctly in an enterprise Java application where input flows through an interface implemented by multiple classes.",
     question: "Which Dependabot practice or supply chain security configuration defends the software lifecycle effectively?",
     options: [
-      { id: 'A', text: "Refactor the entire application into procedural spaghetti code without interfaces or polymorphism." },
-      { id: 'B', text: "Disable taint tracking across interface boundaries." },
-      { id: 'C', text: "Rely on CodeQL's semantic call graph resolution, which computes virtual dispatch targets and tracks taint through interface implementations." },
-      { id: 'D', text: "Assume static analysis engines can only track direct, static function invocations." }
+      { id: 'A', text: "Add a model pack that declares each interface method as a taint step for the analysis." },
+      { id: 'B', text: "Extend the default suite with the security-extended queries, which cross interfaces." },
+      { id: 'C', text: "Rely on CodeQL's call graph, which resolves virtual dispatch and tracks taint through interfaces." },
+      { id: 'D', text: "Add a custom query that follows the concrete implementations the build actually links." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -471,10 +471,10 @@ export const GITHUB_GHAS_QUESTIONS_18 = [
     scenario: "A security operations team is enforcing zero-trust credential hygiene, push protection guardrails, and automated token revocation across developer workflows. The AppSec engineer needs to trace tainted data correctly in an enterprise Java application where input flows through an interface implemented by multiple classes.",
     question: "Which secret scanning feature or remediation workflow prevents sensitive credential exposure?",
     options: [
-      { id: 'A', text: "Assume static analysis engines can only track direct, static function invocations." },
-      { id: 'B', text: "Refactor the entire application into procedural spaghetti code without interfaces or polymorphism." },
-      { id: 'C', text: "Rely on CodeQL's semantic call graph resolution, which computes virtual dispatch targets and tracks taint through interface implementations." },
-      { id: 'D', text: "Disable taint tracking across interface boundaries." }
+      { id: 'A', text: "Add a custom query that follows the concrete implementations the build actually links." },
+      { id: 'B', text: "Add a model pack that declares each interface method as a taint step for the analysis." },
+      { id: 'C', text: "Rely on CodeQL's call graph, which resolves virtual dispatch and tracks taint through interfaces." },
+      { id: 'D', text: "Extend the default suite with the security-extended queries, which cross interfaces." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -492,10 +492,10 @@ export const GITHUB_GHAS_QUESTIONS_18 = [
     scenario: "A software development group is implementing CodeQL code scanning to detect complex security flaws, taint vulnerabilities, and code quality defects early in pull requests. The AppSec engineer needs to trace tainted data correctly in an enterprise Java application where input flows through an interface implemented by multiple classes.",
     question: "Which CodeQL feature or workflow configuration enables developers to catch and fix vulnerabilities before merge?",
     options: [
-      { id: 'A', text: "Rely on CodeQL's semantic call graph resolution, which computes virtual dispatch targets and tracks taint through interface implementations." },
-      { id: 'B', text: "Disable taint tracking across interface boundaries." },
-      { id: 'C', text: "Assume static analysis engines can only track direct, static function invocations." },
-      { id: 'D', text: "Refactor the entire application into procedural spaghetti code without interfaces or polymorphism." }
+      { id: 'A', text: "Rely on CodeQL's call graph, which resolves virtual dispatch and tracks taint through interfaces." },
+      { id: 'B', text: "Extend the default suite with the security-extended queries, which cross interfaces." },
+      { id: 'C', text: "Add a custom query that follows the concrete implementations the build actually links." },
+      { id: 'D', text: "Add a model pack that declares each interface method as a taint step for the analysis." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -513,10 +513,10 @@ export const GITHUB_GHAS_QUESTIONS_18 = [
     scenario: "A corporate compliance officer requires comprehensive audit log streaming, repository ruleset enforcement, and centralized visibility into security posture and remediation trends. The AppSec engineer needs to trace tainted data correctly in an enterprise Java application where input flows through an interface implemented by multiple classes.",
     question: "Which governance policy or GHAS enterprise feature guarantees continuous regulatory compliance?",
     options: [
-      { id: 'A', text: "Rely on CodeQL's semantic call graph resolution, which computes virtual dispatch targets and tracks taint through interface implementations." },
-      { id: 'B', text: "Assume static analysis engines can only track direct, static function invocations." },
-      { id: 'C', text: "Refactor the entire application into procedural spaghetti code without interfaces or polymorphism." },
-      { id: 'D', text: "Disable taint tracking across interface boundaries." }
+      { id: 'A', text: "Rely on CodeQL's call graph, which resolves virtual dispatch and tracks taint through interfaces." },
+      { id: 'B', text: "Add a custom query that follows the concrete implementations the build actually links." },
+      { id: 'C', text: "Add a model pack that declares each interface method as a taint step for the analysis." },
+      { id: 'D', text: "Extend the default suite with the security-extended queries, which cross interfaces." }
     ],
     correctAnswers: ['A'],
     type: "single",

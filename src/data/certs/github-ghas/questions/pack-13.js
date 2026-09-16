@@ -9,10 +9,10 @@ export const GITHUB_GHAS_QUESTIONS_13 = [
     scenario: "An enterprise application security team is deploying GitHub Advanced Security (GHAS) across hundreds of repositories to establish automated vulnerability management and compliance guardrails. The AppSec engineer needs to detect hardcoded internal JDBC database connection strings containing embedded passwords across enterprise repositories.",
     question: "Which architectural approach or GHAS configuration satisfies these enterprise security rollout objectives?",
     options: [
-      { id: 'A', text: "Configure custom secret patterns targeting database connection URI formats (`jdbc:postgresql://user:pass@host/db`)." },
-      { id: 'B', text: "Wait for database administrators to detect unauthorized logins from unauthorized IP addresses." },
-      { id: 'C', text: "Rely on partner patterns which only detect public cloud vendor tokens." },
-      { id: 'D', text: "Store database connection strings in public repository README files." }
+      { id: 'A', text: "Add a custom pattern matching the database connection URI format in use." },
+      { id: 'B', text: "Add a custom pattern matching the database hostnames that appear in code." },
+      { id: 'C', text: "Rely on the partner patterns, which cover the cloud vendors' own tokens." },
+      { id: 'D', text: "Rely on generic secret detection, which scores unstructured credentials." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -30,10 +30,10 @@ export const GITHUB_GHAS_QUESTIONS_13 = [
     scenario: "A devsecops engineering team is securing the software supply chain against malicious open-source packages, known CVEs, and license compliance violations across build pipelines. The AppSec engineer needs to detect hardcoded internal JDBC database connection strings containing embedded passwords across enterprise repositories.",
     question: "Which Dependabot practice or supply chain security configuration defends the software lifecycle effectively?",
     options: [
-      { id: 'A', text: "Configure custom secret patterns targeting database connection URI formats (`jdbc:postgresql://user:pass@host/db`)." },
-      { id: 'B', text: "Wait for database administrators to detect unauthorized logins from unauthorized IP addresses." },
-      { id: 'C', text: "Rely on partner patterns which only detect public cloud vendor tokens." },
-      { id: 'D', text: "Store database connection strings in public repository README files." }
+      { id: 'A', text: "Add a custom pattern matching the database connection URI format in use." },
+      { id: 'B', text: "Add a custom pattern matching the database hostnames that appear in code." },
+      { id: 'C', text: "Rely on the partner patterns, which cover the cloud vendors' own tokens." },
+      { id: 'D', text: "Rely on generic secret detection, which scores unstructured credentials." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -51,10 +51,10 @@ export const GITHUB_GHAS_QUESTIONS_13 = [
     scenario: "A security operations team is enforcing zero-trust credential hygiene, push protection guardrails, and automated token revocation across developer workflows. The AppSec engineer needs to detect hardcoded internal JDBC database connection strings containing embedded passwords across enterprise repositories.",
     question: "Which secret scanning feature or remediation workflow prevents sensitive credential exposure?",
     options: [
-      { id: 'A', text: "Store database connection strings in public repository README files." },
-      { id: 'B', text: "Wait for database administrators to detect unauthorized logins from unauthorized IP addresses." },
-      { id: 'C', text: "Configure custom secret patterns targeting database connection URI formats (`jdbc:postgresql://user:pass@host/db`)." },
-      { id: 'D', text: "Rely on partner patterns which only detect public cloud vendor tokens." }
+      { id: 'A', text: "Rely on generic secret detection, which scores unstructured credentials." },
+      { id: 'B', text: "Add a custom pattern matching the database hostnames that appear in code." },
+      { id: 'C', text: "Add a custom pattern matching the database connection URI format in use." },
+      { id: 'D', text: "Rely on the partner patterns, which cover the cloud vendors' own tokens." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -72,10 +72,10 @@ export const GITHUB_GHAS_QUESTIONS_13 = [
     scenario: "A software development group is implementing CodeQL code scanning to detect complex security flaws, taint vulnerabilities, and code quality defects early in pull requests. The AppSec engineer needs to detect hardcoded internal JDBC database connection strings containing embedded passwords across enterprise repositories.",
     question: "Which CodeQL feature or workflow configuration enables developers to catch and fix vulnerabilities before merge?",
     options: [
-      { id: 'A', text: "Wait for database administrators to detect unauthorized logins from unauthorized IP addresses." },
-      { id: 'B', text: "Configure custom secret patterns targeting database connection URI formats (`jdbc:postgresql://user:pass@host/db`)." },
-      { id: 'C', text: "Store database connection strings in public repository README files." },
-      { id: 'D', text: "Rely on partner patterns which only detect public cloud vendor tokens." }
+      { id: 'A', text: "Add a custom pattern matching the database hostnames that appear in code." },
+      { id: 'B', text: "Add a custom pattern matching the database connection URI format in use." },
+      { id: 'C', text: "Rely on generic secret detection, which scores unstructured credentials." },
+      { id: 'D', text: "Rely on the partner patterns, which cover the cloud vendors' own tokens." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -93,10 +93,10 @@ export const GITHUB_GHAS_QUESTIONS_13 = [
     scenario: "A corporate compliance officer requires comprehensive audit log streaming, repository ruleset enforcement, and centralized visibility into security posture and remediation trends. The AppSec engineer needs to detect hardcoded internal JDBC database connection strings containing embedded passwords across enterprise repositories.",
     question: "Which governance policy or GHAS enterprise feature guarantees continuous regulatory compliance?",
     options: [
-      { id: 'A', text: "Configure custom secret patterns targeting database connection URI formats (`jdbc:postgresql://user:pass@host/db`)." },
-      { id: 'B', text: "Wait for database administrators to detect unauthorized logins from unauthorized IP addresses." },
-      { id: 'C', text: "Rely on partner patterns which only detect public cloud vendor tokens." },
-      { id: 'D', text: "Store database connection strings in public repository README files." }
+      { id: 'A', text: "Add a custom pattern matching the database connection URI format in use." },
+      { id: 'B', text: "Add a custom pattern matching the database hostnames that appear in code." },
+      { id: 'C', text: "Rely on the partner patterns, which cover the cloud vendors' own tokens." },
+      { id: 'D', text: "Rely on generic secret detection, which scores unstructured credentials." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -114,10 +114,10 @@ export const GITHUB_GHAS_QUESTIONS_13 = [
     scenario: "An enterprise application security team is deploying GitHub Advanced Security (GHAS) across hundreds of repositories to establish automated vulnerability management and compliance guardrails. The AppSec engineer needs to stream all enterprise GitHub secret scanning events and push protection bypasses directly into an external Splunk SIEM.",
     question: "Which architectural approach or GHAS configuration satisfies these enterprise security rollout objectives?",
     options: [
-      { id: 'A', text: "Rely on email notifications sent to individual repository administrators." },
-      { id: 'B', text: "Configure GitHub Enterprise Audit Log Streaming to an Amazon S3, Azure Event Hubs, or Datadog destination." },
-      { id: 'C', text: "Disable audit log export to save external SIEM ingestion costs." },
-      { id: 'D', text: "Manually download CSV audit logs once a month and upload them to Splunk via web forms." }
+      { id: 'A', text: "Forward the administrators' security notification emails into the SIEM intake." },
+      { id: 'B', text: "Stream the enterprise audit log to S3, Event Hubs or the SIEM's own endpoint." },
+      { id: 'C', text: "Poll the audit log REST API on a schedule and post each page to the SIEM." },
+      { id: 'D', text: "Export the audit log to CSV monthly and load the file into the SIEM by hand." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -135,10 +135,10 @@ export const GITHUB_GHAS_QUESTIONS_13 = [
     scenario: "A devsecops engineering team is securing the software supply chain against malicious open-source packages, known CVEs, and license compliance violations across build pipelines. The AppSec engineer needs to stream all enterprise GitHub secret scanning events and push protection bypasses directly into an external Splunk SIEM.",
     question: "Which Dependabot practice or supply chain security configuration defends the software lifecycle effectively?",
     options: [
-      { id: 'A', text: "Disable audit log export to save external SIEM ingestion costs." },
-      { id: 'B', text: "Configure GitHub Enterprise Audit Log Streaming to an Amazon S3, Azure Event Hubs, or Datadog destination." },
-      { id: 'C', text: "Manually download CSV audit logs once a month and upload them to Splunk via web forms." },
-      { id: 'D', text: "Rely on email notifications sent to individual repository administrators." }
+      { id: 'A', text: "Poll the audit log REST API on a schedule and post each page to the SIEM." },
+      { id: 'B', text: "Stream the enterprise audit log to S3, Event Hubs or the SIEM's own endpoint." },
+      { id: 'C', text: "Export the audit log to CSV monthly and load the file into the SIEM by hand." },
+      { id: 'D', text: "Forward the administrators' security notification emails into the SIEM intake." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -156,10 +156,10 @@ export const GITHUB_GHAS_QUESTIONS_13 = [
     scenario: "A security operations team is enforcing zero-trust credential hygiene, push protection guardrails, and automated token revocation across developer workflows. The AppSec engineer needs to stream all enterprise GitHub secret scanning events and push protection bypasses directly into an external Splunk SIEM.",
     question: "Which secret scanning feature or remediation workflow prevents sensitive credential exposure?",
     options: [
-      { id: 'A', text: "Rely on email notifications sent to individual repository administrators." },
-      { id: 'B', text: "Configure GitHub Enterprise Audit Log Streaming to an Amazon S3, Azure Event Hubs, or Datadog destination." },
-      { id: 'C', text: "Disable audit log export to save external SIEM ingestion costs." },
-      { id: 'D', text: "Manually download CSV audit logs once a month and upload them to Splunk via web forms." }
+      { id: 'A', text: "Forward the administrators' security notification emails into the SIEM intake." },
+      { id: 'B', text: "Stream the enterprise audit log to S3, Event Hubs or the SIEM's own endpoint." },
+      { id: 'C', text: "Poll the audit log REST API on a schedule and post each page to the SIEM." },
+      { id: 'D', text: "Export the audit log to CSV monthly and load the file into the SIEM by hand." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -177,10 +177,10 @@ export const GITHUB_GHAS_QUESTIONS_13 = [
     scenario: "A software development group is implementing CodeQL code scanning to detect complex security flaws, taint vulnerabilities, and code quality defects early in pull requests. The AppSec engineer needs to stream all enterprise GitHub secret scanning events and push protection bypasses directly into an external Splunk SIEM.",
     question: "Which CodeQL feature or workflow configuration enables developers to catch and fix vulnerabilities before merge?",
     options: [
-      { id: 'A', text: "Configure GitHub Enterprise Audit Log Streaming to an Amazon S3, Azure Event Hubs, or Datadog destination." },
-      { id: 'B', text: "Manually download CSV audit logs once a month and upload them to Splunk via web forms." },
-      { id: 'C', text: "Disable audit log export to save external SIEM ingestion costs." },
-      { id: 'D', text: "Rely on email notifications sent to individual repository administrators." }
+      { id: 'A', text: "Stream the enterprise audit log to S3, Event Hubs or the SIEM's own endpoint." },
+      { id: 'B', text: "Export the audit log to CSV monthly and load the file into the SIEM by hand." },
+      { id: 'C', text: "Poll the audit log REST API on a schedule and post each page to the SIEM." },
+      { id: 'D', text: "Forward the administrators' security notification emails into the SIEM intake." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -198,10 +198,10 @@ export const GITHUB_GHAS_QUESTIONS_13 = [
     scenario: "A corporate compliance officer requires comprehensive audit log streaming, repository ruleset enforcement, and centralized visibility into security posture and remediation trends. The AppSec engineer needs to stream all enterprise GitHub secret scanning events and push protection bypasses directly into an external Splunk SIEM.",
     question: "Which governance policy or GHAS enterprise feature guarantees continuous regulatory compliance?",
     options: [
-      { id: 'A', text: "Configure GitHub Enterprise Audit Log Streaming to an Amazon S3, Azure Event Hubs, or Datadog destination." },
-      { id: 'B', text: "Manually download CSV audit logs once a month and upload them to Splunk via web forms." },
-      { id: 'C', text: "Disable audit log export to save external SIEM ingestion costs." },
-      { id: 'D', text: "Rely on email notifications sent to individual repository administrators." }
+      { id: 'A', text: "Stream the enterprise audit log to S3, Event Hubs or the SIEM's own endpoint." },
+      { id: 'B', text: "Export the audit log to CSV monthly and load the file into the SIEM by hand." },
+      { id: 'C', text: "Poll the audit log REST API on a schedule and post each page to the SIEM." },
+      { id: 'D', text: "Forward the administrators' security notification emails into the SIEM intake." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -219,10 +219,10 @@ export const GITHUB_GHAS_QUESTIONS_13 = [
     scenario: "An enterprise application security team is deploying GitHub Advanced Security (GHAS) across hundreds of repositories to establish automated vulnerability management and compliance guardrails. The AppSec engineer needs to maintain complete, real-time visibility into all direct and transitive open-source dependencies used across 500 applications.",
     question: "Which architectural approach or GHAS configuration satisfies these enterprise security rollout objectives?",
     options: [
-      { id: 'A', text: "Enable GitHub Dependency Graph across all repositories, automatically parsing manifest and lock files (package-lock.json, pom.xml)." },
-      { id: 'B', text: "Instruct developers to manually update an Excel spreadsheet listing every dependency their software imports." },
-      { id: 'C', text: "Disable dependency tracking to prevent discovering vulnerable packages." },
-      { id: 'D', text: "Compile all third-party open-source code into obfuscated binary blobs with no version tracking." }
+      { id: 'A', text: "Enable the dependency graph everywhere, so manifests and lock files are parsed automatically." },
+      { id: 'B', text: "Submit the resolved dependency set from each build through the dependency submission API." },
+      { id: 'C', text: "Generate an SBOM per repository on a schedule and store the output as a release asset." },
+      { id: 'D', text: "Enable Dependabot alerts alone, which infer the dependency set from the advisories raised." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -240,10 +240,10 @@ export const GITHUB_GHAS_QUESTIONS_13 = [
     scenario: "A devsecops engineering team is securing the software supply chain against malicious open-source packages, known CVEs, and license compliance violations across build pipelines. The AppSec engineer needs to maintain complete, real-time visibility into all direct and transitive open-source dependencies used across 500 applications.",
     question: "Which Dependabot practice or supply chain security configuration defends the software lifecycle effectively?",
     options: [
-      { id: 'A', text: "Enable GitHub Dependency Graph across all repositories, automatically parsing manifest and lock files (package-lock.json, pom.xml)." },
-      { id: 'B', text: "Instruct developers to manually update an Excel spreadsheet listing every dependency their software imports." },
-      { id: 'C', text: "Disable dependency tracking to prevent discovering vulnerable packages." },
-      { id: 'D', text: "Compile all third-party open-source code into obfuscated binary blobs with no version tracking." }
+      { id: 'A', text: "Enable the dependency graph everywhere, so manifests and lock files are parsed automatically." },
+      { id: 'B', text: "Submit the resolved dependency set from each build through the dependency submission API." },
+      { id: 'C', text: "Generate an SBOM per repository on a schedule and store the output as a release asset." },
+      { id: 'D', text: "Enable Dependabot alerts alone, which infer the dependency set from the advisories raised." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -261,10 +261,10 @@ export const GITHUB_GHAS_QUESTIONS_13 = [
     scenario: "A security operations team is enforcing zero-trust credential hygiene, push protection guardrails, and automated token revocation across developer workflows. The AppSec engineer needs to maintain complete, real-time visibility into all direct and transitive open-source dependencies used across 500 applications.",
     question: "Which secret scanning feature or remediation workflow prevents sensitive credential exposure?",
     options: [
-      { id: 'A', text: "Enable GitHub Dependency Graph across all repositories, automatically parsing manifest and lock files (package-lock.json, pom.xml)." },
-      { id: 'B', text: "Instruct developers to manually update an Excel spreadsheet listing every dependency their software imports." },
-      { id: 'C', text: "Disable dependency tracking to prevent discovering vulnerable packages." },
-      { id: 'D', text: "Compile all third-party open-source code into obfuscated binary blobs with no version tracking." }
+      { id: 'A', text: "Enable the dependency graph everywhere, so manifests and lock files are parsed automatically." },
+      { id: 'B', text: "Submit the resolved dependency set from each build through the dependency submission API." },
+      { id: 'C', text: "Generate an SBOM per repository on a schedule and store the output as a release asset." },
+      { id: 'D', text: "Enable Dependabot alerts alone, which infer the dependency set from the advisories raised." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -282,10 +282,10 @@ export const GITHUB_GHAS_QUESTIONS_13 = [
     scenario: "A software development group is implementing CodeQL code scanning to detect complex security flaws, taint vulnerabilities, and code quality defects early in pull requests. The AppSec engineer needs to maintain complete, real-time visibility into all direct and transitive open-source dependencies used across 500 applications.",
     question: "Which CodeQL feature or workflow configuration enables developers to catch and fix vulnerabilities before merge?",
     options: [
-      { id: 'A', text: "Disable dependency tracking to prevent discovering vulnerable packages." },
-      { id: 'B', text: "Compile all third-party open-source code into obfuscated binary blobs with no version tracking." },
-      { id: 'C', text: "Enable GitHub Dependency Graph across all repositories, automatically parsing manifest and lock files (package-lock.json, pom.xml)." },
-      { id: 'D', text: "Instruct developers to manually update an Excel spreadsheet listing every dependency their software imports." }
+      { id: 'A', text: "Generate an SBOM per repository on a schedule and store the output as a release asset." },
+      { id: 'B', text: "Enable Dependabot alerts alone, which infer the dependency set from the advisories raised." },
+      { id: 'C', text: "Enable the dependency graph everywhere, so manifests and lock files are parsed automatically." },
+      { id: 'D', text: "Submit the resolved dependency set from each build through the dependency submission API." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -303,10 +303,10 @@ export const GITHUB_GHAS_QUESTIONS_13 = [
     scenario: "A corporate compliance officer requires comprehensive audit log streaming, repository ruleset enforcement, and centralized visibility into security posture and remediation trends. The AppSec engineer needs to maintain complete, real-time visibility into all direct and transitive open-source dependencies used across 500 applications.",
     question: "Which governance policy or GHAS enterprise feature guarantees continuous regulatory compliance?",
     options: [
-      { id: 'A', text: "Enable GitHub Dependency Graph across all repositories, automatically parsing manifest and lock files (package-lock.json, pom.xml)." },
-      { id: 'B', text: "Disable dependency tracking to prevent discovering vulnerable packages." },
-      { id: 'C', text: "Compile all third-party open-source code into obfuscated binary blobs with no version tracking." },
-      { id: 'D', text: "Instruct developers to manually update an Excel spreadsheet listing every dependency their software imports." }
+      { id: 'A', text: "Enable the dependency graph everywhere, so manifests and lock files are parsed automatically." },
+      { id: 'B', text: "Generate an SBOM per repository on a schedule and store the output as a release asset." },
+      { id: 'C', text: "Enable Dependabot alerts alone, which infer the dependency set from the advisories raised." },
+      { id: 'D', text: "Submit the resolved dependency set from each build through the dependency submission API." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -429,10 +429,10 @@ export const GITHUB_GHAS_QUESTIONS_13 = [
     scenario: "An enterprise application security team is deploying GitHub Advanced Security (GHAS) across hundreds of repositories to establish automated vulnerability management and compliance guardrails. The AppSec engineer needs to ensure vulnerable dependencies are patched with minimal risk of introducing breaking application changes.",
     question: "Which architectural approach or GHAS configuration satisfies these enterprise security rollout objectives?",
     options: [
-      { id: 'A', text: "Wait for developers to perform annual manual framework upgrades across all services." },
-      { id: 'B', text: "Enable Dependabot Security Updates to automatically generate pull requests updating vulnerable packages to the minimum secure version." },
-      { id: 'C', text: "Instruct developers to ignore security updates to maintain package version stability." },
-      { id: 'D', text: "Force update all dependencies to the latest major alpha release without testing compatibility." }
+      { id: 'A', text: "Enable Dependabot version updates on a weekly schedule for every manifest." },
+      { id: 'B', text: "Enable Dependabot security updates, which open PRs to the minimum fixed version." },
+      { id: 'C', text: "Enable the dependency graph alone, so the alerts list what needs updating." },
+      { id: 'D', text: "Enable grouped updates that move each package to its latest major release." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -450,10 +450,10 @@ export const GITHUB_GHAS_QUESTIONS_13 = [
     scenario: "A devsecops engineering team is securing the software supply chain against malicious open-source packages, known CVEs, and license compliance violations across build pipelines. The AppSec engineer needs to ensure vulnerable dependencies are patched with minimal risk of introducing breaking application changes.",
     question: "Which Dependabot practice or supply chain security configuration defends the software lifecycle effectively?",
     options: [
-      { id: 'A', text: "Enable Dependabot Security Updates to automatically generate pull requests updating vulnerable packages to the minimum secure version." },
-      { id: 'B', text: "Wait for developers to perform annual manual framework upgrades across all services." },
-      { id: 'C', text: "Force update all dependencies to the latest major alpha release without testing compatibility." },
-      { id: 'D', text: "Instruct developers to ignore security updates to maintain package version stability." }
+      { id: 'A', text: "Enable Dependabot security updates, which open PRs to the minimum fixed version." },
+      { id: 'B', text: "Enable Dependabot version updates on a weekly schedule for every manifest." },
+      { id: 'C', text: "Enable grouped updates that move each package to its latest major release." },
+      { id: 'D', text: "Enable the dependency graph alone, so the alerts list what needs updating." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -471,10 +471,10 @@ export const GITHUB_GHAS_QUESTIONS_13 = [
     scenario: "A security operations team is enforcing zero-trust credential hygiene, push protection guardrails, and automated token revocation across developer workflows. The AppSec engineer needs to ensure vulnerable dependencies are patched with minimal risk of introducing breaking application changes.",
     question: "Which secret scanning feature or remediation workflow prevents sensitive credential exposure?",
     options: [
-      { id: 'A', text: "Enable Dependabot Security Updates to automatically generate pull requests updating vulnerable packages to the minimum secure version." },
-      { id: 'B', text: "Wait for developers to perform annual manual framework upgrades across all services." },
-      { id: 'C', text: "Force update all dependencies to the latest major alpha release without testing compatibility." },
-      { id: 'D', text: "Instruct developers to ignore security updates to maintain package version stability." }
+      { id: 'A', text: "Enable Dependabot security updates, which open PRs to the minimum fixed version." },
+      { id: 'B', text: "Enable Dependabot version updates on a weekly schedule for every manifest." },
+      { id: 'C', text: "Enable grouped updates that move each package to its latest major release." },
+      { id: 'D', text: "Enable the dependency graph alone, so the alerts list what needs updating." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -492,10 +492,10 @@ export const GITHUB_GHAS_QUESTIONS_13 = [
     scenario: "A software development group is implementing CodeQL code scanning to detect complex security flaws, taint vulnerabilities, and code quality defects early in pull requests. The AppSec engineer needs to ensure vulnerable dependencies are patched with minimal risk of introducing breaking application changes.",
     question: "Which CodeQL feature or workflow configuration enables developers to catch and fix vulnerabilities before merge?",
     options: [
-      { id: 'A', text: "Wait for developers to perform annual manual framework upgrades across all services." },
-      { id: 'B', text: "Enable Dependabot Security Updates to automatically generate pull requests updating vulnerable packages to the minimum secure version." },
-      { id: 'C', text: "Instruct developers to ignore security updates to maintain package version stability." },
-      { id: 'D', text: "Force update all dependencies to the latest major alpha release without testing compatibility." }
+      { id: 'A', text: "Enable Dependabot version updates on a weekly schedule for every manifest." },
+      { id: 'B', text: "Enable Dependabot security updates, which open PRs to the minimum fixed version." },
+      { id: 'C', text: "Enable the dependency graph alone, so the alerts list what needs updating." },
+      { id: 'D', text: "Enable grouped updates that move each package to its latest major release." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -513,10 +513,10 @@ export const GITHUB_GHAS_QUESTIONS_13 = [
     scenario: "A corporate compliance officer requires comprehensive audit log streaming, repository ruleset enforcement, and centralized visibility into security posture and remediation trends. The AppSec engineer needs to ensure vulnerable dependencies are patched with minimal risk of introducing breaking application changes.",
     question: "Which governance policy or GHAS enterprise feature guarantees continuous regulatory compliance?",
     options: [
-      { id: 'A', text: "Enable Dependabot Security Updates to automatically generate pull requests updating vulnerable packages to the minimum secure version." },
-      { id: 'B', text: "Wait for developers to perform annual manual framework upgrades across all services." },
-      { id: 'C', text: "Force update all dependencies to the latest major alpha release without testing compatibility." },
-      { id: 'D', text: "Instruct developers to ignore security updates to maintain package version stability." }
+      { id: 'A', text: "Enable Dependabot security updates, which open PRs to the minimum fixed version." },
+      { id: 'B', text: "Enable Dependabot version updates on a weekly schedule for every manifest." },
+      { id: 'C', text: "Enable grouped updates that move each package to its latest major release." },
+      { id: 'D', text: "Enable the dependency graph alone, so the alerts list what needs updating." }
     ],
     correctAnswers: ['A'],
     type: "single",

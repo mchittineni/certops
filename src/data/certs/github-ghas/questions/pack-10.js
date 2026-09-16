@@ -9,10 +9,10 @@ export const GITHUB_GHAS_QUESTIONS_10 = [
     scenario: "An enterprise security director needs a single view displaying security tool enablement and vulnerability counts across 400 repositories.",
     question: "Which native GitHub feature delivers this centralized dashboard?",
     options: [
-      { id: 'A', text: "GitHub Discussions" },
-      { id: 'B', text: "Organization and Enterprise Security Overview" },
-      { id: 'C', text: "Repository Insights" },
-      { id: 'D', text: "GitHub Packages" }
+      { id: 'A', text: "The organization discussions tab" },
+      { id: 'B', text: "The organization security overview" },
+      { id: 'C', text: "The repository insights views" },
+      { id: 'D', text: "The organization packages list" }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -30,10 +30,10 @@ export const GITHUB_GHAS_QUESTIONS_10 = [
     scenario: "An enterprise establishes a standard security profile. Administrators want to guarantee that local repository maintainers cannot disable Secret Scanning or CodeQL.",
     question: "How should the security profile be applied to enforce this restriction?",
     options: [
-      { id: 'A', text: "Send an email reminder to all maintainers" },
-      { id: 'B', text: "Revoke all developer repository write access" },
-      { id: 'C', text: "Delete repository administration tabs" },
-      { id: 'D', text: "Apply an enterprise Security Configuration and toggle 'Enforce' to lock the policy against local repository overrides" }
+      { id: 'A', text: "Apply an organization ruleset that requires the settings on every repository" },
+      { id: 'B', text: "Remove administration rights from the repositories so settings cannot change" },
+      { id: 'C', text: "Apply the configuration as the default and audit the repositories monthly" },
+      { id: 'D', text: "Apply an enterprise security configuration with enforcement on, locking out local overrides" }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -72,10 +72,10 @@ export const GITHUB_GHAS_QUESTIONS_10 = [
     scenario: "An enterprise wants to enforce a rule that no repository in the company can merge a pull request to its default branch unless CodeQL status checks pass.",
     question: "What is the most scalable way to enforce this across 1,000 repositories?",
     options: [
-      { id: 'A', text: "Manually configure branch protection rules in every individual repository" },
-      { id: 'B', text: "Write a custom git hook on developer laptops" },
-      { id: 'C', text: "Run an hourly script that reverts non-compliant commits" },
-      { id: 'D', text: "Create an Enterprise Ruleset targeting all default branches with 'Require status checks to pass' specifying the CodeQL workflow" }
+      { id: 'A', text: "Branch protection configured on each repository's own default branch by hand" },
+      { id: 'B', text: "A pre-push hook distributed to developers that runs the same analysis" },
+      { id: 'C', text: "An hourly workflow that reverts commits which bypassed the analysis" },
+      { id: 'D', text: "An enterprise ruleset over every default branch requiring the analysis status check" }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -93,10 +93,10 @@ export const GITHUB_GHAS_QUESTIONS_10 = [
     scenario: "An enterprise development team is managing security policies, vulnerability scans, and supply chain controls on GitHub.",
     question: "How does GitHub calculate license consumption for GitHub Advanced Security across an enterprise?",
     options: [
-      { id: 'A', text: "Licenses are billed per line of code scanned" },
-      { id: 'B', text: "Licenses are billed based on the number of open security alerts" },
-      { id: 'C', text: "Licenses are consumed by unique Active Committers who pushed commits to private repositories with GHAS enabled within the last 90 days" },
-      { id: 'D', text: "Every user with an account in the enterprise consumes a license" }
+      { id: 'A', text: "By lines of code scanned across the enabled private repositories each month" },
+      { id: 'B', text: "By the number of open security alerts across the enabled repositories" },
+      { id: 'C', text: "By unique active committers pushing to enabled private repositories in the last 90 days" },
+      { id: 'D', text: "By every user account in the enterprise, whether they commit or not" }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -114,10 +114,10 @@ export const GITHUB_GHAS_QUESTIONS_10 = [
     scenario: "An enterprise development team is managing security policies, vulnerability scans, and supply chain controls on GitHub.",
     question: "Where should a security disclosure policy instructing external researchers on responsible disclosure procedures be placed?",
     options: [
-      { id: 'A', text: "In package.json" },
-      { id: 'B', text: "In the repository root, .github/, or docs/ directory as SECURITY.md, or in a central .github repository for organization-wide visibility" },
-      { id: 'C', text: "In the repository git tag message" },
-      { id: 'D', text: "In a public blog post outside GitHub" }
+      { id: 'A', text: "As a security field in package.json, which the package registry surfaces" },
+      { id: 'B', text: "As SECURITY.md in the repository root or .github, or in the org's .github repository" },
+      { id: 'C', text: "As an annotated git tag message on each supported release of the project" },
+      { id: 'D', text: "As a public blog post, linked from the repository's own description field" }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -135,10 +135,10 @@ export const GITHUB_GHAS_QUESTIONS_10 = [
     scenario: "A bank's compliance officer requires all GitHub security audit events to be retained for 7 years in Amazon S3 and analyzed in Splunk.",
     question: "How should the enterprise configure continuous audit log retention?",
     options: [
-      { id: 'A', text: "Write a cron job that scrapes GitHub web pages" },
-      { id: 'B', text: "Configure Audit Log Streaming in Enterprise Settings to forward JSON audit events in real time to Amazon S3, Azure Event Hubs, Splunk, or Datadog" },
-      { id: 'C', text: "Rely on GitHub's internal 90-day retention" },
-      { id: 'D', text: "Manually download CSV audit logs every Friday afternoon" }
+      { id: 'A', text: "Poll the audit log REST API on a schedule and archive each page to object storage" },
+      { id: 'B', text: "Stream the audit log from enterprise settings to S3, Event Hubs, Splunk or Datadog" },
+      { id: 'C', text: "Rely on the platform's own retention window, which covers the audit period" },
+      { id: 'D', text: "Download the audit log as CSV each week and archive the file with the evidence" }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -156,10 +156,10 @@ export const GITHUB_GHAS_QUESTIONS_10 = [
     scenario: "An enterprise security policy mandates that personal access tokens must not grant broad full-account administrative permissions.",
     question: "What advantages do Fine-Grained PATs provide over Classic PATs?",
     options: [
-      { id: 'A', text: "Fine-grained PATs never expire" },
-      { id: 'B', text: "Fine-grained PATs are only usable from web browsers" },
-      { id: 'C', text: "Fine-grained PATs can be scoped to specific repositories, grant minimal API permissions, enforce mandatory expiration dates (max 1 year), and support organization approval workflows" },
-      { id: 'D', text: "Fine-grained PATs do not require authentication" }
+      { id: 'A', text: "They never expire, so automation does not break when a token reaches its renewal date" },
+      { id: 'B', text: "They are usable only from the web interface, so a leaked token cannot be replayed by API" },
+      { id: 'C', text: "They scope to named repositories, grant minimal permissions, expire within a year, and support approval" },
+      { id: 'D', text: "They authenticate by IP allow-list rather than by token, so the value itself is not secret" }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -177,10 +177,10 @@ export const GITHUB_GHAS_QUESTIONS_10 = [
     scenario: "An audit reveals that developers could push commits with arbitrary author email addresses, potentially impersonating executive team members.",
     question: "Which branch protection rule prevents commit author spoofing?",
     options: [
-      { id: 'A', text: "Require status checks to pass" },
-      { id: 'B', text: "Require linear history" },
-      { id: 'C', text: "Require pull request reviews" },
-      { id: 'D', text: "Require signed commits (verifying GPG, SSH, or S/MIME cryptographic signatures)" }
+      { id: 'A', text: "Require the status checks to pass before a merge" },
+      { id: 'B', text: "Require a linear history on the protected branch" },
+      { id: 'C', text: "Require a pull request review from a code owner" },
+      { id: 'D', text: "Require signed commits, verified by GPG, SSH or S/MIME" }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -198,10 +198,10 @@ export const GITHUB_GHAS_QUESTIONS_10 = [
     scenario: "An organization wants to restrict code access strictly to devices connected to the corporate VPN or office network.",
     question: "Which feature in GitHub Enterprise Cloud restricts access based on source IP address?",
     options: [
-      { id: 'A', text: "Firewall Rules in Actions workflows" },
-      { id: 'B', text: "DNS routing policies" },
-      { id: 'C', text: "Branch protection IP filters" },
-      { id: 'D', text: "Enterprise IP allow lists, restricting web UI and API access strictly to designated CIDR blocks" }
+      { id: 'A', text: "Actions network policies, which restrict where workflow jobs may connect" },
+      { id: 'B', text: "Organization SAML settings, which bind sessions to the identity provider" },
+      { id: 'C', text: "Branch protection rules, which restrict who may push from which network" },
+      { id: 'D', text: "Enterprise IP allow lists, which restrict web and API access to named CIDRs" }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -219,10 +219,10 @@ export const GITHUB_GHAS_QUESTIONS_10 = [
     scenario: "A zero-day vulnerability (e.g. OpenSSL flaw) affects 200 repositories. The CISO demands remediation across all teams within 14 days.",
     question: "Which native GitHub feature allows security managers to set deadlines and track remediation progress across development squads?",
     options: [
-      { id: 'A', text: "Creating a public discussion thread" },
-      { id: 'B', text: "Launching a Security Campaign in Security Overview targeting the specific advisory and tracking remediation percentages against a due date" },
-      { id: 'C', text: "Deleting non-compliant repositories" },
-      { id: 'D', text: "Sending individual Slack messages to 200 engineers" }
+      { id: 'A', text: "Open a tracking issue per repository and roll the progress into a project board" },
+      { id: 'B', text: "Launch a security campaign in the security overview, with a due date and tracked progress" },
+      { id: 'C', text: "Apply an organization ruleset that blocks merges until the advisory is remediated" },
+      { id: 'D', text: "Send each squad a report from the alerts API and follow it up in the weekly review" }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -240,10 +240,10 @@ export const GITHUB_GHAS_QUESTIONS_10 = [
     scenario: "An enterprise development team is managing security policies, vulnerability scans, and supply chain controls on GitHub.",
     question: "What happens to members of an organization when the organization owner toggles 'Require two-factor authentication for all members'?",
     options: [
-      { id: 'A', text: "All members without 2FA enabled are automatically converted to billing managers" },
-      { id: 'B', text: "The setting takes effect only for newly invited users" },
-      { id: 'C', text: "Members who do not have 2FA enabled are removed from the organization and must configure 2FA before they can be reinvited" },
-      { id: 'D', text: "GitHub deletes all repositories owned by non-compliant members" }
+      { id: 'A', text: "Members without 2FA are converted to billing managers automatically" },
+      { id: 'B', text: "The requirement applies only to members invited after it was enabled" },
+      { id: 'C', text: "Members without 2FA are removed and must enable it before being reinvited" },
+      { id: 'D', text: "The repositories owned by non-compliant members are archived first" }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -282,10 +282,10 @@ export const GITHUB_GHAS_QUESTIONS_10 = [
     scenario: "A financial institution wants to ensure employees cannot fork proprietary intellectual property repositories to personal public GitHub profiles.",
     question: "Which organization-level policy enforces this restriction?",
     options: [
-      { id: 'A', text: "Setting repository visibility to public" },
-      { id: 'B', text: "Disabling the 'Allow forking of private repositories' setting in organization settings" },
-      { id: 'C', text: "Requiring signed commits" },
-      { id: 'D', text: "Deleting all personal GitHub accounts" }
+      { id: 'A', text: "Set the default repository visibility for the organization to internal" },
+      { id: 'B', text: "Disable the 'allow forking of private repositories' organization setting" },
+      { id: 'C', text: "Require signed commits on every repository in the organization" },
+      { id: 'D', text: "Require SAML single sign-on before any repository can be cloned" }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -303,10 +303,10 @@ export const GITHUB_GHAS_QUESTIONS_10 = [
     scenario: "An enterprise wants to create a 'Security Auditor' role that can view security overview dashboards and alerts without having write access to code or settings.",
     question: "How are Custom Organization Roles created in GitHub Enterprise Cloud?",
     options: [
-      { id: 'A', text: "By writing custom bash scripts in Actions" },
-      { id: 'B', text: "By editing linux file permissions on the runner" },
-      { id: 'C', text: "Custom roles are not supported in GitHub" },
-      { id: 'D', text: "Under Organization Settings → Roles → Create a role, selecting granular permissions like 'View security overview' and 'View code scanning alerts'" }
+      { id: 'A', text: "In organization settings, clone a base role and edit its team assignments" },
+      { id: 'B', text: "In enterprise settings, define the role and push it down to each organization" },
+      { id: 'C', text: "Custom organization roles are not supported; only the built-in roles exist" },
+      { id: 'D', text: "In organization settings, create a role and pick the granular security permissions" }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -324,10 +324,10 @@ export const GITHUB_GHAS_QUESTIONS_10 = [
     scenario: "An enterprise development team is managing security policies, vulnerability scans, and supply chain controls on GitHub.",
     question: "Why do enterprise security automation scripts prefer querying security alerts via GitHub's GraphQL API rather than REST API?",
     options: [
-      { id: 'A', text: "REST API is deprecated across GitHub" },
-      { id: 'B', text: "GraphQL runs faster on developer laptops" },
-      { id: 'C', text: "GraphQL does not require authentication tokens" },
-      { id: 'D', text: "GraphQL allows querying Code Scanning, Secret Scanning, and Dependabot alerts across hundreds of repositories in a single nested query, drastically reducing rate limit consumption" }
+      { id: 'A', text: "The REST alert endpoints are deprecated across GitHub and will stop serving security alerts" },
+      { id: 'B', text: "GraphQL returns results faster because its responses are compiled on the client side" },
+      { id: 'C', text: "GraphQL needs no authentication token, so automation avoids credential management" },
+      { id: 'D', text: "GraphQL fetches alerts for many repositories in one nested query, saving rate limit" }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -345,10 +345,10 @@ export const GITHUB_GHAS_QUESTIONS_10 = [
     scenario: "An enterprise policy dictates that every newly created repository must have Secret Scanning, Push Protection, and Dependabot enabled automatically.",
     question: "How is this zero-day coverage configured?",
     options: [
-      { id: 'A', text: "Disable repository creation for all users" },
-      { id: 'B', text: "Configure the default Organization Security Configuration and enable 'Automatically apply to newly created repositories'" },
-      { id: 'C', text: "Write a cron job that scans repositories once a month" },
-      { id: 'D', text: "Assign an engineer to manually configure settings every time a repository is created" }
+      { id: 'A', text: "Restrict repository creation to the platform team's own service account" },
+      { id: 'B', text: "Set an organization security configuration as the default for new repositories" },
+      { id: 'C', text: "Run a monthly job that enables the features on any new repository" },
+      { id: 'D', text: "Have an engineer configure each repository as it is created" }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -366,10 +366,10 @@ export const GITHUB_GHAS_QUESTIONS_10 = [
     scenario: "To prevent supply chain poisoning, an enterprise wants to restrict Actions workflows to run only first-party GitHub actions and marketplace actions by verified publishers.",
     question: "Which policy setting in Enterprise Actions achieves this?",
     options: [
-      { id: 'A', text: "Require manual approval for every single workflow run" },
-      { id: 'B', text: "Ban developers from using GitHub Marketplace" },
-      { id: 'C', text: "Disable Actions completely" },
-      { id: 'D', text: "Configure 'Allow select actions' and choose 'Allow actions created by GitHub and verified creators'" }
+      { id: 'A', text: "Require manual approval before any workflow run in the enterprise" },
+      { id: 'B', text: "Disable the Marketplace listing for every organization beneath it" },
+      { id: 'C', text: "Disable Actions entirely for the organizations holding the code" },
+      { id: 'D', text: "Allow select actions, limited to those from GitHub and verified creators" }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -387,9 +387,9 @@ export const GITHUB_GHAS_QUESTIONS_10 = [
     scenario: "An engineering team wants to eliminate messy merge commits and enforce clean git rebase or squash workflows across all enterprise repositories.",
     question: "Which rule in GitHub Rulesets enforces this standard?",
     options: [
-      { id: 'A', text: "Require status checks to pass" },
-      { id: 'B', text: "Require linear history" },
-      { id: 'C', text: "Require signed commits" },
+      { id: 'A', text: "Require the status checks to pass before a merge" },
+      { id: 'B', text: "Require a linear history on the protected branch" },
+      { id: 'C', text: "Require signed commits on the protected default branch" },
       { id: 'D', text: "Block force pushes" }
     ],
     correctAnswers: ['B'],
@@ -408,10 +408,10 @@ export const GITHUB_GHAS_QUESTIONS_10 = [
     scenario: "An enterprise development team is managing security policies, vulnerability scans, and supply chain controls on GitHub.",
     question: "When a repository security advisory is published, which public database receives the vulnerability mapping from GitHub?",
     options: [
-      { id: 'A', text: "Only the local repository README file" },
-      { id: 'B', text: "The operating system systemd log" },
-      { id: 'C', text: "The GitHub Advisory Database, which propagates CVE data to the National Vulnerability Database (NVD) and global package registries" },
-      { id: 'D', text: "A private email list" }
+      { id: 'A', text: "The National Vulnerability Database, which then notifies GitHub in turn" },
+      { id: 'B', text: "The OSV database, which is the only consumer of repository advisories" },
+      { id: 'C', text: "The GitHub Advisory Database, which propagates the CVE onward to NVD" },
+      { id: 'D', text: "The package registry the project publishes to, and nowhere else" }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -429,10 +429,10 @@ export const GITHUB_GHAS_QUESTIONS_10 = [
     scenario: "An enterprise development team is managing security policies, vulnerability scans, and supply chain controls on GitHub.",
     question: "An enterprise has sensitive deployment credentials stored in an organization secret. How can access be restricted to prevent unauthorized repositories from reading it?",
     options: [
-      { id: 'A', text: "Share the secret in a public Slack channel" },
-      { id: 'B', text: "Allow all repositories in the organization access" },
-      { id: 'C', text: "Set secret access to 'Selected repositories' and grant access strictly to authorized production release repos" },
-      { id: 'D', text: "Organization secrets cannot be restricted" }
+      { id: 'A', text: "Scope the secret to an environment with required reviewers on deploys" },
+      { id: 'B', text: "Scope the secret to all repositories and audit its use in the audit log" },
+      { id: 'C', text: "Scope the secret to selected repositories and list only the release repos" },
+      { id: 'D', text: "Organization secrets cannot be scoped; move it to each repository instead" }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -450,10 +450,10 @@ export const GITHUB_GHAS_QUESTIONS_10 = [
     scenario: "During an emergency production outage, senior on-call site reliability engineers need to bypass branch protection rules to deploy an urgent hotfix.",
     question: "How do GitHub Rulesets manage authorized emergency bypasses?",
     options: [
-      { id: 'A', text: "By sharing administrator root passwords" },
-      { id: 'B', text: "By disabling branch protection permanently" },
-      { id: 'C', text: "By configuring an explicit Bypass List in the Ruleset specifying designated teams or roles (e.g. 'Site Reliability Leads') permitted to bypass" },
-      { id: 'D', text: "Rulesets do not allow any bypass under any circumstances" }
+      { id: 'A', text: "Through a break-glass account whose credentials the on-call lead holds for emergencies" },
+      { id: 'B', text: "Through temporarily disabling the ruleset, which the audit log records with the actor" },
+      { id: 'C', text: "Through an explicit bypass list on the ruleset, naming the teams or roles allowed to bypass" },
+      { id: 'D', text: "Rulesets permit no bypass at all; an emergency change has to wait for the review" }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -471,10 +471,10 @@ export const GITHUB_GHAS_QUESTIONS_10 = [
     scenario: "An enterprise development team is managing security policies, vulnerability scans, and supply chain controls on GitHub.",
     question: "How does GitHub Advanced Security support enterprise SOC 2 and ISO 27001 compliance frameworks?",
     options: [
-      { id: 'A', text: "By providing automated vulnerability scanning, immutable audit logs, cryptographic commit signing verification, and tamper-evident pull request review tracking" },
-      { id: 'B', text: "By purchasing external insurance policies" },
-      { id: 'C', text: "By encrypting repository names" },
-      { id: 'D', text: "By replacing all human software developers with AI bots" }
+      { id: 'A', text: "Automated scanning, audit logs, signature verification and review records" },
+      { id: 'B', text: "Automated penetration testing of each deployed release against the control set" },
+      { id: 'C', text: "Encryption of repository contents at rest with a customer-managed key per org" },
+      { id: 'D', text: "Automated generation of the control narratives each auditor asks the team for" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -492,10 +492,10 @@ export const GITHUB_GHAS_QUESTIONS_10 = [
     scenario: "An enterprise development team is managing security policies, vulnerability scans, and supply chain controls on GitHub.",
     question: "What are the three foundational technology pillars that constitute GitHub Advanced Security (GHAS)?",
     options: [
-      { id: 'A', text: "Actions, Packages, and Pages" },
-      { id: 'B', text: "Git CLI, GitHub Desktop, and Mobile" },
-      { id: 'C', text: "Issues, Discussions, and Projects" },
-      { id: 'D', text: "Code Scanning (CodeQL), Secret Scanning (including Push Protection), and Dependabot (Supply Chain Security)" }
+      { id: 'A', text: "Actions, Packages, and Pages, with their shared audit log" },
+      { id: 'B', text: "The Git CLI, GitHub Desktop, and the mobile application" },
+      { id: 'C', text: "Issues, Discussions, and Projects, with security templates" },
+      { id: 'D', text: "Code scanning, secret scanning with push protection, and Dependabot" }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -513,10 +513,10 @@ export const GITHUB_GHAS_QUESTIONS_10 = [
     scenario: "An open-source repository maintains a high-security posture and wants to publicly credit white-hat security researchers who report vulnerabilities responsibly through private security advisories.",
     question: "How does GitHub recognize external security researchers on published advisories?",
     options: [
-      { id: 'A', text: "By officially assigning advisory credits that appear on the researcher's public GitHub profile and in the national vulnerability database entry" },
-      { id: 'B', text: "By granting the researcher permanent organization owner permissions" },
-      { id: 'C', text: "By deleting the vulnerability report after publication" },
-      { id: 'D', text: "By paying cash bounties directly from GitHub credit balances" }
+      { id: 'A', text: "By assigning advisory credits, which appear on the researcher's profile and the CVE record" },
+      { id: 'B', text: "By granting the researcher a security manager role on the affected organization" },
+      { id: 'C', text: "By listing the report in the repository's own contributors file on publication" },
+      { id: 'D', text: "By paying a bounty from the enterprise's billing balance when it publishes" }
     ],
     correctAnswers: ['A'],
     type: "single",
