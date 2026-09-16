@@ -9,7 +9,7 @@ export const AWS_DOP_QUESTIONS_13 = [
     scenario: "An enterprise DevOps organization is establishing cross-region operational continuity guidelines and high-availability architecture for AWS workloads. The DevOps engineer needs to trigger an automated CodePipeline execution whenever a new container image is pushed to Amazon ECR or a release tag is created in GitHub.",
     question: "Which architectural approach or configuration satisfies these multi-region disaster recovery and resilience objectives?",
     options: [
-      { id: 'A', text: "A CodePipeline source stage polling the ECR repository for a new tag." },
+      { id: 'A', text: "A CodePipeline source stage that polls the ECR repository for each new tag." },
       { id: 'B', text: "An EventBridge rule on the ECR image action event, targeting the pipeline." },
       { id: 'C', text: "A scheduled pipeline execution that checks for a new image each hour." },
       { id: 'D', text: "A Lambda subscribed to the ECR event that copies the image onward." }
@@ -30,7 +30,7 @@ export const AWS_DOP_QUESTIONS_13 = [
     scenario: "A high-throughput AWS application experiences rapid surges in user traffic and transaction volume across multiple Availability Zones. The DevOps engineer needs to trigger an automated CodePipeline execution whenever a new container image is pushed to Amazon ECR or a release tag is created in GitHub.",
     question: "Which engineering approach should the DevOps team select to manage this demand efficiently without manual intervention?",
     options: [
-      { id: 'A', text: "A CodePipeline source stage polling the ECR repository for a new tag." },
+      { id: 'A', text: "A CodePipeline source stage that polls the ECR repository for each new tag." },
       { id: 'B', text: "A Lambda subscribed to the ECR event that copies the image onward." },
       { id: 'C', text: "An EventBridge rule on the ECR image action event, targeting the pipeline." },
       { id: 'D', text: "A scheduled pipeline execution that checks for a new image each hour." }
@@ -52,7 +52,7 @@ export const AWS_DOP_QUESTIONS_13 = [
     question: "Which solution implements these mandatory compliance and security controls?",
     options: [
       { id: 'A', text: "An EventBridge rule on the ECR image action event, targeting the pipeline." },
-      { id: 'B', text: "A CodePipeline source stage polling the ECR repository for a new tag." },
+      { id: 'B', text: "A CodePipeline source stage that polls the ECR repository for each new tag." },
       { id: 'C', text: "A Lambda subscribed to the ECR event that copies the image onward." },
       { id: 'D', text: "A scheduled pipeline execution that checks for a new image each hour." }
     ],
@@ -73,7 +73,7 @@ export const AWS_DOP_QUESTIONS_13 = [
     question: "Which practice or platform capability accelerates this transition while minimizing operational overhead?",
     options: [
       { id: 'A', text: "A scheduled pipeline execution that checks for a new image each hour." },
-      { id: 'B', text: "A CodePipeline source stage polling the ECR repository for a new tag." },
+      { id: 'B', text: "A CodePipeline source stage that polls the ECR repository for each new tag." },
       { id: 'C', text: "An EventBridge rule on the ECR image action event, targeting the pipeline." },
       { id: 'D', text: "A Lambda subscribed to the ECR event that copies the image onward." }
     ],
@@ -94,7 +94,7 @@ export const AWS_DOP_QUESTIONS_13 = [
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform stability?",
     options: [
       { id: 'A', text: "A Lambda subscribed to the ECR event that copies the image onward." },
-      { id: 'B', text: "A CodePipeline source stage polling the ECR repository for a new tag." },
+      { id: 'B', text: "A CodePipeline source stage that polls the ECR repository for each new tag." },
       { id: 'C', text: "A scheduled pipeline execution that checks for a new image each hour." },
       { id: 'D', text: "An EventBridge rule on the ECR image action event, targeting the pipeline." }
     ],
@@ -115,7 +115,7 @@ export const AWS_DOP_QUESTIONS_13 = [
     question: "Which architectural approach or configuration satisfies these multi-region disaster recovery and resilience objectives?",
     options: [
       { id: 'A', text: "A CloudFormation StackSet with service-managed permissions, auto-deploying to new accounts." },
-      { id: 'B', text: "A CloudFormation StackSet with self-managed permissions and an explicit account list." },
+      { id: 'B', text: "A CloudFormation StackSet with self-managed permissions and an explicit list of the accounts." },
       { id: 'C', text: "A pipeline that assumes a role in each account and deploys the stack in turn." },
       { id: 'D', text: "An account factory customisation that applies the stack when an account is created." }
     ],
@@ -136,7 +136,7 @@ export const AWS_DOP_QUESTIONS_13 = [
     question: "Which engineering approach should the DevOps team select to manage this demand efficiently without manual intervention?",
     options: [
       { id: 'A', text: "A CloudFormation StackSet with service-managed permissions, auto-deploying to new accounts." },
-      { id: 'B', text: "A CloudFormation StackSet with self-managed permissions and an explicit account list." },
+      { id: 'B', text: "A CloudFormation StackSet with self-managed permissions and an explicit list of the accounts." },
       { id: 'C', text: "A pipeline that assumes a role in each account and deploys the stack in turn." },
       { id: 'D', text: "An account factory customisation that applies the stack when an account is created." }
     ],
@@ -158,7 +158,7 @@ export const AWS_DOP_QUESTIONS_13 = [
     options: [
       { id: 'A', text: "An account factory customisation that applies the stack when an account is created." },
       { id: 'B', text: "A pipeline that assumes a role in each account and deploys the stack in turn." },
-      { id: 'C', text: "A CloudFormation StackSet with self-managed permissions and an explicit account list." },
+      { id: 'C', text: "A CloudFormation StackSet with self-managed permissions and an explicit list of the accounts." },
       { id: 'D', text: "A CloudFormation StackSet with service-managed permissions, auto-deploying to new accounts." }
     ],
     correctAnswers: ['D'],
@@ -179,7 +179,7 @@ export const AWS_DOP_QUESTIONS_13 = [
     options: [
       { id: 'A', text: "A pipeline that assumes a role in each account and deploys the stack in turn." },
       { id: 'B', text: "A CloudFormation StackSet with service-managed permissions, auto-deploying to new accounts." },
-      { id: 'C', text: "A CloudFormation StackSet with self-managed permissions and an explicit account list." },
+      { id: 'C', text: "A CloudFormation StackSet with self-managed permissions and an explicit list of the accounts." },
       { id: 'D', text: "An account factory customisation that applies the stack when an account is created." }
     ],
     correctAnswers: ['B'],
@@ -201,7 +201,7 @@ export const AWS_DOP_QUESTIONS_13 = [
       { id: 'A', text: "A pipeline that assumes a role in each account and deploys the stack in turn." },
       { id: 'B', text: "An account factory customisation that applies the stack when an account is created." },
       { id: 'C', text: "A CloudFormation StackSet with service-managed permissions, auto-deploying to new accounts." },
-      { id: 'D', text: "A CloudFormation StackSet with self-managed permissions and an explicit account list." }
+      { id: 'D', text: "A CloudFormation StackSet with self-managed permissions and an explicit list of the accounts." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -222,7 +222,7 @@ export const AWS_DOP_QUESTIONS_13 = [
       { id: 'A', text: "Run CloudFormation drift detection, review the drifted properties, and update or import." },
       { id: 'B', text: "Delete the stack and redeploy the template so the resources match it again." },
       { id: 'C', text: "Enable a stack policy that denies updates to the resources being changed by hand." },
-      { id: 'D', text: "Enable termination protection so console users cannot alter the stack's resources." }
+      { id: 'D', text: "Enable termination protection so that console users cannot alter any of the stack's resources." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -243,7 +243,7 @@ export const AWS_DOP_QUESTIONS_13 = [
       { id: 'A', text: "Run CloudFormation drift detection, review the drifted properties, and update or import." },
       { id: 'B', text: "Delete the stack and redeploy the template so the resources match it again." },
       { id: 'C', text: "Enable a stack policy that denies updates to the resources being changed by hand." },
-      { id: 'D', text: "Enable termination protection so console users cannot alter the stack's resources." }
+      { id: 'D', text: "Enable termination protection so that console users cannot alter any of the stack's resources." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -264,7 +264,7 @@ export const AWS_DOP_QUESTIONS_13 = [
       { id: 'A', text: "Run CloudFormation drift detection, review the drifted properties, and update or import." },
       { id: 'B', text: "Delete the stack and redeploy the template so the resources match it again." },
       { id: 'C', text: "Enable a stack policy that denies updates to the resources being changed by hand." },
-      { id: 'D', text: "Enable termination protection so console users cannot alter the stack's resources." }
+      { id: 'D', text: "Enable termination protection so that console users cannot alter any of the stack's resources." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -282,7 +282,7 @@ export const AWS_DOP_QUESTIONS_13 = [
     scenario: "An enterprise is modernizing on-premises deployment workflows and adopting cloud-native continuous delivery and observability patterns on AWS. The DevOps engineer needs to detect when an engineer has manually modified security group ingress rules or EC2 instance types outside of the approved CloudFormation template.",
     question: "Which practice or platform capability accelerates this transition while minimizing operational overhead?",
     options: [
-      { id: 'A', text: "Enable termination protection so console users cannot alter the stack's resources." },
+      { id: 'A', text: "Enable termination protection so that console users cannot alter any of the stack's resources." },
       { id: 'B', text: "Enable a stack policy that denies updates to the resources being changed by hand." },
       { id: 'C', text: "Delete the stack and redeploy the template so the resources match it again." },
       { id: 'D', text: "Run CloudFormation drift detection, review the drifted properties, and update or import." }
@@ -305,7 +305,7 @@ export const AWS_DOP_QUESTIONS_13 = [
     options: [
       { id: 'A', text: "Delete the stack and redeploy the template so the resources match it again." },
       { id: 'B', text: "Run CloudFormation drift detection, review the drifted properties, and update or import." },
-      { id: 'C', text: "Enable termination protection so console users cannot alter the stack's resources." },
+      { id: 'C', text: "Enable termination protection so that console users cannot alter any of the stack's resources." },
       { id: 'D', text: "Enable a stack policy that denies updates to the resources being changed by hand." }
     ],
     correctAnswers: ['B'],
@@ -429,7 +429,7 @@ export const AWS_DOP_QUESTIONS_13 = [
     scenario: "An enterprise DevOps organization is establishing cross-region operational continuity guidelines and high-availability architecture for AWS workloads. The DevOps engineer needs to guarantee that all EC2 instances in an Auto Scaling group maintain required security configurations, antivirus agents, and software versions continuously.",
     question: "Which architectural approach or configuration satisfies these multi-region disaster recovery and resilience objectives?",
     options: [
-      { id: 'A', text: "A user-data script, which runs each time an instance is launched by the group." },
+      { id: 'A', text: "A user-data script, which runs each time an instance is launched by the scaling group." },
       { id: 'B', text: "An instance refresh on the Auto Scaling group, run on a nightly schedule." },
       { id: 'C', text: "A Run Command invocation targeting the same tag, started by a schedule." },
       { id: 'D', text: "A State Manager association targeting instances by tag on a recurring schedule." }
@@ -450,7 +450,7 @@ export const AWS_DOP_QUESTIONS_13 = [
     scenario: "A high-throughput AWS application experiences rapid surges in user traffic and transaction volume across multiple Availability Zones. The DevOps engineer needs to guarantee that all EC2 instances in an Auto Scaling group maintain required security configurations, antivirus agents, and software versions continuously.",
     question: "Which engineering approach should the DevOps team select to manage this demand efficiently without manual intervention?",
     options: [
-      { id: 'A', text: "A user-data script, which runs each time an instance is launched by the group." },
+      { id: 'A', text: "A user-data script, which runs each time an instance is launched by the scaling group." },
       { id: 'B', text: "A State Manager association targeting instances by tag on a recurring schedule." },
       { id: 'C', text: "An instance refresh on the Auto Scaling group, run on a nightly schedule." },
       { id: 'D', text: "A Run Command invocation targeting the same tag, started by a schedule." }
@@ -474,7 +474,7 @@ export const AWS_DOP_QUESTIONS_13 = [
       { id: 'A', text: "An instance refresh on the Auto Scaling group, run on a nightly schedule." },
       { id: 'B', text: "A State Manager association targeting instances by tag on a recurring schedule." },
       { id: 'C', text: "A Run Command invocation targeting the same tag, started by a schedule." },
-      { id: 'D', text: "A user-data script, which runs each time an instance is launched by the group." }
+      { id: 'D', text: "A user-data script, which runs each time an instance is launched by the scaling group." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -494,7 +494,7 @@ export const AWS_DOP_QUESTIONS_13 = [
     options: [
       { id: 'A', text: "A State Manager association targeting instances by tag on a recurring schedule." },
       { id: 'B', text: "An instance refresh on the Auto Scaling group, run on a nightly schedule." },
-      { id: 'C', text: "A user-data script, which runs each time an instance is launched by the group." },
+      { id: 'C', text: "A user-data script, which runs each time an instance is launched by the scaling group." },
       { id: 'D', text: "A Run Command invocation targeting the same tag, started by a schedule." }
     ],
     correctAnswers: ['A'],
@@ -515,7 +515,7 @@ export const AWS_DOP_QUESTIONS_13 = [
     options: [
       { id: 'A', text: "An instance refresh on the Auto Scaling group, run on a nightly schedule." },
       { id: 'B', text: "A Run Command invocation targeting the same tag, started by a schedule." },
-      { id: 'C', text: "A user-data script, which runs each time an instance is launched by the group." },
+      { id: 'C', text: "A user-data script, which runs each time an instance is launched by the scaling group." },
       { id: 'D', text: "A State Manager association targeting instances by tag on a recurring schedule." }
     ],
     correctAnswers: ['D'],

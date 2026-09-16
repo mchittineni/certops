@@ -11,7 +11,7 @@ export const AWS_DOP_QUESTIONS_14 = [
     options: [
       { id: 'A', text: "Patch Manager baselines applied through maintenance windows targeting instance tags." },
       { id: 'B', text: "Patch Manager baselines applied by a State Manager association on every instance." },
-      { id: 'C', text: "An Image Builder pipeline that rebuilds the AMI and replaces the fleet each month." },
+      { id: 'C', text: "An Image Builder pipeline that rebuilds the AMI and replaces the whole fleet each month." },
       { id: 'D', text: "A Run Command document invoked by hand against the fleet during the window." }
     ],
     correctAnswers: ['A'],
@@ -30,7 +30,7 @@ export const AWS_DOP_QUESTIONS_14 = [
     scenario: "A high-throughput AWS application experiences rapid surges in user traffic and transaction volume across multiple Availability Zones. The DevOps engineer needs to automate the installation of critical operating system security patches across a hybrid fleet of Linux and Windows servers during non-business hours.",
     question: "Which engineering approach should the DevOps team select to manage this demand efficiently without manual intervention?",
     options: [
-      { id: 'A', text: "An Image Builder pipeline that rebuilds the AMI and replaces the fleet each month." },
+      { id: 'A', text: "An Image Builder pipeline that rebuilds the AMI and replaces the whole fleet each month." },
       { id: 'B', text: "Patch Manager baselines applied through maintenance windows targeting instance tags." },
       { id: 'C', text: "Patch Manager baselines applied by a State Manager association on every instance." },
       { id: 'D', text: "A Run Command document invoked by hand against the fleet during the window." }
@@ -52,7 +52,7 @@ export const AWS_DOP_QUESTIONS_14 = [
     question: "Which solution implements these mandatory compliance and security controls?",
     options: [
       { id: 'A', text: "Patch Manager baselines applied by a State Manager association on every instance." },
-      { id: 'B', text: "An Image Builder pipeline that rebuilds the AMI and replaces the fleet each month." },
+      { id: 'B', text: "An Image Builder pipeline that rebuilds the AMI and replaces the whole fleet each month." },
       { id: 'C', text: "Patch Manager baselines applied through maintenance windows targeting instance tags." },
       { id: 'D', text: "A Run Command document invoked by hand against the fleet during the window." }
     ],
@@ -72,7 +72,7 @@ export const AWS_DOP_QUESTIONS_14 = [
     scenario: "An enterprise is modernizing on-premises deployment workflows and adopting cloud-native continuous delivery and observability patterns on AWS. The DevOps engineer needs to automate the installation of critical operating system security patches across a hybrid fleet of Linux and Windows servers during non-business hours.",
     question: "Which practice or platform capability accelerates this transition while minimizing operational overhead?",
     options: [
-      { id: 'A', text: "An Image Builder pipeline that rebuilds the AMI and replaces the fleet each month." },
+      { id: 'A', text: "An Image Builder pipeline that rebuilds the AMI and replaces the whole fleet each month." },
       { id: 'B', text: "Patch Manager baselines applied by a State Manager association on every instance." },
       { id: 'C', text: "A Run Command document invoked by hand against the fleet during the window." },
       { id: 'D', text: "Patch Manager baselines applied through maintenance windows targeting instance tags." }
@@ -94,7 +94,7 @@ export const AWS_DOP_QUESTIONS_14 = [
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform stability?",
     options: [
       { id: 'A', text: "Patch Manager baselines applied through maintenance windows targeting instance tags." },
-      { id: 'B', text: "An Image Builder pipeline that rebuilds the AMI and replaces the fleet each month." },
+      { id: 'B', text: "An Image Builder pipeline that rebuilds the AMI and replaces the whole fleet each month." },
       { id: 'C', text: "A Run Command document invoked by hand against the fleet during the window." },
       { id: 'D', text: "Patch Manager baselines applied by a State Manager association on every instance." }
     ],
@@ -117,7 +117,7 @@ export const AWS_DOP_QUESTIONS_14 = [
       { id: 'A', text: "A CloudFormation macro that expands the template before the stack is created." },
       { id: 'B', text: "A CloudFormation `Custom::` resource backed by a Lambda handling the lifecycle events." },
       { id: 'C', text: "A CloudFormation module packaging the resource for reuse across the stacks." },
-      { id: 'D', text: "A stack output consumed by a pipeline step that creates the resource afterwards." }
+      { id: 'D', text: "A stack output consumed by a pipeline step that creates the resource immediately afterwards." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -138,7 +138,7 @@ export const AWS_DOP_QUESTIONS_14 = [
       { id: 'A', text: "A CloudFormation module packaging the resource for reuse across the stacks." },
       { id: 'B', text: "A CloudFormation macro that expands the template before the stack is created." },
       { id: 'C', text: "A CloudFormation `Custom::` resource backed by a Lambda handling the lifecycle events." },
-      { id: 'D', text: "A stack output consumed by a pipeline step that creates the resource afterwards." }
+      { id: 'D', text: "A stack output consumed by a pipeline step that creates the resource immediately afterwards." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -156,7 +156,7 @@ export const AWS_DOP_QUESTIONS_14 = [
     scenario: "A security compliance auditor requires automated verification of resource configurations, secret isolation, and governance across all AWS accounts. The DevOps engineer needs to provision a third-party SaaS resource or perform complex data lookups that are not natively supported by standard AWS CloudFormation resource types.",
     question: "Which solution implements these mandatory compliance and security controls?",
     options: [
-      { id: 'A', text: "A stack output consumed by a pipeline step that creates the resource afterwards." },
+      { id: 'A', text: "A stack output consumed by a pipeline step that creates the resource immediately afterwards." },
       { id: 'B', text: "A CloudFormation module packaging the resource for reuse across the stacks." },
       { id: 'C', text: "A CloudFormation `Custom::` resource backed by a Lambda handling the lifecycle events." },
       { id: 'D', text: "A CloudFormation macro that expands the template before the stack is created." }
@@ -177,7 +177,7 @@ export const AWS_DOP_QUESTIONS_14 = [
     scenario: "An enterprise is modernizing on-premises deployment workflows and adopting cloud-native continuous delivery and observability patterns on AWS. The DevOps engineer needs to provision a third-party SaaS resource or perform complex data lookups that are not natively supported by standard AWS CloudFormation resource types.",
     question: "Which practice or platform capability accelerates this transition while minimizing operational overhead?",
     options: [
-      { id: 'A', text: "A stack output consumed by a pipeline step that creates the resource afterwards." },
+      { id: 'A', text: "A stack output consumed by a pipeline step that creates the resource immediately afterwards." },
       { id: 'B', text: "A CloudFormation `Custom::` resource backed by a Lambda handling the lifecycle events." },
       { id: 'C', text: "A CloudFormation macro that expands the template before the stack is created." },
       { id: 'D', text: "A CloudFormation module packaging the resource for reuse across the stacks." }
@@ -200,7 +200,7 @@ export const AWS_DOP_QUESTIONS_14 = [
     options: [
       { id: 'A', text: "A CloudFormation `Custom::` resource backed by a Lambda handling the lifecycle events." },
       { id: 'B', text: "A CloudFormation macro that expands the template before the stack is created." },
-      { id: 'C', text: "A stack output consumed by a pipeline step that creates the resource afterwards." },
+      { id: 'C', text: "A stack output consumed by a pipeline step that creates the resource immediately afterwards." },
       { id: 'D', text: "A CloudFormation module packaging the resource for reuse across the stacks." }
     ],
     correctAnswers: ['A'],
@@ -327,7 +327,7 @@ export const AWS_DOP_QUESTIONS_14 = [
       { id: 'A', text: "A stack policy denying updates or deletes on the database resource." },
       { id: 'B', text: "`DeletionPolicy: Retain` on the database, with stack termination protection on." },
       { id: 'C', text: "`UpdateReplacePolicy: Retain` on the database, with no deletion policy." },
-      { id: 'D', text: "`DeletionPolicy: Snapshot` on the database, with a manual final snapshot." }
+      { id: 'D', text: "`DeletionPolicy: Snapshot` on the database, with a manual final snapshot as well." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -346,7 +346,7 @@ export const AWS_DOP_QUESTIONS_14 = [
     question: "Which engineering approach should the DevOps team select to manage this demand efficiently without manual intervention?",
     options: [
       { id: 'A', text: "`DeletionPolicy: Retain` on the database, with stack termination protection on." },
-      { id: 'B', text: "`DeletionPolicy: Snapshot` on the database, with a manual final snapshot." },
+      { id: 'B', text: "`DeletionPolicy: Snapshot` on the database, with a manual final snapshot as well." },
       { id: 'C', text: "`UpdateReplacePolicy: Retain` on the database, with no deletion policy." },
       { id: 'D', text: "A stack policy denying updates or deletes on the database resource." }
     ],
@@ -366,7 +366,7 @@ export const AWS_DOP_QUESTIONS_14 = [
     scenario: "A security compliance auditor requires automated verification of resource configurations, secret isolation, and governance across all AWS accounts. The DevOps engineer needs to prevent accidental deletion of a production Amazon RDS database if an engineer accidentally deletes or updates the enclosing CloudFormation stack.",
     question: "Which solution implements these mandatory compliance and security controls?",
     options: [
-      { id: 'A', text: "`DeletionPolicy: Snapshot` on the database, with a manual final snapshot." },
+      { id: 'A', text: "`DeletionPolicy: Snapshot` on the database, with a manual final snapshot as well." },
       { id: 'B', text: "`DeletionPolicy: Retain` on the database, with stack termination protection on." },
       { id: 'C', text: "A stack policy denying updates or deletes on the database resource." },
       { id: 'D', text: "`UpdateReplacePolicy: Retain` on the database, with no deletion policy." }
@@ -388,7 +388,7 @@ export const AWS_DOP_QUESTIONS_14 = [
     question: "Which practice or platform capability accelerates this transition while minimizing operational overhead?",
     options: [
       { id: 'A', text: "`DeletionPolicy: Retain` on the database, with stack termination protection on." },
-      { id: 'B', text: "`DeletionPolicy: Snapshot` on the database, with a manual final snapshot." },
+      { id: 'B', text: "`DeletionPolicy: Snapshot` on the database, with a manual final snapshot as well." },
       { id: 'C', text: "`UpdateReplacePolicy: Retain` on the database, with no deletion policy." },
       { id: 'D', text: "A stack policy denying updates or deletes on the database resource." }
     ],
@@ -411,7 +411,7 @@ export const AWS_DOP_QUESTIONS_14 = [
       { id: 'A', text: "`UpdateReplacePolicy: Retain` on the database, with no deletion policy." },
       { id: 'B', text: "A stack policy denying updates or deletes on the database resource." },
       { id: 'C', text: "`DeletionPolicy: Retain` on the database, with stack termination protection on." },
-      { id: 'D', text: "`DeletionPolicy: Snapshot` on the database, with a manual final snapshot." }
+      { id: 'D', text: "`DeletionPolicy: Snapshot` on the database, with a manual final snapshot as well." }
     ],
     correctAnswers: ['C'],
     type: "single",
