@@ -131,7 +131,11 @@ npm run backup        # snapshot all authored content to .content-backups/
 npm run audit:explanations  # fail if any explanation names an option letter (part of validate)
 npm run audit:answers       # flag questions whose explanation argues against its own keyed answer
 npm run audit:filler        # inventory generated placeholder content (reports, never fails)
+npm run audit:distractors   # score how much each bank gives its answer away by form
+                            # (--min-passing 24 is the CI gate; --cert <id> scores one)
+npm run audit:length        # worklist of option sets whose key is longer than every distractor
 npm run fix:explanations    # strip parenthesised option-letter references in bulk
+npm run fix:options         # apply authored option rewrites from a JSON patch, keyed by hash
 npm run shuffle             # re-randomise option order and re-key answers across every pack
 npm run build         # build:content → validate → vite build
 
