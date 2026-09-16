@@ -9,10 +9,10 @@ export const HASHICORP_TFA_QUESTIONS_18 = [
     scenario: "An enterprise cloud operations team is establishing high-availability standards, automated state recovery procedures, and infrastructure resilience baselines with Terraform. The Terraform engineer needs to migrate an existing project's state file from local disk storage to a newly configured Amazon S3 remote backend.",
     question: "Which architectural approach or configuration satisfies these infrastructure disaster recovery and operational resilience objectives?",
     options: [
-      { id: 'A', text: "Add the `backend \"s3\"` block to the configuration and run `terraform init -migrate-state` to copy existing state to S3." },
-      { id: 'B', text: "Copy the JSON file to S3 manually using the AWS S3 web console." },
-      { id: 'C', text: "Delete the local state file and recreate all infrastructure in S3." },
-      { id: 'D', text: "Run `terraform apply` with an empty S3 bucket." }
+      { id: 'A', text: "Add the `backend \"s3\"` block and run `terraform init -migrate-state`." },
+      { id: 'B', text: "Add the backend block and upload the existing state file to the bucket." },
+      { id: 'C', text: "Add the backend block and let the next apply recreate the resources." },
+      { id: 'D', text: "Add the backend block and run `terraform init -reconfigure` instead." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -30,10 +30,10 @@ export const HASHICORP_TFA_QUESTIONS_18 = [
     scenario: "A large-scale multi-cloud platform experiences rapid infrastructure growth and requires automated, consistent provisioning across complex resource topologies. The Terraform engineer needs to migrate an existing project's state file from local disk storage to a newly configured Amazon S3 remote backend.",
     question: "Which design pattern or Terraform capability manages this provisioning scale effectively while preventing configuration drift and deployment bottlenecks?",
     options: [
-      { id: 'A', text: "Copy the JSON file to S3 manually using the AWS S3 web console." },
-      { id: 'B', text: "Add the `backend \"s3\"` block to the configuration and run `terraform init -migrate-state` to copy existing state to S3." },
-      { id: 'C', text: "Run `terraform apply` with an empty S3 bucket." },
-      { id: 'D', text: "Delete the local state file and recreate all infrastructure in S3." }
+      { id: 'A', text: "Add the backend block and upload the existing state file to the bucket." },
+      { id: 'B', text: "Add the `backend \"s3\"` block and run `terraform init -migrate-state`." },
+      { id: 'C', text: "Add the backend block and run `terraform init -reconfigure` instead." },
+      { id: 'D', text: "Add the backend block and let the next apply recreate the resources." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -51,10 +51,10 @@ export const HASHICORP_TFA_QUESTIONS_18 = [
     scenario: "A cloud security auditor requires strict protection of sensitive state data, verified provider dependencies, and automated governance across all Terraform pipelines. The Terraform engineer needs to migrate an existing project's state file from local disk storage to a newly configured Amazon S3 remote backend.",
     question: "Which solution implements these mandatory infrastructure as code security and governance controls?",
     options: [
-      { id: 'A', text: "Delete the local state file and recreate all infrastructure in S3." },
-      { id: 'B', text: "Run `terraform apply` with an empty S3 bucket." },
-      { id: 'C', text: "Add the `backend \"s3\"` block to the configuration and run `terraform init -migrate-state` to copy existing state to S3." },
-      { id: 'D', text: "Copy the JSON file to S3 manually using the AWS S3 web console." }
+      { id: 'A', text: "Add the backend block and let the next apply recreate the resources." },
+      { id: 'B', text: "Add the backend block and run `terraform init -reconfigure` instead." },
+      { id: 'C', text: "Add the `backend \"s3\"` block and run `terraform init -migrate-state`." },
+      { id: 'D', text: "Add the backend block and upload the existing state file to the bucket." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -72,10 +72,10 @@ export const HASHICORP_TFA_QUESTIONS_18 = [
     scenario: "An organization is transitioning from manual, console-driven infrastructure provisioning to automated, declarative infrastructure as code using Terraform. The Terraform engineer needs to migrate an existing project's state file from local disk storage to a newly configured Amazon S3 remote backend.",
     question: "Which practice or platform feature enables the engineering team to modernize provisioning workflows with minimal operational friction?",
     options: [
-      { id: 'A', text: "Add the `backend \"s3\"` block to the configuration and run `terraform init -migrate-state` to copy existing state to S3." },
-      { id: 'B', text: "Delete the local state file and recreate all infrastructure in S3." },
-      { id: 'C', text: "Run `terraform apply` with an empty S3 bucket." },
-      { id: 'D', text: "Copy the JSON file to S3 manually using the AWS S3 web console." }
+      { id: 'A', text: "Add the `backend \"s3\"` block and run `terraform init -migrate-state`." },
+      { id: 'B', text: "Add the backend block and let the next apply recreate the resources." },
+      { id: 'C', text: "Add the backend block and run `terraform init -reconfigure` instead." },
+      { id: 'D', text: "Add the backend block and upload the existing state file to the bucket." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -93,10 +93,10 @@ export const HASHICORP_TFA_QUESTIONS_18 = [
     scenario: "A platform engineering team is optimizing infrastructure stability to eliminate single points of failure, streamline state refactoring, and ensure zero-downtime resource replacement. The Terraform engineer needs to migrate an existing project's state file from local disk storage to a newly configured Amazon S3 remote backend.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
-      { id: 'A', text: "Copy the JSON file to S3 manually using the AWS S3 web console." },
-      { id: 'B', text: "Run `terraform apply` with an empty S3 bucket." },
-      { id: 'C', text: "Delete the local state file and recreate all infrastructure in S3." },
-      { id: 'D', text: "Add the `backend \"s3\"` block to the configuration and run `terraform init -migrate-state` to copy existing state to S3." }
+      { id: 'A', text: "Add the backend block and upload the existing state file to the bucket." },
+      { id: 'B', text: "Add the backend block and run `terraform init -reconfigure` instead." },
+      { id: 'C', text: "Add the backend block and let the next apply recreate the resources." },
+      { id: 'D', text: "Add the `backend \"s3\"` block and run `terraform init -migrate-state`." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -114,10 +114,10 @@ export const HASHICORP_TFA_QUESTIONS_18 = [
     scenario: "An enterprise cloud operations team is establishing high-availability standards, automated state recovery procedures, and infrastructure resilience baselines with Terraform. The Terraform engineer needs to protect sensitive database passwords and private keys that are recorded in plaintext inside the Terraform state file.",
     question: "Which architectural approach or configuration satisfies these infrastructure disaster recovery and operational resilience objectives?",
     options: [
-      { id: 'A', text: "Delete sensitive resources from state immediately after creation." },
-      { id: 'B', text: "Assume setting `sensitive = true` in HCL encrypts the value inside the state file." },
-      { id: 'C', text: "Restrict access to the remote backend storage using IAM policies, enforce encryption at rest and in transit, and enable audit logging." },
-      { id: 'D', text: "Commit the state file to public Git repositories since secrets are hidden." }
+      { id: 'A', text: "Remove the sensitive resources from state once they have been created." },
+      { id: 'B', text: "Mark the values `sensitive = true`, which keeps them out of the state file." },
+      { id: 'C', text: "Restrict the backend with IAM, enforce encryption in transit and at rest, and log access." },
+      { id: 'D', text: "Encrypt the state file with a passphrase before it is written to the backend." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -135,10 +135,10 @@ export const HASHICORP_TFA_QUESTIONS_18 = [
     scenario: "A large-scale multi-cloud platform experiences rapid infrastructure growth and requires automated, consistent provisioning across complex resource topologies. The Terraform engineer needs to protect sensitive database passwords and private keys that are recorded in plaintext inside the Terraform state file.",
     question: "Which design pattern or Terraform capability manages this provisioning scale effectively while preventing configuration drift and deployment bottlenecks?",
     options: [
-      { id: 'A', text: "Restrict access to the remote backend storage using IAM policies, enforce encryption at rest and in transit, and enable audit logging." },
-      { id: 'B', text: "Assume setting `sensitive = true` in HCL encrypts the value inside the state file." },
-      { id: 'C', text: "Commit the state file to public Git repositories since secrets are hidden." },
-      { id: 'D', text: "Delete sensitive resources from state immediately after creation." }
+      { id: 'A', text: "Restrict the backend with IAM, enforce encryption in transit and at rest, and log access." },
+      { id: 'B', text: "Mark the values `sensitive = true`, which keeps them out of the state file." },
+      { id: 'C', text: "Encrypt the state file with a passphrase before it is written to the backend." },
+      { id: 'D', text: "Remove the sensitive resources from state once they have been created." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -156,10 +156,10 @@ export const HASHICORP_TFA_QUESTIONS_18 = [
     scenario: "A cloud security auditor requires strict protection of sensitive state data, verified provider dependencies, and automated governance across all Terraform pipelines. The Terraform engineer needs to protect sensitive database passwords and private keys that are recorded in plaintext inside the Terraform state file.",
     question: "Which solution implements these mandatory infrastructure as code security and governance controls?",
     options: [
-      { id: 'A', text: "Restrict access to the remote backend storage using IAM policies, enforce encryption at rest and in transit, and enable audit logging." },
-      { id: 'B', text: "Assume setting `sensitive = true` in HCL encrypts the value inside the state file." },
-      { id: 'C', text: "Commit the state file to public Git repositories since secrets are hidden." },
-      { id: 'D', text: "Delete sensitive resources from state immediately after creation." }
+      { id: 'A', text: "Restrict the backend with IAM, enforce encryption in transit and at rest, and log access." },
+      { id: 'B', text: "Mark the values `sensitive = true`, which keeps them out of the state file." },
+      { id: 'C', text: "Encrypt the state file with a passphrase before it is written to the backend." },
+      { id: 'D', text: "Remove the sensitive resources from state once they have been created." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -177,10 +177,10 @@ export const HASHICORP_TFA_QUESTIONS_18 = [
     scenario: "An organization is transitioning from manual, console-driven infrastructure provisioning to automated, declarative infrastructure as code using Terraform. The Terraform engineer needs to protect sensitive database passwords and private keys that are recorded in plaintext inside the Terraform state file.",
     question: "Which practice or platform feature enables the engineering team to modernize provisioning workflows with minimal operational friction?",
     options: [
-      { id: 'A', text: "Delete sensitive resources from state immediately after creation." },
-      { id: 'B', text: "Restrict access to the remote backend storage using IAM policies, enforce encryption at rest and in transit, and enable audit logging." },
-      { id: 'C', text: "Commit the state file to public Git repositories since secrets are hidden." },
-      { id: 'D', text: "Assume setting `sensitive = true` in HCL encrypts the value inside the state file." }
+      { id: 'A', text: "Remove the sensitive resources from state once they have been created." },
+      { id: 'B', text: "Restrict the backend with IAM, enforce encryption in transit and at rest, and log access." },
+      { id: 'C', text: "Encrypt the state file with a passphrase before it is written to the backend." },
+      { id: 'D', text: "Mark the values `sensitive = true`, which keeps them out of the state file." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -198,10 +198,10 @@ export const HASHICORP_TFA_QUESTIONS_18 = [
     scenario: "A platform engineering team is optimizing infrastructure stability to eliminate single points of failure, streamline state refactoring, and ensure zero-downtime resource replacement. The Terraform engineer needs to protect sensitive database passwords and private keys that are recorded in plaintext inside the Terraform state file.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
-      { id: 'A', text: "Restrict access to the remote backend storage using IAM policies, enforce encryption at rest and in transit, and enable audit logging." },
-      { id: 'B', text: "Assume setting `sensitive = true` in HCL encrypts the value inside the state file." },
-      { id: 'C', text: "Commit the state file to public Git repositories since secrets are hidden." },
-      { id: 'D', text: "Delete sensitive resources from state immediately after creation." }
+      { id: 'A', text: "Restrict the backend with IAM, enforce encryption in transit and at rest, and log access." },
+      { id: 'B', text: "Mark the values `sensitive = true`, which keeps them out of the state file." },
+      { id: 'C', text: "Encrypt the state file with a passphrase before it is written to the backend." },
+      { id: 'D', text: "Remove the sensitive resources from state once they have been created." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -219,10 +219,10 @@ export const HASHICORP_TFA_QUESTIONS_18 = [
     scenario: "An enterprise cloud operations team is establishing high-availability standards, automated state recovery procedures, and infrastructure resilience baselines with Terraform. The Terraform engineer needs to refactor a standalone `aws_instance.web` resource into a module `module.web.aws_instance.server` without destroying and recreating the live VM.",
     question: "Which architectural approach or configuration satisfies these infrastructure disaster recovery and operational resilience objectives?",
     options: [
-      { id: 'A', text: "Run `terraform state mv aws_instance.web module.web.aws_instance.server` to update the resource address in state." },
-      { id: 'B', text: "Apply the new configuration and allow Terraform to terminate the production VM." },
-      { id: 'C', text: "Edit the raw state JSON file using a text editor." },
-      { id: 'D', text: "Delete the resource from state using `state rm` and run `apply`." }
+      { id: 'A', text: "Run `terraform state mv` to the new module address for that instance." },
+      { id: 'B', text: "Apply the new configuration and let Terraform replace the instance." },
+      { id: 'C', text: "Pull the state, edit the address in place, and push it back again." },
+      { id: 'D', text: "Remove it from state with `state rm` and import it at the new address." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -240,10 +240,10 @@ export const HASHICORP_TFA_QUESTIONS_18 = [
     scenario: "A large-scale multi-cloud platform experiences rapid infrastructure growth and requires automated, consistent provisioning across complex resource topologies. The Terraform engineer needs to refactor a standalone `aws_instance.web` resource into a module `module.web.aws_instance.server` without destroying and recreating the live VM.",
     question: "Which design pattern or Terraform capability manages this provisioning scale effectively while preventing configuration drift and deployment bottlenecks?",
     options: [
-      { id: 'A', text: "Delete the resource from state using `state rm` and run `apply`." },
-      { id: 'B', text: "Run `terraform state mv aws_instance.web module.web.aws_instance.server` to update the resource address in state." },
-      { id: 'C', text: "Edit the raw state JSON file using a text editor." },
-      { id: 'D', text: "Apply the new configuration and allow Terraform to terminate the production VM." }
+      { id: 'A', text: "Remove it from state with `state rm` and import it at the new address." },
+      { id: 'B', text: "Run `terraform state mv` to the new module address for that instance." },
+      { id: 'C', text: "Pull the state, edit the address in place, and push it back again." },
+      { id: 'D', text: "Apply the new configuration and let Terraform replace the instance." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -261,10 +261,10 @@ export const HASHICORP_TFA_QUESTIONS_18 = [
     scenario: "A cloud security auditor requires strict protection of sensitive state data, verified provider dependencies, and automated governance across all Terraform pipelines. The Terraform engineer needs to refactor a standalone `aws_instance.web` resource into a module `module.web.aws_instance.server` without destroying and recreating the live VM.",
     question: "Which solution implements these mandatory infrastructure as code security and governance controls?",
     options: [
-      { id: 'A', text: "Run `terraform state mv aws_instance.web module.web.aws_instance.server` to update the resource address in state." },
-      { id: 'B', text: "Edit the raw state JSON file using a text editor." },
-      { id: 'C', text: "Delete the resource from state using `state rm` and run `apply`." },
-      { id: 'D', text: "Apply the new configuration and allow Terraform to terminate the production VM." }
+      { id: 'A', text: "Run `terraform state mv` to the new module address for that instance." },
+      { id: 'B', text: "Pull the state, edit the address in place, and push it back again." },
+      { id: 'C', text: "Remove it from state with `state rm` and import it at the new address." },
+      { id: 'D', text: "Apply the new configuration and let Terraform replace the instance." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -282,10 +282,10 @@ export const HASHICORP_TFA_QUESTIONS_18 = [
     scenario: "An organization is transitioning from manual, console-driven infrastructure provisioning to automated, declarative infrastructure as code using Terraform. The Terraform engineer needs to refactor a standalone `aws_instance.web` resource into a module `module.web.aws_instance.server` without destroying and recreating the live VM.",
     question: "Which practice or platform feature enables the engineering team to modernize provisioning workflows with minimal operational friction?",
     options: [
-      { id: 'A', text: "Edit the raw state JSON file using a text editor." },
-      { id: 'B', text: "Delete the resource from state using `state rm` and run `apply`." },
-      { id: 'C', text: "Run `terraform state mv aws_instance.web module.web.aws_instance.server` to update the resource address in state." },
-      { id: 'D', text: "Apply the new configuration and allow Terraform to terminate the production VM." }
+      { id: 'A', text: "Pull the state, edit the address in place, and push it back again." },
+      { id: 'B', text: "Remove it from state with `state rm` and import it at the new address." },
+      { id: 'C', text: "Run `terraform state mv` to the new module address for that instance." },
+      { id: 'D', text: "Apply the new configuration and let Terraform replace the instance." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -303,10 +303,10 @@ export const HASHICORP_TFA_QUESTIONS_18 = [
     scenario: "A platform engineering team is optimizing infrastructure stability to eliminate single points of failure, streamline state refactoring, and ensure zero-downtime resource replacement. The Terraform engineer needs to refactor a standalone `aws_instance.web` resource into a module `module.web.aws_instance.server` without destroying and recreating the live VM.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
-      { id: 'A', text: "Run `terraform state mv aws_instance.web module.web.aws_instance.server` to update the resource address in state." },
-      { id: 'B', text: "Apply the new configuration and allow Terraform to terminate the production VM." },
-      { id: 'C', text: "Edit the raw state JSON file using a text editor." },
-      { id: 'D', text: "Delete the resource from state using `state rm` and run `apply`." }
+      { id: 'A', text: "Run `terraform state mv` to the new module address for that instance." },
+      { id: 'B', text: "Apply the new configuration and let Terraform replace the instance." },
+      { id: 'C', text: "Pull the state, edit the address in place, and push it back again." },
+      { id: 'D', text: "Remove it from state with `state rm` and import it at the new address." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -324,10 +324,10 @@ export const HASHICORP_TFA_QUESTIONS_18 = [
     scenario: "An enterprise cloud operations team is establishing high-availability standards, automated state recovery procedures, and infrastructure resilience baselines with Terraform. The Terraform engineer needs to stop managing a legacy database with Terraform without terminating or modifying the actual running RDS instance in AWS.",
     question: "Which architectural approach or configuration satisfies these infrastructure disaster recovery and operational resilience objectives?",
     options: [
-      { id: 'A', text: "Run `terraform state rm aws_db_instance.legacy` and remove the resource block from the HCL configuration." },
-      { id: 'B', text: "Run `terraform destroy aws_db_instance.legacy`." },
-      { id: 'C', text: "Delete the AWS RDS database in the AWS Console." },
-      { id: 'D', text: "Change the database name in the HCL file." }
+      { id: 'A', text: "Run `terraform state rm` for it and delete its block from the configuration." },
+      { id: 'B', text: "Run `terraform destroy -target` against that database resource." },
+      { id: 'C', text: "Delete the database in the console and re-run the plan afterwards." },
+      { id: 'D', text: "Add `ignore_changes = all` to the resource and leave it in state." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -345,10 +345,10 @@ export const HASHICORP_TFA_QUESTIONS_18 = [
     scenario: "A large-scale multi-cloud platform experiences rapid infrastructure growth and requires automated, consistent provisioning across complex resource topologies. The Terraform engineer needs to stop managing a legacy database with Terraform without terminating or modifying the actual running RDS instance in AWS.",
     question: "Which design pattern or Terraform capability manages this provisioning scale effectively while preventing configuration drift and deployment bottlenecks?",
     options: [
-      { id: 'A', text: "Delete the AWS RDS database in the AWS Console." },
-      { id: 'B', text: "Run `terraform destroy aws_db_instance.legacy`." },
-      { id: 'C', text: "Change the database name in the HCL file." },
-      { id: 'D', text: "Run `terraform state rm aws_db_instance.legacy` and remove the resource block from the HCL configuration." }
+      { id: 'A', text: "Delete the database in the console and re-run the plan afterwards." },
+      { id: 'B', text: "Run `terraform destroy -target` against that database resource." },
+      { id: 'C', text: "Add `ignore_changes = all` to the resource and leave it in state." },
+      { id: 'D', text: "Run `terraform state rm` for it and delete its block from the configuration." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -366,10 +366,10 @@ export const HASHICORP_TFA_QUESTIONS_18 = [
     scenario: "A cloud security auditor requires strict protection of sensitive state data, verified provider dependencies, and automated governance across all Terraform pipelines. The Terraform engineer needs to stop managing a legacy database with Terraform without terminating or modifying the actual running RDS instance in AWS.",
     question: "Which solution implements these mandatory infrastructure as code security and governance controls?",
     options: [
-      { id: 'A', text: "Delete the AWS RDS database in the AWS Console." },
-      { id: 'B', text: "Change the database name in the HCL file." },
-      { id: 'C', text: "Run `terraform state rm aws_db_instance.legacy` and remove the resource block from the HCL configuration." },
-      { id: 'D', text: "Run `terraform destroy aws_db_instance.legacy`." }
+      { id: 'A', text: "Delete the database in the console and re-run the plan afterwards." },
+      { id: 'B', text: "Add `ignore_changes = all` to the resource and leave it in state." },
+      { id: 'C', text: "Run `terraform state rm` for it and delete its block from the configuration." },
+      { id: 'D', text: "Run `terraform destroy -target` against that database resource." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -387,10 +387,10 @@ export const HASHICORP_TFA_QUESTIONS_18 = [
     scenario: "An organization is transitioning from manual, console-driven infrastructure provisioning to automated, declarative infrastructure as code using Terraform. The Terraform engineer needs to stop managing a legacy database with Terraform without terminating or modifying the actual running RDS instance in AWS.",
     question: "Which practice or platform feature enables the engineering team to modernize provisioning workflows with minimal operational friction?",
     options: [
-      { id: 'A', text: "Delete the AWS RDS database in the AWS Console." },
-      { id: 'B', text: "Change the database name in the HCL file." },
-      { id: 'C', text: "Run `terraform state rm aws_db_instance.legacy` and remove the resource block from the HCL configuration." },
-      { id: 'D', text: "Run `terraform destroy aws_db_instance.legacy`." }
+      { id: 'A', text: "Delete the database in the console and re-run the plan afterwards." },
+      { id: 'B', text: "Add `ignore_changes = all` to the resource and leave it in state." },
+      { id: 'C', text: "Run `terraform state rm` for it and delete its block from the configuration." },
+      { id: 'D', text: "Run `terraform destroy -target` against that database resource." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -408,10 +408,10 @@ export const HASHICORP_TFA_QUESTIONS_18 = [
     scenario: "A platform engineering team is optimizing infrastructure stability to eliminate single points of failure, streamline state refactoring, and ensure zero-downtime resource replacement. The Terraform engineer needs to stop managing a legacy database with Terraform without terminating or modifying the actual running RDS instance in AWS.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
-      { id: 'A', text: "Run `terraform state rm aws_db_instance.legacy` and remove the resource block from the HCL configuration." },
-      { id: 'B', text: "Run `terraform destroy aws_db_instance.legacy`." },
-      { id: 'C', text: "Delete the AWS RDS database in the AWS Console." },
-      { id: 'D', text: "Change the database name in the HCL file." }
+      { id: 'A', text: "Run `terraform state rm` for it and delete its block from the configuration." },
+      { id: 'B', text: "Run `terraform destroy -target` against that database resource." },
+      { id: 'C', text: "Delete the database in the console and re-run the plan afterwards." },
+      { id: 'D', text: "Add `ignore_changes = all` to the resource and leave it in state." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -429,10 +429,10 @@ export const HASHICORP_TFA_QUESTIONS_18 = [
     scenario: "An enterprise cloud operations team is establishing high-availability standards, automated state recovery procedures, and infrastructure resilience baselines with Terraform. The Terraform engineer needs to recover the Terraform state file after an accidental destructive overwrite or corrupted state operation in an S3 remote backend.",
     question: "Which architectural approach or configuration satisfies these infrastructure disaster recovery and operational resilience objectives?",
     options: [
-      { id: 'A', text: "Enable object versioning on the S3 state bucket and restore the previous version of the state object." },
-      { id: 'B', text: "Accept that all cloud infrastructure must be deleted and rebuilt." },
-      { id: 'C', text: "Run `terraform destroy` to clear corrupted state." },
-      { id: 'D', text: "Guess resource attributes and type a new state file from memory." }
+      { id: 'A', text: "Enable versioning on the state bucket and restore the previous object version." },
+      { id: 'B', text: "Accept the loss and rebuild the infrastructure from the configuration." },
+      { id: 'C', text: "Run `terraform destroy` to clear the state and then apply it again." },
+      { id: 'D', text: "Re-import each resource into a new state file at its own address." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -450,10 +450,10 @@ export const HASHICORP_TFA_QUESTIONS_18 = [
     scenario: "A large-scale multi-cloud platform experiences rapid infrastructure growth and requires automated, consistent provisioning across complex resource topologies. The Terraform engineer needs to recover the Terraform state file after an accidental destructive overwrite or corrupted state operation in an S3 remote backend.",
     question: "Which design pattern or Terraform capability manages this provisioning scale effectively while preventing configuration drift and deployment bottlenecks?",
     options: [
-      { id: 'A', text: "Guess resource attributes and type a new state file from memory." },
-      { id: 'B', text: "Run `terraform destroy` to clear corrupted state." },
-      { id: 'C', text: "Accept that all cloud infrastructure must be deleted and rebuilt." },
-      { id: 'D', text: "Enable object versioning on the S3 state bucket and restore the previous version of the state object." }
+      { id: 'A', text: "Re-import each resource into a new state file at its own address." },
+      { id: 'B', text: "Run `terraform destroy` to clear the state and then apply it again." },
+      { id: 'C', text: "Accept the loss and rebuild the infrastructure from the configuration." },
+      { id: 'D', text: "Enable versioning on the state bucket and restore the previous object version." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -471,10 +471,10 @@ export const HASHICORP_TFA_QUESTIONS_18 = [
     scenario: "A cloud security auditor requires strict protection of sensitive state data, verified provider dependencies, and automated governance across all Terraform pipelines. The Terraform engineer needs to recover the Terraform state file after an accidental destructive overwrite or corrupted state operation in an S3 remote backend.",
     question: "Which solution implements these mandatory infrastructure as code security and governance controls?",
     options: [
-      { id: 'A', text: "Enable object versioning on the S3 state bucket and restore the previous version of the state object." },
-      { id: 'B', text: "Run `terraform destroy` to clear corrupted state." },
-      { id: 'C', text: "Guess resource attributes and type a new state file from memory." },
-      { id: 'D', text: "Accept that all cloud infrastructure must be deleted and rebuilt." }
+      { id: 'A', text: "Enable versioning on the state bucket and restore the previous object version." },
+      { id: 'B', text: "Run `terraform destroy` to clear the state and then apply it again." },
+      { id: 'C', text: "Re-import each resource into a new state file at its own address." },
+      { id: 'D', text: "Accept the loss and rebuild the infrastructure from the configuration." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -492,10 +492,10 @@ export const HASHICORP_TFA_QUESTIONS_18 = [
     scenario: "An organization is transitioning from manual, console-driven infrastructure provisioning to automated, declarative infrastructure as code using Terraform. The Terraform engineer needs to recover the Terraform state file after an accidental destructive overwrite or corrupted state operation in an S3 remote backend.",
     question: "Which practice or platform feature enables the engineering team to modernize provisioning workflows with minimal operational friction?",
     options: [
-      { id: 'A', text: "Guess resource attributes and type a new state file from memory." },
-      { id: 'B', text: "Accept that all cloud infrastructure must be deleted and rebuilt." },
-      { id: 'C', text: "Enable object versioning on the S3 state bucket and restore the previous version of the state object." },
-      { id: 'D', text: "Run `terraform destroy` to clear corrupted state." }
+      { id: 'A', text: "Re-import each resource into a new state file at its own address." },
+      { id: 'B', text: "Accept the loss and rebuild the infrastructure from the configuration." },
+      { id: 'C', text: "Enable versioning on the state bucket and restore the previous object version." },
+      { id: 'D', text: "Run `terraform destroy` to clear the state and then apply it again." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -513,10 +513,10 @@ export const HASHICORP_TFA_QUESTIONS_18 = [
     scenario: "A platform engineering team is optimizing infrastructure stability to eliminate single points of failure, streamline state refactoring, and ensure zero-downtime resource replacement. The Terraform engineer needs to recover the Terraform state file after an accidental destructive overwrite or corrupted state operation in an S3 remote backend.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
-      { id: 'A', text: "Enable object versioning on the S3 state bucket and restore the previous version of the state object." },
-      { id: 'B', text: "Accept that all cloud infrastructure must be deleted and rebuilt." },
-      { id: 'C', text: "Run `terraform destroy` to clear corrupted state." },
-      { id: 'D', text: "Guess resource attributes and type a new state file from memory." }
+      { id: 'A', text: "Enable versioning on the state bucket and restore the previous object version." },
+      { id: 'B', text: "Accept the loss and rebuild the infrastructure from the configuration." },
+      { id: 'C', text: "Run `terraform destroy` to clear the state and then apply it again." },
+      { id: 'D', text: "Re-import each resource into a new state file at its own address." }
     ],
     correctAnswers: ['A'],
     type: "single",

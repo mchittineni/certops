@@ -9,10 +9,10 @@ export const HASHICORP_TFA_QUESTIONS_11 = [
     scenario: "An enterprise cloud operations team is establishing high-availability standards, automated state recovery procedures, and infrastructure resilience baselines with Terraform. The Terraform engineer needs to choose an infrastructure management paradigm that automatically calculates resource dependencies and only executes necessary state mutations.",
     question: "Which architectural approach or configuration satisfies these infrastructure disaster recovery and operational resilience objectives?",
     options: [
-      { id: 'A', text: "Adopt a declarative IaC tool (such as Terraform) that defines the desired end-state and relies on the engine to calculate deltas and reconciliation steps." },
-      { id: 'B', text: "Write imperative bash scripts executing sequential AWS CLI create calls." },
-      { id: 'C', text: "Manually configure cloud resources through the cloud provider web management console." },
-      { id: 'D', text: "Write procedural Python scripts that explicitly handle rollback loops upon API timeouts." }
+      { id: 'A', text: "A declarative tool that describes the end state and lets the engine work out the changes." },
+      { id: 'B', text: "An imperative script making the provider's API calls in the required order." },
+      { id: 'C', text: "A configuration management tool converging each host towards its stated role." },
+      { id: 'D', text: "A procedural program that handles the retries and rollbacks for each call." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -30,10 +30,10 @@ export const HASHICORP_TFA_QUESTIONS_11 = [
     scenario: "A large-scale multi-cloud platform experiences rapid infrastructure growth and requires automated, consistent provisioning across complex resource topologies. The Terraform engineer needs to choose an infrastructure management paradigm that automatically calculates resource dependencies and only executes necessary state mutations.",
     question: "Which design pattern or Terraform capability manages this provisioning scale effectively while preventing configuration drift and deployment bottlenecks?",
     options: [
-      { id: 'A', text: "Adopt a declarative IaC tool (such as Terraform) that defines the desired end-state and relies on the engine to calculate deltas and reconciliation steps." },
-      { id: 'B', text: "Write imperative bash scripts executing sequential AWS CLI create calls." },
-      { id: 'C', text: "Manually configure cloud resources through the cloud provider web management console." },
-      { id: 'D', text: "Write procedural Python scripts that explicitly handle rollback loops upon API timeouts." }
+      { id: 'A', text: "A declarative tool that describes the end state and lets the engine work out the changes." },
+      { id: 'B', text: "An imperative script making the provider's API calls in the required order." },
+      { id: 'C', text: "A configuration management tool converging each host towards its stated role." },
+      { id: 'D', text: "A procedural program that handles the retries and rollbacks for each call." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -51,10 +51,10 @@ export const HASHICORP_TFA_QUESTIONS_11 = [
     scenario: "A cloud security auditor requires strict protection of sensitive state data, verified provider dependencies, and automated governance across all Terraform pipelines. The Terraform engineer needs to choose an infrastructure management paradigm that automatically calculates resource dependencies and only executes necessary state mutations.",
     question: "Which solution implements these mandatory infrastructure as code security and governance controls?",
     options: [
-      { id: 'A', text: "Manually configure cloud resources through the cloud provider web management console." },
-      { id: 'B', text: "Write procedural Python scripts that explicitly handle rollback loops upon API timeouts." },
-      { id: 'C', text: "Adopt a declarative IaC tool (such as Terraform) that defines the desired end-state and relies on the engine to calculate deltas and reconciliation steps." },
-      { id: 'D', text: "Write imperative bash scripts executing sequential AWS CLI create calls." }
+      { id: 'A', text: "A configuration management tool converging each host towards its stated role." },
+      { id: 'B', text: "A procedural program that handles the retries and rollbacks for each call." },
+      { id: 'C', text: "A declarative tool that describes the end state and lets the engine work out the changes." },
+      { id: 'D', text: "An imperative script making the provider's API calls in the required order." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -72,10 +72,10 @@ export const HASHICORP_TFA_QUESTIONS_11 = [
     scenario: "An organization is transitioning from manual, console-driven infrastructure provisioning to automated, declarative infrastructure as code using Terraform. The Terraform engineer needs to choose an infrastructure management paradigm that automatically calculates resource dependencies and only executes necessary state mutations.",
     question: "Which practice or platform feature enables the engineering team to modernize provisioning workflows with minimal operational friction?",
     options: [
-      { id: 'A', text: "Write procedural Python scripts that explicitly handle rollback loops upon API timeouts." },
-      { id: 'B', text: "Manually configure cloud resources through the cloud provider web management console." },
-      { id: 'C', text: "Write imperative bash scripts executing sequential AWS CLI create calls." },
-      { id: 'D', text: "Adopt a declarative IaC tool (such as Terraform) that defines the desired end-state and relies on the engine to calculate deltas and reconciliation steps." }
+      { id: 'A', text: "A procedural program that handles the retries and rollbacks for each call." },
+      { id: 'B', text: "A configuration management tool converging each host towards its stated role." },
+      { id: 'C', text: "An imperative script making the provider's API calls in the required order." },
+      { id: 'D', text: "A declarative tool that describes the end state and lets the engine work out the changes." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -93,10 +93,10 @@ export const HASHICORP_TFA_QUESTIONS_11 = [
     scenario: "A platform engineering team is optimizing infrastructure stability to eliminate single points of failure, streamline state refactoring, and ensure zero-downtime resource replacement. The Terraform engineer needs to choose an infrastructure management paradigm that automatically calculates resource dependencies and only executes necessary state mutations.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
-      { id: 'A', text: "Write imperative bash scripts executing sequential AWS CLI create calls." },
-      { id: 'B', text: "Write procedural Python scripts that explicitly handle rollback loops upon API timeouts." },
-      { id: 'C', text: "Manually configure cloud resources through the cloud provider web management console." },
-      { id: 'D', text: "Adopt a declarative IaC tool (such as Terraform) that defines the desired end-state and relies on the engine to calculate deltas and reconciliation steps." }
+      { id: 'A', text: "An imperative script making the provider's API calls in the required order." },
+      { id: 'B', text: "A procedural program that handles the retries and rollbacks for each call." },
+      { id: 'C', text: "A configuration management tool converging each host towards its stated role." },
+      { id: 'D', text: "A declarative tool that describes the end state and lets the engine work out the changes." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -114,10 +114,10 @@ export const HASHICORP_TFA_QUESTIONS_11 = [
     scenario: "An enterprise cloud operations team is establishing high-availability standards, automated state recovery procedures, and infrastructure resilience baselines with Terraform. The Terraform engineer needs to ensure that executing an automated infrastructure deployment pipeline multiple times consecutively without configuration changes does not create duplicate resources.",
     question: "Which architectural approach or configuration satisfies these infrastructure disaster recovery and operational resilience objectives?",
     options: [
-      { id: 'A', text: "Use an idempotent IaC tool like Terraform where running `apply` repeatedly on an unchanged configuration produces zero modifications." },
-      { id: 'B', text: "Delete and recreate all infrastructure from scratch on every run." },
-      { id: 'C', text: "Rely on manual human memory to remember which resources were previously provisioned." },
-      { id: 'D', text: "Write shell scripts using raw `mkdir` and `curl` without existence verification." }
+      { id: 'A', text: "Use an idempotent tool, where applying an unchanged configuration makes no changes." },
+      { id: 'B', text: "Destroy and recreate the infrastructure on each run so the result is identical." },
+      { id: 'C', text: "Keep a register of what has been provisioned and check it before each run." },
+      { id: 'D', text: "Write scripts that check for each resource's existence before creating it." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -135,10 +135,10 @@ export const HASHICORP_TFA_QUESTIONS_11 = [
     scenario: "A large-scale multi-cloud platform experiences rapid infrastructure growth and requires automated, consistent provisioning across complex resource topologies. The Terraform engineer needs to ensure that executing an automated infrastructure deployment pipeline multiple times consecutively without configuration changes does not create duplicate resources.",
     question: "Which design pattern or Terraform capability manages this provisioning scale effectively while preventing configuration drift and deployment bottlenecks?",
     options: [
-      { id: 'A', text: "Use an idempotent IaC tool like Terraform where running `apply` repeatedly on an unchanged configuration produces zero modifications." },
-      { id: 'B', text: "Write shell scripts using raw `mkdir` and `curl` without existence verification." },
-      { id: 'C', text: "Delete and recreate all infrastructure from scratch on every run." },
-      { id: 'D', text: "Rely on manual human memory to remember which resources were previously provisioned." }
+      { id: 'A', text: "Use an idempotent tool, where applying an unchanged configuration makes no changes." },
+      { id: 'B', text: "Write scripts that check for each resource's existence before creating it." },
+      { id: 'C', text: "Destroy and recreate the infrastructure on each run so the result is identical." },
+      { id: 'D', text: "Keep a register of what has been provisioned and check it before each run." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -156,10 +156,10 @@ export const HASHICORP_TFA_QUESTIONS_11 = [
     scenario: "A cloud security auditor requires strict protection of sensitive state data, verified provider dependencies, and automated governance across all Terraform pipelines. The Terraform engineer needs to ensure that executing an automated infrastructure deployment pipeline multiple times consecutively without configuration changes does not create duplicate resources.",
     question: "Which solution implements these mandatory infrastructure as code security and governance controls?",
     options: [
-      { id: 'A', text: "Use an idempotent IaC tool like Terraform where running `apply` repeatedly on an unchanged configuration produces zero modifications." },
-      { id: 'B', text: "Write shell scripts using raw `mkdir` and `curl` without existence verification." },
-      { id: 'C', text: "Delete and recreate all infrastructure from scratch on every run." },
-      { id: 'D', text: "Rely on manual human memory to remember which resources were previously provisioned." }
+      { id: 'A', text: "Use an idempotent tool, where applying an unchanged configuration makes no changes." },
+      { id: 'B', text: "Write scripts that check for each resource's existence before creating it." },
+      { id: 'C', text: "Destroy and recreate the infrastructure on each run so the result is identical." },
+      { id: 'D', text: "Keep a register of what has been provisioned and check it before each run." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -177,10 +177,10 @@ export const HASHICORP_TFA_QUESTIONS_11 = [
     scenario: "An organization is transitioning from manual, console-driven infrastructure provisioning to automated, declarative infrastructure as code using Terraform. The Terraform engineer needs to ensure that executing an automated infrastructure deployment pipeline multiple times consecutively without configuration changes does not create duplicate resources.",
     question: "Which practice or platform feature enables the engineering team to modernize provisioning workflows with minimal operational friction?",
     options: [
-      { id: 'A', text: "Rely on manual human memory to remember which resources were previously provisioned." },
-      { id: 'B', text: "Delete and recreate all infrastructure from scratch on every run." },
-      { id: 'C', text: "Write shell scripts using raw `mkdir` and `curl` without existence verification." },
-      { id: 'D', text: "Use an idempotent IaC tool like Terraform where running `apply` repeatedly on an unchanged configuration produces zero modifications." }
+      { id: 'A', text: "Keep a register of what has been provisioned and check it before each run." },
+      { id: 'B', text: "Destroy and recreate the infrastructure on each run so the result is identical." },
+      { id: 'C', text: "Write scripts that check for each resource's existence before creating it." },
+      { id: 'D', text: "Use an idempotent tool, where applying an unchanged configuration makes no changes." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -198,10 +198,10 @@ export const HASHICORP_TFA_QUESTIONS_11 = [
     scenario: "A platform engineering team is optimizing infrastructure stability to eliminate single points of failure, streamline state refactoring, and ensure zero-downtime resource replacement. The Terraform engineer needs to ensure that executing an automated infrastructure deployment pipeline multiple times consecutively without configuration changes does not create duplicate resources.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
-      { id: 'A', text: "Use an idempotent IaC tool like Terraform where running `apply` repeatedly on an unchanged configuration produces zero modifications." },
-      { id: 'B', text: "Write shell scripts using raw `mkdir` and `curl` without existence verification." },
-      { id: 'C', text: "Delete and recreate all infrastructure from scratch on every run." },
-      { id: 'D', text: "Rely on manual human memory to remember which resources were previously provisioned." }
+      { id: 'A', text: "Use an idempotent tool, where applying an unchanged configuration makes no changes." },
+      { id: 'B', text: "Write scripts that check for each resource's existence before creating it." },
+      { id: 'C', text: "Destroy and recreate the infrastructure on each run so the result is identical." },
+      { id: 'D', text: "Keep a register of what has been provisioned and check it before each run." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -219,10 +219,10 @@ export const HASHICORP_TFA_QUESTIONS_11 = [
     scenario: "An enterprise cloud operations team is establishing high-availability standards, automated state recovery procedures, and infrastructure resilience baselines with Terraform. The Terraform engineer needs to enable multiple infrastructure engineers to propose, review, test, and audit cloud architecture modifications before applying them to production.",
     question: "Which architectural approach or configuration satisfies these infrastructure disaster recovery and operational resilience objectives?",
     options: [
-      { id: 'A', text: "Store all Terraform configuration files in a Git version control repository governed by pull request reviews and CI plan checks." },
-      { id: 'B', text: "Store `.tf` files on a shared network drive without version history." },
-      { id: 'C', text: "Email modified configuration files between team members as zip attachments." },
-      { id: 'D', text: "Edit infrastructure directly in the production cloud console." }
+      { id: 'A', text: "Keep the configuration in version control, with pull request review and CI plan checks." },
+      { id: 'B', text: "Keep the configuration on a shared drive with a change log alongside it." },
+      { id: 'C', text: "Keep the configuration in the workspace and export it after each change." },
+      { id: 'D', text: "Keep the configuration in version control and apply from each engineer's laptop." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -240,10 +240,10 @@ export const HASHICORP_TFA_QUESTIONS_11 = [
     scenario: "A large-scale multi-cloud platform experiences rapid infrastructure growth and requires automated, consistent provisioning across complex resource topologies. The Terraform engineer needs to enable multiple infrastructure engineers to propose, review, test, and audit cloud architecture modifications before applying them to production.",
     question: "Which design pattern or Terraform capability manages this provisioning scale effectively while preventing configuration drift and deployment bottlenecks?",
     options: [
-      { id: 'A', text: "Email modified configuration files between team members as zip attachments." },
-      { id: 'B', text: "Store `.tf` files on a shared network drive without version history." },
-      { id: 'C', text: "Edit infrastructure directly in the production cloud console." },
-      { id: 'D', text: "Store all Terraform configuration files in a Git version control repository governed by pull request reviews and CI plan checks." }
+      { id: 'A', text: "Keep the configuration in the workspace and export it after each change." },
+      { id: 'B', text: "Keep the configuration on a shared drive with a change log alongside it." },
+      { id: 'C', text: "Keep the configuration in version control and apply from each engineer's laptop." },
+      { id: 'D', text: "Keep the configuration in version control, with pull request review and CI plan checks." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -261,10 +261,10 @@ export const HASHICORP_TFA_QUESTIONS_11 = [
     scenario: "A cloud security auditor requires strict protection of sensitive state data, verified provider dependencies, and automated governance across all Terraform pipelines. The Terraform engineer needs to enable multiple infrastructure engineers to propose, review, test, and audit cloud architecture modifications before applying them to production.",
     question: "Which solution implements these mandatory infrastructure as code security and governance controls?",
     options: [
-      { id: 'A', text: "Edit infrastructure directly in the production cloud console." },
-      { id: 'B', text: "Store `.tf` files on a shared network drive without version history." },
-      { id: 'C', text: "Store all Terraform configuration files in a Git version control repository governed by pull request reviews and CI plan checks." },
-      { id: 'D', text: "Email modified configuration files between team members as zip attachments." }
+      { id: 'A', text: "Keep the configuration in version control and apply from each engineer's laptop." },
+      { id: 'B', text: "Keep the configuration on a shared drive with a change log alongside it." },
+      { id: 'C', text: "Keep the configuration in version control, with pull request review and CI plan checks." },
+      { id: 'D', text: "Keep the configuration in the workspace and export it after each change." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -282,10 +282,10 @@ export const HASHICORP_TFA_QUESTIONS_11 = [
     scenario: "An organization is transitioning from manual, console-driven infrastructure provisioning to automated, declarative infrastructure as code using Terraform. The Terraform engineer needs to enable multiple infrastructure engineers to propose, review, test, and audit cloud architecture modifications before applying them to production.",
     question: "Which practice or platform feature enables the engineering team to modernize provisioning workflows with minimal operational friction?",
     options: [
-      { id: 'A', text: "Email modified configuration files between team members as zip attachments." },
-      { id: 'B', text: "Store all Terraform configuration files in a Git version control repository governed by pull request reviews and CI plan checks." },
-      { id: 'C', text: "Store `.tf` files on a shared network drive without version history." },
-      { id: 'D', text: "Edit infrastructure directly in the production cloud console." }
+      { id: 'A', text: "Keep the configuration in the workspace and export it after each change." },
+      { id: 'B', text: "Keep the configuration in version control, with pull request review and CI plan checks." },
+      { id: 'C', text: "Keep the configuration on a shared drive with a change log alongside it." },
+      { id: 'D', text: "Keep the configuration in version control and apply from each engineer's laptop." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -303,10 +303,10 @@ export const HASHICORP_TFA_QUESTIONS_11 = [
     scenario: "A platform engineering team is optimizing infrastructure stability to eliminate single points of failure, streamline state refactoring, and ensure zero-downtime resource replacement. The Terraform engineer needs to enable multiple infrastructure engineers to propose, review, test, and audit cloud architecture modifications before applying them to production.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
-      { id: 'A', text: "Email modified configuration files between team members as zip attachments." },
-      { id: 'B', text: "Store `.tf` files on a shared network drive without version history." },
-      { id: 'C', text: "Edit infrastructure directly in the production cloud console." },
-      { id: 'D', text: "Store all Terraform configuration files in a Git version control repository governed by pull request reviews and CI plan checks." }
+      { id: 'A', text: "Keep the configuration in the workspace and export it after each change." },
+      { id: 'B', text: "Keep the configuration on a shared drive with a change log alongside it." },
+      { id: 'C', text: "Keep the configuration in version control and apply from each engineer's laptop." },
+      { id: 'D', text: "Keep the configuration in version control, with pull request review and CI plan checks." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -324,10 +324,10 @@ export const HASHICORP_TFA_QUESTIONS_11 = [
     scenario: "An enterprise cloud operations team is establishing high-availability standards, automated state recovery procedures, and infrastructure resilience baselines with Terraform. The Terraform engineer needs to detect when an engineer has manually modified a cloud firewall rule or instance size via the web console outside of approved Terraform configurations.",
     question: "Which architectural approach or configuration satisfies these infrastructure disaster recovery and operational resilience objectives?",
     options: [
-      { id: 'A', text: "Delete the Terraform state file so Terraform forgets existing resources." },
-      { id: 'B', text: "Run `terraform plan` or `terraform refresh` to compare real-world infrastructure against the state and configuration, highlighting drift for remediation." },
-      { id: 'C', text: "Rely on annual manual audits of cloud resources by external consultants." },
-      { id: 'D', text: "Assume cloud resources never change once provisioned." }
+      { id: 'A', text: "Run `terraform apply -auto-approve` on a schedule so drift is corrected at once." },
+      { id: 'B', text: "Run `terraform plan`, which compares the state and configuration with what exists." },
+      { id: 'C', text: "Review the cloud provider's own change history against the last applied plan." },
+      { id: 'D', text: "Run `terraform state list` and check each resource against the console by hand." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -345,10 +345,10 @@ export const HASHICORP_TFA_QUESTIONS_11 = [
     scenario: "A large-scale multi-cloud platform experiences rapid infrastructure growth and requires automated, consistent provisioning across complex resource topologies. The Terraform engineer needs to detect when an engineer has manually modified a cloud firewall rule or instance size via the web console outside of approved Terraform configurations.",
     question: "Which design pattern or Terraform capability manages this provisioning scale effectively while preventing configuration drift and deployment bottlenecks?",
     options: [
-      { id: 'A', text: "Rely on annual manual audits of cloud resources by external consultants." },
-      { id: 'B', text: "Delete the Terraform state file so Terraform forgets existing resources." },
-      { id: 'C', text: "Run `terraform plan` or `terraform refresh` to compare real-world infrastructure against the state and configuration, highlighting drift for remediation." },
-      { id: 'D', text: "Assume cloud resources never change once provisioned." }
+      { id: 'A', text: "Review the cloud provider's own change history against the last applied plan." },
+      { id: 'B', text: "Run `terraform apply -auto-approve` on a schedule so drift is corrected at once." },
+      { id: 'C', text: "Run `terraform plan`, which compares the state and configuration with what exists." },
+      { id: 'D', text: "Run `terraform state list` and check each resource against the console by hand." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -366,10 +366,10 @@ export const HASHICORP_TFA_QUESTIONS_11 = [
     scenario: "A cloud security auditor requires strict protection of sensitive state data, verified provider dependencies, and automated governance across all Terraform pipelines. The Terraform engineer needs to detect when an engineer has manually modified a cloud firewall rule or instance size via the web console outside of approved Terraform configurations.",
     question: "Which solution implements these mandatory infrastructure as code security and governance controls?",
     options: [
-      { id: 'A', text: "Run `terraform plan` or `terraform refresh` to compare real-world infrastructure against the state and configuration, highlighting drift for remediation." },
-      { id: 'B', text: "Rely on annual manual audits of cloud resources by external consultants." },
-      { id: 'C', text: "Delete the Terraform state file so Terraform forgets existing resources." },
-      { id: 'D', text: "Assume cloud resources never change once provisioned." }
+      { id: 'A', text: "Run `terraform plan`, which compares the state and configuration with what exists." },
+      { id: 'B', text: "Review the cloud provider's own change history against the last applied plan." },
+      { id: 'C', text: "Run `terraform apply -auto-approve` on a schedule so drift is corrected at once." },
+      { id: 'D', text: "Run `terraform state list` and check each resource against the console by hand." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -387,10 +387,10 @@ export const HASHICORP_TFA_QUESTIONS_11 = [
     scenario: "An organization is transitioning from manual, console-driven infrastructure provisioning to automated, declarative infrastructure as code using Terraform. The Terraform engineer needs to detect when an engineer has manually modified a cloud firewall rule or instance size via the web console outside of approved Terraform configurations.",
     question: "Which practice or platform feature enables the engineering team to modernize provisioning workflows with minimal operational friction?",
     options: [
-      { id: 'A', text: "Delete the Terraform state file so Terraform forgets existing resources." },
-      { id: 'B', text: "Run `terraform plan` or `terraform refresh` to compare real-world infrastructure against the state and configuration, highlighting drift for remediation." },
-      { id: 'C', text: "Rely on annual manual audits of cloud resources by external consultants." },
-      { id: 'D', text: "Assume cloud resources never change once provisioned." }
+      { id: 'A', text: "Run `terraform apply -auto-approve` on a schedule so drift is corrected at once." },
+      { id: 'B', text: "Run `terraform plan`, which compares the state and configuration with what exists." },
+      { id: 'C', text: "Review the cloud provider's own change history against the last applied plan." },
+      { id: 'D', text: "Run `terraform state list` and check each resource against the console by hand." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -408,10 +408,10 @@ export const HASHICORP_TFA_QUESTIONS_11 = [
     scenario: "A platform engineering team is optimizing infrastructure stability to eliminate single points of failure, streamline state refactoring, and ensure zero-downtime resource replacement. The Terraform engineer needs to detect when an engineer has manually modified a cloud firewall rule or instance size via the web console outside of approved Terraform configurations.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
-      { id: 'A', text: "Assume cloud resources never change once provisioned." },
-      { id: 'B', text: "Delete the Terraform state file so Terraform forgets existing resources." },
-      { id: 'C', text: "Rely on annual manual audits of cloud resources by external consultants." },
-      { id: 'D', text: "Run `terraform plan` or `terraform refresh` to compare real-world infrastructure against the state and configuration, highlighting drift for remediation." }
+      { id: 'A', text: "Run `terraform state list` and check each resource against the console by hand." },
+      { id: 'B', text: "Run `terraform apply -auto-approve` on a schedule so drift is corrected at once." },
+      { id: 'C', text: "Review the cloud provider's own change history against the last applied plan." },
+      { id: 'D', text: "Run `terraform plan`, which compares the state and configuration with what exists." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -429,10 +429,10 @@ export const HASHICORP_TFA_QUESTIONS_11 = [
     scenario: "An enterprise cloud operations team is establishing high-availability standards, automated state recovery procedures, and infrastructure resilience baselines with Terraform. The Terraform engineer needs to upgrade operating systems and applications on cloud virtual machines without accumulating configuration drift or patch discrepancies over time.",
     question: "Which architectural approach or configuration satisfies these infrastructure disaster recovery and operational resilience objectives?",
     options: [
-      { id: 'A', text: "Adopt immutable infrastructure practices where updated server images (AMIs) are deployed as new replacement instances, terminating old instances." },
-      { id: 'B', text: "Never reboot or replace running instances to avoid downtime." },
-      { id: 'C', text: "Log into each running server via SSH and execute manual patch commands." },
-      { id: 'D', text: "Accumulate custom configuration files on production servers indefinitely." }
+      { id: 'A', text: "Adopt immutable infrastructure: build a new image and replace the instances with it." },
+      { id: 'B', text: "Adopt a configuration management agent that converges each running instance." },
+      { id: 'C', text: "Adopt a patching window in which each instance is updated over SSH in turn." },
+      { id: 'D', text: "Adopt a provisioner in the Terraform configuration that patches on creation." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -450,10 +450,10 @@ export const HASHICORP_TFA_QUESTIONS_11 = [
     scenario: "A large-scale multi-cloud platform experiences rapid infrastructure growth and requires automated, consistent provisioning across complex resource topologies. The Terraform engineer needs to upgrade operating systems and applications on cloud virtual machines without accumulating configuration drift or patch discrepancies over time.",
     question: "Which design pattern or Terraform capability manages this provisioning scale effectively while preventing configuration drift and deployment bottlenecks?",
     options: [
-      { id: 'A', text: "Adopt immutable infrastructure practices where updated server images (AMIs) are deployed as new replacement instances, terminating old instances." },
-      { id: 'B', text: "Log into each running server via SSH and execute manual patch commands." },
-      { id: 'C', text: "Accumulate custom configuration files on production servers indefinitely." },
-      { id: 'D', text: "Never reboot or replace running instances to avoid downtime." }
+      { id: 'A', text: "Adopt immutable infrastructure: build a new image and replace the instances with it." },
+      { id: 'B', text: "Adopt a patching window in which each instance is updated over SSH in turn." },
+      { id: 'C', text: "Adopt a provisioner in the Terraform configuration that patches on creation." },
+      { id: 'D', text: "Adopt a configuration management agent that converges each running instance." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -471,10 +471,10 @@ export const HASHICORP_TFA_QUESTIONS_11 = [
     scenario: "A cloud security auditor requires strict protection of sensitive state data, verified provider dependencies, and automated governance across all Terraform pipelines. The Terraform engineer needs to upgrade operating systems and applications on cloud virtual machines without accumulating configuration drift or patch discrepancies over time.",
     question: "Which solution implements these mandatory infrastructure as code security and governance controls?",
     options: [
-      { id: 'A', text: "Adopt immutable infrastructure practices where updated server images (AMIs) are deployed as new replacement instances, terminating old instances." },
-      { id: 'B', text: "Log into each running server via SSH and execute manual patch commands." },
-      { id: 'C', text: "Accumulate custom configuration files on production servers indefinitely." },
-      { id: 'D', text: "Never reboot or replace running instances to avoid downtime." }
+      { id: 'A', text: "Adopt immutable infrastructure: build a new image and replace the instances with it." },
+      { id: 'B', text: "Adopt a patching window in which each instance is updated over SSH in turn." },
+      { id: 'C', text: "Adopt a provisioner in the Terraform configuration that patches on creation." },
+      { id: 'D', text: "Adopt a configuration management agent that converges each running instance." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -492,10 +492,10 @@ export const HASHICORP_TFA_QUESTIONS_11 = [
     scenario: "An organization is transitioning from manual, console-driven infrastructure provisioning to automated, declarative infrastructure as code using Terraform. The Terraform engineer needs to upgrade operating systems and applications on cloud virtual machines without accumulating configuration drift or patch discrepancies over time.",
     question: "Which practice or platform feature enables the engineering team to modernize provisioning workflows with minimal operational friction?",
     options: [
-      { id: 'A', text: "Adopt immutable infrastructure practices where updated server images (AMIs) are deployed as new replacement instances, terminating old instances." },
-      { id: 'B', text: "Log into each running server via SSH and execute manual patch commands." },
-      { id: 'C', text: "Accumulate custom configuration files on production servers indefinitely." },
-      { id: 'D', text: "Never reboot or replace running instances to avoid downtime." }
+      { id: 'A', text: "Adopt immutable infrastructure: build a new image and replace the instances with it." },
+      { id: 'B', text: "Adopt a patching window in which each instance is updated over SSH in turn." },
+      { id: 'C', text: "Adopt a provisioner in the Terraform configuration that patches on creation." },
+      { id: 'D', text: "Adopt a configuration management agent that converges each running instance." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -513,10 +513,10 @@ export const HASHICORP_TFA_QUESTIONS_11 = [
     scenario: "A platform engineering team is optimizing infrastructure stability to eliminate single points of failure, streamline state refactoring, and ensure zero-downtime resource replacement. The Terraform engineer needs to upgrade operating systems and applications on cloud virtual machines without accumulating configuration drift or patch discrepancies over time.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
-      { id: 'A', text: "Adopt immutable infrastructure practices where updated server images (AMIs) are deployed as new replacement instances, terminating old instances." },
-      { id: 'B', text: "Never reboot or replace running instances to avoid downtime." },
-      { id: 'C', text: "Log into each running server via SSH and execute manual patch commands." },
-      { id: 'D', text: "Accumulate custom configuration files on production servers indefinitely." }
+      { id: 'A', text: "Adopt immutable infrastructure: build a new image and replace the instances with it." },
+      { id: 'B', text: "Adopt a configuration management agent that converges each running instance." },
+      { id: 'C', text: "Adopt a patching window in which each instance is updated over SSH in turn." },
+      { id: 'D', text: "Adopt a provisioner in the Terraform configuration that patches on creation." }
     ],
     correctAnswers: ['A'],
     type: "single",

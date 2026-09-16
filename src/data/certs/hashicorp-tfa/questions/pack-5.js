@@ -9,7 +9,7 @@ export const HASHICORP_TFA_QUESTIONS_5 = [
     scenario: "A configuration declares an `aws_instance` resource, but does not contain an explicit `provider \"aws\" { ... }` block.",
     question: "How does Terraform handle the missing provider configuration?",
     options: [
-      { id: 'A', text: "Terraform infers the provider from the resource type prefix ('aws_') and attempts to initialize the official hashicorp/aws provider with default settings" },
+      { id: 'A', text: "It infers the provider from the type prefix and initialises that one" },
       { id: 'B', text: "Terraform fails immediately with a fatal syntax error" },
       { id: 'C', text: "Terraform prompts the user to enter provider details interactively" },
       { id: 'D', text: "Terraform skips provisioning the resource" }
@@ -53,7 +53,7 @@ export const HASHICORP_TFA_QUESTIONS_5 = [
     options: [
       { id: 'A', text: "terraform state rm terminates cloud resources; terraform destroy leaves them running" },
       { id: 'B', text: "terraform state rm is only supported in Terraform Cloud" },
-      { id: 'C', text: "terraform state rm only deletes the resource from the state file (leaving the real cloud asset intact); terraform destroy terminates the real cloud asset in the cloud provider" },
+      { id: 'C', text: "`state rm` forgets the resource; `destroy` deletes the real one as well" },
       { id: 'D', text: "There is no difference; they are identical aliases" }
     ],
     correctAnswers: ['C'],
@@ -72,7 +72,7 @@ export const HASHICORP_TFA_QUESTIONS_5 = [
     scenario: "A developer needs to run a targeted plan for two specific resources: `aws_instance.web` and `aws_security_group.web_sg`.",
     question: "Can the -target flag be specified multiple times in a single command?",
     options: [
-      { id: 'A', text: "Yes, multiple -target flags can be passed simultaneously (e.g. -target=aws_instance.web -target=aws_security_group.web_sg)" },
+      { id: 'A', text: "Yes: several `-target` flags may be passed on one command" },
       { id: 'B', text: "No, -target only accepts one single resource address" },
       { id: 'C', text: "No, multiple targets require commas inside quotes" },
       { id: 'D', text: "Targeting multiple resources is prohibited by Terraform" }
@@ -95,7 +95,7 @@ export const HASHICORP_TFA_QUESTIONS_5 = [
     options: [
       { id: 'A', text: "terraform delete -y" },
       { id: 'B', text: "terraform clean -all" },
-      { id: 'C', text: "terraform apply -destroy -auto-approve (or terraform destroy -auto-approve)" },
+      { id: 'C', text: "`terraform destroy -auto-approve`" },
       { id: 'D', text: "terraform destroy --force" }
     ],
     correctAnswers: ['C'],
@@ -138,7 +138,7 @@ export const HASHICORP_TFA_QUESTIONS_5 = [
       { id: 'A', text: "It outputs a cryptographic hash" },
       { id: 'B', text: "It outputs the cleartext password" },
       { id: 'C', text: "It generates an error" },
-      { id: 'D', text: "It displays '&lt;sensitive&gt;' to prevent credential leakage in terminal logs" }
+      { id: 'D', text: "It prints `&lt;sensitive&gt;` in place of the value" }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -159,7 +159,7 @@ export const HASHICORP_TFA_QUESTIONS_5 = [
       { id: 'A', text: "Only if connected to the cloud provider API" },
       { id: 'B', text: "No, validate only checks matching brackets and braces" },
       { id: 'C', text: "No, attribute typos are only caught during terraform apply" },
-      { id: 'D', text: "Yes, terraform validate compares declared attributes against downloaded provider schemas and reports unrecognized arguments" }
+      { id: 'D', text: "Yes: it checks the attributes against the downloaded schemas" }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -177,10 +177,10 @@ export const HASHICORP_TFA_QUESTIONS_5 = [
     scenario: "A developer runs `terraform login` to authenticate with Terraform Cloud or a private module registry.",
     question: "Where does Terraform store the generated API authentication token on the developer's local workstation?",
     options: [
-      { id: 'A', text: "In the .terraform.lock.hcl file" },
-      { id: 'B', text: "In terraform.tfstate" },
-      { id: 'C', text: "In the root module main.tf" },
-      { id: 'D', text: "In the credentials.tfrc.json file inside ~/.terraform.d/ (or OS credential store)" }
+      { id: 'A', text: "In the dependency lock file, beside the versions" },
+      { id: 'B', text: "In the state file, beside the resource records" },
+      { id: 'C', text: "In the root module's own `main.tf` configuration" },
+      { id: 'D', text: "In `credentials.tfrc.json` under the user's Terraform directory" }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -198,7 +198,7 @@ export const HASHICORP_TFA_QUESTIONS_5 = [
     scenario: "A developer finishes working on a shared staging machine and runs `terraform logout`.",
     question: "What action does terraform logout perform on the workstation?",
     options: [
-      { id: 'A', text: "It deletes the locally stored API token for the specified hostname from credentials.tfrc.json" },
+      { id: 'A', text: "It deletes the stored token for that host" },
       { id: 'B', text: "It terminates all cloud resources in the account" },
       { id: 'C', text: "It deletes the user's Terraform Cloud account permanently" },
       { id: 'D', text: "It revokes all SSH keys on the machine" }
@@ -219,10 +219,10 @@ export const HASHICORP_TFA_QUESTIONS_5 = [
     scenario: "An enterprise security policy blocks workstations from downloading binary files directly from public registries.",
     question: "Which configuration file allows administrators to define a 'provider_installation' block routing provider downloads to filesystem mirrors?",
     options: [
-      { id: 'A', text: "The terraform.tfstate file" },
-      { id: 'B', text: ".terraform.lock.hcl" },
+      { id: 'A', text: "The state file, alongside the resource records" },
+      { id: 'B', text: "The dependency lock file, beside the versions" },
       { id: 'C', text: "The CLI configuration file (~/.terraformrc or terraform.rc)" },
-      { id: 'D', text: "The root module main.tf" }
+      { id: 'D', text: "The root module's own `main.tf` configuration" }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -241,7 +241,7 @@ export const HASHICORP_TFA_QUESTIONS_5 = [
     question: "What is the modern, recommended alternative to tainting resources in Terraform 1.0+?",
     options: [
       { id: 'A', text: "terraform recreate aws_instance.web" },
-      { id: 'B', text: "Use terraform apply -replace=\"aws_instance.web\" directly during planning and application" },
+      { id: 'B', text: "Use `terraform apply -replace=\"aws_instance.web\"`" },
       { id: 'C', text: "terraform rebuild aws_instance.web" },
       { id: 'D', text: "terraform mark-dirty aws_instance.web" }
     ],
@@ -264,7 +264,7 @@ export const HASHICORP_TFA_QUESTIONS_5 = [
       { id: 'A', text: "No, each individual resource inside the module must be removed one by one" },
       { id: 'B', text: "No, modules cannot be untracked from state" },
       { id: 'C', text: "terraform state rm only supports single attributes" },
-      { id: 'D', text: "Yes, running terraform state rm module.networking removes all resources encapsulated within that module from state in a single command" }
+      { id: 'D', text: "Yes: `state rm` on the module removes every resource under it" }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -282,7 +282,7 @@ export const HASHICORP_TFA_QUESTIONS_5 = [
     scenario: "A team uses an official AWS VPC module from the public Terraform Registry.",
     question: "What is the standard module source format for modules hosted on the public Terraform Registry?",
     options: [
-      { id: 'A', text: "&lt;namespace&gt;/&lt;name&gt;/&lt;provider&gt; (e.g. terraform-aws-modules/vpc/aws)" },
+      { id: 'A', text: "&lt;namespace&gt;/&lt;name&gt;/&lt;provider&gt;" },
       { id: 'B', text: "&lt;name&gt;/&lt;provider&gt;/&lt;version&gt;" },
       { id: 'C', text: "aws/&lt;namespace&gt;/&lt;name&gt;" },
       { id: 'D', text: "registry.com/&lt;module&gt;" }
@@ -347,7 +347,7 @@ export const HASHICORP_TFA_QUESTIONS_5 = [
     options: [
       { id: 'A', text: "Yes, if package.json exists" },
       { id: 'B', text: "Terraform requires version on all module blocks" },
-      { id: 'C', text: "No, the version argument is only supported for modules sourced from a Terraform Registry; local filesystem and generic Git sources do not support the version argument" },
+      { id: 'C', text: "No: `version` applies only to registry sources, not to local or git ones" },
       { id: 'D', text: "Yes, local files must have semantic version numbers in filenames" }
     ],
     correctAnswers: ['C'],

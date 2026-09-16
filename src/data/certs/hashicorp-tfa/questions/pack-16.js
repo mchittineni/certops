@@ -114,10 +114,10 @@ export const HASHICORP_TFA_QUESTIONS_16 = [
     scenario: "An enterprise cloud operations team is establishing high-availability standards, automated state recovery procedures, and infrastructure resilience baselines with Terraform. The Terraform engineer needs to share proprietary enterprise infrastructure modules securely across internal development teams with automated versioning.",
     question: "Which architectural approach or configuration satisfies these infrastructure disaster recovery and operational resilience objectives?",
     options: [
-      { id: 'A', text: "Publish the modules to a private module registry in HCP Terraform or Terraform Enterprise linked to internal Git repos." },
-      { id: 'B', text: "Publish proprietary company modules to the public Terraform Registry." },
-      { id: 'C', text: "Distribute modules as email attachments in zip files." },
-      { id: 'D', text: "Instruct teams to copy-paste raw HCL files between projects." }
+      { id: 'A', text: "Publish the modules to a private registry linked to the internal repositories." },
+      { id: 'B', text: "Publish the modules to the public registry under the company's namespace." },
+      { id: 'C', text: "Distribute the modules as archives in the internal artifact repository." },
+      { id: 'D', text: "Have each team vendor the module's files into its own repository." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -135,10 +135,10 @@ export const HASHICORP_TFA_QUESTIONS_16 = [
     scenario: "A large-scale multi-cloud platform experiences rapid infrastructure growth and requires automated, consistent provisioning across complex resource topologies. The Terraform engineer needs to share proprietary enterprise infrastructure modules securely across internal development teams with automated versioning.",
     question: "Which design pattern or Terraform capability manages this provisioning scale effectively while preventing configuration drift and deployment bottlenecks?",
     options: [
-      { id: 'A', text: "Distribute modules as email attachments in zip files." },
-      { id: 'B', text: "Instruct teams to copy-paste raw HCL files between projects." },
-      { id: 'C', text: "Publish the modules to a private module registry in HCP Terraform or Terraform Enterprise linked to internal Git repos." },
-      { id: 'D', text: "Publish proprietary company modules to the public Terraform Registry." }
+      { id: 'A', text: "Distribute the modules as archives in the internal artifact repository." },
+      { id: 'B', text: "Have each team vendor the module's files into its own repository." },
+      { id: 'C', text: "Publish the modules to a private registry linked to the internal repositories." },
+      { id: 'D', text: "Publish the modules to the public registry under the company's namespace." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -156,10 +156,10 @@ export const HASHICORP_TFA_QUESTIONS_16 = [
     scenario: "A cloud security auditor requires strict protection of sensitive state data, verified provider dependencies, and automated governance across all Terraform pipelines. The Terraform engineer needs to share proprietary enterprise infrastructure modules securely across internal development teams with automated versioning.",
     question: "Which solution implements these mandatory infrastructure as code security and governance controls?",
     options: [
-      { id: 'A', text: "Publish the modules to a private module registry in HCP Terraform or Terraform Enterprise linked to internal Git repos." },
-      { id: 'B', text: "Publish proprietary company modules to the public Terraform Registry." },
-      { id: 'C', text: "Distribute modules as email attachments in zip files." },
-      { id: 'D', text: "Instruct teams to copy-paste raw HCL files between projects." }
+      { id: 'A', text: "Publish the modules to a private registry linked to the internal repositories." },
+      { id: 'B', text: "Publish the modules to the public registry under the company's namespace." },
+      { id: 'C', text: "Distribute the modules as archives in the internal artifact repository." },
+      { id: 'D', text: "Have each team vendor the module's files into its own repository." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -177,10 +177,10 @@ export const HASHICORP_TFA_QUESTIONS_16 = [
     scenario: "An organization is transitioning from manual, console-driven infrastructure provisioning to automated, declarative infrastructure as code using Terraform. The Terraform engineer needs to share proprietary enterprise infrastructure modules securely across internal development teams with automated versioning.",
     question: "Which practice or platform feature enables the engineering team to modernize provisioning workflows with minimal operational friction?",
     options: [
-      { id: 'A', text: "Publish the modules to a private module registry in HCP Terraform or Terraform Enterprise linked to internal Git repos." },
-      { id: 'B', text: "Publish proprietary company modules to the public Terraform Registry." },
-      { id: 'C', text: "Distribute modules as email attachments in zip files." },
-      { id: 'D', text: "Instruct teams to copy-paste raw HCL files between projects." }
+      { id: 'A', text: "Publish the modules to a private registry linked to the internal repositories." },
+      { id: 'B', text: "Publish the modules to the public registry under the company's namespace." },
+      { id: 'C', text: "Distribute the modules as archives in the internal artifact repository." },
+      { id: 'D', text: "Have each team vendor the module's files into its own repository." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -198,10 +198,10 @@ export const HASHICORP_TFA_QUESTIONS_16 = [
     scenario: "A platform engineering team is optimizing infrastructure stability to eliminate single points of failure, streamline state refactoring, and ensure zero-downtime resource replacement. The Terraform engineer needs to share proprietary enterprise infrastructure modules securely across internal development teams with automated versioning.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
-      { id: 'A', text: "Distribute modules as email attachments in zip files." },
-      { id: 'B', text: "Instruct teams to copy-paste raw HCL files between projects." },
-      { id: 'C', text: "Publish the modules to a private module registry in HCP Terraform or Terraform Enterprise linked to internal Git repos." },
-      { id: 'D', text: "Publish proprietary company modules to the public Terraform Registry." }
+      { id: 'A', text: "Distribute the modules as archives in the internal artifact repository." },
+      { id: 'B', text: "Have each team vendor the module's files into its own repository." },
+      { id: 'C', text: "Publish the modules to a private registry linked to the internal repositories." },
+      { id: 'D', text: "Publish the modules to the public registry under the company's namespace." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -219,10 +219,10 @@ export const HASHICORP_TFA_QUESTIONS_16 = [
     scenario: "An enterprise cloud operations team is establishing high-availability standards, automated state recovery procedures, and infrastructure resilience baselines with Terraform. The Terraform engineer needs to deploy the same Terraform configuration to dev and staging environments using lightweight CLI workspaces on a single backend.",
     question: "Which architectural approach or configuration satisfies these infrastructure disaster recovery and operational resilience objectives?",
     options: [
-      { id: 'A', text: "Maintain separate directories with duplicate copied HCL files." },
-      { id: 'B', text: "Use `terraform workspace new dev` and `terraform workspace select dev` to maintain isolated state files for each environment." },
-      { id: 'C', text: "Change the backend S3 bucket path manually in code before every deployment." },
-      { id: 'D', text: "Over-write the production state file when deploying to dev." }
+      { id: 'A', text: "Keep a directory per environment, each with its own backend configuration." },
+      { id: 'B', text: "Use `terraform workspace new` and `select` so each environment has its own state." },
+      { id: 'C', text: "Change the backend key on the command line before each environment's apply." },
+      { id: 'D', text: "Use a variable for the environment and apply the same state for each one." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -240,10 +240,10 @@ export const HASHICORP_TFA_QUESTIONS_16 = [
     scenario: "A large-scale multi-cloud platform experiences rapid infrastructure growth and requires automated, consistent provisioning across complex resource topologies. The Terraform engineer needs to deploy the same Terraform configuration to dev and staging environments using lightweight CLI workspaces on a single backend.",
     question: "Which design pattern or Terraform capability manages this provisioning scale effectively while preventing configuration drift and deployment bottlenecks?",
     options: [
-      { id: 'A', text: "Over-write the production state file when deploying to dev." },
-      { id: 'B', text: "Use `terraform workspace new dev` and `terraform workspace select dev` to maintain isolated state files for each environment." },
-      { id: 'C', text: "Maintain separate directories with duplicate copied HCL files." },
-      { id: 'D', text: "Change the backend S3 bucket path manually in code before every deployment." }
+      { id: 'A', text: "Use a variable for the environment and apply the same state for each one." },
+      { id: 'B', text: "Use `terraform workspace new` and `select` so each environment has its own state." },
+      { id: 'C', text: "Keep a directory per environment, each with its own backend configuration." },
+      { id: 'D', text: "Change the backend key on the command line before each environment's apply." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -261,10 +261,10 @@ export const HASHICORP_TFA_QUESTIONS_16 = [
     scenario: "A cloud security auditor requires strict protection of sensitive state data, verified provider dependencies, and automated governance across all Terraform pipelines. The Terraform engineer needs to deploy the same Terraform configuration to dev and staging environments using lightweight CLI workspaces on a single backend.",
     question: "Which solution implements these mandatory infrastructure as code security and governance controls?",
     options: [
-      { id: 'A', text: "Use `terraform workspace new dev` and `terraform workspace select dev` to maintain isolated state files for each environment." },
-      { id: 'B', text: "Change the backend S3 bucket path manually in code before every deployment." },
-      { id: 'C', text: "Maintain separate directories with duplicate copied HCL files." },
-      { id: 'D', text: "Over-write the production state file when deploying to dev." }
+      { id: 'A', text: "Use `terraform workspace new` and `select` so each environment has its own state." },
+      { id: 'B', text: "Change the backend key on the command line before each environment's apply." },
+      { id: 'C', text: "Keep a directory per environment, each with its own backend configuration." },
+      { id: 'D', text: "Use a variable for the environment and apply the same state for each one." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -282,10 +282,10 @@ export const HASHICORP_TFA_QUESTIONS_16 = [
     scenario: "An organization is transitioning from manual, console-driven infrastructure provisioning to automated, declarative infrastructure as code using Terraform. The Terraform engineer needs to deploy the same Terraform configuration to dev and staging environments using lightweight CLI workspaces on a single backend.",
     question: "Which practice or platform feature enables the engineering team to modernize provisioning workflows with minimal operational friction?",
     options: [
-      { id: 'A', text: "Maintain separate directories with duplicate copied HCL files." },
-      { id: 'B', text: "Use `terraform workspace new dev` and `terraform workspace select dev` to maintain isolated state files for each environment." },
-      { id: 'C', text: "Change the backend S3 bucket path manually in code before every deployment." },
-      { id: 'D', text: "Over-write the production state file when deploying to dev." }
+      { id: 'A', text: "Keep a directory per environment, each with its own backend configuration." },
+      { id: 'B', text: "Use `terraform workspace new` and `select` so each environment has its own state." },
+      { id: 'C', text: "Change the backend key on the command line before each environment's apply." },
+      { id: 'D', text: "Use a variable for the environment and apply the same state for each one." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -303,10 +303,10 @@ export const HASHICORP_TFA_QUESTIONS_16 = [
     scenario: "A platform engineering team is optimizing infrastructure stability to eliminate single points of failure, streamline state refactoring, and ensure zero-downtime resource replacement. The Terraform engineer needs to deploy the same Terraform configuration to dev and staging environments using lightweight CLI workspaces on a single backend.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
-      { id: 'A', text: "Use `terraform workspace new dev` and `terraform workspace select dev` to maintain isolated state files for each environment." },
-      { id: 'B', text: "Maintain separate directories with duplicate copied HCL files." },
-      { id: 'C', text: "Over-write the production state file when deploying to dev." },
-      { id: 'D', text: "Change the backend S3 bucket path manually in code before every deployment." }
+      { id: 'A', text: "Use `terraform workspace new` and `select` so each environment has its own state." },
+      { id: 'B', text: "Keep a directory per environment, each with its own backend configuration." },
+      { id: 'C', text: "Use a variable for the environment and apply the same state for each one." },
+      { id: 'D', text: "Change the backend key on the command line before each environment's apply." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -324,10 +324,10 @@ export const HASHICORP_TFA_QUESTIONS_16 = [
     scenario: "An enterprise cloud operations team is establishing high-availability standards, automated state recovery procedures, and infrastructure resilience baselines with Terraform. The Terraform engineer needs to design an enterprise infrastructure repository structure separating production from development with distinct credentials and access control.",
     question: "Which architectural approach or configuration satisfies these infrastructure disaster recovery and operational resilience objectives?",
     options: [
-      { id: 'A', text: "Use separate directories (or repositories) with distinct backend configurations and IAM credentials rather than CLI workspaces." },
-      { id: 'B', text: "Use CLI workspaces for production and development sharing the same AWS administrative credentials." },
-      { id: 'C', text: "Put all environments in a single workspace separated only by resource tags." },
-      { id: 'D', text: "Share the production state file with all junior developers." }
+      { id: 'A', text: "Separate directories with their own backends and credentials" },
+      { id: 'B', text: "CLI workspaces for each environment, sharing one set of credentials." },
+      { id: 'C', text: "One workspace for everything, with the environments split by tags." },
+      { id: 'D', text: "One backend per environment, with the state shared to every engineer." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -345,10 +345,10 @@ export const HASHICORP_TFA_QUESTIONS_16 = [
     scenario: "A large-scale multi-cloud platform experiences rapid infrastructure growth and requires automated, consistent provisioning across complex resource topologies. The Terraform engineer needs to design an enterprise infrastructure repository structure separating production from development with distinct credentials and access control.",
     question: "Which design pattern or Terraform capability manages this provisioning scale effectively while preventing configuration drift and deployment bottlenecks?",
     options: [
-      { id: 'A', text: "Use CLI workspaces for production and development sharing the same AWS administrative credentials." },
-      { id: 'B', text: "Use separate directories (or repositories) with distinct backend configurations and IAM credentials rather than CLI workspaces." },
-      { id: 'C', text: "Share the production state file with all junior developers." },
-      { id: 'D', text: "Put all environments in a single workspace separated only by resource tags." }
+      { id: 'A', text: "CLI workspaces for each environment, sharing one set of credentials." },
+      { id: 'B', text: "Separate directories with their own backends and credentials" },
+      { id: 'C', text: "One backend per environment, with the state shared to every engineer." },
+      { id: 'D', text: "One workspace for everything, with the environments split by tags." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -366,10 +366,10 @@ export const HASHICORP_TFA_QUESTIONS_16 = [
     scenario: "A cloud security auditor requires strict protection of sensitive state data, verified provider dependencies, and automated governance across all Terraform pipelines. The Terraform engineer needs to design an enterprise infrastructure repository structure separating production from development with distinct credentials and access control.",
     question: "Which solution implements these mandatory infrastructure as code security and governance controls?",
     options: [
-      { id: 'A', text: "Put all environments in a single workspace separated only by resource tags." },
-      { id: 'B', text: "Share the production state file with all junior developers." },
-      { id: 'C', text: "Use separate directories (or repositories) with distinct backend configurations and IAM credentials rather than CLI workspaces." },
-      { id: 'D', text: "Use CLI workspaces for production and development sharing the same AWS administrative credentials." }
+      { id: 'A', text: "One workspace for everything, with the environments split by tags." },
+      { id: 'B', text: "One backend per environment, with the state shared to every engineer." },
+      { id: 'C', text: "Separate directories with their own backends and credentials" },
+      { id: 'D', text: "CLI workspaces for each environment, sharing one set of credentials." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -387,10 +387,10 @@ export const HASHICORP_TFA_QUESTIONS_16 = [
     scenario: "An organization is transitioning from manual, console-driven infrastructure provisioning to automated, declarative infrastructure as code using Terraform. The Terraform engineer needs to design an enterprise infrastructure repository structure separating production from development with distinct credentials and access control.",
     question: "Which practice or platform feature enables the engineering team to modernize provisioning workflows with minimal operational friction?",
     options: [
-      { id: 'A', text: "Use separate directories (or repositories) with distinct backend configurations and IAM credentials rather than CLI workspaces." },
-      { id: 'B', text: "Use CLI workspaces for production and development sharing the same AWS administrative credentials." },
-      { id: 'C', text: "Put all environments in a single workspace separated only by resource tags." },
-      { id: 'D', text: "Share the production state file with all junior developers." }
+      { id: 'A', text: "Separate directories with their own backends and credentials" },
+      { id: 'B', text: "CLI workspaces for each environment, sharing one set of credentials." },
+      { id: 'C', text: "One workspace for everything, with the environments split by tags." },
+      { id: 'D', text: "One backend per environment, with the state shared to every engineer." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -408,10 +408,10 @@ export const HASHICORP_TFA_QUESTIONS_16 = [
     scenario: "A platform engineering team is optimizing infrastructure stability to eliminate single points of failure, streamline state refactoring, and ensure zero-downtime resource replacement. The Terraform engineer needs to design an enterprise infrastructure repository structure separating production from development with distinct credentials and access control.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
-      { id: 'A', text: "Use separate directories (or repositories) with distinct backend configurations and IAM credentials rather than CLI workspaces." },
-      { id: 'B', text: "Use CLI workspaces for production and development sharing the same AWS administrative credentials." },
-      { id: 'C', text: "Put all environments in a single workspace separated only by resource tags." },
-      { id: 'D', text: "Share the production state file with all junior developers." }
+      { id: 'A', text: "Separate directories with their own backends and credentials" },
+      { id: 'B', text: "CLI workspaces for each environment, sharing one set of credentials." },
+      { id: 'C', text: "One workspace for everything, with the environments split by tags." },
+      { id: 'D', text: "One backend per environment, with the state shared to every engineer." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -429,10 +429,10 @@ export const HASHICORP_TFA_QUESTIONS_16 = [
     scenario: "An enterprise cloud operations team is establishing high-availability standards, automated state recovery procedures, and infrastructure resilience baselines with Terraform. The Terraform engineer needs to instantiate a reusable microservice infrastructure module for three different microservices ('auth', 'orders', 'payments') using a single module block.",
     question: "Which architectural approach or configuration satisfies these infrastructure disaster recovery and operational resilience objectives?",
     options: [
-      { id: 'A', text: "Copy-paste the module block three times with different names." },
-      { id: 'B', text: "Use a while loop inside the module HCL code." },
-      { id: 'C', text: "Modules cannot be iterated in Terraform." },
-      { id: 'D', text: "Add `for_each = toset([\"auth\", \"orders\", \"payments\"])` in the `module` block, referencing `each.key`." }
+      { id: 'A', text: "Three module blocks, one per service, each with its own name." },
+      { id: 'B', text: "`count = 3` on the module block, indexed by `count.index`." },
+      { id: 'C', text: "A `dynamic` block inside the module over the service list." },
+      { id: 'D', text: "`for_each = toset([...])` on the module block, keyed by `each.key`." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -450,10 +450,10 @@ export const HASHICORP_TFA_QUESTIONS_16 = [
     scenario: "A large-scale multi-cloud platform experiences rapid infrastructure growth and requires automated, consistent provisioning across complex resource topologies. The Terraform engineer needs to instantiate a reusable microservice infrastructure module for three different microservices ('auth', 'orders', 'payments') using a single module block.",
     question: "Which design pattern or Terraform capability manages this provisioning scale effectively while preventing configuration drift and deployment bottlenecks?",
     options: [
-      { id: 'A', text: "Add `for_each = toset([\"auth\", \"orders\", \"payments\"])` in the `module` block, referencing `each.key`." },
-      { id: 'B', text: "Copy-paste the module block three times with different names." },
-      { id: 'C', text: "Modules cannot be iterated in Terraform." },
-      { id: 'D', text: "Use a while loop inside the module HCL code." }
+      { id: 'A', text: "`for_each = toset([...])` on the module block, keyed by `each.key`." },
+      { id: 'B', text: "Three module blocks, one per service, each with its own name." },
+      { id: 'C', text: "A `dynamic` block inside the module over the service list." },
+      { id: 'D', text: "`count = 3` on the module block, indexed by `count.index`." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -471,10 +471,10 @@ export const HASHICORP_TFA_QUESTIONS_16 = [
     scenario: "A cloud security auditor requires strict protection of sensitive state data, verified provider dependencies, and automated governance across all Terraform pipelines. The Terraform engineer needs to instantiate a reusable microservice infrastructure module for three different microservices ('auth', 'orders', 'payments') using a single module block.",
     question: "Which solution implements these mandatory infrastructure as code security and governance controls?",
     options: [
-      { id: 'A', text: "Copy-paste the module block three times with different names." },
-      { id: 'B', text: "Use a while loop inside the module HCL code." },
-      { id: 'C', text: "Modules cannot be iterated in Terraform." },
-      { id: 'D', text: "Add `for_each = toset([\"auth\", \"orders\", \"payments\"])` in the `module` block, referencing `each.key`." }
+      { id: 'A', text: "Three module blocks, one per service, each with its own name." },
+      { id: 'B', text: "`count = 3` on the module block, indexed by `count.index`." },
+      { id: 'C', text: "A `dynamic` block inside the module over the service list." },
+      { id: 'D', text: "`for_each = toset([...])` on the module block, keyed by `each.key`." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -492,10 +492,10 @@ export const HASHICORP_TFA_QUESTIONS_16 = [
     scenario: "An organization is transitioning from manual, console-driven infrastructure provisioning to automated, declarative infrastructure as code using Terraform. The Terraform engineer needs to instantiate a reusable microservice infrastructure module for three different microservices ('auth', 'orders', 'payments') using a single module block.",
     question: "Which practice or platform feature enables the engineering team to modernize provisioning workflows with minimal operational friction?",
     options: [
-      { id: 'A', text: "Add `for_each = toset([\"auth\", \"orders\", \"payments\"])` in the `module` block, referencing `each.key`." },
-      { id: 'B', text: "Copy-paste the module block three times with different names." },
-      { id: 'C', text: "Modules cannot be iterated in Terraform." },
-      { id: 'D', text: "Use a while loop inside the module HCL code." }
+      { id: 'A', text: "`for_each = toset([...])` on the module block, keyed by `each.key`." },
+      { id: 'B', text: "Three module blocks, one per service, each with its own name." },
+      { id: 'C', text: "A `dynamic` block inside the module over the service list." },
+      { id: 'D', text: "`count = 3` on the module block, indexed by `count.index`." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -513,10 +513,10 @@ export const HASHICORP_TFA_QUESTIONS_16 = [
     scenario: "A platform engineering team is optimizing infrastructure stability to eliminate single points of failure, streamline state refactoring, and ensure zero-downtime resource replacement. The Terraform engineer needs to instantiate a reusable microservice infrastructure module for three different microservices ('auth', 'orders', 'payments') using a single module block.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
-      { id: 'A', text: "Add `for_each = toset([\"auth\", \"orders\", \"payments\"])` in the `module` block, referencing `each.key`." },
-      { id: 'B', text: "Copy-paste the module block three times with different names." },
-      { id: 'C', text: "Modules cannot be iterated in Terraform." },
-      { id: 'D', text: "Use a while loop inside the module HCL code." }
+      { id: 'A', text: "`for_each = toset([...])` on the module block, keyed by `each.key`." },
+      { id: 'B', text: "Three module blocks, one per service, each with its own name." },
+      { id: 'C', text: "A `dynamic` block inside the module over the service list." },
+      { id: 'D', text: "`count = 3` on the module block, indexed by `count.index`." }
     ],
     correctAnswers: ['A'],
     type: "single",

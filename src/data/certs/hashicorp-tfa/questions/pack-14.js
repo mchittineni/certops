@@ -9,10 +9,10 @@ export const HASHICORP_TFA_QUESTIONS_14 = [
     scenario: "An enterprise cloud operations team is establishing high-availability standards, automated state recovery procedures, and infrastructure resilience baselines with Terraform. The Terraform engineer needs to apply an approved Terraform plan inside an automated non-interactive CI/CD deployment pipeline without waiting for manual terminal confirmation.",
     question: "Which architectural approach or configuration satisfies these infrastructure disaster recovery and operational resilience objectives?",
     options: [
-      { id: 'A', text: "Run `terraform destroy` followed by `terraform init`." },
-      { id: 'B', text: "Disable all confirmation prompts by modifying the Terraform Go binary." },
-      { id: 'C', text: "Run `terraform apply` and write a custom expect script to type 'yes'." },
-      { id: 'D', text: "Execute `terraform apply -auto-approve` or apply a pre-generated plan file (`terraform apply tfplan`)." }
+      { id: 'A', text: "Run `terraform destroy` and then `terraform init` in sequence." },
+      { id: 'B', text: "Set `TF_INPUT=0`, which also skips the approval prompt itself." },
+      { id: 'C', text: "Pipe `yes` into the apply so the prompt is answered by the shell." },
+      { id: 'D', text: "Run `terraform apply -auto-approve`, or apply a saved plan file." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -30,10 +30,10 @@ export const HASHICORP_TFA_QUESTIONS_14 = [
     scenario: "A large-scale multi-cloud platform experiences rapid infrastructure growth and requires automated, consistent provisioning across complex resource topologies. The Terraform engineer needs to apply an approved Terraform plan inside an automated non-interactive CI/CD deployment pipeline without waiting for manual terminal confirmation.",
     question: "Which design pattern or Terraform capability manages this provisioning scale effectively while preventing configuration drift and deployment bottlenecks?",
     options: [
-      { id: 'A', text: "Run `terraform destroy` followed by `terraform init`." },
-      { id: 'B', text: "Disable all confirmation prompts by modifying the Terraform Go binary." },
-      { id: 'C', text: "Run `terraform apply` and write a custom expect script to type 'yes'." },
-      { id: 'D', text: "Execute `terraform apply -auto-approve` or apply a pre-generated plan file (`terraform apply tfplan`)." }
+      { id: 'A', text: "Run `terraform destroy` and then `terraform init` in sequence." },
+      { id: 'B', text: "Set `TF_INPUT=0`, which also skips the approval prompt itself." },
+      { id: 'C', text: "Pipe `yes` into the apply so the prompt is answered by the shell." },
+      { id: 'D', text: "Run `terraform apply -auto-approve`, or apply a saved plan file." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -51,10 +51,10 @@ export const HASHICORP_TFA_QUESTIONS_14 = [
     scenario: "A cloud security auditor requires strict protection of sensitive state data, verified provider dependencies, and automated governance across all Terraform pipelines. The Terraform engineer needs to apply an approved Terraform plan inside an automated non-interactive CI/CD deployment pipeline without waiting for manual terminal confirmation.",
     question: "Which solution implements these mandatory infrastructure as code security and governance controls?",
     options: [
-      { id: 'A', text: "Execute `terraform apply -auto-approve` or apply a pre-generated plan file (`terraform apply tfplan`)." },
-      { id: 'B', text: "Run `terraform apply` and write a custom expect script to type 'yes'." },
-      { id: 'C', text: "Disable all confirmation prompts by modifying the Terraform Go binary." },
-      { id: 'D', text: "Run `terraform destroy` followed by `terraform init`." }
+      { id: 'A', text: "Run `terraform apply -auto-approve`, or apply a saved plan file." },
+      { id: 'B', text: "Pipe `yes` into the apply so the prompt is answered by the shell." },
+      { id: 'C', text: "Set `TF_INPUT=0`, which also skips the approval prompt itself." },
+      { id: 'D', text: "Run `terraform destroy` and then `terraform init` in sequence." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -72,10 +72,10 @@ export const HASHICORP_TFA_QUESTIONS_14 = [
     scenario: "An organization is transitioning from manual, console-driven infrastructure provisioning to automated, declarative infrastructure as code using Terraform. The Terraform engineer needs to apply an approved Terraform plan inside an automated non-interactive CI/CD deployment pipeline without waiting for manual terminal confirmation.",
     question: "Which practice or platform feature enables the engineering team to modernize provisioning workflows with minimal operational friction?",
     options: [
-      { id: 'A', text: "Execute `terraform apply -auto-approve` or apply a pre-generated plan file (`terraform apply tfplan`)." },
-      { id: 'B', text: "Run `terraform apply` and write a custom expect script to type 'yes'." },
-      { id: 'C', text: "Disable all confirmation prompts by modifying the Terraform Go binary." },
-      { id: 'D', text: "Run `terraform destroy` followed by `terraform init`." }
+      { id: 'A', text: "Run `terraform apply -auto-approve`, or apply a saved plan file." },
+      { id: 'B', text: "Pipe `yes` into the apply so the prompt is answered by the shell." },
+      { id: 'C', text: "Set `TF_INPUT=0`, which also skips the approval prompt itself." },
+      { id: 'D', text: "Run `terraform destroy` and then `terraform init` in sequence." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -93,10 +93,10 @@ export const HASHICORP_TFA_QUESTIONS_14 = [
     scenario: "A platform engineering team is optimizing infrastructure stability to eliminate single points of failure, streamline state refactoring, and ensure zero-downtime resource replacement. The Terraform engineer needs to apply an approved Terraform plan inside an automated non-interactive CI/CD deployment pipeline without waiting for manual terminal confirmation.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
-      { id: 'A', text: "Run `terraform apply` and write a custom expect script to type 'yes'." },
-      { id: 'B', text: "Run `terraform destroy` followed by `terraform init`." },
-      { id: 'C', text: "Disable all confirmation prompts by modifying the Terraform Go binary." },
-      { id: 'D', text: "Execute `terraform apply -auto-approve` or apply a pre-generated plan file (`terraform apply tfplan`)." }
+      { id: 'A', text: "Pipe `yes` into the apply so the prompt is answered by the shell." },
+      { id: 'B', text: "Run `terraform destroy` and then `terraform init` in sequence." },
+      { id: 'C', text: "Set `TF_INPUT=0`, which also skips the approval prompt itself." },
+      { id: 'D', text: "Run `terraform apply -auto-approve`, or apply a saved plan file." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -116,7 +116,7 @@ export const HASHICORP_TFA_QUESTIONS_14 = [
     options: [
       { id: 'A', text: "Delete the Terraform state file from the remote S3 bucket." },
       { id: 'B', text: "Log into the cloud console and terminate instances manually, leaving orphaned storage." },
-      { id: 'C', text: "Run `terraform destroy` in the environment workspace and review the destruction plan before confirming." },
+      { id: 'C', text: "Run `terraform destroy` in that workspace and review the plan first." },
       { id: 'D', text: "Delete the `.terraform` folder on the local machine and assume cloud resources vanish." }
     ],
     correctAnswers: ['C'],
@@ -135,7 +135,7 @@ export const HASHICORP_TFA_QUESTIONS_14 = [
     scenario: "A large-scale multi-cloud platform experiences rapid infrastructure growth and requires automated, consistent provisioning across complex resource topologies. The Terraform engineer needs to safely tear down all resources created for a temporary development environment at the end of a testing cycle to stop incurring cloud costs.",
     question: "Which design pattern or Terraform capability manages this provisioning scale effectively while preventing configuration drift and deployment bottlenecks?",
     options: [
-      { id: 'A', text: "Run `terraform destroy` in the environment workspace and review the destruction plan before confirming." },
+      { id: 'A', text: "Run `terraform destroy` in that workspace and review the plan first." },
       { id: 'B', text: "Delete the `.terraform` folder on the local machine and assume cloud resources vanish." },
       { id: 'C', text: "Delete the Terraform state file from the remote S3 bucket." },
       { id: 'D', text: "Log into the cloud console and terminate instances manually, leaving orphaned storage." }
@@ -157,7 +157,7 @@ export const HASHICORP_TFA_QUESTIONS_14 = [
     question: "Which solution implements these mandatory infrastructure as code security and governance controls?",
     options: [
       { id: 'A', text: "Delete the Terraform state file from the remote S3 bucket." },
-      { id: 'B', text: "Run `terraform destroy` in the environment workspace and review the destruction plan before confirming." },
+      { id: 'B', text: "Run `terraform destroy` in that workspace and review the plan first." },
       { id: 'C', text: "Delete the `.terraform` folder on the local machine and assume cloud resources vanish." },
       { id: 'D', text: "Log into the cloud console and terminate instances manually, leaving orphaned storage." }
     ],
@@ -178,7 +178,7 @@ export const HASHICORP_TFA_QUESTIONS_14 = [
     question: "Which practice or platform feature enables the engineering team to modernize provisioning workflows with minimal operational friction?",
     options: [
       { id: 'A', text: "Delete the Terraform state file from the remote S3 bucket." },
-      { id: 'B', text: "Run `terraform destroy` in the environment workspace and review the destruction plan before confirming." },
+      { id: 'B', text: "Run `terraform destroy` in that workspace and review the plan first." },
       { id: 'C', text: "Delete the `.terraform` folder on the local machine and assume cloud resources vanish." },
       { id: 'D', text: "Log into the cloud console and terminate instances manually, leaving orphaned storage." }
     ],
@@ -201,7 +201,7 @@ export const HASHICORP_TFA_QUESTIONS_14 = [
       { id: 'A', text: "Delete the Terraform state file from the remote S3 bucket." },
       { id: 'B', text: "Delete the `.terraform` folder on the local machine and assume cloud resources vanish." },
       { id: 'C', text: "Log into the cloud console and terminate instances manually, leaving orphaned storage." },
-      { id: 'D', text: "Run `terraform destroy` in the environment workspace and review the destruction plan before confirming." }
+      { id: 'D', text: "Run `terraform destroy` in that workspace and review the plan first." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -219,10 +219,10 @@ export const HASHICORP_TFA_QUESTIONS_14 = [
     scenario: "An enterprise cloud operations team is establishing high-availability standards, automated state recovery procedures, and infrastructure resilience baselines with Terraform. The Terraform engineer needs to enforce standardized HCL formatting and verify internal syntax and attribute consistency in a pre-commit hook or pull request pipeline.",
     question: "Which architectural approach or configuration satisfies these infrastructure disaster recovery and operational resilience objectives?",
     options: [
-      { id: 'A', text: "Run `terraform fmt -check` to verify canonical style and `terraform validate` to verify syntax, types, and resource attributes." },
-      { id: 'B', text: "Use a generic JSON linter that cannot parse HCL." },
-      { id: 'C', text: "Assume developer text editors always produce canonical HCL formatting." },
-      { id: 'D', text: "Run `terraform apply` against production to see if syntax errors exist." }
+      { id: 'A', text: "Run `terraform fmt -check` for the style and `terraform validate` for the syntax." },
+      { id: 'B', text: "Run a JSON linter over the files, since HCL is a superset of JSON." },
+      { id: 'C', text: "Run `terraform plan` in the pull request, which reports any syntax error." },
+      { id: 'D', text: "Run `terraform apply` against a scratch workspace to surface the errors." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -240,10 +240,10 @@ export const HASHICORP_TFA_QUESTIONS_14 = [
     scenario: "A large-scale multi-cloud platform experiences rapid infrastructure growth and requires automated, consistent provisioning across complex resource topologies. The Terraform engineer needs to enforce standardized HCL formatting and verify internal syntax and attribute consistency in a pre-commit hook or pull request pipeline.",
     question: "Which design pattern or Terraform capability manages this provisioning scale effectively while preventing configuration drift and deployment bottlenecks?",
     options: [
-      { id: 'A', text: "Run `terraform fmt -check` to verify canonical style and `terraform validate` to verify syntax, types, and resource attributes." },
-      { id: 'B', text: "Run `terraform apply` against production to see if syntax errors exist." },
-      { id: 'C', text: "Use a generic JSON linter that cannot parse HCL." },
-      { id: 'D', text: "Assume developer text editors always produce canonical HCL formatting." }
+      { id: 'A', text: "Run `terraform fmt -check` for the style and `terraform validate` for the syntax." },
+      { id: 'B', text: "Run `terraform apply` against a scratch workspace to surface the errors." },
+      { id: 'C', text: "Run a JSON linter over the files, since HCL is a superset of JSON." },
+      { id: 'D', text: "Run `terraform plan` in the pull request, which reports any syntax error." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -261,10 +261,10 @@ export const HASHICORP_TFA_QUESTIONS_14 = [
     scenario: "A cloud security auditor requires strict protection of sensitive state data, verified provider dependencies, and automated governance across all Terraform pipelines. The Terraform engineer needs to enforce standardized HCL formatting and verify internal syntax and attribute consistency in a pre-commit hook or pull request pipeline.",
     question: "Which solution implements these mandatory infrastructure as code security and governance controls?",
     options: [
-      { id: 'A', text: "Run `terraform fmt -check` to verify canonical style and `terraform validate` to verify syntax, types, and resource attributes." },
-      { id: 'B', text: "Run `terraform apply` against production to see if syntax errors exist." },
-      { id: 'C', text: "Use a generic JSON linter that cannot parse HCL." },
-      { id: 'D', text: "Assume developer text editors always produce canonical HCL formatting." }
+      { id: 'A', text: "Run `terraform fmt -check` for the style and `terraform validate` for the syntax." },
+      { id: 'B', text: "Run `terraform apply` against a scratch workspace to surface the errors." },
+      { id: 'C', text: "Run a JSON linter over the files, since HCL is a superset of JSON." },
+      { id: 'D', text: "Run `terraform plan` in the pull request, which reports any syntax error." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -282,10 +282,10 @@ export const HASHICORP_TFA_QUESTIONS_14 = [
     scenario: "An organization is transitioning from manual, console-driven infrastructure provisioning to automated, declarative infrastructure as code using Terraform. The Terraform engineer needs to enforce standardized HCL formatting and verify internal syntax and attribute consistency in a pre-commit hook or pull request pipeline.",
     question: "Which practice or platform feature enables the engineering team to modernize provisioning workflows with minimal operational friction?",
     options: [
-      { id: 'A', text: "Run `terraform apply` against production to see if syntax errors exist." },
-      { id: 'B', text: "Use a generic JSON linter that cannot parse HCL." },
-      { id: 'C', text: "Run `terraform fmt -check` to verify canonical style and `terraform validate` to verify syntax, types, and resource attributes." },
-      { id: 'D', text: "Assume developer text editors always produce canonical HCL formatting." }
+      { id: 'A', text: "Run `terraform apply` against a scratch workspace to surface the errors." },
+      { id: 'B', text: "Run a JSON linter over the files, since HCL is a superset of JSON." },
+      { id: 'C', text: "Run `terraform fmt -check` for the style and `terraform validate` for the syntax." },
+      { id: 'D', text: "Run `terraform plan` in the pull request, which reports any syntax error." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -303,10 +303,10 @@ export const HASHICORP_TFA_QUESTIONS_14 = [
     scenario: "A platform engineering team is optimizing infrastructure stability to eliminate single points of failure, streamline state refactoring, and ensure zero-downtime resource replacement. The Terraform engineer needs to enforce standardized HCL formatting and verify internal syntax and attribute consistency in a pre-commit hook or pull request pipeline.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
-      { id: 'A', text: "Assume developer text editors always produce canonical HCL formatting." },
-      { id: 'B', text: "Use a generic JSON linter that cannot parse HCL." },
-      { id: 'C', text: "Run `terraform apply` against production to see if syntax errors exist." },
-      { id: 'D', text: "Run `terraform fmt -check` to verify canonical style and `terraform validate` to verify syntax, types, and resource attributes." }
+      { id: 'A', text: "Run `terraform plan` in the pull request, which reports any syntax error." },
+      { id: 'B', text: "Run a JSON linter over the files, since HCL is a superset of JSON." },
+      { id: 'C', text: "Run `terraform apply` against a scratch workspace to surface the errors." },
+      { id: 'D', text: "Run `terraform fmt -check` for the style and `terraform validate` for the syntax." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -327,7 +327,7 @@ export const HASHICORP_TFA_QUESTIONS_14 = [
       { id: 'A', text: "Log into the cloud console to find the instance IP by hand." },
       { id: 'B', text: "Execute `terraform output -raw instance_public_ip` to extract the raw string value." },
       { id: 'C', text: "Run `terraform plan` and parse terminal text output with regex." },
-      { id: 'D', text: "Open the `.tfstate` JSON file with vi and manually copy-paste the IP." }
+      { id: 'D', text: "Read the address out of the state document with a JSON query." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -346,7 +346,7 @@ export const HASHICORP_TFA_QUESTIONS_14 = [
     question: "Which design pattern or Terraform capability manages this provisioning scale effectively while preventing configuration drift and deployment bottlenecks?",
     options: [
       { id: 'A', text: "Execute `terraform output -raw instance_public_ip` to extract the raw string value." },
-      { id: 'B', text: "Open the `.tfstate` JSON file with vi and manually copy-paste the IP." },
+      { id: 'B', text: "Read the address out of the state document with a JSON query." },
       { id: 'C', text: "Run `terraform plan` and parse terminal text output with regex." },
       { id: 'D', text: "Log into the cloud console to find the instance IP by hand." }
     ],
@@ -369,7 +369,7 @@ export const HASHICORP_TFA_QUESTIONS_14 = [
       { id: 'A', text: "Log into the cloud console to find the instance IP by hand." },
       { id: 'B', text: "Execute `terraform output -raw instance_public_ip` to extract the raw string value." },
       { id: 'C', text: "Run `terraform plan` and parse terminal text output with regex." },
-      { id: 'D', text: "Open the `.tfstate` JSON file with vi and manually copy-paste the IP." }
+      { id: 'D', text: "Read the address out of the state document with a JSON query." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -390,7 +390,7 @@ export const HASHICORP_TFA_QUESTIONS_14 = [
       { id: 'A', text: "Execute `terraform output -raw instance_public_ip` to extract the raw string value." },
       { id: 'B', text: "Run `terraform plan` and parse terminal text output with regex." },
       { id: 'C', text: "Log into the cloud console to find the instance IP by hand." },
-      { id: 'D', text: "Open the `.tfstate` JSON file with vi and manually copy-paste the IP." }
+      { id: 'D', text: "Read the address out of the state document with a JSON query." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -409,7 +409,7 @@ export const HASHICORP_TFA_QUESTIONS_14 = [
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
       { id: 'A', text: "Log into the cloud console to find the instance IP by hand." },
-      { id: 'B', text: "Open the `.tfstate` JSON file with vi and manually copy-paste the IP." },
+      { id: 'B', text: "Read the address out of the state document with a JSON query." },
       { id: 'C', text: "Execute `terraform output -raw instance_public_ip` to extract the raw string value." },
       { id: 'D', text: "Run `terraform plan` and parse terminal text output with regex." }
     ],
@@ -429,10 +429,10 @@ export const HASHICORP_TFA_QUESTIONS_14 = [
     scenario: "An enterprise cloud operations team is establishing high-availability standards, automated state recovery procedures, and infrastructure resilience baselines with Terraform. The Terraform engineer needs to view all resources currently tracked in the state file and inspect the detailed attributes of a specific security group.",
     question: "Which architectural approach or configuration satisfies these infrastructure disaster recovery and operational resilience objectives?",
     options: [
-      { id: 'A', text: "Run `cat terraform.tfstate` and scroll through thousands of lines of JSON." },
-      { id: 'B', text: "Open the remote S3 state file in an external hex editor." },
-      { id: 'C', text: "Run `terraform state list` to see all resource addresses, and `terraform state show aws_security_group.web` to view attributes." },
-      { id: 'D', text: "Run `terraform destroy` to see what resources get listed." }
+      { id: 'A', text: "Run `terraform show` and read the rendered state from the top of the output." },
+      { id: 'B', text: "Run `terraform state pull` and search the downloaded document by hand." },
+      { id: 'C', text: "Run `terraform state list` for the addresses, then `state show` for the attributes." },
+      { id: 'D', text: "Run `terraform plan` and read the resources it reports as unchanged." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -450,10 +450,10 @@ export const HASHICORP_TFA_QUESTIONS_14 = [
     scenario: "A large-scale multi-cloud platform experiences rapid infrastructure growth and requires automated, consistent provisioning across complex resource topologies. The Terraform engineer needs to view all resources currently tracked in the state file and inspect the detailed attributes of a specific security group.",
     question: "Which design pattern or Terraform capability manages this provisioning scale effectively while preventing configuration drift and deployment bottlenecks?",
     options: [
-      { id: 'A', text: "Run `cat terraform.tfstate` and scroll through thousands of lines of JSON." },
-      { id: 'B', text: "Run `terraform destroy` to see what resources get listed." },
-      { id: 'C', text: "Open the remote S3 state file in an external hex editor." },
-      { id: 'D', text: "Run `terraform state list` to see all resource addresses, and `terraform state show aws_security_group.web` to view attributes." }
+      { id: 'A', text: "Run `terraform show` and read the rendered state from the top of the output." },
+      { id: 'B', text: "Run `terraform plan` and read the resources it reports as unchanged." },
+      { id: 'C', text: "Run `terraform state pull` and search the downloaded document by hand." },
+      { id: 'D', text: "Run `terraform state list` for the addresses, then `state show` for the attributes." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -471,10 +471,10 @@ export const HASHICORP_TFA_QUESTIONS_14 = [
     scenario: "A cloud security auditor requires strict protection of sensitive state data, verified provider dependencies, and automated governance across all Terraform pipelines. The Terraform engineer needs to view all resources currently tracked in the state file and inspect the detailed attributes of a specific security group.",
     question: "Which solution implements these mandatory infrastructure as code security and governance controls?",
     options: [
-      { id: 'A', text: "Run `cat terraform.tfstate` and scroll through thousands of lines of JSON." },
-      { id: 'B', text: "Open the remote S3 state file in an external hex editor." },
-      { id: 'C', text: "Run `terraform state list` to see all resource addresses, and `terraform state show aws_security_group.web` to view attributes." },
-      { id: 'D', text: "Run `terraform destroy` to see what resources get listed." }
+      { id: 'A', text: "Run `terraform show` and read the rendered state from the top of the output." },
+      { id: 'B', text: "Run `terraform state pull` and search the downloaded document by hand." },
+      { id: 'C', text: "Run `terraform state list` for the addresses, then `state show` for the attributes." },
+      { id: 'D', text: "Run `terraform plan` and read the resources it reports as unchanged." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -492,10 +492,10 @@ export const HASHICORP_TFA_QUESTIONS_14 = [
     scenario: "An organization is transitioning from manual, console-driven infrastructure provisioning to automated, declarative infrastructure as code using Terraform. The Terraform engineer needs to view all resources currently tracked in the state file and inspect the detailed attributes of a specific security group.",
     question: "Which practice or platform feature enables the engineering team to modernize provisioning workflows with minimal operational friction?",
     options: [
-      { id: 'A', text: "Run `cat terraform.tfstate` and scroll through thousands of lines of JSON." },
-      { id: 'B', text: "Run `terraform destroy` to see what resources get listed." },
-      { id: 'C', text: "Open the remote S3 state file in an external hex editor." },
-      { id: 'D', text: "Run `terraform state list` to see all resource addresses, and `terraform state show aws_security_group.web` to view attributes." }
+      { id: 'A', text: "Run `terraform show` and read the rendered state from the top of the output." },
+      { id: 'B', text: "Run `terraform plan` and read the resources it reports as unchanged." },
+      { id: 'C', text: "Run `terraform state pull` and search the downloaded document by hand." },
+      { id: 'D', text: "Run `terraform state list` for the addresses, then `state show` for the attributes." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -513,10 +513,10 @@ export const HASHICORP_TFA_QUESTIONS_14 = [
     scenario: "A platform engineering team is optimizing infrastructure stability to eliminate single points of failure, streamline state refactoring, and ensure zero-downtime resource replacement. The Terraform engineer needs to view all resources currently tracked in the state file and inspect the detailed attributes of a specific security group.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
-      { id: 'A', text: "Run `cat terraform.tfstate` and scroll through thousands of lines of JSON." },
-      { id: 'B', text: "Run `terraform destroy` to see what resources get listed." },
-      { id: 'C', text: "Open the remote S3 state file in an external hex editor." },
-      { id: 'D', text: "Run `terraform state list` to see all resource addresses, and `terraform state show aws_security_group.web` to view attributes." }
+      { id: 'A', text: "Run `terraform show` and read the rendered state from the top of the output." },
+      { id: 'B', text: "Run `terraform plan` and read the resources it reports as unchanged." },
+      { id: 'C', text: "Run `terraform state pull` and search the downloaded document by hand." },
+      { id: 'D', text: "Run `terraform state list` for the addresses, then `state show` for the attributes." }
     ],
     correctAnswers: ['D'],
     type: "single",

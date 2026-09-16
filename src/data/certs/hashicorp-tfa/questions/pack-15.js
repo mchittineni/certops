@@ -9,10 +9,10 @@ export const HASHICORP_TFA_QUESTIONS_15 = [
     scenario: "An enterprise cloud operations team is establishing high-availability standards, automated state recovery procedures, and infrastructure resilience baselines with Terraform. The Terraform engineer needs to bring an existing AWS S3 bucket created manually in the AWS Console under Terraform management without deleting or recreating the bucket.",
     question: "Which architectural approach or configuration satisfies these infrastructure disaster recovery and operational resilience objectives?",
     options: [
-      { id: 'A', text: "Terraform cannot manage resources that were created outside of Terraform." },
-      { id: 'B', text: "Manually edit the JSON state file to fabricate resource metadata." },
-      { id: 'C', text: "Delete the bucket in the console and recreate it via `terraform apply`." },
-      { id: 'D', text: "Write the `resource \"aws_s3_bucket\" \"app\" {}` configuration and execute `terraform import aws_s3_bucket.app &lt;bucket-name&gt;` (or use an `import {}` block)." }
+      { id: 'A', text: "Write the `aws_s3_bucket` block and run `terraform apply`, which adopts the existing bucket." },
+      { id: 'B', text: "Write the block and add a `moved` block naming the bucket's existing physical name." },
+      { id: 'C', text: "Delete the bucket in the console and let `terraform apply` create it afresh." },
+      { id: 'D', text: "Write the `aws_s3_bucket` block and run `terraform import` for it, or use an `import {}` block." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -30,10 +30,10 @@ export const HASHICORP_TFA_QUESTIONS_15 = [
     scenario: "A large-scale multi-cloud platform experiences rapid infrastructure growth and requires automated, consistent provisioning across complex resource topologies. The Terraform engineer needs to bring an existing AWS S3 bucket created manually in the AWS Console under Terraform management without deleting or recreating the bucket.",
     question: "Which design pattern or Terraform capability manages this provisioning scale effectively while preventing configuration drift and deployment bottlenecks?",
     options: [
-      { id: 'A', text: "Delete the bucket in the console and recreate it via `terraform apply`." },
-      { id: 'B', text: "Write the `resource \"aws_s3_bucket\" \"app\" {}` configuration and execute `terraform import aws_s3_bucket.app &lt;bucket-name&gt;` (or use an `import {}` block)." },
-      { id: 'C', text: "Terraform cannot manage resources that were created outside of Terraform." },
-      { id: 'D', text: "Manually edit the JSON state file to fabricate resource metadata." }
+      { id: 'A', text: "Delete the bucket in the console and let `terraform apply` create it afresh." },
+      { id: 'B', text: "Write the `aws_s3_bucket` block and run `terraform import` for it, or use an `import {}` block." },
+      { id: 'C', text: "Write the `aws_s3_bucket` block and run `terraform apply`, which adopts the existing bucket." },
+      { id: 'D', text: "Write the block and add a `moved` block naming the bucket's existing physical name." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -51,10 +51,10 @@ export const HASHICORP_TFA_QUESTIONS_15 = [
     scenario: "A cloud security auditor requires strict protection of sensitive state data, verified provider dependencies, and automated governance across all Terraform pipelines. The Terraform engineer needs to bring an existing AWS S3 bucket created manually in the AWS Console under Terraform management without deleting or recreating the bucket.",
     question: "Which solution implements these mandatory infrastructure as code security and governance controls?",
     options: [
-      { id: 'A', text: "Manually edit the JSON state file to fabricate resource metadata." },
-      { id: 'B', text: "Terraform cannot manage resources that were created outside of Terraform." },
-      { id: 'C', text: "Write the `resource \"aws_s3_bucket\" \"app\" {}` configuration and execute `terraform import aws_s3_bucket.app &lt;bucket-name&gt;` (or use an `import {}` block)." },
-      { id: 'D', text: "Delete the bucket in the console and recreate it via `terraform apply`." }
+      { id: 'A', text: "Write the block and add a `moved` block naming the bucket's existing physical name." },
+      { id: 'B', text: "Write the `aws_s3_bucket` block and run `terraform apply`, which adopts the existing bucket." },
+      { id: 'C', text: "Write the `aws_s3_bucket` block and run `terraform import` for it, or use an `import {}` block." },
+      { id: 'D', text: "Delete the bucket in the console and let `terraform apply` create it afresh." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -72,10 +72,10 @@ export const HASHICORP_TFA_QUESTIONS_15 = [
     scenario: "An organization is transitioning from manual, console-driven infrastructure provisioning to automated, declarative infrastructure as code using Terraform. The Terraform engineer needs to bring an existing AWS S3 bucket created manually in the AWS Console under Terraform management without deleting or recreating the bucket.",
     question: "Which practice or platform feature enables the engineering team to modernize provisioning workflows with minimal operational friction?",
     options: [
-      { id: 'A', text: "Write the `resource \"aws_s3_bucket\" \"app\" {}` configuration and execute `terraform import aws_s3_bucket.app &lt;bucket-name&gt;` (or use an `import {}` block)." },
-      { id: 'B', text: "Delete the bucket in the console and recreate it via `terraform apply`." },
-      { id: 'C', text: "Manually edit the JSON state file to fabricate resource metadata." },
-      { id: 'D', text: "Terraform cannot manage resources that were created outside of Terraform." }
+      { id: 'A', text: "Write the `aws_s3_bucket` block and run `terraform import` for it, or use an `import {}` block." },
+      { id: 'B', text: "Delete the bucket in the console and let `terraform apply` create it afresh." },
+      { id: 'C', text: "Write the block and add a `moved` block naming the bucket's existing physical name." },
+      { id: 'D', text: "Write the `aws_s3_bucket` block and run `terraform apply`, which adopts the existing bucket." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -93,10 +93,10 @@ export const HASHICORP_TFA_QUESTIONS_15 = [
     scenario: "A platform engineering team is optimizing infrastructure stability to eliminate single points of failure, streamline state refactoring, and ensure zero-downtime resource replacement. The Terraform engineer needs to bring an existing AWS S3 bucket created manually in the AWS Console under Terraform management without deleting or recreating the bucket.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
-      { id: 'A', text: "Write the `resource \"aws_s3_bucket\" \"app\" {}` configuration and execute `terraform import aws_s3_bucket.app &lt;bucket-name&gt;` (or use an `import {}` block)." },
-      { id: 'B', text: "Terraform cannot manage resources that were created outside of Terraform." },
-      { id: 'C', text: "Delete the bucket in the console and recreate it via `terraform apply`." },
-      { id: 'D', text: "Manually edit the JSON state file to fabricate resource metadata." }
+      { id: 'A', text: "Write the `aws_s3_bucket` block and run `terraform import` for it, or use an `import {}` block." },
+      { id: 'B', text: "Write the `aws_s3_bucket` block and run `terraform apply`, which adopts the existing bucket." },
+      { id: 'C', text: "Delete the bucket in the console and let `terraform apply` create it afresh." },
+      { id: 'D', text: "Write the block and add a `moved` block naming the bucket's existing physical name." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -114,10 +114,10 @@ export const HASHICORP_TFA_QUESTIONS_15 = [
     scenario: "An enterprise cloud operations team is establishing high-availability standards, automated state recovery procedures, and infrastructure resilience baselines with Terraform. The Terraform engineer needs to update the Terraform state file to reflect an out-of-band tag update on an EC2 instance without applying any other configuration changes.",
     question: "Which architectural approach or configuration satisfies these infrastructure disaster recovery and operational resilience objectives?",
     options: [
-      { id: 'A', text: "Run `terraform apply` with breaking code modifications." },
-      { id: 'B', text: "Execute `terraform plan -refresh-only` to review detected state differences, followed by `terraform apply -refresh-only`." },
-      { id: 'C', text: "Delete the EC2 instance and re-provision it." },
-      { id: 'D', text: "Manually edit the JSON state file to type in the new tag." }
+      { id: 'A', text: "Run `terraform apply` so the configuration overwrites the manual change." },
+      { id: 'B', text: "Run `terraform plan -refresh-only`, then apply it to record the observed change." },
+      { id: 'C', text: "Run `terraform taint` on the instance so the next apply replaces it." },
+      { id: 'D', text: "Run `terraform state pull`, edit the tag, and push the state back." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -135,10 +135,10 @@ export const HASHICORP_TFA_QUESTIONS_15 = [
     scenario: "A large-scale multi-cloud platform experiences rapid infrastructure growth and requires automated, consistent provisioning across complex resource topologies. The Terraform engineer needs to update the Terraform state file to reflect an out-of-band tag update on an EC2 instance without applying any other configuration changes.",
     question: "Which design pattern or Terraform capability manages this provisioning scale effectively while preventing configuration drift and deployment bottlenecks?",
     options: [
-      { id: 'A', text: "Execute `terraform plan -refresh-only` to review detected state differences, followed by `terraform apply -refresh-only`." },
-      { id: 'B', text: "Run `terraform apply` with breaking code modifications." },
-      { id: 'C', text: "Manually edit the JSON state file to type in the new tag." },
-      { id: 'D', text: "Delete the EC2 instance and re-provision it." }
+      { id: 'A', text: "Run `terraform plan -refresh-only`, then apply it to record the observed change." },
+      { id: 'B', text: "Run `terraform apply` so the configuration overwrites the manual change." },
+      { id: 'C', text: "Run `terraform state pull`, edit the tag, and push the state back." },
+      { id: 'D', text: "Run `terraform taint` on the instance so the next apply replaces it." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -156,10 +156,10 @@ export const HASHICORP_TFA_QUESTIONS_15 = [
     scenario: "A cloud security auditor requires strict protection of sensitive state data, verified provider dependencies, and automated governance across all Terraform pipelines. The Terraform engineer needs to update the Terraform state file to reflect an out-of-band tag update on an EC2 instance without applying any other configuration changes.",
     question: "Which solution implements these mandatory infrastructure as code security and governance controls?",
     options: [
-      { id: 'A', text: "Execute `terraform plan -refresh-only` to review detected state differences, followed by `terraform apply -refresh-only`." },
-      { id: 'B', text: "Run `terraform apply` with breaking code modifications." },
-      { id: 'C', text: "Manually edit the JSON state file to type in the new tag." },
-      { id: 'D', text: "Delete the EC2 instance and re-provision it." }
+      { id: 'A', text: "Run `terraform plan -refresh-only`, then apply it to record the observed change." },
+      { id: 'B', text: "Run `terraform apply` so the configuration overwrites the manual change." },
+      { id: 'C', text: "Run `terraform state pull`, edit the tag, and push the state back." },
+      { id: 'D', text: "Run `terraform taint` on the instance so the next apply replaces it." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -177,10 +177,10 @@ export const HASHICORP_TFA_QUESTIONS_15 = [
     scenario: "An organization is transitioning from manual, console-driven infrastructure provisioning to automated, declarative infrastructure as code using Terraform. The Terraform engineer needs to update the Terraform state file to reflect an out-of-band tag update on an EC2 instance without applying any other configuration changes.",
     question: "Which practice or platform feature enables the engineering team to modernize provisioning workflows with minimal operational friction?",
     options: [
-      { id: 'A', text: "Manually edit the JSON state file to type in the new tag." },
-      { id: 'B', text: "Delete the EC2 instance and re-provision it." },
-      { id: 'C', text: "Execute `terraform plan -refresh-only` to review detected state differences, followed by `terraform apply -refresh-only`." },
-      { id: 'D', text: "Run `terraform apply` with breaking code modifications." }
+      { id: 'A', text: "Run `terraform state pull`, edit the tag, and push the state back." },
+      { id: 'B', text: "Run `terraform taint` on the instance so the next apply replaces it." },
+      { id: 'C', text: "Run `terraform plan -refresh-only`, then apply it to record the observed change." },
+      { id: 'D', text: "Run `terraform apply` so the configuration overwrites the manual change." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -198,10 +198,10 @@ export const HASHICORP_TFA_QUESTIONS_15 = [
     scenario: "A platform engineering team is optimizing infrastructure stability to eliminate single points of failure, streamline state refactoring, and ensure zero-downtime resource replacement. The Terraform engineer needs to update the Terraform state file to reflect an out-of-band tag update on an EC2 instance without applying any other configuration changes.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
-      { id: 'A', text: "Execute `terraform plan -refresh-only` to review detected state differences, followed by `terraform apply -refresh-only`." },
-      { id: 'B', text: "Run `terraform apply` with breaking code modifications." },
-      { id: 'C', text: "Manually edit the JSON state file to type in the new tag." },
-      { id: 'D', text: "Delete the EC2 instance and re-provision it." }
+      { id: 'A', text: "Run `terraform plan -refresh-only`, then apply it to record the observed change." },
+      { id: 'B', text: "Run `terraform apply` so the configuration overwrites the manual change." },
+      { id: 'C', text: "Run `terraform state pull`, edit the tag, and push the state back." },
+      { id: 'D', text: "Run `terraform taint` on the instance so the next apply replaces it." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -219,10 +219,10 @@ export const HASHICORP_TFA_QUESTIONS_15 = [
     scenario: "An enterprise cloud operations team is establishing high-availability standards, automated state recovery procedures, and infrastructure resilience baselines with Terraform. The Terraform engineer needs to troubleshoot an obscure HTTP 403 Forbidden API error returned by a cloud provider plugin during `terraform apply`.",
     question: "Which architectural approach or configuration satisfies these infrastructure disaster recovery and operational resilience objectives?",
     options: [
-      { id: 'A', text: "Decompile the Terraform Go binary using a disassembler." },
-      { id: 'B', text: "Set `export TF_LOG=DEBUG` (or `TRACE`) and optionally `TF_LOG_PATH=terraform.log` before executing the command." },
-      { id: 'C', text: "Reboot the operating system and re-run the command." },
-      { id: 'D', text: "Disable all logging to prevent seeing error messages." }
+      { id: 'A', text: "Set `TF_LOG_PROVIDER=TRACE` alone, which covers the core as well." },
+      { id: 'B', text: "Set `TF_LOG=DEBUG`, and `TF_LOG_PATH` to capture the output to a file." },
+      { id: 'C', text: "Run the command with `-verbose`, which raises the logging level." },
+      { id: 'D', text: "Set `TF_LOG=OFF` and read the crash log the run leaves behind." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -240,10 +240,10 @@ export const HASHICORP_TFA_QUESTIONS_15 = [
     scenario: "A large-scale multi-cloud platform experiences rapid infrastructure growth and requires automated, consistent provisioning across complex resource topologies. The Terraform engineer needs to troubleshoot an obscure HTTP 403 Forbidden API error returned by a cloud provider plugin during `terraform apply`.",
     question: "Which design pattern or Terraform capability manages this provisioning scale effectively while preventing configuration drift and deployment bottlenecks?",
     options: [
-      { id: 'A', text: "Set `export TF_LOG=DEBUG` (or `TRACE`) and optionally `TF_LOG_PATH=terraform.log` before executing the command." },
-      { id: 'B', text: "Decompile the Terraform Go binary using a disassembler." },
-      { id: 'C', text: "Disable all logging to prevent seeing error messages." },
-      { id: 'D', text: "Reboot the operating system and re-run the command." }
+      { id: 'A', text: "Set `TF_LOG=DEBUG`, and `TF_LOG_PATH` to capture the output to a file." },
+      { id: 'B', text: "Set `TF_LOG_PROVIDER=TRACE` alone, which covers the core as well." },
+      { id: 'C', text: "Set `TF_LOG=OFF` and read the crash log the run leaves behind." },
+      { id: 'D', text: "Run the command with `-verbose`, which raises the logging level." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -261,10 +261,10 @@ export const HASHICORP_TFA_QUESTIONS_15 = [
     scenario: "A cloud security auditor requires strict protection of sensitive state data, verified provider dependencies, and automated governance across all Terraform pipelines. The Terraform engineer needs to troubleshoot an obscure HTTP 403 Forbidden API error returned by a cloud provider plugin during `terraform apply`.",
     question: "Which solution implements these mandatory infrastructure as code security and governance controls?",
     options: [
-      { id: 'A', text: "Set `export TF_LOG=DEBUG` (or `TRACE`) and optionally `TF_LOG_PATH=terraform.log` before executing the command." },
-      { id: 'B', text: "Decompile the Terraform Go binary using a disassembler." },
-      { id: 'C', text: "Disable all logging to prevent seeing error messages." },
-      { id: 'D', text: "Reboot the operating system and re-run the command." }
+      { id: 'A', text: "Set `TF_LOG=DEBUG`, and `TF_LOG_PATH` to capture the output to a file." },
+      { id: 'B', text: "Set `TF_LOG_PROVIDER=TRACE` alone, which covers the core as well." },
+      { id: 'C', text: "Set `TF_LOG=OFF` and read the crash log the run leaves behind." },
+      { id: 'D', text: "Run the command with `-verbose`, which raises the logging level." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -282,10 +282,10 @@ export const HASHICORP_TFA_QUESTIONS_15 = [
     scenario: "An organization is transitioning from manual, console-driven infrastructure provisioning to automated, declarative infrastructure as code using Terraform. The Terraform engineer needs to troubleshoot an obscure HTTP 403 Forbidden API error returned by a cloud provider plugin during `terraform apply`.",
     question: "Which practice or platform feature enables the engineering team to modernize provisioning workflows with minimal operational friction?",
     options: [
-      { id: 'A', text: "Decompile the Terraform Go binary using a disassembler." },
-      { id: 'B', text: "Reboot the operating system and re-run the command." },
-      { id: 'C', text: "Disable all logging to prevent seeing error messages." },
-      { id: 'D', text: "Set `export TF_LOG=DEBUG` (or `TRACE`) and optionally `TF_LOG_PATH=terraform.log` before executing the command." }
+      { id: 'A', text: "Set `TF_LOG_PROVIDER=TRACE` alone, which covers the core as well." },
+      { id: 'B', text: "Run the command with `-verbose`, which raises the logging level." },
+      { id: 'C', text: "Set `TF_LOG=OFF` and read the crash log the run leaves behind." },
+      { id: 'D', text: "Set `TF_LOG=DEBUG`, and `TF_LOG_PATH` to capture the output to a file." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -303,10 +303,10 @@ export const HASHICORP_TFA_QUESTIONS_15 = [
     scenario: "A platform engineering team is optimizing infrastructure stability to eliminate single points of failure, streamline state refactoring, and ensure zero-downtime resource replacement. The Terraform engineer needs to troubleshoot an obscure HTTP 403 Forbidden API error returned by a cloud provider plugin during `terraform apply`.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
-      { id: 'A', text: "Set `export TF_LOG=DEBUG` (or `TRACE`) and optionally `TF_LOG_PATH=terraform.log` before executing the command." },
-      { id: 'B', text: "Decompile the Terraform Go binary using a disassembler." },
-      { id: 'C', text: "Disable all logging to prevent seeing error messages." },
-      { id: 'D', text: "Reboot the operating system and re-run the command." }
+      { id: 'A', text: "Set `TF_LOG=DEBUG`, and `TF_LOG_PATH` to capture the output to a file." },
+      { id: 'B', text: "Set `TF_LOG_PROVIDER=TRACE` alone, which covers the core as well." },
+      { id: 'C', text: "Set `TF_LOG=OFF` and read the crash log the run leaves behind." },
+      { id: 'D', text: "Run the command with `-verbose`, which raises the logging level." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -324,10 +324,10 @@ export const HASHICORP_TFA_QUESTIONS_15 = [
     scenario: "An enterprise cloud operations team is establishing high-availability standards, automated state recovery procedures, and infrastructure resilience baselines with Terraform. The Terraform engineer needs to organize a reusable Terraform module according to official HashiCorp standard directory conventions.",
     question: "Which architectural approach or configuration satisfies these infrastructure disaster recovery and operational resilience objectives?",
     options: [
-      { id: 'A', text: "Split configuration into dozens of subdirectories with arbitrary file extensions." },
-      { id: 'B', text: "Structure the module with `main.tf` (primary resources), `variables.tf` (inputs), `outputs.tf` (return values), and `README.md`." },
-      { id: 'C', text: "Put all code, variables, and outputs into a single 5,000-line `terraform.tf` file." },
-      { id: 'D', text: "Place all module files inside a hidden `.git` folder." }
+      { id: 'A', text: "Structure it as one file per resource type, named after that resource." },
+      { id: 'B', text: "Structure it as `main.tf`, `variables.tf`, `outputs.tf` and a `README.md`." },
+      { id: 'C', text: "Structure it as a single `terraform.tf` holding every block in order." },
+      { id: 'D', text: "Structure it as a directory per environment, each with the same files." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -345,10 +345,10 @@ export const HASHICORP_TFA_QUESTIONS_15 = [
     scenario: "A large-scale multi-cloud platform experiences rapid infrastructure growth and requires automated, consistent provisioning across complex resource topologies. The Terraform engineer needs to organize a reusable Terraform module according to official HashiCorp standard directory conventions.",
     question: "Which design pattern or Terraform capability manages this provisioning scale effectively while preventing configuration drift and deployment bottlenecks?",
     options: [
-      { id: 'A', text: "Structure the module with `main.tf` (primary resources), `variables.tf` (inputs), `outputs.tf` (return values), and `README.md`." },
-      { id: 'B', text: "Put all code, variables, and outputs into a single 5,000-line `terraform.tf` file." },
-      { id: 'C', text: "Split configuration into dozens of subdirectories with arbitrary file extensions." },
-      { id: 'D', text: "Place all module files inside a hidden `.git` folder." }
+      { id: 'A', text: "Structure it as `main.tf`, `variables.tf`, `outputs.tf` and a `README.md`." },
+      { id: 'B', text: "Structure it as a single `terraform.tf` holding every block in order." },
+      { id: 'C', text: "Structure it as one file per resource type, named after that resource." },
+      { id: 'D', text: "Structure it as a directory per environment, each with the same files." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -366,10 +366,10 @@ export const HASHICORP_TFA_QUESTIONS_15 = [
     scenario: "A cloud security auditor requires strict protection of sensitive state data, verified provider dependencies, and automated governance across all Terraform pipelines. The Terraform engineer needs to organize a reusable Terraform module according to official HashiCorp standard directory conventions.",
     question: "Which solution implements these mandatory infrastructure as code security and governance controls?",
     options: [
-      { id: 'A', text: "Split configuration into dozens of subdirectories with arbitrary file extensions." },
-      { id: 'B', text: "Place all module files inside a hidden `.git` folder." },
-      { id: 'C', text: "Structure the module with `main.tf` (primary resources), `variables.tf` (inputs), `outputs.tf` (return values), and `README.md`." },
-      { id: 'D', text: "Put all code, variables, and outputs into a single 5,000-line `terraform.tf` file." }
+      { id: 'A', text: "Structure it as one file per resource type, named after that resource." },
+      { id: 'B', text: "Structure it as a directory per environment, each with the same files." },
+      { id: 'C', text: "Structure it as `main.tf`, `variables.tf`, `outputs.tf` and a `README.md`." },
+      { id: 'D', text: "Structure it as a single `terraform.tf` holding every block in order." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -387,10 +387,10 @@ export const HASHICORP_TFA_QUESTIONS_15 = [
     scenario: "An organization is transitioning from manual, console-driven infrastructure provisioning to automated, declarative infrastructure as code using Terraform. The Terraform engineer needs to organize a reusable Terraform module according to official HashiCorp standard directory conventions.",
     question: "Which practice or platform feature enables the engineering team to modernize provisioning workflows with minimal operational friction?",
     options: [
-      { id: 'A', text: "Place all module files inside a hidden `.git` folder." },
-      { id: 'B', text: "Split configuration into dozens of subdirectories with arbitrary file extensions." },
-      { id: 'C', text: "Put all code, variables, and outputs into a single 5,000-line `terraform.tf` file." },
-      { id: 'D', text: "Structure the module with `main.tf` (primary resources), `variables.tf` (inputs), `outputs.tf` (return values), and `README.md`." }
+      { id: 'A', text: "Structure it as a directory per environment, each with the same files." },
+      { id: 'B', text: "Structure it as one file per resource type, named after that resource." },
+      { id: 'C', text: "Structure it as a single `terraform.tf` holding every block in order." },
+      { id: 'D', text: "Structure it as `main.tf`, `variables.tf`, `outputs.tf` and a `README.md`." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -408,10 +408,10 @@ export const HASHICORP_TFA_QUESTIONS_15 = [
     scenario: "A platform engineering team is optimizing infrastructure stability to eliminate single points of failure, streamline state refactoring, and ensure zero-downtime resource replacement. The Terraform engineer needs to organize a reusable Terraform module according to official HashiCorp standard directory conventions.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
-      { id: 'A', text: "Place all module files inside a hidden `.git` folder." },
-      { id: 'B', text: "Structure the module with `main.tf` (primary resources), `variables.tf` (inputs), `outputs.tf` (return values), and `README.md`." },
-      { id: 'C', text: "Split configuration into dozens of subdirectories with arbitrary file extensions." },
-      { id: 'D', text: "Put all code, variables, and outputs into a single 5,000-line `terraform.tf` file." }
+      { id: 'A', text: "Structure it as a directory per environment, each with the same files." },
+      { id: 'B', text: "Structure it as `main.tf`, `variables.tf`, `outputs.tf` and a `README.md`." },
+      { id: 'C', text: "Structure it as one file per resource type, named after that resource." },
+      { id: 'D', text: "Structure it as a single `terraform.tf` holding every block in order." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -429,10 +429,10 @@ export const HASHICORP_TFA_QUESTIONS_15 = [
     scenario: "An enterprise cloud operations team is establishing high-availability standards, automated state recovery procedures, and infrastructure resilience baselines with Terraform. The Terraform engineer needs to call a verified open-source VPC module from the public Terraform Registry with strict version pinning.",
     question: "Which architectural approach or configuration satisfies these infrastructure disaster recovery and operational resilience objectives?",
     options: [
-      { id: 'A', text: "Specify `source = \"http://unencrypted-website.com/vpc.zip\"`." },
-      { id: 'B', text: "Copy the raw source code of the module directly into the root folder." },
-      { id: 'C', text: "Download the module manually and unzip it into the user's Downloads folder." },
-      { id: 'D', text: "Declare a `module` block specifying `source = \"terraform-aws-modules/vpc/aws\"` and `version = \"~&gt; 5.0\"`." }
+      { id: 'A', text: "A `module` block whose source is an HTTP archive of the module." },
+      { id: 'B', text: "The module's source copied into the root directory and called locally." },
+      { id: 'C', text: "The module downloaded by hand and referenced by its local path." },
+      { id: 'D', text: "A `module` block with the registry source and a `version` constraint." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -450,10 +450,10 @@ export const HASHICORP_TFA_QUESTIONS_15 = [
     scenario: "A large-scale multi-cloud platform experiences rapid infrastructure growth and requires automated, consistent provisioning across complex resource topologies. The Terraform engineer needs to call a verified open-source VPC module from the public Terraform Registry with strict version pinning.",
     question: "Which design pattern or Terraform capability manages this provisioning scale effectively while preventing configuration drift and deployment bottlenecks?",
     options: [
-      { id: 'A', text: "Copy the raw source code of the module directly into the root folder." },
-      { id: 'B', text: "Declare a `module` block specifying `source = \"terraform-aws-modules/vpc/aws\"` and `version = \"~&gt; 5.0\"`." },
-      { id: 'C', text: "Download the module manually and unzip it into the user's Downloads folder." },
-      { id: 'D', text: "Specify `source = \"http://unencrypted-website.com/vpc.zip\"`." }
+      { id: 'A', text: "The module's source copied into the root directory and called locally." },
+      { id: 'B', text: "A `module` block with the registry source and a `version` constraint." },
+      { id: 'C', text: "The module downloaded by hand and referenced by its local path." },
+      { id: 'D', text: "A `module` block whose source is an HTTP archive of the module." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -471,10 +471,10 @@ export const HASHICORP_TFA_QUESTIONS_15 = [
     scenario: "A cloud security auditor requires strict protection of sensitive state data, verified provider dependencies, and automated governance across all Terraform pipelines. The Terraform engineer needs to call a verified open-source VPC module from the public Terraform Registry with strict version pinning.",
     question: "Which solution implements these mandatory infrastructure as code security and governance controls?",
     options: [
-      { id: 'A', text: "Declare a `module` block specifying `source = \"terraform-aws-modules/vpc/aws\"` and `version = \"~&gt; 5.0\"`." },
-      { id: 'B', text: "Copy the raw source code of the module directly into the root folder." },
-      { id: 'C', text: "Specify `source = \"http://unencrypted-website.com/vpc.zip\"`." },
-      { id: 'D', text: "Download the module manually and unzip it into the user's Downloads folder." }
+      { id: 'A', text: "A `module` block with the registry source and a `version` constraint." },
+      { id: 'B', text: "The module's source copied into the root directory and called locally." },
+      { id: 'C', text: "A `module` block whose source is an HTTP archive of the module." },
+      { id: 'D', text: "The module downloaded by hand and referenced by its local path." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -492,10 +492,10 @@ export const HASHICORP_TFA_QUESTIONS_15 = [
     scenario: "An organization is transitioning from manual, console-driven infrastructure provisioning to automated, declarative infrastructure as code using Terraform. The Terraform engineer needs to call a verified open-source VPC module from the public Terraform Registry with strict version pinning.",
     question: "Which practice or platform feature enables the engineering team to modernize provisioning workflows with minimal operational friction?",
     options: [
-      { id: 'A', text: "Specify `source = \"http://unencrypted-website.com/vpc.zip\"`." },
-      { id: 'B', text: "Download the module manually and unzip it into the user's Downloads folder." },
-      { id: 'C', text: "Declare a `module` block specifying `source = \"terraform-aws-modules/vpc/aws\"` and `version = \"~&gt; 5.0\"`." },
-      { id: 'D', text: "Copy the raw source code of the module directly into the root folder." }
+      { id: 'A', text: "A `module` block whose source is an HTTP archive of the module." },
+      { id: 'B', text: "The module downloaded by hand and referenced by its local path." },
+      { id: 'C', text: "A `module` block with the registry source and a `version` constraint." },
+      { id: 'D', text: "The module's source copied into the root directory and called locally." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -513,10 +513,10 @@ export const HASHICORP_TFA_QUESTIONS_15 = [
     scenario: "A platform engineering team is optimizing infrastructure stability to eliminate single points of failure, streamline state refactoring, and ensure zero-downtime resource replacement. The Terraform engineer needs to call a verified open-source VPC module from the public Terraform Registry with strict version pinning.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
-      { id: 'A', text: "Copy the raw source code of the module directly into the root folder." },
-      { id: 'B', text: "Declare a `module` block specifying `source = \"terraform-aws-modules/vpc/aws\"` and `version = \"~&gt; 5.0\"`." },
-      { id: 'C', text: "Download the module manually and unzip it into the user's Downloads folder." },
-      { id: 'D', text: "Specify `source = \"http://unencrypted-website.com/vpc.zip\"`." }
+      { id: 'A', text: "The module's source copied into the root directory and called locally." },
+      { id: 'B', text: "A `module` block with the registry source and a `version` constraint." },
+      { id: 'C', text: "The module downloaded by hand and referenced by its local path." },
+      { id: 'D', text: "A `module` block whose source is an HTTP archive of the module." }
     ],
     correctAnswers: ['B'],
     type: "single",
