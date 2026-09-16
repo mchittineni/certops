@@ -9,10 +9,10 @@ export const K8S_CKA_QUESTIONS_16 = [
     scenario: "A platform engineering team is establishing high-availability standards and operational disaster recovery procedures for enterprise Kubernetes clusters. The Kubernetes administrator needs to update a stateless web application deployment to a new container image version without dropping incoming user requests.",
     question: "Which architectural approach or configuration satisfies these cluster reliability and recovery requirements?",
     options: [
-      { id: 'A', text: "Configure a RollingUpdate strategy in the Deployment spec with appropriate `maxSurge` and `maxUnavailable` parameters." },
-      { id: 'B', text: "Set the deployment strategy type to Recreate to kill all old pods before starting new ones." },
-      { id: 'C', text: "Delete the deployment and recreate it using kubectl create deployment." },
-      { id: 'D', text: "Scale the deployment down to zero replicas before applying the update." }
+      { id: 'A', text: "Set a `RollingUpdate` strategy with `maxSurge` and `maxUnavailable` on the Deployment." },
+      { id: 'B', text: "Set a `Recreate` strategy so the old pods stop before the new ones are started." },
+      { id: 'C', text: "Set `minReadySeconds` high enough that the rollout pauses between each new pod." },
+      { id: 'D', text: "Set `revisionHistoryLimit: 0` so the rollout replaces pods without keeping history." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -30,10 +30,10 @@ export const K8S_CKA_QUESTIONS_16 = [
     scenario: "A production Kubernetes cluster experiences massive surges in application traffic and high scheduling demands across large worker node pools. The Kubernetes administrator needs to update a stateless web application deployment to a new container image version without dropping incoming user requests.",
     question: "Which architectural approach should the administrator select to manage this demand efficiently without cluster instability?",
     options: [
-      { id: 'A', text: "Configure a RollingUpdate strategy in the Deployment spec with appropriate `maxSurge` and `maxUnavailable` parameters." },
-      { id: 'B', text: "Set the deployment strategy type to Recreate to kill all old pods before starting new ones." },
-      { id: 'C', text: "Delete the deployment and recreate it using kubectl create deployment." },
-      { id: 'D', text: "Scale the deployment down to zero replicas before applying the update." }
+      { id: 'A', text: "Set a `RollingUpdate` strategy with `maxSurge` and `maxUnavailable` on the Deployment." },
+      { id: 'B', text: "Set a `Recreate` strategy so the old pods stop before the new ones are started." },
+      { id: 'C', text: "Set `minReadySeconds` high enough that the rollout pauses between each new pod." },
+      { id: 'D', text: "Set `revisionHistoryLimit: 0` so the rollout replaces pods without keeping history." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -51,10 +51,10 @@ export const K8S_CKA_QUESTIONS_16 = [
     scenario: "A compliance auditor requires strict isolation of cluster resources, least-privilege administrative access, and secure network traffic policies across all namespaces. The Kubernetes administrator needs to update a stateless web application deployment to a new container image version without dropping incoming user requests.",
     question: "Which solution implements these mandatory Kubernetes security and governance controls?",
     options: [
-      { id: 'A', text: "Delete the deployment and recreate it using kubectl create deployment." },
-      { id: 'B', text: "Set the deployment strategy type to Recreate to kill all old pods before starting new ones." },
-      { id: 'C', text: "Scale the deployment down to zero replicas before applying the update." },
-      { id: 'D', text: "Configure a RollingUpdate strategy in the Deployment spec with appropriate `maxSurge` and `maxUnavailable` parameters." }
+      { id: 'A', text: "Set `minReadySeconds` high enough that the rollout pauses between each new pod." },
+      { id: 'B', text: "Set a `Recreate` strategy so the old pods stop before the new ones are started." },
+      { id: 'C', text: "Set `revisionHistoryLimit: 0` so the rollout replaces pods without keeping history." },
+      { id: 'D', text: "Set a `RollingUpdate` strategy with `maxSurge` and `maxUnavailable` on the Deployment." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -72,10 +72,10 @@ export const K8S_CKA_QUESTIONS_16 = [
     scenario: "An enterprise is modernizing on-premises virtualized infrastructure and migrating core enterprise workloads into production Kubernetes clusters. The Kubernetes administrator needs to update a stateless web application deployment to a new container image version without dropping incoming user requests.",
     question: "Which operational pattern or feature enables the engineering team to achieve seamless workload execution with minimal complexity?",
     options: [
-      { id: 'A', text: "Configure a RollingUpdate strategy in the Deployment spec with appropriate `maxSurge` and `maxUnavailable` parameters." },
-      { id: 'B', text: "Set the deployment strategy type to Recreate to kill all old pods before starting new ones." },
-      { id: 'C', text: "Delete the deployment and recreate it using kubectl create deployment." },
-      { id: 'D', text: "Scale the deployment down to zero replicas before applying the update." }
+      { id: 'A', text: "Set a `RollingUpdate` strategy with `maxSurge` and `maxUnavailable` on the Deployment." },
+      { id: 'B', text: "Set a `Recreate` strategy so the old pods stop before the new ones are started." },
+      { id: 'C', text: "Set `minReadySeconds` high enough that the rollout pauses between each new pod." },
+      { id: 'D', text: "Set `revisionHistoryLimit: 0` so the rollout replaces pods without keeping history." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -93,10 +93,10 @@ export const K8S_CKA_QUESTIONS_16 = [
     scenario: "A cluster operations team is hardening infrastructure to eliminate single points of failure, streamline node maintenance, and automate self-healing. The Kubernetes administrator needs to update a stateless web application deployment to a new container image version without dropping incoming user requests.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees cluster stability?",
     options: [
-      { id: 'A', text: "Configure a RollingUpdate strategy in the Deployment spec with appropriate `maxSurge` and `maxUnavailable` parameters." },
-      { id: 'B', text: "Set the deployment strategy type to Recreate to kill all old pods before starting new ones." },
-      { id: 'C', text: "Delete the deployment and recreate it using kubectl create deployment." },
-      { id: 'D', text: "Scale the deployment down to zero replicas before applying the update." }
+      { id: 'A', text: "Set a `RollingUpdate` strategy with `maxSurge` and `maxUnavailable` on the Deployment." },
+      { id: 'B', text: "Set a `Recreate` strategy so the old pods stop before the new ones are started." },
+      { id: 'C', text: "Set `minReadySeconds` high enough that the rollout pauses between each new pod." },
+      { id: 'D', text: "Set `revisionHistoryLimit: 0` so the rollout replaces pods without keeping history." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -114,10 +114,10 @@ export const K8S_CKA_QUESTIONS_16 = [
     scenario: "A platform engineering team is establishing high-availability standards and operational disaster recovery procedures for enterprise Kubernetes clusters. The Kubernetes administrator needs to ensure that an operational monitoring agent and log forwarder runs exactly once on every worker node in the cluster, including newly added nodes.",
     question: "Which architectural approach or configuration satisfies these cluster reliability and recovery requirements?",
     options: [
-      { id: 'A', text: "Deploy a standard Deployment and manually scale replicas to match the node count." },
-      { id: 'B', text: "Deploy the monitoring agent as a `DaemonSet` with appropriate tolerations for control plane or tainted nodes." },
-      { id: 'C', text: "Instruct cluster administrators to manually run Docker containers on each host VM." },
-      { id: 'D', text: "Configure a CronJob to start pods on nodes every sixty seconds." }
+      { id: 'A', text: "Deploy the agent as a `Deployment` scaled to the current node count." },
+      { id: 'B', text: "Deploy the agent as a `DaemonSet`, with tolerations for the tainted nodes." },
+      { id: 'C', text: "Deploy the agent as a static pod in each node's own manifest directory." },
+      { id: 'D', text: "Deploy the agent as a `CronJob` that starts a pod on each node every minute." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -135,10 +135,10 @@ export const K8S_CKA_QUESTIONS_16 = [
     scenario: "A production Kubernetes cluster experiences massive surges in application traffic and high scheduling demands across large worker node pools. The Kubernetes administrator needs to ensure that an operational monitoring agent and log forwarder runs exactly once on every worker node in the cluster, including newly added nodes.",
     question: "Which architectural approach should the administrator select to manage this demand efficiently without cluster instability?",
     options: [
-      { id: 'A', text: "Deploy the monitoring agent as a `DaemonSet` with appropriate tolerations for control plane or tainted nodes." },
-      { id: 'B', text: "Deploy a standard Deployment and manually scale replicas to match the node count." },
-      { id: 'C', text: "Configure a CronJob to start pods on nodes every sixty seconds." },
-      { id: 'D', text: "Instruct cluster administrators to manually run Docker containers on each host VM." }
+      { id: 'A', text: "Deploy the agent as a `DaemonSet`, with tolerations for the tainted nodes." },
+      { id: 'B', text: "Deploy the agent as a `Deployment` scaled to the current node count." },
+      { id: 'C', text: "Deploy the agent as a `CronJob` that starts a pod on each node every minute." },
+      { id: 'D', text: "Deploy the agent as a static pod in each node's own manifest directory." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -156,10 +156,10 @@ export const K8S_CKA_QUESTIONS_16 = [
     scenario: "A compliance auditor requires strict isolation of cluster resources, least-privilege administrative access, and secure network traffic policies across all namespaces. The Kubernetes administrator needs to ensure that an operational monitoring agent and log forwarder runs exactly once on every worker node in the cluster, including newly added nodes.",
     question: "Which solution implements these mandatory Kubernetes security and governance controls?",
     options: [
-      { id: 'A', text: "Deploy the monitoring agent as a `DaemonSet` with appropriate tolerations for control plane or tainted nodes." },
-      { id: 'B', text: "Deploy a standard Deployment and manually scale replicas to match the node count." },
-      { id: 'C', text: "Configure a CronJob to start pods on nodes every sixty seconds." },
-      { id: 'D', text: "Instruct cluster administrators to manually run Docker containers on each host VM." }
+      { id: 'A', text: "Deploy the agent as a `DaemonSet`, with tolerations for the tainted nodes." },
+      { id: 'B', text: "Deploy the agent as a `Deployment` scaled to the current node count." },
+      { id: 'C', text: "Deploy the agent as a `CronJob` that starts a pod on each node every minute." },
+      { id: 'D', text: "Deploy the agent as a static pod in each node's own manifest directory." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -177,10 +177,10 @@ export const K8S_CKA_QUESTIONS_16 = [
     scenario: "An enterprise is modernizing on-premises virtualized infrastructure and migrating core enterprise workloads into production Kubernetes clusters. The Kubernetes administrator needs to ensure that an operational monitoring agent and log forwarder runs exactly once on every worker node in the cluster, including newly added nodes.",
     question: "Which operational pattern or feature enables the engineering team to achieve seamless workload execution with minimal complexity?",
     options: [
-      { id: 'A', text: "Deploy the monitoring agent as a `DaemonSet` with appropriate tolerations for control plane or tainted nodes." },
-      { id: 'B', text: "Deploy a standard Deployment and manually scale replicas to match the node count." },
-      { id: 'C', text: "Configure a CronJob to start pods on nodes every sixty seconds." },
-      { id: 'D', text: "Instruct cluster administrators to manually run Docker containers on each host VM." }
+      { id: 'A', text: "Deploy the agent as a `DaemonSet`, with tolerations for the tainted nodes." },
+      { id: 'B', text: "Deploy the agent as a `Deployment` scaled to the current node count." },
+      { id: 'C', text: "Deploy the agent as a `CronJob` that starts a pod on each node every minute." },
+      { id: 'D', text: "Deploy the agent as a static pod in each node's own manifest directory." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -198,10 +198,10 @@ export const K8S_CKA_QUESTIONS_16 = [
     scenario: "A cluster operations team is hardening infrastructure to eliminate single points of failure, streamline node maintenance, and automate self-healing. The Kubernetes administrator needs to ensure that an operational monitoring agent and log forwarder runs exactly once on every worker node in the cluster, including newly added nodes.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees cluster stability?",
     options: [
-      { id: 'A', text: "Configure a CronJob to start pods on nodes every sixty seconds." },
-      { id: 'B', text: "Deploy a standard Deployment and manually scale replicas to match the node count." },
-      { id: 'C', text: "Instruct cluster administrators to manually run Docker containers on each host VM." },
-      { id: 'D', text: "Deploy the monitoring agent as a `DaemonSet` with appropriate tolerations for control plane or tainted nodes." }
+      { id: 'A', text: "Deploy the agent as a `CronJob` that starts a pod on each node every minute." },
+      { id: 'B', text: "Deploy the agent as a `Deployment` scaled to the current node count." },
+      { id: 'C', text: "Deploy the agent as a static pod in each node's own manifest directory." },
+      { id: 'D', text: "Deploy the agent as a `DaemonSet`, with tolerations for the tainted nodes." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -324,10 +324,10 @@ export const K8S_CKA_QUESTIONS_16 = [
     scenario: "A platform engineering team is establishing high-availability standards and operational disaster recovery procedures for enterprise Kubernetes clusters. The Kubernetes administrator needs to execute a nightly database backup script that runs at 2:00 AM, retries up to three times on failure, and avoids launching concurrent duplicate runs.",
     question: "Which architectural approach or configuration satisfies these cluster reliability and recovery requirements?",
     options: [
-      { id: 'A', text: "Set `concurrencyPolicy: Allow` so failing jobs launch infinite simultaneous backup attempts." },
-      { id: 'B', text: "Deploy a long-running Deployment that sleeps in a bash loop for 24 hours." },
-      { id: 'C', text: "Create a `CronJob` with `schedule: \"0 2 * * *\"`, `concurrencyPolicy: Forbid`, and `backoffLimit: 3` in the job template." },
-      { id: 'D', text: "Create a DaemonSet that runs the backup script simultaneously on every worker node." }
+      { id: 'A', text: "Create a `CronJob` with the schedule and `concurrencyPolicy: Allow` for overlapping runs." },
+      { id: 'B', text: "Create a `Job` with `completions: 1` and re-create it from a workflow each night." },
+      { id: 'C', text: "Create a `CronJob` with the schedule, `concurrencyPolicy: Forbid` and a `backoffLimit`." },
+      { id: 'D', text: "Create a `DaemonSet` that runs the backup script on each node at the same hour." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -345,10 +345,10 @@ export const K8S_CKA_QUESTIONS_16 = [
     scenario: "A production Kubernetes cluster experiences massive surges in application traffic and high scheduling demands across large worker node pools. The Kubernetes administrator needs to execute a nightly database backup script that runs at 2:00 AM, retries up to three times on failure, and avoids launching concurrent duplicate runs.",
     question: "Which architectural approach should the administrator select to manage this demand efficiently without cluster instability?",
     options: [
-      { id: 'A', text: "Create a `CronJob` with `schedule: \"0 2 * * *\"`, `concurrencyPolicy: Forbid`, and `backoffLimit: 3` in the job template." },
-      { id: 'B', text: "Deploy a long-running Deployment that sleeps in a bash loop for 24 hours." },
-      { id: 'C', text: "Create a DaemonSet that runs the backup script simultaneously on every worker node." },
-      { id: 'D', text: "Set `concurrencyPolicy: Allow` so failing jobs launch infinite simultaneous backup attempts." }
+      { id: 'A', text: "Create a `CronJob` with the schedule, `concurrencyPolicy: Forbid` and a `backoffLimit`." },
+      { id: 'B', text: "Create a `Job` with `completions: 1` and re-create it from a workflow each night." },
+      { id: 'C', text: "Create a `DaemonSet` that runs the backup script on each node at the same hour." },
+      { id: 'D', text: "Create a `CronJob` with the schedule and `concurrencyPolicy: Allow` for overlapping runs." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -366,10 +366,10 @@ export const K8S_CKA_QUESTIONS_16 = [
     scenario: "A compliance auditor requires strict isolation of cluster resources, least-privilege administrative access, and secure network traffic policies across all namespaces. The Kubernetes administrator needs to execute a nightly database backup script that runs at 2:00 AM, retries up to three times on failure, and avoids launching concurrent duplicate runs.",
     question: "Which solution implements these mandatory Kubernetes security and governance controls?",
     options: [
-      { id: 'A', text: "Create a `CronJob` with `schedule: \"0 2 * * *\"`, `concurrencyPolicy: Forbid`, and `backoffLimit: 3` in the job template." },
-      { id: 'B', text: "Deploy a long-running Deployment that sleeps in a bash loop for 24 hours." },
-      { id: 'C', text: "Create a DaemonSet that runs the backup script simultaneously on every worker node." },
-      { id: 'D', text: "Set `concurrencyPolicy: Allow` so failing jobs launch infinite simultaneous backup attempts." }
+      { id: 'A', text: "Create a `CronJob` with the schedule, `concurrencyPolicy: Forbid` and a `backoffLimit`." },
+      { id: 'B', text: "Create a `Job` with `completions: 1` and re-create it from a workflow each night." },
+      { id: 'C', text: "Create a `DaemonSet` that runs the backup script on each node at the same hour." },
+      { id: 'D', text: "Create a `CronJob` with the schedule and `concurrencyPolicy: Allow` for overlapping runs." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -387,10 +387,10 @@ export const K8S_CKA_QUESTIONS_16 = [
     scenario: "An enterprise is modernizing on-premises virtualized infrastructure and migrating core enterprise workloads into production Kubernetes clusters. The Kubernetes administrator needs to execute a nightly database backup script that runs at 2:00 AM, retries up to three times on failure, and avoids launching concurrent duplicate runs.",
     question: "Which operational pattern or feature enables the engineering team to achieve seamless workload execution with minimal complexity?",
     options: [
-      { id: 'A', text: "Deploy a long-running Deployment that sleeps in a bash loop for 24 hours." },
-      { id: 'B', text: "Create a DaemonSet that runs the backup script simultaneously on every worker node." },
-      { id: 'C', text: "Create a `CronJob` with `schedule: \"0 2 * * *\"`, `concurrencyPolicy: Forbid`, and `backoffLimit: 3` in the job template." },
-      { id: 'D', text: "Set `concurrencyPolicy: Allow` so failing jobs launch infinite simultaneous backup attempts." }
+      { id: 'A', text: "Create a `Job` with `completions: 1` and re-create it from a workflow each night." },
+      { id: 'B', text: "Create a `DaemonSet` that runs the backup script on each node at the same hour." },
+      { id: 'C', text: "Create a `CronJob` with the schedule, `concurrencyPolicy: Forbid` and a `backoffLimit`." },
+      { id: 'D', text: "Create a `CronJob` with the schedule and `concurrencyPolicy: Allow` for overlapping runs." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -408,10 +408,10 @@ export const K8S_CKA_QUESTIONS_16 = [
     scenario: "A cluster operations team is hardening infrastructure to eliminate single points of failure, streamline node maintenance, and automate self-healing. The Kubernetes administrator needs to execute a nightly database backup script that runs at 2:00 AM, retries up to three times on failure, and avoids launching concurrent duplicate runs.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees cluster stability?",
     options: [
-      { id: 'A', text: "Create a `CronJob` with `schedule: \"0 2 * * *\"`, `concurrencyPolicy: Forbid`, and `backoffLimit: 3` in the job template." },
-      { id: 'B', text: "Deploy a long-running Deployment that sleeps in a bash loop for 24 hours." },
-      { id: 'C', text: "Create a DaemonSet that runs the backup script simultaneously on every worker node." },
-      { id: 'D', text: "Set `concurrencyPolicy: Allow` so failing jobs launch infinite simultaneous backup attempts." }
+      { id: 'A', text: "Create a `CronJob` with the schedule, `concurrencyPolicy: Forbid` and a `backoffLimit`." },
+      { id: 'B', text: "Create a `Job` with `completions: 1` and re-create it from a workflow each night." },
+      { id: 'C', text: "Create a `DaemonSet` that runs the backup script on each node at the same hour." },
+      { id: 'D', text: "Create a `CronJob` with the schedule and `concurrencyPolicy: Allow` for overlapping runs." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -429,10 +429,10 @@ export const K8S_CKA_QUESTIONS_16 = [
     scenario: "A platform engineering team is establishing high-availability standards and operational disaster recovery procedures for enterprise Kubernetes clusters. The Kubernetes administrator needs to ensure that replica pods of a critical payment service are never placed on the same worker node to eliminate single node failure risk.",
     question: "Which architectural approach or configuration satisfies these cluster reliability and recovery requirements?",
     options: [
-      { id: 'A', text: "Configure `podAntiAffinity` in the deployment pod template using `requiredDuringSchedulingIgnoredDuringExecution` matching the payment pod labels." },
-      { id: 'B', text: "Configure `nodeSelector` targeting a single specific node hostname." },
-      { id: 'C', text: "Rely on random default scheduler placement without affinity rules." },
-      { id: 'D', text: "Set `podAffinity` so all payment replicas are forced onto the same node." }
+      { id: 'A', text: "Set `podAntiAffinity` with `requiredDuringSchedulingIgnoredDuringExecution` on the payment pod labels." },
+      { id: 'B', text: "Set `podAntiAffinity` with `preferredDuringSchedulingIgnoredDuringExecution` on those same labels." },
+      { id: 'C', text: "Set `topologySpreadConstraints` on the hostname key with `whenUnsatisfiable: ScheduleAnyway`." },
+      { id: 'D', text: "Set `nodeSelector` on a labelled node pool so the replicas land only on the payment nodes." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -450,10 +450,10 @@ export const K8S_CKA_QUESTIONS_16 = [
     scenario: "A production Kubernetes cluster experiences massive surges in application traffic and high scheduling demands across large worker node pools. The Kubernetes administrator needs to ensure that replica pods of a critical payment service are never placed on the same worker node to eliminate single node failure risk.",
     question: "Which architectural approach should the administrator select to manage this demand efficiently without cluster instability?",
     options: [
-      { id: 'A', text: "Set `podAffinity` so all payment replicas are forced onto the same node." },
-      { id: 'B', text: "Configure `podAntiAffinity` in the deployment pod template using `requiredDuringSchedulingIgnoredDuringExecution` matching the payment pod labels." },
-      { id: 'C', text: "Rely on random default scheduler placement without affinity rules." },
-      { id: 'D', text: "Configure `nodeSelector` targeting a single specific node hostname." }
+      { id: 'A', text: "Set `nodeSelector` on a labelled node pool so the replicas land only on the payment nodes." },
+      { id: 'B', text: "Set `podAntiAffinity` with `requiredDuringSchedulingIgnoredDuringExecution` on the payment pod labels." },
+      { id: 'C', text: "Set `topologySpreadConstraints` on the hostname key with `whenUnsatisfiable: ScheduleAnyway`." },
+      { id: 'D', text: "Set `podAntiAffinity` with `preferredDuringSchedulingIgnoredDuringExecution` on those same labels." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -471,10 +471,10 @@ export const K8S_CKA_QUESTIONS_16 = [
     scenario: "A compliance auditor requires strict isolation of cluster resources, least-privilege administrative access, and secure network traffic policies across all namespaces. The Kubernetes administrator needs to ensure that replica pods of a critical payment service are never placed on the same worker node to eliminate single node failure risk.",
     question: "Which solution implements these mandatory Kubernetes security and governance controls?",
     options: [
-      { id: 'A', text: "Rely on random default scheduler placement without affinity rules." },
-      { id: 'B', text: "Configure `nodeSelector` targeting a single specific node hostname." },
-      { id: 'C', text: "Set `podAffinity` so all payment replicas are forced onto the same node." },
-      { id: 'D', text: "Configure `podAntiAffinity` in the deployment pod template using `requiredDuringSchedulingIgnoredDuringExecution` matching the payment pod labels." }
+      { id: 'A', text: "Set `topologySpreadConstraints` on the hostname key with `whenUnsatisfiable: ScheduleAnyway`." },
+      { id: 'B', text: "Set `podAntiAffinity` with `preferredDuringSchedulingIgnoredDuringExecution` on those same labels." },
+      { id: 'C', text: "Set `nodeSelector` on a labelled node pool so the replicas land only on the payment nodes." },
+      { id: 'D', text: "Set `podAntiAffinity` with `requiredDuringSchedulingIgnoredDuringExecution` on the payment pod labels." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -492,10 +492,10 @@ export const K8S_CKA_QUESTIONS_16 = [
     scenario: "An enterprise is modernizing on-premises virtualized infrastructure and migrating core enterprise workloads into production Kubernetes clusters. The Kubernetes administrator needs to ensure that replica pods of a critical payment service are never placed on the same worker node to eliminate single node failure risk.",
     question: "Which operational pattern or feature enables the engineering team to achieve seamless workload execution with minimal complexity?",
     options: [
-      { id: 'A', text: "Set `podAffinity` so all payment replicas are forced onto the same node." },
-      { id: 'B', text: "Rely on random default scheduler placement without affinity rules." },
-      { id: 'C', text: "Configure `nodeSelector` targeting a single specific node hostname." },
-      { id: 'D', text: "Configure `podAntiAffinity` in the deployment pod template using `requiredDuringSchedulingIgnoredDuringExecution` matching the payment pod labels." }
+      { id: 'A', text: "Set `nodeSelector` on a labelled node pool so the replicas land only on the payment nodes." },
+      { id: 'B', text: "Set `topologySpreadConstraints` on the hostname key with `whenUnsatisfiable: ScheduleAnyway`." },
+      { id: 'C', text: "Set `podAntiAffinity` with `preferredDuringSchedulingIgnoredDuringExecution` on those same labels." },
+      { id: 'D', text: "Set `podAntiAffinity` with `requiredDuringSchedulingIgnoredDuringExecution` on the payment pod labels." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -513,10 +513,10 @@ export const K8S_CKA_QUESTIONS_16 = [
     scenario: "A cluster operations team is hardening infrastructure to eliminate single points of failure, streamline node maintenance, and automate self-healing. The Kubernetes administrator needs to ensure that replica pods of a critical payment service are never placed on the same worker node to eliminate single node failure risk.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees cluster stability?",
     options: [
-      { id: 'A', text: "Configure `podAntiAffinity` in the deployment pod template using `requiredDuringSchedulingIgnoredDuringExecution` matching the payment pod labels." },
-      { id: 'B', text: "Configure `nodeSelector` targeting a single specific node hostname." },
-      { id: 'C', text: "Rely on random default scheduler placement without affinity rules." },
-      { id: 'D', text: "Set `podAffinity` so all payment replicas are forced onto the same node." }
+      { id: 'A', text: "Set `podAntiAffinity` with `requiredDuringSchedulingIgnoredDuringExecution` on the payment pod labels." },
+      { id: 'B', text: "Set `podAntiAffinity` with `preferredDuringSchedulingIgnoredDuringExecution` on those same labels." },
+      { id: 'C', text: "Set `topologySpreadConstraints` on the hostname key with `whenUnsatisfiable: ScheduleAnyway`." },
+      { id: 'D', text: "Set `nodeSelector` on a labelled node pool so the replicas land only on the payment nodes." }
     ],
     correctAnswers: ['A'],
     type: "single",

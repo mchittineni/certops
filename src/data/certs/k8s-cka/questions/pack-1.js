@@ -9,10 +9,10 @@ export const K8S_CKA_QUESTIONS = [
     scenario: "Two Services, api-svc and web-svc, run in the shop namespace. Requests to shop.example.com/api must reach api-svc on port 8080 and every other path must reach web-svc on port 80, using a single external IP address.",
     question: "Which Kubernetes resource should be created?",
     options: [
-      { id: 'A', text: "An Ingress with a host rule for shop.example.com and two path rules backed by the two Services, served by an ingress controller." },
-      { id: 'B', text: "Two Services of type LoadBalancer, one per backend." },
-      { id: 'C', text: "A single Service of type NodePort with two ports defined." },
-      { id: 'D', text: "A NetworkPolicy selecting both Services with path-based ingress rules." }
+      { id: 'A', text: "An Ingress with a host rule and two path rules, served by an ingress controller." },
+      { id: 'B', text: "Two `LoadBalancer` Services, one per backend, sharing the same hostname." },
+      { id: 'C', text: "One `NodePort` Service with both ports defined against the two selectors." },
+      { id: 'D', text: "A NetworkPolicy selecting both backends with the path rules as ingress." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -156,10 +156,10 @@ export const K8S_CKA_QUESTIONS = [
     scenario: "A Java service takes up to 150 seconds to warm its caches before it can serve requests. With a liveness probe configured at a 30-second initial delay, the container is repeatedly killed before it finishes starting.",
     question: "Which configuration resolves this correctly?",
     options: [
-      { id: 'A', text: "Increase the liveness probe periodSeconds to 300 so it is checked less often." },
-      { id: 'B', text: "Remove the liveness probe entirely so the container is never restarted." },
-      { id: 'C', text: "Convert the liveness probe into a readiness probe with the same delay." },
-      { id: 'D', text: "Add a startupProbe with a generous failureThreshold, which disables the liveness and readiness probes until it succeeds." }
+      { id: 'A', text: "Raise the liveness probe's `periodSeconds` to 300 so it is checked far less often." },
+      { id: 'B', text: "Remove the liveness probe, so the slow-starting container is never restarted." },
+      { id: 'C', text: "Convert the liveness probe into a readiness probe with the same initial delay." },
+      { id: 'D', text: "Add a `startupProbe` with a generous threshold, which holds the other probes off until it passes." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -177,11 +177,11 @@ export const K8S_CKA_QUESTIONS = [
     scenario: "A single-control-plane kubeadm cluster has lost its etcd data directory after a disk failure. A snapshot taken 20 minutes earlier is available at /backup/etcd-snap.db. etcd runs as a static pod defined in /etc/kubernetes/manifests/etcd.yaml.",
     question: "Which two actions are part of the correct restore procedure? (Choose TWO)",
     options: [
-      { id: 'A', text: "Update the hostPath volume in /etc/kubernetes/manifests/etcd.yaml to point at the restored data directory so kubelet recreates the static pod." },
-      { id: 'B', text: "Copy the snapshot file directly over /var/lib/etcd/member/snap/db and restart kubelet." },
-      { id: 'C', text: "Run kubectl apply -f /etc/kubernetes/manifests/etcd.yaml to restart the etcd pod." },
+      { id: 'A', text: "Point the hostPath in `/etc/kubernetes/manifests/etcd.yaml` at the restored data directory." },
+      { id: 'B', text: "Copy the snapshot over `/var/lib/etcd/member/snap/db` and restart the kubelet on the node." },
+      { id: 'C', text: "Run `kubectl apply -f /etc/kubernetes/manifests/etcd.yaml` to restart the etcd static pod." },
       { id: 'D', text: "Run ETCDCTL_API=3 etcdctl snapshot restore /backup/etcd-snap.db --data-dir /var/lib/etcd-restored" },
-      { id: 'E', text: "Run kubeadm reset on the control plane node before restoring the snapshot." }
+      { id: 'E', text: "Run `kubeadm reset` on the control plane node before restoring the snapshot onto it." }
     ],
     correctAnswers: ['A', 'D'],
     type: "multiple",
@@ -199,11 +199,11 @@ export const K8S_CKA_QUESTIONS = [
     scenario: "In the payments namespace, all pods must reject incoming traffic except that pods labelled app=api must be reachable on TCP 8080 from pods labelled app=frontend in the same namespace. The cluster runs Calico.",
     question: "Which statements about the required NetworkPolicy configuration are correct? (Choose TWO)",
     options: [
-      { id: 'A', text: "A second policy selecting app=api with an ingress rule for podSelector app=frontend on port 8080 grants the exception, because policies are additive." },
-      { id: 'B', text: "The exception policy must set policyTypes: [Egress] because the traffic leaves the frontend pod." },
-      { id: 'C', text: "A policy with podSelector: {} and policyTypes: [Ingress] and no ingress rules is needed to establish default-deny for the namespace." },
-      { id: 'D', text: "Without any NetworkPolicy, ingress to pods in the namespace is denied by default." },
-      { id: 'E', text: "The default-deny policy must include an explicit deny rule listing the blocked sources." }
+      { id: 'A', text: "A second policy selecting `app=api` with an ingress rule for `app=frontend` on 8080 grants the exception." },
+      { id: 'B', text: "The exception policy needs `policyTypes: [Egress]`, since the traffic leaves the frontend pod." },
+      { id: 'C', text: "A policy with an empty `podSelector` and `policyTypes: [Ingress]` and no rules gives default-deny." },
+      { id: 'D', text: "Without any NetworkPolicy at all, ingress to the namespace's pods is denied by default." },
+      { id: 'E', text: "The default-deny policy has to list the blocked sources explicitly in a deny rule." }
     ],
     correctAnswers: ['A', 'C'],
     type: "multiple",

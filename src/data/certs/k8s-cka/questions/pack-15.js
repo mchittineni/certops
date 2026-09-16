@@ -9,10 +9,10 @@ export const K8S_CKA_QUESTIONS_15 = [
     scenario: "A platform engineering team is establishing high-availability standards and operational disaster recovery procedures for enterprise Kubernetes clusters. The Kubernetes administrator needs to diagnose an etcd control plane issue where the API server becomes unresponsive and returns 500 Internal Server Errors.",
     question: "Which architectural approach or configuration satisfies these cluster reliability and recovery requirements?",
     options: [
-      { id: 'A', text: "Use `etcdctl endpoint health` and `etcdctl endpoint status` to check quorum, leader election, and active alarms (e.g., NOSPACE)." },
-      { id: 'B', text: "Reformat the worker node disks." },
-      { id: 'C', text: "Delete all namespaces in the cluster using forceful termination." },
-      { id: 'D', text: "Assume the API server will self-heal without checking etcd quorum." }
+      { id: 'A', text: "Run `etcdctl endpoint health` and `endpoint status` to check quorum, leader and alarms." },
+      { id: 'B', text: "Run `etcdctl member list` and remove the member that is failing its health check." },
+      { id: 'C', text: "Run `etcdctl defrag` on each member to reclaim the space the keyspace has grown into." },
+      { id: 'D', text: "Run `etcdctl snapshot save` and restore it onto a fresh member to clear the alarm." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -30,10 +30,10 @@ export const K8S_CKA_QUESTIONS_15 = [
     scenario: "A production Kubernetes cluster experiences massive surges in application traffic and high scheduling demands across large worker node pools. The Kubernetes administrator needs to diagnose an etcd control plane issue where the API server becomes unresponsive and returns 500 Internal Server Errors.",
     question: "Which architectural approach should the administrator select to manage this demand efficiently without cluster instability?",
     options: [
-      { id: 'A', text: "Reformat the worker node disks." },
-      { id: 'B', text: "Use `etcdctl endpoint health` and `etcdctl endpoint status` to check quorum, leader election, and active alarms (e.g., NOSPACE)." },
-      { id: 'C', text: "Assume the API server will self-heal without checking etcd quorum." },
-      { id: 'D', text: "Delete all namespaces in the cluster using forceful termination." }
+      { id: 'A', text: "Run `etcdctl member list` and remove the member that is failing its health check." },
+      { id: 'B', text: "Run `etcdctl endpoint health` and `endpoint status` to check quorum, leader and alarms." },
+      { id: 'C', text: "Run `etcdctl snapshot save` and restore it onto a fresh member to clear the alarm." },
+      { id: 'D', text: "Run `etcdctl defrag` on each member to reclaim the space the keyspace has grown into." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -51,10 +51,10 @@ export const K8S_CKA_QUESTIONS_15 = [
     scenario: "A compliance auditor requires strict isolation of cluster resources, least-privilege administrative access, and secure network traffic policies across all namespaces. The Kubernetes administrator needs to diagnose an etcd control plane issue where the API server becomes unresponsive and returns 500 Internal Server Errors.",
     question: "Which solution implements these mandatory Kubernetes security and governance controls?",
     options: [
-      { id: 'A', text: "Use `etcdctl endpoint health` and `etcdctl endpoint status` to check quorum, leader election, and active alarms (e.g., NOSPACE)." },
-      { id: 'B', text: "Delete all namespaces in the cluster using forceful termination." },
-      { id: 'C', text: "Assume the API server will self-heal without checking etcd quorum." },
-      { id: 'D', text: "Reformat the worker node disks." }
+      { id: 'A', text: "Run `etcdctl endpoint health` and `endpoint status` to check quorum, leader and alarms." },
+      { id: 'B', text: "Run `etcdctl defrag` on each member to reclaim the space the keyspace has grown into." },
+      { id: 'C', text: "Run `etcdctl snapshot save` and restore it onto a fresh member to clear the alarm." },
+      { id: 'D', text: "Run `etcdctl member list` and remove the member that is failing its health check." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -72,10 +72,10 @@ export const K8S_CKA_QUESTIONS_15 = [
     scenario: "An enterprise is modernizing on-premises virtualized infrastructure and migrating core enterprise workloads into production Kubernetes clusters. The Kubernetes administrator needs to diagnose an etcd control plane issue where the API server becomes unresponsive and returns 500 Internal Server Errors.",
     question: "Which operational pattern or feature enables the engineering team to achieve seamless workload execution with minimal complexity?",
     options: [
-      { id: 'A', text: "Delete all namespaces in the cluster using forceful termination." },
-      { id: 'B', text: "Reformat the worker node disks." },
-      { id: 'C', text: "Assume the API server will self-heal without checking etcd quorum." },
-      { id: 'D', text: "Use `etcdctl endpoint health` and `etcdctl endpoint status` to check quorum, leader election, and active alarms (e.g., NOSPACE)." }
+      { id: 'A', text: "Run `etcdctl defrag` on each member to reclaim the space the keyspace has grown into." },
+      { id: 'B', text: "Run `etcdctl member list` and remove the member that is failing its health check." },
+      { id: 'C', text: "Run `etcdctl snapshot save` and restore it onto a fresh member to clear the alarm." },
+      { id: 'D', text: "Run `etcdctl endpoint health` and `endpoint status` to check quorum, leader and alarms." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -93,10 +93,10 @@ export const K8S_CKA_QUESTIONS_15 = [
     scenario: "A cluster operations team is hardening infrastructure to eliminate single points of failure, streamline node maintenance, and automate self-healing. The Kubernetes administrator needs to diagnose an etcd control plane issue where the API server becomes unresponsive and returns 500 Internal Server Errors.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees cluster stability?",
     options: [
-      { id: 'A', text: "Reformat the worker node disks." },
-      { id: 'B', text: "Use `etcdctl endpoint health` and `etcdctl endpoint status` to check quorum, leader election, and active alarms (e.g., NOSPACE)." },
-      { id: 'C', text: "Assume the API server will self-heal without checking etcd quorum." },
-      { id: 'D', text: "Delete all namespaces in the cluster using forceful termination." }
+      { id: 'A', text: "Run `etcdctl member list` and remove the member that is failing its health check." },
+      { id: 'B', text: "Run `etcdctl endpoint health` and `endpoint status` to check quorum, leader and alarms." },
+      { id: 'C', text: "Run `etcdctl snapshot save` and restore it onto a fresh member to clear the alarm." },
+      { id: 'D', text: "Run `etcdctl defrag` on each member to reclaim the space the keyspace has grown into." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -114,10 +114,10 @@ export const K8S_CKA_QUESTIONS_15 = [
     scenario: "A platform engineering team is establishing high-availability standards and operational disaster recovery procedures for enterprise Kubernetes clusters. The Kubernetes administrator needs to restore an existing kubeadm-managed Kubernetes control plane that stopped responding after one year of continuous uptime.",
     question: "Which architectural approach or configuration satisfies these cluster reliability and recovery requirements?",
     options: [
-      { id: 'A', text: "Run `kubeadm certs check-expiration` to identify expired control plane certificates, and renew them using `kubeadm certs renew all`." },
-      { id: 'B', text: "Reinstall the entire cluster from scratch, losing all application data." },
-      { id: 'C', text: "Disable TLS verification across all kubelet daemons permanently." },
-      { id: 'D', text: "Assume the underlying physical network hardware is unplugged." }
+      { id: 'A', text: "Run `kubeadm certs check-expiration` and renew with `kubeadm certs renew all`." },
+      { id: 'B', text: "Run `kubeadm init phase certs all` to reissue the certificates in place." },
+      { id: 'C', text: "Run `openssl x509 -noout -dates` on each certificate and extend its validity." },
+      { id: 'D', text: "Run `kubeadm certs renew apiserver` alone, since the others are not client-facing." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -135,10 +135,10 @@ export const K8S_CKA_QUESTIONS_15 = [
     scenario: "A production Kubernetes cluster experiences massive surges in application traffic and high scheduling demands across large worker node pools. The Kubernetes administrator needs to restore an existing kubeadm-managed Kubernetes control plane that stopped responding after one year of continuous uptime.",
     question: "Which architectural approach should the administrator select to manage this demand efficiently without cluster instability?",
     options: [
-      { id: 'A', text: "Run `kubeadm certs check-expiration` to identify expired control plane certificates, and renew them using `kubeadm certs renew all`." },
-      { id: 'B', text: "Reinstall the entire cluster from scratch, losing all application data." },
-      { id: 'C', text: "Disable TLS verification across all kubelet daemons permanently." },
-      { id: 'D', text: "Assume the underlying physical network hardware is unplugged." }
+      { id: 'A', text: "Run `kubeadm certs check-expiration` and renew with `kubeadm certs renew all`." },
+      { id: 'B', text: "Run `kubeadm init phase certs all` to reissue the certificates in place." },
+      { id: 'C', text: "Run `openssl x509 -noout -dates` on each certificate and extend its validity." },
+      { id: 'D', text: "Run `kubeadm certs renew apiserver` alone, since the others are not client-facing." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -156,10 +156,10 @@ export const K8S_CKA_QUESTIONS_15 = [
     scenario: "A compliance auditor requires strict isolation of cluster resources, least-privilege administrative access, and secure network traffic policies across all namespaces. The Kubernetes administrator needs to restore an existing kubeadm-managed Kubernetes control plane that stopped responding after one year of continuous uptime.",
     question: "Which solution implements these mandatory Kubernetes security and governance controls?",
     options: [
-      { id: 'A', text: "Assume the underlying physical network hardware is unplugged." },
-      { id: 'B', text: "Disable TLS verification across all kubelet daemons permanently." },
-      { id: 'C', text: "Reinstall the entire cluster from scratch, losing all application data." },
-      { id: 'D', text: "Run `kubeadm certs check-expiration` to identify expired control plane certificates, and renew them using `kubeadm certs renew all`." }
+      { id: 'A', text: "Run `kubeadm certs renew apiserver` alone, since the others are not client-facing." },
+      { id: 'B', text: "Run `openssl x509 -noout -dates` on each certificate and extend its validity." },
+      { id: 'C', text: "Run `kubeadm init phase certs all` to reissue the certificates in place." },
+      { id: 'D', text: "Run `kubeadm certs check-expiration` and renew with `kubeadm certs renew all`." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -177,10 +177,10 @@ export const K8S_CKA_QUESTIONS_15 = [
     scenario: "An enterprise is modernizing on-premises virtualized infrastructure and migrating core enterprise workloads into production Kubernetes clusters. The Kubernetes administrator needs to restore an existing kubeadm-managed Kubernetes control plane that stopped responding after one year of continuous uptime.",
     question: "Which operational pattern or feature enables the engineering team to achieve seamless workload execution with minimal complexity?",
     options: [
-      { id: 'A', text: "Reinstall the entire cluster from scratch, losing all application data." },
-      { id: 'B', text: "Run `kubeadm certs check-expiration` to identify expired control plane certificates, and renew them using `kubeadm certs renew all`." },
-      { id: 'C', text: "Assume the underlying physical network hardware is unplugged." },
-      { id: 'D', text: "Disable TLS verification across all kubelet daemons permanently." }
+      { id: 'A', text: "Run `kubeadm init phase certs all` to reissue the certificates in place." },
+      { id: 'B', text: "Run `kubeadm certs check-expiration` and renew with `kubeadm certs renew all`." },
+      { id: 'C', text: "Run `kubeadm certs renew apiserver` alone, since the others are not client-facing." },
+      { id: 'D', text: "Run `openssl x509 -noout -dates` on each certificate and extend its validity." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -198,10 +198,10 @@ export const K8S_CKA_QUESTIONS_15 = [
     scenario: "A cluster operations team is hardening infrastructure to eliminate single points of failure, streamline node maintenance, and automate self-healing. The Kubernetes administrator needs to restore an existing kubeadm-managed Kubernetes control plane that stopped responding after one year of continuous uptime.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees cluster stability?",
     options: [
-      { id: 'A', text: "Run `kubeadm certs check-expiration` to identify expired control plane certificates, and renew them using `kubeadm certs renew all`." },
-      { id: 'B', text: "Reinstall the entire cluster from scratch, losing all application data." },
-      { id: 'C', text: "Disable TLS verification across all kubelet daemons permanently." },
-      { id: 'D', text: "Assume the underlying physical network hardware is unplugged." }
+      { id: 'A', text: "Run `kubeadm certs check-expiration` and renew with `kubeadm certs renew all`." },
+      { id: 'B', text: "Run `kubeadm init phase certs all` to reissue the certificates in place." },
+      { id: 'C', text: "Run `openssl x509 -noout -dates` on each certificate and extend its validity." },
+      { id: 'D', text: "Run `kubeadm certs renew apiserver` alone, since the others are not client-facing." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -219,10 +219,10 @@ export const K8S_CKA_QUESTIONS_15 = [
     scenario: "A platform engineering team is establishing high-availability standards and operational disaster recovery procedures for enterprise Kubernetes clusters. The Kubernetes administrator needs to troubleshoot why all `kubectl apply` pod deployments fail with `Internal error occurred: failed calling webhook`.",
     question: "Which architectural approach or configuration satisfies these cluster reliability and recovery requirements?",
     options: [
-      { id: 'A', text: "Inspect the `ValidatingWebhookConfiguration` and `MutatingWebhookConfiguration` resources, check webhook server pod health, and verify network connectivity." },
-      { id: 'B', text: "Restart all worker nodes simultaneously." },
-      { id: 'C', text: "Assume the kubectl client binary is corrupt and reinstall it." },
-      { id: 'D', text: "Delete the cluster role bindings for cluster-admin." }
+      { id: 'A', text: "Inspect the webhook configurations, the webhook pods' health, and connectivity from the API server." },
+      { id: 'B', text: "Inspect the API server's own RBAC bindings and confirm the caller is permitted to create the object." },
+      { id: 'C', text: "Inspect the admission plugin list on the API server and remove the one rejecting the request." },
+      { id: 'D', text: "Inspect the namespace's ResourceQuota and confirm the object does not exceed a hard limit." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -240,10 +240,10 @@ export const K8S_CKA_QUESTIONS_15 = [
     scenario: "A production Kubernetes cluster experiences massive surges in application traffic and high scheduling demands across large worker node pools. The Kubernetes administrator needs to troubleshoot why all `kubectl apply` pod deployments fail with `Internal error occurred: failed calling webhook`.",
     question: "Which architectural approach should the administrator select to manage this demand efficiently without cluster instability?",
     options: [
-      { id: 'A', text: "Delete the cluster role bindings for cluster-admin." },
-      { id: 'B', text: "Inspect the `ValidatingWebhookConfiguration` and `MutatingWebhookConfiguration` resources, check webhook server pod health, and verify network connectivity." },
-      { id: 'C', text: "Assume the kubectl client binary is corrupt and reinstall it." },
-      { id: 'D', text: "Restart all worker nodes simultaneously." }
+      { id: 'A', text: "Inspect the namespace's ResourceQuota and confirm the object does not exceed a hard limit." },
+      { id: 'B', text: "Inspect the webhook configurations, the webhook pods' health, and connectivity from the API server." },
+      { id: 'C', text: "Inspect the admission plugin list on the API server and remove the one rejecting the request." },
+      { id: 'D', text: "Inspect the API server's own RBAC bindings and confirm the caller is permitted to create the object." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -261,10 +261,10 @@ export const K8S_CKA_QUESTIONS_15 = [
     scenario: "A compliance auditor requires strict isolation of cluster resources, least-privilege administrative access, and secure network traffic policies across all namespaces. The Kubernetes administrator needs to troubleshoot why all `kubectl apply` pod deployments fail with `Internal error occurred: failed calling webhook`.",
     question: "Which solution implements these mandatory Kubernetes security and governance controls?",
     options: [
-      { id: 'A', text: "Inspect the `ValidatingWebhookConfiguration` and `MutatingWebhookConfiguration` resources, check webhook server pod health, and verify network connectivity." },
-      { id: 'B', text: "Delete the cluster role bindings for cluster-admin." },
-      { id: 'C', text: "Restart all worker nodes simultaneously." },
-      { id: 'D', text: "Assume the kubectl client binary is corrupt and reinstall it." }
+      { id: 'A', text: "Inspect the webhook configurations, the webhook pods' health, and connectivity from the API server." },
+      { id: 'B', text: "Inspect the namespace's ResourceQuota and confirm the object does not exceed a hard limit." },
+      { id: 'C', text: "Inspect the API server's own RBAC bindings and confirm the caller is permitted to create the object." },
+      { id: 'D', text: "Inspect the admission plugin list on the API server and remove the one rejecting the request." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -282,10 +282,10 @@ export const K8S_CKA_QUESTIONS_15 = [
     scenario: "An enterprise is modernizing on-premises virtualized infrastructure and migrating core enterprise workloads into production Kubernetes clusters. The Kubernetes administrator needs to troubleshoot why all `kubectl apply` pod deployments fail with `Internal error occurred: failed calling webhook`.",
     question: "Which operational pattern or feature enables the engineering team to achieve seamless workload execution with minimal complexity?",
     options: [
-      { id: 'A', text: "Assume the kubectl client binary is corrupt and reinstall it." },
-      { id: 'B', text: "Delete the cluster role bindings for cluster-admin." },
-      { id: 'C', text: "Inspect the `ValidatingWebhookConfiguration` and `MutatingWebhookConfiguration` resources, check webhook server pod health, and verify network connectivity." },
-      { id: 'D', text: "Restart all worker nodes simultaneously." }
+      { id: 'A', text: "Inspect the admission plugin list on the API server and remove the one rejecting the request." },
+      { id: 'B', text: "Inspect the namespace's ResourceQuota and confirm the object does not exceed a hard limit." },
+      { id: 'C', text: "Inspect the webhook configurations, the webhook pods' health, and connectivity from the API server." },
+      { id: 'D', text: "Inspect the API server's own RBAC bindings and confirm the caller is permitted to create the object." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -303,10 +303,10 @@ export const K8S_CKA_QUESTIONS_15 = [
     scenario: "A cluster operations team is hardening infrastructure to eliminate single points of failure, streamline node maintenance, and automate self-healing. The Kubernetes administrator needs to troubleshoot why all `kubectl apply` pod deployments fail with `Internal error occurred: failed calling webhook`.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees cluster stability?",
     options: [
-      { id: 'A', text: "Inspect the `ValidatingWebhookConfiguration` and `MutatingWebhookConfiguration` resources, check webhook server pod health, and verify network connectivity." },
-      { id: 'B', text: "Restart all worker nodes simultaneously." },
-      { id: 'C', text: "Assume the kubectl client binary is corrupt and reinstall it." },
-      { id: 'D', text: "Delete the cluster role bindings for cluster-admin." }
+      { id: 'A', text: "Inspect the webhook configurations, the webhook pods' health, and connectivity from the API server." },
+      { id: 'B', text: "Inspect the API server's own RBAC bindings and confirm the caller is permitted to create the object." },
+      { id: 'C', text: "Inspect the admission plugin list on the API server and remove the one rejecting the request." },
+      { id: 'D', text: "Inspect the namespace's ResourceQuota and confirm the object does not exceed a hard limit." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -324,10 +324,10 @@ export const K8S_CKA_QUESTIONS_15 = [
     scenario: "A platform engineering team is establishing high-availability standards and operational disaster recovery procedures for enterprise Kubernetes clusters. The Kubernetes administrator needs to troubleshoot an active, distroless production container that lacks a shell, curl, or debugging utilities without restarting the pod.",
     question: "Which architectural approach or configuration satisfies these cluster reliability and recovery requirements?",
     options: [
-      { id: 'A', text: "Run `kubectl debug -it &lt;pod-name&gt; --image=busybox --target=&lt;container-name&gt;` to attach an ephemeral container sharing the process namespace." },
-      { id: 'B', text: "Rebuild the container image with root access and full desktop utilities and redeploy to production." },
-      { id: 'C', text: "SSH directly into the container filesystem from outside the node." },
-      { id: 'D', text: "Delete the pod and hope the issue does not occur again in the replacement replica." }
+      { id: 'A', text: "Run `kubectl debug -it &lt;pod&gt; --image=busybox --target=&lt;container&gt;` to attach an ephemeral container." },
+      { id: 'B', text: "Run `kubectl exec -it &lt;pod&gt; -- sh`, which needs a shell the distroless image does not ship." },
+      { id: 'C', text: "Run `kubectl cp &lt;pod&gt;:/proc /tmp/proc` and read the process state from the copy." },
+      { id: 'D', text: "Run `kubectl debug node/&lt;node&gt; -it --image=busybox` and inspect the container from the host." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -345,10 +345,10 @@ export const K8S_CKA_QUESTIONS_15 = [
     scenario: "A production Kubernetes cluster experiences massive surges in application traffic and high scheduling demands across large worker node pools. The Kubernetes administrator needs to troubleshoot an active, distroless production container that lacks a shell, curl, or debugging utilities without restarting the pod.",
     question: "Which architectural approach should the administrator select to manage this demand efficiently without cluster instability?",
     options: [
-      { id: 'A', text: "Run `kubectl debug -it &lt;pod-name&gt; --image=busybox --target=&lt;container-name&gt;` to attach an ephemeral container sharing the process namespace." },
-      { id: 'B', text: "Rebuild the container image with root access and full desktop utilities and redeploy to production." },
-      { id: 'C', text: "SSH directly into the container filesystem from outside the node." },
-      { id: 'D', text: "Delete the pod and hope the issue does not occur again in the replacement replica." }
+      { id: 'A', text: "Run `kubectl debug -it &lt;pod&gt; --image=busybox --target=&lt;container&gt;` to attach an ephemeral container." },
+      { id: 'B', text: "Run `kubectl exec -it &lt;pod&gt; -- sh`, which needs a shell the distroless image does not ship." },
+      { id: 'C', text: "Run `kubectl cp &lt;pod&gt;:/proc /tmp/proc` and read the process state from the copy." },
+      { id: 'D', text: "Run `kubectl debug node/&lt;node&gt; -it --image=busybox` and inspect the container from the host." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -366,10 +366,10 @@ export const K8S_CKA_QUESTIONS_15 = [
     scenario: "A compliance auditor requires strict isolation of cluster resources, least-privilege administrative access, and secure network traffic policies across all namespaces. The Kubernetes administrator needs to troubleshoot an active, distroless production container that lacks a shell, curl, or debugging utilities without restarting the pod.",
     question: "Which solution implements these mandatory Kubernetes security and governance controls?",
     options: [
-      { id: 'A', text: "SSH directly into the container filesystem from outside the node." },
-      { id: 'B', text: "Delete the pod and hope the issue does not occur again in the replacement replica." },
-      { id: 'C', text: "Run `kubectl debug -it &lt;pod-name&gt; --image=busybox --target=&lt;container-name&gt;` to attach an ephemeral container sharing the process namespace." },
-      { id: 'D', text: "Rebuild the container image with root access and full desktop utilities and redeploy to production." }
+      { id: 'A', text: "Run `kubectl cp &lt;pod&gt;:/proc /tmp/proc` and read the process state from the copy." },
+      { id: 'B', text: "Run `kubectl debug node/&lt;node&gt; -it --image=busybox` and inspect the container from the host." },
+      { id: 'C', text: "Run `kubectl debug -it &lt;pod&gt; --image=busybox --target=&lt;container&gt;` to attach an ephemeral container." },
+      { id: 'D', text: "Run `kubectl exec -it &lt;pod&gt; -- sh`, which needs a shell the distroless image does not ship." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -387,10 +387,10 @@ export const K8S_CKA_QUESTIONS_15 = [
     scenario: "An enterprise is modernizing on-premises virtualized infrastructure and migrating core enterprise workloads into production Kubernetes clusters. The Kubernetes administrator needs to troubleshoot an active, distroless production container that lacks a shell, curl, or debugging utilities without restarting the pod.",
     question: "Which operational pattern or feature enables the engineering team to achieve seamless workload execution with minimal complexity?",
     options: [
-      { id: 'A', text: "Run `kubectl debug -it &lt;pod-name&gt; --image=busybox --target=&lt;container-name&gt;` to attach an ephemeral container sharing the process namespace." },
-      { id: 'B', text: "Rebuild the container image with root access and full desktop utilities and redeploy to production." },
-      { id: 'C', text: "SSH directly into the container filesystem from outside the node." },
-      { id: 'D', text: "Delete the pod and hope the issue does not occur again in the replacement replica." }
+      { id: 'A', text: "Run `kubectl debug -it &lt;pod&gt; --image=busybox --target=&lt;container&gt;` to attach an ephemeral container." },
+      { id: 'B', text: "Run `kubectl exec -it &lt;pod&gt; -- sh`, which needs a shell the distroless image does not ship." },
+      { id: 'C', text: "Run `kubectl cp &lt;pod&gt;:/proc /tmp/proc` and read the process state from the copy." },
+      { id: 'D', text: "Run `kubectl debug node/&lt;node&gt; -it --image=busybox` and inspect the container from the host." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -408,10 +408,10 @@ export const K8S_CKA_QUESTIONS_15 = [
     scenario: "A cluster operations team is hardening infrastructure to eliminate single points of failure, streamline node maintenance, and automate self-healing. The Kubernetes administrator needs to troubleshoot an active, distroless production container that lacks a shell, curl, or debugging utilities without restarting the pod.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees cluster stability?",
     options: [
-      { id: 'A', text: "Run `kubectl debug -it &lt;pod-name&gt; --image=busybox --target=&lt;container-name&gt;` to attach an ephemeral container sharing the process namespace." },
-      { id: 'B', text: "Rebuild the container image with root access and full desktop utilities and redeploy to production." },
-      { id: 'C', text: "SSH directly into the container filesystem from outside the node." },
-      { id: 'D', text: "Delete the pod and hope the issue does not occur again in the replacement replica." }
+      { id: 'A', text: "Run `kubectl debug -it &lt;pod&gt; --image=busybox --target=&lt;container&gt;` to attach an ephemeral container." },
+      { id: 'B', text: "Run `kubectl exec -it &lt;pod&gt; -- sh`, which needs a shell the distroless image does not ship." },
+      { id: 'C', text: "Run `kubectl cp &lt;pod&gt;:/proc /tmp/proc` and read the process state from the copy." },
+      { id: 'D', text: "Run `kubectl debug node/&lt;node&gt; -it --image=busybox` and inspect the container from the host." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -429,10 +429,10 @@ export const K8S_CKA_QUESTIONS_15 = [
     scenario: "A platform engineering team is establishing high-availability standards and operational disaster recovery procedures for enterprise Kubernetes clusters. The Kubernetes administrator needs to determine why newly provisioned worker nodes with specialized GPU hardware remain empty while GPU workloads stay in Pending.",
     question: "Which architectural approach or configuration satisfies these cluster reliability and recovery requirements?",
     options: [
-      { id: 'A', text: "Set pod CPU limit to zero to bypass taint evaluation." },
-      { id: 'B', text: "Delete the kubelet configuration file on the master node." },
-      { id: 'C', text: "Remove the GPU hardware from the worker node." },
-      { id: 'D', text: "Inspect node taints using `kubectl describe node` and verify that the workload pod spec includes corresponding `tolerations` matching the taint key, value, and effect." }
+      { id: 'A', text: "Read the node's labels with `kubectl get node --show-labels` and match them in the pod's `nodeSelector`." },
+      { id: 'B', text: "Read the scheduler's own log and raise the pod's `priorityClassName` so it preempts a running workload." },
+      { id: 'C', text: "Read the node's allocatable resources and lower the pod's GPU request until it fits on the node." },
+      { id: 'D', text: "Read the node's taints with `kubectl describe node` and check the pod carries a matching toleration." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -450,10 +450,10 @@ export const K8S_CKA_QUESTIONS_15 = [
     scenario: "A production Kubernetes cluster experiences massive surges in application traffic and high scheduling demands across large worker node pools. The Kubernetes administrator needs to determine why newly provisioned worker nodes with specialized GPU hardware remain empty while GPU workloads stay in Pending.",
     question: "Which architectural approach should the administrator select to manage this demand efficiently without cluster instability?",
     options: [
-      { id: 'A', text: "Inspect node taints using `kubectl describe node` and verify that the workload pod spec includes corresponding `tolerations` matching the taint key, value, and effect." },
-      { id: 'B', text: "Remove the GPU hardware from the worker node." },
-      { id: 'C', text: "Delete the kubelet configuration file on the master node." },
-      { id: 'D', text: "Set pod CPU limit to zero to bypass taint evaluation." }
+      { id: 'A', text: "Read the node's taints with `kubectl describe node` and check the pod carries a matching toleration." },
+      { id: 'B', text: "Read the node's allocatable resources and lower the pod's GPU request until it fits on the node." },
+      { id: 'C', text: "Read the scheduler's own log and raise the pod's `priorityClassName` so it preempts a running workload." },
+      { id: 'D', text: "Read the node's labels with `kubectl get node --show-labels` and match them in the pod's `nodeSelector`." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -471,10 +471,10 @@ export const K8S_CKA_QUESTIONS_15 = [
     scenario: "A compliance auditor requires strict isolation of cluster resources, least-privilege administrative access, and secure network traffic policies across all namespaces. The Kubernetes administrator needs to determine why newly provisioned worker nodes with specialized GPU hardware remain empty while GPU workloads stay in Pending.",
     question: "Which solution implements these mandatory Kubernetes security and governance controls?",
     options: [
-      { id: 'A', text: "Inspect node taints using `kubectl describe node` and verify that the workload pod spec includes corresponding `tolerations` matching the taint key, value, and effect." },
-      { id: 'B', text: "Delete the kubelet configuration file on the master node." },
-      { id: 'C', text: "Set pod CPU limit to zero to bypass taint evaluation." },
-      { id: 'D', text: "Remove the GPU hardware from the worker node." }
+      { id: 'A', text: "Read the node's taints with `kubectl describe node` and check the pod carries a matching toleration." },
+      { id: 'B', text: "Read the scheduler's own log and raise the pod's `priorityClassName` so it preempts a running workload." },
+      { id: 'C', text: "Read the node's labels with `kubectl get node --show-labels` and match them in the pod's `nodeSelector`." },
+      { id: 'D', text: "Read the node's allocatable resources and lower the pod's GPU request until it fits on the node." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -492,10 +492,10 @@ export const K8S_CKA_QUESTIONS_15 = [
     scenario: "An enterprise is modernizing on-premises virtualized infrastructure and migrating core enterprise workloads into production Kubernetes clusters. The Kubernetes administrator needs to determine why newly provisioned worker nodes with specialized GPU hardware remain empty while GPU workloads stay in Pending.",
     question: "Which operational pattern or feature enables the engineering team to achieve seamless workload execution with minimal complexity?",
     options: [
-      { id: 'A', text: "Delete the kubelet configuration file on the master node." },
-      { id: 'B', text: "Inspect node taints using `kubectl describe node` and verify that the workload pod spec includes corresponding `tolerations` matching the taint key, value, and effect." },
-      { id: 'C', text: "Remove the GPU hardware from the worker node." },
-      { id: 'D', text: "Set pod CPU limit to zero to bypass taint evaluation." }
+      { id: 'A', text: "Read the scheduler's own log and raise the pod's `priorityClassName` so it preempts a running workload." },
+      { id: 'B', text: "Read the node's taints with `kubectl describe node` and check the pod carries a matching toleration." },
+      { id: 'C', text: "Read the node's allocatable resources and lower the pod's GPU request until it fits on the node." },
+      { id: 'D', text: "Read the node's labels with `kubectl get node --show-labels` and match them in the pod's `nodeSelector`." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -513,10 +513,10 @@ export const K8S_CKA_QUESTIONS_15 = [
     scenario: "A cluster operations team is hardening infrastructure to eliminate single points of failure, streamline node maintenance, and automate self-healing. The Kubernetes administrator needs to determine why newly provisioned worker nodes with specialized GPU hardware remain empty while GPU workloads stay in Pending.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees cluster stability?",
     options: [
-      { id: 'A', text: "Delete the kubelet configuration file on the master node." },
-      { id: 'B', text: "Set pod CPU limit to zero to bypass taint evaluation." },
-      { id: 'C', text: "Inspect node taints using `kubectl describe node` and verify that the workload pod spec includes corresponding `tolerations` matching the taint key, value, and effect." },
-      { id: 'D', text: "Remove the GPU hardware from the worker node." }
+      { id: 'A', text: "Read the scheduler's own log and raise the pod's `priorityClassName` so it preempts a running workload." },
+      { id: 'B', text: "Read the node's labels with `kubectl get node --show-labels` and match them in the pod's `nodeSelector`." },
+      { id: 'C', text: "Read the node's taints with `kubectl describe node` and check the pod carries a matching toleration." },
+      { id: 'D', text: "Read the node's allocatable resources and lower the pod's GPU request until it fits on the node." }
     ],
     correctAnswers: ['C'],
     type: "single",

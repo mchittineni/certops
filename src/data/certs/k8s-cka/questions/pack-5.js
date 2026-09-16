@@ -10,9 +10,9 @@ export const K8S_CKA_QUESTIONS_5 = [
     question: "Which cause fits that status?",
     options: [
       { id: 'A', text: "The pod references a ConfigMap or Secret key that does not exist." },
-      { id: 'B', text: "The registry credentials are wrong." },
-      { id: 'C', text: "The container exited non-zero on startup." },
-      { id: 'D', text: "No node has enough memory for the pod." }
+      { id: 'B', text: "The registry credentials in the pull secret are wrong." },
+      { id: 'C', text: "The container exited non-zero on its first startup." },
+      { id: 'D', text: "No node has enough free memory to place the pod." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -30,10 +30,10 @@ export const K8S_CKA_QUESTIONS_5 = [
     scenario: "Two of the three etcd members in an external etcd cluster are permanently lost. The remaining member is healthy but the cluster is read-only and the API server reports errors.",
     question: "Why is the cluster unavailable and what restores it?",
     options: [
-      { id: 'A', text: "One of three members cannot form a majority, so the cluster must be rebuilt from a snapshot, typically by restoring a single-member cluster and re-adding members." },
-      { id: 'B', text: "Restarting the API server re-elects a leader and restores writes." },
-      { id: 'C', text: "Adding a fourth member restores quorum immediately." },
-      { id: 'D', text: "etcd continues serving writes with any single surviving member once the others are removed from DNS." }
+      { id: 'A', text: "One of three members cannot form a majority, so restore a single-member cluster and re-add the rest." },
+      { id: 'B', text: "Restarting the API server re-elects an etcd leader, after which writes are accepted again." },
+      { id: 'C', text: "Adding a fourth member restores quorum, since four members tolerate two failures." },
+      { id: 'D', text: "etcd keeps serving writes from any surviving member once the others are removed." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -198,10 +198,10 @@ export const K8S_CKA_QUESTIONS_5 = [
     scenario: "A CSI driver is being installed and the manifests include a controller Deployment and a node DaemonSet.",
     question: "Which split of responsibilities is correct?",
     options: [
-      { id: 'A', text: "Both components perform identical work and one is a hot standby." },
-      { id: 'B', text: "The controller component handles provisioning, attaching, and snapshotting; the node component handles staging, mounting, and formatting on each node." },
-      { id: 'C', text: "The controller mounts volumes into pods and the node component provisions storage." },
-      { id: 'D', text: "The node component talks to the storage API and the controller runs inside each pod." }
+      { id: 'A', text: "Both components do identical work, and one runs as a hot standby for the other." },
+      { id: 'B', text: "The controller provisions and attaches; the node plugin stages and mounts." },
+      { id: 'C', text: "The controller mounts volumes into pods, and the node component provisions the storage." },
+      { id: 'D', text: "The node component calls the storage API, and the controller runs as a sidecar per pod." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -219,10 +219,10 @@ export const K8S_CKA_QUESTIONS_5 = [
     scenario: "An operator wants the YAML for a deployment as a starting point for editing, without creating anything in the cluster.",
     question: "Which command prints it?",
     options: [
-      { id: 'A', text: "kubectl get deployment web -o yaml" },
-      { id: 'B', text: "kubectl apply -f - --dry-run=server" },
-      { id: 'C', text: "kubectl create deployment web --image=nginx --dry-run=client -o yaml" },
-      { id: 'D', text: "kubectl explain deployment --recursive" }
+      { id: 'A', text: "`kubectl get deployment web -o yaml --export` from the cluster" },
+      { id: 'B', text: "`kubectl apply -f - --dry-run=server` with the manifest piped in" },
+      { id: 'C', text: "`kubectl create deployment web --image=nginx --dry-run=client -o yaml`" },
+      { id: 'D', text: "`kubectl explain deployment --recursive` for the full schema" }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -240,10 +240,10 @@ export const K8S_CKA_QUESTIONS_5 = [
     scenario: "Security requires a record of every request that mutates cluster objects, written to a file on the control plane node.",
     question: "What is required?",
     options: [
-      { id: 'A', text: "Setting audit: true on each namespace." },
-      { id: 'B', text: "Turning on the NodeRestriction admission plugin." },
-      { id: 'C', text: "Deploying metrics-server with audit mode enabled." },
-      { id: 'D', text: "An audit policy file plus the kube-apiserver flags --audit-policy-file and --audit-log-path, with both paths mounted into the static pod." }
+      { id: 'A', text: "An `audit: true` label on each namespace whose API traffic is to be recorded by the server." },
+      { id: 'B', text: "The `NodeRestriction` admission plugin, which records each node's own API requests centrally." },
+      { id: 'C', text: "metrics-server deployed in audit mode, which forwards the API server's request stream on." },
+      { id: 'D', text: "An audit policy file, with `--audit-policy-file` and `--audit-log-path` mounted in." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -261,10 +261,10 @@ export const K8S_CKA_QUESTIONS_5 = [
     scenario: "A pod in namespace web resolves the short name api successfully even though the Service is api.web.svc.cluster.local.",
     question: "Why does the short name work?",
     options: [
-      { id: 'A', text: "The kubelet injects a hosts file entry for every Service." },
-      { id: 'B', text: "CoreDNS creates an alias record for every short name." },
-      { id: 'C', text: "The pod /etc/resolv.conf contains search domains including web.svc.cluster.local, so short names are expanded." },
-      { id: 'D', text: "kube-proxy rewrites DNS queries for local Services." }
+      { id: 'A', text: "The kubelet writes a hosts entry for every Service into the pod's `/etc/hosts`." },
+      { id: 'B', text: "CoreDNS publishes an alias record for the short name of each Service." },
+      { id: 'C', text: "The pod's `resolv.conf` carries search domains, so the short name is expanded." },
+      { id: 'D', text: "kube-proxy rewrites DNS queries that name a Service in the same namespace." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -282,10 +282,10 @@ export const K8S_CKA_QUESTIONS_5 = [
     scenario: "A logging agent must start before the application container, keep running for the life of the pod, and not block pod completion in a Job.",
     question: "Which construct provides that in current Kubernetes?",
     options: [
-      { id: 'A', text: "A second regular container listed before the application container." },
-      { id: 'B', text: "An init container with restartPolicy: Always, which Kubernetes treats as a sidecar." },
-      { id: 'C', text: "A plain init container without a restart policy." },
-      { id: 'D', text: "An ephemeral container added at pod creation time." }
+      { id: 'A', text: "A regular container listed before the application container." },
+      { id: 'B', text: "An init container with `restartPolicy: Always`, treated as a sidecar." },
+      { id: 'C', text: "A plain init container with no restart policy declared." },
+      { id: 'D', text: "An ephemeral container added when the pod is created." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -303,10 +303,10 @@ export const K8S_CKA_QUESTIONS_5 = [
     scenario: "A deleted namespace has remained in Terminating for an hour. Its objects appear gone but the namespace will not disappear.",
     question: "What is the usual cause?",
     options: [
-      { id: 'A', text: "The namespace still has a ResourceQuota attached." },
-      { id: 'B', text: "kube-proxy has not removed the Service rules yet." },
-      { id: 'C', text: "etcd is out of disk space." },
-      { id: 'D', text: "A finalizer is waiting on a resource whose controller or aggregated API is unavailable." }
+      { id: 'A', text: "The namespace still has a ResourceQuota object attached to it." },
+      { id: 'B', text: "kube-proxy has not yet removed that namespace's Service rules." },
+      { id: 'C', text: "etcd is out of disk space, so the deletion cannot be persisted." },
+      { id: 'D', text: "A finalizer is waiting on a resource whose controller is unavailable." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -324,10 +324,10 @@ export const K8S_CKA_QUESTIONS_5 = [
     scenario: "Claims that omit storageClassName should be provisioned by the StorageClass named standard.",
     question: "How is that class marked as the cluster default?",
     options: [
-      { id: 'A', text: "With the field spec.default: true." },
-      { id: 'B', text: "By listing it first alphabetically." },
-      { id: 'C', text: "By naming it default." },
-      { id: 'D', text: "With the annotation storageclass.kubernetes.io/is-default-class: \"true\"." }
+      { id: 'A', text: "With the `spec.default: true` field on the StorageClass" },
+      { id: 'B', text: "By being the first class alphabetically in the cluster" },
+      { id: 'C', text: "By naming the StorageClass `default` on creation" },
+      { id: 'D', text: "With the `storageclass.kubernetes.io/is-default-class` annotation" }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -345,10 +345,10 @@ export const K8S_CKA_QUESTIONS_5 = [
     scenario: "A hardening review asks what stops a compromised kubelet from modifying pods on other nodes or editing arbitrary node objects.",
     question: "Which mechanism provides that limit?",
     options: [
-      { id: 'A', text: "The Node authorizer combined with the NodeRestriction admission plugin." },
-      { id: 'B', text: "A default-deny NetworkPolicy in kube-system." },
-      { id: 'C', text: "The ServiceAccount token volume projection." },
-      { id: 'D', text: "The AlwaysPullImages admission plugin." }
+      { id: 'A', text: "The Node authorizer with the NodeRestriction plugin" },
+      { id: 'B', text: "A default-deny NetworkPolicy in `kube-system`" },
+      { id: 'C', text: "The ServiceAccount token volume projection" },
+      { id: 'D', text: "The `AlwaysPullImages` admission plugin" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -366,10 +366,10 @@ export const K8S_CKA_QUESTIONS_5 = [
     scenario: "A very large Service backs several thousand pods and the team is reviewing how membership is tracked.",
     question: "Why did Kubernetes introduce EndpointSlices?",
     options: [
-      { id: 'A', text: "EndpointSlices add layer 7 routing that Endpoints lacked." },
-      { id: 'B', text: "EndpointSlices replace the need for kube-proxy." },
-      { id: 'C', text: "A single Endpoints object holding thousands of addresses caused large, frequently rewritten objects; slices shard the membership into smaller chunks that scale and update more cheaply." },
-      { id: 'D', text: "EndpointSlices allow Services to span clusters automatically." }
+      { id: 'A', text: "EndpointSlices add layer 7 routing to Services, which the Endpoints object could not express." },
+      { id: 'B', text: "EndpointSlices let kube-proxy be removed, since the CNI plugin programs the routes instead." },
+      { id: 'C', text: "One Endpoints object of thousands of addresses was rewritten constantly; slices shard it." },
+      { id: 'D', text: "EndpointSlices let a Service span clusters, since each cluster contributes its own slice." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -387,10 +387,10 @@ export const K8S_CKA_QUESTIONS_5 = [
     scenario: "kubectl commands take many seconds. The API server pod is running and etcd shows high disk latency in its metrics.",
     question: "Which conclusion is best supported?",
     options: [
-      { id: 'A', text: "kube-proxy is throttling API traffic." },
-      { id: 'B', text: "The scheduler is overloaded and should be scaled out." },
-      { id: 'C', text: "CoreDNS needs more replicas." },
-      { id: 'D', text: "etcd write latency is the bottleneck, so faster disks or reduced write churn on the control plane are the fix." }
+      { id: 'A', text: "kube-proxy is throttling API traffic, so its QPS settings need raising." },
+      { id: 'B', text: "The scheduler is overloaded and should be given a second replica." },
+      { id: 'C', text: "CoreDNS needs more replicas, since the latency follows name lookups." },
+      { id: 'D', text: "etcd write latency is the bottleneck, so faster disks or less write churn is the fix." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -429,10 +429,10 @@ export const K8S_CKA_QUESTIONS_5 = [
     scenario: "A kubelet setting such as the eviction threshold must be changed persistently on a kubeadm-managed node.",
     question: "Which file is the right place?",
     options: [
-      { id: 'A', text: "/etc/kubernetes/admin.conf" },
-      { id: 'B', text: "/etc/cni/net.d/10-flannel.conflist" },
-      { id: 'C', text: "/var/lib/kubelet/config.yaml, the KubeletConfiguration file the kubeadm-managed unit points at." },
-      { id: 'D', text: "/etc/kubernetes/manifests/kubelet.yaml" }
+      { id: 'A', text: "`/etc/kubernetes/kubelet.conf`, the kubeconfig the kubelet authenticates with." },
+      { id: 'B', text: "`/etc/cni/net.d/10-flannel.conflist`, read by the kubelet at pod creation." },
+      { id: 'C', text: "`/var/lib/kubelet/config.yaml`, the KubeletConfiguration the unit points at." },
+      { id: 'D', text: "`/etc/kubernetes/manifests/kubelet.yaml`, the kubelet's own static pod." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -450,10 +450,10 @@ export const K8S_CKA_QUESTIONS_5 = [
     scenario: "A developer proposes using a hostPath volume so their pod can write directly to /var/log on the node.",
     question: "Which objection is technically correct?",
     options: [
-      { id: 'A', text: "hostPath requires a PersistentVolumeClaim to be created first." },
-      { id: 'B', text: "hostPath data is deleted when the pod restarts." },
-      { id: 'C', text: "hostPath exposes the node filesystem to the pod, is not portable across nodes, and is disallowed by the baseline and restricted Pod Security Standards." },
-      { id: 'D', text: "hostPath volumes cannot be mounted read-write." }
+      { id: 'A', text: "`hostPath` needs a PersistentVolumeClaim before the pod can mount it, which the manifest omits." },
+      { id: 'B', text: "`hostPath` data is discarded when the pod restarts, so it cannot hold anything durable." },
+      { id: 'C', text: "`hostPath` exposes the node filesystem and is barred by the restricted standard." },
+      { id: 'D', text: "`hostPath` volumes can only be mounted read-only, so the workload's writes will fail." }
     ],
     correctAnswers: ['C'],
     type: "single",

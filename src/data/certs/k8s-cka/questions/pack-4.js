@@ -9,10 +9,10 @@ export const K8S_CKA_QUESTIONS_4 = [
     scenario: "A control plane must be restored from /opt/etcd-backup.db into a fresh data directory at /var/lib/etcd-restore on a kubeadm node with stacked etcd.",
     question: "What must happen for the restored data to be used?",
     options: [
-      { id: 'A', text: "Copy the snapshot file into /var/lib/etcd and restart the kubelet." },
-      { id: 'B', text: "Run etcdctl snapshot restore and the running etcd picks up the new data automatically." },
-      { id: 'C', text: "Run etcdctl snapshot restore with --data-dir=/var/lib/etcd-restore, then point the etcd static pod hostPath at that directory so the kubelet restarts etcd against it." },
-      { id: 'D', text: "Apply the snapshot with kubectl apply -f etcd-backup.db." }
+      { id: 'A', text: "Copy the snapshot into `/var/lib/etcd` and restart the kubelet on that node." },
+      { id: 'B', text: "Run `etcdctl snapshot restore`, which the running etcd member picks up on its own." },
+      { id: 'C', text: "Restore with `--data-dir=/var/lib/etcd-restore`, then point the etcd static pod's hostPath at it." },
+      { id: 'D', text: "Apply the snapshot with `kubectl apply -f etcd-backup.db` from the control plane." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -30,10 +30,10 @@ export const K8S_CKA_QUESTIONS_4 = [
     scenario: "A single-node kubeadm cluster refuses to schedule ordinary workloads onto its only node.",
     question: "Which taint is responsible and how is it removed?",
     options: [
-      { id: 'A', text: "node.kubernetes.io/unreachable:NoExecute, removed by restarting the kubelet" },
-      { id: 'B', text: "node.kubernetes.io/disk-pressure:NoSchedule, removed by freeing disk space" },
-      { id: 'C', text: "node.kubernetes.io/unschedulable:NoSchedule, removed with kubectl drain" },
-      { id: 'D', text: "node-role.kubernetes.io/control-plane:NoSchedule, removed with kubectl taint nodes NODE node-role.kubernetes.io/control-plane-" }
+      { id: 'A', text: "`node.kubernetes.io/unreachable:NoExecute`, which clears when the kubelet reports in again" },
+      { id: 'B', text: "`node.kubernetes.io/disk-pressure:NoSchedule`, which clears once disk is freed on the node" },
+      { id: 'C', text: "`node.kubernetes.io/unschedulable:NoSchedule`, which clears when the node is uncordoned" },
+      { id: 'D', text: "`node-role.kubernetes.io/control-plane:NoSchedule`, removed with `kubectl taint nodes NODE ...-`" }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -51,10 +51,10 @@ export const K8S_CKA_QUESTIONS_4 = [
     scenario: "After applying a default-deny egress NetworkPolicy to a namespace, application pods can no longer resolve any hostname, though the policy explicitly allows their database CIDR.",
     question: "What is missing from the policy?",
     options: [
-      { id: 'A', text: "An egress rule allowing UDP and TCP port 53 to the kube-system CoreDNS pods." },
-      { id: 'B', text: "A dnsPolicy of ClusterFirstWithHostNet on each pod." },
-      { id: 'C', text: "An ingress rule allowing port 53 from CoreDNS." },
-      { id: 'D', text: "A hostAliases entry for the database hostname." }
+      { id: 'A', text: "An egress rule allowing UDP and TCP 53 to the CoreDNS pods." },
+      { id: 'B', text: "A `dnsPolicy` of `ClusterFirstWithHostNet` on each of the pods." },
+      { id: 'C', text: "An ingress rule allowing port 53 from the CoreDNS pods in." },
+      { id: 'D', text: "A `hostAliases` entry for the database's own hostname." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -93,10 +93,10 @@ export const K8S_CKA_QUESTIONS_4 = [
     scenario: "An application needs a database password injected at runtime, and the value must not appear in plain text in a ConfigMap.",
     question: "Which statement about Kubernetes Secrets is accurate?",
     options: [
-      { id: 'A', text: "Secret values are hashed, so the original password cannot be recovered." },
-      { id: 'B', text: "Secrets are stored outside etcd in a dedicated vault." },
-      { id: 'C', text: "Secret data is base64-encoded in the API and is only encrypted at rest if encryption at rest is configured on the API server." },
-      { id: 'D', text: "Secrets are encrypted end to end by default and cannot be read by cluster administrators." }
+      { id: 'A', text: "Secret values are hashed by the API server, so the original cannot be recovered." },
+      { id: 'B', text: "Secrets are held outside etcd, in a dedicated store the API server reads." },
+      { id: 'C', text: "Secret data is base64-encoded in the API, and encrypted at rest only if that is configured." },
+      { id: 'D', text: "Secrets are encrypted end to end, so an administrator cannot read them." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -114,10 +114,10 @@ export const K8S_CKA_QUESTIONS_4 = [
     scenario: "A compliance requirement states that Secret objects must be encrypted inside etcd, using a key managed on the control plane node.",
     question: "How is that enabled?",
     options: [
-      { id: 'A', text: "Enable TLS between the API server and etcd." },
-      { id: 'B', text: "Set encrypted: true in each Secret metadata." },
-      { id: 'C', text: "Turn on the PodSecurity admission controller." },
-      { id: 'D', text: "Provide an EncryptionConfiguration file and pass --encryption-provider-config to kube-apiserver, then rewrite existing Secrets." }
+      { id: 'A', text: "Enable TLS between the API server and etcd, then restart both static pods." },
+      { id: 'B', text: "Set `encrypted: true` on each Secret and let the API server re-encrypt it." },
+      { id: 'C', text: "Turn on the PodSecurity admission plugin at the restricted level." },
+      { id: 'D', text: "Pass `--encryption-provider-config` to the API server and rewrite the existing Secrets." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -156,10 +156,10 @@ export const K8S_CKA_QUESTIONS_4 = [
     scenario: "A bare-metal cluster with no cloud load balancer integration must expose a single HTTP application to users outside the cluster, and the team wants to avoid one external port per service.",
     question: "Which approach is the most appropriate?",
     options: [
-      { id: 'A', text: "Use an ExternalName Service pointing at the pod IP." },
-      { id: 'B', text: "Create a LoadBalancer Service and wait for an external IP." },
-      { id: 'C', text: "Deploy an ingress controller reachable from outside, and route applications through Ingress objects." },
-      { id: 'D', text: "Expose a NodePort per application and document the port numbers." }
+      { id: 'A', text: "Use an `ExternalName` Service pointing at each application's pod address." },
+      { id: 'B', text: "Create a `LoadBalancer` Service per application and wait for an address." },
+      { id: 'C', text: "Deploy an ingress controller and route the applications through `Ingress` objects." },
+      { id: 'D', text: "Expose a `NodePort` per application and publish the port numbers." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -198,10 +198,10 @@ export const K8S_CKA_QUESTIONS_4 = [
     scenario: "A cluster is full. A pod with a PriorityClass of value 1000000 is created and stays Pending briefly, then a lower priority pod on node02 is terminated.",
     question: "Which component made that decision and on what basis?",
     options: [
-      { id: 'A', text: "The ReplicaSet controller scaled down to free capacity." },
-      { id: 'B', text: "The API server rejected the lower priority pod at admission time." },
-      { id: 'C', text: "The kubelet on node02 evicted the pod because of memory pressure." },
-      { id: 'D', text: "kube-scheduler preempted lower priority pods on a node where eviction would make the pending pod schedulable." }
+      { id: 'A', text: "The ReplicaSet controller scaled its own pods down to free capacity on the node." },
+      { id: 'B', text: "The API server rejected the lower priority pods at admission once capacity ran out." },
+      { id: 'C', text: "The kubelet on that node evicted the pods because it came under memory pressure." },
+      { id: 'D', text: "kube-scheduler preempted lower priority pods where eviction would make the pending pod fit." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -219,10 +219,10 @@ export const K8S_CKA_QUESTIONS_4 = [
     scenario: "A namespace must reject any pod that requests privileged mode or host namespaces, using the built-in admission controller rather than a third-party policy engine.",
     question: "Which configuration does that?",
     options: [
-      { id: 'A', text: "Add a ResourceQuota counting privileged pods." },
-      { id: 'B', text: "Set securityContext.privileged: false on the namespace object." },
-      { id: 'C', text: "Create a PodSecurityPolicy object with privileged: false." },
-      { id: 'D', text: "Label the namespace with pod-security.kubernetes.io/enforce: restricted or baseline." }
+      { id: 'A', text: "Add a `ResourceQuota` that counts the namespace's privileged pods." },
+      { id: 'B', text: "Set `securityContext.privileged: false` on the namespace object." },
+      { id: 'C', text: "Create a `PodSecurityPolicy` object with `privileged: false`." },
+      { id: 'D', text: "Label the namespace `pod-security.kubernetes.io/enforce: restricted`." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -240,10 +240,10 @@ export const K8S_CKA_QUESTIONS_4 = [
     scenario: "After a cluster sat powered off for over a year, kubectl reports \"x509: certificate has expired or is not yet valid\" and the API server will not start.",
     question: "Which command renews the kubeadm-managed certificates?",
     options: [
-      { id: 'A', text: "kubeadm certs renew all, followed by restarting the control plane static pods and refreshing the admin kubeconfig" },
-      { id: 'B', text: "systemctl restart kubelet" },
-      { id: 'C', text: "kubectl certificate approve --all" },
-      { id: 'D', text: "kubeadm reset and rejoin the node" }
+      { id: 'A', text: "`kubeadm certs renew all`, then restart the static pods and refresh the admin kubeconfig" },
+      { id: 'B', text: "`systemctl restart kubelet`, which reissues the control plane certificates" },
+      { id: 'C', text: "`kubectl certificate approve --all`, which signs the pending renewal CSRs" },
+      { id: 'D', text: "`kubeadm reset` on the node, followed by rejoining it to the cluster" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -282,10 +282,10 @@ export const K8S_CKA_QUESTIONS_4 = [
     scenario: "A ConfigMap is mounted with subPath so that only one key lands as /etc/nginx/nginx.conf without hiding the rest of the directory. The ConfigMap is later updated.",
     question: "What happens to the file inside the running container?",
     options: [
-      { id: 'A', text: "The container is restarted automatically to pick up the change." },
-      { id: 'B', text: "It keeps the old contents, because subPath mounts are not updated when the ConfigMap changes." },
-      { id: 'C', text: "It is updated within the kubelet sync period like any other ConfigMap volume." },
-      { id: 'D', text: "The pod is evicted and rescheduled." }
+      { id: 'A', text: "The container is restarted so that it picks up the new contents." },
+      { id: 'B', text: "It keeps the old contents, since `subPath` mounts are not updated." },
+      { id: 'C', text: "It is updated within the kubelet's sync period like any volume." },
+      { id: 'D', text: "The pod is evicted and rescheduled with the new ConfigMap." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -303,10 +303,10 @@ export const K8S_CKA_QUESTIONS_4 = [
     scenario: "An organisation is choosing between running etcd on the control plane nodes and running it on dedicated machines.",
     question: "Which statement correctly contrasts the two topologies?",
     options: [
-      { id: 'A', text: "A stacked topology couples an etcd member to each control plane node so losing one node loses both roles, while an external etcd topology decouples them at the cost of more machines." },
-      { id: 'B', text: "A stacked topology requires an odd number of etcd members while an external topology does not." },
-      { id: 'C', text: "A stacked topology cannot be created with kubeadm." },
-      { id: 'D', text: "Only external etcd supports TLS between the API server and etcd." }
+      { id: 'A', text: "Stacked puts etcd on each control plane node, so one failure loses both; external decouples them." },
+      { id: 'B', text: "Stacked requires an odd number of etcd members, while an external cluster can run any number of them." },
+      { id: 'C', text: "Stacked cannot be created with kubeadm, so an external etcd cluster has to be built first." },
+      { id: 'D', text: "Only external etcd supports TLS between the API server and the members of the etcd cluster." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -324,9 +324,9 @@ export const K8S_CKA_QUESTIONS_4 = [
     scenario: "A StatefulSet of five replicas takes far too long to roll out because each pod waits for the previous one to become Ready, and the application does not actually require ordering at startup.",
     question: "Which field speeds up creation and scaling?",
     options: [
-      { id: 'A', text: "podManagementPolicy: Parallel" },
+      { id: 'A', text: "`podManagementPolicy: Parallel`, which starts the replicas at once." },
       { id: 'B', text: "revisionHistoryLimit: 0" },
-      { id: 'C', text: "updateStrategy.type: OnDelete" },
+      { id: 'C', text: "`updateStrategy.type: OnDelete`, which updates a pod when deleted." },
       { id: 'D', text: "terminationGracePeriodSeconds: 0" }
     ],
     correctAnswers: ['A'],
@@ -387,10 +387,10 @@ export const K8S_CKA_QUESTIONS_4 = [
     scenario: "After a reboot, the kubelet on a worker exits repeatedly. journalctl shows \"failed to run Kubelet: running with swap on is not supported, please disable swap\".",
     question: "Which remediation is correct for a standard cluster?",
     options: [
-      { id: 'A', text: "Reduce the pod memory requests on that node." },
-      { id: 'B', text: "Delete the node object and rejoin the cluster." },
-      { id: 'C', text: "Disable swap with swapoff -a and comment the swap entry out of /etc/fstab so it stays off across reboots." },
-      { id: 'D', text: "Restart the container runtime." }
+      { id: 'A', text: "Lower the memory requests of the pods scheduled onto that node." },
+      { id: 'B', text: "Delete the node object and rejoin the node to the cluster afresh." },
+      { id: 'C', text: "Disable swap with `swapoff -a` and comment the entry out of `/etc/fstab`." },
+      { id: 'D', text: "Restart the container runtime and then the kubelet on that node." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -429,10 +429,10 @@ export const K8S_CKA_QUESTIONS_4 = [
     scenario: "A container declares a memory request of 256Mi and a memory limit of 512Mi.",
     question: "What do those two values control?",
     options: [
-      { id: 'A', text: "The request is the maximum the container may use; the limit is what the scheduler reserves." },
-      { id: 'B', text: "The request applies to the pod and the limit applies to the namespace." },
-      { id: 'C', text: "The request is what the scheduler reserves when placing the pod; the limit is the ceiling the kernel enforces at runtime." },
-      { id: 'D', text: "Both values are advisory and are not enforced." }
+      { id: 'A', text: "The request is the maximum the container may use; the limit is what is reserved." },
+      { id: 'B', text: "The request applies to the pod, and the limit applies across the namespace." },
+      { id: 'C', text: "The request is what the scheduler reserves; the limit is the ceiling the kernel enforces." },
+      { id: 'D', text: "Both values are advisory and neither is enforced at runtime by the node." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -450,10 +450,10 @@ export const K8S_CKA_QUESTIONS_4 = [
     scenario: "A PersistentVolumeClaim requesting 100Gi with storageClassName: fast stays Pending. No StorageClass named fast exists in the cluster.",
     question: "What is the outcome and the fix?",
     options: [
-      { id: 'A', text: "The API server rejects the claim at creation time." },
-      { id: 'B', text: "A PersistentVolume of 100Gi is created without a class." },
-      { id: 'C', text: "No provisioner matches, so the claim stays Pending until the StorageClass exists or the claim references an existing class." },
-      { id: 'D', text: "The default StorageClass is used automatically after a timeout." }
+      { id: 'A', text: "The API server rejects the claim at creation, since the class is unknown." },
+      { id: 'B', text: "A 100Gi PersistentVolume is created without a class and binds to it." },
+      { id: 'C', text: "No provisioner matches, so the claim stays Pending until the class exists." },
+      { id: 'D', text: "The default StorageClass is applied automatically after a short timeout." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -471,10 +471,10 @@ export const K8S_CKA_QUESTIONS_4 = [
     scenario: "A cluster is being installed with --pod-network-cidr=10.244.0.0/16 and a Service CIDR of 10.96.0.0/12, on a network where the nodes themselves use 10.0.0.0/16.",
     question: "Which statement about these ranges is correct?",
     options: [
-      { id: 'A', text: "The pod CIDR, the Service CIDR, and the node network must not overlap, because each is routed differently." },
-      { id: 'B', text: "Service ClusterIPs are assigned from the pod CIDR." },
-      { id: 'C', text: "The pod CIDR must be a subnet of the Service CIDR." },
-      { id: 'D', text: "The node network must be inside the pod CIDR for pods to reach nodes." }
+      { id: 'A', text: "The pod, Service and node ranges must not overlap, since each is routed differently." },
+      { id: 'B', text: "Service ClusterIPs are allocated out of the pod CIDR by the API server." },
+      { id: 'C', text: "The pod CIDR has to be a subnet of the Service CIDR to be routable." },
+      { id: 'D', text: "The node network must sit inside the pod CIDR for pods to reach nodes." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -492,10 +492,10 @@ export const K8S_CKA_QUESTIONS_4 = [
     scenario: "An operator manages three clusters from one kubeconfig and needs to point kubectl at the staging cluster with the staging-admin user and the apps namespace.",
     question: "Which pair of commands is correct?",
     options: [
-      { id: 'A', text: "export KUBECONFIG=staging, then kubectl config get-users" },
-      { id: 'B', text: "kubectl config unset current-context, then kubectl get pods -n apps" },
-      { id: 'C', text: "kubectl config use-context staging, then kubectl config set-context --current --namespace=apps" },
-      { id: 'D', text: "kubectl config set-cluster staging, then kubectl config view" }
+      { id: 'A', text: "`export KUBECONFIG=staging`, then `kubectl config set-context --namespace=apps`" },
+      { id: 'B', text: "`kubectl config unset current-context`, then `kubectl get pods -n apps`" },
+      { id: 'C', text: "`kubectl config use-context staging`, then `set-context --current --namespace=apps`" },
+      { id: 'D', text: "`kubectl config set-cluster staging`, then `kubectl config view`" }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -513,10 +513,10 @@ export const K8S_CKA_QUESTIONS_4 = [
     scenario: "A rollout has been in progress for twenty minutes. Old pods are still serving and new pods stay in a not-ready state, and kubectl rollout status never completes.",
     question: "Which explanation matches the symptoms?",
     options: [
-      { id: 'A', text: "The ReplicaSet controller has crashed." },
-      { id: 'B', text: "The deployment strategy is Recreate, which keeps both versions running." },
-      { id: 'C', text: "The new pods fail their readiness probe, so maxUnavailable prevents the controller from removing more old pods." },
-      { id: 'D', text: "The Service selector matches only the old pods, which blocks the rollout." }
+      { id: 'A', text: "The ReplicaSet controller has crashed, so neither set is being reconciled." },
+      { id: 'B', text: "The strategy is `Recreate`, which keeps both versions up during the switch." },
+      { id: 'C', text: "The new pods fail readiness, so `maxUnavailable` stops more old pods being removed." },
+      { id: 'D', text: "The Service selector matches only the old pods, which stalls the rollout." }
     ],
     correctAnswers: ['C'],
     type: "single",
