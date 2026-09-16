@@ -30,10 +30,10 @@ export const HASHICORP_TFA_QUESTIONS_6 = [
     scenario: "An enterprise architect reviews using open-source CLI workspaces to separate Production from Development.",
     question: "Why does HashiCorp advise against using CLI workspaces as the sole mechanism for separating Dev and Prod?",
     options: [
-      { id: 'A', text: "Workspaces share the exact same backend configuration, credentials, and code; a misconfiguration or accidental CLI command can destroy production infrastructure" },
-      { id: 'B', text: "Cloud providers ban workspaces" },
-      { id: 'C', text: "CLI workspaces only support Azure" },
-      { id: 'D', text: "CLI workspaces cannot create virtual machines" }
+      { id: 'A', text: "Workspaces share one backend, credentials and code, so a mistaken command can reach production." },
+      { id: 'B', text: "Workspaces are unsupported by most cloud providers when used with a remote backend." },
+      { id: 'C', text: "Workspaces keep one state per environment but cannot hold different variable values." },
+      { id: 'D', text: "Workspaces cannot create certain resource types, which limits what they can hold." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -114,7 +114,7 @@ export const HASHICORP_TFA_QUESTIONS_6 = [
     scenario: "A single GitHub repository (`https://github.com/corp/infrastructure.git`) houses 10 different reusable Terraform modules in subdirectories (`/modules/vpc`, `/modules/eks`).",
     question: "Which syntax instructs Terraform to download the Git repository and load a module from a specific subdirectory?",
     options: [
-      { id: 'A', text: "Double forward slash (//) e.g. git::https://github.com/corp/infrastructure.git//modules/vpc" },
+      { id: 'A', text: "A double slash before the subdirectory" },
       { id: 'B', text: "Single slash / e.g. .../infrastructure.git/modules/vpc" },
       { id: 'C', text: "Query parameter ?path=modules/vpc" },
       { id: 'D', text: "#modules/vpc fragment identifier" }
@@ -137,7 +137,7 @@ export const HASHICORP_TFA_QUESTIONS_6 = [
     options: [
       { id: 'A', text: "Put every single resource in its own child module" },
       { id: 'B', text: "Nest modules at least 10 levels deep for maximum abstraction" },
-      { id: 'C', text: "Favor shallow, flat module composition over deep nesting (modules should rarely nest more than 1 or 2 levels deep)" },
+      { id: 'C', text: "Keep module composition shallow, rarely more than two levels" },
       { id: 'D', text: "Never use modules at all" }
     ],
     correctAnswers: ['C'],
@@ -177,10 +177,10 @@ export const HASHICORP_TFA_QUESTIONS_6 = [
     scenario: "A child module creates a database and exposes `master_password` via an output block.",
     question: "How should the child module declare this output to prevent its value from appearing in console logs when consumed by the root module?",
     options: [
-      { id: 'A', text: "sensitive = true inside the output block" },
-      { id: 'B', text: "private = true" },
-      { id: 'C', text: "hidden = true" },
-      { id: 'D', text: "mask = true" }
+      { id: 'A', text: "sensitive = true on the output" },
+      { id: 'B', text: "private = true on the output block" },
+      { id: 'C', text: "hidden = true on the output block" },
+      { id: 'D', text: "mask = true on the output block" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -198,7 +198,7 @@ export const HASHICORP_TFA_QUESTIONS_6 = [
     scenario: "A root module calls `module \"kubernetes_apps\"`. All resources inside this module require `module \"eks_cluster\"` to be completely provisioned and operational first.",
     question: "How can the root module declare that the entire applications module depends on the EKS cluster module?",
     options: [
-      { id: 'A', text: "depends_on = [module.eks_cluster] inside the module \"kubernetes_apps\" block" },
+      { id: 'A', text: "`depends_on = [module.eks_cluster]` on the module" },
       { id: 'B', text: "after = [module.eks_cluster]" },
       { id: 'C', text: "wait_for = [module.eks_cluster]" },
       { id: 'D', text: "order = 2" }
@@ -219,10 +219,10 @@ export const HASHICORP_TFA_QUESTIONS_6 = [
     scenario: "An enterprise architect evaluates remote module storage options for an internal infrastructure library.",
     question: "In addition to Git and the public Registry, which of the following is a valid native source protocol supported by Terraform for loading modules?",
     options: [
-      { id: 'A', text: "Amazon S3 buckets (s3::https://s3.amazonaws.com/bucket/module.zip) and GCS buckets (gcs::https://...)" },
-      { id: 'B', text: "FTP servers (ftp://...)" },
-      { id: 'C', text: "NFS mount paths" },
-      { id: 'D', text: "Docker images (docker://...)" }
+      { id: 'A', text: "S3 buckets and GCS buckets, by their own source prefixes" },
+      { id: 'B', text: "FTP servers, by an ftp:// source prefix" },
+      { id: 'C', text: "NFS mounts, by an absolute local path" },
+      { id: 'D', text: "Docker images, by a docker:// prefix" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -242,7 +242,7 @@ export const HASHICORP_TFA_QUESTIONS_6 = [
     options: [
       { id: 'A', text: "By writing a bash script in main.tf" },
       { id: 'B', text: "Variable validation is not supported in modules" },
-      { id: 'C', text: "By defining a validation block with condition = contains([\"dev\", \"stage\", \"prod\"], var.environment_type) and error_message" },
+      { id: 'C', text: "By a `validation` block whose condition uses `contains()` on the list" },
       { id: 'D', text: "By using a Sentinel policy only" }
     ],
     correctAnswers: ['C'],
@@ -282,10 +282,10 @@ export const HASHICORP_TFA_QUESTIONS_6 = [
     scenario: "An engineer wants to publish an open-source module to the public Terraform Registry.",
     question: "Which repository naming format is required by the public Terraform Registry for GitHub repositories?",
     options: [
-      { id: 'A', text: "hashicorp-&lt;NAME&gt;" },
-      { id: 'B', text: "tf-module-&lt;NAME&gt;" },
+      { id: 'A', text: "hashicorp-&lt;NAME&gt; (e.g. hashicorp-vault)" },
+      { id: 'B', text: "tf-module-&lt;NAME&gt; (e.g. tf-module-vault)" },
       { id: 'C', text: "terraform-&lt;PROVIDER&gt;-&lt;NAME&gt; (e.g. terraform-aws-vault)" },
-      { id: 'D', text: "terraform-module-&lt;PROVIDER&gt;" }
+      { id: 'D', text: "terraform-module-&lt;PROVIDER&gt; (e.g. terraform-module-aws)" }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -324,10 +324,10 @@ export const HASHICORP_TFA_QUESTIONS_6 = [
     scenario: "A child module creates multiple firewall rules. Rather than passing 10 separate scalar variables, the author accepts a list of objects.",
     question: "Which type constraint represents a list of structured records?",
     options: [
-      { id: 'A', text: "list(json)" },
-      { id: 'B', text: "set(dictionary)" },
-      { id: 'C', text: "array(map(string))" },
-      { id: 'D', text: "list(object({ port = number, protocol = string, cidr = string }))" }
+      { id: 'A', text: "list(json) with the ports as objects" },
+      { id: 'B', text: "set(dictionary) keyed by the port" },
+      { id: 'C', text: "array(map(string)) of the values" },
+      { id: 'D', text: "list(object({ port = number, cidr = string }))" }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -345,10 +345,10 @@ export const HASHICORP_TFA_QUESTIONS_6 = [
     scenario: "A module author refactors an internal resource from `aws_instance.server` to `aws_instance.web_server`. Callers updating the module face destructive resource recreation.",
     question: "Which declarative block introduced in Terraform 1.1 records internal module refactorings without requiring state mv CLI commands?",
     options: [
-      { id: 'A', text: "refactor block" },
-      { id: 'B', text: "migrate block" },
-      { id: 'C', text: "moved block (e.g. moved { from = aws_instance.server to = aws_instance.web_server })" },
-      { id: 'D', text: "rename block" }
+      { id: 'A', text: "A `refactor` block naming the two addresses" },
+      { id: 'B', text: "A `migrate` block naming the two addresses" },
+      { id: 'C', text: "A `moved` block giving the old and new addresses" },
+      { id: 'D', text: "A `rename` block naming the two addresses" }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -366,7 +366,7 @@ export const HASHICORP_TFA_QUESTIONS_6 = [
     scenario: "A resource previously declared in the root module (`aws_security_group.sg`) is moved inside a child module (`module.network.aws_security_group.sg`).",
     question: "Can moved blocks migrate resources across module boundaries?",
     options: [
-      { id: 'A', text: "Yes, moved blocks support moving resources between root modules and child modules (e.g. from = aws_security_group.sg to = module.network.aws_security_group.sg)" },
+      { id: 'A', text: "Yes: a `moved` block can move a resource into or out of a child module" },
       { id: 'B', text: "No, moved blocks only work within the exact same file" },
       { id: 'C', text: "No, cross-module migrations require deleting the resource" },
       { id: 'D', text: "Only in Terraform Enterprise" }
@@ -387,9 +387,9 @@ export const HASHICORP_TFA_QUESTIONS_6 = [
     scenario: "An enterprise uses `terraform_remote_state` data sources to allow an applications team to read the subnet IDs created by a core networking project.",
     question: "Which outputs from the networking project are accessible via terraform_remote_state?",
     options: [
-      { id: 'A', text: "None; remote state only exposes variable values" },
-      { id: 'B', text: "All internal child module outputs automatically" },
-      { id: 'C', text: "All resource attributes in state regardless of outputs" },
+      { id: 'A', text: "None: remote state exposes only the input variable values" },
+      { id: 'B', text: "Every output of every child module, exposed automatically" },
+      { id: 'C', text: "Every resource attribute in the state, whatever is output" },
       { id: 'D', text: "Only the root module outputs defined in the networking configuration's outputs.tf" }
     ],
     correctAnswers: ['D'],
@@ -411,7 +411,7 @@ export const HASHICORP_TFA_QUESTIONS_6 = [
       { id: 'A', text: "Files in the overrides/ folder" },
       { id: 'B', text: "Files starting with test_" },
       { id: 'C', text: "Files ending in .dev.tf" },
-      { id: 'D', text: "Files ending in override.tf or override.tf.json (e.g. main_override.tf)" }
+      { id: 'D', text: "Files ending in `override.tf` or `override.tf.json`" }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -471,7 +471,7 @@ export const HASHICORP_TFA_QUESTIONS_6 = [
     scenario: "An enterprise security standard mandates strict physical IAM credential isolation between Staging and Production environments.",
     question: "Which repository architecture guarantees that Staging credentials cannot accidentally modify Production infrastructure?",
     options: [
-      { id: 'A', text: "Separate directories with separate backend configurations and separate CI/CD pipelines using environment-specific IAM credentials" },
+      { id: 'A', text: "Separate directories with their own backends and pipelines" },
       { id: 'B', text: "A single directory using CLI workspaces (terraform workspace)" },
       { id: 'C', text: "A single main.tf file with ternary operators" },
       { id: 'D', text: "Running terraform with -var=\"env=prod\" from a developer's laptop" }
@@ -514,7 +514,7 @@ export const HASHICORP_TFA_QUESTIONS_6 = [
     question: "Why should reusable child modules avoid referencing root-level variables directly via undeclared identifiers?",
     options: [
       { id: 'A', text: "Variables in child modules are prohibited" },
-      { id: 'B', text: "Child modules have their own independent variable namespace; undeclared variables cause syntax compilation errors during terraform validate" },
+      { id: 'B', text: "A child module has its own namespace, so an undeclared variable errors" },
       { id: 'C', text: "Terraform automatically converts all variables to strings" },
       { id: 'D', text: "Global variables slow down network transfer speed" }
     ],

@@ -12,7 +12,7 @@ export const HASHICORP_TFA_QUESTIONS_2 = [
       { id: 'A', text: "github.com/hashicorp/aws" },
       { id: 'B', text: "type/namespace/cloud" },
       { id: 'C', text: "namespace/type/version" },
-      { id: 'D', text: "hostname/namespace/type (e.g. registry.terraform.io/hashicorp/aws)" }
+      { id: 'D', text: "hostname/namespace/type" }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -33,7 +33,7 @@ export const HASHICORP_TFA_QUESTIONS_2 = [
       { id: 'A', text: "Only exactly version 3.2.0" },
       { id: 'B', text: "Any version in the 3.x series" },
       { id: 'C', text: "Any version >= 3.2.0 and < 4.0.0" },
-      { id: 'D', text: "Any version >= 3.2.0 and < 3.3.0 (e.g. 3.2.1, 3.2.5, but not 3.3.0)" }
+      { id: 'D', text: "Any version >= 3.2.0 and < 3.3.0" }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -51,10 +51,10 @@ export const HASHICORP_TFA_QUESTIONS_2 = [
     scenario: "An enterprise architecture deploys resources into two different AWS regions (`us-east-1` and `eu-west-1`) within the same Terraform configuration file.",
     question: "How does Terraform distinguish between multiple configurations of the same provider?",
     options: [
-      { id: 'A', text: "By defining a primary default provider block and a secondary provider block with an 'alias' attribute" },
-      { id: 'B', text: "By creating two separate .tfstate files in the same directory" },
-      { id: 'C', text: "By installing two different versions of the Terraform CLI binary" },
-      { id: 'D', text: "Terraform strictly prohibits deploying to two regions in one configuration" }
+      { id: 'A', text: "A default provider block plus a second one with an `alias`, selected per resource" },
+      { id: 'B', text: "By keeping two state files in the same directory, one per region" },
+      { id: 'C', text: "By installing two Terraform versions, one configured per region" },
+      { id: 'D', text: "Terraform forbids two regions in one configuration entirely" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -73,7 +73,7 @@ export const HASHICORP_TFA_QUESTIONS_2 = [
     question: "Why does HashiCorp explicitly advise that provisioners should be used only as a last resort?",
     options: [
       { id: 'A', text: "Provisioners delete the state file after execution" },
-      { id: 'B', text: "Provisioners break idempotency, do not model resource dependencies declaratively, and execute outside Terraform's state graph management" },
+      { id: 'B', text: "Provisioners break idempotency and run outside the dependency graph" },
       { id: 'C', text: "Provisioners are only supported on Windows operating systems" },
       { id: 'D', text: "Provisioners charge extra cloud fees" }
     ],
@@ -95,7 +95,7 @@ export const HASHICORP_TFA_QUESTIONS_2 = [
     options: [
       { id: 'A', text: "Inside the target virtual machine in the cloud" },
       { id: 'B', text: "On the cloud provider's API server gateway" },
-      { id: 'C', text: "On the local machine where the Terraform CLI binary is currently running" },
+      { id: 'C', text: "On the machine where the Terraform CLI is running" },
       { id: 'D', text: "On HashiCorp's hosted cloud servers" }
     ],
     correctAnswers: ['C'],
@@ -114,10 +114,10 @@ export const HASHICORP_TFA_QUESTIONS_2 = [
     scenario: "A `remote-exec` provisioner is declared to run a script on a cloud Linux instance.",
     question: "Which nested block is mandatory inside the resource or provisioner to specify SSH or WinRM credentials?",
     options: [
-      { id: 'A', text: "auth block" },
-      { id: 'B', text: "ssh block" },
-      { id: 'C', text: "connection block (specifying type, user, private_key, or password)" },
-      { id: 'D', text: "credentials block" }
+      { id: 'A', text: "An `auth` block with the type and credentials" },
+      { id: 'B', text: "An `ssh` block with the user and private key" },
+      { id: 'C', text: "A `connection` block with the type and credentials" },
+      { id: 'D', text: "A `credentials` block with the user and key" }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -135,7 +135,7 @@ export const HASHICORP_TFA_QUESTIONS_2 = [
     scenario: "A non-critical diagnostic logging script executed by a local-exec provisioner occasionally returns an exit code 1.",
     question: "By default, how does Terraform handle a provisioner that returns a non-zero exit code?",
     options: [
-      { id: 'A', text: "Terraform fails the deployment immediately, marks the resource as tainted in state, and halts the run" },
+      { id: 'A', text: "It fails the run and marks the resource tainted in state" },
       { id: 'B', text: "Terraform retries the script 100 times" },
       { id: 'C', text: "Terraform ignores the error and continues silently" },
       { id: 'D', text: "Terraform deletes the entire state file" }
@@ -177,7 +177,7 @@ export const HASHICORP_TFA_QUESTIONS_2 = [
     scenario: "A destroy-time provisioner is configured on an infrastructure resource with default failure behavior.",
     question: "What happens if a destroy-time provisioner fails during terraform destroy when on_failure is set to fail?",
     options: [
-      { id: 'A', text: "Terraform stops the destroy process, leaves the resource intact, and allows the user to re-run destroy after fixing the issue" },
+      { id: 'A', text: "It stops the destroy, leaves the resource, and lets the run be repeated" },
       { id: 'B', text: "Terraform deletes the resource anyway and corrupts state" },
       { id: 'C', text: "The resource is marked tainted" },
       { id: 'D', text: "The resource is converted to an unmanaged resource" }
@@ -220,7 +220,7 @@ export const HASHICORP_TFA_QUESTIONS_2 = [
     question: "What type of dependency is established between the virtual machine and the S3 bucket?",
     options: [
       { id: 'A', text: "An unmanaged dependency" },
-      { id: 'B', text: "An implicit dependency (automatically detected by Terraform from the expression reference)" },
+      { id: 'B', text: "An implicit dependency, from the expression reference" },
       { id: 'C', text: "A circular dependency" },
       { id: 'D', text: "An explicit dependency (declared via depends_on)" }
     ],
@@ -303,10 +303,10 @@ export const HASHICORP_TFA_QUESTIONS_2 = [
     scenario: "An engineer familiar with open-source CLI workspaces transitions to Terraform Cloud.",
     question: "In Terraform Cloud, what does a Workspace represent?",
     options: [
-      { id: 'A', text: "A complete management unit containing its own configuration source, state file, variables, secrets, run history, and RBAC permissions" },
-      { id: 'B', text: "A user's login account name" },
-      { id: 'C', text: "A physical data center location" },
-      { id: 'D', text: "Only a temporary Git branch" }
+      { id: 'A', text: "A management unit with its own state, variables and run history" },
+      { id: 'B', text: "A user's login account within the organisation" },
+      { id: 'C', text: "A physical region in which the runs execute" },
+      { id: 'D', text: "A temporary branch created for each change" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -324,7 +324,7 @@ export const HASHICORP_TFA_QUESTIONS_2 = [
     scenario: "A company links a Terraform Cloud workspace to a GitHub repository's main branch.",
     question: "What automated action occurs when a developer opens a pull request against main?",
     options: [
-      { id: 'A', text: "Terraform Cloud automatically triggers a speculative plan, validating code and displaying proposed infrastructure changes directly in the pull request discussion" },
+      { id: 'A', text: "It runs a speculative plan and shows the proposed changes on the pull request" },
       { id: 'B', text: "Terraform Cloud immediately provisions all resources to production" },
       { id: 'C', text: "Terraform Cloud deletes the branch" },
       { id: 'D', text: "Terraform Cloud merges the pull request without human review" }
@@ -345,7 +345,7 @@ export const HASHICORP_TFA_QUESTIONS_2 = [
     scenario: "A speculative plan is triggered on a pull request in Terraform Cloud.",
     question: "Can a speculative plan be applied directly to modify live infrastructure?",
     options: [
-      { id: 'A', text: "No, speculative plans are strictly read-only and can never be applied; they exist only to preview proposed changes" },
+      { id: 'A', text: "No: a speculative plan is read-only and can never be applied" },
       { id: 'B', text: "Speculative plans modify only staging environments" },
       { id: 'C', text: "Yes, if the pull request is older than 24 hours" },
       { id: 'D', text: "Yes, any developer can apply a speculative plan immediately" }
@@ -388,9 +388,9 @@ export const HASHICORP_TFA_QUESTIONS_2 = [
     question: "Which hostname namespace in a provider source address represents an internal private registry?",
     options: [
       { id: 'A', text: "A custom enterprise domain (e.g. terraform.company.internal/it-ops/baremetal)" },
-      { id: 'B', text: "registry.terraform.io only" },
-      { id: 'C', text: "github.com exclusively" },
-      { id: 'D', text: "Custom hostnames are not supported by Terraform" }
+      { id: 'B', text: "Only the public registry hostname, registry.terraform.io" },
+      { id: 'C', text: "Only a git host such as github.com, by its clone URL" },
+      { id: 'D', text: "No custom hostname; the source must be a local path" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -430,7 +430,7 @@ export const HASHICORP_TFA_QUESTIONS_2 = [
     question: "What is the primary architectural purpose of the .terraform.lock.hcl dependency lock file?",
     options: [
       { id: 'A', text: "It locks the state file so concurrent users cannot edit it" },
-      { id: 'B', text: "It locks the exact provider versions and cryptographic checksums used by the project, ensuring all team members and CI/CD use identical provider binaries" },
+      { id: 'B', text: "It pins the provider versions and their checksums for every run of the project" },
       { id: 'C', text: "It prevents developers from modifying .tf files" },
       { id: 'D', text: "It stores encrypted API passwords" }
     ],
@@ -471,7 +471,7 @@ export const HASHICORP_TFA_QUESTIONS_2 = [
     scenario: "Two team members run `terraform apply` at the exact same second targeting the same AWS S3 backend.",
     question: "How does Terraform prevent concurrent state corruption when using Amazon S3 as a backend?",
     options: [
-      { id: 'A', text: "By utilizing an Amazon DynamoDB table configured for state locking; the second user receives an 'Error acquiring the state lock'" },
+      { id: 'A', text: "Through a DynamoDB lock table, so the second run is refused the lock" },
       { id: 'B', text: "By creating two separate AWS accounts automatically" },
       { id: 'C', text: "By queuing the second user in an SQS message queue" },
       { id: 'D', text: "The S3 backend does not support locking" }
@@ -494,7 +494,7 @@ export const HASHICORP_TFA_QUESTIONS_2 = [
     options: [
       { id: 'A', text: "terraform unlock --all" },
       { id: 'B', text: "terraform state unlock" },
-      { id: 'C', text: "rm -rf .terraform" },
+      { id: 'C', text: "Removing the .terraform directory" },
       { id: 'D', text: "terraform force-unlock &lt;LOCK-ID&gt;" }
     ],
     correctAnswers: ['D'],
@@ -516,7 +516,7 @@ export const HASHICORP_TFA_QUESTIONS_2 = [
       { id: 'A', text: "Standard backends run in RAM; Enhanced backends run on disk" },
       { id: 'B', text: "Standard backends do not support locking" },
       { id: 'C', text: "Standard backends are free; Enhanced backends require enterprise licenses" },
-      { id: 'D', text: "A Standard backend only stores state and provides locking (e.g. S3, GCS, azurerm); an Enhanced backend also supports remote plan and apply execution (e.g. Terraform Cloud / remote)" }
+      { id: 'D', text: "A standard backend stores and locks state; an enhanced one also runs the operations" }
     ],
     correctAnswers: ['D'],
     type: "single",

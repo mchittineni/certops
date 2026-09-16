@@ -9,7 +9,7 @@ export const HASHICORP_TFA_QUESTIONS_3 = [
     scenario: "A FinOps director activates Cost Estimation in Terraform Cloud.",
     question: "Which cloud providers are natively supported by Terraform Cloud Cost Estimation for computing hourly and monthly cost deltas?",
     options: [
-      { id: 'A', text: "Amazon Web Services (AWS), Microsoft Azure, and Google Cloud Platform (GCP)" },
+      { id: 'A', text: "AWS, Microsoft Azure and Google Cloud" },
       { id: 'B', text: "AWS only" },
       { id: 'C', text: "VMware vSphere only" },
       { id: 'D', text: "Any provider in the Terraform Registry" }
@@ -177,7 +177,7 @@ export const HASHICORP_TFA_QUESTIONS_3 = [
     scenario: "A developer needs to run a local script after several resources are created, but does not want to attach the provisioner to any real cloud resource block.",
     question: "Which utility resource from the HashiCorp null provider is traditionally used to encapsulate standalone provisioners?",
     options: [
-      { id: 'A', text: "null_resource (or terraform_data in Terraform 1.4+)" },
+      { id: 'A', text: "`null_resource`, or `terraform_data`" },
       { id: 'B', text: "local_file" },
       { id: 'C', text: "dummy_resource" },
       { id: 'D', text: "custom_resource" }
@@ -325,7 +325,7 @@ export const HASHICORP_TFA_QUESTIONS_3 = [
     question: "What does terraform validate verify without accessing remote APIs or state?",
     options: [
       { id: 'A', text: "Whether real cloud resources exist in AWS or Azure" },
-      { id: 'B', text: "Syntactic correctness, internal consistency of attribute names and types, and provider schema compliance within configuration files" },
+      { id: 'B', text: "Syntax, internal consistency and provider schema compliance" },
       { id: 'C', text: "Whether the cloud credentials have administrator IAM permissions" },
       { id: 'D', text: "Whether cloud provider services are currently online" }
     ],
@@ -366,7 +366,7 @@ export const HASHICORP_TFA_QUESTIONS_3 = [
     scenario: "In an enterprise deployment pipeline, the plan generated and reviewed in staging must be the exact plan applied to production, guaranteeing no new changes or drift alter the execution in between.",
     question: "Which flag saves an execution plan to an encrypted binary file for deterministic application?",
     options: [
-      { id: 'A', text: "-out=&lt;path&gt; (e.g. terraform plan -out=tfplan.binary)" },
+      { id: 'A', text: "`-out=&lt;path&gt;` on the plan" },
       { id: 'B', text: "-save=&lt;path&gt;" },
       { id: 'C', text: "-file=&lt;path&gt;" },
       { id: 'D', text: "-export=&lt;path&gt;" }
@@ -389,7 +389,7 @@ export const HASHICORP_TFA_QUESTIONS_3 = [
     options: [
       { id: 'A', text: "Yes, unless -force is provided" },
       { id: 'B', text: "Yes, the user must still type yes" },
-      { id: 'C', text: "No, Terraform applies the saved plan immediately without interactive confirmation" },
+      { id: 'C', text: "No: a saved plan is applied without a confirmation" },
       { id: 'D', text: "Applying plan files is not supported" }
     ],
     correctAnswers: ['C'],
@@ -471,9 +471,9 @@ export const HASHICORP_TFA_QUESTIONS_3 = [
     scenario: "An administrator suspects that resources were modified manually out-of-band in the cloud console. The administrator wants to update the state file to match reality without proposing any corrective infrastructure changes.",
     question: "Which command and flag performs a refresh-only inspection and updates state?",
     options: [
-      { id: 'A', text: "terraform update-state" },
-      { id: 'B', text: "terraform refresh (legacy command)" },
-      { id: 'C', text: "terraform sync --state" },
+      { id: 'A', text: "terraform update-state (or terraform state sync)" },
+      { id: 'B', text: "terraform refresh, the legacy form of the command" },
+      { id: 'C', text: "terraform sync --state against the remote backend" },
       { id: 'D', text: "terraform apply -refresh-only (or terraform plan -refresh-only)" }
     ],
     correctAnswers: ['D'],

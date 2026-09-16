@@ -12,7 +12,7 @@ export const HASHICORP_TFA_QUESTIONS_9 = [
       { id: 'A', text: "Computed variables block" },
       { id: 'B', text: "data \"local_expression\"" },
       { id: 'C', text: "Global variables block" },
-      { id: 'D', text: "locals block (e.g. locals { name_prefix = \"${var.project}-${var.environment}-${var.region}\" })" }
+      { id: 'D', text: "A `locals` block holding the composed prefix" }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -30,7 +30,7 @@ export const HASHICORP_TFA_QUESTIONS_9 = [
     scenario: "A configuration needs to find the latest official Ubuntu 22.04 LTS AMI ID in the current AWS region without hardcoding static AMI IDs in code.",
     question: "Which Terraform construct queries external APIs for read-only infrastructure information?",
     options: [
-      { id: 'A', text: "data block (e.g. data \"aws_ami\" \"ubuntu\" { ... })" },
+      { id: 'A', text: "A `data` block" },
       { id: 'B', text: "resource block" },
       { id: 'C', text: "import block" },
       { id: 'D', text: "variable block" }
@@ -51,10 +51,10 @@ export const HASHICORP_TFA_QUESTIONS_9 = [
     scenario: "A security group requires 10 distinct `ingress` rule blocks generated dynamically from a list of port numbers.",
     question: "Which HCL feature generates repeated nested configuration blocks inside a resource?",
     options: [
-      { id: 'A', text: "count on the nested block" },
-      { id: 'B', text: "while loop block" },
-      { id: 'C', text: "dynamic block (e.g. dynamic \"ingress\" { for_each = var.ports content { ... } })" },
-      { id: 'D', text: "for_each directly on the resource block alone" }
+      { id: 'A', text: "A `count` on the nested block over the port list" },
+      { id: 'B', text: "A `for` expression inside the ingress block body" },
+      { id: 'C', text: "A `dynamic \"ingress\"` block over `var.ports` with a `content` body" },
+      { id: 'D', text: "A `for_each` on the security group resource itself" }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -72,7 +72,7 @@ export const HASHICORP_TFA_QUESTIONS_9 = [
     scenario: "A developer uses a dynamic block to construct complex nested rules. By default, the element value is accessed via `ingress.value`.",
     question: "Which argument inside a dynamic block customizes the iterator label from the default block name?",
     options: [
-      { id: 'A', text: "iterator (e.g. iterator = port_rule, allowing port_rule.value)" },
+      { id: 'A', text: "`iterator`, which renames the loop variable" },
       { id: 'B', text: "as = port_rule" },
       { id: 'C', text: "variable = port_rule" },
       { id: 'D', text: "alias = port_rule" }
@@ -201,7 +201,7 @@ export const HASHICORP_TFA_QUESTIONS_9 = [
       { id: 'A', text: "render(\"scripts/init.sh.tftpl\", { ... })" },
       { id: 'B', text: "file(\"scripts/init.sh.tftpl\", { ... })" },
       { id: 'C', text: "template(\"scripts/init.sh.tftpl\", { ... })" },
-      { id: 'D', text: "templatefile(\"scripts/init.sh.tftpl\", { db_host = aws_db_instance.db.address, port = 5432 })" }
+      { id: 'D', text: "`templatefile(\"init.sh.tftpl\", { db_host = ..., port = 5432 })`" }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -240,10 +240,10 @@ export const HASHICORP_TFA_QUESTIONS_9 = [
     scenario: "An IAM policy document must be passed to an AWS resource argument as a valid JSON string. A developer defines the policy as a native HCL map/object.",
     question: "Which built-in function converts an HCL object into a valid JSON-formatted string?",
     options: [
-      { id: 'A', text: "formatjson({ ... })" },
-      { id: 'B', text: "jsonencode({ Version = \"2012-10-17\", Statement = [...] })" },
-      { id: 'C', text: "stringify({ ... })" },
-      { id: 'D', text: "tojson({ ... })" }
+      { id: 'A', text: "`formatjson({ Version = ..., Statement = [...] })`" },
+      { id: 'B', text: "`jsonencode({ Version = ..., Statement = [...] })`" },
+      { id: 'C', text: "`stringify({ Version = ..., Statement = [...] })`" },
+      { id: 'D', text: "`tojson({ Version = ..., Statement = [...] })`" }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -387,9 +387,9 @@ export const HASHICORP_TFA_QUESTIONS_9 = [
     scenario: "A comma-separated string `\"10.0.1.0/24,10.0.2.0/24,10.0.3.0/24\"` needs to be converted into a list of strings.",
     question: "Which function splits a string into a list using a delimiter character?",
     options: [
-      { id: 'A', text: "explode(\",\", ...)" },
-      { id: 'B', text: "tolist(\",\", ...)" },
-      { id: 'C', text: "tokenize(\",\", ...)" },
+      { id: 'A', text: "explode(\",\", \"10.0.1.0/24,10.0.2.0/24\")" },
+      { id: 'B', text: "tolist(\",\", \"10.0.1.0/24,10.0.2.0/24\")" },
+      { id: 'C', text: "tokenize(\",\", \"10.0.1.0/24,10.0.2.0/24\")" },
       { id: 'D', text: "split(\",\", \"10.0.1.0/24,10.0.2.0/24,10.0.3.0/24\")" }
     ],
     correctAnswers: ['D'],
@@ -453,7 +453,7 @@ export const HASHICORP_TFA_QUESTIONS_9 = [
       { id: 'A', text: "can() is only used in provisioners; try() is used in variables" },
       { id: 'B', text: "There is no difference; they are aliases" },
       { id: 'C', text: "can() returns a string; try() returns an integer" },
-      { id: 'D', text: "can() returns a boolean (true if the expression evaluates without error, false otherwise); try() returns the actual evaluated value of the first succeeding expression" }
+      { id: 'D', text: "`can()` returns a boolean for whether it evaluated; `try()` returns the first that does" }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -513,10 +513,10 @@ export const HASHICORP_TFA_QUESTIONS_9 = [
     scenario: "A developer tags a cloud resource with `CreatedAt = timestamp()` directly in the resource's `tags` map.",
     question: "Why does using the timestamp() or uuid() function directly in resource attributes cause continuous configuration drift on every terraform plan?",
     options: [
-      { id: 'A', text: "timestamp() causes the API server to crash" },
-      { id: 'B', text: "timestamp() is only supported on Linux machines" },
-      { id: 'C', text: "Cloud providers reject timestamps in tags" },
-      { id: 'D', text: "timestamp() returns the current real-time clock on every execution, causing Terraform to detect a changed attribute and propose an update on every single run" }
+      { id: 'A', text: "`timestamp()` is evaluated by the provider, which rejects the changing value." },
+      { id: 'B', text: "`timestamp()` resolves differently per platform, so the tag varies by machine." },
+      { id: 'C', text: "`timestamp()` returns a value the tag schema rejects, so the apply fails." },
+      { id: 'D', text: "`timestamp()` returns the current time on each run, so the attribute always differs." }
     ],
     correctAnswers: ['D'],
     type: "single",

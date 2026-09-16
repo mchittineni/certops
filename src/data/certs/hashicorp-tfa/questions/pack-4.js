@@ -93,7 +93,7 @@ export const HASHICORP_TFA_QUESTIONS_4 = [
     scenario: "Starting in Terraform v1.5, developers import pre-existing infrastructure into state.",
     question: "How can teams import existing infrastructure into state declaratively using code rather than running imperative CLI commands?",
     options: [
-      { id: 'A', text: "By declaring an 'import' block in HCL with 'to' and 'id' arguments (e.g. import { to = aws_s3_bucket.b id = \"my-bucket\" })" },
+      { id: 'A', text: "By declaring an `import` block with its `to` and `id` arguments" },
       { id: 'B', text: "Terraform does not support declarative imports" },
       { id: 'C', text: "By using the terraform_import resource" },
       { id: 'D', text: "By writing a shell script in user_data" }
@@ -199,9 +199,9 @@ export const HASHICORP_TFA_QUESTIONS_4 = [
     question: "Which environment variable configures verbose internal debugging logs for Terraform?",
     options: [
       { id: 'A', text: "TF_LOG (e.g. TF_LOG=DEBUG or TF_LOG=TRACE)" },
-      { id: 'B', text: "TERRAFORM_DEBUG" },
-      { id: 'C', text: "TF_VERBOSE" },
-      { id: 'D', text: "LOG_LEVEL" }
+      { id: 'B', text: "TERRAFORM_DEBUG (e.g. TERRAFORM_DEBUG=1)" },
+      { id: 'C', text: "TF_VERBOSE (e.g. TF_VERBOSE=trace)" },
+      { id: 'D', text: "LOG_LEVEL (e.g. LOG_LEVEL=debug)" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -284,7 +284,7 @@ export const HASHICORP_TFA_QUESTIONS_4 = [
     options: [
       { id: 'A', text: "Automatic loading is only supported in Terraform Enterprise" },
       { id: 'B', text: "No, but only if the file is named terraform.tfvars" },
-      { id: 'C', text: "No, Terraform automatically loads all files ending in .auto.tfvars or .auto.tfvars.json without explicit CLI flags" },
+      { id: 'C', text: "No: files ending `.auto.tfvars` are loaded without any flag" },
       { id: 'D', text: "Yes, all .tfvars files require explicit -var-file flags" }
     ],
     correctAnswers: ['C'],
@@ -303,10 +303,10 @@ export const HASHICORP_TFA_QUESTIONS_4 = [
     scenario: "A developer wants to supply a database password to Terraform from the shell environment without writing plaintext passwords to any disk files or command histories.",
     question: "What is the standard environment variable prefix recognized by Terraform for setting input variables?",
     options: [
-      { id: 'A', text: "TERRAFORM_VAR_" },
-      { id: 'B', text: "VAR_" },
+      { id: 'A', text: "TERRAFORM_VAR_ (e.g. TERRAFORM_VAR_db_password)" },
+      { id: 'B', text: "VAR_ (e.g. VAR_db_password=\"secret123\")" },
       { id: 'C', text: "TF_VAR_ (e.g. TF_VAR_db_password=\"secret123\")" },
-      { id: 'D', text: "TF_INPUT_" }
+      { id: 'D', text: "TF_INPUT_ (e.g. TF_INPUT_db_password)" }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -324,7 +324,7 @@ export const HASHICORP_TFA_QUESTIONS_4 = [
     scenario: "An input variable `instance_type` is assigned in multiple locations: `terraform.tfvars`, a file passed with `-var-file`, a `TF_VAR_instance_type` environment variable, and a `-var` CLI flag.",
     question: "Which source takes highest precedence and wins the variable value assignment?",
     options: [
-      { id: 'A', text: "-var or -var-file passed on the command line (CLI flags take highest precedence)" },
+      { id: 'A', text: "`-var` or `-var-file` on the command line" },
       { id: 'B', text: "TF_VAR_ environment variables" },
       { id: 'C', text: "terraform.tfvars" },
       { id: 'D', text: "Default values in the variable block" }
@@ -513,7 +513,7 @@ export const HASHICORP_TFA_QUESTIONS_4 = [
     scenario: "A financial institution requires strict reproducibility for production deployments.",
     question: "Why should production Terraform configurations lock provider versions using exact (=) constraints or dependency lock files?",
     options: [
-      { id: 'A', text: "To prevent automated upgrades to newer provider versions that could introduce breaking changes or altered default behaviors unexpectedly" },
+      { id: 'A', text: "To stop an automatic upgrade introducing a breaking change" },
       { id: 'B', text: "Because cloud providers delete old APIs every week" },
       { id: 'C', text: "Because Terraform cannot download providers without exact version numbers" },
       { id: 'D', text: "Exact version constraints reduce cloud bandwidth costs" }

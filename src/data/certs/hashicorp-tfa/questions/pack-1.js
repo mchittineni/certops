@@ -9,7 +9,7 @@ export const HASHICORP_TFA_QUESTIONS_1 = [
     scenario: "A systems engineering team is comparing configuration management tools like Ansible and Bash scripts against Terraform.",
     question: "What is the primary architectural difference between declarative and imperative IaC approaches?",
     options: [
-      { id: 'A', text: "Declarative IaC specifies the desired end-state of infrastructure without describing step-by-step actions, whereas imperative IaC specifies the exact sequence of execution steps" },
+      { id: 'A', text: "Declarative states the end result; imperative states the steps to reach it" },
       { id: 'B', text: "Declarative IaC requires writing compiled C++ code, while imperative uses YAML" },
       { id: 'C', text: "Declarative IaC only manages on-premises hardware" },
       { id: 'D', text: "Imperative IaC automatically calculates reverse dependencies, while declarative cannot" }
@@ -30,7 +30,7 @@ export const HASHICORP_TFA_QUESTIONS_1 = [
     scenario: "A DevOps engineer executes `terraform apply` on an existing production environment where no configuration files or cloud resources have changed.",
     question: "What is the expected outcome of running an idempotent IaC tool against an unchanged environment?",
     options: [
-      { id: 'A', text: "Terraform detects no differences between desired state and actual infrastructure, performing zero changes ('No changes. Your infrastructure matches the configuration.')" },
+      { id: 'A', text: "It finds no difference between the desired and actual state, so nothing changes" },
       { id: 'B', text: "Terraform terminates and recreates all cloud resources from scratch" },
       { id: 'C', text: "Terraform generates duplicate copies of all existing virtual machines" },
       { id: 'D', text: "The command fails with a state collision error" }
@@ -52,7 +52,7 @@ export const HASHICORP_TFA_QUESTIONS_1 = [
     question: "Which operational benefit does version control bring to cloud infrastructure management?",
     options: [
       { id: 'A', text: "Guarantees 100% cloud provider uptime SLAs" },
-      { id: 'B', text: "Enables peer code reviews, pull requests, automated linting/testing, and an immutable audit trail of who changed what and when" },
+      { id: 'B', text: "Peer review, automated checks, and an audit trail of each change" },
       { id: 'C', text: "Automatically eliminates the need to pay for cloud computing resources" },
       { id: 'D', text: "Bypasses cloud provider API rate limits" }
     ],
@@ -73,7 +73,7 @@ export const HASHICORP_TFA_QUESTIONS_1 = [
     question: "How does Terraform handle this configuration drift during the next execution of terraform plan or apply?",
     options: [
       { id: 'A', text: "The terraform command crashes and corrupts the state file" },
-      { id: 'B', text: "Terraform refreshes state from cloud APIs, detects the out-of-band port 22 rule, and proposes modifying the security group to remove the unmanaged rule to restore desired state" },
+      { id: 'B', text: "It refreshes, sees the added rule, and proposes removing it again" },
       { id: 'C', text: "Terraform automatically updates the local .tf files to include the manual console change" },
       { id: 'D', text: "Terraform ignores the cloud security group completely" }
     ],
@@ -94,7 +94,7 @@ export const HASHICORP_TFA_QUESTIONS_1 = [
     question: "Why is Terraform considered cloud-agnostic compared to native cloud provider template engines?",
     options: [
       { id: 'A', text: "Terraform converts AWS EC2 resource declarations directly into Azure VMs automatically without provider blocks" },
-      { id: 'B', text: "Terraform provides a uniform workflow and syntax (HCL) that interfaces with hundreds of heterogeneous cloud providers and on-premises platforms via modular Providers" },
+      { id: 'B', text: "It gives one workflow and syntax across many different providers" },
       { id: 'C', text: "Terraform code executes without making API calls to cloud providers" },
       { id: 'D', text: "Terraform is owned and maintained by AWS and Microsoft jointly" }
     ],
@@ -117,7 +117,7 @@ export const HASHICORP_TFA_QUESTIONS_1 = [
       { id: 'A', text: "The VM is preserved permanently with a unique human nickname" },
       { id: 'B', text: "The VM is converted to a physical bare-metal server" },
       { id: 'C', text: "Engineers spend hours manually patching and debugging the specific broken server" },
-      { id: 'D', text: "The unhealthy virtual machine is terminated and replaced by a fresh, identical instance provisioned automatically from code" }
+      { id: 'D', text: "The unhealthy machine is replaced by a fresh identical one" }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -156,7 +156,7 @@ export const HASHICORP_TFA_QUESTIONS_1 = [
     scenario: "A development team struggles with 'it works in staging but fails in production' bugs caused by subtle configuration mismatches between environments.",
     question: "How does Infrastructure as Code eliminate environment disparity?",
     options: [
-      { id: 'A', text: "By provisioning development, staging, and production environments from the exact same version-controlled code modules with environment-specific variables" },
+      { id: 'A', text: "By building each environment from the same versioned modules" },
       { id: 'B', text: "By running all environments on the exact same physical server" },
       { id: 'C', text: "By deploying only to production and eliminating staging environments" },
       { id: 'D', text: "By manually synchronizing cloud console screens" }
@@ -178,7 +178,7 @@ export const HASHICORP_TFA_QUESTIONS_1 = [
     question: "How does Infrastructure as Code serve as living technical documentation?",
     options: [
       { id: 'A', text: "Engineers must read outdated Word documents written three years ago" },
-      { id: 'B', text: "The declared HCL configuration files in version control represent the exact, up-to-date architectural blueprint of deployed infrastructure" },
+      { id: 'B', text: "The committed configuration is the blueprint the running estate matches" },
       { id: 'C', text: "Terraform generates audio recordings of cloud architects" },
       { id: 'D', text: "By inspecting raw network packets with Wireshark" }
     ],
@@ -198,7 +198,7 @@ export const HASHICORP_TFA_QUESTIONS_1 = [
     scenario: "A primary cloud region suffers a catastrophic power and networking outage. The operations team must stand up an identical full-stack application environment in a secondary region immediately.",
     question: "How does Infrastructure as Code accelerate Disaster Recovery (DR) and minimize Recovery Time Objective (RTO)?",
     options: [
-      { id: 'A', text: "By applying the same Terraform modules to the secondary region with updated region variables, provisioning complete VPCs, compute, and databases in minutes" },
+      { id: 'A', text: "By applying the same modules in the second region with its own variables" },
       { id: 'B', text: "By restoring VM tape backups shipped via courier" },
       { id: 'C', text: "By manually clicking through the secondary region console for 14 hours" },
       { id: 'D', text: "IaC cannot be used for disaster recovery" }
@@ -221,7 +221,7 @@ export const HASHICORP_TFA_QUESTIONS_1 = [
     options: [
       { id: 'A', text: "It reboots each running VM without installing patches" },
       { id: 'B', text: "It modifies the BIOS firmware on physical hardware" },
-      { id: 'C', text: "It provisions a brand-new fleet of VMs with the updated AMI, verifies health, redirects traffic, and terminates the old VM fleet" },
+      { id: 'C', text: "It builds a new fleet on the new image and retires the old one" },
       { id: 'D', text: "It SSHs into each existing running server and runs 'yum update' in-place" }
     ],
     correctAnswers: ['C'],
@@ -240,7 +240,7 @@ export const HASHICORP_TFA_QUESTIONS_1 = [
     scenario: "Before running `terraform apply`, a security officer wants to check that no S3 buckets are configured as publicly readable and all EBS volumes have encryption enabled.",
     question: "Which stage of the CI/CD pipeline evaluates IaC code against security policies without provisioning real cloud resources?",
     options: [
-      { id: 'A', text: "Static Analysis / Policy as Code scanning (e.g. Checkov, tfsec, Sentinel, or OPA)" },
+      { id: 'A', text: "Static analysis or policy as code, such as Checkov" },
       { id: 'B', text: "Post-deployment penetration testing" },
       { id: 'C', text: "Runtime cloud billing audit" },
       { id: 'D', text: "Physical hardware inspection" }
@@ -261,10 +261,10 @@ export const HASHICORP_TFA_QUESTIONS_1 = [
     scenario: "A financial institution mandates that developers may only provision Compute Engine and EC2 instances of machine series `t3.micro` or `t3.small` in development accounts.",
     question: "Which capability enforces automated programmatic governance rules on Terraform plans prior to execution?",
     options: [
-      { id: 'A', text: "IAM user passwords alone" },
-      { id: 'B', text: "Periodic monthly billing reviews" },
+      { id: 'A', text: "IAM password policies applied to each engineer's account" },
+      { id: 'B', text: "A monthly billing review of what each team has deployed" },
       { id: 'C', text: "Policy as Code (e.g. HashiCorp Sentinel or Open Policy Agent)" },
-      { id: 'D', text: "Writing comments in README.md" }
+      { id: 'D', text: "A documented standard in each repository's README file" }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -282,7 +282,7 @@ export const HASHICORP_TFA_QUESTIONS_1 = [
     scenario: "A junior developer accidentally writes a Terraform resource block requesting a 128-core memory-optimized virtual machine costing $10,000 per month.",
     question: "How does integrating cost estimation tools (e.g. Infracost or Terraform Cloud Cost Estimation) into pull requests protect organizations?",
     options: [
-      { id: 'A', text: "It calculates the monthly financial cost delta of the proposed changes directly in the pull request before infrastructure is provisioned" },
+      { id: 'A', text: "It reports the monthly cost delta of the change on the pull request" },
       { id: 'B', text: "It cancels the developer's cloud account" },
       { id: 'C', text: "It negotiates discounts with the cloud provider automatically" },
       { id: 'D', text: "It forces the cloud provider to run the VM for free" }
@@ -304,7 +304,7 @@ export const HASHICORP_TFA_QUESTIONS_1 = [
     question: "How does Terraform optimize the deployment speed of independent resources?",
     options: [
       { id: 'A', text: "Terraform provisions all resources strictly one-by-one in alphabetical order" },
-      { id: 'B', text: "Terraform builds an internal Directed Acyclic Graph (DAG) of resource dependencies and provisions independent resources concurrently in parallel" },
+      { id: 'B', text: "It builds a dependency graph and provisions independent resources in parallel" },
       { id: 'C', text: "Terraform cannot run tasks in parallel" },
       { id: 'D', text: "Terraform provisions resources in reverse order of file names" }
     ],
@@ -325,7 +325,7 @@ export const HASHICORP_TFA_QUESTIONS_1 = [
     question: "Why does this monolithic architecture pose a severe operational risk?",
     options: [
       { id: 'A', text: "Monolithic architectures execute faster than modular designs" },
-      { id: 'B', text: "A small mistake or state file corruption in a microservice rollout can accidentally destroy the root networking or production database (large blast radius)" },
+      { id: 'B', text: "A mistake in one rollout can destroy the shared networking in the same state" },
       { id: 'C', text: "Monolithic state files are not supported by cloud providers" },
       { id: 'D', text: "Terraform cannot manage more than 2 resources per file" }
     ],
@@ -345,7 +345,7 @@ export const HASHICORP_TFA_QUESTIONS_1 = [
     scenario: "A software engineering team wants to test pull requests in dedicated, isolated staging environments that exist only for the duration of the automated integration test suite.",
     question: "How does Infrastructure as Code facilitate ephemeral (preview) testing environments?",
     options: [
-      { id: 'A', text: "Automated CI pipelines run terraform apply to spin up isolated test infrastructure per pull request, and run terraform destroy once tests conclude" },
+      { id: 'A', text: "The pipeline applies an isolated environment per pull request and destroys it after" },
       { id: 'B', text: "By keeping permanent staging clusters running 24/7" },
       { id: 'C', text: "By mocking all cloud APIs locally without ever running real infrastructure" },
       { id: 'D', text: "By deploying untested code directly into production" }
@@ -366,9 +366,9 @@ export const HASHICORP_TFA_QUESTIONS_1 = [
     scenario: "A QA team finishes performance testing on an ephemeral cloud environment.",
     question: "Which Terraform command safely reads the state file, determines resource dependencies in reverse, and deletes all managed infrastructure?",
     options: [
-      { id: 'A', text: "terraform delete" },
-      { id: 'B', text: "terraform clean --all" },
-      { id: 'C', text: "rm -rf .terraform" },
+      { id: 'A', text: "terraform delete (or terraform remove)" },
+      { id: 'B', text: "terraform clean --all in the directory" },
+      { id: 'C', text: "Removing the .terraform directory" },
       { id: 'D', text: "terraform destroy (or terraform apply -destroy)" }
     ],
     correctAnswers: ['D'],
@@ -411,7 +411,7 @@ export const HASHICORP_TFA_QUESTIONS_1 = [
       { id: 'A', text: "A cloud storage backend that stores encrypted state files" },
       { id: 'B', text: "A web dashboard for viewing cloud billing reports" },
       { id: 'C', text: "A compiler that converts HCL into machine assembly code" },
-      { id: 'D', text: "A plugin that translates Terraform declarative HCL resource requests into downstream cloud provider API calls" }
+      { id: 'D', text: "A plugin translating the configuration into the provider's API calls" }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -429,10 +429,10 @@ export const HASHICORP_TFA_QUESTIONS_1 = [
     scenario: "A developer accidentally deletes a production database instance through the AWS or Azure web management console. The database is still declared in the team's Terraform configuration files.",
     question: "What does Terraform propose during the next terraform plan?",
     options: [
-      { id: 'A', text: "Terraform detects the database is missing from the cloud, refreshes state to reflect its absence, and proposes creating a brand-new database instance to restore desired state" },
-      { id: 'B', text: "Terraform deletes the local configuration file to match the cloud" },
-      { id: 'C', text: "Terraform crashes and refuses to run" },
-      { id: 'D', text: "Terraform claims the infrastructure is unchanged" }
+      { id: 'A', text: "It refreshes, sees the database is gone, and proposes creating it again." },
+      { id: 'B', text: "It removes the resource block so the configuration matches the cloud." },
+      { id: 'C', text: "It errors out and refuses to plan until the state has been repaired." },
+      { id: 'D', text: "It reports no changes, since the state still records the database." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -451,7 +451,7 @@ export const HASHICORP_TFA_QUESTIONS_1 = [
     question: "Why does Terraform maintain a state file rather than querying cloud provider APIs from scratch on every run?",
     options: [
       { id: 'A', text: "To store user credit card information for cloud billing" },
-      { id: 'B', text: "To map real-world cloud resource IDs to declared HCL blocks, track metadata, cache attributes for performance, and resolve dependency graphs" },
+      { id: 'B', text: "To map the configuration to real resource ids and track their metadata" },
       { id: 'C', text: "State files are optional and never recommended" },
       { id: 'D', text: "Because cloud providers do not have APIs" }
     ],
@@ -471,7 +471,7 @@ export const HASHICORP_TFA_QUESTIONS_1 = [
     scenario: "A developer removes a resource block (`resource \"aws_s3_bucket\" \"temp\"`) from their Terraform configuration file and runs `terraform apply`.",
     question: "What action does Terraform take on the real-world S3 bucket in the cloud?",
     options: [
-      { id: 'A', text: "Terraform plans and executes the destruction (- destroy) of the S3 bucket in the cloud to match the declared configuration" },
+      { id: 'A', text: "It plans and executes the bucket's destruction to match the code" },
       { id: 'B', text: "The S3 bucket remains running in the cloud forever as an untracked resource" },
       { id: 'C', text: "Terraform restores the deleted code block back into the file" },
       { id: 'D', text: "Terraform errors and terminates" }
@@ -492,7 +492,7 @@ export const HASHICORP_TFA_QUESTIONS_1 = [
     scenario: "The Terraform architecture is cleanly split into two distinct layers: Terraform Core and Terraform Plugins (Providers).",
     question: "Which task is the responsibility of Terraform Core rather than the Provider?",
     options: [
-      { id: 'A', text: "Reading configuration files, managing the state file, building the dependency graph, and executing the plan/apply workflow" },
+      { id: 'A', text: "Reading the configuration, managing state, and running the graph" },
       { id: 'B', text: "Authenticating directly to the AWS EC2 API endpoint" },
       { id: 'C', text: "Defining the specific JSON schema for Azure storage accounts" },
       { id: 'D', text: "Executing REST API calls against the Google Cloud Compute engine" }
@@ -515,7 +515,7 @@ export const HASHICORP_TFA_QUESTIONS_1 = [
     options: [
       { id: 'A', text: "The pipeline runs 'terraform apply' on every commit to every feature branch" },
       { id: 'B', text: "Developers run 'terraform apply' from their local laptops directly to production" },
-      { id: 'C', text: "Pull requests run 'terraform fmt -check', 'terraform validate', security scans, and 'terraform plan'; merges to the main branch trigger 'terraform apply'" },
+      { id: 'C', text: "Pull requests run `fmt -check`, `validate` and `plan`; merges run the apply" },
       { id: 'D', text: "All changes are applied manually through the cloud web console" }
     ],
     correctAnswers: ['C'],

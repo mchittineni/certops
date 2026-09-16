@@ -31,9 +31,9 @@ export const HASHICORP_TFA_QUESTIONS_10 = [
     question: "What do path.module, path.root, and path.cwd represent respectively in Terraform?",
     options: [
       { id: 'A', text: "path.module is the root module; path.root is the child module" },
-      { id: 'B', text: "All three are identical aliases" },
-      { id: 'C', text: "path.cwd represents the cloud provider datacenter" },
-      { id: 'D', text: "path.module is the filesystem path to the current module; path.root is the path to the root module; path.cwd is the current working directory where the CLI was invoked" }
+      { id: 'B', text: "All three resolve to the same directory in every case" },
+      { id: 'C', text: "`path.cwd` names the provider's region rather than a path" },
+      { id: 'D', text: "`path.module` is the module's own directory, `path.root` the root's" }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -72,7 +72,7 @@ export const HASHICORP_TFA_QUESTIONS_10 = [
     scenario: "A developer embeds a multi-line shell script into a user_data attribute. The lines inside the script are indented with spaces for readability.",
     question: "What is the difference between standard heredoc (&lt;&lt;EOT) and indented heredoc (&lt;&lt;-EOT)?",
     options: [
-      { id: 'A', text: "Indented heredoc (&lt;&lt;-EOT) strips leading indentation spaces from each line in the resulting string; standard heredoc (&lt;&lt;EOT) preserves all leading spaces literally" },
+      { id: 'A', text: "The indented form strips the leading whitespace; the plain form keeps it" },
       { id: 'B', text: "Indented heredoc encrypts the text; standard heredoc leaves it in plaintext" },
       { id: 'C', text: "Indented heredoc converts text to uppercase" },
       { id: 'D', text: "There is no difference between the two formats" }
@@ -137,7 +137,7 @@ export const HASHICORP_TFA_QUESTIONS_10 = [
     options: [
       { id: 'A', text: "It enforces that the value must be a boolean" },
       { id: 'B', text: "It disables type checking across the entire project" },
-      { id: 'C', text: "It serves as a wildcard placeholder that accepts any data type and dynamically infers the actual type from the assigned value" },
+      { id: 'C', text: "It accepts any type and infers the real one from the value given" },
       { id: 'D', text: "It restricts values to numbers only" }
     ],
     correctAnswers: ['C'],
@@ -157,9 +157,9 @@ export const HASHICORP_TFA_QUESTIONS_10 = [
     question: "In Terraform's type system, what is the key difference between Collection types (list, map, set) and Structural types (object, tuple)?",
     options: [
       { id: 'A', text: "Structural types cannot be nested" },
-      { id: 'B', text: "There is no difference" },
+      { id: 'B', text: "There is no difference beyond the wording the command prints at the end of the run." },
       { id: 'C', text: "Collection types are only for numbers; Structural types are only for strings" },
-      { id: 'D', text: "Collection types require all elements to be of the exact same type; Structural types allow elements to have different, heterogeneous types" }
+      { id: 'D', text: "Collections hold one element type; structural types may mix them" }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -261,10 +261,10 @@ export const HASHICORP_TFA_QUESTIONS_10 = [
     scenario: "A developer calculates instance counts: `min(10, var.requested_count)` and rounds fractional CPU ratios using `ceil(2.3)`.",
     question: "What does ceil(2.3) evaluate to in HCL?",
     options: [
-      { id: 'A', text: "0" },
-      { id: 'B', text: "2.3" },
+      { id: 'A', text: "0 (the expression returns nothing)" },
+      { id: 'B', text: "2.3 (the exact quotient, unrounded)" },
       { id: 'C', text: "3 (rounds up to the nearest integer)" },
-      { id: 'D', text: "2" }
+      { id: 'D', text: "2 (rounds down to the nearest integer)" }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -429,7 +429,7 @@ export const HASHICORP_TFA_QUESTIONS_10 = [
     scenario: "A variable `var.subnets` is a list of strings, and `var.name` is a string.",
     question: "How does the length() function behave when passed a list versus a string?",
     options: [
-      { id: 'A', text: "length(var.subnets) returns the number of elements in the list; length(var.name) returns the number of unicode characters in the string" },
+      { id: 'A', text: "On a list it counts the elements; on a string it counts the characters" },
       { id: 'B', text: "length() only works on lists; it fails on strings" },
       { id: 'C', text: "length() returns the memory byte size" },
       { id: 'D', text: "length() returns a boolean" }

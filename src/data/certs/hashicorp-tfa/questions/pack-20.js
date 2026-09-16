@@ -9,10 +9,10 @@ export const HASHICORP_TFA_QUESTIONS_20 = [
     scenario: "An enterprise cloud operations team is establishing high-availability standards, automated state recovery procedures, and infrastructure resilience baselines with Terraform. The Terraform engineer needs to provision a high-capacity multi-AZ database in production but a minimal single-AZ instance in development using a single resource definition.",
     question: "Which architectural approach or configuration satisfies these infrastructure disaster recovery and operational resilience objectives?",
     options: [
-      { id: 'A', text: "Manually edit the configuration before each deployment." },
+      { id: 'A', text: "A separate variable file per environment, chosen at apply time." },
       { id: 'B', text: "Maintain two completely separate and duplicate `.tf` files for dev and prod." },
       { id: 'C', text: "Conditional logic is not permitted in Terraform." },
-      { id: 'D', text: "Use a conditional expression in the resource spec: `multi_az = var.env == \"prod\" ? true : false`." }
+      { id: 'D', text: "A conditional expression: `multi_az = var.env == \"prod\"`." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -30,9 +30,9 @@ export const HASHICORP_TFA_QUESTIONS_20 = [
     scenario: "A large-scale multi-cloud platform experiences rapid infrastructure growth and requires automated, consistent provisioning across complex resource topologies. The Terraform engineer needs to provision a high-capacity multi-AZ database in production but a minimal single-AZ instance in development using a single resource definition.",
     question: "Which design pattern or Terraform capability manages this provisioning scale effectively while preventing configuration drift and deployment bottlenecks?",
     options: [
-      { id: 'A', text: "Use a conditional expression in the resource spec: `multi_az = var.env == \"prod\" ? true : false`." },
+      { id: 'A', text: "A conditional expression: `multi_az = var.env == \"prod\"`." },
       { id: 'B', text: "Maintain two completely separate and duplicate `.tf` files for dev and prod." },
-      { id: 'C', text: "Manually edit the configuration before each deployment." },
+      { id: 'C', text: "A separate variable file per environment, chosen at apply time." },
       { id: 'D', text: "Conditional logic is not permitted in Terraform." }
     ],
     correctAnswers: ['A'],
@@ -51,9 +51,9 @@ export const HASHICORP_TFA_QUESTIONS_20 = [
     scenario: "A cloud security auditor requires strict protection of sensitive state data, verified provider dependencies, and automated governance across all Terraform pipelines. The Terraform engineer needs to provision a high-capacity multi-AZ database in production but a minimal single-AZ instance in development using a single resource definition.",
     question: "Which solution implements these mandatory infrastructure as code security and governance controls?",
     options: [
-      { id: 'A', text: "Use a conditional expression in the resource spec: `multi_az = var.env == \"prod\" ? true : false`." },
+      { id: 'A', text: "A conditional expression: `multi_az = var.env == \"prod\"`." },
       { id: 'B', text: "Maintain two completely separate and duplicate `.tf` files for dev and prod." },
-      { id: 'C', text: "Manually edit the configuration before each deployment." },
+      { id: 'C', text: "A separate variable file per environment, chosen at apply time." },
       { id: 'D', text: "Conditional logic is not permitted in Terraform." }
     ],
     correctAnswers: ['A'],
@@ -72,9 +72,9 @@ export const HASHICORP_TFA_QUESTIONS_20 = [
     scenario: "An organization is transitioning from manual, console-driven infrastructure provisioning to automated, declarative infrastructure as code using Terraform. The Terraform engineer needs to provision a high-capacity multi-AZ database in production but a minimal single-AZ instance in development using a single resource definition.",
     question: "Which practice or platform feature enables the engineering team to modernize provisioning workflows with minimal operational friction?",
     options: [
-      { id: 'A', text: "Use a conditional expression in the resource spec: `multi_az = var.env == \"prod\" ? true : false`." },
+      { id: 'A', text: "A conditional expression: `multi_az = var.env == \"prod\"`." },
       { id: 'B', text: "Maintain two completely separate and duplicate `.tf` files for dev and prod." },
-      { id: 'C', text: "Manually edit the configuration before each deployment." },
+      { id: 'C', text: "A separate variable file per environment, chosen at apply time." },
       { id: 'D', text: "Conditional logic is not permitted in Terraform." }
     ],
     correctAnswers: ['A'],
@@ -93,9 +93,9 @@ export const HASHICORP_TFA_QUESTIONS_20 = [
     scenario: "A platform engineering team is optimizing infrastructure stability to eliminate single points of failure, streamline state refactoring, and ensure zero-downtime resource replacement. The Terraform engineer needs to provision a high-capacity multi-AZ database in production but a minimal single-AZ instance in development using a single resource definition.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
-      { id: 'A', text: "Use a conditional expression in the resource spec: `multi_az = var.env == \"prod\" ? true : false`." },
+      { id: 'A', text: "A conditional expression: `multi_az = var.env == \"prod\"`." },
       { id: 'B', text: "Maintain two completely separate and duplicate `.tf` files for dev and prod." },
-      { id: 'C', text: "Manually edit the configuration before each deployment." },
+      { id: 'C', text: "A separate variable file per environment, chosen at apply time." },
       { id: 'D', text: "Conditional logic is not permitted in Terraform." }
     ],
     correctAnswers: ['A'],
@@ -219,10 +219,10 @@ export const HASHICORP_TFA_QUESTIONS_20 = [
     scenario: "An enterprise cloud operations team is establishing high-availability standards, automated state recovery procedures, and infrastructure resilience baselines with Terraform. The Terraform engineer needs to standardize a common resource naming convention (combining company, business unit, project, and env) across 50 cloud resources.",
     question: "Which architectural approach or configuration satisfies these infrastructure disaster recovery and operational resilience objectives?",
     options: [
-      { id: 'A', text: "Copy-paste the full string interpolation expression 50 times across all resource blocks." },
-      { id: 'B', text: "Define a `locals {}` block with `name_prefix = \"${var.org}-${var.dept}-${var.env}\"` and reference `local.name_prefix` in resources." },
-      { id: 'C', text: "Store the name prefix in an external database and query it with a bash script." },
-      { id: 'D', text: "Pass the full concatenated name as an input variable from the command line on every run." }
+      { id: 'A', text: "The interpolation repeated in each resource that needs the prefix." },
+      { id: 'B', text: "A `locals` block holding the prefix, referenced as `local.name_prefix`." },
+      { id: 'C', text: "A data source that reads the prefix from a parameter at plan time." },
+      { id: 'D', text: "An input variable holding the full prefix, passed on each apply." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -240,10 +240,10 @@ export const HASHICORP_TFA_QUESTIONS_20 = [
     scenario: "A large-scale multi-cloud platform experiences rapid infrastructure growth and requires automated, consistent provisioning across complex resource topologies. The Terraform engineer needs to standardize a common resource naming convention (combining company, business unit, project, and env) across 50 cloud resources.",
     question: "Which design pattern or Terraform capability manages this provisioning scale effectively while preventing configuration drift and deployment bottlenecks?",
     options: [
-      { id: 'A', text: "Define a `locals {}` block with `name_prefix = \"${var.org}-${var.dept}-${var.env}\"` and reference `local.name_prefix` in resources." },
-      { id: 'B', text: "Copy-paste the full string interpolation expression 50 times across all resource blocks." },
-      { id: 'C', text: "Pass the full concatenated name as an input variable from the command line on every run." },
-      { id: 'D', text: "Store the name prefix in an external database and query it with a bash script." }
+      { id: 'A', text: "A `locals` block holding the prefix, referenced as `local.name_prefix`." },
+      { id: 'B', text: "The interpolation repeated in each resource that needs the prefix." },
+      { id: 'C', text: "An input variable holding the full prefix, passed on each apply." },
+      { id: 'D', text: "A data source that reads the prefix from a parameter at plan time." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -261,10 +261,10 @@ export const HASHICORP_TFA_QUESTIONS_20 = [
     scenario: "A cloud security auditor requires strict protection of sensitive state data, verified provider dependencies, and automated governance across all Terraform pipelines. The Terraform engineer needs to standardize a common resource naming convention (combining company, business unit, project, and env) across 50 cloud resources.",
     question: "Which solution implements these mandatory infrastructure as code security and governance controls?",
     options: [
-      { id: 'A', text: "Copy-paste the full string interpolation expression 50 times across all resource blocks." },
-      { id: 'B', text: "Define a `locals {}` block with `name_prefix = \"${var.org}-${var.dept}-${var.env}\"` and reference `local.name_prefix` in resources." },
-      { id: 'C', text: "Store the name prefix in an external database and query it with a bash script." },
-      { id: 'D', text: "Pass the full concatenated name as an input variable from the command line on every run." }
+      { id: 'A', text: "The interpolation repeated in each resource that needs the prefix." },
+      { id: 'B', text: "A `locals` block holding the prefix, referenced as `local.name_prefix`." },
+      { id: 'C', text: "A data source that reads the prefix from a parameter at plan time." },
+      { id: 'D', text: "An input variable holding the full prefix, passed on each apply." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -282,10 +282,10 @@ export const HASHICORP_TFA_QUESTIONS_20 = [
     scenario: "An organization is transitioning from manual, console-driven infrastructure provisioning to automated, declarative infrastructure as code using Terraform. The Terraform engineer needs to standardize a common resource naming convention (combining company, business unit, project, and env) across 50 cloud resources.",
     question: "Which practice or platform feature enables the engineering team to modernize provisioning workflows with minimal operational friction?",
     options: [
-      { id: 'A', text: "Define a `locals {}` block with `name_prefix = \"${var.org}-${var.dept}-${var.env}\"` and reference `local.name_prefix` in resources." },
-      { id: 'B', text: "Copy-paste the full string interpolation expression 50 times across all resource blocks." },
-      { id: 'C', text: "Pass the full concatenated name as an input variable from the command line on every run." },
-      { id: 'D', text: "Store the name prefix in an external database and query it with a bash script." }
+      { id: 'A', text: "A `locals` block holding the prefix, referenced as `local.name_prefix`." },
+      { id: 'B', text: "The interpolation repeated in each resource that needs the prefix." },
+      { id: 'C', text: "An input variable holding the full prefix, passed on each apply." },
+      { id: 'D', text: "A data source that reads the prefix from a parameter at plan time." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -303,10 +303,10 @@ export const HASHICORP_TFA_QUESTIONS_20 = [
     scenario: "A platform engineering team is optimizing infrastructure stability to eliminate single points of failure, streamline state refactoring, and ensure zero-downtime resource replacement. The Terraform engineer needs to standardize a common resource naming convention (combining company, business unit, project, and env) across 50 cloud resources.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
-      { id: 'A', text: "Copy-paste the full string interpolation expression 50 times across all resource blocks." },
-      { id: 'B', text: "Pass the full concatenated name as an input variable from the command line on every run." },
-      { id: 'C', text: "Define a `locals {}` block with `name_prefix = \"${var.org}-${var.dept}-${var.env}\"` and reference `local.name_prefix` in resources." },
-      { id: 'D', text: "Store the name prefix in an external database and query it with a bash script." }
+      { id: 'A', text: "The interpolation repeated in each resource that needs the prefix." },
+      { id: 'B', text: "An input variable holding the full prefix, passed on each apply." },
+      { id: 'C', text: "A `locals` block holding the prefix, referenced as `local.name_prefix`." },
+      { id: 'D', text: "A data source that reads the prefix from a parameter at plan time." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -324,10 +324,10 @@ export const HASHICORP_TFA_QUESTIONS_20 = [
     scenario: "An enterprise cloud operations team is establishing high-availability standards, automated state recovery procedures, and infrastructure resilience baselines with Terraform. The Terraform engineer needs to prevent anyone from accidentally destroying a production database and ensure zero-downtime replacement for web server instances.",
     question: "Which architectural approach or configuration satisfies these infrastructure disaster recovery and operational resilience objectives?",
     options: [
-      { id: 'A', text: "Configure `lifecycle { prevent_destroy = true }` on the database and `lifecycle { create_before_destroy = true }` on web servers." },
-      { id: 'B', text: "Change the database username to read-only in the cloud console." },
-      { id: 'C', text: "Rely on human discipline to never run terraform destroy." },
-      { id: 'D', text: "Delete the state file so Terraform cannot destroy resources." }
+      { id: 'A', text: "`prevent_destroy` on the database and `create_before_destroy` on the web servers." },
+      { id: 'B', text: "`ignore_changes` on the database and `create_before_destroy` on the web servers." },
+      { id: 'C', text: "`prevent_destroy` on every resource in the configuration, including the web tier." },
+      { id: 'D', text: "A `moved` block for the database so a destroy is treated as a rename instead." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -345,10 +345,10 @@ export const HASHICORP_TFA_QUESTIONS_20 = [
     scenario: "A large-scale multi-cloud platform experiences rapid infrastructure growth and requires automated, consistent provisioning across complex resource topologies. The Terraform engineer needs to prevent anyone from accidentally destroying a production database and ensure zero-downtime replacement for web server instances.",
     question: "Which design pattern or Terraform capability manages this provisioning scale effectively while preventing configuration drift and deployment bottlenecks?",
     options: [
-      { id: 'A', text: "Configure `lifecycle { prevent_destroy = true }` on the database and `lifecycle { create_before_destroy = true }` on web servers." },
-      { id: 'B', text: "Delete the state file so Terraform cannot destroy resources." },
-      { id: 'C', text: "Change the database username to read-only in the cloud console." },
-      { id: 'D', text: "Rely on human discipline to never run terraform destroy." }
+      { id: 'A', text: "`prevent_destroy` on the database and `create_before_destroy` on the web servers." },
+      { id: 'B', text: "A `moved` block for the database so a destroy is treated as a rename instead." },
+      { id: 'C', text: "`ignore_changes` on the database and `create_before_destroy` on the web servers." },
+      { id: 'D', text: "`prevent_destroy` on every resource in the configuration, including the web tier." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -366,10 +366,10 @@ export const HASHICORP_TFA_QUESTIONS_20 = [
     scenario: "A cloud security auditor requires strict protection of sensitive state data, verified provider dependencies, and automated governance across all Terraform pipelines. The Terraform engineer needs to prevent anyone from accidentally destroying a production database and ensure zero-downtime replacement for web server instances.",
     question: "Which solution implements these mandatory infrastructure as code security and governance controls?",
     options: [
-      { id: 'A', text: "Delete the state file so Terraform cannot destroy resources." },
-      { id: 'B', text: "Change the database username to read-only in the cloud console." },
-      { id: 'C', text: "Configure `lifecycle { prevent_destroy = true }` on the database and `lifecycle { create_before_destroy = true }` on web servers." },
-      { id: 'D', text: "Rely on human discipline to never run terraform destroy." }
+      { id: 'A', text: "A `moved` block for the database so a destroy is treated as a rename instead." },
+      { id: 'B', text: "`ignore_changes` on the database and `create_before_destroy` on the web servers." },
+      { id: 'C', text: "`prevent_destroy` on the database and `create_before_destroy` on the web servers." },
+      { id: 'D', text: "`prevent_destroy` on every resource in the configuration, including the web tier." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -387,10 +387,10 @@ export const HASHICORP_TFA_QUESTIONS_20 = [
     scenario: "An organization is transitioning from manual, console-driven infrastructure provisioning to automated, declarative infrastructure as code using Terraform. The Terraform engineer needs to prevent anyone from accidentally destroying a production database and ensure zero-downtime replacement for web server instances.",
     question: "Which practice or platform feature enables the engineering team to modernize provisioning workflows with minimal operational friction?",
     options: [
-      { id: 'A', text: "Configure `lifecycle { prevent_destroy = true }` on the database and `lifecycle { create_before_destroy = true }` on web servers." },
-      { id: 'B', text: "Rely on human discipline to never run terraform destroy." },
-      { id: 'C', text: "Delete the state file so Terraform cannot destroy resources." },
-      { id: 'D', text: "Change the database username to read-only in the cloud console." }
+      { id: 'A', text: "`prevent_destroy` on the database and `create_before_destroy` on the web servers." },
+      { id: 'B', text: "`prevent_destroy` on every resource in the configuration, including the web tier." },
+      { id: 'C', text: "A `moved` block for the database so a destroy is treated as a rename instead." },
+      { id: 'D', text: "`ignore_changes` on the database and `create_before_destroy` on the web servers." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -408,10 +408,10 @@ export const HASHICORP_TFA_QUESTIONS_20 = [
     scenario: "A platform engineering team is optimizing infrastructure stability to eliminate single points of failure, streamline state refactoring, and ensure zero-downtime resource replacement. The Terraform engineer needs to prevent anyone from accidentally destroying a production database and ensure zero-downtime replacement for web server instances.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
-      { id: 'A', text: "Delete the state file so Terraform cannot destroy resources." },
-      { id: 'B', text: "Configure `lifecycle { prevent_destroy = true }` on the database and `lifecycle { create_before_destroy = true }` on web servers." },
-      { id: 'C', text: "Rely on human discipline to never run terraform destroy." },
-      { id: 'D', text: "Change the database username to read-only in the cloud console." }
+      { id: 'A', text: "A `moved` block for the database so a destroy is treated as a rename instead." },
+      { id: 'B', text: "`prevent_destroy` on the database and `create_before_destroy` on the web servers." },
+      { id: 'C', text: "`prevent_destroy` on every resource in the configuration, including the web tier." },
+      { id: 'D', text: "`ignore_changes` on the database and `create_before_destroy` on the web servers." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -430,7 +430,7 @@ export const HASHICORP_TFA_QUESTIONS_20 = [
     question: "Which architectural approach or configuration satisfies these infrastructure disaster recovery and operational resilience objectives?",
     options: [
       { id: 'A', text: "Create `staging.tfvars` and `prod.tfvars` and apply using `terraform apply -var-file=prod.tfvars`." },
-      { id: 'B', text: "Hardcode environment values directly inside `variables.tf` and commit changes before each run." },
+      { id: 'B', text: "Default values in `variables.tf`, overridden on the command line." },
       { id: 'C', text: "Prompt the user to type 50 variable values interactively into the terminal prompt." },
       { id: 'D', text: "Use environment variables exclusively for all complex object structures." }
     ],
@@ -451,7 +451,7 @@ export const HASHICORP_TFA_QUESTIONS_20 = [
     question: "Which design pattern or Terraform capability manages this provisioning scale effectively while preventing configuration drift and deployment bottlenecks?",
     options: [
       { id: 'A', text: "Prompt the user to type 50 variable values interactively into the terminal prompt." },
-      { id: 'B', text: "Hardcode environment values directly inside `variables.tf` and commit changes before each run." },
+      { id: 'B', text: "Default values in `variables.tf`, overridden on the command line." },
       { id: 'C', text: "Use environment variables exclusively for all complex object structures." },
       { id: 'D', text: "Create `staging.tfvars` and `prod.tfvars` and apply using `terraform apply -var-file=prod.tfvars`." }
     ],
@@ -472,7 +472,7 @@ export const HASHICORP_TFA_QUESTIONS_20 = [
     question: "Which solution implements these mandatory infrastructure as code security and governance controls?",
     options: [
       { id: 'A', text: "Create `staging.tfvars` and `prod.tfvars` and apply using `terraform apply -var-file=prod.tfvars`." },
-      { id: 'B', text: "Hardcode environment values directly inside `variables.tf` and commit changes before each run." },
+      { id: 'B', text: "Default values in `variables.tf`, overridden on the command line." },
       { id: 'C', text: "Prompt the user to type 50 variable values interactively into the terminal prompt." },
       { id: 'D', text: "Use environment variables exclusively for all complex object structures." }
     ],
@@ -492,7 +492,7 @@ export const HASHICORP_TFA_QUESTIONS_20 = [
     scenario: "An organization is transitioning from manual, console-driven infrastructure provisioning to automated, declarative infrastructure as code using Terraform. The Terraform engineer needs to manage different variable values for staging and production environments without changing the underlying `.tf` codebase.",
     question: "Which practice or platform feature enables the engineering team to modernize provisioning workflows with minimal operational friction?",
     options: [
-      { id: 'A', text: "Hardcode environment values directly inside `variables.tf` and commit changes before each run." },
+      { id: 'A', text: "Default values in `variables.tf`, overridden on the command line." },
       { id: 'B', text: "Use environment variables exclusively for all complex object structures." },
       { id: 'C', text: "Prompt the user to type 50 variable values interactively into the terminal prompt." },
       { id: 'D', text: "Create `staging.tfvars` and `prod.tfvars` and apply using `terraform apply -var-file=prod.tfvars`." }
@@ -514,7 +514,7 @@ export const HASHICORP_TFA_QUESTIONS_20 = [
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
       { id: 'A', text: "Use environment variables exclusively for all complex object structures." },
-      { id: 'B', text: "Hardcode environment values directly inside `variables.tf` and commit changes before each run." },
+      { id: 'B', text: "Default values in `variables.tf`, overridden on the command line." },
       { id: 'C', text: "Create `staging.tfvars` and `prod.tfvars` and apply using `terraform apply -var-file=prod.tfvars`." },
       { id: 'D', text: "Prompt the user to type 50 variable values interactively into the terminal prompt." }
     ],

@@ -9,10 +9,10 @@ export const HASHICORP_TFA_QUESTIONS_19 = [
     scenario: "An enterprise cloud operations team is establishing high-availability standards, automated state recovery procedures, and infrastructure resilience baselines with Terraform. The Terraform engineer needs to allow an application deployment configuration to read the VPC and subnet IDs produced by a separate networking Terraform pipeline.",
     question: "Which architectural approach or configuration satisfies these infrastructure disaster recovery and operational resilience objectives?",
     options: [
-      { id: 'A', text: "Use a `data \"terraform_remote_state\" \"network\"` block pointing to the networking project's remote backend configuration." },
-      { id: 'B', text: "Hardcode the subnet IDs directly into the application `.tf` file." },
-      { id: 'C', text: "Merge the networking and application configurations into a single massive 50,000-line codebase." },
-      { id: 'D', text: "Grant full read access to all developer AWS accounts." }
+      { id: 'A', text: "A `terraform_remote_state` data source pointing at the networking backend." },
+      { id: 'B', text: "The subnet ids written into the application configuration directly." },
+      { id: 'C', text: "The two configurations merged into one so the values resolve locally." },
+      { id: 'D', text: "A data source querying the provider for the subnets by their tags." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -30,10 +30,10 @@ export const HASHICORP_TFA_QUESTIONS_19 = [
     scenario: "A large-scale multi-cloud platform experiences rapid infrastructure growth and requires automated, consistent provisioning across complex resource topologies. The Terraform engineer needs to allow an application deployment configuration to read the VPC and subnet IDs produced by a separate networking Terraform pipeline.",
     question: "Which design pattern or Terraform capability manages this provisioning scale effectively while preventing configuration drift and deployment bottlenecks?",
     options: [
-      { id: 'A', text: "Use a `data \"terraform_remote_state\" \"network\"` block pointing to the networking project's remote backend configuration." },
-      { id: 'B', text: "Hardcode the subnet IDs directly into the application `.tf` file." },
-      { id: 'C', text: "Merge the networking and application configurations into a single massive 50,000-line codebase." },
-      { id: 'D', text: "Grant full read access to all developer AWS accounts." }
+      { id: 'A', text: "A `terraform_remote_state` data source pointing at the networking backend." },
+      { id: 'B', text: "The subnet ids written into the application configuration directly." },
+      { id: 'C', text: "The two configurations merged into one so the values resolve locally." },
+      { id: 'D', text: "A data source querying the provider for the subnets by their tags." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -51,10 +51,10 @@ export const HASHICORP_TFA_QUESTIONS_19 = [
     scenario: "A cloud security auditor requires strict protection of sensitive state data, verified provider dependencies, and automated governance across all Terraform pipelines. The Terraform engineer needs to allow an application deployment configuration to read the VPC and subnet IDs produced by a separate networking Terraform pipeline.",
     question: "Which solution implements these mandatory infrastructure as code security and governance controls?",
     options: [
-      { id: 'A', text: "Merge the networking and application configurations into a single massive 50,000-line codebase." },
-      { id: 'B', text: "Grant full read access to all developer AWS accounts." },
-      { id: 'C', text: "Use a `data \"terraform_remote_state\" \"network\"` block pointing to the networking project's remote backend configuration." },
-      { id: 'D', text: "Hardcode the subnet IDs directly into the application `.tf` file." }
+      { id: 'A', text: "The two configurations merged into one so the values resolve locally." },
+      { id: 'B', text: "A data source querying the provider for the subnets by their tags." },
+      { id: 'C', text: "A `terraform_remote_state` data source pointing at the networking backend." },
+      { id: 'D', text: "The subnet ids written into the application configuration directly." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -72,10 +72,10 @@ export const HASHICORP_TFA_QUESTIONS_19 = [
     scenario: "An organization is transitioning from manual, console-driven infrastructure provisioning to automated, declarative infrastructure as code using Terraform. The Terraform engineer needs to allow an application deployment configuration to read the VPC and subnet IDs produced by a separate networking Terraform pipeline.",
     question: "Which practice or platform feature enables the engineering team to modernize provisioning workflows with minimal operational friction?",
     options: [
-      { id: 'A', text: "Merge the networking and application configurations into a single massive 50,000-line codebase." },
-      { id: 'B', text: "Grant full read access to all developer AWS accounts." },
-      { id: 'C', text: "Use a `data \"terraform_remote_state\" \"network\"` block pointing to the networking project's remote backend configuration." },
-      { id: 'D', text: "Hardcode the subnet IDs directly into the application `.tf` file." }
+      { id: 'A', text: "The two configurations merged into one so the values resolve locally." },
+      { id: 'B', text: "A data source querying the provider for the subnets by their tags." },
+      { id: 'C', text: "A `terraform_remote_state` data source pointing at the networking backend." },
+      { id: 'D', text: "The subnet ids written into the application configuration directly." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -93,10 +93,10 @@ export const HASHICORP_TFA_QUESTIONS_19 = [
     scenario: "A platform engineering team is optimizing infrastructure stability to eliminate single points of failure, streamline state refactoring, and ensure zero-downtime resource replacement. The Terraform engineer needs to allow an application deployment configuration to read the VPC and subnet IDs produced by a separate networking Terraform pipeline.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
-      { id: 'A', text: "Grant full read access to all developer AWS accounts." },
-      { id: 'B', text: "Use a `data \"terraform_remote_state\" \"network\"` block pointing to the networking project's remote backend configuration." },
-      { id: 'C', text: "Merge the networking and application configurations into a single massive 50,000-line codebase." },
-      { id: 'D', text: "Hardcode the subnet IDs directly into the application `.tf` file." }
+      { id: 'A', text: "A data source querying the provider for the subnets by their tags." },
+      { id: 'B', text: "A `terraform_remote_state` data source pointing at the networking backend." },
+      { id: 'C', text: "The two configurations merged into one so the values resolve locally." },
+      { id: 'D', text: "The subnet ids written into the application configuration directly." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -219,10 +219,10 @@ export const HASHICORP_TFA_QUESTIONS_19 = [
     scenario: "An enterprise cloud operations team is establishing high-availability standards, automated state recovery procedures, and infrastructure resilience baselines with Terraform. The Terraform engineer needs to merge default server tags with environment-specific tags into a single unified tag map across all cloud resources.",
     question: "Which architectural approach or configuration satisfies these infrastructure disaster recovery and operational resilience objectives?",
     options: [
-      { id: 'A', text: "Use the built-in `merge(var.default_tags, var.environment_tags)` function in the resource `tags` attribute." },
-      { id: 'B', text: "Write a custom Python script to concatenate dictionaries outside of Terraform." },
-      { id: 'C', text: "Hand-code all tags repeatedly on every single resource block." },
-      { id: 'D', text: "Functions are not supported in Terraform HCL expressions." }
+      { id: 'A', text: "The `merge()` function over the default and environment tag maps." },
+      { id: 'B', text: "A script that combines the two maps before Terraform runs." },
+      { id: 'C', text: "The tags written out in full on each resource that needs them." },
+      { id: 'D', text: "A `dynamic` block over both maps inside the tags argument." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -240,10 +240,10 @@ export const HASHICORP_TFA_QUESTIONS_19 = [
     scenario: "A large-scale multi-cloud platform experiences rapid infrastructure growth and requires automated, consistent provisioning across complex resource topologies. The Terraform engineer needs to merge default server tags with environment-specific tags into a single unified tag map across all cloud resources.",
     question: "Which design pattern or Terraform capability manages this provisioning scale effectively while preventing configuration drift and deployment bottlenecks?",
     options: [
-      { id: 'A', text: "Use the built-in `merge(var.default_tags, var.environment_tags)` function in the resource `tags` attribute." },
-      { id: 'B', text: "Hand-code all tags repeatedly on every single resource block." },
-      { id: 'C', text: "Functions are not supported in Terraform HCL expressions." },
-      { id: 'D', text: "Write a custom Python script to concatenate dictionaries outside of Terraform." }
+      { id: 'A', text: "The `merge()` function over the default and environment tag maps." },
+      { id: 'B', text: "The tags written out in full on each resource that needs them." },
+      { id: 'C', text: "A `dynamic` block over both maps inside the tags argument." },
+      { id: 'D', text: "A script that combines the two maps before Terraform runs." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -261,10 +261,10 @@ export const HASHICORP_TFA_QUESTIONS_19 = [
     scenario: "A cloud security auditor requires strict protection of sensitive state data, verified provider dependencies, and automated governance across all Terraform pipelines. The Terraform engineer needs to merge default server tags with environment-specific tags into a single unified tag map across all cloud resources.",
     question: "Which solution implements these mandatory infrastructure as code security and governance controls?",
     options: [
-      { id: 'A', text: "Write a custom Python script to concatenate dictionaries outside of Terraform." },
-      { id: 'B', text: "Use the built-in `merge(var.default_tags, var.environment_tags)` function in the resource `tags` attribute." },
-      { id: 'C', text: "Functions are not supported in Terraform HCL expressions." },
-      { id: 'D', text: "Hand-code all tags repeatedly on every single resource block." }
+      { id: 'A', text: "A script that combines the two maps before Terraform runs." },
+      { id: 'B', text: "The `merge()` function over the default and environment tag maps." },
+      { id: 'C', text: "A `dynamic` block over both maps inside the tags argument." },
+      { id: 'D', text: "The tags written out in full on each resource that needs them." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -282,10 +282,10 @@ export const HASHICORP_TFA_QUESTIONS_19 = [
     scenario: "An organization is transitioning from manual, console-driven infrastructure provisioning to automated, declarative infrastructure as code using Terraform. The Terraform engineer needs to merge default server tags with environment-specific tags into a single unified tag map across all cloud resources.",
     question: "Which practice or platform feature enables the engineering team to modernize provisioning workflows with minimal operational friction?",
     options: [
-      { id: 'A', text: "Use the built-in `merge(var.default_tags, var.environment_tags)` function in the resource `tags` attribute." },
-      { id: 'B', text: "Write a custom Python script to concatenate dictionaries outside of Terraform." },
-      { id: 'C', text: "Hand-code all tags repeatedly on every single resource block." },
-      { id: 'D', text: "Functions are not supported in Terraform HCL expressions." }
+      { id: 'A', text: "The `merge()` function over the default and environment tag maps." },
+      { id: 'B', text: "A script that combines the two maps before Terraform runs." },
+      { id: 'C', text: "The tags written out in full on each resource that needs them." },
+      { id: 'D', text: "A `dynamic` block over both maps inside the tags argument." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -303,10 +303,10 @@ export const HASHICORP_TFA_QUESTIONS_19 = [
     scenario: "A platform engineering team is optimizing infrastructure stability to eliminate single points of failure, streamline state refactoring, and ensure zero-downtime resource replacement. The Terraform engineer needs to merge default server tags with environment-specific tags into a single unified tag map across all cloud resources.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
-      { id: 'A', text: "Write a custom Python script to concatenate dictionaries outside of Terraform." },
-      { id: 'B', text: "Functions are not supported in Terraform HCL expressions." },
-      { id: 'C', text: "Hand-code all tags repeatedly on every single resource block." },
-      { id: 'D', text: "Use the built-in `merge(var.default_tags, var.environment_tags)` function in the resource `tags` attribute." }
+      { id: 'A', text: "A script that combines the two maps before Terraform runs." },
+      { id: 'B', text: "A `dynamic` block over both maps inside the tags argument." },
+      { id: 'C', text: "The tags written out in full on each resource that needs them." },
+      { id: 'D', text: "The `merge()` function over the default and environment tag maps." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -324,10 +324,10 @@ export const HASHICORP_TFA_QUESTIONS_19 = [
     scenario: "An enterprise cloud operations team is establishing high-availability standards, automated state recovery procedures, and infrastructure resilience baselines with Terraform. The Terraform engineer needs to dynamically generate multiple ingress rule blocks inside an AWS security group based on a list of approved ports.",
     question: "Which architectural approach or configuration satisfies these infrastructure disaster recovery and operational resilience objectives?",
     options: [
-      { id: 'A', text: "Nested blocks cannot be generated dynamically in Terraform." },
-      { id: 'B', text: "Use `for_each` on the entire security group resource, creating 20 separate security groups." },
-      { id: 'C', text: "Manually write out 20 identical ingress blocks by hand in the configuration file." },
-      { id: 'D', text: "Use a `dynamic \"ingress\"` block iterating over `var.service_ports` with a `content` block defining port parameters." }
+      { id: 'A', text: "A `for_each` on the security group, giving one group per port." },
+      { id: 'B', text: "A separate rule resource per port, each referencing the group." },
+      { id: 'C', text: "Twenty ingress blocks written out in the configuration by hand." },
+      { id: 'D', text: "A `dynamic \"ingress\"` block over the ports variable, with a `content` block." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -345,10 +345,10 @@ export const HASHICORP_TFA_QUESTIONS_19 = [
     scenario: "A large-scale multi-cloud platform experiences rapid infrastructure growth and requires automated, consistent provisioning across complex resource topologies. The Terraform engineer needs to dynamically generate multiple ingress rule blocks inside an AWS security group based on a list of approved ports.",
     question: "Which design pattern or Terraform capability manages this provisioning scale effectively while preventing configuration drift and deployment bottlenecks?",
     options: [
-      { id: 'A', text: "Manually write out 20 identical ingress blocks by hand in the configuration file." },
-      { id: 'B', text: "Use a `dynamic \"ingress\"` block iterating over `var.service_ports` with a `content` block defining port parameters." },
-      { id: 'C', text: "Nested blocks cannot be generated dynamically in Terraform." },
-      { id: 'D', text: "Use `for_each` on the entire security group resource, creating 20 separate security groups." }
+      { id: 'A', text: "Twenty ingress blocks written out in the configuration by hand." },
+      { id: 'B', text: "A `dynamic \"ingress\"` block over the ports variable, with a `content` block." },
+      { id: 'C', text: "A `for_each` on the security group, giving one group per port." },
+      { id: 'D', text: "A separate rule resource per port, each referencing the group." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -366,10 +366,10 @@ export const HASHICORP_TFA_QUESTIONS_19 = [
     scenario: "A cloud security auditor requires strict protection of sensitive state data, verified provider dependencies, and automated governance across all Terraform pipelines. The Terraform engineer needs to dynamically generate multiple ingress rule blocks inside an AWS security group based on a list of approved ports.",
     question: "Which solution implements these mandatory infrastructure as code security and governance controls?",
     options: [
-      { id: 'A', text: "Manually write out 20 identical ingress blocks by hand in the configuration file." },
-      { id: 'B', text: "Nested blocks cannot be generated dynamically in Terraform." },
-      { id: 'C', text: "Use `for_each` on the entire security group resource, creating 20 separate security groups." },
-      { id: 'D', text: "Use a `dynamic \"ingress\"` block iterating over `var.service_ports` with a `content` block defining port parameters." }
+      { id: 'A', text: "Twenty ingress blocks written out in the configuration by hand." },
+      { id: 'B', text: "A `for_each` on the security group, giving one group per port." },
+      { id: 'C', text: "A separate rule resource per port, each referencing the group." },
+      { id: 'D', text: "A `dynamic \"ingress\"` block over the ports variable, with a `content` block." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -387,10 +387,10 @@ export const HASHICORP_TFA_QUESTIONS_19 = [
     scenario: "An organization is transitioning from manual, console-driven infrastructure provisioning to automated, declarative infrastructure as code using Terraform. The Terraform engineer needs to dynamically generate multiple ingress rule blocks inside an AWS security group based on a list of approved ports.",
     question: "Which practice or platform feature enables the engineering team to modernize provisioning workflows with minimal operational friction?",
     options: [
-      { id: 'A', text: "Use a `dynamic \"ingress\"` block iterating over `var.service_ports` with a `content` block defining port parameters." },
-      { id: 'B', text: "Manually write out 20 identical ingress blocks by hand in the configuration file." },
-      { id: 'C', text: "Use `for_each` on the entire security group resource, creating 20 separate security groups." },
-      { id: 'D', text: "Nested blocks cannot be generated dynamically in Terraform." }
+      { id: 'A', text: "A `dynamic \"ingress\"` block over the ports variable, with a `content` block." },
+      { id: 'B', text: "Twenty ingress blocks written out in the configuration by hand." },
+      { id: 'C', text: "A separate rule resource per port, each referencing the group." },
+      { id: 'D', text: "A `for_each` on the security group, giving one group per port." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -408,10 +408,10 @@ export const HASHICORP_TFA_QUESTIONS_19 = [
     scenario: "A platform engineering team is optimizing infrastructure stability to eliminate single points of failure, streamline state refactoring, and ensure zero-downtime resource replacement. The Terraform engineer needs to dynamically generate multiple ingress rule blocks inside an AWS security group based on a list of approved ports.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
-      { id: 'A', text: "Manually write out 20 identical ingress blocks by hand in the configuration file." },
-      { id: 'B', text: "Use a `dynamic \"ingress\"` block iterating over `var.service_ports` with a `content` block defining port parameters." },
-      { id: 'C', text: "Nested blocks cannot be generated dynamically in Terraform." },
-      { id: 'D', text: "Use `for_each` on the entire security group resource, creating 20 separate security groups." }
+      { id: 'A', text: "Twenty ingress blocks written out in the configuration by hand." },
+      { id: 'B', text: "A `dynamic \"ingress\"` block over the ports variable, with a `content` block." },
+      { id: 'C', text: "A `for_each` on the security group, giving one group per port." },
+      { id: 'D', text: "A separate rule resource per port, each referencing the group." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -429,10 +429,10 @@ export const HASHICORP_TFA_QUESTIONS_19 = [
     scenario: "An enterprise cloud operations team is establishing high-availability standards, automated state recovery procedures, and infrastructure resilience baselines with Terraform. The Terraform engineer needs to transform a list of uppercase server names into lowercase strings with an environment suffix for resource naming.",
     question: "Which architectural approach or configuration satisfies these infrastructure disaster recovery and operational resilience objectives?",
     options: [
-      { id: 'A', text: "Use a while loop inside a local block." },
-      { id: 'B', text: "Run a shell script to rewrite the variable file before applying." },
-      { id: 'C', text: "Use a list comprehension `[for name in var.server_names : lower(\"${name}-${var.env}\")]`." },
-      { id: 'D', text: "Write a custom provider to handle string formatting." }
+      { id: 'A', text: "A `count` over the names, indexing them inside the local block." },
+      { id: 'B', text: "A script that rewrites the variable file before each apply runs." },
+      { id: 'C', text: "A `for` expression building the list from the names and environment." },
+      { id: 'D', text: "A `templatefile` call that renders the names from a template." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -450,10 +450,10 @@ export const HASHICORP_TFA_QUESTIONS_19 = [
     scenario: "A large-scale multi-cloud platform experiences rapid infrastructure growth and requires automated, consistent provisioning across complex resource topologies. The Terraform engineer needs to transform a list of uppercase server names into lowercase strings with an environment suffix for resource naming.",
     question: "Which design pattern or Terraform capability manages this provisioning scale effectively while preventing configuration drift and deployment bottlenecks?",
     options: [
-      { id: 'A', text: "Use a list comprehension `[for name in var.server_names : lower(\"${name}-${var.env}\")]`." },
-      { id: 'B', text: "Run a shell script to rewrite the variable file before applying." },
-      { id: 'C', text: "Write a custom provider to handle string formatting." },
-      { id: 'D', text: "Use a while loop inside a local block." }
+      { id: 'A', text: "A `for` expression building the list from the names and environment." },
+      { id: 'B', text: "A script that rewrites the variable file before each apply runs." },
+      { id: 'C', text: "A `templatefile` call that renders the names from a template." },
+      { id: 'D', text: "A `count` over the names, indexing them inside the local block." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -471,10 +471,10 @@ export const HASHICORP_TFA_QUESTIONS_19 = [
     scenario: "A cloud security auditor requires strict protection of sensitive state data, verified provider dependencies, and automated governance across all Terraform pipelines. The Terraform engineer needs to transform a list of uppercase server names into lowercase strings with an environment suffix for resource naming.",
     question: "Which solution implements these mandatory infrastructure as code security and governance controls?",
     options: [
-      { id: 'A', text: "Use a while loop inside a local block." },
-      { id: 'B', text: "Use a list comprehension `[for name in var.server_names : lower(\"${name}-${var.env}\")]`." },
-      { id: 'C', text: "Write a custom provider to handle string formatting." },
-      { id: 'D', text: "Run a shell script to rewrite the variable file before applying." }
+      { id: 'A', text: "A `count` over the names, indexing them inside the local block." },
+      { id: 'B', text: "A `for` expression building the list from the names and environment." },
+      { id: 'C', text: "A `templatefile` call that renders the names from a template." },
+      { id: 'D', text: "A script that rewrites the variable file before each apply runs." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -492,10 +492,10 @@ export const HASHICORP_TFA_QUESTIONS_19 = [
     scenario: "An organization is transitioning from manual, console-driven infrastructure provisioning to automated, declarative infrastructure as code using Terraform. The Terraform engineer needs to transform a list of uppercase server names into lowercase strings with an environment suffix for resource naming.",
     question: "Which practice or platform feature enables the engineering team to modernize provisioning workflows with minimal operational friction?",
     options: [
-      { id: 'A', text: "Run a shell script to rewrite the variable file before applying." },
-      { id: 'B', text: "Write a custom provider to handle string formatting." },
-      { id: 'C', text: "Use a list comprehension `[for name in var.server_names : lower(\"${name}-${var.env}\")]`." },
-      { id: 'D', text: "Use a while loop inside a local block." }
+      { id: 'A', text: "A script that rewrites the variable file before each apply runs." },
+      { id: 'B', text: "A `templatefile` call that renders the names from a template." },
+      { id: 'C', text: "A `for` expression building the list from the names and environment." },
+      { id: 'D', text: "A `count` over the names, indexing them inside the local block." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -513,10 +513,10 @@ export const HASHICORP_TFA_QUESTIONS_19 = [
     scenario: "A platform engineering team is optimizing infrastructure stability to eliminate single points of failure, streamline state refactoring, and ensure zero-downtime resource replacement. The Terraform engineer needs to transform a list of uppercase server names into lowercase strings with an environment suffix for resource naming.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
-      { id: 'A', text: "Use a list comprehension `[for name in var.server_names : lower(\"${name}-${var.env}\")]`." },
-      { id: 'B', text: "Run a shell script to rewrite the variable file before applying." },
-      { id: 'C', text: "Write a custom provider to handle string formatting." },
-      { id: 'D', text: "Use a while loop inside a local block." }
+      { id: 'A', text: "A `for` expression building the list from the names and environment." },
+      { id: 'B', text: "A script that rewrites the variable file before each apply runs." },
+      { id: 'C', text: "A `templatefile` call that renders the names from a template." },
+      { id: 'D', text: "A `count` over the names, indexing them inside the local block." }
     ],
     correctAnswers: ['A'],
     type: "single",
