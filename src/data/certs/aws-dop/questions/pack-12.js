@@ -9,7 +9,7 @@ export const AWS_DOP_QUESTIONS_12 = [
     scenario: "An enterprise DevOps organization is establishing cross-region operational continuity guidelines and high-availability architecture for AWS workloads. The DevOps engineer needs to execute relational database schema migrations automatically during deployment without causing downtime or query errors for active application instances.",
     question: "Which architectural approach or configuration satisfies these multi-region disaster recovery and resilience objectives?",
     options: [
-      { id: 'A', text: "Run the migration as a CodeDeploy lifecycle hook after the new tasks take traffic." },
+      { id: 'A', text: "Run the migration as a CodeDeploy lifecycle hook after the new tasks have taken traffic." },
       { id: 'B', text: "Run the migration from Lambda with the expand/contract pattern before traffic shifts" },
       { id: 'C', text: "Run the migration in a maintenance window with the application stopped throughout." },
       { id: 'D', text: "Run the migration from the build stage so the schema is ready before deployment." }
@@ -33,7 +33,7 @@ export const AWS_DOP_QUESTIONS_12 = [
       { id: 'A', text: "Run the migration from Lambda with the expand/contract pattern before traffic shifts" },
       { id: 'B', text: "Run the migration from the build stage so the schema is ready before deployment." },
       { id: 'C', text: "Run the migration in a maintenance window with the application stopped throughout." },
-      { id: 'D', text: "Run the migration as a CodeDeploy lifecycle hook after the new tasks take traffic." }
+      { id: 'D', text: "Run the migration as a CodeDeploy lifecycle hook after the new tasks have taken traffic." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -52,7 +52,7 @@ export const AWS_DOP_QUESTIONS_12 = [
     question: "Which solution implements these mandatory compliance and security controls?",
     options: [
       { id: 'A', text: "Run the migration in a maintenance window with the application stopped throughout." },
-      { id: 'B', text: "Run the migration as a CodeDeploy lifecycle hook after the new tasks take traffic." },
+      { id: 'B', text: "Run the migration as a CodeDeploy lifecycle hook after the new tasks have taken traffic." },
       { id: 'C', text: "Run the migration from Lambda with the expand/contract pattern before traffic shifts" },
       { id: 'D', text: "Run the migration from the build stage so the schema is ready before deployment." }
     ],
@@ -75,7 +75,7 @@ export const AWS_DOP_QUESTIONS_12 = [
       { id: 'A', text: "Run the migration from Lambda with the expand/contract pattern before traffic shifts" },
       { id: 'B', text: "Run the migration from the build stage so the schema is ready before deployment." },
       { id: 'C', text: "Run the migration in a maintenance window with the application stopped throughout." },
-      { id: 'D', text: "Run the migration as a CodeDeploy lifecycle hook after the new tasks take traffic." }
+      { id: 'D', text: "Run the migration as a CodeDeploy lifecycle hook after the new tasks have taken traffic." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -93,7 +93,7 @@ export const AWS_DOP_QUESTIONS_12 = [
     scenario: "A DevOps team is optimizing system reliability to eliminate single points of failure, reduce mean time to recovery, and automate incident response. The DevOps engineer needs to execute relational database schema migrations automatically during deployment without causing downtime or query errors for active application instances.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform stability?",
     options: [
-      { id: 'A', text: "Run the migration as a CodeDeploy lifecycle hook after the new tasks take traffic." },
+      { id: 'A', text: "Run the migration as a CodeDeploy lifecycle hook after the new tasks have taken traffic." },
       { id: 'B', text: "Run the migration from Lambda with the expand/contract pattern before traffic shifts" },
       { id: 'C', text: "Run the migration in a maintenance window with the application stopped throughout." },
       { id: 'D', text: "Run the migration from the build stage so the schema is ready before deployment." }
@@ -117,7 +117,7 @@ export const AWS_DOP_QUESTIONS_12 = [
       { id: 'A', text: "Attach the CloudWatch alarms to the CodeDeploy deployment group so a breach rolls back." },
       { id: 'B', text: "Attach the alarms to an SNS topic that pages the on-call engineer to roll back." },
       { id: 'C', text: "Attach the alarms to an EventBridge rule that stops the pipeline's next stage." },
-      { id: 'D', text: "Attach the alarms to a dashboard the release engineer watches during the deploy." }
+      { id: 'D', text: "Attach the alarms to a dashboard that the release engineer watches throughout the deploy." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -138,7 +138,7 @@ export const AWS_DOP_QUESTIONS_12 = [
       { id: 'A', text: "Attach the alarms to an EventBridge rule that stops the pipeline's next stage." },
       { id: 'B', text: "Attach the CloudWatch alarms to the CodeDeploy deployment group so a breach rolls back." },
       { id: 'C', text: "Attach the alarms to an SNS topic that pages the on-call engineer to roll back." },
-      { id: 'D', text: "Attach the alarms to a dashboard the release engineer watches during the deploy." }
+      { id: 'D', text: "Attach the alarms to a dashboard that the release engineer watches throughout the deploy." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -157,7 +157,7 @@ export const AWS_DOP_QUESTIONS_12 = [
     question: "Which solution implements these mandatory compliance and security controls?",
     options: [
       { id: 'A', text: "Attach the CloudWatch alarms to the CodeDeploy deployment group so a breach rolls back." },
-      { id: 'B', text: "Attach the alarms to a dashboard the release engineer watches during the deploy." },
+      { id: 'B', text: "Attach the alarms to a dashboard that the release engineer watches throughout the deploy." },
       { id: 'C', text: "Attach the alarms to an SNS topic that pages the on-call engineer to roll back." },
       { id: 'D', text: "Attach the alarms to an EventBridge rule that stops the pipeline's next stage." }
     ],
@@ -178,7 +178,7 @@ export const AWS_DOP_QUESTIONS_12 = [
     question: "Which practice or platform capability accelerates this transition while minimizing operational overhead?",
     options: [
       { id: 'A', text: "Attach the CloudWatch alarms to the CodeDeploy deployment group so a breach rolls back." },
-      { id: 'B', text: "Attach the alarms to a dashboard the release engineer watches during the deploy." },
+      { id: 'B', text: "Attach the alarms to a dashboard that the release engineer watches throughout the deploy." },
       { id: 'C', text: "Attach the alarms to an SNS topic that pages the on-call engineer to roll back." },
       { id: 'D', text: "Attach the alarms to an EventBridge rule that stops the pipeline's next stage." }
     ],
@@ -199,7 +199,7 @@ export const AWS_DOP_QUESTIONS_12 = [
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform stability?",
     options: [
       { id: 'A', text: "Attach the CloudWatch alarms to the CodeDeploy deployment group so a breach rolls back." },
-      { id: 'B', text: "Attach the alarms to a dashboard the release engineer watches during the deploy." },
+      { id: 'B', text: "Attach the alarms to a dashboard that the release engineer watches throughout the deploy." },
       { id: 'C', text: "Attach the alarms to an SNS topic that pages the on-call engineer to roll back." },
       { id: 'D', text: "Attach the alarms to an EventBridge rule that stops the pipeline's next stage." }
     ],
@@ -220,7 +220,7 @@ export const AWS_DOP_QUESTIONS_12 = [
     question: "Which architectural approach or configuration satisfies these multi-region disaster recovery and resilience objectives?",
     options: [
       { id: 'A', text: "A CodeArtifact domain and repository with upstream connections and resource policies." },
-      { id: 'B', text: "An S3 bucket serving the packages, with a bucket policy limited to the build role." },
+      { id: 'B', text: "An S3 bucket serving the packages, with a bucket policy limited to the build role only." },
       { id: 'C', text: "A private ECR registry holding the packages as OCI artifacts for the builds." },
       { id: 'D', text: "A vendored copy of each dependency committed into the application repository." }
     ],
@@ -242,7 +242,7 @@ export const AWS_DOP_QUESTIONS_12 = [
     options: [
       { id: 'A', text: "A CodeArtifact domain and repository with upstream connections and resource policies." },
       { id: 'B', text: "A vendored copy of each dependency committed into the application repository." },
-      { id: 'C', text: "An S3 bucket serving the packages, with a bucket policy limited to the build role." },
+      { id: 'C', text: "An S3 bucket serving the packages, with a bucket policy limited to the build role only." },
       { id: 'D', text: "A private ECR registry holding the packages as OCI artifacts for the builds." }
     ],
     correctAnswers: ['A'],
@@ -262,7 +262,7 @@ export const AWS_DOP_QUESTIONS_12 = [
     question: "Which solution implements these mandatory compliance and security controls?",
     options: [
       { id: 'A', text: "A private ECR registry holding the packages as OCI artifacts for the builds." },
-      { id: 'B', text: "An S3 bucket serving the packages, with a bucket policy limited to the build role." },
+      { id: 'B', text: "An S3 bucket serving the packages, with a bucket policy limited to the build role only." },
       { id: 'C', text: "A vendored copy of each dependency committed into the application repository." },
       { id: 'D', text: "A CodeArtifact domain and repository with upstream connections and resource policies." }
     ],
@@ -285,7 +285,7 @@ export const AWS_DOP_QUESTIONS_12 = [
       { id: 'A', text: "A vendored copy of each dependency committed into the application repository." },
       { id: 'B', text: "A CodeArtifact domain and repository with upstream connections and resource policies." },
       { id: 'C', text: "A private ECR registry holding the packages as OCI artifacts for the builds." },
-      { id: 'D', text: "An S3 bucket serving the packages, with a bucket policy limited to the build role." }
+      { id: 'D', text: "An S3 bucket serving the packages, with a bucket policy limited to the build role only." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -305,7 +305,7 @@ export const AWS_DOP_QUESTIONS_12 = [
     options: [
       { id: 'A', text: "A vendored copy of each dependency committed into the application repository." },
       { id: 'B', text: "A private ECR registry holding the packages as OCI artifacts for the builds." },
-      { id: 'C', text: "An S3 bucket serving the packages, with a bucket policy limited to the build role." },
+      { id: 'C', text: "An S3 bucket serving the packages, with a bucket policy limited to the build role only." },
       { id: 'D', text: "A CodeArtifact domain and repository with upstream connections and resource policies." }
     ],
     correctAnswers: ['D'],
@@ -325,7 +325,7 @@ export const AWS_DOP_QUESTIONS_12 = [
     question: "Which architectural approach or configuration satisfies these multi-region disaster recovery and resilience objectives?",
     options: [
       { id: 'A', text: "Feature flags in AppConfig, with a gradual deployment strategy and alarm rollback." },
-      { id: 'B', text: "Feature flags in Parameter Store, read by the application at each start-up." },
+      { id: 'B', text: "Feature flags held in Parameter Store, which the application reads on every start-up." },
       { id: 'C', text: "A separate branch per experiment, merged once the feature has been proven." },
       { id: 'D', text: "A weighted target group per version, shifted by the deployment pipeline." }
     ],
@@ -348,7 +348,7 @@ export const AWS_DOP_QUESTIONS_12 = [
       { id: 'A', text: "Feature flags in AppConfig, with a gradual deployment strategy and alarm rollback." },
       { id: 'B', text: "A separate branch per experiment, merged once the feature has been proven." },
       { id: 'C', text: "A weighted target group per version, shifted by the deployment pipeline." },
-      { id: 'D', text: "Feature flags in Parameter Store, read by the application at each start-up." }
+      { id: 'D', text: "Feature flags held in Parameter Store, which the application reads on every start-up." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -368,7 +368,7 @@ export const AWS_DOP_QUESTIONS_12 = [
     options: [
       { id: 'A', text: "A separate branch per experiment, merged once the feature has been proven." },
       { id: 'B', text: "Feature flags in AppConfig, with a gradual deployment strategy and alarm rollback." },
-      { id: 'C', text: "Feature flags in Parameter Store, read by the application at each start-up." },
+      { id: 'C', text: "Feature flags held in Parameter Store, which the application reads on every start-up." },
       { id: 'D', text: "A weighted target group per version, shifted by the deployment pipeline." }
     ],
     correctAnswers: ['B'],
@@ -388,7 +388,7 @@ export const AWS_DOP_QUESTIONS_12 = [
     question: "Which practice or platform capability accelerates this transition while minimizing operational overhead?",
     options: [
       { id: 'A', text: "Feature flags in AppConfig, with a gradual deployment strategy and alarm rollback." },
-      { id: 'B', text: "Feature flags in Parameter Store, read by the application at each start-up." },
+      { id: 'B', text: "Feature flags held in Parameter Store, which the application reads on every start-up." },
       { id: 'C', text: "A separate branch per experiment, merged once the feature has been proven." },
       { id: 'D', text: "A weighted target group per version, shifted by the deployment pipeline." }
     ],
@@ -411,7 +411,7 @@ export const AWS_DOP_QUESTIONS_12 = [
       { id: 'A', text: "Feature flags in AppConfig, with a gradual deployment strategy and alarm rollback." },
       { id: 'B', text: "A separate branch per experiment, merged once the feature has been proven." },
       { id: 'C', text: "A weighted target group per version, shifted by the deployment pipeline." },
-      { id: 'D', text: "Feature flags in Parameter Store, read by the application at each start-up." }
+      { id: 'D', text: "Feature flags held in Parameter Store, which the application reads on every start-up." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -430,7 +430,7 @@ export const AWS_DOP_QUESTIONS_12 = [
     question: "Which architectural approach or configuration satisfies these multi-region disaster recovery and resilience objectives?",
     options: [
       { id: 'A', text: "An EC2 Image Builder pipeline with build and test components and a distribution configuration." },
-      { id: 'B', text: "A Packer build in the pipeline that produces the image and copies it to each region." },
+      { id: 'B', text: "A Packer build stage in the pipeline that produces the image and then copies it into every region." },
       { id: 'C', text: "A configuration management run from user-data on each instance as it launches." },
       { id: 'D', text: "A golden image built once per quarter and shared to the accounts by hand." }
     ],
@@ -453,7 +453,7 @@ export const AWS_DOP_QUESTIONS_12 = [
       { id: 'A', text: "A configuration management run from user-data on each instance as it launches." },
       { id: 'B', text: "A golden image built once per quarter and shared to the accounts by hand." },
       { id: 'C', text: "An EC2 Image Builder pipeline with build and test components and a distribution configuration." },
-      { id: 'D', text: "A Packer build in the pipeline that produces the image and copies it to each region." }
+      { id: 'D', text: "A Packer build stage in the pipeline that produces the image and then copies it into every region." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -472,7 +472,7 @@ export const AWS_DOP_QUESTIONS_12 = [
     question: "Which solution implements these mandatory compliance and security controls?",
     options: [
       { id: 'A', text: "An EC2 Image Builder pipeline with build and test components and a distribution configuration." },
-      { id: 'B', text: "A Packer build in the pipeline that produces the image and copies it to each region." },
+      { id: 'B', text: "A Packer build stage in the pipeline that produces the image and then copies it into every region." },
       { id: 'C', text: "A configuration management run from user-data on each instance as it launches." },
       { id: 'D', text: "A golden image built once per quarter and shared to the accounts by hand." }
     ],
@@ -493,7 +493,7 @@ export const AWS_DOP_QUESTIONS_12 = [
     question: "Which practice or platform capability accelerates this transition while minimizing operational overhead?",
     options: [
       { id: 'A', text: "An EC2 Image Builder pipeline with build and test components and a distribution configuration." },
-      { id: 'B', text: "A Packer build in the pipeline that produces the image and copies it to each region." },
+      { id: 'B', text: "A Packer build stage in the pipeline that produces the image and then copies it into every region." },
       { id: 'C', text: "A configuration management run from user-data on each instance as it launches." },
       { id: 'D', text: "A golden image built once per quarter and shared to the accounts by hand." }
     ],
@@ -514,7 +514,7 @@ export const AWS_DOP_QUESTIONS_12 = [
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform stability?",
     options: [
       { id: 'A', text: "An EC2 Image Builder pipeline with build and test components and a distribution configuration." },
-      { id: 'B', text: "A Packer build in the pipeline that produces the image and copies it to each region." },
+      { id: 'B', text: "A Packer build stage in the pipeline that produces the image and then copies it into every region." },
       { id: 'C', text: "A configuration management run from user-data on each instance as it launches." },
       { id: 'D', text: "A golden image built once per quarter and shared to the accounts by hand." }
     ],

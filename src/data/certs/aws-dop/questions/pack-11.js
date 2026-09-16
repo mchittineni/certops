@@ -9,7 +9,7 @@ export const AWS_DOP_QUESTIONS_11 = [
     scenario: "An enterprise DevOps organization is establishing cross-region operational continuity guidelines and high-availability architecture for AWS workloads. The DevOps engineer needs to deploy built application artifacts from a centralized DevOps tooling account into multiple workload accounts (staging, prod) securely.",
     question: "Which architectural approach or configuration satisfies these multi-region disaster recovery and resilience objectives?",
     options: [
-      { id: 'A', text: "Encrypt the artifact bucket with a customer-managed key the workload roles may decrypt, and assume roles per account." },
+      { id: 'A', text: "Encrypt the artifact bucket with a customer-managed key the workload roles may decrypt." },
       { id: 'B', text: "Encrypt the artifact bucket with the default S3 key and grant the workload accounts bucket-level read." },
       { id: 'C', text: "Replicate the artifact bucket into each workload account and let the local pipeline read its copy." },
       { id: 'D', text: "Run an independent pipeline per account, each building the artifact again from the source repository." }
@@ -30,7 +30,7 @@ export const AWS_DOP_QUESTIONS_11 = [
     scenario: "A high-throughput AWS application experiences rapid surges in user traffic and transaction volume across multiple Availability Zones. The DevOps engineer needs to deploy built application artifacts from a centralized DevOps tooling account into multiple workload accounts (staging, prod) securely.",
     question: "Which engineering approach should the DevOps team select to manage this demand efficiently without manual intervention?",
     options: [
-      { id: 'A', text: "Encrypt the artifact bucket with a customer-managed key the workload roles may decrypt, and assume roles per account." },
+      { id: 'A', text: "Encrypt the artifact bucket with a customer-managed key the workload roles may decrypt." },
       { id: 'B', text: "Encrypt the artifact bucket with the default S3 key and grant the workload accounts bucket-level read." },
       { id: 'C', text: "Replicate the artifact bucket into each workload account and let the local pipeline read its copy." },
       { id: 'D', text: "Run an independent pipeline per account, each building the artifact again from the source repository." }
@@ -52,7 +52,7 @@ export const AWS_DOP_QUESTIONS_11 = [
     question: "Which solution implements these mandatory compliance and security controls?",
     options: [
       { id: 'A', text: "Run an independent pipeline per account, each building the artifact again from the source repository." },
-      { id: 'B', text: "Encrypt the artifact bucket with a customer-managed key the workload roles may decrypt, and assume roles per account." },
+      { id: 'B', text: "Encrypt the artifact bucket with a customer-managed key the workload roles may decrypt." },
       { id: 'C', text: "Replicate the artifact bucket into each workload account and let the local pipeline read its copy." },
       { id: 'D', text: "Encrypt the artifact bucket with the default S3 key and grant the workload accounts bucket-level read." }
     ],
@@ -74,7 +74,7 @@ export const AWS_DOP_QUESTIONS_11 = [
     options: [
       { id: 'A', text: "Replicate the artifact bucket into each workload account and let the local pipeline read its copy." },
       { id: 'B', text: "Run an independent pipeline per account, each building the artifact again from the source repository." },
-      { id: 'C', text: "Encrypt the artifact bucket with a customer-managed key the workload roles may decrypt, and assume roles per account." },
+      { id: 'C', text: "Encrypt the artifact bucket with a customer-managed key the workload roles may decrypt." },
       { id: 'D', text: "Encrypt the artifact bucket with the default S3 key and grant the workload accounts bucket-level read." }
     ],
     correctAnswers: ['C'],
@@ -93,7 +93,7 @@ export const AWS_DOP_QUESTIONS_11 = [
     scenario: "A DevOps team is optimizing system reliability to eliminate single points of failure, reduce mean time to recovery, and automate incident response. The DevOps engineer needs to deploy built application artifacts from a centralized DevOps tooling account into multiple workload accounts (staging, prod) securely.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform stability?",
     options: [
-      { id: 'A', text: "Encrypt the artifact bucket with a customer-managed key the workload roles may decrypt, and assume roles per account." },
+      { id: 'A', text: "Encrypt the artifact bucket with a customer-managed key the workload roles may decrypt." },
       { id: 'B', text: "Encrypt the artifact bucket with the default S3 key and grant the workload accounts bucket-level read." },
       { id: 'C', text: "Replicate the artifact bucket into each workload account and let the local pipeline read its copy." },
       { id: 'D', text: "Run an independent pipeline per account, each building the artifact again from the source repository." }
@@ -116,7 +116,7 @@ export const AWS_DOP_QUESTIONS_11 = [
     options: [
       { id: 'A', text: "An ECS blue/green deployment through CodeDeploy with a canary traffic shift and alarm rollback." },
       { id: 'B', text: "An ECS rolling update with `minimumHealthyPercent: 100` and alarm-based rollback." },
-      { id: 'C', text: "An ECS blue/green deployment through CodeDeploy with an all-at-once traffic shift." },
+      { id: 'C', text: "An ECS blue/green deployment through CodeDeploy with an all-at-once traffic shift and no alarms." },
       { id: 'D', text: "A second ECS service behind a weighted Route 53 record, shifted by hand." }
     ],
     correctAnswers: ['A'],
@@ -137,7 +137,7 @@ export const AWS_DOP_QUESTIONS_11 = [
     options: [
       { id: 'A', text: "An ECS blue/green deployment through CodeDeploy with a canary traffic shift and alarm rollback." },
       { id: 'B', text: "An ECS rolling update with `minimumHealthyPercent: 100` and alarm-based rollback." },
-      { id: 'C', text: "An ECS blue/green deployment through CodeDeploy with an all-at-once traffic shift." },
+      { id: 'C', text: "An ECS blue/green deployment through CodeDeploy with an all-at-once traffic shift and no alarms." },
       { id: 'D', text: "A second ECS service behind a weighted Route 53 record, shifted by hand." }
     ],
     correctAnswers: ['A'],
@@ -158,7 +158,7 @@ export const AWS_DOP_QUESTIONS_11 = [
     options: [
       { id: 'A', text: "A second ECS service behind a weighted Route 53 record, shifted by hand." },
       { id: 'B', text: "An ECS blue/green deployment through CodeDeploy with a canary traffic shift and alarm rollback." },
-      { id: 'C', text: "An ECS blue/green deployment through CodeDeploy with an all-at-once traffic shift." },
+      { id: 'C', text: "An ECS blue/green deployment through CodeDeploy with an all-at-once traffic shift and no alarms." },
       { id: 'D', text: "An ECS rolling update with `minimumHealthyPercent: 100` and alarm-based rollback." }
     ],
     correctAnswers: ['B'],
@@ -179,7 +179,7 @@ export const AWS_DOP_QUESTIONS_11 = [
     options: [
       { id: 'A', text: "An ECS blue/green deployment through CodeDeploy with a canary traffic shift and alarm rollback." },
       { id: 'B', text: "An ECS rolling update with `minimumHealthyPercent: 100` and alarm-based rollback." },
-      { id: 'C', text: "An ECS blue/green deployment through CodeDeploy with an all-at-once traffic shift." },
+      { id: 'C', text: "An ECS blue/green deployment through CodeDeploy with an all-at-once traffic shift and no alarms." },
       { id: 'D', text: "A second ECS service behind a weighted Route 53 record, shifted by hand." }
     ],
     correctAnswers: ['A'],
@@ -199,7 +199,7 @@ export const AWS_DOP_QUESTIONS_11 = [
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform stability?",
     options: [
       { id: 'A', text: "An ECS rolling update with `minimumHealthyPercent: 100` and alarm-based rollback." },
-      { id: 'B', text: "An ECS blue/green deployment through CodeDeploy with an all-at-once traffic shift." },
+      { id: 'B', text: "An ECS blue/green deployment through CodeDeploy with an all-at-once traffic shift and no alarms." },
       { id: 'C', text: "An ECS blue/green deployment through CodeDeploy with a canary traffic shift and alarm rollback." },
       { id: 'D', text: "A second ECS service behind a weighted Route 53 record, shifted by hand." }
     ],
@@ -221,7 +221,7 @@ export const AWS_DOP_QUESTIONS_11 = [
     options: [
       { id: 'A', text: "A custom CodeDeploy configuration with `MinimumHealthyHosts` at 85 percent of the fleet." },
       { id: 'B', text: "The `CodeDeployDefault.AllAtOnce` configuration for the deployment group." },
-      { id: 'C', text: "The `CodeDeployDefault.HalfAtATime` configuration, which keeps half in service." },
+      { id: 'C', text: "The `CodeDeployDefault.HalfAtATime` configuration, which keeps half of the fleet in service." },
       { id: 'D', text: "A custom configuration with `MinimumHealthyHosts` as a host count of 15." }
     ],
     correctAnswers: ['A'],
@@ -240,7 +240,7 @@ export const AWS_DOP_QUESTIONS_11 = [
     scenario: "A high-throughput AWS application experiences rapid surges in user traffic and transaction volume across multiple Availability Zones. The DevOps engineer needs to deploy an update across a fleet of 100 EC2 instances while ensuring that at least 85 instances remain active and serving traffic at all times during deployment.",
     question: "Which engineering approach should the DevOps team select to manage this demand efficiently without manual intervention?",
     options: [
-      { id: 'A', text: "The `CodeDeployDefault.HalfAtATime` configuration, which keeps half in service." },
+      { id: 'A', text: "The `CodeDeployDefault.HalfAtATime` configuration, which keeps half of the fleet in service." },
       { id: 'B', text: "The `CodeDeployDefault.AllAtOnce` configuration for the deployment group." },
       { id: 'C', text: "A custom configuration with `MinimumHealthyHosts` as a host count of 15." },
       { id: 'D', text: "A custom CodeDeploy configuration with `MinimumHealthyHosts` at 85 percent of the fleet." }
@@ -263,7 +263,7 @@ export const AWS_DOP_QUESTIONS_11 = [
     options: [
       { id: 'A', text: "A custom CodeDeploy configuration with `MinimumHealthyHosts` at 85 percent of the fleet." },
       { id: 'B', text: "The `CodeDeployDefault.AllAtOnce` configuration for the deployment group." },
-      { id: 'C', text: "The `CodeDeployDefault.HalfAtATime` configuration, which keeps half in service." },
+      { id: 'C', text: "The `CodeDeployDefault.HalfAtATime` configuration, which keeps half of the fleet in service." },
       { id: 'D', text: "A custom configuration with `MinimumHealthyHosts` as a host count of 15." }
     ],
     correctAnswers: ['A'],
@@ -282,7 +282,7 @@ export const AWS_DOP_QUESTIONS_11 = [
     scenario: "An enterprise is modernizing on-premises deployment workflows and adopting cloud-native continuous delivery and observability patterns on AWS. The DevOps engineer needs to deploy an update across a fleet of 100 EC2 instances while ensuring that at least 85 instances remain active and serving traffic at all times during deployment.",
     question: "Which practice or platform capability accelerates this transition while minimizing operational overhead?",
     options: [
-      { id: 'A', text: "The `CodeDeployDefault.HalfAtATime` configuration, which keeps half in service." },
+      { id: 'A', text: "The `CodeDeployDefault.HalfAtATime` configuration, which keeps half of the fleet in service." },
       { id: 'B', text: "A custom CodeDeploy configuration with `MinimumHealthyHosts` at 85 percent of the fleet." },
       { id: 'C', text: "The `CodeDeployDefault.AllAtOnce` configuration for the deployment group." },
       { id: 'D', text: "A custom configuration with `MinimumHealthyHosts` as a host count of 15." }
@@ -305,7 +305,7 @@ export const AWS_DOP_QUESTIONS_11 = [
     options: [
       { id: 'A', text: "A custom CodeDeploy configuration with `MinimumHealthyHosts` at 85 percent of the fleet." },
       { id: 'B', text: "The `CodeDeployDefault.AllAtOnce` configuration for the deployment group." },
-      { id: 'C', text: "The `CodeDeployDefault.HalfAtATime` configuration, which keeps half in service." },
+      { id: 'C', text: "The `CodeDeployDefault.HalfAtATime` configuration, which keeps half of the fleet in service." },
       { id: 'D', text: "A custom configuration with `MinimumHealthyHosts` as a host count of 15." }
     ],
     correctAnswers: ['A'],
@@ -326,7 +326,7 @@ export const AWS_DOP_QUESTIONS_11 = [
     options: [
       { id: 'A', text: "Enable CodeBuild local caching for layers and dependencies, or an S3 build cache." },
       { id: 'B', text: "Enable a larger compute type so each build completes more quickly." },
-      { id: 'C', text: "Enable a VPC endpoint so the dependency downloads stay off the internet." },
+      { id: 'C', text: "Enable a VPC endpoint so that the dependency downloads stay off the public internet." },
       { id: 'D', text: "Enable batch builds so the dependencies are fetched once per batch." }
     ],
     correctAnswers: ['A'],
@@ -345,7 +345,7 @@ export const AWS_DOP_QUESTIONS_11 = [
     scenario: "A high-throughput AWS application experiences rapid surges in user traffic and transaction volume across multiple Availability Zones. The DevOps engineer needs to reduce build duration for high-frequency container builds in AWS CodeBuild where downloading dependencies takes up 80% of build time.",
     question: "Which engineering approach should the DevOps team select to manage this demand efficiently without manual intervention?",
     options: [
-      { id: 'A', text: "Enable a VPC endpoint so the dependency downloads stay off the internet." },
+      { id: 'A', text: "Enable a VPC endpoint so that the dependency downloads stay off the public internet." },
       { id: 'B', text: "Enable CodeBuild local caching for layers and dependencies, or an S3 build cache." },
       { id: 'C', text: "Enable a larger compute type so each build completes more quickly." },
       { id: 'D', text: "Enable batch builds so the dependencies are fetched once per batch." }
@@ -367,7 +367,7 @@ export const AWS_DOP_QUESTIONS_11 = [
     question: "Which solution implements these mandatory compliance and security controls?",
     options: [
       { id: 'A', text: "Enable CodeBuild local caching for layers and dependencies, or an S3 build cache." },
-      { id: 'B', text: "Enable a VPC endpoint so the dependency downloads stay off the internet." },
+      { id: 'B', text: "Enable a VPC endpoint so that the dependency downloads stay off the public internet." },
       { id: 'C', text: "Enable batch builds so the dependencies are fetched once per batch." },
       { id: 'D', text: "Enable a larger compute type so each build completes more quickly." }
     ],
@@ -389,7 +389,7 @@ export const AWS_DOP_QUESTIONS_11 = [
     options: [
       { id: 'A', text: "Enable CodeBuild local caching for layers and dependencies, or an S3 build cache." },
       { id: 'B', text: "Enable a larger compute type so each build completes more quickly." },
-      { id: 'C', text: "Enable a VPC endpoint so the dependency downloads stay off the internet." },
+      { id: 'C', text: "Enable a VPC endpoint so that the dependency downloads stay off the public internet." },
       { id: 'D', text: "Enable batch builds so the dependencies are fetched once per batch." }
     ],
     correctAnswers: ['A'],
@@ -410,7 +410,7 @@ export const AWS_DOP_QUESTIONS_11 = [
     options: [
       { id: 'A', text: "Enable CodeBuild local caching for layers and dependencies, or an S3 build cache." },
       { id: 'B', text: "Enable a larger compute type so each build completes more quickly." },
-      { id: 'C', text: "Enable a VPC endpoint so the dependency downloads stay off the internet." },
+      { id: 'C', text: "Enable a VPC endpoint so that the dependency downloads stay off the public internet." },
       { id: 'D', text: "Enable batch builds so the dependencies are fetched once per batch." }
     ],
     correctAnswers: ['A'],
@@ -431,7 +431,7 @@ export const AWS_DOP_QUESTIONS_11 = [
     options: [
       { id: 'A', text: "A CodeBuild stage that waits on an external ticket system before continuing." },
       { id: 'B', text: "A manual approval stage in CodePipeline with an SNS topic and IAM-restricted approvers." },
-      { id: 'C', text: "A Lambda invoke action that checks the change calendar before the deploy runs." },
+      { id: 'C', text: "A Lambda invoke action that checks the change calendar before each of the deploy stages runs." },
       { id: 'D', text: "A disabled stage transition that a release manager enables for each release." }
     ],
     correctAnswers: ['B'],
@@ -451,7 +451,7 @@ export const AWS_DOP_QUESTIONS_11 = [
     question: "Which engineering approach should the DevOps team select to manage this demand efficiently without manual intervention?",
     options: [
       { id: 'A', text: "A manual approval stage in CodePipeline with an SNS topic and IAM-restricted approvers." },
-      { id: 'B', text: "A Lambda invoke action that checks the change calendar before the deploy runs." },
+      { id: 'B', text: "A Lambda invoke action that checks the change calendar before each of the deploy stages runs." },
       { id: 'C', text: "A CodeBuild stage that waits on an external ticket system before continuing." },
       { id: 'D', text: "A disabled stage transition that a release manager enables for each release." }
     ],
@@ -473,7 +473,7 @@ export const AWS_DOP_QUESTIONS_11 = [
     options: [
       { id: 'A', text: "A manual approval stage in CodePipeline with an SNS topic and IAM-restricted approvers." },
       { id: 'B', text: "A disabled stage transition that a release manager enables for each release." },
-      { id: 'C', text: "A Lambda invoke action that checks the change calendar before the deploy runs." },
+      { id: 'C', text: "A Lambda invoke action that checks the change calendar before each of the deploy stages runs." },
       { id: 'D', text: "A CodeBuild stage that waits on an external ticket system before continuing." }
     ],
     correctAnswers: ['A'],
@@ -494,7 +494,7 @@ export const AWS_DOP_QUESTIONS_11 = [
     options: [
       { id: 'A', text: "A manual approval stage in CodePipeline with an SNS topic and IAM-restricted approvers." },
       { id: 'B', text: "A disabled stage transition that a release manager enables for each release." },
-      { id: 'C', text: "A Lambda invoke action that checks the change calendar before the deploy runs." },
+      { id: 'C', text: "A Lambda invoke action that checks the change calendar before each of the deploy stages runs." },
       { id: 'D', text: "A CodeBuild stage that waits on an external ticket system before continuing." }
     ],
     correctAnswers: ['A'],
@@ -516,7 +516,7 @@ export const AWS_DOP_QUESTIONS_11 = [
       { id: 'A', text: "A manual approval stage in CodePipeline with an SNS topic and IAM-restricted approvers." },
       { id: 'B', text: "A CodeBuild stage that waits on an external ticket system before continuing." },
       { id: 'C', text: "A disabled stage transition that a release manager enables for each release." },
-      { id: 'D', text: "A Lambda invoke action that checks the change calendar before the deploy runs." }
+      { id: 'D', text: "A Lambda invoke action that checks the change calendar before each of the deploy stages runs." }
     ],
     correctAnswers: ['A'],
     type: "single",

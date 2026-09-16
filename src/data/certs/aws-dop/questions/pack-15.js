@@ -114,7 +114,7 @@ export const AWS_DOP_QUESTIONS_15 = [
     scenario: "An enterprise DevOps organization is establishing cross-region operational continuity guidelines and high-availability architecture for AWS workloads. The DevOps engineer needs to scale an Amazon EC2 Auto Scaling group proactively to handle predictable daily traffic surges that spike sharply every morning at 8:00 AM.",
     question: "Which architectural approach or configuration satisfies these multi-region disaster recovery and resilience objectives?",
     options: [
-      { id: 'A', text: "Step scaling policies with thresholds tuned to the morning traffic pattern." },
+      { id: 'A', text: "Step scaling policies with the thresholds tuned to the morning's own traffic pattern each day." },
       { id: 'B', text: "Simple scaling with static thresholds and a ten-minute cooldown period." },
       { id: 'C', text: "A scheduled scaling action that raises the desired count before the peak." },
       { id: 'D', text: "Predictive scaling on the historical metrics, with target tracking holding the CPU level." }
@@ -137,7 +137,7 @@ export const AWS_DOP_QUESTIONS_15 = [
     options: [
       { id: 'A', text: "Predictive scaling on the historical metrics, with target tracking holding the CPU level." },
       { id: 'B', text: "Simple scaling with static thresholds and a ten-minute cooldown period." },
-      { id: 'C', text: "Step scaling policies with thresholds tuned to the morning traffic pattern." },
+      { id: 'C', text: "Step scaling policies with the thresholds tuned to the morning's own traffic pattern each day." },
       { id: 'D', text: "A scheduled scaling action that raises the desired count before the peak." }
     ],
     correctAnswers: ['A'],
@@ -158,7 +158,7 @@ export const AWS_DOP_QUESTIONS_15 = [
     options: [
       { id: 'A', text: "Predictive scaling on the historical metrics, with target tracking holding the CPU level." },
       { id: 'B', text: "Simple scaling with static thresholds and a ten-minute cooldown period." },
-      { id: 'C', text: "Step scaling policies with thresholds tuned to the morning traffic pattern." },
+      { id: 'C', text: "Step scaling policies with the thresholds tuned to the morning's own traffic pattern each day." },
       { id: 'D', text: "A scheduled scaling action that raises the desired count before the peak." }
     ],
     correctAnswers: ['A'],
@@ -177,7 +177,7 @@ export const AWS_DOP_QUESTIONS_15 = [
     scenario: "An enterprise is modernizing on-premises deployment workflows and adopting cloud-native continuous delivery and observability patterns on AWS. The DevOps engineer needs to scale an Amazon EC2 Auto Scaling group proactively to handle predictable daily traffic surges that spike sharply every morning at 8:00 AM.",
     question: "Which practice or platform capability accelerates this transition while minimizing operational overhead?",
     options: [
-      { id: 'A', text: "Step scaling policies with thresholds tuned to the morning traffic pattern." },
+      { id: 'A', text: "Step scaling policies with the thresholds tuned to the morning's own traffic pattern each day." },
       { id: 'B', text: "A scheduled scaling action that raises the desired count before the peak." },
       { id: 'C', text: "Predictive scaling on the historical metrics, with target tracking holding the CPU level." },
       { id: 'D', text: "Simple scaling with static thresholds and a ten-minute cooldown period." }
@@ -200,7 +200,7 @@ export const AWS_DOP_QUESTIONS_15 = [
     options: [
       { id: 'A', text: "Predictive scaling on the historical metrics, with target tracking holding the CPU level." },
       { id: 'B', text: "Simple scaling with static thresholds and a ten-minute cooldown period." },
-      { id: 'C', text: "Step scaling policies with thresholds tuned to the morning traffic pattern." },
+      { id: 'C', text: "Step scaling policies with the thresholds tuned to the morning's own traffic pattern each day." },
       { id: 'D', text: "A scheduled scaling action that raises the desired count before the peak." }
     ],
     correctAnswers: ['A'],
@@ -326,7 +326,7 @@ export const AWS_DOP_QUESTIONS_15 = [
     options: [
       { id: 'A', text: "Put an SQS queue between the tiers, with a dead-letter queue and an alarm on its depth." },
       { id: 'B', text: "Put an SNS topic between the tiers, with the workers subscribed to it directly." },
-      { id: 'C', text: "Put an SQS queue between the tiers with a long visibility timeout and no redrive." },
+      { id: 'C', text: "Put an SQS queue between the tiers with a long visibility timeout and no redrive policy." },
       { id: 'D', text: "Put a Kinesis stream between the tiers, with the workers reading from the shards." }
     ],
     correctAnswers: ['A'],
@@ -347,7 +347,7 @@ export const AWS_DOP_QUESTIONS_15 = [
     options: [
       { id: 'A', text: "Put an SQS queue between the tiers, with a dead-letter queue and an alarm on its depth." },
       { id: 'B', text: "Put an SNS topic between the tiers, with the workers subscribed to it directly." },
-      { id: 'C', text: "Put an SQS queue between the tiers with a long visibility timeout and no redrive." },
+      { id: 'C', text: "Put an SQS queue between the tiers with a long visibility timeout and no redrive policy." },
       { id: 'D', text: "Put a Kinesis stream between the tiers, with the workers reading from the shards." }
     ],
     correctAnswers: ['A'],
@@ -369,7 +369,7 @@ export const AWS_DOP_QUESTIONS_15 = [
       { id: 'A', text: "Put an SQS queue between the tiers, with a dead-letter queue and an alarm on its depth." },
       { id: 'B', text: "Put a Kinesis stream between the tiers, with the workers reading from the shards." },
       { id: 'C', text: "Put an SNS topic between the tiers, with the workers subscribed to it directly." },
-      { id: 'D', text: "Put an SQS queue between the tiers with a long visibility timeout and no redrive." }
+      { id: 'D', text: "Put an SQS queue between the tiers with a long visibility timeout and no redrive policy." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -388,7 +388,7 @@ export const AWS_DOP_QUESTIONS_15 = [
     question: "Which practice or platform capability accelerates this transition while minimizing operational overhead?",
     options: [
       { id: 'A', text: "Put a Kinesis stream between the tiers, with the workers reading from the shards." },
-      { id: 'B', text: "Put an SQS queue between the tiers with a long visibility timeout and no redrive." },
+      { id: 'B', text: "Put an SQS queue between the tiers with a long visibility timeout and no redrive policy." },
       { id: 'C', text: "Put an SNS topic between the tiers, with the workers subscribed to it directly." },
       { id: 'D', text: "Put an SQS queue between the tiers, with a dead-letter queue and an alarm on its depth." }
     ],
@@ -411,7 +411,7 @@ export const AWS_DOP_QUESTIONS_15 = [
       { id: 'A', text: "Put a Kinesis stream between the tiers, with the workers reading from the shards." },
       { id: 'B', text: "Put an SNS topic between the tiers, with the workers subscribed to it directly." },
       { id: 'C', text: "Put an SQS queue between the tiers, with a dead-letter queue and an alarm on its depth." },
-      { id: 'D', text: "Put an SQS queue between the tiers with a long visibility timeout and no redrive." }
+      { id: 'D', text: "Put an SQS queue between the tiers with a long visibility timeout and no redrive policy." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -429,7 +429,7 @@ export const AWS_DOP_QUESTIONS_15 = [
     scenario: "An enterprise DevOps organization is establishing cross-region operational continuity guidelines and high-availability architecture for AWS workloads. The DevOps engineer needs to ensure database recovery point objectives (RPO) are maintained even in the catastrophic event of a complete AWS regional failure.",
     question: "Which architectural approach or configuration satisfies these multi-region disaster recovery and resilience objectives?",
     options: [
-      { id: 'A', text: "Automated RDS backups with a retention period, kept within the primary region." },
+      { id: 'A', text: "Automated RDS backups with a retention period, kept only within the primary region's own account." },
       { id: 'B', text: "Automated RDS backups with a retention period, plus encrypted cross-region snapshot copies." },
       { id: 'C', text: "A read replica in the second region, promoted if the primary is lost." },
       { id: 'D', text: "Manual snapshots taken by a scheduled Lambda and copied across regions." }
@@ -452,7 +452,7 @@ export const AWS_DOP_QUESTIONS_15 = [
     options: [
       { id: 'A', text: "Manual snapshots taken by a scheduled Lambda and copied across regions." },
       { id: 'B', text: "Automated RDS backups with a retention period, plus encrypted cross-region snapshot copies." },
-      { id: 'C', text: "Automated RDS backups with a retention period, kept within the primary region." },
+      { id: 'C', text: "Automated RDS backups with a retention period, kept only within the primary region's own account." },
       { id: 'D', text: "A read replica in the second region, promoted if the primary is lost." }
     ],
     correctAnswers: ['B'],
@@ -472,7 +472,7 @@ export const AWS_DOP_QUESTIONS_15 = [
     question: "Which solution implements these mandatory compliance and security controls?",
     options: [
       { id: 'A', text: "A read replica in the second region, promoted if the primary is lost." },
-      { id: 'B', text: "Automated RDS backups with a retention period, kept within the primary region." },
+      { id: 'B', text: "Automated RDS backups with a retention period, kept only within the primary region's own account." },
       { id: 'C', text: "Automated RDS backups with a retention period, plus encrypted cross-region snapshot copies." },
       { id: 'D', text: "Manual snapshots taken by a scheduled Lambda and copied across regions." }
     ],
@@ -492,7 +492,7 @@ export const AWS_DOP_QUESTIONS_15 = [
     scenario: "An enterprise is modernizing on-premises deployment workflows and adopting cloud-native continuous delivery and observability patterns on AWS. The DevOps engineer needs to ensure database recovery point objectives (RPO) are maintained even in the catastrophic event of a complete AWS regional failure.",
     question: "Which practice or platform capability accelerates this transition while minimizing operational overhead?",
     options: [
-      { id: 'A', text: "Automated RDS backups with a retention period, kept within the primary region." },
+      { id: 'A', text: "Automated RDS backups with a retention period, kept only within the primary region's own account." },
       { id: 'B', text: "A read replica in the second region, promoted if the primary is lost." },
       { id: 'C', text: "Manual snapshots taken by a scheduled Lambda and copied across regions." },
       { id: 'D', text: "Automated RDS backups with a retention period, plus encrypted cross-region snapshot copies." }
@@ -516,7 +516,7 @@ export const AWS_DOP_QUESTIONS_15 = [
       { id: 'A', text: "Manual snapshots taken by a scheduled Lambda and copied across regions." },
       { id: 'B', text: "A read replica in the second region, promoted if the primary is lost." },
       { id: 'C', text: "Automated RDS backups with a retention period, plus encrypted cross-region snapshot copies." },
-      { id: 'D', text: "Automated RDS backups with a retention period, kept within the primary region." }
+      { id: 'D', text: "Automated RDS backups with a retention period, kept only within the primary region's own account." }
     ],
     correctAnswers: ['C'],
     type: "single",

@@ -10,8 +10,8 @@ export const AWS_DOP_QUESTIONS_16 = [
     question: "Which architectural approach or configuration satisfies these multi-region disaster recovery and resilience objectives?",
     options: [
       { id: 'A', text: "Enable cross-zone load balancing on the Application Load Balancer (enabled by default on ALB)." },
-      { id: 'B', text: "Disable cross-zone load balancing to restrict traffic strictly to local AZ targets." },
-      { id: 'C', text: "Use DNS round-robin without a load balancer." },
+      { id: 'B', text: "Disable cross-zone load balancing so the traffic is restricted strictly to the local AZ targets." },
+      { id: 'C', text: "Use DNS round-robin records without a load balancer." },
       { id: 'D', text: "Deploy independent monolithic servers in each AZ without shared state." }
     ],
     correctAnswers: ['A'],
@@ -31,8 +31,8 @@ export const AWS_DOP_QUESTIONS_16 = [
     question: "Which engineering approach should the DevOps team select to manage this demand efficiently without manual intervention?",
     options: [
       { id: 'A', text: "Enable cross-zone load balancing on the Application Load Balancer (enabled by default on ALB)." },
-      { id: 'B', text: "Disable cross-zone load balancing to restrict traffic strictly to local AZ targets." },
-      { id: 'C', text: "Use DNS round-robin without a load balancer." },
+      { id: 'B', text: "Disable cross-zone load balancing so the traffic is restricted strictly to the local AZ targets." },
+      { id: 'C', text: "Use DNS round-robin records without a load balancer." },
       { id: 'D', text: "Deploy independent monolithic servers in each AZ without shared state." }
     ],
     correctAnswers: ['A'],
@@ -52,9 +52,9 @@ export const AWS_DOP_QUESTIONS_16 = [
     question: "Which solution implements these mandatory compliance and security controls?",
     options: [
       { id: 'A', text: "Deploy independent monolithic servers in each AZ without shared state." },
-      { id: 'B', text: "Disable cross-zone load balancing to restrict traffic strictly to local AZ targets." },
+      { id: 'B', text: "Disable cross-zone load balancing so the traffic is restricted strictly to the local AZ targets." },
       { id: 'C', text: "Enable cross-zone load balancing on the Application Load Balancer (enabled by default on ALB)." },
-      { id: 'D', text: "Use DNS round-robin without a load balancer." }
+      { id: 'D', text: "Use DNS round-robin records without a load balancer." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -72,9 +72,9 @@ export const AWS_DOP_QUESTIONS_16 = [
     scenario: "An enterprise is modernizing on-premises deployment workflows and adopting cloud-native continuous delivery and observability patterns on AWS. The DevOps engineer needs to prevent uneven server load and request queuing when client connections are distributed unevenly across Availability Zones.",
     question: "Which practice or platform capability accelerates this transition while minimizing operational overhead?",
     options: [
-      { id: 'A', text: "Disable cross-zone load balancing to restrict traffic strictly to local AZ targets." },
+      { id: 'A', text: "Disable cross-zone load balancing so the traffic is restricted strictly to the local AZ targets." },
       { id: 'B', text: "Deploy independent monolithic servers in each AZ without shared state." },
-      { id: 'C', text: "Use DNS round-robin without a load balancer." },
+      { id: 'C', text: "Use DNS round-robin records without a load balancer." },
       { id: 'D', text: "Enable cross-zone load balancing on the Application Load Balancer (enabled by default on ALB)." }
     ],
     correctAnswers: ['D'],
@@ -94,8 +94,8 @@ export const AWS_DOP_QUESTIONS_16 = [
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform stability?",
     options: [
       { id: 'A', text: "Enable cross-zone load balancing on the Application Load Balancer (enabled by default on ALB)." },
-      { id: 'B', text: "Disable cross-zone load balancing to restrict traffic strictly to local AZ targets." },
-      { id: 'C', text: "Use DNS round-robin without a load balancer." },
+      { id: 'B', text: "Disable cross-zone load balancing so the traffic is restricted strictly to the local AZ targets." },
+      { id: 'C', text: "Use DNS round-robin records without a load balancer." },
       { id: 'D', text: "Deploy independent monolithic servers in each AZ without shared state." }
     ],
     correctAnswers: ['A'],
