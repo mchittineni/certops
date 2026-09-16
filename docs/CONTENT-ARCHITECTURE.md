@@ -108,6 +108,16 @@ prose such as `(an A/AAAA record with an alias flag)` alone.
 letter-list forms need a human rewrite, because only a human knows what the letter was
 pointing at.
 
+`npm run audit:distractors` scores how often each bank gives its answer away through the
+*form* of the options rather than their content: the key being the longest option (or the
+shortest), distractors nobody would pick, and stems that name a distinctive term only the
+key uses. CI runs it as `--min-passing 24`, which fails when a bank that used to meet
+every target no longer does. `npm run audit:length` is its worklist companion — it groups
+items by option set so one authored rewrite can be aimed at the largest number of
+questions, and `npm run fix:options` applies those rewrites from a JSON patch keyed by
+content hash. [DISTRACTOR-REMEDIATION.md](DISTRACTOR-REMEDIATION.md) has the thresholds,
+the authoring rules, and where each bank stands.
+
 Two further audits exist that report rather than gate:
 
 - `npm run audit:answers` scores the token overlap between each option and the

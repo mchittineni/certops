@@ -8,9 +8,10 @@ is no server to compromise at runtime, so the attack surface is the **supply cha
 
 | Workflow | Trigger | What it gates |
 |---|---|---|
-| `.github/workflows/ci.yml` | push / PR to `main` | Content index is in sync, content validates, tests pass on Node 20 + 22, coverage thresholds hold, production build succeeds |
+| `.github/workflows/ci.yml` | push / PR to `main` | Content index is in sync, content validates, distractor quality has not regressed, tests pass on Node 24 + 26, coverage thresholds hold, production build succeeds |
 | `.github/workflows/security.yml` | push / PR / weekly cron | CodeQL, dependency review, `npm audit` |
 | `.github/workflows/deploy.yml` | push to `main` | Validates + tests, then builds and publishes to GitHub Pages |
+| `.github/workflows/publish-hf.yml` | manual only | Validates, reports distractor quality, exports and publishes the dataset to Hugging Face |
 
 ### The drift gate
 
@@ -19,6 +20,20 @@ are generated but **committed**, so the app runs with no build step. CI regenera
 them and fails if the result differs from the commit. Without that gate a forgotten
 `npm run build:content` silently drops a whole certification from the catalogue —
 the app would keep working, just with less content, which is the worst kind of bug.
+
+### The distractor quality ratchet
+
+CI also fails when a question bank starts giving its own answers away again:
+
+```bash
+npm run audit:distractors -- --min-passing 24
+```
+
+24 of the 32 live banks pass every target in `docs/DISTRACTOR-REMEDIATION.md`. The
+other 8 are filler awaiting real questions, so `--strict` — which fails on any breach —
+would fail every run and gate nothing. Ratcheting on the passing count blocks a
+regression in the banks already repaired while leaving the known-bad ones visible in
+the job summary. Raise the number as each filler bank is authored.
 
 ### Actions are pinned to commit SHAs
 
