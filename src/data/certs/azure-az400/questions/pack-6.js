@@ -72,10 +72,10 @@ export const AZURE_AZ400_QUESTIONS_6 = [
     scenario: "A team wants to deploy a new version of a web service to 10% of users first, evaluate error rates for 15 minutes, and then roll out to the remaining 90% if health metrics remain normal.",
     question: "Which deployment strategy supported in Azure Pipelines deployment jobs implements this canary pattern?",
     options: [
-      { id: 'A', text: "Recreate deployment strategy" },
-      { id: 'B', text: "strategy: { rolling: { ... } }" },
+      { id: 'A', text: "strategy: { rolling: { maxParallel: '10%', deploy: { ... } } }" },
+      { id: 'B', text: "strategy: { runOnce: { deploy: { ... }, routeTraffic: { ... } } }" },
       { id: 'C', text: "strategy: { canary: { increments: [10, 100], routeTraffic: { ... } } }" },
-      { id: 'D', text: "strategy: { runOnce: { deploy: { ... } } }" }
+      { id: 'D', text: "strategy: { matrix: { canary: { weight: 10 }, stable: { weight: 90 } } }" }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -93,10 +93,10 @@ export const AZURE_AZ400_QUESTIONS_6 = [
     scenario: "An organization deploys web applications using Blue/Green deployments to eliminate production downtime. New code is tested in a staging slot before switching production traffic.",
     question: "Which Azure Pipelines task swaps Azure App Service deployment slots?",
     options: [
-      { id: 'A', text: "AzureWebApp@1 deploying the package to each host in turn" },
+      { id: 'A', text: "The `AzureWebApp@1` task, run once per host with the playbook passed as its package" },
       { id: 'B', text: "AzureCLI@2 with az vm restart" },
       { id: 'C', text: "AzureAppServiceManage@0 with action: 'Swap Slots'" },
-      { id: 'D', text: "CopyFiles@2 moving the playbook onto each target machine" }
+      { id: 'D', text: "The `CopyFiles@2` task, which copies the playbook to each machine in the deployment group" }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -117,7 +117,7 @@ export const AZURE_AZ400_QUESTIONS_6 = [
       { id: 'A', text: "strategy: { recreate: true }" },
       { id: 'B', text: "strategy: { canary: { increments: [50] } }" },
       { id: 'C', text: "strategy: { rolling: { maxParallel: 2, deploy: { ... } } }" },
-      { id: 'D', text: "strategy: { runOnce: { deploy: { ... } } }" }
+      { id: 'D', text: "strategy: { matrix: { canary: { weight: 10 }, stable: { weight: 90 } } }" }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -285,7 +285,7 @@ export const AZURE_AZ400_QUESTIONS_6 = [
       { id: 'A', text: "AzureCLI@2 with az aks start" },
       { id: 'B', text: "Bash@3 running kubectl manually" },
       { id: 'C', text: "KubernetesManifest@1 with action: 'deploy'" },
-      { id: 'D', text: "CopyFiles@2 moving the playbook onto each target machine" }
+      { id: 'D', text: "The `CopyFiles@2` task, which copies the playbook to each machine in the deployment group" }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -388,7 +388,7 @@ export const AZURE_AZ400_QUESTIONS_6 = [
     question: "Which official Azure Pipelines task is purpose-built to deploy packaged web applications, container images, and zip bundles to Azure App Service?",
     options: [
       { id: 'A', text: "AzureCLI@2 with az vm run-command" },
-      { id: 'B', text: "CopyFiles@2 moving the playbook onto each target machine" },
+      { id: 'B', text: "The `CopyFiles@2` task, which copies the playbook to each machine in the deployment group" },
       { id: 'C', text: "FTPUpload@2" },
       { id: 'D', text: "AzureWebApp@1" }
     ],
@@ -410,7 +410,7 @@ export const AZURE_AZ400_QUESTIONS_6 = [
     options: [
       { id: 'A', text: "AzureFunctionApp@2" },
       { id: 'B', text: "PublishBuildArtifacts@1" },
-      { id: 'C', text: "AzureWebApp@1 deploying the package to each host in turn" },
+      { id: 'C', text: "The `AzureWebApp@1` task, run once per host with the playbook passed as its package" },
       { id: 'D', text: "AzureResourceManagerTemplateDeployment@3" }
     ],
     correctAnswers: ['A'],

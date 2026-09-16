@@ -9,10 +9,10 @@ export const AZURE_AZ400_QUESTIONS_15 = [
     scenario: "An enterprise cloud DevOps team is establishing operational continuity standards, zero-downtime deployment patterns, and disaster recovery baselines across Azure environments. The DevOps engineer needs to pass compiled application binaries from the `Build` stage to subsequent `Staging` and `Production` deployment stages in a multi-stage YAML pipeline.",
     question: "Which architectural approach or configuration satisfies these high-availability and operational resilience objectives?",
     options: [
-      { id: 'A', text: "Use `publish: $(Build.ArtifactStagingDirectory)` to publish a Pipeline Artifact, and `download: current` in deployment jobs to consume it." },
-      { id: 'B', text: "Store compiled binaries in temporary agent local folders that are wiped between jobs." },
-      { id: 'C', text: "Commit compiled binary executables directly to the Git source code repository." },
-      { id: 'D', text: "Email compiled binaries between engineering team members." }
+      { id: 'A', text: "Use `publish:` to store a pipeline artifact and `download: current` in the deployment jobs." },
+      { id: 'B', text: "Use `publish:` to store a pipeline artifact and rebuild from source in the deployment jobs." },
+      { id: 'C', text: "Use a pipeline cache keyed on the commit SHA and restore it in the deployment jobs." },
+      { id: 'D', text: "Use a universal package published to Azure Artifacts and pull the latest version each time." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -30,10 +30,10 @@ export const AZURE_AZ400_QUESTIONS_15 = [
     scenario: "A high-throughput enterprise application running on Azure experiences sudden surges in user transactions and requires automated, resilient pipeline execution. The DevOps engineer needs to pass compiled application binaries from the `Build` stage to subsequent `Staging` and `Production` deployment stages in a multi-stage YAML pipeline.",
     question: "Which design pattern or resource configuration manages this workload surge effectively while protecting service stability?",
     options: [
-      { id: 'A', text: "Use `publish: $(Build.ArtifactStagingDirectory)` to publish a Pipeline Artifact, and `download: current` in deployment jobs to consume it." },
-      { id: 'B', text: "Store compiled binaries in temporary agent local folders that are wiped between jobs." },
-      { id: 'C', text: "Commit compiled binary executables directly to the Git source code repository." },
-      { id: 'D', text: "Email compiled binaries between engineering team members." }
+      { id: 'A', text: "Use `publish:` to store a pipeline artifact and `download: current` in the deployment jobs." },
+      { id: 'B', text: "Use `publish:` to store a pipeline artifact and rebuild from source in the deployment jobs." },
+      { id: 'C', text: "Use a pipeline cache keyed on the commit SHA and restore it in the deployment jobs." },
+      { id: 'D', text: "Use a universal package published to Azure Artifacts and pull the latest version each time." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -51,10 +51,10 @@ export const AZURE_AZ400_QUESTIONS_15 = [
     scenario: "A security compliance auditor requires strict source code protection, credential isolation, and automated governance verification across all continuous delivery pipelines. The DevOps engineer needs to pass compiled application binaries from the `Build` stage to subsequent `Staging` and `Production` deployment stages in a multi-stage YAML pipeline.",
     question: "Which solution implements these mandatory DevOps security and compliance controls?",
     options: [
-      { id: 'A', text: "Store compiled binaries in temporary agent local folders that are wiped between jobs." },
-      { id: 'B', text: "Use `publish: $(Build.ArtifactStagingDirectory)` to publish a Pipeline Artifact, and `download: current` in deployment jobs to consume it." },
-      { id: 'C', text: "Email compiled binaries between engineering team members." },
-      { id: 'D', text: "Commit compiled binary executables directly to the Git source code repository." }
+      { id: 'A', text: "Use `publish:` to store a pipeline artifact and rebuild from source in the deployment jobs." },
+      { id: 'B', text: "Use `publish:` to store a pipeline artifact and `download: current` in the deployment jobs." },
+      { id: 'C', text: "Use a universal package published to Azure Artifacts and pull the latest version each time." },
+      { id: 'D', text: "Use a pipeline cache keyed on the commit SHA and restore it in the deployment jobs." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -72,10 +72,10 @@ export const AZURE_AZ400_QUESTIONS_15 = [
     scenario: "An organization is modernizing legacy on-premises deployment workflows and adopting cloud-native continuous integration and automated testing on Azure. The DevOps engineer needs to pass compiled application binaries from the `Build` stage to subsequent `Staging` and `Production` deployment stages in a multi-stage YAML pipeline.",
     question: "Which architectural pattern or platform feature enables the engineering team to modernize delivery with minimal operational friction?",
     options: [
-      { id: 'A', text: "Email compiled binaries between engineering team members." },
-      { id: 'B', text: "Commit compiled binary executables directly to the Git source code repository." },
-      { id: 'C', text: "Store compiled binaries in temporary agent local folders that are wiped between jobs." },
-      { id: 'D', text: "Use `publish: $(Build.ArtifactStagingDirectory)` to publish a Pipeline Artifact, and `download: current` in deployment jobs to consume it." }
+      { id: 'A', text: "Use a universal package published to Azure Artifacts and pull the latest version each time." },
+      { id: 'B', text: "Use a pipeline cache keyed on the commit SHA and restore it in the deployment jobs." },
+      { id: 'C', text: "Use `publish:` to store a pipeline artifact and rebuild from source in the deployment jobs." },
+      { id: 'D', text: "Use `publish:` to store a pipeline artifact and `download: current` in the deployment jobs." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -93,10 +93,10 @@ export const AZURE_AZ400_QUESTIONS_15 = [
     scenario: "An SRE team is optimizing system reliability to eliminate single points of failure, accelerate rollback capabilities, and automate incident response. The DevOps engineer needs to pass compiled application binaries from the `Build` stage to subsequent `Staging` and `Production` deployment stages in a multi-stage YAML pipeline.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
-      { id: 'A', text: "Email compiled binaries between engineering team members." },
-      { id: 'B', text: "Store compiled binaries in temporary agent local folders that are wiped between jobs." },
-      { id: 'C', text: "Use `publish: $(Build.ArtifactStagingDirectory)` to publish a Pipeline Artifact, and `download: current` in deployment jobs to consume it." },
-      { id: 'D', text: "Commit compiled binary executables directly to the Git source code repository." }
+      { id: 'A', text: "Use a universal package published to Azure Artifacts and pull the latest version each time." },
+      { id: 'B', text: "Use `publish:` to store a pipeline artifact and rebuild from source in the deployment jobs." },
+      { id: 'C', text: "Use `publish:` to store a pipeline artifact and `download: current` in the deployment jobs." },
+      { id: 'D', text: "Use a pipeline cache keyed on the commit SHA and restore it in the deployment jobs." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -114,10 +114,10 @@ export const AZURE_AZ400_QUESTIONS_15 = [
     scenario: "An enterprise cloud DevOps team is establishing operational continuity standards, zero-downtime deployment patterns, and disaster recovery baselines across Azure environments. The DevOps engineer needs to protect production deployments by requiring manual approval from designated release managers and business hour execution checks.",
     question: "Which architectural approach or configuration satisfies these high-availability and operational resilience objectives?",
     options: [
-      { id: 'A', text: "Delete the production deployment stage until approval is verbally granted." },
-      { id: 'B', text: "Disable automated deployment and perform all production updates by hand." },
-      { id: 'C', text: "Define an `environment: 'production'` in the deployment job and configure Approvals and Business Hours checks on the Environment in Azure DevOps." },
-      { id: 'D', text: "Write a sleep loop of 12 hours in a bash deployment script." }
+      { id: 'A', text: "Add a manual intervention task to the production stage and schedule the pipeline inside business hours." },
+      { id: 'B', text: "Add a pre-deployment approval on the release definition and restrict the agent pool to the release managers." },
+      { id: 'C', text: "Target an `environment: production` in the deployment job and add Approvals and Business Hours checks to it." },
+      { id: 'D', text: "Add an Invoke REST API gate that polls the change-management system until the window opens." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -135,10 +135,10 @@ export const AZURE_AZ400_QUESTIONS_15 = [
     scenario: "A high-throughput enterprise application running on Azure experiences sudden surges in user transactions and requires automated, resilient pipeline execution. The DevOps engineer needs to protect production deployments by requiring manual approval from designated release managers and business hour execution checks.",
     question: "Which design pattern or resource configuration manages this workload surge effectively while protecting service stability?",
     options: [
-      { id: 'A', text: "Delete the production deployment stage until approval is verbally granted." },
-      { id: 'B', text: "Define an `environment: 'production'` in the deployment job and configure Approvals and Business Hours checks on the Environment in Azure DevOps." },
-      { id: 'C', text: "Write a sleep loop of 12 hours in a bash deployment script." },
-      { id: 'D', text: "Disable automated deployment and perform all production updates by hand." }
+      { id: 'A', text: "Add a manual intervention task to the production stage and schedule the pipeline inside business hours." },
+      { id: 'B', text: "Target an `environment: production` in the deployment job and add Approvals and Business Hours checks to it." },
+      { id: 'C', text: "Add an Invoke REST API gate that polls the change-management system until the window opens." },
+      { id: 'D', text: "Add a pre-deployment approval on the release definition and restrict the agent pool to the release managers." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -156,10 +156,10 @@ export const AZURE_AZ400_QUESTIONS_15 = [
     scenario: "A security compliance auditor requires strict source code protection, credential isolation, and automated governance verification across all continuous delivery pipelines. The DevOps engineer needs to protect production deployments by requiring manual approval from designated release managers and business hour execution checks.",
     question: "Which solution implements these mandatory DevOps security and compliance controls?",
     options: [
-      { id: 'A', text: "Write a sleep loop of 12 hours in a bash deployment script." },
-      { id: 'B', text: "Disable automated deployment and perform all production updates by hand." },
-      { id: 'C', text: "Delete the production deployment stage until approval is verbally granted." },
-      { id: 'D', text: "Define an `environment: 'production'` in the deployment job and configure Approvals and Business Hours checks on the Environment in Azure DevOps." }
+      { id: 'A', text: "Add an Invoke REST API gate that polls the change-management system until the window opens." },
+      { id: 'B', text: "Add a pre-deployment approval on the release definition and restrict the agent pool to the release managers." },
+      { id: 'C', text: "Add a manual intervention task to the production stage and schedule the pipeline inside business hours." },
+      { id: 'D', text: "Target an `environment: production` in the deployment job and add Approvals and Business Hours checks to it." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -177,10 +177,10 @@ export const AZURE_AZ400_QUESTIONS_15 = [
     scenario: "An organization is modernizing legacy on-premises deployment workflows and adopting cloud-native continuous integration and automated testing on Azure. The DevOps engineer needs to protect production deployments by requiring manual approval from designated release managers and business hour execution checks.",
     question: "Which architectural pattern or platform feature enables the engineering team to modernize delivery with minimal operational friction?",
     options: [
-      { id: 'A', text: "Define an `environment: 'production'` in the deployment job and configure Approvals and Business Hours checks on the Environment in Azure DevOps." },
-      { id: 'B', text: "Write a sleep loop of 12 hours in a bash deployment script." },
-      { id: 'C', text: "Delete the production deployment stage until approval is verbally granted." },
-      { id: 'D', text: "Disable automated deployment and perform all production updates by hand." }
+      { id: 'A', text: "Target an `environment: production` in the deployment job and add Approvals and Business Hours checks to it." },
+      { id: 'B', text: "Add an Invoke REST API gate that polls the change-management system until the window opens." },
+      { id: 'C', text: "Add a manual intervention task to the production stage and schedule the pipeline inside business hours." },
+      { id: 'D', text: "Add a pre-deployment approval on the release definition and restrict the agent pool to the release managers." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -198,10 +198,10 @@ export const AZURE_AZ400_QUESTIONS_15 = [
     scenario: "An SRE team is optimizing system reliability to eliminate single points of failure, accelerate rollback capabilities, and automate incident response. The DevOps engineer needs to protect production deployments by requiring manual approval from designated release managers and business hour execution checks.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
-      { id: 'A', text: "Define an `environment: 'production'` in the deployment job and configure Approvals and Business Hours checks on the Environment in Azure DevOps." },
-      { id: 'B', text: "Write a sleep loop of 12 hours in a bash deployment script." },
-      { id: 'C', text: "Delete the production deployment stage until approval is verbally granted." },
-      { id: 'D', text: "Disable automated deployment and perform all production updates by hand." }
+      { id: 'A', text: "Target an `environment: production` in the deployment job and add Approvals and Business Hours checks to it." },
+      { id: 'B', text: "Add an Invoke REST API gate that polls the change-management system until the window opens." },
+      { id: 'C', text: "Add a manual intervention task to the production stage and schedule the pipeline inside business hours." },
+      { id: 'D', text: "Add a pre-deployment approval on the release definition and restrict the agent pool to the release managers." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -219,10 +219,10 @@ export const AZURE_AZ400_QUESTIONS_15 = [
     scenario: "An enterprise cloud DevOps team is establishing operational continuity standards, zero-downtime deployment patterns, and disaster recovery baselines across Azure environments. The DevOps engineer needs to deploy an update to a fleet of virtual machines in batches of 25% while monitoring health checks between batches.",
     question: "Which architectural approach or configuration satisfies these high-availability and operational resilience objectives?",
     options: [
-      { id: 'A', text: "Deploy to one machine and let the remaining 99 machines run old code permanently." },
-      { id: 'B', text: "Terminate the entire fleet of virtual machines before deploying new code." },
-      { id: 'C', text: "Deploy all instances simultaneously using a standard script without health checks." },
-      { id: 'D', text: "Use a `deployment` job targeting an environment with `strategy: rolling: maxParallel: 25%` and health verification hooks." }
+      { id: 'A', text: "Use a `deployment` job with `strategy: runOnce` and a health check in its `on: success` hook." },
+      { id: 'B', text: "Use a `deployment` job with `strategy: canary` and `increments: [25, 75]` over the fleet." },
+      { id: 'C', text: "Use a matrix job with four slices over the machine list and a health check after the job." },
+      { id: 'D', text: "Use a `deployment` job with `strategy: rolling`, `maxParallel: 25%` and its health hooks." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -240,10 +240,10 @@ export const AZURE_AZ400_QUESTIONS_15 = [
     scenario: "A high-throughput enterprise application running on Azure experiences sudden surges in user transactions and requires automated, resilient pipeline execution. The DevOps engineer needs to deploy an update to a fleet of virtual machines in batches of 25% while monitoring health checks between batches.",
     question: "Which design pattern or resource configuration manages this workload surge effectively while protecting service stability?",
     options: [
-      { id: 'A', text: "Deploy to one machine and let the remaining 99 machines run old code permanently." },
-      { id: 'B', text: "Terminate the entire fleet of virtual machines before deploying new code." },
-      { id: 'C', text: "Deploy all instances simultaneously using a standard script without health checks." },
-      { id: 'D', text: "Use a `deployment` job targeting an environment with `strategy: rolling: maxParallel: 25%` and health verification hooks." }
+      { id: 'A', text: "Use a `deployment` job with `strategy: runOnce` and a health check in its `on: success` hook." },
+      { id: 'B', text: "Use a `deployment` job with `strategy: canary` and `increments: [25, 75]` over the fleet." },
+      { id: 'C', text: "Use a matrix job with four slices over the machine list and a health check after the job." },
+      { id: 'D', text: "Use a `deployment` job with `strategy: rolling`, `maxParallel: 25%` and its health hooks." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -261,10 +261,10 @@ export const AZURE_AZ400_QUESTIONS_15 = [
     scenario: "A security compliance auditor requires strict source code protection, credential isolation, and automated governance verification across all continuous delivery pipelines. The DevOps engineer needs to deploy an update to a fleet of virtual machines in batches of 25% while monitoring health checks between batches.",
     question: "Which solution implements these mandatory DevOps security and compliance controls?",
     options: [
-      { id: 'A', text: "Deploy all instances simultaneously using a standard script without health checks." },
-      { id: 'B', text: "Use a `deployment` job targeting an environment with `strategy: rolling: maxParallel: 25%` and health verification hooks." },
-      { id: 'C', text: "Deploy to one machine and let the remaining 99 machines run old code permanently." },
-      { id: 'D', text: "Terminate the entire fleet of virtual machines before deploying new code." }
+      { id: 'A', text: "Use a matrix job with four slices over the machine list and a health check after the job." },
+      { id: 'B', text: "Use a `deployment` job with `strategy: rolling`, `maxParallel: 25%` and its health hooks." },
+      { id: 'C', text: "Use a `deployment` job with `strategy: runOnce` and a health check in its `on: success` hook." },
+      { id: 'D', text: "Use a `deployment` job with `strategy: canary` and `increments: [25, 75]` over the fleet." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -282,10 +282,10 @@ export const AZURE_AZ400_QUESTIONS_15 = [
     scenario: "An organization is modernizing legacy on-premises deployment workflows and adopting cloud-native continuous integration and automated testing on Azure. The DevOps engineer needs to deploy an update to a fleet of virtual machines in batches of 25% while monitoring health checks between batches.",
     question: "Which architectural pattern or platform feature enables the engineering team to modernize delivery with minimal operational friction?",
     options: [
-      { id: 'A', text: "Use a `deployment` job targeting an environment with `strategy: rolling: maxParallel: 25%` and health verification hooks." },
-      { id: 'B', text: "Deploy all instances simultaneously using a standard script without health checks." },
-      { id: 'C', text: "Terminate the entire fleet of virtual machines before deploying new code." },
-      { id: 'D', text: "Deploy to one machine and let the remaining 99 machines run old code permanently." }
+      { id: 'A', text: "Use a `deployment` job with `strategy: rolling`, `maxParallel: 25%` and its health hooks." },
+      { id: 'B', text: "Use a matrix job with four slices over the machine list and a health check after the job." },
+      { id: 'C', text: "Use a `deployment` job with `strategy: canary` and `increments: [25, 75]` over the fleet." },
+      { id: 'D', text: "Use a `deployment` job with `strategy: runOnce` and a health check in its `on: success` hook." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -303,10 +303,10 @@ export const AZURE_AZ400_QUESTIONS_15 = [
     scenario: "An SRE team is optimizing system reliability to eliminate single points of failure, accelerate rollback capabilities, and automate incident response. The DevOps engineer needs to deploy an update to a fleet of virtual machines in batches of 25% while monitoring health checks between batches.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
-      { id: 'A', text: "Use a `deployment` job targeting an environment with `strategy: rolling: maxParallel: 25%` and health verification hooks." },
-      { id: 'B', text: "Deploy all instances simultaneously using a standard script without health checks." },
-      { id: 'C', text: "Terminate the entire fleet of virtual machines before deploying new code." },
-      { id: 'D', text: "Deploy to one machine and let the remaining 99 machines run old code permanently." }
+      { id: 'A', text: "Use a `deployment` job with `strategy: rolling`, `maxParallel: 25%` and its health hooks." },
+      { id: 'B', text: "Use a matrix job with four slices over the machine list and a health check after the job." },
+      { id: 'C', text: "Use a `deployment` job with `strategy: canary` and `increments: [25, 75]` over the fleet." },
+      { id: 'D', text: "Use a `deployment` job with `strategy: runOnce` and a health check in its `on: success` hook." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -324,10 +324,10 @@ export const AZURE_AZ400_QUESTIONS_15 = [
     scenario: "An enterprise cloud DevOps team is establishing operational continuity standards, zero-downtime deployment patterns, and disaster recovery baselines across Azure environments. The DevOps engineer needs to standardize build and security scanning steps across 200 microservice repositories while maintaining centralized template governance.",
     question: "Which architectural approach or configuration satisfies these high-availability and operational resilience objectives?",
     options: [
-      { id: 'A', text: "Ask each developer to run the scanner locally before pushing." },
-      { id: 'B', text: "Author centralized YAML templates in a central governance repository and reference them in microservice pipelines using `template: steps.yml@templates-repo`." },
-      { id: 'C', text: "Allow each team to write completely unstructured deployment scripts." },
-      { id: 'D', text: "Copy-paste 500 lines of identical YAML code across all 200 repositories." }
+      { id: 'A', text: "Publish the steps as a task group in each project and keep the 200 copies aligned with a sync job." },
+      { id: 'B', text: "Publish the steps as YAML templates in a governance repository, referenced as `template: steps.yml@templates-repo`." },
+      { id: 'C', text: "Publish the steps as a custom pipeline task extension and have each repository install the extension." },
+      { id: 'D', text: "Publish the steps as a container job image and have each repository call the image's entrypoint script." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -345,10 +345,10 @@ export const AZURE_AZ400_QUESTIONS_15 = [
     scenario: "A high-throughput enterprise application running on Azure experiences sudden surges in user transactions and requires automated, resilient pipeline execution. The DevOps engineer needs to standardize build and security scanning steps across 200 microservice repositories while maintaining centralized template governance.",
     question: "Which design pattern or resource configuration manages this workload surge effectively while protecting service stability?",
     options: [
-      { id: 'A', text: "Author centralized YAML templates in a central governance repository and reference them in microservice pipelines using `template: steps.yml@templates-repo`." },
-      { id: 'B', text: "Copy-paste 500 lines of identical YAML code across all 200 repositories." },
-      { id: 'C', text: "Allow each team to write completely unstructured deployment scripts." },
-      { id: 'D', text: "Ask each developer to run the scanner locally before pushing." }
+      { id: 'A', text: "Publish the steps as YAML templates in a governance repository, referenced as `template: steps.yml@templates-repo`." },
+      { id: 'B', text: "Publish the steps as a container job image and have each repository call the image's entrypoint script." },
+      { id: 'C', text: "Publish the steps as a custom pipeline task extension and have each repository install the extension." },
+      { id: 'D', text: "Publish the steps as a task group in each project and keep the 200 copies aligned with a sync job." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -366,10 +366,10 @@ export const AZURE_AZ400_QUESTIONS_15 = [
     scenario: "A security compliance auditor requires strict source code protection, credential isolation, and automated governance verification across all continuous delivery pipelines. The DevOps engineer needs to standardize build and security scanning steps across 200 microservice repositories while maintaining centralized template governance.",
     question: "Which solution implements these mandatory DevOps security and compliance controls?",
     options: [
-      { id: 'A', text: "Allow each team to write completely unstructured deployment scripts." },
-      { id: 'B', text: "Author centralized YAML templates in a central governance repository and reference them in microservice pipelines using `template: steps.yml@templates-repo`." },
-      { id: 'C', text: "Copy-paste 500 lines of identical YAML code across all 200 repositories." },
-      { id: 'D', text: "Ask each developer to run the scanner locally before pushing." }
+      { id: 'A', text: "Publish the steps as a custom pipeline task extension and have each repository install the extension." },
+      { id: 'B', text: "Publish the steps as YAML templates in a governance repository, referenced as `template: steps.yml@templates-repo`." },
+      { id: 'C', text: "Publish the steps as a container job image and have each repository call the image's entrypoint script." },
+      { id: 'D', text: "Publish the steps as a task group in each project and keep the 200 copies aligned with a sync job." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -387,10 +387,10 @@ export const AZURE_AZ400_QUESTIONS_15 = [
     scenario: "An organization is modernizing legacy on-premises deployment workflows and adopting cloud-native continuous integration and automated testing on Azure. The DevOps engineer needs to standardize build and security scanning steps across 200 microservice repositories while maintaining centralized template governance.",
     question: "Which architectural pattern or platform feature enables the engineering team to modernize delivery with minimal operational friction?",
     options: [
-      { id: 'A', text: "Author centralized YAML templates in a central governance repository and reference them in microservice pipelines using `template: steps.yml@templates-repo`." },
-      { id: 'B', text: "Copy-paste 500 lines of identical YAML code across all 200 repositories." },
-      { id: 'C', text: "Allow each team to write completely unstructured deployment scripts." },
-      { id: 'D', text: "Ask each developer to run the scanner locally before pushing." }
+      { id: 'A', text: "Publish the steps as YAML templates in a governance repository, referenced as `template: steps.yml@templates-repo`." },
+      { id: 'B', text: "Publish the steps as a container job image and have each repository call the image's entrypoint script." },
+      { id: 'C', text: "Publish the steps as a custom pipeline task extension and have each repository install the extension." },
+      { id: 'D', text: "Publish the steps as a task group in each project and keep the 200 copies aligned with a sync job." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -408,10 +408,10 @@ export const AZURE_AZ400_QUESTIONS_15 = [
     scenario: "An SRE team is optimizing system reliability to eliminate single points of failure, accelerate rollback capabilities, and automate incident response. The DevOps engineer needs to standardize build and security scanning steps across 200 microservice repositories while maintaining centralized template governance.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
-      { id: 'A', text: "Allow each team to write completely unstructured deployment scripts." },
-      { id: 'B', text: "Author centralized YAML templates in a central governance repository and reference them in microservice pipelines using `template: steps.yml@templates-repo`." },
-      { id: 'C', text: "Copy-paste 500 lines of identical YAML code across all 200 repositories." },
-      { id: 'D', text: "Ask each developer to run the scanner locally before pushing." }
+      { id: 'A', text: "Publish the steps as a custom pipeline task extension and have each repository install the extension." },
+      { id: 'B', text: "Publish the steps as YAML templates in a governance repository, referenced as `template: steps.yml@templates-repo`." },
+      { id: 'C', text: "Publish the steps as a container job image and have each repository call the image's entrypoint script." },
+      { id: 'D', text: "Publish the steps as a task group in each project and keep the 200 copies aligned with a sync job." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -429,10 +429,10 @@ export const AZURE_AZ400_QUESTIONS_15 = [
     scenario: "An enterprise cloud DevOps team is establishing operational continuity standards, zero-downtime deployment patterns, and disaster recovery baselines across Azure environments. The DevOps engineer needs to inject production database connection strings and third-party API keys securely into pipelines without exposing secret values in plaintext YAML.",
     question: "Which architectural approach or configuration satisfies these high-availability and operational resilience objectives?",
     options: [
-      { id: 'A', text: "Create a Variable Group in Azure DevOps linked directly to an Azure Key Vault, authorizing the pipeline service connection." },
-      { id: 'B', text: "Keep the secrets in a variable group without Key Vault linking." },
-      { id: 'C', text: "Echo secret tokens to build logs to verify they exist." },
-      { id: 'D', text: "Pass secret passwords as plaintext command-line arguments in scripts." }
+      { id: 'A', text: "Link a variable group to the Key Vault and authorize the pipeline's service connection to it." },
+      { id: 'B', text: "Store the values as secret variables on the pipeline definition and reference them in YAML." },
+      { id: 'C', text: "Store the values in a secure file attached to the library and download it during the job." },
+      { id: 'D', text: "Store the values in the Key Vault and read them with an `az keyvault secret show` step." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -450,10 +450,10 @@ export const AZURE_AZ400_QUESTIONS_15 = [
     scenario: "A high-throughput enterprise application running on Azure experiences sudden surges in user transactions and requires automated, resilient pipeline execution. The DevOps engineer needs to inject production database connection strings and third-party API keys securely into pipelines without exposing secret values in plaintext YAML.",
     question: "Which design pattern or resource configuration manages this workload surge effectively while protecting service stability?",
     options: [
-      { id: 'A', text: "Create a Variable Group in Azure DevOps linked directly to an Azure Key Vault, authorizing the pipeline service connection." },
-      { id: 'B', text: "Keep the secrets in a variable group without Key Vault linking." },
-      { id: 'C', text: "Echo secret tokens to build logs to verify they exist." },
-      { id: 'D', text: "Pass secret passwords as plaintext command-line arguments in scripts." }
+      { id: 'A', text: "Link a variable group to the Key Vault and authorize the pipeline's service connection to it." },
+      { id: 'B', text: "Store the values as secret variables on the pipeline definition and reference them in YAML." },
+      { id: 'C', text: "Store the values in a secure file attached to the library and download it during the job." },
+      { id: 'D', text: "Store the values in the Key Vault and read them with an `az keyvault secret show` step." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -471,10 +471,10 @@ export const AZURE_AZ400_QUESTIONS_15 = [
     scenario: "A security compliance auditor requires strict source code protection, credential isolation, and automated governance verification across all continuous delivery pipelines. The DevOps engineer needs to inject production database connection strings and third-party API keys securely into pipelines without exposing secret values in plaintext YAML.",
     question: "Which solution implements these mandatory DevOps security and compliance controls?",
     options: [
-      { id: 'A', text: "Create a Variable Group in Azure DevOps linked directly to an Azure Key Vault, authorizing the pipeline service connection." },
-      { id: 'B', text: "Keep the secrets in a variable group without Key Vault linking." },
-      { id: 'C', text: "Echo secret tokens to build logs to verify they exist." },
-      { id: 'D', text: "Pass secret passwords as plaintext command-line arguments in scripts." }
+      { id: 'A', text: "Link a variable group to the Key Vault and authorize the pipeline's service connection to it." },
+      { id: 'B', text: "Store the values as secret variables on the pipeline definition and reference them in YAML." },
+      { id: 'C', text: "Store the values in a secure file attached to the library and download it during the job." },
+      { id: 'D', text: "Store the values in the Key Vault and read them with an `az keyvault secret show` step." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -492,10 +492,10 @@ export const AZURE_AZ400_QUESTIONS_15 = [
     scenario: "An organization is modernizing legacy on-premises deployment workflows and adopting cloud-native continuous integration and automated testing on Azure. The DevOps engineer needs to inject production database connection strings and third-party API keys securely into pipelines without exposing secret values in plaintext YAML.",
     question: "Which architectural pattern or platform feature enables the engineering team to modernize delivery with minimal operational friction?",
     options: [
-      { id: 'A', text: "Create a Variable Group in Azure DevOps linked directly to an Azure Key Vault, authorizing the pipeline service connection." },
-      { id: 'B', text: "Keep the secrets in a variable group without Key Vault linking." },
-      { id: 'C', text: "Echo secret tokens to build logs to verify they exist." },
-      { id: 'D', text: "Pass secret passwords as plaintext command-line arguments in scripts." }
+      { id: 'A', text: "Link a variable group to the Key Vault and authorize the pipeline's service connection to it." },
+      { id: 'B', text: "Store the values as secret variables on the pipeline definition and reference them in YAML." },
+      { id: 'C', text: "Store the values in a secure file attached to the library and download it during the job." },
+      { id: 'D', text: "Store the values in the Key Vault and read them with an `az keyvault secret show` step." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -513,10 +513,10 @@ export const AZURE_AZ400_QUESTIONS_15 = [
     scenario: "An SRE team is optimizing system reliability to eliminate single points of failure, accelerate rollback capabilities, and automate incident response. The DevOps engineer needs to inject production database connection strings and third-party API keys securely into pipelines without exposing secret values in plaintext YAML.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
-      { id: 'A', text: "Create a Variable Group in Azure DevOps linked directly to an Azure Key Vault, authorizing the pipeline service connection." },
-      { id: 'B', text: "Keep the secrets in a variable group without Key Vault linking." },
-      { id: 'C', text: "Echo secret tokens to build logs to verify they exist." },
-      { id: 'D', text: "Pass secret passwords as plaintext command-line arguments in scripts." }
+      { id: 'A', text: "Link a variable group to the Key Vault and authorize the pipeline's service connection to it." },
+      { id: 'B', text: "Store the values as secret variables on the pipeline definition and reference them in YAML." },
+      { id: 'C', text: "Store the values in a secure file attached to the library and download it during the job." },
+      { id: 'D', text: "Store the values in the Key Vault and read them with an `az keyvault secret show` step." }
     ],
     correctAnswers: ['A'],
     type: "single",

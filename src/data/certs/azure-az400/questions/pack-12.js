@@ -114,10 +114,10 @@ export const AZURE_AZ400_QUESTIONS_12 = [
     scenario: "An enterprise cloud DevOps team is establishing operational continuity standards, zero-downtime deployment patterns, and disaster recovery baselines across Azure environments. The DevOps engineer needs to maintain enterprise system architectural documentation version-controlled in Markdown directly alongside application source code in Git.",
     question: "Which architectural approach or configuration satisfies these high-availability and operational resilience objectives?",
     options: [
-      { id: 'A', text: "Keep architecture documentation exclusively in chat message channels." },
-      { id: 'B', text: "Use the 'Publish code as wiki' feature in Azure DevOps to publish Markdown files from a designated repository branch." },
-      { id: 'C', text: "Write documentation in proprietary binary files stored on network file shares." },
-      { id: 'D', text: "Keep the documentation in a project wiki outside the repository." }
+      { id: 'A', text: "Create a project wiki and copy the Markdown into it whenever the code changes." },
+      { id: 'B', text: "Publish the Markdown folder from the code repository with Publish code as wiki." },
+      { id: 'C', text: "Attach the Markdown files to an epic work item so they version with the backlog." },
+      { id: 'D', text: "Render the Markdown into a static site and publish it as a pipeline artifact." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -135,10 +135,10 @@ export const AZURE_AZ400_QUESTIONS_12 = [
     scenario: "A high-throughput enterprise application running on Azure experiences sudden surges in user transactions and requires automated, resilient pipeline execution. The DevOps engineer needs to maintain enterprise system architectural documentation version-controlled in Markdown directly alongside application source code in Git.",
     question: "Which design pattern or resource configuration manages this workload surge effectively while protecting service stability?",
     options: [
-      { id: 'A', text: "Write documentation in proprietary binary files stored on network file shares." },
-      { id: 'B', text: "Keep architecture documentation exclusively in chat message channels." },
-      { id: 'C', text: "Use the 'Publish code as wiki' feature in Azure DevOps to publish Markdown files from a designated repository branch." },
-      { id: 'D', text: "Keep the documentation in a project wiki outside the repository." }
+      { id: 'A', text: "Attach the Markdown files to an epic work item so they version with the backlog." },
+      { id: 'B', text: "Create a project wiki and copy the Markdown into it whenever the code changes." },
+      { id: 'C', text: "Publish the Markdown folder from the code repository with Publish code as wiki." },
+      { id: 'D', text: "Render the Markdown into a static site and publish it as a pipeline artifact." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -156,10 +156,10 @@ export const AZURE_AZ400_QUESTIONS_12 = [
     scenario: "A security compliance auditor requires strict source code protection, credential isolation, and automated governance verification across all continuous delivery pipelines. The DevOps engineer needs to maintain enterprise system architectural documentation version-controlled in Markdown directly alongside application source code in Git.",
     question: "Which solution implements these mandatory DevOps security and compliance controls?",
     options: [
-      { id: 'A', text: "Use the 'Publish code as wiki' feature in Azure DevOps to publish Markdown files from a designated repository branch." },
-      { id: 'B', text: "Write documentation in proprietary binary files stored on network file shares." },
-      { id: 'C', text: "Keep architecture documentation exclusively in chat message channels." },
-      { id: 'D', text: "Keep the documentation in a project wiki outside the repository." }
+      { id: 'A', text: "Publish the Markdown folder from the code repository with Publish code as wiki." },
+      { id: 'B', text: "Attach the Markdown files to an epic work item so they version with the backlog." },
+      { id: 'C', text: "Create a project wiki and copy the Markdown into it whenever the code changes." },
+      { id: 'D', text: "Render the Markdown into a static site and publish it as a pipeline artifact." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -177,10 +177,10 @@ export const AZURE_AZ400_QUESTIONS_12 = [
     scenario: "An organization is modernizing legacy on-premises deployment workflows and adopting cloud-native continuous integration and automated testing on Azure. The DevOps engineer needs to maintain enterprise system architectural documentation version-controlled in Markdown directly alongside application source code in Git.",
     question: "Which architectural pattern or platform feature enables the engineering team to modernize delivery with minimal operational friction?",
     options: [
-      { id: 'A', text: "Use the 'Publish code as wiki' feature in Azure DevOps to publish Markdown files from a designated repository branch." },
-      { id: 'B', text: "Write documentation in proprietary binary files stored on network file shares." },
-      { id: 'C', text: "Keep architecture documentation exclusively in chat message channels." },
-      { id: 'D', text: "Keep the documentation in a project wiki outside the repository." }
+      { id: 'A', text: "Publish the Markdown folder from the code repository with Publish code as wiki." },
+      { id: 'B', text: "Attach the Markdown files to an epic work item so they version with the backlog." },
+      { id: 'C', text: "Create a project wiki and copy the Markdown into it whenever the code changes." },
+      { id: 'D', text: "Render the Markdown into a static site and publish it as a pipeline artifact." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -198,10 +198,10 @@ export const AZURE_AZ400_QUESTIONS_12 = [
     scenario: "An SRE team is optimizing system reliability to eliminate single points of failure, accelerate rollback capabilities, and automate incident response. The DevOps engineer needs to maintain enterprise system architectural documentation version-controlled in Markdown directly alongside application source code in Git.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
-      { id: 'A', text: "Use the 'Publish code as wiki' feature in Azure DevOps to publish Markdown files from a designated repository branch." },
-      { id: 'B', text: "Write documentation in proprietary binary files stored on network file shares." },
-      { id: 'C', text: "Keep architecture documentation exclusively in chat message channels." },
-      { id: 'D', text: "Keep the documentation in a project wiki outside the repository." }
+      { id: 'A', text: "Publish the Markdown folder from the code repository with Publish code as wiki." },
+      { id: 'B', text: "Attach the Markdown files to an epic work item so they version with the backlog." },
+      { id: 'C', text: "Create a project wiki and copy the Markdown into it whenever the code changes." },
+      { id: 'D', text: "Render the Markdown into a static site and publish it as a pipeline artifact." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -219,10 +219,10 @@ export const AZURE_AZ400_QUESTIONS_12 = [
     scenario: "An enterprise cloud DevOps team is establishing operational continuity standards, zero-downtime deployment patterns, and disaster recovery baselines across Azure environments. The DevOps engineer needs to stream security and administrative audit events (user privilege elevations, policy modifications, project deletions) to a central SIEM for compliance auditing.",
     question: "Which architectural approach or configuration satisfies these high-availability and operational resilience objectives?",
     options: [
-      { id: 'A', text: "Configure Audit Streams in Azure DevOps Organization Settings to export audit logs to Azure Log Analytics or Azure Event Hubs." },
-      { id: 'B', text: "Manually download audit log CSV files once a quarter from the web interface." },
-      { id: 'C', text: "Rely on browser history records of administrative staff." },
-      { id: 'D', text: "Disable audit logging to reduce organizational cloud consumption." }
+      { id: 'A', text: "Configure an audit stream in organization settings that exports to Log Analytics or Event Hubs." },
+      { id: 'B', text: "Configure a scheduled pipeline that pulls the audit log REST API and posts the results onward." },
+      { id: 'C', text: "Configure diagnostic settings on the subscription to forward the activity log to the SIEM." },
+      { id: 'D', text: "Configure a service hook on the project's permission events to post to the SIEM's webhook." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -240,10 +240,10 @@ export const AZURE_AZ400_QUESTIONS_12 = [
     scenario: "A high-throughput enterprise application running on Azure experiences sudden surges in user transactions and requires automated, resilient pipeline execution. The DevOps engineer needs to stream security and administrative audit events (user privilege elevations, policy modifications, project deletions) to a central SIEM for compliance auditing.",
     question: "Which design pattern or resource configuration manages this workload surge effectively while protecting service stability?",
     options: [
-      { id: 'A', text: "Rely on browser history records of administrative staff." },
-      { id: 'B', text: "Disable audit logging to reduce organizational cloud consumption." },
-      { id: 'C', text: "Configure Audit Streams in Azure DevOps Organization Settings to export audit logs to Azure Log Analytics or Azure Event Hubs." },
-      { id: 'D', text: "Manually download audit log CSV files once a quarter from the web interface." }
+      { id: 'A', text: "Configure diagnostic settings on the subscription to forward the activity log to the SIEM." },
+      { id: 'B', text: "Configure a service hook on the project's permission events to post to the SIEM's webhook." },
+      { id: 'C', text: "Configure an audit stream in organization settings that exports to Log Analytics or Event Hubs." },
+      { id: 'D', text: "Configure a scheduled pipeline that pulls the audit log REST API and posts the results onward." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -261,10 +261,10 @@ export const AZURE_AZ400_QUESTIONS_12 = [
     scenario: "A security compliance auditor requires strict source code protection, credential isolation, and automated governance verification across all continuous delivery pipelines. The DevOps engineer needs to stream security and administrative audit events (user privilege elevations, policy modifications, project deletions) to a central SIEM for compliance auditing.",
     question: "Which solution implements these mandatory DevOps security and compliance controls?",
     options: [
-      { id: 'A', text: "Manually download audit log CSV files once a quarter from the web interface." },
-      { id: 'B', text: "Disable audit logging to reduce organizational cloud consumption." },
-      { id: 'C', text: "Rely on browser history records of administrative staff." },
-      { id: 'D', text: "Configure Audit Streams in Azure DevOps Organization Settings to export audit logs to Azure Log Analytics or Azure Event Hubs." }
+      { id: 'A', text: "Configure a scheduled pipeline that pulls the audit log REST API and posts the results onward." },
+      { id: 'B', text: "Configure a service hook on the project's permission events to post to the SIEM's webhook." },
+      { id: 'C', text: "Configure diagnostic settings on the subscription to forward the activity log to the SIEM." },
+      { id: 'D', text: "Configure an audit stream in organization settings that exports to Log Analytics or Event Hubs." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -282,10 +282,10 @@ export const AZURE_AZ400_QUESTIONS_12 = [
     scenario: "An organization is modernizing legacy on-premises deployment workflows and adopting cloud-native continuous integration and automated testing on Azure. The DevOps engineer needs to stream security and administrative audit events (user privilege elevations, policy modifications, project deletions) to a central SIEM for compliance auditing.",
     question: "Which architectural pattern or platform feature enables the engineering team to modernize delivery with minimal operational friction?",
     options: [
-      { id: 'A', text: "Manually download audit log CSV files once a quarter from the web interface." },
-      { id: 'B', text: "Configure Audit Streams in Azure DevOps Organization Settings to export audit logs to Azure Log Analytics or Azure Event Hubs." },
-      { id: 'C', text: "Disable audit logging to reduce organizational cloud consumption." },
-      { id: 'D', text: "Rely on browser history records of administrative staff." }
+      { id: 'A', text: "Configure a scheduled pipeline that pulls the audit log REST API and posts the results onward." },
+      { id: 'B', text: "Configure an audit stream in organization settings that exports to Log Analytics or Event Hubs." },
+      { id: 'C', text: "Configure a service hook on the project's permission events to post to the SIEM's webhook." },
+      { id: 'D', text: "Configure diagnostic settings on the subscription to forward the activity log to the SIEM." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -303,10 +303,10 @@ export const AZURE_AZ400_QUESTIONS_12 = [
     scenario: "An SRE team is optimizing system reliability to eliminate single points of failure, accelerate rollback capabilities, and automate incident response. The DevOps engineer needs to stream security and administrative audit events (user privilege elevations, policy modifications, project deletions) to a central SIEM for compliance auditing.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
-      { id: 'A', text: "Rely on browser history records of administrative staff." },
-      { id: 'B', text: "Disable audit logging to reduce organizational cloud consumption." },
-      { id: 'C', text: "Configure Audit Streams in Azure DevOps Organization Settings to export audit logs to Azure Log Analytics or Azure Event Hubs." },
-      { id: 'D', text: "Manually download audit log CSV files once a quarter from the web interface." }
+      { id: 'A', text: "Configure diagnostic settings on the subscription to forward the activity log to the SIEM." },
+      { id: 'B', text: "Configure a service hook on the project's permission events to post to the SIEM's webhook." },
+      { id: 'C', text: "Configure an audit stream in organization settings that exports to Log Analytics or Event Hubs." },
+      { id: 'D', text: "Configure a scheduled pipeline that pulls the audit log REST API and posts the results onward." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -429,10 +429,10 @@ export const AZURE_AZ400_QUESTIONS_12 = [
     scenario: "An enterprise cloud DevOps team is establishing operational continuity standards, zero-downtime deployment patterns, and disaster recovery baselines across Azure environments. The DevOps engineer needs to prevent direct pushes to the `main` branch and ensure all changes build successfully and receive at least two peer approvals before merging.",
     question: "Which architectural approach or configuration satisfies these high-availability and operational resilience objectives?",
     options: [
-      { id: 'A', text: "Lock the repository so no changes can be merged by anyone." },
-      { id: 'B', text: "Grant bypass branch policies permissions to all junior developers." },
-      { id: 'C', text: "Rely on developers promising not to run `git push origin main`." },
-      { id: 'D', text: "Configure Branch Policies on `main` requiring a minimum of two reviewers, Build Validation pipeline passing, linked work items, and comment resolution." }
+      { id: 'A', text: "Set a branch policy on `main` requiring one reviewer, and grant the team Force Push permission." },
+      { id: 'B', text: "Set a required pipeline check on the release stage that reruns the build after each merge to `main`." },
+      { id: 'C', text: "Set the `main` branch's Contribute permission to Deny for everyone and merge with a service account." },
+      { id: 'D', text: "Set a branch policy on `main` requiring two reviewers, build validation, and resolved comments." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -450,10 +450,10 @@ export const AZURE_AZ400_QUESTIONS_12 = [
     scenario: "A high-throughput enterprise application running on Azure experiences sudden surges in user transactions and requires automated, resilient pipeline execution. The DevOps engineer needs to prevent direct pushes to the `main` branch and ensure all changes build successfully and receive at least two peer approvals before merging.",
     question: "Which design pattern or resource configuration manages this workload surge effectively while protecting service stability?",
     options: [
-      { id: 'A', text: "Lock the repository so no changes can be merged by anyone." },
-      { id: 'B', text: "Grant bypass branch policies permissions to all junior developers." },
-      { id: 'C', text: "Rely on developers promising not to run `git push origin main`." },
-      { id: 'D', text: "Configure Branch Policies on `main` requiring a minimum of two reviewers, Build Validation pipeline passing, linked work items, and comment resolution." }
+      { id: 'A', text: "Set a branch policy on `main` requiring one reviewer, and grant the team Force Push permission." },
+      { id: 'B', text: "Set a required pipeline check on the release stage that reruns the build after each merge to `main`." },
+      { id: 'C', text: "Set the `main` branch's Contribute permission to Deny for everyone and merge with a service account." },
+      { id: 'D', text: "Set a branch policy on `main` requiring two reviewers, build validation, and resolved comments." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -471,10 +471,10 @@ export const AZURE_AZ400_QUESTIONS_12 = [
     scenario: "A security compliance auditor requires strict source code protection, credential isolation, and automated governance verification across all continuous delivery pipelines. The DevOps engineer needs to prevent direct pushes to the `main` branch and ensure all changes build successfully and receive at least two peer approvals before merging.",
     question: "Which solution implements these mandatory DevOps security and compliance controls?",
     options: [
-      { id: 'A', text: "Configure Branch Policies on `main` requiring a minimum of two reviewers, Build Validation pipeline passing, linked work items, and comment resolution." },
-      { id: 'B', text: "Lock the repository so no changes can be merged by anyone." },
-      { id: 'C', text: "Rely on developers promising not to run `git push origin main`." },
-      { id: 'D', text: "Grant bypass branch policies permissions to all junior developers." }
+      { id: 'A', text: "Set a branch policy on `main` requiring two reviewers, build validation, and resolved comments." },
+      { id: 'B', text: "Set a branch policy on `main` requiring one reviewer, and grant the team Force Push permission." },
+      { id: 'C', text: "Set the `main` branch's Contribute permission to Deny for everyone and merge with a service account." },
+      { id: 'D', text: "Set a required pipeline check on the release stage that reruns the build after each merge to `main`." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -492,10 +492,10 @@ export const AZURE_AZ400_QUESTIONS_12 = [
     scenario: "An organization is modernizing legacy on-premises deployment workflows and adopting cloud-native continuous integration and automated testing on Azure. The DevOps engineer needs to prevent direct pushes to the `main` branch and ensure all changes build successfully and receive at least two peer approvals before merging.",
     question: "Which architectural pattern or platform feature enables the engineering team to modernize delivery with minimal operational friction?",
     options: [
-      { id: 'A', text: "Configure Branch Policies on `main` requiring a minimum of two reviewers, Build Validation pipeline passing, linked work items, and comment resolution." },
-      { id: 'B', text: "Rely on developers promising not to run `git push origin main`." },
-      { id: 'C', text: "Grant bypass branch policies permissions to all junior developers." },
-      { id: 'D', text: "Lock the repository so no changes can be merged by anyone." }
+      { id: 'A', text: "Set a branch policy on `main` requiring two reviewers, build validation, and resolved comments." },
+      { id: 'B', text: "Set the `main` branch's Contribute permission to Deny for everyone and merge with a service account." },
+      { id: 'C', text: "Set a required pipeline check on the release stage that reruns the build after each merge to `main`." },
+      { id: 'D', text: "Set a branch policy on `main` requiring one reviewer, and grant the team Force Push permission." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -513,10 +513,10 @@ export const AZURE_AZ400_QUESTIONS_12 = [
     scenario: "An SRE team is optimizing system reliability to eliminate single points of failure, accelerate rollback capabilities, and automate incident response. The DevOps engineer needs to prevent direct pushes to the `main` branch and ensure all changes build successfully and receive at least two peer approvals before merging.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
-      { id: 'A', text: "Configure Branch Policies on `main` requiring a minimum of two reviewers, Build Validation pipeline passing, linked work items, and comment resolution." },
-      { id: 'B', text: "Rely on developers promising not to run `git push origin main`." },
-      { id: 'C', text: "Grant bypass branch policies permissions to all junior developers." },
-      { id: 'D', text: "Lock the repository so no changes can be merged by anyone." }
+      { id: 'A', text: "Set a branch policy on `main` requiring two reviewers, build validation, and resolved comments." },
+      { id: 'B', text: "Set the `main` branch's Contribute permission to Deny for everyone and merge with a service account." },
+      { id: 'C', text: "Set a required pipeline check on the release stage that reruns the build after each merge to `main`." },
+      { id: 'D', text: "Set a branch policy on `main` requiring one reviewer, and grant the team Force Push permission." }
     ],
     correctAnswers: ['A'],
     type: "single",

@@ -9,10 +9,10 @@ export const AZURE_AZ400_QUESTIONS_19 = [
     scenario: "An enterprise cloud DevOps team is establishing operational continuity standards, zero-downtime deployment patterns, and disaster recovery baselines across Azure environments. The DevOps engineer needs to enforce a compliance rule that no pods in an Azure Kubernetes Service (AKS) cluster can run as root or mount the host filesystem.",
     question: "Which architectural approach or configuration satisfies these high-availability and operational resilience objectives?",
     options: [
-      { id: 'A', text: "Deploy the Azure Policy add-on for AKS and assign the baseline or restricted Pod Security Standards built-in initiative." },
-      { id: 'B', text: "Inspect pod manifests manually by running kubectl get pods once a week." },
-      { id: 'C', text: "Disable Kubernetes admission controllers to prevent deployment errors." },
-      { id: 'D', text: "Ask developers to voluntarily verify that their manifests do not use root." }
+      { id: 'A', text: "Install the Azure Policy add-on for AKS and assign the restricted Pod Security Standards initiative." },
+      { id: 'B', text: "Install Gatekeeper directly and write a ConstraintTemplate that audits the running pods weekly." },
+      { id: 'C', text: "Install the AKS deployment safeguards in warning mode so violations are reported to the cluster." },
+      { id: 'D', text: "Enable Microsoft Defender for Containers and act on the pod hardening recommendations it raises." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -30,10 +30,10 @@ export const AZURE_AZ400_QUESTIONS_19 = [
     scenario: "A high-throughput enterprise application running on Azure experiences sudden surges in user transactions and requires automated, resilient pipeline execution. The DevOps engineer needs to enforce a compliance rule that no pods in an Azure Kubernetes Service (AKS) cluster can run as root or mount the host filesystem.",
     question: "Which design pattern or resource configuration manages this workload surge effectively while protecting service stability?",
     options: [
-      { id: 'A', text: "Deploy the Azure Policy add-on for AKS and assign the baseline or restricted Pod Security Standards built-in initiative." },
-      { id: 'B', text: "Ask developers to voluntarily verify that their manifests do not use root." },
-      { id: 'C', text: "Inspect pod manifests manually by running kubectl get pods once a week." },
-      { id: 'D', text: "Disable Kubernetes admission controllers to prevent deployment errors." }
+      { id: 'A', text: "Install the Azure Policy add-on for AKS and assign the restricted Pod Security Standards initiative." },
+      { id: 'B', text: "Enable Microsoft Defender for Containers and act on the pod hardening recommendations it raises." },
+      { id: 'C', text: "Install Gatekeeper directly and write a ConstraintTemplate that audits the running pods weekly." },
+      { id: 'D', text: "Install the AKS deployment safeguards in warning mode so violations are reported to the cluster." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -51,10 +51,10 @@ export const AZURE_AZ400_QUESTIONS_19 = [
     scenario: "A security compliance auditor requires strict source code protection, credential isolation, and automated governance verification across all continuous delivery pipelines. The DevOps engineer needs to enforce a compliance rule that no pods in an Azure Kubernetes Service (AKS) cluster can run as root or mount the host filesystem.",
     question: "Which solution implements these mandatory DevOps security and compliance controls?",
     options: [
-      { id: 'A', text: "Ask developers to voluntarily verify that their manifests do not use root." },
-      { id: 'B', text: "Disable Kubernetes admission controllers to prevent deployment errors." },
-      { id: 'C', text: "Inspect pod manifests manually by running kubectl get pods once a week." },
-      { id: 'D', text: "Deploy the Azure Policy add-on for AKS and assign the baseline or restricted Pod Security Standards built-in initiative." }
+      { id: 'A', text: "Enable Microsoft Defender for Containers and act on the pod hardening recommendations it raises." },
+      { id: 'B', text: "Install the AKS deployment safeguards in warning mode so violations are reported to the cluster." },
+      { id: 'C', text: "Install Gatekeeper directly and write a ConstraintTemplate that audits the running pods weekly." },
+      { id: 'D', text: "Install the Azure Policy add-on for AKS and assign the restricted Pod Security Standards initiative." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -72,10 +72,10 @@ export const AZURE_AZ400_QUESTIONS_19 = [
     scenario: "An organization is modernizing legacy on-premises deployment workflows and adopting cloud-native continuous integration and automated testing on Azure. The DevOps engineer needs to enforce a compliance rule that no pods in an Azure Kubernetes Service (AKS) cluster can run as root or mount the host filesystem.",
     question: "Which architectural pattern or platform feature enables the engineering team to modernize delivery with minimal operational friction?",
     options: [
-      { id: 'A', text: "Deploy the Azure Policy add-on for AKS and assign the baseline or restricted Pod Security Standards built-in initiative." },
-      { id: 'B', text: "Ask developers to voluntarily verify that their manifests do not use root." },
-      { id: 'C', text: "Inspect pod manifests manually by running kubectl get pods once a week." },
-      { id: 'D', text: "Disable Kubernetes admission controllers to prevent deployment errors." }
+      { id: 'A', text: "Install the Azure Policy add-on for AKS and assign the restricted Pod Security Standards initiative." },
+      { id: 'B', text: "Enable Microsoft Defender for Containers and act on the pod hardening recommendations it raises." },
+      { id: 'C', text: "Install Gatekeeper directly and write a ConstraintTemplate that audits the running pods weekly." },
+      { id: 'D', text: "Install the AKS deployment safeguards in warning mode so violations are reported to the cluster." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -93,10 +93,10 @@ export const AZURE_AZ400_QUESTIONS_19 = [
     scenario: "An SRE team is optimizing system reliability to eliminate single points of failure, accelerate rollback capabilities, and automate incident response. The DevOps engineer needs to enforce a compliance rule that no pods in an Azure Kubernetes Service (AKS) cluster can run as root or mount the host filesystem.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
-      { id: 'A', text: "Deploy the Azure Policy add-on for AKS and assign the baseline or restricted Pod Security Standards built-in initiative." },
-      { id: 'B', text: "Ask developers to voluntarily verify that their manifests do not use root." },
-      { id: 'C', text: "Inspect pod manifests manually by running kubectl get pods once a week." },
-      { id: 'D', text: "Disable Kubernetes admission controllers to prevent deployment errors." }
+      { id: 'A', text: "Install the Azure Policy add-on for AKS and assign the restricted Pod Security Standards initiative." },
+      { id: 'B', text: "Enable Microsoft Defender for Containers and act on the pod hardening recommendations it raises." },
+      { id: 'C', text: "Install Gatekeeper directly and write a ConstraintTemplate that audits the running pods weekly." },
+      { id: 'D', text: "Install the AKS deployment safeguards in warning mode so violations are reported to the cluster." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -114,10 +114,10 @@ export const AZURE_AZ400_QUESTIONS_19 = [
     scenario: "An enterprise cloud DevOps team is establishing operational continuity standards, zero-downtime deployment patterns, and disaster recovery baselines across Azure environments. The DevOps engineer needs to allow an Azure App Service application to read database passwords stored in Azure Key Vault without writing custom Key Vault SDK code.",
     question: "Which architectural approach or configuration satisfies these high-availability and operational resilience objectives?",
     options: [
-      { id: 'A', text: "Pass the password in plain text via URL query parameters." },
-      { id: 'B', text: "Read the password from appsettings.json at application start." },
-      { id: 'C', text: "Store the database password in a public GitHub repository." },
-      { id: 'D', text: "Enable System-Assigned Managed Identity on the App Service, grant Key Vault access, and use Key Vault reference syntax (`@Microsoft.KeyVault(...)`) in App Settings." }
+      { id: 'A', text: "Register an app registration with a client secret and read the vault with the Key Vault REST API at startup." },
+      { id: 'B', text: "Mount the vault as an Azure Files share and read the password from `appsettings.Production.json` on boot." },
+      { id: 'C', text: "Add a release-pipeline variable group linked to the vault, so the values are baked in at deployment time." },
+      { id: 'D', text: "Enable a system-assigned managed identity, grant it Key Vault access, and use `@Microsoft.KeyVault(...)` App Settings." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -135,10 +135,10 @@ export const AZURE_AZ400_QUESTIONS_19 = [
     scenario: "A high-throughput enterprise application running on Azure experiences sudden surges in user transactions and requires automated, resilient pipeline execution. The DevOps engineer needs to allow an Azure App Service application to read database passwords stored in Azure Key Vault without writing custom Key Vault SDK code.",
     question: "Which design pattern or resource configuration manages this workload surge effectively while protecting service stability?",
     options: [
-      { id: 'A', text: "Enable System-Assigned Managed Identity on the App Service, grant Key Vault access, and use Key Vault reference syntax (`@Microsoft.KeyVault(...)`) in App Settings." },
-      { id: 'B', text: "Read the password from appsettings.json at application start." },
-      { id: 'C', text: "Pass the password in plain text via URL query parameters." },
-      { id: 'D', text: "Store the database password in a public GitHub repository." }
+      { id: 'A', text: "Enable a system-assigned managed identity, grant it Key Vault access, and use `@Microsoft.KeyVault(...)` App Settings." },
+      { id: 'B', text: "Mount the vault as an Azure Files share and read the password from `appsettings.Production.json` on boot." },
+      { id: 'C', text: "Register an app registration with a client secret and read the vault with the Key Vault REST API at startup." },
+      { id: 'D', text: "Add a release-pipeline variable group linked to the vault, so the values are baked in at deployment time." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -156,10 +156,10 @@ export const AZURE_AZ400_QUESTIONS_19 = [
     scenario: "A security compliance auditor requires strict source code protection, credential isolation, and automated governance verification across all continuous delivery pipelines. The DevOps engineer needs to allow an Azure App Service application to read database passwords stored in Azure Key Vault without writing custom Key Vault SDK code.",
     question: "Which solution implements these mandatory DevOps security and compliance controls?",
     options: [
-      { id: 'A', text: "Enable System-Assigned Managed Identity on the App Service, grant Key Vault access, and use Key Vault reference syntax (`@Microsoft.KeyVault(...)`) in App Settings." },
-      { id: 'B', text: "Read the password from appsettings.json at application start." },
-      { id: 'C', text: "Pass the password in plain text via URL query parameters." },
-      { id: 'D', text: "Store the database password in a public GitHub repository." }
+      { id: 'A', text: "Enable a system-assigned managed identity, grant it Key Vault access, and use `@Microsoft.KeyVault(...)` App Settings." },
+      { id: 'B', text: "Mount the vault as an Azure Files share and read the password from `appsettings.Production.json` on boot." },
+      { id: 'C', text: "Register an app registration with a client secret and read the vault with the Key Vault REST API at startup." },
+      { id: 'D', text: "Add a release-pipeline variable group linked to the vault, so the values are baked in at deployment time." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -177,10 +177,10 @@ export const AZURE_AZ400_QUESTIONS_19 = [
     scenario: "An organization is modernizing legacy on-premises deployment workflows and adopting cloud-native continuous integration and automated testing on Azure. The DevOps engineer needs to allow an Azure App Service application to read database passwords stored in Azure Key Vault without writing custom Key Vault SDK code.",
     question: "Which architectural pattern or platform feature enables the engineering team to modernize delivery with minimal operational friction?",
     options: [
-      { id: 'A', text: "Enable System-Assigned Managed Identity on the App Service, grant Key Vault access, and use Key Vault reference syntax (`@Microsoft.KeyVault(...)`) in App Settings." },
-      { id: 'B', text: "Pass the password in plain text via URL query parameters." },
-      { id: 'C', text: "Store the database password in a public GitHub repository." },
-      { id: 'D', text: "Read the password from appsettings.json at application start." }
+      { id: 'A', text: "Enable a system-assigned managed identity, grant it Key Vault access, and use `@Microsoft.KeyVault(...)` App Settings." },
+      { id: 'B', text: "Register an app registration with a client secret and read the vault with the Key Vault REST API at startup." },
+      { id: 'C', text: "Add a release-pipeline variable group linked to the vault, so the values are baked in at deployment time." },
+      { id: 'D', text: "Mount the vault as an Azure Files share and read the password from `appsettings.Production.json` on boot." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -198,10 +198,10 @@ export const AZURE_AZ400_QUESTIONS_19 = [
     scenario: "An SRE team is optimizing system reliability to eliminate single points of failure, accelerate rollback capabilities, and automate incident response. The DevOps engineer needs to allow an Azure App Service application to read database passwords stored in Azure Key Vault without writing custom Key Vault SDK code.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
-      { id: 'A', text: "Enable System-Assigned Managed Identity on the App Service, grant Key Vault access, and use Key Vault reference syntax (`@Microsoft.KeyVault(...)`) in App Settings." },
-      { id: 'B', text: "Read the password from appsettings.json at application start." },
-      { id: 'C', text: "Pass the password in plain text via URL query parameters." },
-      { id: 'D', text: "Store the database password in a public GitHub repository." }
+      { id: 'A', text: "Enable a system-assigned managed identity, grant it Key Vault access, and use `@Microsoft.KeyVault(...)` App Settings." },
+      { id: 'B', text: "Mount the vault as an Azure Files share and read the password from `appsettings.Production.json` on boot." },
+      { id: 'C', text: "Register an app registration with a client secret and read the vault with the Key Vault REST API at startup." },
+      { id: 'D', text: "Add a release-pipeline variable group linked to the vault, so the values are baked in at deployment time." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -219,10 +219,10 @@ export const AZURE_AZ400_QUESTIONS_19 = [
     scenario: "An enterprise cloud DevOps team is establishing operational continuity standards, zero-downtime deployment patterns, and disaster recovery baselines across Azure environments. The DevOps engineer needs to prevent developers from introducing open-source libraries with restrictive copyleft licenses (such as GPL or AGPL) into proprietary commercial software.",
     question: "Which architectural approach or configuration satisfies these high-availability and operational resilience objectives?",
     options: [
-      { id: 'A', text: "Assume all packages published on npm and NuGet are in the public domain." },
-      { id: 'B', text: "Allow all open-source licenses without legal review." },
-      { id: 'C', text: "Rely on developers to read the legal license text of every transitive dependency." },
-      { id: 'D', text: "Integrate an automated license compliance scanner (e.g., Snyk, Mend, WhiteSource) into the build pipeline to fail builds on blacklisted license types." }
+      { id: 'A', text: "Add an upstream source in Azure Artifacts and review each package's license as it is promoted." },
+      { id: 'B', text: "Add a dependency vulnerability scan that fails the build on high-severity advisories." },
+      { id: 'C', text: "Add a policy that requires a legal reviewer on any pull request touching the lock file." },
+      { id: 'D', text: "Add a license compliance scan to the build that fails on disallowed license types." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -240,10 +240,10 @@ export const AZURE_AZ400_QUESTIONS_19 = [
     scenario: "A high-throughput enterprise application running on Azure experiences sudden surges in user transactions and requires automated, resilient pipeline execution. The DevOps engineer needs to prevent developers from introducing open-source libraries with restrictive copyleft licenses (such as GPL or AGPL) into proprietary commercial software.",
     question: "Which design pattern or resource configuration manages this workload surge effectively while protecting service stability?",
     options: [
-      { id: 'A', text: "Assume all packages published on npm and NuGet are in the public domain." },
-      { id: 'B', text: "Integrate an automated license compliance scanner (e.g., Snyk, Mend, WhiteSource) into the build pipeline to fail builds on blacklisted license types." },
-      { id: 'C', text: "Allow all open-source licenses without legal review." },
-      { id: 'D', text: "Rely on developers to read the legal license text of every transitive dependency." }
+      { id: 'A', text: "Add an upstream source in Azure Artifacts and review each package's license as it is promoted." },
+      { id: 'B', text: "Add a license compliance scan to the build that fails on disallowed license types." },
+      { id: 'C', text: "Add a dependency vulnerability scan that fails the build on high-severity advisories." },
+      { id: 'D', text: "Add a policy that requires a legal reviewer on any pull request touching the lock file." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -261,10 +261,10 @@ export const AZURE_AZ400_QUESTIONS_19 = [
     scenario: "A security compliance auditor requires strict source code protection, credential isolation, and automated governance verification across all continuous delivery pipelines. The DevOps engineer needs to prevent developers from introducing open-source libraries with restrictive copyleft licenses (such as GPL or AGPL) into proprietary commercial software.",
     question: "Which solution implements these mandatory DevOps security and compliance controls?",
     options: [
-      { id: 'A', text: "Integrate an automated license compliance scanner (e.g., Snyk, Mend, WhiteSource) into the build pipeline to fail builds on blacklisted license types." },
-      { id: 'B', text: "Rely on developers to read the legal license text of every transitive dependency." },
-      { id: 'C', text: "Allow all open-source licenses without legal review." },
-      { id: 'D', text: "Assume all packages published on npm and NuGet are in the public domain." }
+      { id: 'A', text: "Add a license compliance scan to the build that fails on disallowed license types." },
+      { id: 'B', text: "Add a policy that requires a legal reviewer on any pull request touching the lock file." },
+      { id: 'C', text: "Add a dependency vulnerability scan that fails the build on high-severity advisories." },
+      { id: 'D', text: "Add an upstream source in Azure Artifacts and review each package's license as it is promoted." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -282,10 +282,10 @@ export const AZURE_AZ400_QUESTIONS_19 = [
     scenario: "An organization is modernizing legacy on-premises deployment workflows and adopting cloud-native continuous integration and automated testing on Azure. The DevOps engineer needs to prevent developers from introducing open-source libraries with restrictive copyleft licenses (such as GPL or AGPL) into proprietary commercial software.",
     question: "Which architectural pattern or platform feature enables the engineering team to modernize delivery with minimal operational friction?",
     options: [
-      { id: 'A', text: "Assume all packages published on npm and NuGet are in the public domain." },
-      { id: 'B', text: "Rely on developers to read the legal license text of every transitive dependency." },
-      { id: 'C', text: "Integrate an automated license compliance scanner (e.g., Snyk, Mend, WhiteSource) into the build pipeline to fail builds on blacklisted license types." },
-      { id: 'D', text: "Allow all open-source licenses without legal review." }
+      { id: 'A', text: "Add an upstream source in Azure Artifacts and review each package's license as it is promoted." },
+      { id: 'B', text: "Add a policy that requires a legal reviewer on any pull request touching the lock file." },
+      { id: 'C', text: "Add a license compliance scan to the build that fails on disallowed license types." },
+      { id: 'D', text: "Add a dependency vulnerability scan that fails the build on high-severity advisories." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -303,10 +303,10 @@ export const AZURE_AZ400_QUESTIONS_19 = [
     scenario: "An SRE team is optimizing system reliability to eliminate single points of failure, accelerate rollback capabilities, and automate incident response. The DevOps engineer needs to prevent developers from introducing open-source libraries with restrictive copyleft licenses (such as GPL or AGPL) into proprietary commercial software.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
-      { id: 'A', text: "Rely on developers to read the legal license text of every transitive dependency." },
-      { id: 'B', text: "Integrate an automated license compliance scanner (e.g., Snyk, Mend, WhiteSource) into the build pipeline to fail builds on blacklisted license types." },
-      { id: 'C', text: "Assume all packages published on npm and NuGet are in the public domain." },
-      { id: 'D', text: "Allow all open-source licenses without legal review." }
+      { id: 'A', text: "Add a policy that requires a legal reviewer on any pull request touching the lock file." },
+      { id: 'B', text: "Add a license compliance scan to the build that fails on disallowed license types." },
+      { id: 'C', text: "Add an upstream source in Azure Artifacts and review each package's license as it is promoted." },
+      { id: 'D', text: "Add a dependency vulnerability scan that fails the build on high-severity advisories." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -324,10 +324,10 @@ export const AZURE_AZ400_QUESTIONS_19 = [
     scenario: "An enterprise cloud DevOps team is establishing operational continuity standards, zero-downtime deployment patterns, and disaster recovery baselines across Azure environments. The DevOps engineer needs to test a deployed web application in a staging environment for runtime security vulnerabilities (such as SQL injection, XSS, and broken auth).",
     question: "Which architectural approach or configuration satisfies these high-availability and operational resilience objectives?",
     options: [
-      { id: 'A', text: "Integrate an automated Dynamic Application Security Testing (DAST) tool (e.g., OWASP ZAP) into the release pipeline targeting the running staging URL." },
-      { id: 'B', text: "Rely exclusively on static code analysis of raw source files." },
-      { id: 'C', text: "Perform dynamic security testing directly on the live production environment during peak business hours." },
-      { id: 'D', text: "Assume web applications deployed behind firewalls cannot have runtime vulnerabilities." }
+      { id: 'A', text: "Add a DAST scan such as OWASP ZAP to the release pipeline, pointed at the staging URL." },
+      { id: 'B', text: "Add a SAST scan of the source and a secret scan of the repository to the build pipeline." },
+      { id: 'C', text: "Add a container image scan of the deployed tag to the release pipeline before the swap." },
+      { id: 'D', text: "Add a web application firewall in detection mode in front of the staging slot and read its log." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -345,10 +345,10 @@ export const AZURE_AZ400_QUESTIONS_19 = [
     scenario: "A high-throughput enterprise application running on Azure experiences sudden surges in user transactions and requires automated, resilient pipeline execution. The DevOps engineer needs to test a deployed web application in a staging environment for runtime security vulnerabilities (such as SQL injection, XSS, and broken auth).",
     question: "Which design pattern or resource configuration manages this workload surge effectively while protecting service stability?",
     options: [
-      { id: 'A', text: "Integrate an automated Dynamic Application Security Testing (DAST) tool (e.g., OWASP ZAP) into the release pipeline targeting the running staging URL." },
-      { id: 'B', text: "Rely exclusively on static code analysis of raw source files." },
-      { id: 'C', text: "Perform dynamic security testing directly on the live production environment during peak business hours." },
-      { id: 'D', text: "Assume web applications deployed behind firewalls cannot have runtime vulnerabilities." }
+      { id: 'A', text: "Add a DAST scan such as OWASP ZAP to the release pipeline, pointed at the staging URL." },
+      { id: 'B', text: "Add a SAST scan of the source and a secret scan of the repository to the build pipeline." },
+      { id: 'C', text: "Add a container image scan of the deployed tag to the release pipeline before the swap." },
+      { id: 'D', text: "Add a web application firewall in detection mode in front of the staging slot and read its log." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -366,10 +366,10 @@ export const AZURE_AZ400_QUESTIONS_19 = [
     scenario: "A security compliance auditor requires strict source code protection, credential isolation, and automated governance verification across all continuous delivery pipelines. The DevOps engineer needs to test a deployed web application in a staging environment for runtime security vulnerabilities (such as SQL injection, XSS, and broken auth).",
     question: "Which solution implements these mandatory DevOps security and compliance controls?",
     options: [
-      { id: 'A', text: "Assume web applications deployed behind firewalls cannot have runtime vulnerabilities." },
-      { id: 'B', text: "Perform dynamic security testing directly on the live production environment during peak business hours." },
-      { id: 'C', text: "Rely exclusively on static code analysis of raw source files." },
-      { id: 'D', text: "Integrate an automated Dynamic Application Security Testing (DAST) tool (e.g., OWASP ZAP) into the release pipeline targeting the running staging URL." }
+      { id: 'A', text: "Add a web application firewall in detection mode in front of the staging slot and read its log." },
+      { id: 'B', text: "Add a container image scan of the deployed tag to the release pipeline before the swap." },
+      { id: 'C', text: "Add a SAST scan of the source and a secret scan of the repository to the build pipeline." },
+      { id: 'D', text: "Add a DAST scan such as OWASP ZAP to the release pipeline, pointed at the staging URL." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -387,10 +387,10 @@ export const AZURE_AZ400_QUESTIONS_19 = [
     scenario: "An organization is modernizing legacy on-premises deployment workflows and adopting cloud-native continuous integration and automated testing on Azure. The DevOps engineer needs to test a deployed web application in a staging environment for runtime security vulnerabilities (such as SQL injection, XSS, and broken auth).",
     question: "Which architectural pattern or platform feature enables the engineering team to modernize delivery with minimal operational friction?",
     options: [
-      { id: 'A', text: "Integrate an automated Dynamic Application Security Testing (DAST) tool (e.g., OWASP ZAP) into the release pipeline targeting the running staging URL." },
-      { id: 'B', text: "Rely exclusively on static code analysis of raw source files." },
-      { id: 'C', text: "Perform dynamic security testing directly on the live production environment during peak business hours." },
-      { id: 'D', text: "Assume web applications deployed behind firewalls cannot have runtime vulnerabilities." }
+      { id: 'A', text: "Add a DAST scan such as OWASP ZAP to the release pipeline, pointed at the staging URL." },
+      { id: 'B', text: "Add a SAST scan of the source and a secret scan of the repository to the build pipeline." },
+      { id: 'C', text: "Add a container image scan of the deployed tag to the release pipeline before the swap." },
+      { id: 'D', text: "Add a web application firewall in detection mode in front of the staging slot and read its log." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -408,10 +408,10 @@ export const AZURE_AZ400_QUESTIONS_19 = [
     scenario: "An SRE team is optimizing system reliability to eliminate single points of failure, accelerate rollback capabilities, and automate incident response. The DevOps engineer needs to test a deployed web application in a staging environment for runtime security vulnerabilities (such as SQL injection, XSS, and broken auth).",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
-      { id: 'A', text: "Assume web applications deployed behind firewalls cannot have runtime vulnerabilities." },
-      { id: 'B', text: "Integrate an automated Dynamic Application Security Testing (DAST) tool (e.g., OWASP ZAP) into the release pipeline targeting the running staging URL." },
-      { id: 'C', text: "Perform dynamic security testing directly on the live production environment during peak business hours." },
-      { id: 'D', text: "Rely exclusively on static code analysis of raw source files." }
+      { id: 'A', text: "Add a web application firewall in detection mode in front of the staging slot and read its log." },
+      { id: 'B', text: "Add a DAST scan such as OWASP ZAP to the release pipeline, pointed at the staging URL." },
+      { id: 'C', text: "Add a container image scan of the deployed tag to the release pipeline before the swap." },
+      { id: 'D', text: "Add a SAST scan of the source and a secret scan of the repository to the build pipeline." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -429,10 +429,10 @@ export const AZURE_AZ400_QUESTIONS_19 = [
     scenario: "An enterprise cloud DevOps team is establishing operational continuity standards, zero-downtime deployment patterns, and disaster recovery baselines across Azure environments. The DevOps engineer needs to trace user transactions across frontend web applications, backend APIs, and Azure SQL databases to pinpoint intermittent request failures.",
     question: "Which architectural approach or configuration satisfies these high-availability and operational resilience objectives?",
     options: [
-      { id: 'A', text: "Instrument applications with the Application Insights SDK or OpenTelemetry, enabling automated correlation of requests, dependencies, and exceptions." },
-      { id: 'B', text: "Inspect individual VM event viewer logs without request correlation." },
-      { id: 'C', text: "Print timestamps to stdout and attempt to match them manually across distributed servers." },
-      { id: 'D', text: "Restart web servers whenever an exception occurs." }
+      { id: 'A', text: "Instrument the services with the Application Insights SDK so requests and dependencies correlate." },
+      { id: 'B', text: "Enable VM insights on each tier and read the guest performance counters it collects per host." },
+      { id: 'C', text: "Enable diagnostic settings on each resource and join the log tables on their time stamps." },
+      { id: 'D', text: "Enable the Application Insights availability tests and read the failure counts they record." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -450,10 +450,10 @@ export const AZURE_AZ400_QUESTIONS_19 = [
     scenario: "A high-throughput enterprise application running on Azure experiences sudden surges in user transactions and requires automated, resilient pipeline execution. The DevOps engineer needs to trace user transactions across frontend web applications, backend APIs, and Azure SQL databases to pinpoint intermittent request failures.",
     question: "Which design pattern or resource configuration manages this workload surge effectively while protecting service stability?",
     options: [
-      { id: 'A', text: "Restart web servers whenever an exception occurs." },
-      { id: 'B', text: "Instrument applications with the Application Insights SDK or OpenTelemetry, enabling automated correlation of requests, dependencies, and exceptions." },
-      { id: 'C', text: "Print timestamps to stdout and attempt to match them manually across distributed servers." },
-      { id: 'D', text: "Inspect individual VM event viewer logs without request correlation." }
+      { id: 'A', text: "Enable the Application Insights availability tests and read the failure counts they record." },
+      { id: 'B', text: "Instrument the services with the Application Insights SDK so requests and dependencies correlate." },
+      { id: 'C', text: "Enable diagnostic settings on each resource and join the log tables on their time stamps." },
+      { id: 'D', text: "Enable VM insights on each tier and read the guest performance counters it collects per host." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -471,10 +471,10 @@ export const AZURE_AZ400_QUESTIONS_19 = [
     scenario: "A security compliance auditor requires strict source code protection, credential isolation, and automated governance verification across all continuous delivery pipelines. The DevOps engineer needs to trace user transactions across frontend web applications, backend APIs, and Azure SQL databases to pinpoint intermittent request failures.",
     question: "Which solution implements these mandatory DevOps security and compliance controls?",
     options: [
-      { id: 'A', text: "Instrument applications with the Application Insights SDK or OpenTelemetry, enabling automated correlation of requests, dependencies, and exceptions." },
-      { id: 'B', text: "Inspect individual VM event viewer logs without request correlation." },
-      { id: 'C', text: "Print timestamps to stdout and attempt to match them manually across distributed servers." },
-      { id: 'D', text: "Restart web servers whenever an exception occurs." }
+      { id: 'A', text: "Instrument the services with the Application Insights SDK so requests and dependencies correlate." },
+      { id: 'B', text: "Enable VM insights on each tier and read the guest performance counters it collects per host." },
+      { id: 'C', text: "Enable diagnostic settings on each resource and join the log tables on their time stamps." },
+      { id: 'D', text: "Enable the Application Insights availability tests and read the failure counts they record." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -492,10 +492,10 @@ export const AZURE_AZ400_QUESTIONS_19 = [
     scenario: "An organization is modernizing legacy on-premises deployment workflows and adopting cloud-native continuous integration and automated testing on Azure. The DevOps engineer needs to trace user transactions across frontend web applications, backend APIs, and Azure SQL databases to pinpoint intermittent request failures.",
     question: "Which architectural pattern or platform feature enables the engineering team to modernize delivery with minimal operational friction?",
     options: [
-      { id: 'A', text: "Print timestamps to stdout and attempt to match them manually across distributed servers." },
-      { id: 'B', text: "Inspect individual VM event viewer logs without request correlation." },
-      { id: 'C', text: "Restart web servers whenever an exception occurs." },
-      { id: 'D', text: "Instrument applications with the Application Insights SDK or OpenTelemetry, enabling automated correlation of requests, dependencies, and exceptions." }
+      { id: 'A', text: "Enable diagnostic settings on each resource and join the log tables on their time stamps." },
+      { id: 'B', text: "Enable VM insights on each tier and read the guest performance counters it collects per host." },
+      { id: 'C', text: "Enable the Application Insights availability tests and read the failure counts they record." },
+      { id: 'D', text: "Instrument the services with the Application Insights SDK so requests and dependencies correlate." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -513,10 +513,10 @@ export const AZURE_AZ400_QUESTIONS_19 = [
     scenario: "An SRE team is optimizing system reliability to eliminate single points of failure, accelerate rollback capabilities, and automate incident response. The DevOps engineer needs to trace user transactions across frontend web applications, backend APIs, and Azure SQL databases to pinpoint intermittent request failures.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
-      { id: 'A', text: "Instrument applications with the Application Insights SDK or OpenTelemetry, enabling automated correlation of requests, dependencies, and exceptions." },
-      { id: 'B', text: "Inspect individual VM event viewer logs without request correlation." },
-      { id: 'C', text: "Print timestamps to stdout and attempt to match them manually across distributed servers." },
-      { id: 'D', text: "Restart web servers whenever an exception occurs." }
+      { id: 'A', text: "Instrument the services with the Application Insights SDK so requests and dependencies correlate." },
+      { id: 'B', text: "Enable VM insights on each tier and read the guest performance counters it collects per host." },
+      { id: 'C', text: "Enable diagnostic settings on each resource and join the log tables on their time stamps." },
+      { id: 'D', text: "Enable the Application Insights availability tests and read the failure counts they record." }
     ],
     correctAnswers: ['A'],
     type: "single",

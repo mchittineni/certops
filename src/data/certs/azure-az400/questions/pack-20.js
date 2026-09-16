@@ -9,10 +9,10 @@ export const AZURE_AZ400_QUESTIONS_20 = [
     scenario: "An enterprise cloud DevOps team is establishing operational continuity standards, zero-downtime deployment patterns, and disaster recovery baselines across Azure environments. The DevOps engineer needs to query and analyze millions of log records across virtual machines, containers, and databases to identify performance trends and error rates.",
     question: "Which architectural approach or configuration satisfies these high-availability and operational resilience objectives?",
     options: [
-      { id: 'A', text: "Centralize logs in an Azure Monitor Log Analytics workspace and execute analytical queries using Kusto Query Language (KQL)." },
-      { id: 'B', text: "Store logs in ephemeral container storage without centralized collection." },
-      { id: 'C', text: "Download raw log text files to local laptops and run grep commands." },
-      { id: 'D', text: "Query production SQL databases directly for operational logs." }
+      { id: 'A', text: "Send the logs to a Log Analytics workspace and query them across resources with KQL." },
+      { id: 'B', text: "Send the logs to an Event Hub and query them from a consumer group as they arrive." },
+      { id: 'C', text: "Send the logs to a storage account and query the blobs with an on-demand Data Explorer pool." },
+      { id: 'D', text: "Send the logs to Application Insights and read the per-resource metrics it aggregates." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -30,10 +30,10 @@ export const AZURE_AZ400_QUESTIONS_20 = [
     scenario: "A high-throughput enterprise application running on Azure experiences sudden surges in user transactions and requires automated, resilient pipeline execution. The DevOps engineer needs to query and analyze millions of log records across virtual machines, containers, and databases to identify performance trends and error rates.",
     question: "Which design pattern or resource configuration manages this workload surge effectively while protecting service stability?",
     options: [
-      { id: 'A', text: "Centralize logs in an Azure Monitor Log Analytics workspace and execute analytical queries using Kusto Query Language (KQL)." },
-      { id: 'B', text: "Download raw log text files to local laptops and run grep commands." },
-      { id: 'C', text: "Query production SQL databases directly for operational logs." },
-      { id: 'D', text: "Store logs in ephemeral container storage without centralized collection." }
+      { id: 'A', text: "Send the logs to a Log Analytics workspace and query them across resources with KQL." },
+      { id: 'B', text: "Send the logs to a storage account and query the blobs with an on-demand Data Explorer pool." },
+      { id: 'C', text: "Send the logs to Application Insights and read the per-resource metrics it aggregates." },
+      { id: 'D', text: "Send the logs to an Event Hub and query them from a consumer group as they arrive." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -51,10 +51,10 @@ export const AZURE_AZ400_QUESTIONS_20 = [
     scenario: "A security compliance auditor requires strict source code protection, credential isolation, and automated governance verification across all continuous delivery pipelines. The DevOps engineer needs to query and analyze millions of log records across virtual machines, containers, and databases to identify performance trends and error rates.",
     question: "Which solution implements these mandatory DevOps security and compliance controls?",
     options: [
-      { id: 'A', text: "Store logs in ephemeral container storage without centralized collection." },
-      { id: 'B', text: "Query production SQL databases directly for operational logs." },
-      { id: 'C', text: "Download raw log text files to local laptops and run grep commands." },
-      { id: 'D', text: "Centralize logs in an Azure Monitor Log Analytics workspace and execute analytical queries using Kusto Query Language (KQL)." }
+      { id: 'A', text: "Send the logs to an Event Hub and query them from a consumer group as they arrive." },
+      { id: 'B', text: "Send the logs to Application Insights and read the per-resource metrics it aggregates." },
+      { id: 'C', text: "Send the logs to a storage account and query the blobs with an on-demand Data Explorer pool." },
+      { id: 'D', text: "Send the logs to a Log Analytics workspace and query them across resources with KQL." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -72,10 +72,10 @@ export const AZURE_AZ400_QUESTIONS_20 = [
     scenario: "An organization is modernizing legacy on-premises deployment workflows and adopting cloud-native continuous integration and automated testing on Azure. The DevOps engineer needs to query and analyze millions of log records across virtual machines, containers, and databases to identify performance trends and error rates.",
     question: "Which architectural pattern or platform feature enables the engineering team to modernize delivery with minimal operational friction?",
     options: [
-      { id: 'A', text: "Centralize logs in an Azure Monitor Log Analytics workspace and execute analytical queries using Kusto Query Language (KQL)." },
-      { id: 'B', text: "Download raw log text files to local laptops and run grep commands." },
-      { id: 'C', text: "Query production SQL databases directly for operational logs." },
-      { id: 'D', text: "Store logs in ephemeral container storage without centralized collection." }
+      { id: 'A', text: "Send the logs to a Log Analytics workspace and query them across resources with KQL." },
+      { id: 'B', text: "Send the logs to a storage account and query the blobs with an on-demand Data Explorer pool." },
+      { id: 'C', text: "Send the logs to Application Insights and read the per-resource metrics it aggregates." },
+      { id: 'D', text: "Send the logs to an Event Hub and query them from a consumer group as they arrive." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -93,10 +93,10 @@ export const AZURE_AZ400_QUESTIONS_20 = [
     scenario: "An SRE team is optimizing system reliability to eliminate single points of failure, accelerate rollback capabilities, and automate incident response. The DevOps engineer needs to query and analyze millions of log records across virtual machines, containers, and databases to identify performance trends and error rates.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
-      { id: 'A', text: "Download raw log text files to local laptops and run grep commands." },
-      { id: 'B', text: "Query production SQL databases directly for operational logs." },
-      { id: 'C', text: "Centralize logs in an Azure Monitor Log Analytics workspace and execute analytical queries using Kusto Query Language (KQL)." },
-      { id: 'D', text: "Store logs in ephemeral container storage without centralized collection." }
+      { id: 'A', text: "Send the logs to a storage account and query the blobs with an on-demand Data Explorer pool." },
+      { id: 'B', text: "Send the logs to Application Insights and read the per-resource metrics it aggregates." },
+      { id: 'C', text: "Send the logs to a Log Analytics workspace and query them across resources with KQL." },
+      { id: 'D', text: "Send the logs to an Event Hub and query them from a consumer group as they arrive." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -114,10 +114,10 @@ export const AZURE_AZ400_QUESTIONS_20 = [
     scenario: "An enterprise cloud DevOps team is establishing operational continuity standards, zero-downtime deployment patterns, and disaster recovery baselines across Azure environments. The DevOps engineer needs to automatically notify the on-call engineer and invoke an automated scaling runbook when application response times exceed 2 seconds for 5 consecutive minutes.",
     question: "Which architectural approach or configuration satisfies these high-availability and operational resilience objectives?",
     options: [
-      { id: 'A', text: "Disable alerts whenever application response times degrade." },
-      { id: 'B', text: "Create an Azure Monitor Metric Alert rule and link it to an Action Group configured with SMS/email notifications and an Azure Automation webhook." },
-      { id: 'C', text: "Send alert emails to an unmonitored generic mailbox." },
-      { id: 'D', text: "Configure on-call engineers to manually watch dashboard charts continuously." }
+      { id: 'A', text: "Create an Azure Monitor activity log alert bound to an action group with SMS and email notifications." },
+      { id: 'B', text: "Create an Azure Monitor metric alert bound to an action group with SMS, email and an Automation webhook." },
+      { id: 'C', text: "Create an autoscale rule on the response-time metric and let the scale event raise its own notice." },
+      { id: 'D', text: "Create a workbook that charts the response-time percentile and pin it to the on-call team dashboard." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -135,10 +135,10 @@ export const AZURE_AZ400_QUESTIONS_20 = [
     scenario: "A high-throughput enterprise application running on Azure experiences sudden surges in user transactions and requires automated, resilient pipeline execution. The DevOps engineer needs to automatically notify the on-call engineer and invoke an automated scaling runbook when application response times exceed 2 seconds for 5 consecutive minutes.",
     question: "Which design pattern or resource configuration manages this workload surge effectively while protecting service stability?",
     options: [
-      { id: 'A', text: "Create an Azure Monitor Metric Alert rule and link it to an Action Group configured with SMS/email notifications and an Azure Automation webhook." },
-      { id: 'B', text: "Configure on-call engineers to manually watch dashboard charts continuously." },
-      { id: 'C', text: "Send alert emails to an unmonitored generic mailbox." },
-      { id: 'D', text: "Disable alerts whenever application response times degrade." }
+      { id: 'A', text: "Create an Azure Monitor metric alert bound to an action group with SMS, email and an Automation webhook." },
+      { id: 'B', text: "Create a workbook that charts the response-time percentile and pin it to the on-call team dashboard." },
+      { id: 'C', text: "Create an autoscale rule on the response-time metric and let the scale event raise its own notice." },
+      { id: 'D', text: "Create an Azure Monitor activity log alert bound to an action group with SMS and email notifications." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -156,10 +156,10 @@ export const AZURE_AZ400_QUESTIONS_20 = [
     scenario: "A security compliance auditor requires strict source code protection, credential isolation, and automated governance verification across all continuous delivery pipelines. The DevOps engineer needs to automatically notify the on-call engineer and invoke an automated scaling runbook when application response times exceed 2 seconds for 5 consecutive minutes.",
     question: "Which solution implements these mandatory DevOps security and compliance controls?",
     options: [
-      { id: 'A', text: "Create an Azure Monitor Metric Alert rule and link it to an Action Group configured with SMS/email notifications and an Azure Automation webhook." },
-      { id: 'B', text: "Configure on-call engineers to manually watch dashboard charts continuously." },
-      { id: 'C', text: "Send alert emails to an unmonitored generic mailbox." },
-      { id: 'D', text: "Disable alerts whenever application response times degrade." }
+      { id: 'A', text: "Create an Azure Monitor metric alert bound to an action group with SMS, email and an Automation webhook." },
+      { id: 'B', text: "Create a workbook that charts the response-time percentile and pin it to the on-call team dashboard." },
+      { id: 'C', text: "Create an autoscale rule on the response-time metric and let the scale event raise its own notice." },
+      { id: 'D', text: "Create an Azure Monitor activity log alert bound to an action group with SMS and email notifications." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -177,10 +177,10 @@ export const AZURE_AZ400_QUESTIONS_20 = [
     scenario: "An organization is modernizing legacy on-premises deployment workflows and adopting cloud-native continuous integration and automated testing on Azure. The DevOps engineer needs to automatically notify the on-call engineer and invoke an automated scaling runbook when application response times exceed 2 seconds for 5 consecutive minutes.",
     question: "Which architectural pattern or platform feature enables the engineering team to modernize delivery with minimal operational friction?",
     options: [
-      { id: 'A', text: "Disable alerts whenever application response times degrade." },
-      { id: 'B', text: "Configure on-call engineers to manually watch dashboard charts continuously." },
-      { id: 'C', text: "Create an Azure Monitor Metric Alert rule and link it to an Action Group configured with SMS/email notifications and an Azure Automation webhook." },
-      { id: 'D', text: "Send alert emails to an unmonitored generic mailbox." }
+      { id: 'A', text: "Create an Azure Monitor activity log alert bound to an action group with SMS and email notifications." },
+      { id: 'B', text: "Create a workbook that charts the response-time percentile and pin it to the on-call team dashboard." },
+      { id: 'C', text: "Create an Azure Monitor metric alert bound to an action group with SMS, email and an Automation webhook." },
+      { id: 'D', text: "Create an autoscale rule on the response-time metric and let the scale event raise its own notice." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -198,10 +198,10 @@ export const AZURE_AZ400_QUESTIONS_20 = [
     scenario: "An SRE team is optimizing system reliability to eliminate single points of failure, accelerate rollback capabilities, and automate incident response. The DevOps engineer needs to automatically notify the on-call engineer and invoke an automated scaling runbook when application response times exceed 2 seconds for 5 consecutive minutes.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
-      { id: 'A', text: "Create an Azure Monitor Metric Alert rule and link it to an Action Group configured with SMS/email notifications and an Azure Automation webhook." },
-      { id: 'B', text: "Configure on-call engineers to manually watch dashboard charts continuously." },
-      { id: 'C', text: "Send alert emails to an unmonitored generic mailbox." },
-      { id: 'D', text: "Disable alerts whenever application response times degrade." }
+      { id: 'A', text: "Create an Azure Monitor metric alert bound to an action group with SMS, email and an Automation webhook." },
+      { id: 'B', text: "Create a workbook that charts the response-time percentile and pin it to the on-call team dashboard." },
+      { id: 'C', text: "Create an autoscale rule on the response-time metric and let the scale event raise its own notice." },
+      { id: 'D', text: "Create an Azure Monitor activity log alert bound to an action group with SMS and email notifications." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -219,10 +219,10 @@ export const AZURE_AZ400_QUESTIONS_20 = [
     scenario: "An enterprise cloud DevOps team is establishing operational continuity standards, zero-downtime deployment patterns, and disaster recovery baselines across Azure environments. The DevOps engineer needs to verify that a public web portal is reachable and responding within acceptable latency limits from five geographic locations worldwide 24/7.",
     question: "Which architectural approach or configuration satisfies these high-availability and operational resilience objectives?",
     options: [
-      { id: 'A', text: "Configure Application Insights Standard Availability Tests originating from multiple geographic regions with URL ping and certificate validation." },
-      { id: 'B', text: "Wait for public customer complaints on social media to learn about regional outages." },
-      { id: 'C', text: "Test the portal manually once a month from the company headquarters." },
-      { id: 'D', text: "Rely on internal network pings executed from within the same virtual network." }
+      { id: 'A', text: "Configure Application Insights standard availability tests from five regions with certificate checks." },
+      { id: 'B', text: "Configure Application Insights custom availability tests submitted from the build agent hourly." },
+      { id: 'C', text: "Configure an Azure Monitor metric alert on the portal's own server response time metric." },
+      { id: 'D', text: "Configure Azure Traffic Manager endpoint monitoring and alert when a region is marked degraded." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -240,10 +240,10 @@ export const AZURE_AZ400_QUESTIONS_20 = [
     scenario: "A high-throughput enterprise application running on Azure experiences sudden surges in user transactions and requires automated, resilient pipeline execution. The DevOps engineer needs to verify that a public web portal is reachable and responding within acceptable latency limits from five geographic locations worldwide 24/7.",
     question: "Which design pattern or resource configuration manages this workload surge effectively while protecting service stability?",
     options: [
-      { id: 'A', text: "Configure Application Insights Standard Availability Tests originating from multiple geographic regions with URL ping and certificate validation." },
-      { id: 'B', text: "Rely on internal network pings executed from within the same virtual network." },
-      { id: 'C', text: "Wait for public customer complaints on social media to learn about regional outages." },
-      { id: 'D', text: "Test the portal manually once a month from the company headquarters." }
+      { id: 'A', text: "Configure Application Insights standard availability tests from five regions with certificate checks." },
+      { id: 'B', text: "Configure Azure Traffic Manager endpoint monitoring and alert when a region is marked degraded." },
+      { id: 'C', text: "Configure Application Insights custom availability tests submitted from the build agent hourly." },
+      { id: 'D', text: "Configure an Azure Monitor metric alert on the portal's own server response time metric." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -261,10 +261,10 @@ export const AZURE_AZ400_QUESTIONS_20 = [
     scenario: "A security compliance auditor requires strict source code protection, credential isolation, and automated governance verification across all continuous delivery pipelines. The DevOps engineer needs to verify that a public web portal is reachable and responding within acceptable latency limits from five geographic locations worldwide 24/7.",
     question: "Which solution implements these mandatory DevOps security and compliance controls?",
     options: [
-      { id: 'A', text: "Configure Application Insights Standard Availability Tests originating from multiple geographic regions with URL ping and certificate validation." },
-      { id: 'B', text: "Rely on internal network pings executed from within the same virtual network." },
-      { id: 'C', text: "Wait for public customer complaints on social media to learn about regional outages." },
-      { id: 'D', text: "Test the portal manually once a month from the company headquarters." }
+      { id: 'A', text: "Configure Application Insights standard availability tests from five regions with certificate checks." },
+      { id: 'B', text: "Configure Azure Traffic Manager endpoint monitoring and alert when a region is marked degraded." },
+      { id: 'C', text: "Configure Application Insights custom availability tests submitted from the build agent hourly." },
+      { id: 'D', text: "Configure an Azure Monitor metric alert on the portal's own server response time metric." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -282,10 +282,10 @@ export const AZURE_AZ400_QUESTIONS_20 = [
     scenario: "An organization is modernizing legacy on-premises deployment workflows and adopting cloud-native continuous integration and automated testing on Azure. The DevOps engineer needs to verify that a public web portal is reachable and responding within acceptable latency limits from five geographic locations worldwide 24/7.",
     question: "Which architectural pattern or platform feature enables the engineering team to modernize delivery with minimal operational friction?",
     options: [
-      { id: 'A', text: "Wait for public customer complaints on social media to learn about regional outages." },
-      { id: 'B', text: "Test the portal manually once a month from the company headquarters." },
-      { id: 'C', text: "Configure Application Insights Standard Availability Tests originating from multiple geographic regions with URL ping and certificate validation." },
-      { id: 'D', text: "Rely on internal network pings executed from within the same virtual network." }
+      { id: 'A', text: "Configure Application Insights custom availability tests submitted from the build agent hourly." },
+      { id: 'B', text: "Configure an Azure Monitor metric alert on the portal's own server response time metric." },
+      { id: 'C', text: "Configure Application Insights standard availability tests from five regions with certificate checks." },
+      { id: 'D', text: "Configure Azure Traffic Manager endpoint monitoring and alert when a region is marked degraded." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -303,10 +303,10 @@ export const AZURE_AZ400_QUESTIONS_20 = [
     scenario: "An SRE team is optimizing system reliability to eliminate single points of failure, accelerate rollback capabilities, and automate incident response. The DevOps engineer needs to verify that a public web portal is reachable and responding within acceptable latency limits from five geographic locations worldwide 24/7.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
-      { id: 'A', text: "Wait for public customer complaints on social media to learn about regional outages." },
-      { id: 'B', text: "Rely on internal network pings executed from within the same virtual network." },
-      { id: 'C', text: "Test the portal manually once a month from the company headquarters." },
-      { id: 'D', text: "Configure Application Insights Standard Availability Tests originating from multiple geographic regions with URL ping and certificate validation." }
+      { id: 'A', text: "Configure Application Insights custom availability tests submitted from the build agent hourly." },
+      { id: 'B', text: "Configure Azure Traffic Manager endpoint monitoring and alert when a region is marked degraded." },
+      { id: 'C', text: "Configure an Azure Monitor metric alert on the portal's own server response time metric." },
+      { id: 'D', text: "Configure Application Insights standard availability tests from five regions with certificate checks." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -324,10 +324,10 @@ export const AZURE_AZ400_QUESTIONS_20 = [
     scenario: "An enterprise cloud DevOps team is establishing operational continuity standards, zero-downtime deployment patterns, and disaster recovery baselines across Azure environments. The DevOps engineer needs to track whether a customer-facing payment microservice satisfies its agreed 99.9% monthly availability Service Level Objective (SLO).",
     question: "Which architectural approach or configuration satisfies these high-availability and operational resilience objectives?",
     options: [
-      { id: 'A', text: "Assume the service is 100% available unless an engineer reports a bug." },
-      { id: 'B', text: "Calculate availability by counting customer support tickets filed per month." },
-      { id: 'C', text: "Define the Service Level Indicator (SLI) as successful requests divided by total requests using KQL, and track error budget consumption in Azure Monitor workbooks." },
-      { id: 'D', text: "Measure server CPU utilization as the sole metric for user availability." }
+      { id: 'A', text: "Define the SLI as the availability figure the Azure status page publishes for the region each month." },
+      { id: 'B', text: "Define the SLI as the mean response time of the App Service, alerting when it drifts above baseline." },
+      { id: 'C', text: "Define the SLI in KQL as successful requests over total requests, and burn down the error budget in a workbook." },
+      { id: 'D', text: "Define the SLI as the fraction of five-minute windows in which host CPU stayed under 80 percent." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -345,10 +345,10 @@ export const AZURE_AZ400_QUESTIONS_20 = [
     scenario: "A high-throughput enterprise application running on Azure experiences sudden surges in user transactions and requires automated, resilient pipeline execution. The DevOps engineer needs to track whether a customer-facing payment microservice satisfies its agreed 99.9% monthly availability Service Level Objective (SLO).",
     question: "Which design pattern or resource configuration manages this workload surge effectively while protecting service stability?",
     options: [
-      { id: 'A', text: "Define the Service Level Indicator (SLI) as successful requests divided by total requests using KQL, and track error budget consumption in Azure Monitor workbooks." },
-      { id: 'B', text: "Assume the service is 100% available unless an engineer reports a bug." },
-      { id: 'C', text: "Calculate availability by counting customer support tickets filed per month." },
-      { id: 'D', text: "Measure server CPU utilization as the sole metric for user availability." }
+      { id: 'A', text: "Define the SLI in KQL as successful requests over total requests, and burn down the error budget in a workbook." },
+      { id: 'B', text: "Define the SLI as the availability figure the Azure status page publishes for the region each month." },
+      { id: 'C', text: "Define the SLI as the mean response time of the App Service, alerting when it drifts above baseline." },
+      { id: 'D', text: "Define the SLI as the fraction of five-minute windows in which host CPU stayed under 80 percent." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -366,10 +366,10 @@ export const AZURE_AZ400_QUESTIONS_20 = [
     scenario: "A security compliance auditor requires strict source code protection, credential isolation, and automated governance verification across all continuous delivery pipelines. The DevOps engineer needs to track whether a customer-facing payment microservice satisfies its agreed 99.9% monthly availability Service Level Objective (SLO).",
     question: "Which solution implements these mandatory DevOps security and compliance controls?",
     options: [
-      { id: 'A', text: "Define the Service Level Indicator (SLI) as successful requests divided by total requests using KQL, and track error budget consumption in Azure Monitor workbooks." },
-      { id: 'B', text: "Measure server CPU utilization as the sole metric for user availability." },
-      { id: 'C', text: "Assume the service is 100% available unless an engineer reports a bug." },
-      { id: 'D', text: "Calculate availability by counting customer support tickets filed per month." }
+      { id: 'A', text: "Define the SLI in KQL as successful requests over total requests, and burn down the error budget in a workbook." },
+      { id: 'B', text: "Define the SLI as the fraction of five-minute windows in which host CPU stayed under 80 percent." },
+      { id: 'C', text: "Define the SLI as the availability figure the Azure status page publishes for the region each month." },
+      { id: 'D', text: "Define the SLI as the mean response time of the App Service, alerting when it drifts above baseline." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -387,10 +387,10 @@ export const AZURE_AZ400_QUESTIONS_20 = [
     scenario: "An organization is modernizing legacy on-premises deployment workflows and adopting cloud-native continuous integration and automated testing on Azure. The DevOps engineer needs to track whether a customer-facing payment microservice satisfies its agreed 99.9% monthly availability Service Level Objective (SLO).",
     question: "Which architectural pattern or platform feature enables the engineering team to modernize delivery with minimal operational friction?",
     options: [
-      { id: 'A', text: "Calculate availability by counting customer support tickets filed per month." },
-      { id: 'B', text: "Define the Service Level Indicator (SLI) as successful requests divided by total requests using KQL, and track error budget consumption in Azure Monitor workbooks." },
-      { id: 'C', text: "Assume the service is 100% available unless an engineer reports a bug." },
-      { id: 'D', text: "Measure server CPU utilization as the sole metric for user availability." }
+      { id: 'A', text: "Define the SLI as the mean response time of the App Service, alerting when it drifts above baseline." },
+      { id: 'B', text: "Define the SLI in KQL as successful requests over total requests, and burn down the error budget in a workbook." },
+      { id: 'C', text: "Define the SLI as the availability figure the Azure status page publishes for the region each month." },
+      { id: 'D', text: "Define the SLI as the fraction of five-minute windows in which host CPU stayed under 80 percent." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -408,10 +408,10 @@ export const AZURE_AZ400_QUESTIONS_20 = [
     scenario: "An SRE team is optimizing system reliability to eliminate single points of failure, accelerate rollback capabilities, and automate incident response. The DevOps engineer needs to track whether a customer-facing payment microservice satisfies its agreed 99.9% monthly availability Service Level Objective (SLO).",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
-      { id: 'A', text: "Define the Service Level Indicator (SLI) as successful requests divided by total requests using KQL, and track error budget consumption in Azure Monitor workbooks." },
-      { id: 'B', text: "Measure server CPU utilization as the sole metric for user availability." },
-      { id: 'C', text: "Assume the service is 100% available unless an engineer reports a bug." },
-      { id: 'D', text: "Calculate availability by counting customer support tickets filed per month." }
+      { id: 'A', text: "Define the SLI in KQL as successful requests over total requests, and burn down the error budget in a workbook." },
+      { id: 'B', text: "Define the SLI as the fraction of five-minute windows in which host CPU stayed under 80 percent." },
+      { id: 'C', text: "Define the SLI as the availability figure the Azure status page publishes for the region each month." },
+      { id: 'D', text: "Define the SLI as the mean response time of the App Service, alerting when it drifts above baseline." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -429,10 +429,10 @@ export const AZURE_AZ400_QUESTIONS_20 = [
     scenario: "An enterprise cloud DevOps team is establishing operational continuity standards, zero-downtime deployment patterns, and disaster recovery baselines across Azure environments. The DevOps engineer needs to consolidate metrics, logs, and alert states from multiple Azure subscriptions into an interactive, visual troubleshooting dashboard for operations teams.",
     question: "Which architectural approach or configuration satisfies these high-availability and operational resilience objectives?",
     options: [
-      { id: 'A', text: "Author an Azure Monitor Workbook combining KQL queries, metric visualizations, and interactive dropdown parameters." },
-      { id: 'B', text: "Take screenshots of individual resource graphs and paste them into Word documents." },
-      { id: 'C', text: "Ask operations engineers to log in to each individual resource blade manually." },
-      { id: 'D', text: "Rely on external third-party proprietary software for basic Azure resource views." }
+      { id: 'A', text: "Author an Azure Monitor workbook with KQL queries, metric charts and dropdown parameters." },
+      { id: 'B', text: "Author an Azure dashboard pinning each subscription's metric charts into a shared tile set." },
+      { id: 'C', text: "Author a Grafana instance fed by the Azure Monitor data source, one folder per subscription." },
+      { id: 'D', text: "Author a Log Analytics saved search per subscription and read the results side by side." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -450,10 +450,10 @@ export const AZURE_AZ400_QUESTIONS_20 = [
     scenario: "A high-throughput enterprise application running on Azure experiences sudden surges in user transactions and requires automated, resilient pipeline execution. The DevOps engineer needs to consolidate metrics, logs, and alert states from multiple Azure subscriptions into an interactive, visual troubleshooting dashboard for operations teams.",
     question: "Which design pattern or resource configuration manages this workload surge effectively while protecting service stability?",
     options: [
-      { id: 'A', text: "Author an Azure Monitor Workbook combining KQL queries, metric visualizations, and interactive dropdown parameters." },
-      { id: 'B', text: "Take screenshots of individual resource graphs and paste them into Word documents." },
-      { id: 'C', text: "Ask operations engineers to log in to each individual resource blade manually." },
-      { id: 'D', text: "Rely on external third-party proprietary software for basic Azure resource views." }
+      { id: 'A', text: "Author an Azure Monitor workbook with KQL queries, metric charts and dropdown parameters." },
+      { id: 'B', text: "Author an Azure dashboard pinning each subscription's metric charts into a shared tile set." },
+      { id: 'C', text: "Author a Grafana instance fed by the Azure Monitor data source, one folder per subscription." },
+      { id: 'D', text: "Author a Log Analytics saved search per subscription and read the results side by side." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -471,10 +471,10 @@ export const AZURE_AZ400_QUESTIONS_20 = [
     scenario: "A security compliance auditor requires strict source code protection, credential isolation, and automated governance verification across all continuous delivery pipelines. The DevOps engineer needs to consolidate metrics, logs, and alert states from multiple Azure subscriptions into an interactive, visual troubleshooting dashboard for operations teams.",
     question: "Which solution implements these mandatory DevOps security and compliance controls?",
     options: [
-      { id: 'A', text: "Rely on external third-party proprietary software for basic Azure resource views." },
-      { id: 'B', text: "Author an Azure Monitor Workbook combining KQL queries, metric visualizations, and interactive dropdown parameters." },
-      { id: 'C', text: "Ask operations engineers to log in to each individual resource blade manually." },
-      { id: 'D', text: "Take screenshots of individual resource graphs and paste them into Word documents." }
+      { id: 'A', text: "Author a Log Analytics saved search per subscription and read the results side by side." },
+      { id: 'B', text: "Author an Azure Monitor workbook with KQL queries, metric charts and dropdown parameters." },
+      { id: 'C', text: "Author a Grafana instance fed by the Azure Monitor data source, one folder per subscription." },
+      { id: 'D', text: "Author an Azure dashboard pinning each subscription's metric charts into a shared tile set." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -492,10 +492,10 @@ export const AZURE_AZ400_QUESTIONS_20 = [
     scenario: "An organization is modernizing legacy on-premises deployment workflows and adopting cloud-native continuous integration and automated testing on Azure. The DevOps engineer needs to consolidate metrics, logs, and alert states from multiple Azure subscriptions into an interactive, visual troubleshooting dashboard for operations teams.",
     question: "Which architectural pattern or platform feature enables the engineering team to modernize delivery with minimal operational friction?",
     options: [
-      { id: 'A', text: "Author an Azure Monitor Workbook combining KQL queries, metric visualizations, and interactive dropdown parameters." },
-      { id: 'B', text: "Take screenshots of individual resource graphs and paste them into Word documents." },
-      { id: 'C', text: "Ask operations engineers to log in to each individual resource blade manually." },
-      { id: 'D', text: "Rely on external third-party proprietary software for basic Azure resource views." }
+      { id: 'A', text: "Author an Azure Monitor workbook with KQL queries, metric charts and dropdown parameters." },
+      { id: 'B', text: "Author an Azure dashboard pinning each subscription's metric charts into a shared tile set." },
+      { id: 'C', text: "Author a Grafana instance fed by the Azure Monitor data source, one folder per subscription." },
+      { id: 'D', text: "Author a Log Analytics saved search per subscription and read the results side by side." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -513,10 +513,10 @@ export const AZURE_AZ400_QUESTIONS_20 = [
     scenario: "An SRE team is optimizing system reliability to eliminate single points of failure, accelerate rollback capabilities, and automate incident response. The DevOps engineer needs to consolidate metrics, logs, and alert states from multiple Azure subscriptions into an interactive, visual troubleshooting dashboard for operations teams.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
-      { id: 'A', text: "Author an Azure Monitor Workbook combining KQL queries, metric visualizations, and interactive dropdown parameters." },
-      { id: 'B', text: "Take screenshots of individual resource graphs and paste them into Word documents." },
-      { id: 'C', text: "Ask operations engineers to log in to each individual resource blade manually." },
-      { id: 'D', text: "Rely on external third-party proprietary software for basic Azure resource views." }
+      { id: 'A', text: "Author an Azure Monitor workbook with KQL queries, metric charts and dropdown parameters." },
+      { id: 'B', text: "Author an Azure dashboard pinning each subscription's metric charts into a shared tile set." },
+      { id: 'C', text: "Author a Grafana instance fed by the Azure Monitor data source, one folder per subscription." },
+      { id: 'D', text: "Author a Log Analytics saved search per subscription and read the results side by side." }
     ],
     correctAnswers: ['A'],
     type: "single",

@@ -9,10 +9,10 @@ export const AZURE_AZ400_QUESTIONS_16 = [
     scenario: "An enterprise cloud DevOps team is establishing operational continuity standards, zero-downtime deployment patterns, and disaster recovery baselines across Azure environments. The DevOps engineer needs to authenticate an Azure DevOps pipeline to deploy resources into an Azure subscription without managing or rotating client secret passwords.",
     question: "Which architectural approach or configuration satisfies these high-availability and operational resilience objectives?",
     options: [
-      { id: 'A', text: "Configure an Azure Resource Manager Service Connection using Workload Identity Federation (OIDC) with Microsoft Entra ID." },
-      { id: 'B', text: "Create a Service Principal with a permanent client secret and never rotate the password." },
-      { id: 'C', text: "Use a service principal holding Owner on the whole subscription." },
-      { id: 'D', text: "Disable authentication on the Azure Resource Manager API." }
+      { id: 'A', text: "Use an ARM service connection with workload identity federation against Entra ID." },
+      { id: 'B', text: "Use an ARM service connection with a managed identity assigned to the hosted agent pool." },
+      { id: 'C', text: "Use an ARM service connection with a service principal and a Key Vault-stored secret." },
+      { id: 'D', text: "Use an ARM service connection with a certificate credential renewed by a scheduled job." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -30,10 +30,10 @@ export const AZURE_AZ400_QUESTIONS_16 = [
     scenario: "A high-throughput enterprise application running on Azure experiences sudden surges in user transactions and requires automated, resilient pipeline execution. The DevOps engineer needs to authenticate an Azure DevOps pipeline to deploy resources into an Azure subscription without managing or rotating client secret passwords.",
     question: "Which design pattern or resource configuration manages this workload surge effectively while protecting service stability?",
     options: [
-      { id: 'A', text: "Use a service principal holding Owner on the whole subscription." },
-      { id: 'B', text: "Disable authentication on the Azure Resource Manager API." },
-      { id: 'C', text: "Configure an Azure Resource Manager Service Connection using Workload Identity Federation (OIDC) with Microsoft Entra ID." },
-      { id: 'D', text: "Create a Service Principal with a permanent client secret and never rotate the password." }
+      { id: 'A', text: "Use an ARM service connection with a service principal and a Key Vault-stored secret." },
+      { id: 'B', text: "Use an ARM service connection with a certificate credential renewed by a scheduled job." },
+      { id: 'C', text: "Use an ARM service connection with workload identity federation against Entra ID." },
+      { id: 'D', text: "Use an ARM service connection with a managed identity assigned to the hosted agent pool." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -51,10 +51,10 @@ export const AZURE_AZ400_QUESTIONS_16 = [
     scenario: "A security compliance auditor requires strict source code protection, credential isolation, and automated governance verification across all continuous delivery pipelines. The DevOps engineer needs to authenticate an Azure DevOps pipeline to deploy resources into an Azure subscription without managing or rotating client secret passwords.",
     question: "Which solution implements these mandatory DevOps security and compliance controls?",
     options: [
-      { id: 'A', text: "Configure an Azure Resource Manager Service Connection using Workload Identity Federation (OIDC) with Microsoft Entra ID." },
-      { id: 'B', text: "Create a Service Principal with a permanent client secret and never rotate the password." },
-      { id: 'C', text: "Use a service principal holding Owner on the whole subscription." },
-      { id: 'D', text: "Disable authentication on the Azure Resource Manager API." }
+      { id: 'A', text: "Use an ARM service connection with workload identity federation against Entra ID." },
+      { id: 'B', text: "Use an ARM service connection with a managed identity assigned to the hosted agent pool." },
+      { id: 'C', text: "Use an ARM service connection with a service principal and a Key Vault-stored secret." },
+      { id: 'D', text: "Use an ARM service connection with a certificate credential renewed by a scheduled job." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -72,10 +72,10 @@ export const AZURE_AZ400_QUESTIONS_16 = [
     scenario: "An organization is modernizing legacy on-premises deployment workflows and adopting cloud-native continuous integration and automated testing on Azure. The DevOps engineer needs to authenticate an Azure DevOps pipeline to deploy resources into an Azure subscription without managing or rotating client secret passwords.",
     question: "Which architectural pattern or platform feature enables the engineering team to modernize delivery with minimal operational friction?",
     options: [
-      { id: 'A', text: "Configure an Azure Resource Manager Service Connection using Workload Identity Federation (OIDC) with Microsoft Entra ID." },
-      { id: 'B', text: "Create a Service Principal with a permanent client secret and never rotate the password." },
-      { id: 'C', text: "Use a service principal holding Owner on the whole subscription." },
-      { id: 'D', text: "Disable authentication on the Azure Resource Manager API." }
+      { id: 'A', text: "Use an ARM service connection with workload identity federation against Entra ID." },
+      { id: 'B', text: "Use an ARM service connection with a managed identity assigned to the hosted agent pool." },
+      { id: 'C', text: "Use an ARM service connection with a service principal and a Key Vault-stored secret." },
+      { id: 'D', text: "Use an ARM service connection with a certificate credential renewed by a scheduled job." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -93,10 +93,10 @@ export const AZURE_AZ400_QUESTIONS_16 = [
     scenario: "An SRE team is optimizing system reliability to eliminate single points of failure, accelerate rollback capabilities, and automate incident response. The DevOps engineer needs to authenticate an Azure DevOps pipeline to deploy resources into an Azure subscription without managing or rotating client secret passwords.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
-      { id: 'A', text: "Create a Service Principal with a permanent client secret and never rotate the password." },
-      { id: 'B', text: "Use a service principal holding Owner on the whole subscription." },
-      { id: 'C', text: "Configure an Azure Resource Manager Service Connection using Workload Identity Federation (OIDC) with Microsoft Entra ID." },
-      { id: 'D', text: "Disable authentication on the Azure Resource Manager API." }
+      { id: 'A', text: "Use an ARM service connection with a managed identity assigned to the hosted agent pool." },
+      { id: 'B', text: "Use an ARM service connection with a service principal and a Key Vault-stored secret." },
+      { id: 'C', text: "Use an ARM service connection with workload identity federation against Entra ID." },
+      { id: 'D', text: "Use an ARM service connection with a certificate credential renewed by a scheduled job." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -114,10 +114,10 @@ export const AZURE_AZ400_QUESTIONS_16 = [
     scenario: "An enterprise cloud DevOps team is establishing operational continuity standards, zero-downtime deployment patterns, and disaster recovery baselines across Azure environments. The DevOps engineer needs to manage internal NuGet and npm packages securely while caching public dependencies to protect builds from upstream outages.",
     question: "Which architectural approach or configuration satisfies these high-availability and operational resilience objectives?",
     options: [
-      { id: 'A', text: "Instruct developers to commit compiled NuGet DLLs directly to Git repositories." },
-      { id: 'B', text: "Host packages on an unauthenticated FTP server on the public internet." },
-      { id: 'C', text: "Create an Azure Artifacts feed, configure upstream sources to public registries, and publish packages using feed views (e.g., Release)." },
-      { id: 'D', text: "Disable package management and compile all dependencies from raw source every time." }
+      { id: 'A', text: "Create an Azure Artifacts feed per team and mirror the public registries with a nightly sync job." },
+      { id: 'B', text: "Create a storage account behind a private endpoint and serve the packages from a static site." },
+      { id: 'C', text: "Create an Azure Artifacts feed with upstream sources to the public registries, released through views." },
+      { id: 'D', text: "Create a pipeline cache of the package folder so builds survive an upstream registry outage." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -135,10 +135,10 @@ export const AZURE_AZ400_QUESTIONS_16 = [
     scenario: "A high-throughput enterprise application running on Azure experiences sudden surges in user transactions and requires automated, resilient pipeline execution. The DevOps engineer needs to manage internal NuGet and npm packages securely while caching public dependencies to protect builds from upstream outages.",
     question: "Which design pattern or resource configuration manages this workload surge effectively while protecting service stability?",
     options: [
-      { id: 'A', text: "Disable package management and compile all dependencies from raw source every time." },
-      { id: 'B', text: "Create an Azure Artifacts feed, configure upstream sources to public registries, and publish packages using feed views (e.g., Release)." },
-      { id: 'C', text: "Host packages on an unauthenticated FTP server on the public internet." },
-      { id: 'D', text: "Instruct developers to commit compiled NuGet DLLs directly to Git repositories." }
+      { id: 'A', text: "Create a pipeline cache of the package folder so builds survive an upstream registry outage." },
+      { id: 'B', text: "Create an Azure Artifacts feed with upstream sources to the public registries, released through views." },
+      { id: 'C', text: "Create a storage account behind a private endpoint and serve the packages from a static site." },
+      { id: 'D', text: "Create an Azure Artifacts feed per team and mirror the public registries with a nightly sync job." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -156,10 +156,10 @@ export const AZURE_AZ400_QUESTIONS_16 = [
     scenario: "A security compliance auditor requires strict source code protection, credential isolation, and automated governance verification across all continuous delivery pipelines. The DevOps engineer needs to manage internal NuGet and npm packages securely while caching public dependencies to protect builds from upstream outages.",
     question: "Which solution implements these mandatory DevOps security and compliance controls?",
     options: [
-      { id: 'A', text: "Disable package management and compile all dependencies from raw source every time." },
-      { id: 'B', text: "Create an Azure Artifacts feed, configure upstream sources to public registries, and publish packages using feed views (e.g., Release)." },
-      { id: 'C', text: "Host packages on an unauthenticated FTP server on the public internet." },
-      { id: 'D', text: "Instruct developers to commit compiled NuGet DLLs directly to Git repositories." }
+      { id: 'A', text: "Create a pipeline cache of the package folder so builds survive an upstream registry outage." },
+      { id: 'B', text: "Create an Azure Artifacts feed with upstream sources to the public registries, released through views." },
+      { id: 'C', text: "Create a storage account behind a private endpoint and serve the packages from a static site." },
+      { id: 'D', text: "Create an Azure Artifacts feed per team and mirror the public registries with a nightly sync job." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -177,10 +177,10 @@ export const AZURE_AZ400_QUESTIONS_16 = [
     scenario: "An organization is modernizing legacy on-premises deployment workflows and adopting cloud-native continuous integration and automated testing on Azure. The DevOps engineer needs to manage internal NuGet and npm packages securely while caching public dependencies to protect builds from upstream outages.",
     question: "Which architectural pattern or platform feature enables the engineering team to modernize delivery with minimal operational friction?",
     options: [
-      { id: 'A', text: "Host packages on an unauthenticated FTP server on the public internet." },
-      { id: 'B', text: "Instruct developers to commit compiled NuGet DLLs directly to Git repositories." },
-      { id: 'C', text: "Disable package management and compile all dependencies from raw source every time." },
-      { id: 'D', text: "Create an Azure Artifacts feed, configure upstream sources to public registries, and publish packages using feed views (e.g., Release)." }
+      { id: 'A', text: "Create a storage account behind a private endpoint and serve the packages from a static site." },
+      { id: 'B', text: "Create an Azure Artifacts feed per team and mirror the public registries with a nightly sync job." },
+      { id: 'C', text: "Create a pipeline cache of the package folder so builds survive an upstream registry outage." },
+      { id: 'D', text: "Create an Azure Artifacts feed with upstream sources to the public registries, released through views." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -198,10 +198,10 @@ export const AZURE_AZ400_QUESTIONS_16 = [
     scenario: "An SRE team is optimizing system reliability to eliminate single points of failure, accelerate rollback capabilities, and automate incident response. The DevOps engineer needs to manage internal NuGet and npm packages securely while caching public dependencies to protect builds from upstream outages.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
-      { id: 'A', text: "Create an Azure Artifacts feed, configure upstream sources to public registries, and publish packages using feed views (e.g., Release)." },
-      { id: 'B', text: "Instruct developers to commit compiled NuGet DLLs directly to Git repositories." },
-      { id: 'C', text: "Host packages on an unauthenticated FTP server on the public internet." },
-      { id: 'D', text: "Disable package management and compile all dependencies from raw source every time." }
+      { id: 'A', text: "Create an Azure Artifacts feed with upstream sources to the public registries, released through views." },
+      { id: 'B', text: "Create an Azure Artifacts feed per team and mirror the public registries with a nightly sync job." },
+      { id: 'C', text: "Create a storage account behind a private endpoint and serve the packages from a static site." },
+      { id: 'D', text: "Create a pipeline cache of the package folder so builds survive an upstream registry outage." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -219,10 +219,10 @@ export const AZURE_AZ400_QUESTIONS_16 = [
     scenario: "An enterprise cloud DevOps team is establishing operational continuity standards, zero-downtime deployment patterns, and disaster recovery baselines across Azure environments. The DevOps engineer needs to test a cross-platform application across Ubuntu, Windows, and macOS agents and multiple Node.js versions concurrently.",
     question: "Which architectural approach or configuration satisfies these high-availability and operational resilience objectives?",
     options: [
-      { id: 'A', text: "Run tests sequentially on a single slow virtual machine over 12 hours." },
-      { id: 'B', text: "Skip cross-platform testing and only test on a developer laptop." },
-      { id: 'C', text: "Use `strategy: matrix:` in the YAML job definition, specifying combinations of OS images and runtime versions with `maxParallel`." },
-      { id: 'D', text: "Write three completely separate 1,000-line pipeline YAML files." }
+      { id: 'A', text: "Use a job per OS image and a loop over the Node versions inside each job's script step." },
+      { id: 'B', text: "Use `strategy: parallel` with a slice count equal to the number of Node versions to cover." },
+      { id: 'C', text: "Use `strategy: matrix` in the job to combine the OS images and Node versions, with `maxParallel`." },
+      { id: 'D', text: "Use one job with a container per OS image and switch Node versions with `nvm` in a step." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -240,10 +240,10 @@ export const AZURE_AZ400_QUESTIONS_16 = [
     scenario: "A high-throughput enterprise application running on Azure experiences sudden surges in user transactions and requires automated, resilient pipeline execution. The DevOps engineer needs to test a cross-platform application across Ubuntu, Windows, and macOS agents and multiple Node.js versions concurrently.",
     question: "Which design pattern or resource configuration manages this workload surge effectively while protecting service stability?",
     options: [
-      { id: 'A', text: "Write three completely separate 1,000-line pipeline YAML files." },
-      { id: 'B', text: "Skip cross-platform testing and only test on a developer laptop." },
-      { id: 'C', text: "Run tests sequentially on a single slow virtual machine over 12 hours." },
-      { id: 'D', text: "Use `strategy: matrix:` in the YAML job definition, specifying combinations of OS images and runtime versions with `maxParallel`." }
+      { id: 'A', text: "Use one job with a container per OS image and switch Node versions with `nvm` in a step." },
+      { id: 'B', text: "Use `strategy: parallel` with a slice count equal to the number of Node versions to cover." },
+      { id: 'C', text: "Use a job per OS image and a loop over the Node versions inside each job's script step." },
+      { id: 'D', text: "Use `strategy: matrix` in the job to combine the OS images and Node versions, with `maxParallel`." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -261,10 +261,10 @@ export const AZURE_AZ400_QUESTIONS_16 = [
     scenario: "A security compliance auditor requires strict source code protection, credential isolation, and automated governance verification across all continuous delivery pipelines. The DevOps engineer needs to test a cross-platform application across Ubuntu, Windows, and macOS agents and multiple Node.js versions concurrently.",
     question: "Which solution implements these mandatory DevOps security and compliance controls?",
     options: [
-      { id: 'A', text: "Skip cross-platform testing and only test on a developer laptop." },
-      { id: 'B', text: "Run tests sequentially on a single slow virtual machine over 12 hours." },
-      { id: 'C', text: "Write three completely separate 1,000-line pipeline YAML files." },
-      { id: 'D', text: "Use `strategy: matrix:` in the YAML job definition, specifying combinations of OS images and runtime versions with `maxParallel`." }
+      { id: 'A', text: "Use `strategy: parallel` with a slice count equal to the number of Node versions to cover." },
+      { id: 'B', text: "Use a job per OS image and a loop over the Node versions inside each job's script step." },
+      { id: 'C', text: "Use one job with a container per OS image and switch Node versions with `nvm` in a step." },
+      { id: 'D', text: "Use `strategy: matrix` in the job to combine the OS images and Node versions, with `maxParallel`." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -282,10 +282,10 @@ export const AZURE_AZ400_QUESTIONS_16 = [
     scenario: "An organization is modernizing legacy on-premises deployment workflows and adopting cloud-native continuous integration and automated testing on Azure. The DevOps engineer needs to test a cross-platform application across Ubuntu, Windows, and macOS agents and multiple Node.js versions concurrently.",
     question: "Which architectural pattern or platform feature enables the engineering team to modernize delivery with minimal operational friction?",
     options: [
-      { id: 'A', text: "Use `strategy: matrix:` in the YAML job definition, specifying combinations of OS images and runtime versions with `maxParallel`." },
-      { id: 'B', text: "Write three completely separate 1,000-line pipeline YAML files." },
-      { id: 'C', text: "Run tests sequentially on a single slow virtual machine over 12 hours." },
-      { id: 'D', text: "Skip cross-platform testing and only test on a developer laptop." }
+      { id: 'A', text: "Use `strategy: matrix` in the job to combine the OS images and Node versions, with `maxParallel`." },
+      { id: 'B', text: "Use one job with a container per OS image and switch Node versions with `nvm` in a step." },
+      { id: 'C', text: "Use a job per OS image and a loop over the Node versions inside each job's script step." },
+      { id: 'D', text: "Use `strategy: parallel` with a slice count equal to the number of Node versions to cover." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -303,10 +303,10 @@ export const AZURE_AZ400_QUESTIONS_16 = [
     scenario: "An SRE team is optimizing system reliability to eliminate single points of failure, accelerate rollback capabilities, and automate incident response. The DevOps engineer needs to test a cross-platform application across Ubuntu, Windows, and macOS agents and multiple Node.js versions concurrently.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
-      { id: 'A', text: "Use `strategy: matrix:` in the YAML job definition, specifying combinations of OS images and runtime versions with `maxParallel`." },
-      { id: 'B', text: "Write three completely separate 1,000-line pipeline YAML files." },
-      { id: 'C', text: "Run tests sequentially on a single slow virtual machine over 12 hours." },
-      { id: 'D', text: "Skip cross-platform testing and only test on a developer laptop." }
+      { id: 'A', text: "Use `strategy: matrix` in the job to combine the OS images and Node versions, with `maxParallel`." },
+      { id: 'B', text: "Use one job with a container per OS image and switch Node versions with `nvm` in a step." },
+      { id: 'C', text: "Use a job per OS image and a loop over the Node versions inside each job's script step." },
+      { id: 'D', text: "Use `strategy: parallel` with a slice count equal to the number of Node versions to cover." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -324,10 +324,10 @@ export const AZURE_AZ400_QUESTIONS_16 = [
     scenario: "An enterprise cloud DevOps team is establishing operational continuity standards, zero-downtime deployment patterns, and disaster recovery baselines across Azure environments. The DevOps engineer needs to shorten continuous integration build times by caching `node_modules` or `~/.m2` dependencies between pipeline runs.",
     question: "Which architectural approach or configuration satisfies these high-availability and operational resilience objectives?",
     options: [
-      { id: 'A', text: "Run builds on a single physical server without wiping workspaces between unrelated builds." },
-      { id: 'B', text: "Download all dependencies afresh over the internet on every single build commit." },
-      { id: 'C', text: "Store dependencies on an external public file-sharing website." },
-      { id: 'D', text: "Implement the `Cache@2` task in the pipeline specifying a cache `key` based on lockfiles (`package-lock.json`) and cache `path`." }
+      { id: 'A', text: "Add the `Cache@2` task with a `key` derived from the build number and the dependency `path`." },
+      { id: 'B', text: "Add a pipeline artifact holding the dependency folder and download it at the start of each run." },
+      { id: 'C', text: "Add a self-hosted agent with `Agent.BuildDirectory` cleanup disabled so the folder survives." },
+      { id: 'D', text: "Add the `Cache@2` task with a `key` derived from the lockfile and the dependency `path`." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -345,10 +345,10 @@ export const AZURE_AZ400_QUESTIONS_16 = [
     scenario: "A high-throughput enterprise application running on Azure experiences sudden surges in user transactions and requires automated, resilient pipeline execution. The DevOps engineer needs to shorten continuous integration build times by caching `node_modules` or `~/.m2` dependencies between pipeline runs.",
     question: "Which design pattern or resource configuration manages this workload surge effectively while protecting service stability?",
     options: [
-      { id: 'A', text: "Download all dependencies afresh over the internet on every single build commit." },
-      { id: 'B', text: "Implement the `Cache@2` task in the pipeline specifying a cache `key` based on lockfiles (`package-lock.json`) and cache `path`." },
-      { id: 'C', text: "Store dependencies on an external public file-sharing website." },
-      { id: 'D', text: "Run builds on a single physical server without wiping workspaces between unrelated builds." }
+      { id: 'A', text: "Add a pipeline artifact holding the dependency folder and download it at the start of each run." },
+      { id: 'B', text: "Add the `Cache@2` task with a `key` derived from the lockfile and the dependency `path`." },
+      { id: 'C', text: "Add a self-hosted agent with `Agent.BuildDirectory` cleanup disabled so the folder survives." },
+      { id: 'D', text: "Add the `Cache@2` task with a `key` derived from the build number and the dependency `path`." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -366,10 +366,10 @@ export const AZURE_AZ400_QUESTIONS_16 = [
     scenario: "A security compliance auditor requires strict source code protection, credential isolation, and automated governance verification across all continuous delivery pipelines. The DevOps engineer needs to shorten continuous integration build times by caching `node_modules` or `~/.m2` dependencies between pipeline runs.",
     question: "Which solution implements these mandatory DevOps security and compliance controls?",
     options: [
-      { id: 'A', text: "Download all dependencies afresh over the internet on every single build commit." },
-      { id: 'B', text: "Implement the `Cache@2` task in the pipeline specifying a cache `key` based on lockfiles (`package-lock.json`) and cache `path`." },
-      { id: 'C', text: "Store dependencies on an external public file-sharing website." },
-      { id: 'D', text: "Run builds on a single physical server without wiping workspaces between unrelated builds." }
+      { id: 'A', text: "Add a pipeline artifact holding the dependency folder and download it at the start of each run." },
+      { id: 'B', text: "Add the `Cache@2` task with a `key` derived from the lockfile and the dependency `path`." },
+      { id: 'C', text: "Add a self-hosted agent with `Agent.BuildDirectory` cleanup disabled so the folder survives." },
+      { id: 'D', text: "Add the `Cache@2` task with a `key` derived from the build number and the dependency `path`." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -387,10 +387,10 @@ export const AZURE_AZ400_QUESTIONS_16 = [
     scenario: "An organization is modernizing legacy on-premises deployment workflows and adopting cloud-native continuous integration and automated testing on Azure. The DevOps engineer needs to shorten continuous integration build times by caching `node_modules` or `~/.m2` dependencies between pipeline runs.",
     question: "Which architectural pattern or platform feature enables the engineering team to modernize delivery with minimal operational friction?",
     options: [
-      { id: 'A', text: "Implement the `Cache@2` task in the pipeline specifying a cache `key` based on lockfiles (`package-lock.json`) and cache `path`." },
-      { id: 'B', text: "Run builds on a single physical server without wiping workspaces between unrelated builds." },
-      { id: 'C', text: "Store dependencies on an external public file-sharing website." },
-      { id: 'D', text: "Download all dependencies afresh over the internet on every single build commit." }
+      { id: 'A', text: "Add the `Cache@2` task with a `key` derived from the lockfile and the dependency `path`." },
+      { id: 'B', text: "Add the `Cache@2` task with a `key` derived from the build number and the dependency `path`." },
+      { id: 'C', text: "Add a self-hosted agent with `Agent.BuildDirectory` cleanup disabled so the folder survives." },
+      { id: 'D', text: "Add a pipeline artifact holding the dependency folder and download it at the start of each run." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -408,10 +408,10 @@ export const AZURE_AZ400_QUESTIONS_16 = [
     scenario: "An SRE team is optimizing system reliability to eliminate single points of failure, accelerate rollback capabilities, and automate incident response. The DevOps engineer needs to shorten continuous integration build times by caching `node_modules` or `~/.m2` dependencies between pipeline runs.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
-      { id: 'A', text: "Implement the `Cache@2` task in the pipeline specifying a cache `key` based on lockfiles (`package-lock.json`) and cache `path`." },
-      { id: 'B', text: "Download all dependencies afresh over the internet on every single build commit." },
-      { id: 'C', text: "Run builds on a single physical server without wiping workspaces between unrelated builds." },
-      { id: 'D', text: "Store dependencies on an external public file-sharing website." }
+      { id: 'A', text: "Add the `Cache@2` task with a `key` derived from the lockfile and the dependency `path`." },
+      { id: 'B', text: "Add a pipeline artifact holding the dependency folder and download it at the start of each run." },
+      { id: 'C', text: "Add the `Cache@2` task with a `key` derived from the build number and the dependency `path`." },
+      { id: 'D', text: "Add a self-hosted agent with `Agent.BuildDirectory` cleanup disabled so the folder survives." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -429,10 +429,10 @@ export const AZURE_AZ400_QUESTIONS_16 = [
     scenario: "An enterprise cloud DevOps team is establishing operational continuity standards, zero-downtime deployment patterns, and disaster recovery baselines across Azure environments. The DevOps engineer needs to deploy a new release of a critical web application to Azure App Service without dropping user connections or incurring cold start latency.",
     question: "Which architectural approach or configuration satisfies these high-availability and operational resilience objectives?",
     options: [
-      { id: 'A', text: "Delete the App Service instance and recreate it using ARM templates." },
-      { id: 'B', text: "Stop the production App Service for 30 minutes while deploying new code." },
-      { id: 'C', text: "Deploy directly into the active production slot during peak business traffic." },
-      { id: 'D', text: "Deploy the new version to a staging deployment slot, warm up the application, and execute a slot swap to swap staging and production." }
+      { id: 'A', text: "Deploy to the production slot with `--src-path` and let the platform restart the workers." },
+      { id: 'B', text: "Deploy to a staging slot and repoint the custom domain's CNAME at the staging hostname." },
+      { id: 'C', text: "Deploy to a second App Service plan and shift traffic with the slot's traffic percentage." },
+      { id: 'D', text: "Deploy to a staging slot, warm the application up, and then swap staging with production." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -450,10 +450,10 @@ export const AZURE_AZ400_QUESTIONS_16 = [
     scenario: "A high-throughput enterprise application running on Azure experiences sudden surges in user transactions and requires automated, resilient pipeline execution. The DevOps engineer needs to deploy a new release of a critical web application to Azure App Service without dropping user connections or incurring cold start latency.",
     question: "Which design pattern or resource configuration manages this workload surge effectively while protecting service stability?",
     options: [
-      { id: 'A', text: "Deploy the new version to a staging deployment slot, warm up the application, and execute a slot swap to swap staging and production." },
-      { id: 'B', text: "Deploy directly into the active production slot during peak business traffic." },
-      { id: 'C', text: "Stop the production App Service for 30 minutes while deploying new code." },
-      { id: 'D', text: "Delete the App Service instance and recreate it using ARM templates." }
+      { id: 'A', text: "Deploy to a staging slot, warm the application up, and then swap staging with production." },
+      { id: 'B', text: "Deploy to a second App Service plan and shift traffic with the slot's traffic percentage." },
+      { id: 'C', text: "Deploy to a staging slot and repoint the custom domain's CNAME at the staging hostname." },
+      { id: 'D', text: "Deploy to the production slot with `--src-path` and let the platform restart the workers." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -471,10 +471,10 @@ export const AZURE_AZ400_QUESTIONS_16 = [
     scenario: "A security compliance auditor requires strict source code protection, credential isolation, and automated governance verification across all continuous delivery pipelines. The DevOps engineer needs to deploy a new release of a critical web application to Azure App Service without dropping user connections or incurring cold start latency.",
     question: "Which solution implements these mandatory DevOps security and compliance controls?",
     options: [
-      { id: 'A', text: "Deploy the new version to a staging deployment slot, warm up the application, and execute a slot swap to swap staging and production." },
-      { id: 'B', text: "Deploy directly into the active production slot during peak business traffic." },
-      { id: 'C', text: "Stop the production App Service for 30 minutes while deploying new code." },
-      { id: 'D', text: "Delete the App Service instance and recreate it using ARM templates." }
+      { id: 'A', text: "Deploy to a staging slot, warm the application up, and then swap staging with production." },
+      { id: 'B', text: "Deploy to a second App Service plan and shift traffic with the slot's traffic percentage." },
+      { id: 'C', text: "Deploy to a staging slot and repoint the custom domain's CNAME at the staging hostname." },
+      { id: 'D', text: "Deploy to the production slot with `--src-path` and let the platform restart the workers." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -492,10 +492,10 @@ export const AZURE_AZ400_QUESTIONS_16 = [
     scenario: "An organization is modernizing legacy on-premises deployment workflows and adopting cloud-native continuous integration and automated testing on Azure. The DevOps engineer needs to deploy a new release of a critical web application to Azure App Service without dropping user connections or incurring cold start latency.",
     question: "Which architectural pattern or platform feature enables the engineering team to modernize delivery with minimal operational friction?",
     options: [
-      { id: 'A', text: "Deploy directly into the active production slot during peak business traffic." },
-      { id: 'B', text: "Delete the App Service instance and recreate it using ARM templates." },
-      { id: 'C', text: "Stop the production App Service for 30 minutes while deploying new code." },
-      { id: 'D', text: "Deploy the new version to a staging deployment slot, warm up the application, and execute a slot swap to swap staging and production." }
+      { id: 'A', text: "Deploy to a second App Service plan and shift traffic with the slot's traffic percentage." },
+      { id: 'B', text: "Deploy to the production slot with `--src-path` and let the platform restart the workers." },
+      { id: 'C', text: "Deploy to a staging slot and repoint the custom domain's CNAME at the staging hostname." },
+      { id: 'D', text: "Deploy to a staging slot, warm the application up, and then swap staging with production." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -513,10 +513,10 @@ export const AZURE_AZ400_QUESTIONS_16 = [
     scenario: "An SRE team is optimizing system reliability to eliminate single points of failure, accelerate rollback capabilities, and automate incident response. The DevOps engineer needs to deploy a new release of a critical web application to Azure App Service without dropping user connections or incurring cold start latency.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
-      { id: 'A', text: "Deploy the new version to a staging deployment slot, warm up the application, and execute a slot swap to swap staging and production." },
-      { id: 'B', text: "Deploy directly into the active production slot during peak business traffic." },
-      { id: 'C', text: "Stop the production App Service for 30 minutes while deploying new code." },
-      { id: 'D', text: "Delete the App Service instance and recreate it using ARM templates." }
+      { id: 'A', text: "Deploy to a staging slot, warm the application up, and then swap staging with production." },
+      { id: 'B', text: "Deploy to a second App Service plan and shift traffic with the slot's traffic percentage." },
+      { id: 'C', text: "Deploy to a staging slot and repoint the custom domain's CNAME at the staging hostname." },
+      { id: 'D', text: "Deploy to the production slot with `--src-path` and let the platform restart the workers." }
     ],
     correctAnswers: ['A'],
     type: "single",

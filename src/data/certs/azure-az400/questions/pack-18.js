@@ -9,10 +9,10 @@ export const AZURE_AZ400_QUESTIONS_18 = [
     scenario: "An enterprise cloud DevOps team is establishing operational continuity standards, zero-downtime deployment patterns, and disaster recovery baselines across Azure environments. The DevOps engineer needs to ensure an automated pipeline automatically reverts an Azure App Service deployment to the previous healthy build if post-deployment smoke tests fail.",
     question: "Which architectural approach or configuration satisfies these high-availability and operational resilience objectives?",
     options: [
-      { id: 'A', text: "Leave the broken application in production while developers write an emergency patch." },
-      { id: 'B', text: "Configure a post-deployment gate or step that checks application health endpoints; if smoke tests fail, execute a slot swap rollback or deploy the previous artifact." },
-      { id: 'C', text: "Scale the old deployment to zero and repoint DNS at the new one." },
-      { id: 'D', text: "Instruct customer support to advise users to clear their browser caches." }
+      { id: 'A', text: "Add a post-deployment approval so a release manager can trigger the redeployment by hand if needed." },
+      { id: 'B', text: "Add a post-deployment gate that checks the health endpoint and swaps the slot back when it fails." },
+      { id: 'C', text: "Add a pre-deployment gate that runs the smoke tests against the staging slot before the swap." },
+      { id: 'D', text: "Add a deployment strategy of `rolling` with `maxUnavailable: 1` so failures stop the rollout early." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -30,10 +30,10 @@ export const AZURE_AZ400_QUESTIONS_18 = [
     scenario: "A high-throughput enterprise application running on Azure experiences sudden surges in user transactions and requires automated, resilient pipeline execution. The DevOps engineer needs to ensure an automated pipeline automatically reverts an Azure App Service deployment to the previous healthy build if post-deployment smoke tests fail.",
     question: "Which design pattern or resource configuration manages this workload surge effectively while protecting service stability?",
     options: [
-      { id: 'A', text: "Leave the broken application in production while developers write an emergency patch." },
-      { id: 'B', text: "Instruct customer support to advise users to clear their browser caches." },
-      { id: 'C', text: "Configure a post-deployment gate or step that checks application health endpoints; if smoke tests fail, execute a slot swap rollback or deploy the previous artifact." },
-      { id: 'D', text: "Scale the old deployment to zero and repoint DNS at the new one." }
+      { id: 'A', text: "Add a post-deployment approval so a release manager can trigger the redeployment by hand if needed." },
+      { id: 'B', text: "Add a deployment strategy of `rolling` with `maxUnavailable: 1` so failures stop the rollout early." },
+      { id: 'C', text: "Add a post-deployment gate that checks the health endpoint and swaps the slot back when it fails." },
+      { id: 'D', text: "Add a pre-deployment gate that runs the smoke tests against the staging slot before the swap." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -51,10 +51,10 @@ export const AZURE_AZ400_QUESTIONS_18 = [
     scenario: "A security compliance auditor requires strict source code protection, credential isolation, and automated governance verification across all continuous delivery pipelines. The DevOps engineer needs to ensure an automated pipeline automatically reverts an Azure App Service deployment to the previous healthy build if post-deployment smoke tests fail.",
     question: "Which solution implements these mandatory DevOps security and compliance controls?",
     options: [
-      { id: 'A', text: "Configure a post-deployment gate or step that checks application health endpoints; if smoke tests fail, execute a slot swap rollback or deploy the previous artifact." },
-      { id: 'B', text: "Instruct customer support to advise users to clear their browser caches." },
-      { id: 'C', text: "Scale the old deployment to zero and repoint DNS at the new one." },
-      { id: 'D', text: "Leave the broken application in production while developers write an emergency patch." }
+      { id: 'A', text: "Add a post-deployment gate that checks the health endpoint and swaps the slot back when it fails." },
+      { id: 'B', text: "Add a deployment strategy of `rolling` with `maxUnavailable: 1` so failures stop the rollout early." },
+      { id: 'C', text: "Add a pre-deployment gate that runs the smoke tests against the staging slot before the swap." },
+      { id: 'D', text: "Add a post-deployment approval so a release manager can trigger the redeployment by hand if needed." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -72,10 +72,10 @@ export const AZURE_AZ400_QUESTIONS_18 = [
     scenario: "An organization is modernizing legacy on-premises deployment workflows and adopting cloud-native continuous integration and automated testing on Azure. The DevOps engineer needs to ensure an automated pipeline automatically reverts an Azure App Service deployment to the previous healthy build if post-deployment smoke tests fail.",
     question: "Which architectural pattern or platform feature enables the engineering team to modernize delivery with minimal operational friction?",
     options: [
-      { id: 'A', text: "Scale the old deployment to zero and repoint DNS at the new one." },
-      { id: 'B', text: "Leave the broken application in production while developers write an emergency patch." },
-      { id: 'C', text: "Configure a post-deployment gate or step that checks application health endpoints; if smoke tests fail, execute a slot swap rollback or deploy the previous artifact." },
-      { id: 'D', text: "Instruct customer support to advise users to clear their browser caches." }
+      { id: 'A', text: "Add a pre-deployment gate that runs the smoke tests against the staging slot before the swap." },
+      { id: 'B', text: "Add a post-deployment approval so a release manager can trigger the redeployment by hand if needed." },
+      { id: 'C', text: "Add a post-deployment gate that checks the health endpoint and swaps the slot back when it fails." },
+      { id: 'D', text: "Add a deployment strategy of `rolling` with `maxUnavailable: 1` so failures stop the rollout early." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -93,10 +93,10 @@ export const AZURE_AZ400_QUESTIONS_18 = [
     scenario: "An SRE team is optimizing system reliability to eliminate single points of failure, accelerate rollback capabilities, and automate incident response. The DevOps engineer needs to ensure an automated pipeline automatically reverts an Azure App Service deployment to the previous healthy build if post-deployment smoke tests fail.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
-      { id: 'A', text: "Scale the old deployment to zero and repoint DNS at the new one." },
-      { id: 'B', text: "Instruct customer support to advise users to clear their browser caches." },
-      { id: 'C', text: "Leave the broken application in production while developers write an emergency patch." },
-      { id: 'D', text: "Configure a post-deployment gate or step that checks application health endpoints; if smoke tests fail, execute a slot swap rollback or deploy the previous artifact." }
+      { id: 'A', text: "Add a pre-deployment gate that runs the smoke tests against the staging slot before the swap." },
+      { id: 'B', text: "Add a deployment strategy of `rolling` with `maxUnavailable: 1` so failures stop the rollout early." },
+      { id: 'C', text: "Add a post-deployment approval so a release manager can trigger the redeployment by hand if needed." },
+      { id: 'D', text: "Add a post-deployment gate that checks the health endpoint and swaps the slot back when it fails." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -114,10 +114,10 @@ export const AZURE_AZ400_QUESTIONS_18 = [
     scenario: "An enterprise cloud DevOps team is establishing operational continuity standards, zero-downtime deployment patterns, and disaster recovery baselines across Azure environments. The DevOps engineer needs to enforce code quality standards and block pull requests that introduce new security vulnerabilities or high technical debt.",
     question: "Which architectural approach or configuration satisfies these high-availability and operational resilience objectives?",
     options: [
-      { id: 'A', text: "Integrate SonarCloud or SonarQube tasks (`SonarCloudPrepare`, `SonarCloudAnalyze`, `SonarCloudPublish`) and configure a Quality Gate check." },
-      { id: 'B', text: "Add a manual code review checklist item covering injection flaws." },
-      { id: 'C', text: "Run static analysis only once a year during external audit reviews." },
-      { id: 'D', text: "Disable code scanning to accelerate pull request merging." }
+      { id: 'A', text: "Add the SonarCloud prepare, analyze and publish tasks, and require the Quality Gate on the PR." },
+      { id: 'B', text: "Add a Microsoft Security DevOps task and publish its SARIF results as a build artifact." },
+      { id: 'C', text: "Add a dependency scan task that fails the build when a package has a known high-severity CVE." },
+      { id: 'D', text: "Add a build validation policy that runs the unit tests and enforces an 80 percent coverage floor." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -135,10 +135,10 @@ export const AZURE_AZ400_QUESTIONS_18 = [
     scenario: "A high-throughput enterprise application running on Azure experiences sudden surges in user transactions and requires automated, resilient pipeline execution. The DevOps engineer needs to enforce code quality standards and block pull requests that introduce new security vulnerabilities or high technical debt.",
     question: "Which design pattern or resource configuration manages this workload surge effectively while protecting service stability?",
     options: [
-      { id: 'A', text: "Run static analysis only once a year during external audit reviews." },
-      { id: 'B', text: "Disable code scanning to accelerate pull request merging." },
-      { id: 'C', text: "Integrate SonarCloud or SonarQube tasks (`SonarCloudPrepare`, `SonarCloudAnalyze`, `SonarCloudPublish`) and configure a Quality Gate check." },
-      { id: 'D', text: "Add a manual code review checklist item covering injection flaws." }
+      { id: 'A', text: "Add a dependency scan task that fails the build when a package has a known high-severity CVE." },
+      { id: 'B', text: "Add a build validation policy that runs the unit tests and enforces an 80 percent coverage floor." },
+      { id: 'C', text: "Add the SonarCloud prepare, analyze and publish tasks, and require the Quality Gate on the PR." },
+      { id: 'D', text: "Add a Microsoft Security DevOps task and publish its SARIF results as a build artifact." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -156,10 +156,10 @@ export const AZURE_AZ400_QUESTIONS_18 = [
     scenario: "A security compliance auditor requires strict source code protection, credential isolation, and automated governance verification across all continuous delivery pipelines. The DevOps engineer needs to enforce code quality standards and block pull requests that introduce new security vulnerabilities or high technical debt.",
     question: "Which solution implements these mandatory DevOps security and compliance controls?",
     options: [
-      { id: 'A', text: "Add a manual code review checklist item covering injection flaws." },
-      { id: 'B', text: "Integrate SonarCloud or SonarQube tasks (`SonarCloudPrepare`, `SonarCloudAnalyze`, `SonarCloudPublish`) and configure a Quality Gate check." },
-      { id: 'C', text: "Disable code scanning to accelerate pull request merging." },
-      { id: 'D', text: "Run static analysis only once a year during external audit reviews." }
+      { id: 'A', text: "Add a Microsoft Security DevOps task and publish its SARIF results as a build artifact." },
+      { id: 'B', text: "Add the SonarCloud prepare, analyze and publish tasks, and require the Quality Gate on the PR." },
+      { id: 'C', text: "Add a build validation policy that runs the unit tests and enforces an 80 percent coverage floor." },
+      { id: 'D', text: "Add a dependency scan task that fails the build when a package has a known high-severity CVE." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -177,10 +177,10 @@ export const AZURE_AZ400_QUESTIONS_18 = [
     scenario: "An organization is modernizing legacy on-premises deployment workflows and adopting cloud-native continuous integration and automated testing on Azure. The DevOps engineer needs to enforce code quality standards and block pull requests that introduce new security vulnerabilities or high technical debt.",
     question: "Which architectural pattern or platform feature enables the engineering team to modernize delivery with minimal operational friction?",
     options: [
-      { id: 'A', text: "Integrate SonarCloud or SonarQube tasks (`SonarCloudPrepare`, `SonarCloudAnalyze`, `SonarCloudPublish`) and configure a Quality Gate check." },
-      { id: 'B', text: "Add a manual code review checklist item covering injection flaws." },
-      { id: 'C', text: "Run static analysis only once a year during external audit reviews." },
-      { id: 'D', text: "Disable code scanning to accelerate pull request merging." }
+      { id: 'A', text: "Add the SonarCloud prepare, analyze and publish tasks, and require the Quality Gate on the PR." },
+      { id: 'B', text: "Add a Microsoft Security DevOps task and publish its SARIF results as a build artifact." },
+      { id: 'C', text: "Add a dependency scan task that fails the build when a package has a known high-severity CVE." },
+      { id: 'D', text: "Add a build validation policy that runs the unit tests and enforces an 80 percent coverage floor." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -198,10 +198,10 @@ export const AZURE_AZ400_QUESTIONS_18 = [
     scenario: "An SRE team is optimizing system reliability to eliminate single points of failure, accelerate rollback capabilities, and automate incident response. The DevOps engineer needs to enforce code quality standards and block pull requests that introduce new security vulnerabilities or high technical debt.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
-      { id: 'A', text: "Integrate SonarCloud or SonarQube tasks (`SonarCloudPrepare`, `SonarCloudAnalyze`, `SonarCloudPublish`) and configure a Quality Gate check." },
-      { id: 'B', text: "Add a manual code review checklist item covering injection flaws." },
-      { id: 'C', text: "Run static analysis only once a year during external audit reviews." },
-      { id: 'D', text: "Disable code scanning to accelerate pull request merging." }
+      { id: 'A', text: "Add the SonarCloud prepare, analyze and publish tasks, and require the Quality Gate on the PR." },
+      { id: 'B', text: "Add a Microsoft Security DevOps task and publish its SARIF results as a build artifact." },
+      { id: 'C', text: "Add a dependency scan task that fails the build when a package has a known high-severity CVE." },
+      { id: 'D', text: "Add a build validation policy that runs the unit tests and enforces an 80 percent coverage floor." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -219,10 +219,10 @@ export const AZURE_AZ400_QUESTIONS_18 = [
     scenario: "An enterprise cloud DevOps team is establishing operational continuity standards, zero-downtime deployment patterns, and disaster recovery baselines across Azure environments. The DevOps engineer needs to identify known vulnerabilities and outdated dependencies in third-party npm and NuGet packages in an Azure DevOps repository.",
     question: "Which architectural approach or configuration satisfies these high-availability and operational resilience objectives?",
     options: [
-      { id: 'A', text: "Assume open-source packages from public package managers are always free of vulnerabilities." },
-      { id: 'B', text: "Enable Dependency Scanning via GitHub Advanced Security for Azure DevOps (GHAzDO) or integrate tools like Snyk / Mend." },
-      { id: 'C', text: "Prohibit using all third-party and open-source software libraries across the enterprise." },
-      { id: 'D', text: "Rely on developers manually checking CVE databases before importing libraries." }
+      { id: 'A', text: "Enable secret scanning and code scanning in the repository's advanced security settings." },
+      { id: 'B', text: "Enable dependency scanning through GitHub Advanced Security for Azure DevOps, or Snyk." },
+      { id: 'C', text: "Enable an Azure Artifacts upstream source so every package is pulled through one audited feed." },
+      { id: 'D', text: "Enable a build validation policy that fails when `npm audit` reports any advisory at all." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -240,10 +240,10 @@ export const AZURE_AZ400_QUESTIONS_18 = [
     scenario: "A high-throughput enterprise application running on Azure experiences sudden surges in user transactions and requires automated, resilient pipeline execution. The DevOps engineer needs to identify known vulnerabilities and outdated dependencies in third-party npm and NuGet packages in an Azure DevOps repository.",
     question: "Which design pattern or resource configuration manages this workload surge effectively while protecting service stability?",
     options: [
-      { id: 'A', text: "Assume open-source packages from public package managers are always free of vulnerabilities." },
-      { id: 'B', text: "Enable Dependency Scanning via GitHub Advanced Security for Azure DevOps (GHAzDO) or integrate tools like Snyk / Mend." },
-      { id: 'C', text: "Prohibit using all third-party and open-source software libraries across the enterprise." },
-      { id: 'D', text: "Rely on developers manually checking CVE databases before importing libraries." }
+      { id: 'A', text: "Enable secret scanning and code scanning in the repository's advanced security settings." },
+      { id: 'B', text: "Enable dependency scanning through GitHub Advanced Security for Azure DevOps, or Snyk." },
+      { id: 'C', text: "Enable an Azure Artifacts upstream source so every package is pulled through one audited feed." },
+      { id: 'D', text: "Enable a build validation policy that fails when `npm audit` reports any advisory at all." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -261,10 +261,10 @@ export const AZURE_AZ400_QUESTIONS_18 = [
     scenario: "A security compliance auditor requires strict source code protection, credential isolation, and automated governance verification across all continuous delivery pipelines. The DevOps engineer needs to identify known vulnerabilities and outdated dependencies in third-party npm and NuGet packages in an Azure DevOps repository.",
     question: "Which solution implements these mandatory DevOps security and compliance controls?",
     options: [
-      { id: 'A', text: "Prohibit using all third-party and open-source software libraries across the enterprise." },
-      { id: 'B', text: "Assume open-source packages from public package managers are always free of vulnerabilities." },
-      { id: 'C', text: "Enable Dependency Scanning via GitHub Advanced Security for Azure DevOps (GHAzDO) or integrate tools like Snyk / Mend." },
-      { id: 'D', text: "Rely on developers manually checking CVE databases before importing libraries." }
+      { id: 'A', text: "Enable an Azure Artifacts upstream source so every package is pulled through one audited feed." },
+      { id: 'B', text: "Enable secret scanning and code scanning in the repository's advanced security settings." },
+      { id: 'C', text: "Enable dependency scanning through GitHub Advanced Security for Azure DevOps, or Snyk." },
+      { id: 'D', text: "Enable a build validation policy that fails when `npm audit` reports any advisory at all." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -282,10 +282,10 @@ export const AZURE_AZ400_QUESTIONS_18 = [
     scenario: "An organization is modernizing legacy on-premises deployment workflows and adopting cloud-native continuous integration and automated testing on Azure. The DevOps engineer needs to identify known vulnerabilities and outdated dependencies in third-party npm and NuGet packages in an Azure DevOps repository.",
     question: "Which architectural pattern or platform feature enables the engineering team to modernize delivery with minimal operational friction?",
     options: [
-      { id: 'A', text: "Enable Dependency Scanning via GitHub Advanced Security for Azure DevOps (GHAzDO) or integrate tools like Snyk / Mend." },
-      { id: 'B', text: "Assume open-source packages from public package managers are always free of vulnerabilities." },
-      { id: 'C', text: "Rely on developers manually checking CVE databases before importing libraries." },
-      { id: 'D', text: "Prohibit using all third-party and open-source software libraries across the enterprise." }
+      { id: 'A', text: "Enable dependency scanning through GitHub Advanced Security for Azure DevOps, or Snyk." },
+      { id: 'B', text: "Enable secret scanning and code scanning in the repository's advanced security settings." },
+      { id: 'C', text: "Enable a build validation policy that fails when `npm audit` reports any advisory at all." },
+      { id: 'D', text: "Enable an Azure Artifacts upstream source so every package is pulled through one audited feed." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -303,10 +303,10 @@ export const AZURE_AZ400_QUESTIONS_18 = [
     scenario: "An SRE team is optimizing system reliability to eliminate single points of failure, accelerate rollback capabilities, and automate incident response. The DevOps engineer needs to identify known vulnerabilities and outdated dependencies in third-party npm and NuGet packages in an Azure DevOps repository.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
-      { id: 'A', text: "Assume open-source packages from public package managers are always free of vulnerabilities." },
-      { id: 'B', text: "Rely on developers manually checking CVE databases before importing libraries." },
-      { id: 'C', text: "Enable Dependency Scanning via GitHub Advanced Security for Azure DevOps (GHAzDO) or integrate tools like Snyk / Mend." },
-      { id: 'D', text: "Prohibit using all third-party and open-source software libraries across the enterprise." }
+      { id: 'A', text: "Enable secret scanning and code scanning in the repository's advanced security settings." },
+      { id: 'B', text: "Enable a build validation policy that fails when `npm audit` reports any advisory at all." },
+      { id: 'C', text: "Enable dependency scanning through GitHub Advanced Security for Azure DevOps, or Snyk." },
+      { id: 'D', text: "Enable an Azure Artifacts upstream source so every package is pulled through one audited feed." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -429,10 +429,10 @@ export const AZURE_AZ400_QUESTIONS_18 = [
     scenario: "An enterprise cloud DevOps team is establishing operational continuity standards, zero-downtime deployment patterns, and disaster recovery baselines across Azure environments. The DevOps engineer needs to ensure container images uploaded to Azure Container Registry (ACR) are automatically scanned for OS and package vulnerabilities.",
     question: "Which architectural approach or configuration satisfies these high-availability and operational resilience objectives?",
     options: [
-      { id: 'A', text: "Disable container vulnerability scanning to reduce registry storage costs." },
-      { id: 'B', text: "Scan containers only after they have run in production for twelve months." },
-      { id: 'C', text: "Rely on developer self-attestation that container images are safe." },
-      { id: 'D', text: "Enable Microsoft Defender for Container Registries on the target Azure Container Registry." }
+      { id: 'A', text: "Enable a registry retention policy so untagged manifests are purged after seven days." },
+      { id: 'B', text: "Enable ACR content trust so only signed images can be pushed to the registry." },
+      { id: 'C', text: "Enable an ACR webhook that posts each push to a pipeline running a Trivy scan." },
+      { id: 'D', text: "Enable Microsoft Defender for Containers on the subscription holding the registry." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -450,10 +450,10 @@ export const AZURE_AZ400_QUESTIONS_18 = [
     scenario: "A high-throughput enterprise application running on Azure experiences sudden surges in user transactions and requires automated, resilient pipeline execution. The DevOps engineer needs to ensure container images uploaded to Azure Container Registry (ACR) are automatically scanned for OS and package vulnerabilities.",
     question: "Which design pattern or resource configuration manages this workload surge effectively while protecting service stability?",
     options: [
-      { id: 'A', text: "Enable Microsoft Defender for Container Registries on the target Azure Container Registry." },
-      { id: 'B', text: "Rely on developer self-attestation that container images are safe." },
-      { id: 'C', text: "Scan containers only after they have run in production for twelve months." },
-      { id: 'D', text: "Disable container vulnerability scanning to reduce registry storage costs." }
+      { id: 'A', text: "Enable Microsoft Defender for Containers on the subscription holding the registry." },
+      { id: 'B', text: "Enable an ACR webhook that posts each push to a pipeline running a Trivy scan." },
+      { id: 'C', text: "Enable ACR content trust so only signed images can be pushed to the registry." },
+      { id: 'D', text: "Enable a registry retention policy so untagged manifests are purged after seven days." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -471,10 +471,10 @@ export const AZURE_AZ400_QUESTIONS_18 = [
     scenario: "A security compliance auditor requires strict source code protection, credential isolation, and automated governance verification across all continuous delivery pipelines. The DevOps engineer needs to ensure container images uploaded to Azure Container Registry (ACR) are automatically scanned for OS and package vulnerabilities.",
     question: "Which solution implements these mandatory DevOps security and compliance controls?",
     options: [
-      { id: 'A', text: "Scan containers only after they have run in production for twelve months." },
-      { id: 'B', text: "Rely on developer self-attestation that container images are safe." },
-      { id: 'C', text: "Disable container vulnerability scanning to reduce registry storage costs." },
-      { id: 'D', text: "Enable Microsoft Defender for Container Registries on the target Azure Container Registry." }
+      { id: 'A', text: "Enable ACR content trust so only signed images can be pushed to the registry." },
+      { id: 'B', text: "Enable an ACR webhook that posts each push to a pipeline running a Trivy scan." },
+      { id: 'C', text: "Enable a registry retention policy so untagged manifests are purged after seven days." },
+      { id: 'D', text: "Enable Microsoft Defender for Containers on the subscription holding the registry." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -492,10 +492,10 @@ export const AZURE_AZ400_QUESTIONS_18 = [
     scenario: "An organization is modernizing legacy on-premises deployment workflows and adopting cloud-native continuous integration and automated testing on Azure. The DevOps engineer needs to ensure container images uploaded to Azure Container Registry (ACR) are automatically scanned for OS and package vulnerabilities.",
     question: "Which architectural pattern or platform feature enables the engineering team to modernize delivery with minimal operational friction?",
     options: [
-      { id: 'A', text: "Scan containers only after they have run in production for twelve months." },
-      { id: 'B', text: "Disable container vulnerability scanning to reduce registry storage costs." },
-      { id: 'C', text: "Enable Microsoft Defender for Container Registries on the target Azure Container Registry." },
-      { id: 'D', text: "Rely on developer self-attestation that container images are safe." }
+      { id: 'A', text: "Enable ACR content trust so only signed images can be pushed to the registry." },
+      { id: 'B', text: "Enable a registry retention policy so untagged manifests are purged after seven days." },
+      { id: 'C', text: "Enable Microsoft Defender for Containers on the subscription holding the registry." },
+      { id: 'D', text: "Enable an ACR webhook that posts each push to a pipeline running a Trivy scan." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -513,10 +513,10 @@ export const AZURE_AZ400_QUESTIONS_18 = [
     scenario: "An SRE team is optimizing system reliability to eliminate single points of failure, accelerate rollback capabilities, and automate incident response. The DevOps engineer needs to ensure container images uploaded to Azure Container Registry (ACR) are automatically scanned for OS and package vulnerabilities.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
-      { id: 'A', text: "Enable Microsoft Defender for Container Registries on the target Azure Container Registry." },
-      { id: 'B', text: "Scan containers only after they have run in production for twelve months." },
-      { id: 'C', text: "Disable container vulnerability scanning to reduce registry storage costs." },
-      { id: 'D', text: "Rely on developer self-attestation that container images are safe." }
+      { id: 'A', text: "Enable Microsoft Defender for Containers on the subscription holding the registry." },
+      { id: 'B', text: "Enable ACR content trust so only signed images can be pushed to the registry." },
+      { id: 'C', text: "Enable a registry retention policy so untagged manifests are purged after seven days." },
+      { id: 'D', text: "Enable an ACR webhook that posts each push to a pipeline running a Trivy scan." }
     ],
     correctAnswers: ['A'],
     type: "single",

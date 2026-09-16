@@ -9,10 +9,10 @@ export const AZURE_AZ400_QUESTIONS_17 = [
     scenario: "An enterprise cloud DevOps team is establishing operational continuity standards, zero-downtime deployment patterns, and disaster recovery baselines across Azure environments. The DevOps engineer needs to validate and preview infrastructure changes in pull requests before automatically deploying them upon merge to the main branch.",
     question: "Which architectural approach or configuration satisfies these high-availability and operational resilience objectives?",
     options: [
-      { id: 'A', text: "Run `az deployment sub what-if` (or `terraform plan`) during pull request validation, and execute deployment only after merge to main." },
-      { id: 'B', text: "Run deployment scripts with manual confirmation directly from developer laptops." },
-      { id: 'C', text: "Apply unvalidated infrastructure templates directly to production without previews." },
-      { id: 'D', text: "Disable infrastructure as code and configure Azure resources via the portal." }
+      { id: 'A', text: "Run `az deployment sub what-if` (or `terraform plan`) in PR validation and deploy only after merge." },
+      { id: 'B', text: "Run the deployment in PR validation against an ephemeral resource group and delete it on close." },
+      { id: 'C', text: "Run `az deployment sub validate` in PR validation, which reports the resources that will change." },
+      { id: 'D', text: "Run Azure Policy compliance checks in PR validation and deploy on the branch's nightly schedule." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -30,10 +30,10 @@ export const AZURE_AZ400_QUESTIONS_17 = [
     scenario: "A high-throughput enterprise application running on Azure experiences sudden surges in user transactions and requires automated, resilient pipeline execution. The DevOps engineer needs to validate and preview infrastructure changes in pull requests before automatically deploying them upon merge to the main branch.",
     question: "Which design pattern or resource configuration manages this workload surge effectively while protecting service stability?",
     options: [
-      { id: 'A', text: "Run `az deployment sub what-if` (or `terraform plan`) during pull request validation, and execute deployment only after merge to main." },
-      { id: 'B', text: "Run deployment scripts with manual confirmation directly from developer laptops." },
-      { id: 'C', text: "Apply unvalidated infrastructure templates directly to production without previews." },
-      { id: 'D', text: "Disable infrastructure as code and configure Azure resources via the portal." }
+      { id: 'A', text: "Run `az deployment sub what-if` (or `terraform plan`) in PR validation and deploy only after merge." },
+      { id: 'B', text: "Run the deployment in PR validation against an ephemeral resource group and delete it on close." },
+      { id: 'C', text: "Run `az deployment sub validate` in PR validation, which reports the resources that will change." },
+      { id: 'D', text: "Run Azure Policy compliance checks in PR validation and deploy on the branch's nightly schedule." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -51,10 +51,10 @@ export const AZURE_AZ400_QUESTIONS_17 = [
     scenario: "A security compliance auditor requires strict source code protection, credential isolation, and automated governance verification across all continuous delivery pipelines. The DevOps engineer needs to validate and preview infrastructure changes in pull requests before automatically deploying them upon merge to the main branch.",
     question: "Which solution implements these mandatory DevOps security and compliance controls?",
     options: [
-      { id: 'A', text: "Run `az deployment sub what-if` (or `terraform plan`) during pull request validation, and execute deployment only after merge to main." },
-      { id: 'B', text: "Run deployment scripts with manual confirmation directly from developer laptops." },
-      { id: 'C', text: "Apply unvalidated infrastructure templates directly to production without previews." },
-      { id: 'D', text: "Disable infrastructure as code and configure Azure resources via the portal." }
+      { id: 'A', text: "Run `az deployment sub what-if` (or `terraform plan`) in PR validation and deploy only after merge." },
+      { id: 'B', text: "Run the deployment in PR validation against an ephemeral resource group and delete it on close." },
+      { id: 'C', text: "Run `az deployment sub validate` in PR validation, which reports the resources that will change." },
+      { id: 'D', text: "Run Azure Policy compliance checks in PR validation and deploy on the branch's nightly schedule." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -72,10 +72,10 @@ export const AZURE_AZ400_QUESTIONS_17 = [
     scenario: "An organization is modernizing legacy on-premises deployment workflows and adopting cloud-native continuous integration and automated testing on Azure. The DevOps engineer needs to validate and preview infrastructure changes in pull requests before automatically deploying them upon merge to the main branch.",
     question: "Which architectural pattern or platform feature enables the engineering team to modernize delivery with minimal operational friction?",
     options: [
-      { id: 'A', text: "Apply unvalidated infrastructure templates directly to production without previews." },
-      { id: 'B', text: "Run deployment scripts with manual confirmation directly from developer laptops." },
-      { id: 'C', text: "Disable infrastructure as code and configure Azure resources via the portal." },
-      { id: 'D', text: "Run `az deployment sub what-if` (or `terraform plan`) during pull request validation, and execute deployment only after merge to main." }
+      { id: 'A', text: "Run `az deployment sub validate` in PR validation, which reports the resources that will change." },
+      { id: 'B', text: "Run the deployment in PR validation against an ephemeral resource group and delete it on close." },
+      { id: 'C', text: "Run Azure Policy compliance checks in PR validation and deploy on the branch's nightly schedule." },
+      { id: 'D', text: "Run `az deployment sub what-if` (or `terraform plan`) in PR validation and deploy only after merge." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -93,10 +93,10 @@ export const AZURE_AZ400_QUESTIONS_17 = [
     scenario: "An SRE team is optimizing system reliability to eliminate single points of failure, accelerate rollback capabilities, and automate incident response. The DevOps engineer needs to validate and preview infrastructure changes in pull requests before automatically deploying them upon merge to the main branch.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
-      { id: 'A', text: "Run `az deployment sub what-if` (or `terraform plan`) during pull request validation, and execute deployment only after merge to main." },
-      { id: 'B', text: "Run deployment scripts with manual confirmation directly from developer laptops." },
-      { id: 'C', text: "Apply unvalidated infrastructure templates directly to production without previews." },
-      { id: 'D', text: "Disable infrastructure as code and configure Azure resources via the portal." }
+      { id: 'A', text: "Run `az deployment sub what-if` (or `terraform plan`) in PR validation and deploy only after merge." },
+      { id: 'B', text: "Run the deployment in PR validation against an ephemeral resource group and delete it on close." },
+      { id: 'C', text: "Run `az deployment sub validate` in PR validation, which reports the resources that will change." },
+      { id: 'D', text: "Run Azure Policy compliance checks in PR validation and deploy on the branch's nightly schedule." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -114,10 +114,10 @@ export const AZURE_AZ400_QUESTIONS_17 = [
     scenario: "An enterprise cloud DevOps team is establishing operational continuity standards, zero-downtime deployment patterns, and disaster recovery baselines across Azure environments. The DevOps engineer needs to automate container building, pushing to Azure Container Registry (ACR), and deploying to Azure Kubernetes Service (AKS) using Helm.",
     question: "Which architectural approach or configuration satisfies these high-availability and operational resilience objectives?",
     options: [
-      { id: 'A', text: "Use `Docker@2` to build and push images to ACR, and `HelmDeploy@0` to upgrade or install the Helm release targeting AKS." },
-      { id: 'B', text: "Manually execute `kubectl apply` commands over an SSH connection to an AKS node." },
-      { id: 'C', text: "Bake application secrets into the container image and deploy using raw manifests." },
-      { id: 'D', text: "Reinstall the AKS cluster for every new application version." }
+      { id: 'A', text: "Use `Docker@2` to build and push to ACR, then `HelmDeploy@0` to upgrade the release on AKS." },
+      { id: 'B', text: "Use `AzureCLI@2` to run `az acr build`, then `Kubernetes@1` to apply the rendered manifests." },
+      { id: 'C', text: "Use `Docker@2` to build and push to ACR, then `Kubernetes@1` to set the new image on the Deployment." },
+      { id: 'D', text: "Use `AzureCLI@2` to run `az acr import`, then `HelmDeploy@0` to install the chart afresh." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -135,10 +135,10 @@ export const AZURE_AZ400_QUESTIONS_17 = [
     scenario: "A high-throughput enterprise application running on Azure experiences sudden surges in user transactions and requires automated, resilient pipeline execution. The DevOps engineer needs to automate container building, pushing to Azure Container Registry (ACR), and deploying to Azure Kubernetes Service (AKS) using Helm.",
     question: "Which design pattern or resource configuration manages this workload surge effectively while protecting service stability?",
     options: [
-      { id: 'A', text: "Bake application secrets into the container image and deploy using raw manifests." },
-      { id: 'B', text: "Reinstall the AKS cluster for every new application version." },
-      { id: 'C', text: "Use `Docker@2` to build and push images to ACR, and `HelmDeploy@0` to upgrade or install the Helm release targeting AKS." },
-      { id: 'D', text: "Manually execute `kubectl apply` commands over an SSH connection to an AKS node." }
+      { id: 'A', text: "Use `Docker@2` to build and push to ACR, then `Kubernetes@1` to set the new image on the Deployment." },
+      { id: 'B', text: "Use `AzureCLI@2` to run `az acr import`, then `HelmDeploy@0` to install the chart afresh." },
+      { id: 'C', text: "Use `Docker@2` to build and push to ACR, then `HelmDeploy@0` to upgrade the release on AKS." },
+      { id: 'D', text: "Use `AzureCLI@2` to run `az acr build`, then `Kubernetes@1` to apply the rendered manifests." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -156,10 +156,10 @@ export const AZURE_AZ400_QUESTIONS_17 = [
     scenario: "A security compliance auditor requires strict source code protection, credential isolation, and automated governance verification across all continuous delivery pipelines. The DevOps engineer needs to automate container building, pushing to Azure Container Registry (ACR), and deploying to Azure Kubernetes Service (AKS) using Helm.",
     question: "Which solution implements these mandatory DevOps security and compliance controls?",
     options: [
-      { id: 'A', text: "Use `Docker@2` to build and push images to ACR, and `HelmDeploy@0` to upgrade or install the Helm release targeting AKS." },
-      { id: 'B', text: "Manually execute `kubectl apply` commands over an SSH connection to an AKS node." },
-      { id: 'C', text: "Bake application secrets into the container image and deploy using raw manifests." },
-      { id: 'D', text: "Reinstall the AKS cluster for every new application version." }
+      { id: 'A', text: "Use `Docker@2` to build and push to ACR, then `HelmDeploy@0` to upgrade the release on AKS." },
+      { id: 'B', text: "Use `AzureCLI@2` to run `az acr build`, then `Kubernetes@1` to apply the rendered manifests." },
+      { id: 'C', text: "Use `Docker@2` to build and push to ACR, then `Kubernetes@1` to set the new image on the Deployment." },
+      { id: 'D', text: "Use `AzureCLI@2` to run `az acr import`, then `HelmDeploy@0` to install the chart afresh." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -177,10 +177,10 @@ export const AZURE_AZ400_QUESTIONS_17 = [
     scenario: "An organization is modernizing legacy on-premises deployment workflows and adopting cloud-native continuous integration and automated testing on Azure. The DevOps engineer needs to automate container building, pushing to Azure Container Registry (ACR), and deploying to Azure Kubernetes Service (AKS) using Helm.",
     question: "Which architectural pattern or platform feature enables the engineering team to modernize delivery with minimal operational friction?",
     options: [
-      { id: 'A', text: "Use `Docker@2` to build and push images to ACR, and `HelmDeploy@0` to upgrade or install the Helm release targeting AKS." },
-      { id: 'B', text: "Manually execute `kubectl apply` commands over an SSH connection to an AKS node." },
-      { id: 'C', text: "Bake application secrets into the container image and deploy using raw manifests." },
-      { id: 'D', text: "Reinstall the AKS cluster for every new application version." }
+      { id: 'A', text: "Use `Docker@2` to build and push to ACR, then `HelmDeploy@0` to upgrade the release on AKS." },
+      { id: 'B', text: "Use `AzureCLI@2` to run `az acr build`, then `Kubernetes@1` to apply the rendered manifests." },
+      { id: 'C', text: "Use `Docker@2` to build and push to ACR, then `Kubernetes@1` to set the new image on the Deployment." },
+      { id: 'D', text: "Use `AzureCLI@2` to run `az acr import`, then `HelmDeploy@0` to install the chart afresh." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -198,10 +198,10 @@ export const AZURE_AZ400_QUESTIONS_17 = [
     scenario: "An SRE team is optimizing system reliability to eliminate single points of failure, accelerate rollback capabilities, and automate incident response. The DevOps engineer needs to automate container building, pushing to Azure Container Registry (ACR), and deploying to Azure Kubernetes Service (AKS) using Helm.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
-      { id: 'A', text: "Use `Docker@2` to build and push images to ACR, and `HelmDeploy@0` to upgrade or install the Helm release targeting AKS." },
-      { id: 'B', text: "Manually execute `kubectl apply` commands over an SSH connection to an AKS node." },
-      { id: 'C', text: "Bake application secrets into the container image and deploy using raw manifests." },
-      { id: 'D', text: "Reinstall the AKS cluster for every new application version." }
+      { id: 'A', text: "Use `Docker@2` to build and push to ACR, then `HelmDeploy@0` to upgrade the release on AKS." },
+      { id: 'B', text: "Use `AzureCLI@2` to run `az acr build`, then `Kubernetes@1` to apply the rendered manifests." },
+      { id: 'C', text: "Use `Docker@2` to build and push to ACR, then `Kubernetes@1` to set the new image on the Deployment." },
+      { id: 'D', text: "Use `AzureCLI@2` to run `az acr import`, then `HelmDeploy@0` to install the chart afresh." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -219,10 +219,10 @@ export const AZURE_AZ400_QUESTIONS_17 = [
     scenario: "An enterprise cloud DevOps team is establishing operational continuity standards, zero-downtime deployment patterns, and disaster recovery baselines across Azure environments. The DevOps engineer needs to enforce a requirement that every pipeline in an Azure DevOps organization must run a security compliance scan without modifying individual pipeline YAML files.",
     question: "Which architectural approach or configuration satisfies these high-availability and operational resilience objectives?",
     options: [
-      { id: 'A', text: "Implement a custom Azure DevOps Pipeline Decorator that automatically injects the security scanning task into every pipeline job." },
-      { id: 'B', text: "Open pull requests against 500 individual repositories to manually paste the security task." },
-      { id: 'C', text: "Trust all development teams to voluntarily remember to include the security scanner." },
-      { id: 'D', text: "Block all pipelines from executing permanently." }
+      { id: 'A', text: "Publish a pipeline decorator extension that injects the scan task into every job." },
+      { id: 'B', text: "Publish the scan as a required YAML template and enforce it with a pipeline permission." },
+      { id: 'C', text: "Publish the scan as a task group and add it to the organization's default agent pool." },
+      { id: 'D', text: "Publish the scan as a build validation policy on every repository's default branch." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -240,10 +240,10 @@ export const AZURE_AZ400_QUESTIONS_17 = [
     scenario: "A high-throughput enterprise application running on Azure experiences sudden surges in user transactions and requires automated, resilient pipeline execution. The DevOps engineer needs to enforce a requirement that every pipeline in an Azure DevOps organization must run a security compliance scan without modifying individual pipeline YAML files.",
     question: "Which design pattern or resource configuration manages this workload surge effectively while protecting service stability?",
     options: [
-      { id: 'A', text: "Implement a custom Azure DevOps Pipeline Decorator that automatically injects the security scanning task into every pipeline job." },
-      { id: 'B', text: "Open pull requests against 500 individual repositories to manually paste the security task." },
-      { id: 'C', text: "Trust all development teams to voluntarily remember to include the security scanner." },
-      { id: 'D', text: "Block all pipelines from executing permanently." }
+      { id: 'A', text: "Publish a pipeline decorator extension that injects the scan task into every job." },
+      { id: 'B', text: "Publish the scan as a required YAML template and enforce it with a pipeline permission." },
+      { id: 'C', text: "Publish the scan as a task group and add it to the organization's default agent pool." },
+      { id: 'D', text: "Publish the scan as a build validation policy on every repository's default branch." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -261,10 +261,10 @@ export const AZURE_AZ400_QUESTIONS_17 = [
     scenario: "A security compliance auditor requires strict source code protection, credential isolation, and automated governance verification across all continuous delivery pipelines. The DevOps engineer needs to enforce a requirement that every pipeline in an Azure DevOps organization must run a security compliance scan without modifying individual pipeline YAML files.",
     question: "Which solution implements these mandatory DevOps security and compliance controls?",
     options: [
-      { id: 'A', text: "Trust all development teams to voluntarily remember to include the security scanner." },
-      { id: 'B', text: "Implement a custom Azure DevOps Pipeline Decorator that automatically injects the security scanning task into every pipeline job." },
-      { id: 'C', text: "Open pull requests against 500 individual repositories to manually paste the security task." },
-      { id: 'D', text: "Block all pipelines from executing permanently." }
+      { id: 'A', text: "Publish the scan as a task group and add it to the organization's default agent pool." },
+      { id: 'B', text: "Publish a pipeline decorator extension that injects the scan task into every job." },
+      { id: 'C', text: "Publish the scan as a required YAML template and enforce it with a pipeline permission." },
+      { id: 'D', text: "Publish the scan as a build validation policy on every repository's default branch." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -282,10 +282,10 @@ export const AZURE_AZ400_QUESTIONS_17 = [
     scenario: "An organization is modernizing legacy on-premises deployment workflows and adopting cloud-native continuous integration and automated testing on Azure. The DevOps engineer needs to enforce a requirement that every pipeline in an Azure DevOps organization must run a security compliance scan without modifying individual pipeline YAML files.",
     question: "Which architectural pattern or platform feature enables the engineering team to modernize delivery with minimal operational friction?",
     options: [
-      { id: 'A', text: "Implement a custom Azure DevOps Pipeline Decorator that automatically injects the security scanning task into every pipeline job." },
-      { id: 'B', text: "Trust all development teams to voluntarily remember to include the security scanner." },
-      { id: 'C', text: "Block all pipelines from executing permanently." },
-      { id: 'D', text: "Open pull requests against 500 individual repositories to manually paste the security task." }
+      { id: 'A', text: "Publish a pipeline decorator extension that injects the scan task into every job." },
+      { id: 'B', text: "Publish the scan as a task group and add it to the organization's default agent pool." },
+      { id: 'C', text: "Publish the scan as a build validation policy on every repository's default branch." },
+      { id: 'D', text: "Publish the scan as a required YAML template and enforce it with a pipeline permission." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -303,10 +303,10 @@ export const AZURE_AZ400_QUESTIONS_17 = [
     scenario: "An SRE team is optimizing system reliability to eliminate single points of failure, accelerate rollback capabilities, and automate incident response. The DevOps engineer needs to enforce a requirement that every pipeline in an Azure DevOps organization must run a security compliance scan without modifying individual pipeline YAML files.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
-      { id: 'A', text: "Block all pipelines from executing permanently." },
-      { id: 'B', text: "Open pull requests against 500 individual repositories to manually paste the security task." },
-      { id: 'C', text: "Implement a custom Azure DevOps Pipeline Decorator that automatically injects the security scanning task into every pipeline job." },
-      { id: 'D', text: "Trust all development teams to voluntarily remember to include the security scanner." }
+      { id: 'A', text: "Publish the scan as a build validation policy on every repository's default branch." },
+      { id: 'B', text: "Publish the scan as a required YAML template and enforce it with a pipeline permission." },
+      { id: 'C', text: "Publish a pipeline decorator extension that injects the scan task into every job." },
+      { id: 'D', text: "Publish the scan as a task group and add it to the organization's default agent pool." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -324,10 +324,10 @@ export const AZURE_AZ400_QUESTIONS_17 = [
     scenario: "An enterprise cloud DevOps team is establishing operational continuity standards, zero-downtime deployment patterns, and disaster recovery baselines across Azure environments. The DevOps engineer needs to deploy relational database schema updates to Azure SQL Database automatically in continuous delivery pipelines without data loss.",
     question: "Which architectural approach or configuration satisfies these high-availability and operational resilience objectives?",
     options: [
-      { id: 'A', text: "Use the `SqlAzureDacpacDeployment@1` task or Liquibase CLI in the pipeline to generate and apply incremental schema changes." },
-      { id: 'B', text: "Run ad-hoc SQL update scripts manually through SQL Server Management Studio during outages." },
-      { id: 'C', text: "Recreate the production database from scratch on every application release." },
-      { id: 'D', text: "Drop all tables and re-import data nightly." }
+      { id: 'A', text: "Use the `SqlAzureDacpacDeployment@1` task, or Liquibase, to apply incremental changes." },
+      { id: 'B', text: "Use the `SqlAzureDacpacDeployment@1` task with the drop-and-create publish profile option." },
+      { id: 'C', text: "Use an `AzureCLI@2` step that restores the latest backup and replays the change scripts." },
+      { id: 'D', text: "Use a `SqlDacpacDeploymentOnMachineGroup@0` task against the database's private endpoint." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -345,10 +345,10 @@ export const AZURE_AZ400_QUESTIONS_17 = [
     scenario: "A high-throughput enterprise application running on Azure experiences sudden surges in user transactions and requires automated, resilient pipeline execution. The DevOps engineer needs to deploy relational database schema updates to Azure SQL Database automatically in continuous delivery pipelines without data loss.",
     question: "Which design pattern or resource configuration manages this workload surge effectively while protecting service stability?",
     options: [
-      { id: 'A', text: "Use the `SqlAzureDacpacDeployment@1` task or Liquibase CLI in the pipeline to generate and apply incremental schema changes." },
-      { id: 'B', text: "Run ad-hoc SQL update scripts manually through SQL Server Management Studio during outages." },
-      { id: 'C', text: "Recreate the production database from scratch on every application release." },
-      { id: 'D', text: "Drop all tables and re-import data nightly." }
+      { id: 'A', text: "Use the `SqlAzureDacpacDeployment@1` task, or Liquibase, to apply incremental changes." },
+      { id: 'B', text: "Use the `SqlAzureDacpacDeployment@1` task with the drop-and-create publish profile option." },
+      { id: 'C', text: "Use an `AzureCLI@2` step that restores the latest backup and replays the change scripts." },
+      { id: 'D', text: "Use a `SqlDacpacDeploymentOnMachineGroup@0` task against the database's private endpoint." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -366,10 +366,10 @@ export const AZURE_AZ400_QUESTIONS_17 = [
     scenario: "A security compliance auditor requires strict source code protection, credential isolation, and automated governance verification across all continuous delivery pipelines. The DevOps engineer needs to deploy relational database schema updates to Azure SQL Database automatically in continuous delivery pipelines without data loss.",
     question: "Which solution implements these mandatory DevOps security and compliance controls?",
     options: [
-      { id: 'A', text: "Use the `SqlAzureDacpacDeployment@1` task or Liquibase CLI in the pipeline to generate and apply incremental schema changes." },
-      { id: 'B', text: "Run ad-hoc SQL update scripts manually through SQL Server Management Studio during outages." },
-      { id: 'C', text: "Recreate the production database from scratch on every application release." },
-      { id: 'D', text: "Drop all tables and re-import data nightly." }
+      { id: 'A', text: "Use the `SqlAzureDacpacDeployment@1` task, or Liquibase, to apply incremental changes." },
+      { id: 'B', text: "Use the `SqlAzureDacpacDeployment@1` task with the drop-and-create publish profile option." },
+      { id: 'C', text: "Use an `AzureCLI@2` step that restores the latest backup and replays the change scripts." },
+      { id: 'D', text: "Use a `SqlDacpacDeploymentOnMachineGroup@0` task against the database's private endpoint." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -387,10 +387,10 @@ export const AZURE_AZ400_QUESTIONS_17 = [
     scenario: "An organization is modernizing legacy on-premises deployment workflows and adopting cloud-native continuous integration and automated testing on Azure. The DevOps engineer needs to deploy relational database schema updates to Azure SQL Database automatically in continuous delivery pipelines without data loss.",
     question: "Which architectural pattern or platform feature enables the engineering team to modernize delivery with minimal operational friction?",
     options: [
-      { id: 'A', text: "Run ad-hoc SQL update scripts manually through SQL Server Management Studio during outages." },
-      { id: 'B', text: "Use the `SqlAzureDacpacDeployment@1` task or Liquibase CLI in the pipeline to generate and apply incremental schema changes." },
-      { id: 'C', text: "Drop all tables and re-import data nightly." },
-      { id: 'D', text: "Recreate the production database from scratch on every application release." }
+      { id: 'A', text: "Use the `SqlAzureDacpacDeployment@1` task with the drop-and-create publish profile option." },
+      { id: 'B', text: "Use the `SqlAzureDacpacDeployment@1` task, or Liquibase, to apply incremental changes." },
+      { id: 'C', text: "Use a `SqlDacpacDeploymentOnMachineGroup@0` task against the database's private endpoint." },
+      { id: 'D', text: "Use an `AzureCLI@2` step that restores the latest backup and replays the change scripts." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -408,10 +408,10 @@ export const AZURE_AZ400_QUESTIONS_17 = [
     scenario: "An SRE team is optimizing system reliability to eliminate single points of failure, accelerate rollback capabilities, and automate incident response. The DevOps engineer needs to deploy relational database schema updates to Azure SQL Database automatically in continuous delivery pipelines without data loss.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
-      { id: 'A', text: "Run ad-hoc SQL update scripts manually through SQL Server Management Studio during outages." },
-      { id: 'B', text: "Recreate the production database from scratch on every application release." },
-      { id: 'C', text: "Use the `SqlAzureDacpacDeployment@1` task or Liquibase CLI in the pipeline to generate and apply incremental schema changes." },
-      { id: 'D', text: "Drop all tables and re-import data nightly." }
+      { id: 'A', text: "Use the `SqlAzureDacpacDeployment@1` task with the drop-and-create publish profile option." },
+      { id: 'B', text: "Use an `AzureCLI@2` step that restores the latest backup and replays the change scripts." },
+      { id: 'C', text: "Use the `SqlAzureDacpacDeployment@1` task, or Liquibase, to apply incremental changes." },
+      { id: 'D', text: "Use a `SqlDacpacDeploymentOnMachineGroup@0` task against the database's private endpoint." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -429,10 +429,10 @@ export const AZURE_AZ400_QUESTIONS_17 = [
     scenario: "An enterprise cloud DevOps team is establishing operational continuity standards, zero-downtime deployment patterns, and disaster recovery baselines across Azure environments. The DevOps engineer needs to configure a pipeline to run comprehensive integration tests only on pull requests targeting `main` and run nightly builds on a schedule.",
     question: "Which architectural approach or configuration satisfies these high-availability and operational resilience objectives?",
     options: [
-      { id: 'A', text: "Disable all automated triggers and rely entirely on manual pipeline dispatches." },
-      { id: 'B', text: "Configure `pr: branches: include: [main]` for pull requests and `schedules: - cron: \"0 2 * * *\"` for nightly executions in the YAML file." },
-      { id: 'C', text: "Require a developer to wake up at 2:00 AM every night to click the Run Pipeline button." },
-      { id: 'D', text: "Trigger the full 4-hour test suite on every single commit to all personal feature branches." }
+      { id: 'A', text: "Set `trigger: branches: include: [main]` for the test run and a `schedules:` cron entry for the nightly." },
+      { id: 'B', text: "Set `pr: branches: include: [main]` for the test run and a `schedules:` cron entry for the nightly." },
+      { id: 'C', text: "Set a branch policy build validation on `main` and a second pipeline with a `cron` scheduled trigger." },
+      { id: 'D', text: "Set `trigger: none` with a `pr` trigger on every branch, and run the nightly from a release gate." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -450,10 +450,10 @@ export const AZURE_AZ400_QUESTIONS_17 = [
     scenario: "A high-throughput enterprise application running on Azure experiences sudden surges in user transactions and requires automated, resilient pipeline execution. The DevOps engineer needs to configure a pipeline to run comprehensive integration tests only on pull requests targeting `main` and run nightly builds on a schedule.",
     question: "Which design pattern or resource configuration manages this workload surge effectively while protecting service stability?",
     options: [
-      { id: 'A', text: "Configure `pr: branches: include: [main]` for pull requests and `schedules: - cron: \"0 2 * * *\"` for nightly executions in the YAML file." },
-      { id: 'B', text: "Trigger the full 4-hour test suite on every single commit to all personal feature branches." },
-      { id: 'C', text: "Require a developer to wake up at 2:00 AM every night to click the Run Pipeline button." },
-      { id: 'D', text: "Disable all automated triggers and rely entirely on manual pipeline dispatches." }
+      { id: 'A', text: "Set `pr: branches: include: [main]` for the test run and a `schedules:` cron entry for the nightly." },
+      { id: 'B', text: "Set `trigger: none` with a `pr` trigger on every branch, and run the nightly from a release gate." },
+      { id: 'C', text: "Set a branch policy build validation on `main` and a second pipeline with a `cron` scheduled trigger." },
+      { id: 'D', text: "Set `trigger: branches: include: [main]` for the test run and a `schedules:` cron entry for the nightly." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -471,10 +471,10 @@ export const AZURE_AZ400_QUESTIONS_17 = [
     scenario: "A security compliance auditor requires strict source code protection, credential isolation, and automated governance verification across all continuous delivery pipelines. The DevOps engineer needs to configure a pipeline to run comprehensive integration tests only on pull requests targeting `main` and run nightly builds on a schedule.",
     question: "Which solution implements these mandatory DevOps security and compliance controls?",
     options: [
-      { id: 'A', text: "Configure `pr: branches: include: [main]` for pull requests and `schedules: - cron: \"0 2 * * *\"` for nightly executions in the YAML file." },
-      { id: 'B', text: "Require a developer to wake up at 2:00 AM every night to click the Run Pipeline button." },
-      { id: 'C', text: "Disable all automated triggers and rely entirely on manual pipeline dispatches." },
-      { id: 'D', text: "Trigger the full 4-hour test suite on every single commit to all personal feature branches." }
+      { id: 'A', text: "Set `pr: branches: include: [main]` for the test run and a `schedules:` cron entry for the nightly." },
+      { id: 'B', text: "Set a branch policy build validation on `main` and a second pipeline with a `cron` scheduled trigger." },
+      { id: 'C', text: "Set `trigger: branches: include: [main]` for the test run and a `schedules:` cron entry for the nightly." },
+      { id: 'D', text: "Set `trigger: none` with a `pr` trigger on every branch, and run the nightly from a release gate." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -492,10 +492,10 @@ export const AZURE_AZ400_QUESTIONS_17 = [
     scenario: "An organization is modernizing legacy on-premises deployment workflows and adopting cloud-native continuous integration and automated testing on Azure. The DevOps engineer needs to configure a pipeline to run comprehensive integration tests only on pull requests targeting `main` and run nightly builds on a schedule.",
     question: "Which architectural pattern or platform feature enables the engineering team to modernize delivery with minimal operational friction?",
     options: [
-      { id: 'A', text: "Configure `pr: branches: include: [main]` for pull requests and `schedules: - cron: \"0 2 * * *\"` for nightly executions in the YAML file." },
-      { id: 'B', text: "Trigger the full 4-hour test suite on every single commit to all personal feature branches." },
-      { id: 'C', text: "Require a developer to wake up at 2:00 AM every night to click the Run Pipeline button." },
-      { id: 'D', text: "Disable all automated triggers and rely entirely on manual pipeline dispatches." }
+      { id: 'A', text: "Set `pr: branches: include: [main]` for the test run and a `schedules:` cron entry for the nightly." },
+      { id: 'B', text: "Set `trigger: none` with a `pr` trigger on every branch, and run the nightly from a release gate." },
+      { id: 'C', text: "Set a branch policy build validation on `main` and a second pipeline with a `cron` scheduled trigger." },
+      { id: 'D', text: "Set `trigger: branches: include: [main]` for the test run and a `schedules:` cron entry for the nightly." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -513,10 +513,10 @@ export const AZURE_AZ400_QUESTIONS_17 = [
     scenario: "An SRE team is optimizing system reliability to eliminate single points of failure, accelerate rollback capabilities, and automate incident response. The DevOps engineer needs to configure a pipeline to run comprehensive integration tests only on pull requests targeting `main` and run nightly builds on a schedule.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
-      { id: 'A', text: "Trigger the full 4-hour test suite on every single commit to all personal feature branches." },
-      { id: 'B', text: "Disable all automated triggers and rely entirely on manual pipeline dispatches." },
-      { id: 'C', text: "Require a developer to wake up at 2:00 AM every night to click the Run Pipeline button." },
-      { id: 'D', text: "Configure `pr: branches: include: [main]` for pull requests and `schedules: - cron: \"0 2 * * *\"` for nightly executions in the YAML file." }
+      { id: 'A', text: "Set `trigger: none` with a `pr` trigger on every branch, and run the nightly from a release gate." },
+      { id: 'B', text: "Set `trigger: branches: include: [main]` for the test run and a `schedules:` cron entry for the nightly." },
+      { id: 'C', text: "Set a branch policy build validation on `main` and a second pipeline with a `cron` scheduled trigger." },
+      { id: 'D', text: "Set `pr: branches: include: [main]` for the test run and a `schedules:` cron entry for the nightly." }
     ],
     correctAnswers: ['D'],
     type: "single",

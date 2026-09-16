@@ -93,10 +93,10 @@ export const AZURE_AZ400_QUESTIONS_4 = [
     scenario: "An engineering team wants to decouple code deployment from feature exposure, allowing new frontend features to be toggled on or off for specific percentages of users in production without redeploying code or restarting web applications.",
     question: "Which Azure service provides centralized dynamic feature flag management?",
     options: [
-      { id: 'A', text: "Azure App Configuration with Feature Manager" },
-      { id: 'B', text: "Azure Key Vault secrets" },
-      { id: 'C', text: "Azure Service Bus topics" },
-      { id: 'D', text: "Azure Monitor alert rules" }
+      { id: 'A', text: "Azure App Configuration, with Feature Manager" },
+      { id: 'B', text: "Azure Key Vault, with referenced secrets" },
+      { id: 'C', text: "Azure Front Door, with rules engine rules" },
+      { id: 'D', text: "Azure App Service, with deployment slots" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -135,9 +135,9 @@ export const AZURE_AZ400_QUESTIONS_4 = [
     scenario: "A monorepo has two applications: `/src/frontend/` and `/src/backend/`. The frontend pipeline should trigger on pushes to `main` only when frontend files are modified, and ignore markdown documentation.",
     question: "Which trigger block configuration implements this filtering?",
     options: [
-      { id: 'A', text: "trigger: { branches: { include: ['main'] } } with no paths filter" },
-      { id: 'B', text: "trigger: none, with a scheduled build over the frontend folder" },
-      { id: 'C', text: "pr: { paths: { include: ['src/frontend/*'] } } on the main branch" },
+      { id: 'A', text: "trigger: { branches: { include: ['main'] }, paths: { exclude: ['src/backend/*', '**/*.md'] } }" },
+      { id: 'B', text: "trigger: { paths: { include: ['src/frontend/*'] } } with the branch filter left at its default" },
+      { id: 'C', text: "pr: { branches: { include: ['main'] }, paths: { include: ['src/frontend/*'] } } on the frontend" },
       { id: 'D', text: "trigger: { branches: { include: ['main'] }, paths: { include: ['src/frontend/*'], exclude: ['**/*.md'] } }" }
     ],
     correctAnswers: ['D'],
@@ -177,10 +177,10 @@ export const AZURE_AZ400_QUESTIONS_4 = [
     scenario: "A QA team requires a nightly regression test suite to run every weekday at 2:00 AM UTC against the main branch, but only if new code was committed since the last run.",
     question: "Which scheduled trigger configuration satisfies this requirement?",
     options: [
-      { id: 'A', text: "trigger: { batch: true, branches: { include: ['main'] } }" },
-      { id: 'B', text: "schedules: [ { cron: '0 2 * * 1-5', displayName: 'Nightly', branches: { include: ['main'] }, always: false } ]" },
-      { id: 'C', text: "A Classic scheduled trigger configured in the pipeline UI" },
-      { id: 'D', text: "schedules: [ { cron: '* * * * *', branches: { include: ['main'] }, always: true } ]" }
+      { id: 'A', text: "schedules: [{ cron: '0 2 * * *', branches: { include: ['main'] }, always: false }]" },
+      { id: 'B', text: "schedules: [{ cron: '0 2 * * 1-5', branches: { include: ['main'] }, always: false }]" },
+      { id: 'C', text: "schedules: [{ cron: '0 2 * * 1-5', branches: { include: ['main'] }, always: true }]" },
+      { id: 'D', text: "trigger: { batch: true, branches: { include: ['main'] } } with a nightly cron gate" }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -219,10 +219,10 @@ export const AZURE_AZ400_QUESTIONS_4 = [
     scenario: "Job A in Stage 1 calculates an artifact semantic version number (`OutputVersion`). Job B in Stage 2 needs to consume this value.",
     question: "How must the variable be emitted in Job A and referenced in Job B?",
     options: [
-      { id: 'A', text: "Emit via `echo '##vso[task.setvariable variable=OutputVersion;isOutput=true]1.2.3'` and reference as `$[stageDependencies.Stage1.JobA.outputs['StepName.OutputVersion']]`" },
-      { id: 'B', text: "Write the variable to a file on the agent disk and read it back later" },
-      { id: 'C', text: "Set an operating system environment variable with export OutputVersion=1.2.3" },
-      { id: 'D', text: "Publish the value as a build artifact and download it in the next stage" }
+      { id: 'A', text: "Emit with `##vso[task.setvariable variable=OutputVersion;isOutput=true]`, read via `stageDependencies`" },
+      { id: 'B', text: "Emit with `##vso[task.setvariable variable=OutputVersion]`, read via `$(OutputVersion)` in Job B" },
+      { id: 'C', text: "Emit with `##vso[build.updatebuildnumber]`, read via `$(Build.BuildNumber)` in Job B" },
+      { id: 'D', text: "Emit as an output variable on the job, read via `$[dependencies.JobA.outputs]` in Stage 2" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -240,10 +240,10 @@ export const AZURE_AZ400_QUESTIONS_4 = [
     scenario: "A Node.js build pipeline spends 7 minutes running `npm install` on every build. The `package-lock.json` file rarely changes.",
     question: "Which pipeline task should be added to cache `~/.npm` across runs?",
     options: [
-      { id: 'A', text: "CopyFiles@2 moving node_modules into the artifact staging directory" },
-      { id: 'B', text: "PublishBuildArtifacts@1 publishing node_modules as a build artifact" },
-      { id: 'C', text: "ArchiveFiles@2 with the node_modules folder, restored on the next run" },
-      { id: 'D', text: "Cache@2 task with key: 'npm | \"$(Agent.OS)\" | package-lock.json' and path: $(npm_config_cache)" }
+      { id: 'A', text: "Cache@2 with key: 'npm | \"$(Build.BuildId)\"' and path: $(npm_config_cache) per run" },
+      { id: 'B', text: "PublishPipelineArtifact@1 publishing $(npm_config_cache) for the next run to download" },
+      { id: 'C', text: "ArchiveFiles@2 archiving $(npm_config_cache) and restoring it in the following build" },
+      { id: 'D', text: "Cache@2 with key: 'npm | \"$(Agent.OS)\" | package-lock.json' and path: $(npm_config_cache)" }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -282,7 +282,7 @@ export const AZURE_AZ400_QUESTIONS_4 = [
     scenario: "An enterprise DevOps engineering team is implementing automated CI/CD pipelines, source control governance, and continuous delivery on Microsoft Azure.",
     question: "Which modern pipeline task is recommended by Microsoft for high-speed artifact publishing in YAML pipelines?",
     options: [
-      { id: 'A', text: "CopyFiles@2 moving the playbook onto each target machine" },
+      { id: 'A', text: "The `CopyFiles@2` task, which copies the playbook to each machine in the deployment group" },
       { id: 'B', text: "FTPUpload@2" },
       { id: 'C', text: "PublishBuildArtifacts@1 (legacy)" },
       { id: 'D', text: "PublishPipelineArtifact@1" }
@@ -345,10 +345,10 @@ export const AZURE_AZ400_QUESTIONS_4 = [
     scenario: "A library author wants to execute automated unit tests across three operating systems (Ubuntu, Windows, macOS) and two Node versions (18, 20) simultaneously.",
     question: "How should the strategy block be configured in the YAML job?",
     options: [
-      { id: 'A', text: "strategy: { matrix: { Linux_Node18: { image: 'ubuntu-latest', node: '18' }, Windows_Node20: { image: 'windows-latest', node: '20' } } }" },
-      { id: 'B', text: "strategy: { parallel: 2 } with the image chosen inside each job" },
-      { id: 'C', text: "pool: { vmImage: 'ubuntu-latest' } with a loop over the node versions" },
-      { id: 'D', text: "Three separate pipeline files, one per platform, run in sequence" }
+      { id: 'A', text: "strategy: { matrix: { Linux_Node18: { image: 'ubuntu-latest', node: '18' }, ... } }" },
+      { id: 'B', text: "strategy: { parallel: 6 } with the image and node version chosen inside the job" },
+      { id: 'C', text: "strategy: { matrix: { node: ['18', '20'] } } with the pool set to ubuntu-latest" },
+      { id: 'D', text: "strategy: { maxParallel: 6 } with a job per platform and a loop over the versions" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -429,10 +429,10 @@ export const AZURE_AZ400_QUESTIONS_4 = [
     scenario: "An end-to-end integration test pipeline should trigger automatically whenever the core API build pipeline (`MyApiBuild`) successfully completes a build on the `main` branch.",
     question: "Which YAML resource definition configures this pipeline-chaining trigger?",
     options: [
-      { id: 'A', text: "resources: { pipelines: [ { pipeline: api-build, source: MyApiBuild, trigger: { branches: ['main'] } } ] }" },
-      { id: 'B', text: "resources: { repositories: [ { repository: MyApiBuild } ] }" },
-      { id: 'C', text: "A build completion trigger configured in the Classic pipeline UI" },
-      { id: 'D', text: "dependsOn: MyApiBuild, declared at the top of the consuming pipeline" }
+      { id: 'A', text: "resources: { pipelines: [{ pipeline: api, source: MyApiBuild, trigger: { branches: ['main'] } }] }" },
+      { id: 'B', text: "resources: { pipelines: [{ pipeline: api, source: MyApiBuild }] } with a `dependsOn` on it" },
+      { id: 'C', text: "resources: { repositories: [{ repository: MyApiBuild, trigger: { branches: ['main'] } }] }" },
+      { id: 'D', text: "resources: { builds: [{ build: MyApiBuild, type: Tfs, trigger: true }] } in the consumer" }
     ],
     correctAnswers: ['A'],
     type: "single",

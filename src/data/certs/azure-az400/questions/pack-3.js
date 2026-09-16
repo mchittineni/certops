@@ -282,10 +282,10 @@ export const AZURE_AZ400_QUESTIONS_3 = [
     scenario: "A CI pipeline clones a 10-year-old Git repository on every build, spending 8 minutes downloading 200,000 historical commits.",
     question: "How should the checkout step in the YAML pipeline be configured to speed up pipeline execution?",
     options: [
-      { id: 'A', text: "git pull --all" },
-      { id: 'B', text: "clean: true" },
+      { id: 'A', text: "checkout: self, with clean: true" },
+      { id: 'B', text: "checkout: self, with lfs: true" },
       { id: 'C', text: "checkout: self, with fetchDepth: 1" },
-      { id: 'D', text: "checkout: none" }
+      { id: 'D', text: "checkout: none, then git pull" }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -303,9 +303,9 @@ export const AZURE_AZ400_QUESTIONS_3 = [
     scenario: "An enterprise integrates a third-party static code analysis engine running on-premises that must report a pass/fail status directly onto Azure Repos pull requests.",
     question: "Which REST API resource in Azure DevOps posts external status checks to a pull request?",
     options: [
-      { id: 'A', text: "Sending an email to the repository owner" },
-      { id: 'B', text: "Writing a file to the Git repository" },
-      { id: 'C', text: "Updating an Azure Boards work item" },
+      { id: 'A', text: "POST to the Pull Request Threads API (/pullRequests/{id}/threads)" },
+      { id: 'B', text: "POST to the Pull Request Reviewers API (/pullRequests/{id}/reviewers)" },
+      { id: 'C', text: "POST to the Policy Evaluations API (/policy/evaluations?artifactId=)" },
       { id: 'D', text: "POST to the Pull Request Statuses API (/pullRequests/{id}/statuses)" }
     ],
     correctAnswers: ['D'],
@@ -516,7 +516,7 @@ export const AZURE_AZ400_QUESTIONS_3 = [
       { id: 'A', text: "Run `git diff --exit-code && git status --porcelain` in a script task" },
       { id: 'B', text: "Run `git status` and fail the task if the output is non-empty" },
       { id: 'C', text: "Compare the generated file timestamps against the checkout time" },
-      { id: 'D', text: "Re-run the generator and diff the output directory by hand" }
+      { id: 'D', text: "Run `trivy image --severity CRITICAL myimage:tag` and publish the report as an artifact" }
     ],
     correctAnswers: ['A'],
     type: "single",
