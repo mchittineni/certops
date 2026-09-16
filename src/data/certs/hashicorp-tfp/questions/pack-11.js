@@ -10,7 +10,7 @@ export const HASHICORP_TFP_QUESTIONS_11 = [
     question: "Which architectural approach or advanced configuration satisfies these multi-region recovery and resilience objectives?",
     options: [
       { id: 'A', text: "Add a `validation` block on the variable that carries the volume's encryption setting." },
-      { id: 'B', text: "Add a `lifecycle` `precondition` asserting the encryption attribute before the resource is created." },
+      { id: 'B', text: "Add a `lifecycle` `precondition` asserting the encryption attribute before creation." },
       { id: 'C', text: "Add an external data source that queries the volume after the apply and fails on drift." },
       { id: 'D', text: "Add a `check` block that asserts on the volume once the configuration has applied." }
     ],
@@ -32,7 +32,7 @@ export const HASHICORP_TFP_QUESTIONS_11 = [
     options: [
       { id: 'A', text: "Add a `validation` block on the variable that carries the volume's encryption setting." },
       { id: 'B', text: "Add a `check` block that asserts on the volume once the configuration has applied." },
-      { id: 'C', text: "Add a `lifecycle` `precondition` asserting the encryption attribute before the resource is created." },
+      { id: 'C', text: "Add a `lifecycle` `precondition` asserting the encryption attribute before creation." },
       { id: 'D', text: "Add an external data source that queries the volume after the apply and fails on drift." }
     ],
     correctAnswers: ['C'],
@@ -51,7 +51,7 @@ export const HASHICORP_TFP_QUESTIONS_11 = [
     scenario: "A security compliance auditor requires cryptographic state protection, policy-as-code enforcement, and automated governance across all enterprise Terraform delivery pipelines. The Terraform professional evaluates Configuration Validation to ensure that an EC2 instance provisioned by a module uses an encrypted EBS root block device without relying solely on cloud provider API failures.",
     question: "Which solution implements these mandatory infrastructure as code security and governance controls?",
     options: [
-      { id: 'A', text: "Add a `lifecycle` `precondition` asserting the encryption attribute before the resource is created." },
+      { id: 'A', text: "Add a `lifecycle` `precondition` asserting the encryption attribute before creation." },
       { id: 'B', text: "Add an external data source that queries the volume after the apply and fails on drift." },
       { id: 'C', text: "Add a `validation` block on the variable that carries the volume's encryption setting." },
       { id: 'D', text: "Add a `check` block that asserts on the volume once the configuration has applied." }
@@ -72,7 +72,7 @@ export const HASHICORP_TFP_QUESTIONS_11 = [
     scenario: "An enterprise is modernizing on-premises infrastructure and refactoring monolithic legacy deployments into modular, cloud-native architectures using advanced Terraform practices. The Terraform professional evaluates Configuration Validation to ensure that an EC2 instance provisioned by a module uses an encrypted EBS root block device without relying solely on cloud provider API failures.",
     question: "Which practice or platform feature enables the engineering team to modernize provisioning workflows with minimal operational friction?",
     options: [
-      { id: 'A', text: "Add a `lifecycle` `precondition` asserting the encryption attribute before the resource is created." },
+      { id: 'A', text: "Add a `lifecycle` `precondition` asserting the encryption attribute before creation." },
       { id: 'B', text: "Add an external data source that queries the volume after the apply and fails on drift." },
       { id: 'C', text: "Add a `validation` block on the variable that carries the volume's encryption setting." },
       { id: 'D', text: "Add a `check` block that asserts on the volume once the configuration has applied." }
@@ -95,7 +95,7 @@ export const HASHICORP_TFP_QUESTIONS_11 = [
     options: [
       { id: 'A', text: "Add a `validation` block on the variable that carries the volume's encryption setting." },
       { id: 'B', text: "Add a `check` block that asserts on the volume once the configuration has applied." },
-      { id: 'C', text: "Add a `lifecycle` `precondition` asserting the encryption attribute before the resource is created." },
+      { id: 'C', text: "Add a `lifecycle` `precondition` asserting the encryption attribute before creation." },
       { id: 'D', text: "Add an external data source that queries the volume after the apply and fails on drift." }
     ],
     correctAnswers: ['C'],
@@ -115,7 +115,7 @@ export const HASHICORP_TFP_QUESTIONS_11 = [
     question: "Which architectural approach or advanced configuration satisfies these multi-region recovery and resilience objectives?",
     options: [
       { id: 'A', text: "Use `flatten()` over nested `for` expressions to produce one list of objects." },
-      { id: 'B', text: "Use `setproduct()` over the two lists to produce one list of objects." },
+      { id: 'B', text: "Use `setproduct()` over the two input lists to produce a single list of objects." },
       { id: 'C', text: "Use `for_each` over the outer map and declare each subnet separately." },
       { id: 'D', text: "Use `jsondecode()` on the raw value and index it by position." }
     ],
@@ -135,7 +135,7 @@ export const HASHICORP_TFP_QUESTIONS_11 = [
     scenario: "A complex enterprise multi-cloud platform experiences massive scaling requirements and requires modular, automated, and performant infrastructure provisioning across dozens of teams. The Terraform professional evaluates Collection Manipulation to flatten a nested map of VPC subnets across multiple availability zones into a single flat list suitable for `for_each` resource iteration.",
     question: "Which architectural pattern or Terraform capability manages this scale effectively while preventing dependency bottlenecks and configuration drift?",
     options: [
-      { id: 'A', text: "Use `setproduct()` over the two lists to produce one list of objects." },
+      { id: 'A', text: "Use `setproduct()` over the two input lists to produce a single list of objects." },
       { id: 'B', text: "Use `jsondecode()` on the raw value and index it by position." },
       { id: 'C', text: "Use `for_each` over the outer map and declare each subnet separately." },
       { id: 'D', text: "Use `flatten()` over nested `for` expressions to produce one list of objects." }
@@ -156,7 +156,7 @@ export const HASHICORP_TFP_QUESTIONS_11 = [
     scenario: "A security compliance auditor requires cryptographic state protection, policy-as-code enforcement, and automated governance across all enterprise Terraform delivery pipelines. The Terraform professional evaluates Collection Manipulation to flatten a nested map of VPC subnets across multiple availability zones into a single flat list suitable for `for_each` resource iteration.",
     question: "Which solution implements these mandatory infrastructure as code security and governance controls?",
     options: [
-      { id: 'A', text: "Use `setproduct()` over the two lists to produce one list of objects." },
+      { id: 'A', text: "Use `setproduct()` over the two input lists to produce a single list of objects." },
       { id: 'B', text: "Use `for_each` over the outer map and declare each subnet separately." },
       { id: 'C', text: "Use `flatten()` over nested `for` expressions to produce one list of objects." },
       { id: 'D', text: "Use `jsondecode()` on the raw value and index it by position." }
@@ -178,7 +178,7 @@ export const HASHICORP_TFP_QUESTIONS_11 = [
     question: "Which practice or platform feature enables the engineering team to modernize provisioning workflows with minimal operational friction?",
     options: [
       { id: 'A', text: "Use `flatten()` over nested `for` expressions to produce one list of objects." },
-      { id: 'B', text: "Use `setproduct()` over the two lists to produce one list of objects." },
+      { id: 'B', text: "Use `setproduct()` over the two input lists to produce a single list of objects." },
       { id: 'C', text: "Use `for_each` over the outer map and declare each subnet separately." },
       { id: 'D', text: "Use `jsondecode()` on the raw value and index it by position." }
     ],
@@ -199,7 +199,7 @@ export const HASHICORP_TFP_QUESTIONS_11 = [
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
       { id: 'A', text: "Use `flatten()` over nested `for` expressions to produce one list of objects." },
-      { id: 'B', text: "Use `setproduct()` over the two lists to produce one list of objects." },
+      { id: 'B', text: "Use `setproduct()` over the two input lists to produce a single list of objects." },
       { id: 'C', text: "Use `for_each` over the outer map and declare each subnet separately." },
       { id: 'D', text: "Use `jsondecode()` on the raw value and index it by position." }
     ],
@@ -222,7 +222,7 @@ export const HASHICORP_TFP_QUESTIONS_11 = [
       { id: 'A', text: "Let the apply destroy the bucket and recreate it under the module's address." },
       { id: 'B', text: "Edit the remote state document and rewrite the resource's address by hand." },
       { id: 'C', text: "Add a `moved` block giving the resource's old address and its new module address." },
-      { id: 'D', text: "Have each developer run `terraform state mv` locally against the shared state." }
+      { id: 'D', text: "Have each developer run `terraform state mv` locally against the shared state file." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -240,7 +240,7 @@ export const HASHICORP_TFP_QUESTIONS_11 = [
     scenario: "A complex enterprise multi-cloud platform experiences massive scaling requirements and requires modular, automated, and performant infrastructure provisioning across dozens of teams. The Terraform professional evaluates Declarative Refactoring to refactor a legacy standalone `aws_s3_bucket.data` into a new module `module.storage.aws_s3_bucket.this` without requiring manual CLI state commands from team members.",
     question: "Which architectural pattern or Terraform capability manages this scale effectively while preventing dependency bottlenecks and configuration drift?",
     options: [
-      { id: 'A', text: "Have each developer run `terraform state mv` locally against the shared state." },
+      { id: 'A', text: "Have each developer run `terraform state mv` locally against the shared state file." },
       { id: 'B', text: "Add a `moved` block giving the resource's old address and its new module address." },
       { id: 'C', text: "Edit the remote state document and rewrite the resource's address by hand." },
       { id: 'D', text: "Let the apply destroy the bucket and recreate it under the module's address." }
@@ -263,7 +263,7 @@ export const HASHICORP_TFP_QUESTIONS_11 = [
     options: [
       { id: 'A', text: "Edit the remote state document and rewrite the resource's address by hand." },
       { id: 'B', text: "Let the apply destroy the bucket and recreate it under the module's address." },
-      { id: 'C', text: "Have each developer run `terraform state mv` locally against the shared state." },
+      { id: 'C', text: "Have each developer run `terraform state mv` locally against the shared state file." },
       { id: 'D', text: "Add a `moved` block giving the resource's old address and its new module address." }
     ],
     correctAnswers: ['D'],
@@ -283,7 +283,7 @@ export const HASHICORP_TFP_QUESTIONS_11 = [
     question: "Which practice or platform feature enables the engineering team to modernize provisioning workflows with minimal operational friction?",
     options: [
       { id: 'A', text: "Add a `moved` block giving the resource's old address and its new module address." },
-      { id: 'B', text: "Have each developer run `terraform state mv` locally against the shared state." },
+      { id: 'B', text: "Have each developer run `terraform state mv` locally against the shared state file." },
       { id: 'C', text: "Let the apply destroy the bucket and recreate it under the module's address." },
       { id: 'D', text: "Edit the remote state document and rewrite the resource's address by hand." }
     ],
@@ -304,7 +304,7 @@ export const HASHICORP_TFP_QUESTIONS_11 = [
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
       { id: 'A', text: "Add a `moved` block giving the resource's old address and its new module address." },
-      { id: 'B', text: "Have each developer run `terraform state mv` locally against the shared state." },
+      { id: 'B', text: "Have each developer run `terraform state mv` locally against the shared state file." },
       { id: 'C', text: "Let the apply destroy the bucket and recreate it under the module's address." },
       { id: 'D', text: "Edit the remote state document and rewrite the resource's address by hand." }
     ],
@@ -325,7 +325,7 @@ export const HASHICORP_TFP_QUESTIONS_11 = [
     question: "Which architectural approach or advanced configuration satisfies these multi-region recovery and resilience objectives?",
     options: [
       { id: 'A', text: "Add a `check` block with a scoped `data \"http\"` source and an `assert` condition." },
-      { id: 'B', text: "Add a `null_resource` whose `local-exec` curls the endpoint and exits non-zero." },
+      { id: 'B', text: "Add a `null_resource` whose `local-exec` curls the endpoint and exits non-zero on failure." },
       { id: 'C', text: "Add an external monitor outside Terraform that pages when the endpoint fails." },
       { id: 'D', text: "Add a `postcondition` on the load balancer resource asserting on its state." }
     ],
@@ -346,7 +346,7 @@ export const HASHICORP_TFP_QUESTIONS_11 = [
     question: "Which architectural pattern or Terraform capability manages this scale effectively while preventing dependency bottlenecks and configuration drift?",
     options: [
       { id: 'A', text: "Add a `check` block with a scoped `data \"http\"` source and an `assert` condition." },
-      { id: 'B', text: "Add a `null_resource` whose `local-exec` curls the endpoint and exits non-zero." },
+      { id: 'B', text: "Add a `null_resource` whose `local-exec` curls the endpoint and exits non-zero on failure." },
       { id: 'C', text: "Add an external monitor outside Terraform that pages when the endpoint fails." },
       { id: 'D', text: "Add a `postcondition` on the load balancer resource asserting on its state." }
     ],
@@ -369,7 +369,7 @@ export const HASHICORP_TFP_QUESTIONS_11 = [
       { id: 'A', text: "Add an external monitor outside Terraform that pages when the endpoint fails." },
       { id: 'B', text: "Add a `postcondition` on the load balancer resource asserting on its state." },
       { id: 'C', text: "Add a `check` block with a scoped `data \"http\"` source and an `assert` condition." },
-      { id: 'D', text: "Add a `null_resource` whose `local-exec` curls the endpoint and exits non-zero." }
+      { id: 'D', text: "Add a `null_resource` whose `local-exec` curls the endpoint and exits non-zero on failure." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -389,7 +389,7 @@ export const HASHICORP_TFP_QUESTIONS_11 = [
     options: [
       { id: 'A', text: "Add an external monitor outside Terraform that pages when the endpoint fails." },
       { id: 'B', text: "Add a `check` block with a scoped `data \"http\"` source and an `assert` condition." },
-      { id: 'C', text: "Add a `null_resource` whose `local-exec` curls the endpoint and exits non-zero." },
+      { id: 'C', text: "Add a `null_resource` whose `local-exec` curls the endpoint and exits non-zero on failure." },
       { id: 'D', text: "Add a `postcondition` on the load balancer resource asserting on its state." }
     ],
     correctAnswers: ['B'],
@@ -410,7 +410,7 @@ export const HASHICORP_TFP_QUESTIONS_11 = [
     options: [
       { id: 'A', text: "Add a `postcondition` on the load balancer resource asserting on its state." },
       { id: 'B', text: "Add an external monitor outside Terraform that pages when the endpoint fails." },
-      { id: 'C', text: "Add a `null_resource` whose `local-exec` curls the endpoint and exits non-zero." },
+      { id: 'C', text: "Add a `null_resource` whose `local-exec` curls the endpoint and exits non-zero on failure." },
       { id: 'D', text: "Add a `check` block with a scoped `data \"http\"` source and an `assert` condition." }
     ],
     correctAnswers: ['D'],
@@ -430,7 +430,7 @@ export const HASHICORP_TFP_QUESTIONS_11 = [
     question: "Which architectural approach or advanced configuration satisfies these multi-region recovery and resilience objectives?",
     options: [
       { id: 'A', text: "Write `import {}` blocks with `to` and `id`, then `plan -generate-config-out`." },
-      { id: 'B', text: "Run `terraform import` per table and write each resource block by hand." },
+      { id: 'B', text: "Run `terraform import` for each table and then write each resource block by hand." },
       { id: 'C', text: "Recreate the tables through Terraform and migrate the data across." },
       { id: 'D', text: "Write the resource blocks first and let the next apply adopt them." }
     ],
@@ -450,7 +450,7 @@ export const HASHICORP_TFP_QUESTIONS_11 = [
     scenario: "A complex enterprise multi-cloud platform experiences massive scaling requirements and requires modular, automated, and performant infrastructure provisioning across dozens of teams. The Terraform professional evaluates Declarative Import to bring 50 unmanaged AWS DynamoDB tables into Terraform management and automatically generate initial HCL resource blocks.",
     question: "Which architectural pattern or Terraform capability manages this scale effectively while preventing dependency bottlenecks and configuration drift?",
     options: [
-      { id: 'A', text: "Run `terraform import` per table and write each resource block by hand." },
+      { id: 'A', text: "Run `terraform import` for each table and then write each resource block by hand." },
       { id: 'B', text: "Recreate the tables through Terraform and migrate the data across." },
       { id: 'C', text: "Write `import {}` blocks with `to` and `id`, then `plan -generate-config-out`." },
       { id: 'D', text: "Write the resource blocks first and let the next apply adopt them." }
@@ -473,7 +473,7 @@ export const HASHICORP_TFP_QUESTIONS_11 = [
     options: [
       { id: 'A', text: "Write the resource blocks first and let the next apply adopt them." },
       { id: 'B', text: "Recreate the tables through Terraform and migrate the data across." },
-      { id: 'C', text: "Run `terraform import` per table and write each resource block by hand." },
+      { id: 'C', text: "Run `terraform import` for each table and then write each resource block by hand." },
       { id: 'D', text: "Write `import {}` blocks with `to` and `id`, then `plan -generate-config-out`." }
     ],
     correctAnswers: ['D'],
@@ -495,7 +495,7 @@ export const HASHICORP_TFP_QUESTIONS_11 = [
       { id: 'A', text: "Write `import {}` blocks with `to` and `id`, then `plan -generate-config-out`." },
       { id: 'B', text: "Recreate the tables through Terraform and migrate the data across." },
       { id: 'C', text: "Write the resource blocks first and let the next apply adopt them." },
-      { id: 'D', text: "Run `terraform import` per table and write each resource block by hand." }
+      { id: 'D', text: "Run `terraform import` for each table and then write each resource block by hand." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -515,7 +515,7 @@ export const HASHICORP_TFP_QUESTIONS_11 = [
     options: [
       { id: 'A', text: "Write `import {}` blocks with `to` and `id`, then `plan -generate-config-out`." },
       { id: 'B', text: "Write the resource blocks first and let the next apply adopt them." },
-      { id: 'C', text: "Run `terraform import` per table and write each resource block by hand." },
+      { id: 'C', text: "Run `terraform import` for each table and then write each resource block by hand." },
       { id: 'D', text: "Recreate the tables through Terraform and migrate the data across." }
     ],
     correctAnswers: ['A'],

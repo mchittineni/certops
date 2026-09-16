@@ -10,7 +10,7 @@ export const HASHICORP_TFP_QUESTIONS_17 = [
     question: "Which architectural approach or advanced configuration satisfies these multi-region recovery and resilience objectives?",
     options: [
       { id: 'A', text: "Share the networking outputs through `tfe_outputs`, with workspace sharing scoped to the consumers." },
-      { id: 'B', text: "Copy the subnet IDs into each application's variable file at the start of a sprint." },
+      { id: 'B', text: "Copy the subnet IDs into each of the application's own variable files at the start of every sprint." },
       { id: 'C', text: "Give the application workspaces read access to the networking state bucket directly." },
       { id: 'D', text: "Move the application resources into the networking workspace so no sharing is needed." }
     ],
@@ -33,7 +33,7 @@ export const HASHICORP_TFP_QUESTIONS_17 = [
       { id: 'A', text: "Give the application workspaces read access to the networking state bucket directly." },
       { id: 'B', text: "Move the application resources into the networking workspace so no sharing is needed." },
       { id: 'C', text: "Share the networking outputs through `tfe_outputs`, with workspace sharing scoped to the consumers." },
-      { id: 'D', text: "Copy the subnet IDs into each application's variable file at the start of a sprint." }
+      { id: 'D', text: "Copy the subnet IDs into each of the application's own variable files at the start of every sprint." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -51,7 +51,7 @@ export const HASHICORP_TFP_QUESTIONS_17 = [
     scenario: "A security compliance auditor requires cryptographic state protection, policy-as-code enforcement, and automated governance across all enterprise Terraform delivery pipelines. The Terraform professional evaluates Cross-State Sharing to share network subnet IDs from a foundational networking workspace to an application compute workspace in HCP Terraform.",
     question: "Which solution implements these mandatory infrastructure as code security and governance controls?",
     options: [
-      { id: 'A', text: "Copy the subnet IDs into each application's variable file at the start of a sprint." },
+      { id: 'A', text: "Copy the subnet IDs into each of the application's own variable files at the start of every sprint." },
       { id: 'B', text: "Share the networking outputs through `tfe_outputs`, with workspace sharing scoped to the consumers." },
       { id: 'C', text: "Move the application resources into the networking workspace so no sharing is needed." },
       { id: 'D', text: "Give the application workspaces read access to the networking state bucket directly." }
@@ -74,7 +74,7 @@ export const HASHICORP_TFP_QUESTIONS_17 = [
     options: [
       { id: 'A', text: "Move the application resources into the networking workspace so no sharing is needed." },
       { id: 'B', text: "Give the application workspaces read access to the networking state bucket directly." },
-      { id: 'C', text: "Copy the subnet IDs into each application's variable file at the start of a sprint." },
+      { id: 'C', text: "Copy the subnet IDs into each of the application's own variable files at the start of every sprint." },
       { id: 'D', text: "Share the networking outputs through `tfe_outputs`, with workspace sharing scoped to the consumers." }
     ],
     correctAnswers: ['D'],
@@ -94,7 +94,7 @@ export const HASHICORP_TFP_QUESTIONS_17 = [
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
       { id: 'A', text: "Share the networking outputs through `tfe_outputs`, with workspace sharing scoped to the consumers." },
-      { id: 'B', text: "Copy the subnet IDs into each application's variable file at the start of a sprint." },
+      { id: 'B', text: "Copy the subnet IDs into each of the application's own variable files at the start of every sprint." },
       { id: 'C', text: "Give the application workspaces read access to the networking state bucket directly." },
       { id: 'D', text: "Move the application resources into the networking workspace so no sharing is needed." }
     ],
@@ -220,7 +220,7 @@ export const HASHICORP_TFP_QUESTIONS_17 = [
     question: "Which architectural approach or advanced configuration satisfies these multi-region recovery and resilience objectives?",
     options: [
       { id: 'A', text: "Run `plan -out=tfplan` on the pull request, require sign-off, and `apply tfplan` on merge." },
-      { id: 'B', text: "Run `apply` directly in CI on merge, with the plan shown in the job log for review." },
+      { id: 'B', text: "Run `apply` directly in CI on merge, with the plan shown in the job log for review afterwards." },
       { id: 'C', text: "Run `plan` in CI and have an engineer re-run `apply` locally after the approval." },
       { id: 'D', text: "Run `apply -auto-approve` on every branch so the environment always matches HEAD." }
     ],
@@ -242,7 +242,7 @@ export const HASHICORP_TFP_QUESTIONS_17 = [
     options: [
       { id: 'A', text: "Run `plan -out=tfplan` on the pull request, require sign-off, and `apply tfplan` on merge." },
       { id: 'B', text: "Run `apply -auto-approve` on every branch so the environment always matches HEAD." },
-      { id: 'C', text: "Run `apply` directly in CI on merge, with the plan shown in the job log for review." },
+      { id: 'C', text: "Run `apply` directly in CI on merge, with the plan shown in the job log for review afterwards." },
       { id: 'D', text: "Run `plan` in CI and have an engineer re-run `apply` locally after the approval." }
     ],
     correctAnswers: ['A'],
@@ -262,7 +262,7 @@ export const HASHICORP_TFP_QUESTIONS_17 = [
     question: "Which solution implements these mandatory infrastructure as code security and governance controls?",
     options: [
       { id: 'A', text: "Run `plan` in CI and have an engineer re-run `apply` locally after the approval." },
-      { id: 'B', text: "Run `apply` directly in CI on merge, with the plan shown in the job log for review." },
+      { id: 'B', text: "Run `apply` directly in CI on merge, with the plan shown in the job log for review afterwards." },
       { id: 'C', text: "Run `apply -auto-approve` on every branch so the environment always matches HEAD." },
       { id: 'D', text: "Run `plan -out=tfplan` on the pull request, require sign-off, and `apply tfplan` on merge." }
     ],
@@ -284,7 +284,7 @@ export const HASHICORP_TFP_QUESTIONS_17 = [
     options: [
       { id: 'A', text: "Run `plan -out=tfplan` on the pull request, require sign-off, and `apply tfplan` on merge." },
       { id: 'B', text: "Run `apply -auto-approve` on every branch so the environment always matches HEAD." },
-      { id: 'C', text: "Run `apply` directly in CI on merge, with the plan shown in the job log for review." },
+      { id: 'C', text: "Run `apply` directly in CI on merge, with the plan shown in the job log for review afterwards." },
       { id: 'D', text: "Run `plan` in CI and have an engineer re-run `apply` locally after the approval." }
     ],
     correctAnswers: ['A'],
@@ -303,7 +303,7 @@ export const HASHICORP_TFP_QUESTIONS_17 = [
     scenario: "A platform reliability team is optimizing system resilience to eliminate single points of failure, streamline zero-downtime state refactoring, and automate operational recovery. The Terraform professional evaluates CI/CD Automation to design an automated, secure CI/CD pipeline for Terraform that guarantees speculative review and eliminates concurrency collisions.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
-      { id: 'A', text: "Run `apply` directly in CI on merge, with the plan shown in the job log for review." },
+      { id: 'A', text: "Run `apply` directly in CI on merge, with the plan shown in the job log for review afterwards." },
       { id: 'B', text: "Run `plan` in CI and have an engineer re-run `apply` locally after the approval." },
       { id: 'C', text: "Run `plan -out=tfplan` on the pull request, require sign-off, and `apply tfplan` on merge." },
       { id: 'D', text: "Run `apply -auto-approve` on every branch so the environment always matches HEAD." }
@@ -325,7 +325,7 @@ export const HASHICORP_TFP_QUESTIONS_17 = [
     question: "Which architectural approach or advanced configuration satisfies these multi-region recovery and resilience objectives?",
     options: [
       { id: 'A', text: "Add policy as code — Sentinel or OPA — evaluating the saved plan and blocking violations." },
-      { id: 'B', text: "Add a required reviewer on the run, so an engineer reads the plan before it applies." },
+      { id: 'B', text: "Add a required reviewer on each run, so that an engineer reads the plan before it applies." },
       { id: 'C', text: "Add a scanner over the deployed accounts that reports violations after each apply." },
       { id: 'D', text: "Add a pre-commit hook running the linter, so violations are caught before the push." }
     ],
@@ -346,7 +346,7 @@ export const HASHICORP_TFP_QUESTIONS_17 = [
     question: "Which architectural pattern or Terraform capability manages this scale effectively while preventing dependency bottlenecks and configuration drift?",
     options: [
       { id: 'A', text: "Add policy as code — Sentinel or OPA — evaluating the saved plan and blocking violations." },
-      { id: 'B', text: "Add a required reviewer on the run, so an engineer reads the plan before it applies." },
+      { id: 'B', text: "Add a required reviewer on each run, so that an engineer reads the plan before it applies." },
       { id: 'C', text: "Add a scanner over the deployed accounts that reports violations after each apply." },
       { id: 'D', text: "Add a pre-commit hook running the linter, so violations are caught before the push." }
     ],
@@ -366,7 +366,7 @@ export const HASHICORP_TFP_QUESTIONS_17 = [
     scenario: "A security compliance auditor requires cryptographic state protection, policy-as-code enforcement, and automated governance across all enterprise Terraform delivery pipelines. The Terraform professional evaluates Policy as Code to prevent engineers from provisioning unencrypted S3 buckets or oversized cloud instances before `terraform apply` executes.",
     question: "Which solution implements these mandatory infrastructure as code security and governance controls?",
     options: [
-      { id: 'A', text: "Add a required reviewer on the run, so an engineer reads the plan before it applies." },
+      { id: 'A', text: "Add a required reviewer on each run, so that an engineer reads the plan before it applies." },
       { id: 'B', text: "Add policy as code — Sentinel or OPA — evaluating the saved plan and blocking violations." },
       { id: 'C', text: "Add a pre-commit hook running the linter, so violations are caught before the push." },
       { id: 'D', text: "Add a scanner over the deployed accounts that reports violations after each apply." }
@@ -389,7 +389,7 @@ export const HASHICORP_TFP_QUESTIONS_17 = [
     options: [
       { id: 'A', text: "Add a pre-commit hook running the linter, so violations are caught before the push." },
       { id: 'B', text: "Add a scanner over the deployed accounts that reports violations after each apply." },
-      { id: 'C', text: "Add a required reviewer on the run, so an engineer reads the plan before it applies." },
+      { id: 'C', text: "Add a required reviewer on each run, so that an engineer reads the plan before it applies." },
       { id: 'D', text: "Add policy as code — Sentinel or OPA — evaluating the saved plan and blocking violations." }
     ],
     correctAnswers: ['D'],
@@ -410,7 +410,7 @@ export const HASHICORP_TFP_QUESTIONS_17 = [
     options: [
       { id: 'A', text: "Add a pre-commit hook running the linter, so violations are caught before the push." },
       { id: 'B', text: "Add a scanner over the deployed accounts that reports violations after each apply." },
-      { id: 'C', text: "Add a required reviewer on the run, so an engineer reads the plan before it applies." },
+      { id: 'C', text: "Add a required reviewer on each run, so that an engineer reads the plan before it applies." },
       { id: 'D', text: "Add policy as code — Sentinel or OPA — evaluating the saved plan and blocking violations." }
     ],
     correctAnswers: ['D'],

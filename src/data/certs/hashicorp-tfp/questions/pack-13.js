@@ -10,9 +10,9 @@ export const HASHICORP_TFP_QUESTIONS_13 = [
     question: "Which architectural approach or advanced configuration satisfies these multi-region recovery and resilience objectives?",
     options: [
       { id: 'A', text: "Set `kms_key_id = var.enable_encryption ? var.kms_key_id : null` in the resource specification." },
-      { id: 'B', text: "Set `kms_key_id = \"\"` passing an empty string that cloud APIs reject with validation errors." },
+      { id: 'B', text: "Set `kms_key_id = \"\"`, passing an empty string that the cloud APIs reject with validation errors." },
       { id: 'C', text: "Duplicate the entire resource block into two versions (encrypted and unencrypted)." },
-      { id: 'D', text: "Pass a dummy invalid KMS ARN when encryption is disabled." }
+      { id: 'D', text: "Pass a dummy invalid KMS ARN whenever encryption is disabled." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -31,8 +31,8 @@ export const HASHICORP_TFP_QUESTIONS_13 = [
     question: "Which architectural pattern or Terraform capability manages this scale effectively while preventing dependency bottlenecks and configuration drift?",
     options: [
       { id: 'A', text: "Set `kms_key_id = var.enable_encryption ? var.kms_key_id : null` in the resource specification." },
-      { id: 'B', text: "Pass a dummy invalid KMS ARN when encryption is disabled." },
-      { id: 'C', text: "Set `kms_key_id = \"\"` passing an empty string that cloud APIs reject with validation errors." },
+      { id: 'B', text: "Pass a dummy invalid KMS ARN whenever encryption is disabled." },
+      { id: 'C', text: "Set `kms_key_id = \"\"`, passing an empty string that the cloud APIs reject with validation errors." },
       { id: 'D', text: "Duplicate the entire resource block into two versions (encrypted and unencrypted)." }
     ],
     correctAnswers: ['A'],
@@ -52,9 +52,9 @@ export const HASHICORP_TFP_QUESTIONS_13 = [
     question: "Which solution implements these mandatory infrastructure as code security and governance controls?",
     options: [
       { id: 'A', text: "Set `kms_key_id = var.enable_encryption ? var.kms_key_id : null` in the resource specification." },
-      { id: 'B', text: "Set `kms_key_id = \"\"` passing an empty string that cloud APIs reject with validation errors." },
+      { id: 'B', text: "Set `kms_key_id = \"\"`, passing an empty string that the cloud APIs reject with validation errors." },
       { id: 'C', text: "Duplicate the entire resource block into two versions (encrypted and unencrypted)." },
-      { id: 'D', text: "Pass a dummy invalid KMS ARN when encryption is disabled." }
+      { id: 'D', text: "Pass a dummy invalid KMS ARN whenever encryption is disabled." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -73,9 +73,9 @@ export const HASHICORP_TFP_QUESTIONS_13 = [
     question: "Which practice or platform feature enables the engineering team to modernize provisioning workflows with minimal operational friction?",
     options: [
       { id: 'A', text: "Duplicate the entire resource block into two versions (encrypted and unencrypted)." },
-      { id: 'B', text: "Pass a dummy invalid KMS ARN when encryption is disabled." },
+      { id: 'B', text: "Pass a dummy invalid KMS ARN whenever encryption is disabled." },
       { id: 'C', text: "Set `kms_key_id = var.enable_encryption ? var.kms_key_id : null` in the resource specification." },
-      { id: 'D', text: "Set `kms_key_id = \"\"` passing an empty string that cloud APIs reject with validation errors." }
+      { id: 'D', text: "Set `kms_key_id = \"\"`, passing an empty string that the cloud APIs reject with validation errors." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -94,9 +94,9 @@ export const HASHICORP_TFP_QUESTIONS_13 = [
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
       { id: 'A', text: "Set `kms_key_id = var.enable_encryption ? var.kms_key_id : null` in the resource specification." },
-      { id: 'B', text: "Set `kms_key_id = \"\"` passing an empty string that cloud APIs reject with validation errors." },
+      { id: 'B', text: "Set `kms_key_id = \"\"`, passing an empty string that the cloud APIs reject with validation errors." },
       { id: 'C', text: "Duplicate the entire resource block into two versions (encrypted and unencrypted)." },
-      { id: 'D', text: "Pass a dummy invalid KMS ARN when encryption is disabled." }
+      { id: 'D', text: "Pass a dummy invalid KMS ARN whenever encryption is disabled." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -219,7 +219,7 @@ export const HASHICORP_TFP_QUESTIONS_13 = [
     scenario: "A principal cloud platform architect is establishing high-availability standards, automated disaster recovery procedures, and infrastructure resilience frameworks across multi-region environments using Terraform. The Terraform professional evaluates Module Design to design a reusable infrastructure module library for enterprise development teams without creating monolithic, inflexible modules.",
     question: "Which architectural approach or advanced configuration satisfies these multi-region recovery and resilience objectives?",
     options: [
-      { id: 'A', text: "Build one module covering the whole platform, configured through its input variables." },
+      { id: 'A', text: "Build a single module covering the whole platform, configured entirely through its input variables." },
       { id: 'B', text: "Build small composable modules per domain — networking, compute, database — that combine cleanly." },
       { id: 'C', text: "Build one module per cloud resource type, composed by each team's root module." },
       { id: 'D', text: "Build no modules, and keep each team's resources flat in its own configuration." }
@@ -243,7 +243,7 @@ export const HASHICORP_TFP_QUESTIONS_13 = [
       { id: 'A', text: "Build no modules, and keep each team's resources flat in its own configuration." },
       { id: 'B', text: "Build one module per cloud resource type, composed by each team's root module." },
       { id: 'C', text: "Build small composable modules per domain — networking, compute, database — that combine cleanly." },
-      { id: 'D', text: "Build one module covering the whole platform, configured through its input variables." }
+      { id: 'D', text: "Build a single module covering the whole platform, configured entirely through its input variables." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -261,7 +261,7 @@ export const HASHICORP_TFP_QUESTIONS_13 = [
     scenario: "A security compliance auditor requires cryptographic state protection, policy-as-code enforcement, and automated governance across all enterprise Terraform delivery pipelines. The Terraform professional evaluates Module Design to design a reusable infrastructure module library for enterprise development teams without creating monolithic, inflexible modules.",
     question: "Which solution implements these mandatory infrastructure as code security and governance controls?",
     options: [
-      { id: 'A', text: "Build one module covering the whole platform, configured through its input variables." },
+      { id: 'A', text: "Build a single module covering the whole platform, configured entirely through its input variables." },
       { id: 'B', text: "Build small composable modules per domain — networking, compute, database — that combine cleanly." },
       { id: 'C', text: "Build one module per cloud resource type, composed by each team's root module." },
       { id: 'D', text: "Build no modules, and keep each team's resources flat in its own configuration." }
@@ -282,7 +282,7 @@ export const HASHICORP_TFP_QUESTIONS_13 = [
     scenario: "An enterprise is modernizing on-premises infrastructure and refactoring monolithic legacy deployments into modular, cloud-native architectures using advanced Terraform practices. The Terraform professional evaluates Module Design to design a reusable infrastructure module library for enterprise development teams without creating monolithic, inflexible modules.",
     question: "Which practice or platform feature enables the engineering team to modernize provisioning workflows with minimal operational friction?",
     options: [
-      { id: 'A', text: "Build one module covering the whole platform, configured through its input variables." },
+      { id: 'A', text: "Build a single module covering the whole platform, configured entirely through its input variables." },
       { id: 'B', text: "Build small composable modules per domain — networking, compute, database — that combine cleanly." },
       { id: 'C', text: "Build one module per cloud resource type, composed by each team's root module." },
       { id: 'D', text: "Build no modules, and keep each team's resources flat in its own configuration." }
@@ -304,7 +304,7 @@ export const HASHICORP_TFP_QUESTIONS_13 = [
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
       { id: 'A', text: "Build small composable modules per domain — networking, compute, database — that combine cleanly." },
-      { id: 'B', text: "Build one module covering the whole platform, configured through its input variables." },
+      { id: 'B', text: "Build a single module covering the whole platform, configured entirely through its input variables." },
       { id: 'C', text: "Build no modules, and keep each team's resources flat in its own configuration." },
       { id: 'D', text: "Build one module per cloud resource type, composed by each team's root module." }
     ],
@@ -324,7 +324,7 @@ export const HASHICORP_TFP_QUESTIONS_13 = [
     scenario: "A principal cloud platform architect is establishing high-availability standards, automated disaster recovery procedures, and infrastructure resilience frameworks across multi-region environments using Terraform. The Terraform professional evaluates Private Registry to distribute an internal enterprise security module across 40 development teams with automated versioning and usage tracking.",
     question: "Which architectural approach or advanced configuration satisfies these multi-region recovery and resilience objectives?",
     options: [
-      { id: 'A', text: "Publish the module as a Git submodule each consuming repository pins to a commit." },
+      { id: 'A', text: "Publish the module as a Git submodule that each of the consuming repositories pins to a commit." },
       { id: 'B', text: "Publish the module as a directory each configuration references by relative path." },
       { id: 'C', text: "Publish the module as a versioned archive in object storage, sourced over HTTPS." },
       { id: 'D', text: "Publish the module to the private registry from its Git repository, versioned by release tags." }
@@ -348,7 +348,7 @@ export const HASHICORP_TFP_QUESTIONS_13 = [
       { id: 'A', text: "Publish the module as a versioned archive in object storage, sourced over HTTPS." },
       { id: 'B', text: "Publish the module as a directory each configuration references by relative path." },
       { id: 'C', text: "Publish the module to the private registry from its Git repository, versioned by release tags." },
-      { id: 'D', text: "Publish the module as a Git submodule each consuming repository pins to a commit." }
+      { id: 'D', text: "Publish the module as a Git submodule that each of the consuming repositories pins to a commit." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -366,7 +366,7 @@ export const HASHICORP_TFP_QUESTIONS_13 = [
     scenario: "A security compliance auditor requires cryptographic state protection, policy-as-code enforcement, and automated governance across all enterprise Terraform delivery pipelines. The Terraform professional evaluates Private Registry to distribute an internal enterprise security module across 40 development teams with automated versioning and usage tracking.",
     question: "Which solution implements these mandatory infrastructure as code security and governance controls?",
     options: [
-      { id: 'A', text: "Publish the module as a Git submodule each consuming repository pins to a commit." },
+      { id: 'A', text: "Publish the module as a Git submodule that each of the consuming repositories pins to a commit." },
       { id: 'B', text: "Publish the module as a versioned archive in object storage, sourced over HTTPS." },
       { id: 'C', text: "Publish the module to the private registry from its Git repository, versioned by release tags." },
       { id: 'D', text: "Publish the module as a directory each configuration references by relative path." }
@@ -389,7 +389,7 @@ export const HASHICORP_TFP_QUESTIONS_13 = [
     options: [
       { id: 'A', text: "Publish the module to the private registry from its Git repository, versioned by release tags." },
       { id: 'B', text: "Publish the module as a directory each configuration references by relative path." },
-      { id: 'C', text: "Publish the module as a Git submodule each consuming repository pins to a commit." },
+      { id: 'C', text: "Publish the module as a Git submodule that each of the consuming repositories pins to a commit." },
       { id: 'D', text: "Publish the module as a versioned archive in object storage, sourced over HTTPS." }
     ],
     correctAnswers: ['A'],
@@ -411,7 +411,7 @@ export const HASHICORP_TFP_QUESTIONS_13 = [
       { id: 'A', text: "Publish the module as a directory each configuration references by relative path." },
       { id: 'B', text: "Publish the module to the private registry from its Git repository, versioned by release tags." },
       { id: 'C', text: "Publish the module as a versioned archive in object storage, sourced over HTTPS." },
-      { id: 'D', text: "Publish the module as a Git submodule each consuming repository pins to a commit." }
+      { id: 'D', text: "Publish the module as a Git submodule that each of the consuming repositories pins to a commit." }
     ],
     correctAnswers: ['B'],
     type: "single",

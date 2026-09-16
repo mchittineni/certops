@@ -10,7 +10,7 @@ export const HASHICORP_TFP_QUESTIONS_12 = [
     question: "Which architectural approach or advanced configuration satisfies these multi-region recovery and resilience objectives?",
     options: [
       { id: 'A', text: "Type it as an `object({ ... })` with `optional()` attributes carrying defaults." },
-      { id: 'B', text: "Type it as an `object({ ... })` with every attribute required of the caller." },
+      { id: 'B', text: "Type it as an `object({ ... })` with every attribute required of the caller each time." },
       { id: 'C', text: "Type it as `any` and validate the shape in a `validation` block instead." },
       { id: 'D', text: "Type each field as its own scalar variable with a default value each." }
     ],
@@ -33,7 +33,7 @@ export const HASHICORP_TFP_QUESTIONS_12 = [
       { id: 'A', text: "Type each field as its own scalar variable with a default value each." },
       { id: 'B', text: "Type it as an `object({ ... })` with `optional()` attributes carrying defaults." },
       { id: 'C', text: "Type it as `any` and validate the shape in a `validation` block instead." },
-      { id: 'D', text: "Type it as an `object({ ... })` with every attribute required of the caller." }
+      { id: 'D', text: "Type it as an `object({ ... })` with every attribute required of the caller each time." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -53,7 +53,7 @@ export const HASHICORP_TFP_QUESTIONS_12 = [
     options: [
       { id: 'A', text: "Type each field as its own scalar variable with a default value each." },
       { id: 'B', text: "Type it as `any` and validate the shape in a `validation` block instead." },
-      { id: 'C', text: "Type it as an `object({ ... })` with every attribute required of the caller." },
+      { id: 'C', text: "Type it as an `object({ ... })` with every attribute required of the caller each time." },
       { id: 'D', text: "Type it as an `object({ ... })` with `optional()` attributes carrying defaults." }
     ],
     correctAnswers: ['D'],
@@ -74,7 +74,7 @@ export const HASHICORP_TFP_QUESTIONS_12 = [
     options: [
       { id: 'A', text: "Type it as `any` and validate the shape in a `validation` block instead." },
       { id: 'B', text: "Type it as an `object({ ... })` with `optional()` attributes carrying defaults." },
-      { id: 'C', text: "Type it as an `object({ ... })` with every attribute required of the caller." },
+      { id: 'C', text: "Type it as an `object({ ... })` with every attribute required of the caller each time." },
       { id: 'D', text: "Type each field as its own scalar variable with a default value each." }
     ],
     correctAnswers: ['B'],
@@ -94,7 +94,7 @@ export const HASHICORP_TFP_QUESTIONS_12 = [
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
       { id: 'A', text: "Type each field as its own scalar variable with a default value each." },
-      { id: 'B', text: "Type it as an `object({ ... })` with every attribute required of the caller." },
+      { id: 'B', text: "Type it as an `object({ ... })` with every attribute required of the caller each time." },
       { id: 'C', text: "Type it as an `object({ ... })` with `optional()` attributes carrying defaults." },
       { id: 'D', text: "Type it as `any` and validate the shape in a `validation` block instead." }
     ],
@@ -114,7 +114,7 @@ export const HASHICORP_TFP_QUESTIONS_12 = [
     scenario: "A principal cloud platform architect is establishing high-availability standards, automated disaster recovery procedures, and infrastructure resilience frameworks across multi-region environments using Terraform. The Terraform professional evaluates Dynamic Blocks to generate complex nested routing rule blocks within an Azure Application Gateway resource based on environment-specific routing maps.",
     question: "Which architectural approach or advanced configuration satisfies these multi-region recovery and resilience objectives?",
     options: [
-      { id: 'A', text: "Use `count` on the whole gateway resource, one instance per routing rule needed." },
+      { id: 'A', text: "Use `count` on the whole gateway resource, with one instance per routing rule needed." },
       { id: 'B', text: "Use a `for` expression to build the block's contents and assign it in one go." },
       { id: 'C', text: "Use a `dynamic \"request_routing_rule\"` block with `for_each` over the rules variable." },
       { id: 'D', text: "Use a separate `azurerm_application_gateway_rule` resource per routing rule." }
@@ -138,7 +138,7 @@ export const HASHICORP_TFP_QUESTIONS_12 = [
       { id: 'A', text: "Use a `for` expression to build the block's contents and assign it in one go." },
       { id: 'B', text: "Use a separate `azurerm_application_gateway_rule` resource per routing rule." },
       { id: 'C', text: "Use a `dynamic \"request_routing_rule\"` block with `for_each` over the rules variable." },
-      { id: 'D', text: "Use `count` on the whole gateway resource, one instance per routing rule needed." }
+      { id: 'D', text: "Use `count` on the whole gateway resource, with one instance per routing rule needed." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -157,7 +157,7 @@ export const HASHICORP_TFP_QUESTIONS_12 = [
     question: "Which solution implements these mandatory infrastructure as code security and governance controls?",
     options: [
       { id: 'A', text: "Use a separate `azurerm_application_gateway_rule` resource per routing rule." },
-      { id: 'B', text: "Use `count` on the whole gateway resource, one instance per routing rule needed." },
+      { id: 'B', text: "Use `count` on the whole gateway resource, with one instance per routing rule needed." },
       { id: 'C', text: "Use a `dynamic \"request_routing_rule\"` block with `for_each` over the rules variable." },
       { id: 'D', text: "Use a `for` expression to build the block's contents and assign it in one go." }
     ],
@@ -180,7 +180,7 @@ export const HASHICORP_TFP_QUESTIONS_12 = [
       { id: 'A', text: "Use a `dynamic \"request_routing_rule\"` block with `for_each` over the rules variable." },
       { id: 'B', text: "Use a `for` expression to build the block's contents and assign it in one go." },
       { id: 'C', text: "Use a separate `azurerm_application_gateway_rule` resource per routing rule." },
-      { id: 'D', text: "Use `count` on the whole gateway resource, one instance per routing rule needed." }
+      { id: 'D', text: "Use `count` on the whole gateway resource, with one instance per routing rule needed." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -201,7 +201,7 @@ export const HASHICORP_TFP_QUESTIONS_12 = [
       { id: 'A', text: "Use a `dynamic \"request_routing_rule\"` block with `for_each` over the rules variable." },
       { id: 'B', text: "Use a `for` expression to build the block's contents and assign it in one go." },
       { id: 'C', text: "Use a separate `azurerm_application_gateway_rule` resource per routing rule." },
-      { id: 'D', text: "Use `count` on the whole gateway resource, one instance per routing rule needed." }
+      { id: 'D', text: "Use `count` on the whole gateway resource, with one instance per routing rule needed." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -221,7 +221,7 @@ export const HASHICORP_TFP_QUESTIONS_12 = [
     options: [
       { id: 'A', text: "Keep one provider block and set the region from a variable, applying once per region." },
       { id: 'B', text: "Keep one provider block and override the region with `-var` on each apply in turn." },
-      { id: 'C', text: "Declare additional `provider \"aws\"` blocks with `alias`, and set `provider = aws.west` per resource." },
+      { id: 'C', text: "Declare extra `provider \"aws\"` blocks with `alias`, and set `provider = aws.west`." },
       { id: 'D', text: "Keep one workspace per region and duplicate the configuration in each of them." }
     ],
     correctAnswers: ['C'],
@@ -242,7 +242,7 @@ export const HASHICORP_TFP_QUESTIONS_12 = [
     options: [
       { id: 'A', text: "Keep one workspace per region and duplicate the configuration in each of them." },
       { id: 'B', text: "Keep one provider block and set the region from a variable, applying once per region." },
-      { id: 'C', text: "Declare additional `provider \"aws\"` blocks with `alias`, and set `provider = aws.west` per resource." },
+      { id: 'C', text: "Declare extra `provider \"aws\"` blocks with `alias`, and set `provider = aws.west`." },
       { id: 'D', text: "Keep one provider block and override the region with `-var` on each apply in turn." }
     ],
     correctAnswers: ['C'],
@@ -263,7 +263,7 @@ export const HASHICORP_TFP_QUESTIONS_12 = [
     options: [
       { id: 'A', text: "Keep one provider block and override the region with `-var` on each apply in turn." },
       { id: 'B', text: "Keep one workspace per region and duplicate the configuration in each of them." },
-      { id: 'C', text: "Declare additional `provider \"aws\"` blocks with `alias`, and set `provider = aws.west` per resource." },
+      { id: 'C', text: "Declare extra `provider \"aws\"` blocks with `alias`, and set `provider = aws.west`." },
       { id: 'D', text: "Keep one provider block and set the region from a variable, applying once per region." }
     ],
     correctAnswers: ['C'],
@@ -282,7 +282,7 @@ export const HASHICORP_TFP_QUESTIONS_12 = [
     scenario: "An enterprise is modernizing on-premises infrastructure and refactoring monolithic legacy deployments into modular, cloud-native architectures using advanced Terraform practices. The Terraform professional evaluates Provider Aliases to deploy resources across two different AWS regions (us-east-1 and us-west-2) simultaneously within a single Terraform configuration.",
     question: "Which practice or platform feature enables the engineering team to modernize provisioning workflows with minimal operational friction?",
     options: [
-      { id: 'A', text: "Declare additional `provider \"aws\"` blocks with `alias`, and set `provider = aws.west` per resource." },
+      { id: 'A', text: "Declare extra `provider \"aws\"` blocks with `alias`, and set `provider = aws.west`." },
       { id: 'B', text: "Keep one workspace per region and duplicate the configuration in each of them." },
       { id: 'C', text: "Keep one provider block and set the region from a variable, applying once per region." },
       { id: 'D', text: "Keep one provider block and override the region with `-var` on each apply in turn." }
@@ -306,7 +306,7 @@ export const HASHICORP_TFP_QUESTIONS_12 = [
       { id: 'A', text: "Keep one provider block and override the region with `-var` on each apply in turn." },
       { id: 'B', text: "Keep one provider block and set the region from a variable, applying once per region." },
       { id: 'C', text: "Keep one workspace per region and duplicate the configuration in each of them." },
-      { id: 'D', text: "Declare additional `provider \"aws\"` blocks with `alias`, and set `provider = aws.west` per resource." }
+      { id: 'D', text: "Declare extra `provider \"aws\"` blocks with `alias`, and set `provider = aws.west`." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -324,7 +324,7 @@ export const HASHICORP_TFP_QUESTIONS_12 = [
     scenario: "A principal cloud platform architect is establishing high-availability standards, automated disaster recovery procedures, and infrastructure resilience frameworks across multi-region environments using Terraform. The Terraform professional evaluates Defensive Coding to extract an optional nested configuration value safely without causing Terraform to abort evaluation with an unhandled runtime error if the key is missing.",
     question: "Which architectural approach or advanced configuration satisfies these multi-region recovery and resilience objectives?",
     options: [
-      { id: 'A', text: "Use `lookup(var.settings, \"timeout\", 30)`, which walks the nested attributes." },
+      { id: 'A', text: "Use `lookup(var.settings, \"timeout\", 30)`, which walks the nested attributes for it." },
       { id: 'B', text: "Use `coalesce(var.settings.advanced.timeout, 30)` to substitute the default." },
       { id: 'C', text: "Use `try(var.settings.advanced.timeout, 30)` so a missing attribute falls back." },
       { id: 'D', text: "Use `can(var.settings.advanced.timeout)` as a `count` guard on the resource." }
@@ -347,7 +347,7 @@ export const HASHICORP_TFP_QUESTIONS_12 = [
     options: [
       { id: 'A', text: "Use `coalesce(var.settings.advanced.timeout, 30)` to substitute the default." },
       { id: 'B', text: "Use `try(var.settings.advanced.timeout, 30)` so a missing attribute falls back." },
-      { id: 'C', text: "Use `lookup(var.settings, \"timeout\", 30)`, which walks the nested attributes." },
+      { id: 'C', text: "Use `lookup(var.settings, \"timeout\", 30)`, which walks the nested attributes for it." },
       { id: 'D', text: "Use `can(var.settings.advanced.timeout)` as a `count` guard on the resource." }
     ],
     correctAnswers: ['B'],
@@ -369,7 +369,7 @@ export const HASHICORP_TFP_QUESTIONS_12 = [
       { id: 'A', text: "Use `can(var.settings.advanced.timeout)` as a `count` guard on the resource." },
       { id: 'B', text: "Use `try(var.settings.advanced.timeout, 30)` so a missing attribute falls back." },
       { id: 'C', text: "Use `coalesce(var.settings.advanced.timeout, 30)` to substitute the default." },
-      { id: 'D', text: "Use `lookup(var.settings, \"timeout\", 30)`, which walks the nested attributes." }
+      { id: 'D', text: "Use `lookup(var.settings, \"timeout\", 30)`, which walks the nested attributes for it." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -389,7 +389,7 @@ export const HASHICORP_TFP_QUESTIONS_12 = [
     options: [
       { id: 'A', text: "Use `try(var.settings.advanced.timeout, 30)` so a missing attribute falls back." },
       { id: 'B', text: "Use `can(var.settings.advanced.timeout)` as a `count` guard on the resource." },
-      { id: 'C', text: "Use `lookup(var.settings, \"timeout\", 30)`, which walks the nested attributes." },
+      { id: 'C', text: "Use `lookup(var.settings, \"timeout\", 30)`, which walks the nested attributes for it." },
       { id: 'D', text: "Use `coalesce(var.settings.advanced.timeout, 30)` to substitute the default." }
     ],
     correctAnswers: ['A'],
@@ -408,7 +408,7 @@ export const HASHICORP_TFP_QUESTIONS_12 = [
     scenario: "A platform reliability team is optimizing system resilience to eliminate single points of failure, streamline zero-downtime state refactoring, and automate operational recovery. The Terraform professional evaluates Defensive Coding to extract an optional nested configuration value safely without causing Terraform to abort evaluation with an unhandled runtime error if the key is missing.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
-      { id: 'A', text: "Use `lookup(var.settings, \"timeout\", 30)`, which walks the nested attributes." },
+      { id: 'A', text: "Use `lookup(var.settings, \"timeout\", 30)`, which walks the nested attributes for it." },
       { id: 'B', text: "Use `can(var.settings.advanced.timeout)` as a `count` guard on the resource." },
       { id: 'C', text: "Use `coalesce(var.settings.advanced.timeout, 30)` to substitute the default." },
       { id: 'D', text: "Use `try(var.settings.advanced.timeout, 30)` so a missing attribute falls back." }
@@ -429,7 +429,7 @@ export const HASHICORP_TFP_QUESTIONS_12 = [
     scenario: "A principal cloud platform architect is establishing high-availability standards, automated disaster recovery procedures, and infrastructure resilience frameworks across multi-region environments using Terraform. The Terraform professional evaluates HCL Evolution to modernize a legacy Terraform 0.12 codebase to modern Terraform 1.x standards, eliminating deprecated provider data sources and syntax.",
     question: "Which architectural approach or advanced configuration satisfies these multi-region recovery and resilience objectives?",
     options: [
-      { id: 'A', text: "Replace the `template_file` data sources with the `templatefile()` function and drop the redundant interpolation." },
+      { id: 'A', text: "Replace the `template_file` data sources with the `templatefile()` function." },
       { id: 'B', text: "Replace the `template_file` data sources with `local_file` resources rendered by an external script." },
       { id: 'C', text: "Pin the `template` provider to its final release so the deprecation warning stops appearing." },
       { id: 'D', text: "Pin the Terraform version in `required_version` so the deprecated syntax keeps working." }
@@ -450,7 +450,7 @@ export const HASHICORP_TFP_QUESTIONS_12 = [
     scenario: "A complex enterprise multi-cloud platform experiences massive scaling requirements and requires modular, automated, and performant infrastructure provisioning across dozens of teams. The Terraform professional evaluates HCL Evolution to modernize a legacy Terraform 0.12 codebase to modern Terraform 1.x standards, eliminating deprecated provider data sources and syntax.",
     question: "Which architectural pattern or Terraform capability manages this scale effectively while preventing dependency bottlenecks and configuration drift?",
     options: [
-      { id: 'A', text: "Replace the `template_file` data sources with the `templatefile()` function and drop the redundant interpolation." },
+      { id: 'A', text: "Replace the `template_file` data sources with the `templatefile()` function." },
       { id: 'B', text: "Pin the Terraform version in `required_version` so the deprecated syntax keeps working." },
       { id: 'C', text: "Replace the `template_file` data sources with `local_file` resources rendered by an external script." },
       { id: 'D', text: "Pin the `template` provider to its final release so the deprecation warning stops appearing." }
@@ -473,7 +473,7 @@ export const HASHICORP_TFP_QUESTIONS_12 = [
     options: [
       { id: 'A', text: "Replace the `template_file` data sources with `local_file` resources rendered by an external script." },
       { id: 'B', text: "Pin the `template` provider to its final release so the deprecation warning stops appearing." },
-      { id: 'C', text: "Replace the `template_file` data sources with the `templatefile()` function and drop the redundant interpolation." },
+      { id: 'C', text: "Replace the `template_file` data sources with the `templatefile()` function." },
       { id: 'D', text: "Pin the Terraform version in `required_version` so the deprecated syntax keeps working." }
     ],
     correctAnswers: ['C'],
@@ -494,7 +494,7 @@ export const HASHICORP_TFP_QUESTIONS_12 = [
     options: [
       { id: 'A', text: "Replace the `template_file` data sources with `local_file` resources rendered by an external script." },
       { id: 'B', text: "Pin the `template` provider to its final release so the deprecation warning stops appearing." },
-      { id: 'C', text: "Replace the `template_file` data sources with the `templatefile()` function and drop the redundant interpolation." },
+      { id: 'C', text: "Replace the `template_file` data sources with the `templatefile()` function." },
       { id: 'D', text: "Pin the Terraform version in `required_version` so the deprecated syntax keeps working." }
     ],
     correctAnswers: ['C'],
@@ -515,7 +515,7 @@ export const HASHICORP_TFP_QUESTIONS_12 = [
     options: [
       { id: 'A', text: "Pin the Terraform version in `required_version` so the deprecated syntax keeps working." },
       { id: 'B', text: "Replace the `template_file` data sources with `local_file` resources rendered by an external script." },
-      { id: 'C', text: "Replace the `template_file` data sources with the `templatefile()` function and drop the redundant interpolation." },
+      { id: 'C', text: "Replace the `template_file` data sources with the `templatefile()` function." },
       { id: 'D', text: "Pin the `template` provider to its final release so the deprecation warning stops appearing." }
     ],
     correctAnswers: ['C'],

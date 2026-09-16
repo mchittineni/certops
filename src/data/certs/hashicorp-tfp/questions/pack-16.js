@@ -114,7 +114,7 @@ export const HASHICORP_TFP_QUESTIONS_16 = [
     scenario: "A principal cloud platform architect is establishing high-availability standards, automated disaster recovery procedures, and infrastructure resilience frameworks across multi-region environments using Terraform. The Terraform professional evaluates State Disaster Recovery to repair an edge-case state corruption issue in a remote backend by safely downloading the raw state JSON and pushing the corrected file.",
     question: "Which architectural approach or advanced configuration satisfies these multi-region recovery and resilience objectives?",
     options: [
-      { id: 'A', text: "Overwrite the remote object with `aws s3 cp` after editing the downloaded copy." },
+      { id: 'A', text: "Overwrite the remote object with `aws s3 cp` after editing the downloaded copy locally by hand." },
       { id: 'B', text: "Remove the resource with `terraform state rm` and import it again afterwards." },
       { id: 'C', text: "`terraform state pull`, edit, bump the serial, then `terraform state push` the file back." },
       { id: 'D', text: "Roll the bucket back to the previous object version and re-run the plan." }
@@ -137,7 +137,7 @@ export const HASHICORP_TFP_QUESTIONS_16 = [
     options: [
       { id: 'A', text: "`terraform state pull`, edit, bump the serial, then `terraform state push` the file back." },
       { id: 'B', text: "Roll the bucket back to the previous object version and re-run the plan." },
-      { id: 'C', text: "Overwrite the remote object with `aws s3 cp` after editing the downloaded copy." },
+      { id: 'C', text: "Overwrite the remote object with `aws s3 cp` after editing the downloaded copy locally by hand." },
       { id: 'D', text: "Remove the resource with `terraform state rm` and import it again afterwards." }
     ],
     correctAnswers: ['A'],
@@ -157,7 +157,7 @@ export const HASHICORP_TFP_QUESTIONS_16 = [
     question: "Which solution implements these mandatory infrastructure as code security and governance controls?",
     options: [
       { id: 'A', text: "`terraform state pull`, edit, bump the serial, then `terraform state push` the file back." },
-      { id: 'B', text: "Overwrite the remote object with `aws s3 cp` after editing the downloaded copy." },
+      { id: 'B', text: "Overwrite the remote object with `aws s3 cp` after editing the downloaded copy locally by hand." },
       { id: 'C', text: "Remove the resource with `terraform state rm` and import it again afterwards." },
       { id: 'D', text: "Roll the bucket back to the previous object version and re-run the plan." }
     ],
@@ -180,7 +180,7 @@ export const HASHICORP_TFP_QUESTIONS_16 = [
       { id: 'A', text: "Roll the bucket back to the previous object version and re-run the plan." },
       { id: 'B', text: "`terraform state pull`, edit, bump the serial, then `terraform state push` the file back." },
       { id: 'C', text: "Remove the resource with `terraform state rm` and import it again afterwards." },
-      { id: 'D', text: "Overwrite the remote object with `aws s3 cp` after editing the downloaded copy." }
+      { id: 'D', text: "Overwrite the remote object with `aws s3 cp` after editing the downloaded copy locally by hand." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -199,7 +199,7 @@ export const HASHICORP_TFP_QUESTIONS_16 = [
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
       { id: 'A', text: "`terraform state pull`, edit, bump the serial, then `terraform state push` the file back." },
-      { id: 'B', text: "Overwrite the remote object with `aws s3 cp` after editing the downloaded copy." },
+      { id: 'B', text: "Overwrite the remote object with `aws s3 cp` after editing the downloaded copy locally by hand." },
       { id: 'C', text: "Remove the resource with `terraform state rm` and import it again afterwards." },
       { id: 'D', text: "Roll the bucket back to the previous object version and re-run the plan." }
     ],
@@ -220,7 +220,7 @@ export const HASHICORP_TFP_QUESTIONS_16 = [
     question: "Which architectural approach or advanced configuration satisfies these multi-region recovery and resilience objectives?",
     options: [
       { id: 'A', text: "Split it into networking, compute and data root modules joined by `terraform_remote_state`." },
-      { id: 'B', text: "Raise the apply timeout and the provider's own retry count so the run completes." },
+      { id: 'B', text: "Raise the apply timeout and the provider's own retry count so that the whole run completes in one pass." },
       { id: 'C', text: "Raise `-parallelism` so more of the graph is applied in each pass of the run." },
       { id: 'D', text: "Split the configuration by workspace, with one workspace per environment tier." }
     ],
@@ -241,7 +241,7 @@ export const HASHICORP_TFP_QUESTIONS_16 = [
     question: "Which architectural pattern or Terraform capability manages this scale effectively while preventing dependency bottlenecks and configuration drift?",
     options: [
       { id: 'A', text: "Split it into networking, compute and data root modules joined by `terraform_remote_state`." },
-      { id: 'B', text: "Raise the apply timeout and the provider's own retry count so the run completes." },
+      { id: 'B', text: "Raise the apply timeout and the provider's own retry count so that the whole run completes in one pass." },
       { id: 'C', text: "Raise `-parallelism` so more of the graph is applied in each pass of the run." },
       { id: 'D', text: "Split the configuration by workspace, with one workspace per environment tier." }
     ],
@@ -264,7 +264,7 @@ export const HASHICORP_TFP_QUESTIONS_16 = [
       { id: 'A', text: "Split it into networking, compute and data root modules joined by `terraform_remote_state`." },
       { id: 'B', text: "Raise `-parallelism` so more of the graph is applied in each pass of the run." },
       { id: 'C', text: "Split the configuration by workspace, with one workspace per environment tier." },
-      { id: 'D', text: "Raise the apply timeout and the provider's own retry count so the run completes." }
+      { id: 'D', text: "Raise the apply timeout and the provider's own retry count so that the whole run completes in one pass." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -285,7 +285,7 @@ export const HASHICORP_TFP_QUESTIONS_16 = [
       { id: 'A', text: "Split the configuration by workspace, with one workspace per environment tier." },
       { id: 'B', text: "Split it into networking, compute and data root modules joined by `terraform_remote_state`." },
       { id: 'C', text: "Raise `-parallelism` so more of the graph is applied in each pass of the run." },
-      { id: 'D', text: "Raise the apply timeout and the provider's own retry count so the run completes." }
+      { id: 'D', text: "Raise the apply timeout and the provider's own retry count so that the whole run completes in one pass." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -304,7 +304,7 @@ export const HASHICORP_TFP_QUESTIONS_16 = [
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
       { id: 'A', text: "Split it into networking, compute and data root modules joined by `terraform_remote_state`." },
-      { id: 'B', text: "Raise the apply timeout and the provider's own retry count so the run completes." },
+      { id: 'B', text: "Raise the apply timeout and the provider's own retry count so that the whole run completes in one pass." },
       { id: 'C', text: "Raise `-parallelism` so more of the graph is applied in each pass of the run." },
       { id: 'D', text: "Split the configuration by workspace, with one workspace per environment tier." }
     ],
@@ -324,7 +324,7 @@ export const HASHICORP_TFP_QUESTIONS_16 = [
     scenario: "A principal cloud platform architect is establishing high-availability standards, automated disaster recovery procedures, and infrastructure resilience frameworks across multi-region environments using Terraform. The Terraform professional evaluates State Sanitization to cleanse an accidentally exposed production database credential recorded in historical remote state bucket versions.",
     question: "Which architectural approach or advanced configuration satisfies these multi-region recovery and resilience objectives?",
     options: [
-      { id: 'A', text: "Rotate the credential at the database, update the configuration, apply, and purge the old state versions." },
+      { id: 'A', text: "Rotate the credential at the database, apply, and purge the old state versions." },
       { id: 'B', text: "Remove the value from the repository's history, which also clears the remote state copies." },
       { id: 'C', text: "Move the value into a `sensitive = true` variable, which redacts it in the stored state." },
       { id: 'D', text: "Move the resource out of Terraform and manage that credential outside the configuration." }
@@ -346,7 +346,7 @@ export const HASHICORP_TFP_QUESTIONS_16 = [
     question: "Which architectural pattern or Terraform capability manages this scale effectively while preventing dependency bottlenecks and configuration drift?",
     options: [
       { id: 'A', text: "Move the value into a `sensitive = true` variable, which redacts it in the stored state." },
-      { id: 'B', text: "Rotate the credential at the database, update the configuration, apply, and purge the old state versions." },
+      { id: 'B', text: "Rotate the credential at the database, apply, and purge the old state versions." },
       { id: 'C', text: "Remove the value from the repository's history, which also clears the remote state copies." },
       { id: 'D', text: "Move the resource out of Terraform and manage that credential outside the configuration." }
     ],
@@ -366,7 +366,7 @@ export const HASHICORP_TFP_QUESTIONS_16 = [
     scenario: "A security compliance auditor requires cryptographic state protection, policy-as-code enforcement, and automated governance across all enterprise Terraform delivery pipelines. The Terraform professional evaluates State Sanitization to cleanse an accidentally exposed production database credential recorded in historical remote state bucket versions.",
     question: "Which solution implements these mandatory infrastructure as code security and governance controls?",
     options: [
-      { id: 'A', text: "Rotate the credential at the database, update the configuration, apply, and purge the old state versions." },
+      { id: 'A', text: "Rotate the credential at the database, apply, and purge the old state versions." },
       { id: 'B', text: "Move the value into a `sensitive = true` variable, which redacts it in the stored state." },
       { id: 'C', text: "Move the resource out of Terraform and manage that credential outside the configuration." },
       { id: 'D', text: "Remove the value from the repository's history, which also clears the remote state copies." }
@@ -387,7 +387,7 @@ export const HASHICORP_TFP_QUESTIONS_16 = [
     scenario: "An enterprise is modernizing on-premises infrastructure and refactoring monolithic legacy deployments into modular, cloud-native architectures using advanced Terraform practices. The Terraform professional evaluates State Sanitization to cleanse an accidentally exposed production database credential recorded in historical remote state bucket versions.",
     question: "Which practice or platform feature enables the engineering team to modernize provisioning workflows with minimal operational friction?",
     options: [
-      { id: 'A', text: "Rotate the credential at the database, update the configuration, apply, and purge the old state versions." },
+      { id: 'A', text: "Rotate the credential at the database, apply, and purge the old state versions." },
       { id: 'B', text: "Move the value into a `sensitive = true` variable, which redacts it in the stored state." },
       { id: 'C', text: "Move the resource out of Terraform and manage that credential outside the configuration." },
       { id: 'D', text: "Remove the value from the repository's history, which also clears the remote state copies." }
@@ -409,7 +409,7 @@ export const HASHICORP_TFP_QUESTIONS_16 = [
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
       { id: 'A', text: "Move the resource out of Terraform and manage that credential outside the configuration." },
-      { id: 'B', text: "Rotate the credential at the database, update the configuration, apply, and purge the old state versions." },
+      { id: 'B', text: "Rotate the credential at the database, apply, and purge the old state versions." },
       { id: 'C', text: "Move the value into a `sensitive = true` variable, which redacts it in the stored state." },
       { id: 'D', text: "Remove the value from the repository's history, which also clears the remote state copies." }
     ],
@@ -430,7 +430,7 @@ export const HASHICORP_TFP_QUESTIONS_16 = [
     question: "Which architectural approach or advanced configuration satisfies these multi-region recovery and resilience objectives?",
     options: [
       { id: 'A', text: "`-target` can leave state divergent and skip hidden dependencies; it is for emergency recovery only." },
-      { id: 'B', text: "`-target` is the supported way to apply a routine change to one part of a large configuration." },
+      { id: 'B', text: "`-target` is the supported way to apply a routine change to one part of a large configuration file." },
       { id: 'C', text: "`-target` applies the named resource and every resource that depends on it in the graph." },
       { id: 'D', text: "`-target` removes the untargeted resources from state so the next plan re-imports them." }
     ],
@@ -452,7 +452,7 @@ export const HASHICORP_TFP_QUESTIONS_16 = [
     options: [
       { id: 'A', text: "`-target` applies the named resource and every resource that depends on it in the graph." },
       { id: 'B', text: "`-target` can leave state divergent and skip hidden dependencies; it is for emergency recovery only." },
-      { id: 'C', text: "`-target` is the supported way to apply a routine change to one part of a large configuration." },
+      { id: 'C', text: "`-target` is the supported way to apply a routine change to one part of a large configuration file." },
       { id: 'D', text: "`-target` removes the untargeted resources from state so the next plan re-imports them." }
     ],
     correctAnswers: ['B'],
@@ -474,7 +474,7 @@ export const HASHICORP_TFP_QUESTIONS_16 = [
       { id: 'A', text: "`-target` can leave state divergent and skip hidden dependencies; it is for emergency recovery only." },
       { id: 'B', text: "`-target` applies the named resource and every resource that depends on it in the graph." },
       { id: 'C', text: "`-target` removes the untargeted resources from state so the next plan re-imports them." },
-      { id: 'D', text: "`-target` is the supported way to apply a routine change to one part of a large configuration." }
+      { id: 'D', text: "`-target` is the supported way to apply a routine change to one part of a large configuration file." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -494,7 +494,7 @@ export const HASHICORP_TFP_QUESTIONS_16 = [
     options: [
       { id: 'A', text: "`-target` removes the untargeted resources from state so the next plan re-imports them." },
       { id: 'B', text: "`-target` applies the named resource and every resource that depends on it in the graph." },
-      { id: 'C', text: "`-target` is the supported way to apply a routine change to one part of a large configuration." },
+      { id: 'C', text: "`-target` is the supported way to apply a routine change to one part of a large configuration file." },
       { id: 'D', text: "`-target` can leave state divergent and skip hidden dependencies; it is for emergency recovery only." }
     ],
     correctAnswers: ['D'],
@@ -516,7 +516,7 @@ export const HASHICORP_TFP_QUESTIONS_16 = [
       { id: 'A', text: "`-target` applies the named resource and every resource that depends on it in the graph." },
       { id: 'B', text: "`-target` removes the untargeted resources from state so the next plan re-imports them." },
       { id: 'C', text: "`-target` can leave state divergent and skip hidden dependencies; it is for emergency recovery only." },
-      { id: 'D', text: "`-target` is the supported way to apply a routine change to one part of a large configuration." }
+      { id: 'D', text: "`-target` is the supported way to apply a routine change to one part of a large configuration file." }
     ],
     correctAnswers: ['C'],
     type: "single",

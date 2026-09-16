@@ -9,7 +9,7 @@ export const HASHICORP_TFP_QUESTIONS_18 = [
     scenario: "A principal cloud platform architect is establishing high-availability standards, automated disaster recovery procedures, and infrastructure resilience frameworks across multi-region environments using Terraform. The Terraform professional evaluates Scheduled Drift to detect when cloud resources have been modified out-of-band via the AWS console without waiting for the next developer code commit.",
     question: "Which architectural approach or advanced configuration satisfies these multi-region recovery and resilience objectives?",
     options: [
-      { id: 'A', text: "Compare the cloud provider's config history against the last applied plan each week." },
+      { id: 'A', text: "Compare the cloud provider's own configuration history against the last applied plan each week." },
       { id: 'B', text: "Run a full `terraform apply` on a schedule so any drift is corrected automatically." },
       { id: 'C', text: "Enable the provider's own change notifications and route them to the platform team." },
       { id: 'D', text: "Schedule drift detection runs, or nightly speculative plans, with alerts on the difference." }
@@ -32,7 +32,7 @@ export const HASHICORP_TFP_QUESTIONS_18 = [
     options: [
       { id: 'A', text: "Schedule drift detection runs, or nightly speculative plans, with alerts on the difference." },
       { id: 'B', text: "Run a full `terraform apply` on a schedule so any drift is corrected automatically." },
-      { id: 'C', text: "Compare the cloud provider's config history against the last applied plan each week." },
+      { id: 'C', text: "Compare the cloud provider's own configuration history against the last applied plan each week." },
       { id: 'D', text: "Enable the provider's own change notifications and route them to the platform team." }
     ],
     correctAnswers: ['A'],
@@ -53,7 +53,7 @@ export const HASHICORP_TFP_QUESTIONS_18 = [
     options: [
       { id: 'A', text: "Enable the provider's own change notifications and route them to the platform team." },
       { id: 'B', text: "Schedule drift detection runs, or nightly speculative plans, with alerts on the difference." },
-      { id: 'C', text: "Compare the cloud provider's config history against the last applied plan each week." },
+      { id: 'C', text: "Compare the cloud provider's own configuration history against the last applied plan each week." },
       { id: 'D', text: "Run a full `terraform apply` on a schedule so any drift is corrected automatically." }
     ],
     correctAnswers: ['B'],
@@ -74,7 +74,7 @@ export const HASHICORP_TFP_QUESTIONS_18 = [
     options: [
       { id: 'A', text: "Schedule drift detection runs, or nightly speculative plans, with alerts on the difference." },
       { id: 'B', text: "Run a full `terraform apply` on a schedule so any drift is corrected automatically." },
-      { id: 'C', text: "Compare the cloud provider's config history against the last applied plan each week." },
+      { id: 'C', text: "Compare the cloud provider's own configuration history against the last applied plan each week." },
       { id: 'D', text: "Enable the provider's own change notifications and route them to the platform team." }
     ],
     correctAnswers: ['A'],
@@ -96,7 +96,7 @@ export const HASHICORP_TFP_QUESTIONS_18 = [
       { id: 'A', text: "Enable the provider's own change notifications and route them to the platform team." },
       { id: 'B', text: "Run a full `terraform apply` on a schedule so any drift is corrected automatically." },
       { id: 'C', text: "Schedule drift detection runs, or nightly speculative plans, with alerts on the difference." },
-      { id: 'D', text: "Compare the cloud provider's config history against the last applied plan each week." }
+      { id: 'D', text: "Compare the cloud provider's own configuration history against the last applied plan each week." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -115,7 +115,7 @@ export const HASHICORP_TFP_QUESTIONS_18 = [
     question: "Which architectural approach or advanced configuration satisfies these multi-region recovery and resilience objectives?",
     options: [
       { id: 'A', text: "`terraform.tfvars` wins, then `-var`, then `*.auto.tfvars`, `TF_VAR_` env vars and defaults." },
-      { id: 'B', text: "The default in `variables.tf` wins, and every other source is applied only when it is absent." },
+      { id: 'B', text: "The default in `variables.tf` always wins, and every other source is applied only when it is absent." },
       { id: 'C', text: "`-var` wins, then `-var-file`, then `*.auto.tfvars`, `terraform.tfvars`, `TF_VAR_` and defaults." },
       { id: 'D', text: "`TF_VAR_` environment variables win, then `-var`, then the various variable files in order." }
     ],
@@ -136,7 +136,7 @@ export const HASHICORP_TFP_QUESTIONS_18 = [
     question: "Which architectural pattern or Terraform capability manages this scale effectively while preventing dependency bottlenecks and configuration drift?",
     options: [
       { id: 'A', text: "`-var` wins, then `-var-file`, then `*.auto.tfvars`, `terraform.tfvars`, `TF_VAR_` and defaults." },
-      { id: 'B', text: "The default in `variables.tf` wins, and every other source is applied only when it is absent." },
+      { id: 'B', text: "The default in `variables.tf` always wins, and every other source is applied only when it is absent." },
       { id: 'C', text: "`TF_VAR_` environment variables win, then `-var`, then the various variable files in order." },
       { id: 'D', text: "`terraform.tfvars` wins, then `-var`, then `*.auto.tfvars`, `TF_VAR_` env vars and defaults." }
     ],
@@ -157,7 +157,7 @@ export const HASHICORP_TFP_QUESTIONS_18 = [
     question: "Which solution implements these mandatory infrastructure as code security and governance controls?",
     options: [
       { id: 'A', text: "`TF_VAR_` environment variables win, then `-var`, then the various variable files in order." },
-      { id: 'B', text: "The default in `variables.tf` wins, and every other source is applied only when it is absent." },
+      { id: 'B', text: "The default in `variables.tf` always wins, and every other source is applied only when it is absent." },
       { id: 'C', text: "`terraform.tfvars` wins, then `-var`, then `*.auto.tfvars`, `TF_VAR_` env vars and defaults." },
       { id: 'D', text: "`-var` wins, then `-var-file`, then `*.auto.tfvars`, `terraform.tfvars`, `TF_VAR_` and defaults." }
     ],
@@ -177,7 +177,7 @@ export const HASHICORP_TFP_QUESTIONS_18 = [
     scenario: "An enterprise is modernizing on-premises infrastructure and refactoring monolithic legacy deployments into modular, cloud-native architectures using advanced Terraform practices. The Terraform professional evaluates Variable Precedence to understand which value takes priority when a variable is defined simultaneously in `variables.tf`, `terraform.tfvars`, and via `TF_VAR_`.",
     question: "Which practice or platform feature enables the engineering team to modernize provisioning workflows with minimal operational friction?",
     options: [
-      { id: 'A', text: "The default in `variables.tf` wins, and every other source is applied only when it is absent." },
+      { id: 'A', text: "The default in `variables.tf` always wins, and every other source is applied only when it is absent." },
       { id: 'B', text: "`-var` wins, then `-var-file`, then `*.auto.tfvars`, `terraform.tfvars`, `TF_VAR_` and defaults." },
       { id: 'C', text: "`terraform.tfvars` wins, then `-var`, then `*.auto.tfvars`, `TF_VAR_` env vars and defaults." },
       { id: 'D', text: "`TF_VAR_` environment variables win, then `-var`, then the various variable files in order." }
@@ -201,7 +201,7 @@ export const HASHICORP_TFP_QUESTIONS_18 = [
       { id: 'A', text: "`terraform.tfvars` wins, then `-var`, then `*.auto.tfvars`, `TF_VAR_` env vars and defaults." },
       { id: 'B', text: "`-var` wins, then `-var-file`, then `*.auto.tfvars`, `terraform.tfvars`, `TF_VAR_` and defaults." },
       { id: 'C', text: "`TF_VAR_` environment variables win, then `-var`, then the various variable files in order." },
-      { id: 'D', text: "The default in `variables.tf` wins, and every other source is applied only when it is absent." }
+      { id: 'D', text: "The default in `variables.tf` always wins, and every other source is applied only when it is absent." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -219,7 +219,7 @@ export const HASHICORP_TFP_QUESTIONS_18 = [
     scenario: "A principal cloud platform architect is establishing high-availability standards, automated disaster recovery procedures, and infrastructure resilience frameworks across multi-region environments using Terraform. The Terraform professional evaluates Provider Management to run Terraform in a strictly air-gapped, isolated environment with zero outbound internet access to the public Terraform Registry.",
     question: "Which architectural approach or advanced configuration satisfies these multi-region recovery and resilience objectives?",
     options: [
-      { id: 'A', text: "Copy the `.terraform` directory from a connected machine onto each air-gapped host." },
+      { id: 'A', text: "Copy the `.terraform` directory from a connected machine onto each of the air-gapped hosts." },
       { id: 'B', text: "Vendor the providers into the repository and reference them with `dev_overrides`." },
       { id: 'C', text: "Run `terraform init -plugin-dir` against a share holding the downloaded plugins." },
       { id: 'D', text: "Build a provider mirror with `terraform providers mirror` and point the CLI config at it." }
@@ -241,7 +241,7 @@ export const HASHICORP_TFP_QUESTIONS_18 = [
     question: "Which architectural pattern or Terraform capability manages this scale effectively while preventing dependency bottlenecks and configuration drift?",
     options: [
       { id: 'A', text: "Run `terraform init -plugin-dir` against a share holding the downloaded plugins." },
-      { id: 'B', text: "Copy the `.terraform` directory from a connected machine onto each air-gapped host." },
+      { id: 'B', text: "Copy the `.terraform` directory from a connected machine onto each of the air-gapped hosts." },
       { id: 'C', text: "Vendor the providers into the repository and reference them with `dev_overrides`." },
       { id: 'D', text: "Build a provider mirror with `terraform providers mirror` and point the CLI config at it." }
     ],
@@ -262,7 +262,7 @@ export const HASHICORP_TFP_QUESTIONS_18 = [
     question: "Which solution implements these mandatory infrastructure as code security and governance controls?",
     options: [
       { id: 'A', text: "Build a provider mirror with `terraform providers mirror` and point the CLI config at it." },
-      { id: 'B', text: "Copy the `.terraform` directory from a connected machine onto each air-gapped host." },
+      { id: 'B', text: "Copy the `.terraform` directory from a connected machine onto each of the air-gapped hosts." },
       { id: 'C', text: "Run `terraform init -plugin-dir` against a share holding the downloaded plugins." },
       { id: 'D', text: "Vendor the providers into the repository and reference them with `dev_overrides`." }
     ],
@@ -283,7 +283,7 @@ export const HASHICORP_TFP_QUESTIONS_18 = [
     question: "Which practice or platform feature enables the engineering team to modernize provisioning workflows with minimal operational friction?",
     options: [
       { id: 'A', text: "Build a provider mirror with `terraform providers mirror` and point the CLI config at it." },
-      { id: 'B', text: "Copy the `.terraform` directory from a connected machine onto each air-gapped host." },
+      { id: 'B', text: "Copy the `.terraform` directory from a connected machine onto each of the air-gapped hosts." },
       { id: 'C', text: "Run `terraform init -plugin-dir` against a share holding the downloaded plugins." },
       { id: 'D', text: "Vendor the providers into the repository and reference them with `dev_overrides`." }
     ],
@@ -306,7 +306,7 @@ export const HASHICORP_TFP_QUESTIONS_18 = [
       { id: 'A', text: "Build a provider mirror with `terraform providers mirror` and point the CLI config at it." },
       { id: 'B', text: "Run `terraform init -plugin-dir` against a share holding the downloaded plugins." },
       { id: 'C', text: "Vendor the providers into the repository and reference them with `dev_overrides`." },
-      { id: 'D', text: "Copy the `.terraform` directory from a connected machine onto each air-gapped host." }
+      { id: 'D', text: "Copy the `.terraform` directory from a connected machine onto each of the air-gapped hosts." }
     ],
     correctAnswers: ['A'],
     type: "single",
