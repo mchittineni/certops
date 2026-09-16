@@ -116,7 +116,7 @@ export const K8S_CKAD_QUESTIONS_12 = [
     options: [
       { id: 'A', text: "Mount a persistent cloud disk volume with ReadWriteMany access mode." },
       { id: 'B', text: "Configure containers to exchange files over external FTP servers." },
-      { id: 'C', text: "Mount the host node root filesystem (`/`) with read-write permissions." },
+      { id: 'C', text: "Mount the host node's entire root filesystem (`/`) into both containers read-write." },
       { id: 'D', text: "Mount an `emptyDir: {}` volume into both containers at the specified mount paths." }
     ],
     correctAnswers: ['D'],
@@ -138,7 +138,7 @@ export const K8S_CKAD_QUESTIONS_12 = [
       { id: 'A', text: "Mount a persistent cloud disk volume with ReadWriteMany access mode." },
       { id: 'B', text: "Mount an `emptyDir: {}` volume into both containers at the specified mount paths." },
       { id: 'C', text: "Configure containers to exchange files over external FTP servers." },
-      { id: 'D', text: "Mount the host node root filesystem (`/`) with read-write permissions." }
+      { id: 'D', text: "Mount the host node's entire root filesystem (`/`) into both containers read-write." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -159,7 +159,7 @@ export const K8S_CKAD_QUESTIONS_12 = [
       { id: 'A', text: "Mount a persistent cloud disk volume with ReadWriteMany access mode." },
       { id: 'B', text: "Mount an `emptyDir: {}` volume into both containers at the specified mount paths." },
       { id: 'C', text: "Configure containers to exchange files over external FTP servers." },
-      { id: 'D', text: "Mount the host node root filesystem (`/`) with read-write permissions." }
+      { id: 'D', text: "Mount the host node's entire root filesystem (`/`) into both containers read-write." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -179,7 +179,7 @@ export const K8S_CKAD_QUESTIONS_12 = [
     options: [
       { id: 'A', text: "Mount an `emptyDir: {}` volume into both containers at the specified mount paths." },
       { id: 'B', text: "Mount a persistent cloud disk volume with ReadWriteMany access mode." },
-      { id: 'C', text: "Mount the host node root filesystem (`/`) with read-write permissions." },
+      { id: 'C', text: "Mount the host node's entire root filesystem (`/`) into both containers read-write." },
       { id: 'D', text: "Configure containers to exchange files over external FTP servers." }
     ],
     correctAnswers: ['A'],
@@ -200,7 +200,7 @@ export const K8S_CKAD_QUESTIONS_12 = [
     options: [
       { id: 'A', text: "Mount an `emptyDir: {}` volume into both containers at the specified mount paths." },
       { id: 'B', text: "Mount a persistent cloud disk volume with ReadWriteMany access mode." },
-      { id: 'C', text: "Mount the host node root filesystem (`/`) with read-write permissions." },
+      { id: 'C', text: "Mount the host node's entire root filesystem (`/`) into both containers read-write." },
       { id: 'D', text: "Configure containers to exchange files over external FTP servers." }
     ],
     correctAnswers: ['A'],

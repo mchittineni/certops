@@ -9,7 +9,7 @@ export const K8S_CKAD_QUESTIONS_15 = [
     scenario: "A cloud-native application engineering team is establishing high-availability deployment patterns and zero-downtime release safeguards for enterprise services. The Kubernetes application developer evaluates Liveness Probes to detect and automatically restart a web server container that has encountered an internal thread deadlock and stopped serving requests.",
     question: "Which architectural approach or configuration satisfies these operational continuity and resilience objectives?",
     options: [
-      { id: 'A', text: "Configure a `livenessProbe` with an HTTP GET against `/healthz` on the container." },
+      { id: 'A', text: "Configure a `livenessProbe` with an HTTP GET against `/healthz`." },
       { id: 'B', text: "Configure a `readinessProbe` with an HTTP GET against `/healthz` on the container." },
       { id: 'C', text: "Configure a `startupProbe` with an HTTP GET against `/healthz` on the container." },
       { id: 'D', text: "Configure a `preStop` hook that checks `/healthz` and exits non-zero when it hangs." }
@@ -32,7 +32,7 @@ export const K8S_CKAD_QUESTIONS_15 = [
     options: [
       { id: 'A', text: "Configure a `preStop` hook that checks `/healthz` and exits non-zero when it hangs." },
       { id: 'B', text: "Configure a `readinessProbe` with an HTTP GET against `/healthz` on the container." },
-      { id: 'C', text: "Configure a `livenessProbe` with an HTTP GET against `/healthz` on the container." },
+      { id: 'C', text: "Configure a `livenessProbe` with an HTTP GET against `/healthz`." },
       { id: 'D', text: "Configure a `startupProbe` with an HTTP GET against `/healthz` on the container." }
     ],
     correctAnswers: ['C'],
@@ -51,7 +51,7 @@ export const K8S_CKAD_QUESTIONS_15 = [
     scenario: "A security compliance auditor requires strict container runtime isolation, least-privilege credential access, and defense-in-depth network policies across all namespaces. The Kubernetes application developer evaluates Liveness Probes to detect and automatically restart a web server container that has encountered an internal thread deadlock and stopped serving requests.",
     question: "Which solution properly implements these mandatory container and cluster security controls?",
     options: [
-      { id: 'A', text: "Configure a `livenessProbe` with an HTTP GET against `/healthz` on the container." },
+      { id: 'A', text: "Configure a `livenessProbe` with an HTTP GET against `/healthz`." },
       { id: 'B', text: "Configure a `readinessProbe` with an HTTP GET against `/healthz` on the container." },
       { id: 'C', text: "Configure a `startupProbe` with an HTTP GET against `/healthz` on the container." },
       { id: 'D', text: "Configure a `preStop` hook that checks `/healthz` and exits non-zero when it hangs." }
@@ -72,7 +72,7 @@ export const K8S_CKAD_QUESTIONS_15 = [
     scenario: "An application development team is migrating legacy monolithic applications into containerized microservices running on Kubernetes. The Kubernetes application developer evaluates Liveness Probes to detect and automatically restart a web server container that has encountered an internal thread deadlock and stopped serving requests.",
     question: "Which architectural pattern or feature enables the team to modernize services with minimal disruption and low operational friction?",
     options: [
-      { id: 'A', text: "Configure a `livenessProbe` with an HTTP GET against `/healthz` on the container." },
+      { id: 'A', text: "Configure a `livenessProbe` with an HTTP GET against `/healthz`." },
       { id: 'B', text: "Configure a `readinessProbe` with an HTTP GET against `/healthz` on the container." },
       { id: 'C', text: "Configure a `startupProbe` with an HTTP GET against `/healthz` on the container." },
       { id: 'D', text: "Configure a `preStop` hook that checks `/healthz` and exits non-zero when it hangs." }
@@ -93,7 +93,7 @@ export const K8S_CKAD_QUESTIONS_15 = [
     scenario: "An SRE team is optimizing application stability to eliminate single points of failure, streamline observability, and ensure graceful failure handling. The Kubernetes application developer evaluates Liveness Probes to detect and automatically restart a web server container that has encountered an internal thread deadlock and stopped serving requests.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees service reliability?",
     options: [
-      { id: 'A', text: "Configure a `livenessProbe` with an HTTP GET against `/healthz` on the container." },
+      { id: 'A', text: "Configure a `livenessProbe` with an HTTP GET against `/healthz`." },
       { id: 'B', text: "Configure a `readinessProbe` with an HTTP GET against `/healthz` on the container." },
       { id: 'C', text: "Configure a `startupProbe` with an HTTP GET against `/healthz` on the container." },
       { id: 'D', text: "Configure a `preStop` hook that checks `/healthz` and exits non-zero when it hangs." }

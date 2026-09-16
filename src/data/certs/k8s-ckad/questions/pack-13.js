@@ -10,7 +10,7 @@ export const K8S_CKAD_QUESTIONS_13 = [
     question: "Which architectural approach or configuration satisfies these operational continuity and resilience objectives?",
     options: [
       { id: 'A', text: "Run `kubectl rollout restart deployment/&lt;name&gt;` so every pod is recreated from the Deployment's pod template." },
-      { id: 'B', text: "Run `kubectl scale deployment/&lt;name&gt; --replicas=0` and scale it back up once the failing pods have terminated." },
+      { id: 'B', text: "Run `kubectl scale deployment/&lt;name&gt; --replicas=0` and scale it back up once all the failing pods have terminated." },
       { id: 'C', text: "Run `kubectl rollout undo deployment/&lt;name&gt;`, listing the recorded revisions first with `kubectl rollout history`." },
       { id: 'D', text: "Run `kubectl set image deployment/&lt;name&gt; app=app:latest` to move the pods onto the newest published image tag." }
     ],
@@ -30,7 +30,7 @@ export const K8S_CKAD_QUESTIONS_13 = [
     scenario: "A high-throughput web application experiences unpredictable spikes in user transactions and requires automated, reliable scaling across Kubernetes clusters. The Kubernetes application developer evaluates Deployment Rollbacks to revert a failed production Deployment update that introduced application runtime exceptions immediately back to the prior stable revision.",
     question: "Which design pattern or resource configuration manages this workload surge effectively while protecting backend stability?",
     options: [
-      { id: 'A', text: "Run `kubectl scale deployment/&lt;name&gt; --replicas=0` and scale it back up once the failing pods have terminated." },
+      { id: 'A', text: "Run `kubectl scale deployment/&lt;name&gt; --replicas=0` and scale it back up once all the failing pods have terminated." },
       { id: 'B', text: "Run `kubectl set image deployment/&lt;name&gt; app=app:latest` to move the pods onto the newest published image tag." },
       { id: 'C', text: "Run `kubectl rollout undo deployment/&lt;name&gt;`, listing the recorded revisions first with `kubectl rollout history`." },
       { id: 'D', text: "Run `kubectl rollout restart deployment/&lt;name&gt;` so every pod is recreated from the Deployment's pod template." }
@@ -53,7 +53,7 @@ export const K8S_CKAD_QUESTIONS_13 = [
     options: [
       { id: 'A', text: "Run `kubectl rollout undo deployment/&lt;name&gt;`, listing the recorded revisions first with `kubectl rollout history`." },
       { id: 'B', text: "Run `kubectl rollout restart deployment/&lt;name&gt;` so every pod is recreated from the Deployment's pod template." },
-      { id: 'C', text: "Run `kubectl scale deployment/&lt;name&gt; --replicas=0` and scale it back up once the failing pods have terminated." },
+      { id: 'C', text: "Run `kubectl scale deployment/&lt;name&gt; --replicas=0` and scale it back up once all the failing pods have terminated." },
       { id: 'D', text: "Run `kubectl set image deployment/&lt;name&gt; app=app:latest` to move the pods onto the newest published image tag." }
     ],
     correctAnswers: ['A'],
@@ -74,7 +74,7 @@ export const K8S_CKAD_QUESTIONS_13 = [
     options: [
       { id: 'A', text: "Run `kubectl rollout undo deployment/&lt;name&gt;`, listing the recorded revisions first with `kubectl rollout history`." },
       { id: 'B', text: "Run `kubectl rollout restart deployment/&lt;name&gt;` so every pod is recreated from the Deployment's pod template." },
-      { id: 'C', text: "Run `kubectl scale deployment/&lt;name&gt; --replicas=0` and scale it back up once the failing pods have terminated." },
+      { id: 'C', text: "Run `kubectl scale deployment/&lt;name&gt; --replicas=0` and scale it back up once all the failing pods have terminated." },
       { id: 'D', text: "Run `kubectl set image deployment/&lt;name&gt; app=app:latest` to move the pods onto the newest published image tag." }
     ],
     correctAnswers: ['A'],
@@ -95,7 +95,7 @@ export const K8S_CKAD_QUESTIONS_13 = [
     options: [
       { id: 'A', text: "Run `kubectl rollout undo deployment/&lt;name&gt;`, listing the recorded revisions first with `kubectl rollout history`." },
       { id: 'B', text: "Run `kubectl rollout restart deployment/&lt;name&gt;` so every pod is recreated from the Deployment's pod template." },
-      { id: 'C', text: "Run `kubectl scale deployment/&lt;name&gt; --replicas=0` and scale it back up once the failing pods have terminated." },
+      { id: 'C', text: "Run `kubectl scale deployment/&lt;name&gt; --replicas=0` and scale it back up once all the failing pods have terminated." },
       { id: 'D', text: "Run `kubectl set image deployment/&lt;name&gt; app=app:latest` to move the pods onto the newest published image tag." }
     ],
     correctAnswers: ['A'],
