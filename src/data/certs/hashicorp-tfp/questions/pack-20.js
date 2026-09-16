@@ -9,10 +9,10 @@ export const HASHICORP_TFP_QUESTIONS_20 = [
     scenario: "A principal cloud platform architect is establishing high-availability standards, automated disaster recovery procedures, and infrastructure resilience frameworks across multi-region environments using Terraform. The Terraform professional evaluates HCP Workspaces to configure an HCP Terraform workspace that automatically triggers speculative plans on pull requests and executes applies upon merge to `main`.",
     question: "Which architectural approach or advanced configuration satisfies these multi-region recovery and resilience objectives?",
     options: [
-      { id: 'A', text: "Trigger runs using manual CLI API tokens with no VCS link." },
-      { id: 'B', text: "Connect the workspace to the GitHub repository using VCS-driven workflow settings with automatic speculative plans enabled." },
-      { id: 'C', text: "Require developers to run `terraform apply` locally on their laptops." },
-      { id: 'D', text: "Disable speculative plans on pull requests to reduce run volume." }
+      { id: 'A', text: "Drive runs from the API with a token, posting the plan output back as a comment." },
+      { id: 'B', text: "Connect the workspace to the repository with VCS-driven runs and speculative plans on." },
+      { id: 'C', text: "Have developers run `terraform plan` locally and paste the output into the review." },
+      { id: 'D', text: "Connect the workspace to the repository but disable speculative plans on pull requests." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -30,10 +30,10 @@ export const HASHICORP_TFP_QUESTIONS_20 = [
     scenario: "A complex enterprise multi-cloud platform experiences massive scaling requirements and requires modular, automated, and performant infrastructure provisioning across dozens of teams. The Terraform professional evaluates HCP Workspaces to configure an HCP Terraform workspace that automatically triggers speculative plans on pull requests and executes applies upon merge to `main`.",
     question: "Which architectural pattern or Terraform capability manages this scale effectively while preventing dependency bottlenecks and configuration drift?",
     options: [
-      { id: 'A', text: "Disable speculative plans on pull requests to reduce run volume." },
-      { id: 'B', text: "Require developers to run `terraform apply` locally on their laptops." },
-      { id: 'C', text: "Connect the workspace to the GitHub repository using VCS-driven workflow settings with automatic speculative plans enabled." },
-      { id: 'D', text: "Trigger runs using manual CLI API tokens with no VCS link." }
+      { id: 'A', text: "Connect the workspace to the repository but disable speculative plans on pull requests." },
+      { id: 'B', text: "Have developers run `terraform plan` locally and paste the output into the review." },
+      { id: 'C', text: "Connect the workspace to the repository with VCS-driven runs and speculative plans on." },
+      { id: 'D', text: "Drive runs from the API with a token, posting the plan output back as a comment." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -51,10 +51,10 @@ export const HASHICORP_TFP_QUESTIONS_20 = [
     scenario: "A security compliance auditor requires cryptographic state protection, policy-as-code enforcement, and automated governance across all enterprise Terraform delivery pipelines. The Terraform professional evaluates HCP Workspaces to configure an HCP Terraform workspace that automatically triggers speculative plans on pull requests and executes applies upon merge to `main`.",
     question: "Which solution implements these mandatory infrastructure as code security and governance controls?",
     options: [
-      { id: 'A', text: "Disable speculative plans on pull requests to reduce run volume." },
-      { id: 'B', text: "Require developers to run `terraform apply` locally on their laptops." },
-      { id: 'C', text: "Connect the workspace to the GitHub repository using VCS-driven workflow settings with automatic speculative plans enabled." },
-      { id: 'D', text: "Trigger runs using manual CLI API tokens with no VCS link." }
+      { id: 'A', text: "Connect the workspace to the repository but disable speculative plans on pull requests." },
+      { id: 'B', text: "Have developers run `terraform plan` locally and paste the output into the review." },
+      { id: 'C', text: "Connect the workspace to the repository with VCS-driven runs and speculative plans on." },
+      { id: 'D', text: "Drive runs from the API with a token, posting the plan output back as a comment." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -72,10 +72,10 @@ export const HASHICORP_TFP_QUESTIONS_20 = [
     scenario: "An enterprise is modernizing on-premises infrastructure and refactoring monolithic legacy deployments into modular, cloud-native architectures using advanced Terraform practices. The Terraform professional evaluates HCP Workspaces to configure an HCP Terraform workspace that automatically triggers speculative plans on pull requests and executes applies upon merge to `main`.",
     question: "Which practice or platform feature enables the engineering team to modernize provisioning workflows with minimal operational friction?",
     options: [
-      { id: 'A', text: "Disable speculative plans on pull requests to reduce run volume." },
-      { id: 'B', text: "Require developers to run `terraform apply` locally on their laptops." },
-      { id: 'C', text: "Connect the workspace to the GitHub repository using VCS-driven workflow settings with automatic speculative plans enabled." },
-      { id: 'D', text: "Trigger runs using manual CLI API tokens with no VCS link." }
+      { id: 'A', text: "Connect the workspace to the repository but disable speculative plans on pull requests." },
+      { id: 'B', text: "Have developers run `terraform plan` locally and paste the output into the review." },
+      { id: 'C', text: "Connect the workspace to the repository with VCS-driven runs and speculative plans on." },
+      { id: 'D', text: "Drive runs from the API with a token, posting the plan output back as a comment." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -93,10 +93,10 @@ export const HASHICORP_TFP_QUESTIONS_20 = [
     scenario: "A platform reliability team is optimizing system resilience to eliminate single points of failure, streamline zero-downtime state refactoring, and automate operational recovery. The Terraform professional evaluates HCP Workspaces to configure an HCP Terraform workspace that automatically triggers speculative plans on pull requests and executes applies upon merge to `main`.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
-      { id: 'A', text: "Connect the workspace to the GitHub repository using VCS-driven workflow settings with automatic speculative plans enabled." },
-      { id: 'B', text: "Require developers to run `terraform apply` locally on their laptops." },
-      { id: 'C', text: "Trigger runs using manual CLI API tokens with no VCS link." },
-      { id: 'D', text: "Disable speculative plans on pull requests to reduce run volume." }
+      { id: 'A', text: "Connect the workspace to the repository with VCS-driven runs and speculative plans on." },
+      { id: 'B', text: "Have developers run `terraform plan` locally and paste the output into the review." },
+      { id: 'C', text: "Drive runs from the API with a token, posting the plan output back as a comment." },
+      { id: 'D', text: "Connect the workspace to the repository but disable speculative plans on pull requests." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -219,10 +219,10 @@ export const HASHICORP_TFP_QUESTIONS_20 = [
     scenario: "A principal cloud platform architect is establishing high-availability standards, automated disaster recovery procedures, and infrastructure resilience frameworks across multi-region environments using Terraform. The Terraform professional evaluates Variable Sets to share common AWS credentials and enterprise organizational tags across 50 distinct HCP Terraform workspaces without manual duplication.",
     question: "Which architectural approach or advanced configuration satisfies these multi-region recovery and resilience objectives?",
     options: [
-      { id: 'A', text: "Create an HCP Terraform Variable Set containing the shared credentials and tags, and apply it globally to all workspaces or specific projects." },
-      { id: 'B', text: "Copy-paste the credentials manually into 50 individual workspace settings pages." },
-      { id: 'C', text: "Hardcode the credentials into every child module configuration file." },
-      { id: 'D', text: "Commit cloud access keys directly to the public Git repository." }
+      { id: 'A', text: "Create a variable set with the shared credentials and apply it to the projects that need it." },
+      { id: 'B', text: "Set the credentials as workspace variables and keep the fifty copies in step by API." },
+      { id: 'C', text: "Pass the credentials into each configuration as module input variables instead." },
+      { id: 'D', text: "Store the credentials in the VCS repository and read them with `file()` at plan time." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -240,10 +240,10 @@ export const HASHICORP_TFP_QUESTIONS_20 = [
     scenario: "A complex enterprise multi-cloud platform experiences massive scaling requirements and requires modular, automated, and performant infrastructure provisioning across dozens of teams. The Terraform professional evaluates Variable Sets to share common AWS credentials and enterprise organizational tags across 50 distinct HCP Terraform workspaces without manual duplication.",
     question: "Which architectural pattern or Terraform capability manages this scale effectively while preventing dependency bottlenecks and configuration drift?",
     options: [
-      { id: 'A', text: "Hardcode the credentials into every child module configuration file." },
-      { id: 'B', text: "Commit cloud access keys directly to the public Git repository." },
-      { id: 'C', text: "Create an HCP Terraform Variable Set containing the shared credentials and tags, and apply it globally to all workspaces or specific projects." },
-      { id: 'D', text: "Copy-paste the credentials manually into 50 individual workspace settings pages." }
+      { id: 'A', text: "Pass the credentials into each configuration as module input variables instead." },
+      { id: 'B', text: "Store the credentials in the VCS repository and read them with `file()` at plan time." },
+      { id: 'C', text: "Create a variable set with the shared credentials and apply it to the projects that need it." },
+      { id: 'D', text: "Set the credentials as workspace variables and keep the fifty copies in step by API." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -261,10 +261,10 @@ export const HASHICORP_TFP_QUESTIONS_20 = [
     scenario: "A security compliance auditor requires cryptographic state protection, policy-as-code enforcement, and automated governance across all enterprise Terraform delivery pipelines. The Terraform professional evaluates Variable Sets to share common AWS credentials and enterprise organizational tags across 50 distinct HCP Terraform workspaces without manual duplication.",
     question: "Which solution implements these mandatory infrastructure as code security and governance controls?",
     options: [
-      { id: 'A', text: "Commit cloud access keys directly to the public Git repository." },
-      { id: 'B', text: "Create an HCP Terraform Variable Set containing the shared credentials and tags, and apply it globally to all workspaces or specific projects." },
-      { id: 'C', text: "Hardcode the credentials into every child module configuration file." },
-      { id: 'D', text: "Copy-paste the credentials manually into 50 individual workspace settings pages." }
+      { id: 'A', text: "Store the credentials in the VCS repository and read them with `file()` at plan time." },
+      { id: 'B', text: "Create a variable set with the shared credentials and apply it to the projects that need it." },
+      { id: 'C', text: "Pass the credentials into each configuration as module input variables instead." },
+      { id: 'D', text: "Set the credentials as workspace variables and keep the fifty copies in step by API." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -282,10 +282,10 @@ export const HASHICORP_TFP_QUESTIONS_20 = [
     scenario: "An enterprise is modernizing on-premises infrastructure and refactoring monolithic legacy deployments into modular, cloud-native architectures using advanced Terraform practices. The Terraform professional evaluates Variable Sets to share common AWS credentials and enterprise organizational tags across 50 distinct HCP Terraform workspaces without manual duplication.",
     question: "Which practice or platform feature enables the engineering team to modernize provisioning workflows with minimal operational friction?",
     options: [
-      { id: 'A', text: "Create an HCP Terraform Variable Set containing the shared credentials and tags, and apply it globally to all workspaces or specific projects." },
-      { id: 'B', text: "Copy-paste the credentials manually into 50 individual workspace settings pages." },
-      { id: 'C', text: "Hardcode the credentials into every child module configuration file." },
-      { id: 'D', text: "Commit cloud access keys directly to the public Git repository." }
+      { id: 'A', text: "Create a variable set with the shared credentials and apply it to the projects that need it." },
+      { id: 'B', text: "Set the credentials as workspace variables and keep the fifty copies in step by API." },
+      { id: 'C', text: "Pass the credentials into each configuration as module input variables instead." },
+      { id: 'D', text: "Store the credentials in the VCS repository and read them with `file()` at plan time." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -303,10 +303,10 @@ export const HASHICORP_TFP_QUESTIONS_20 = [
     scenario: "A platform reliability team is optimizing system resilience to eliminate single points of failure, streamline zero-downtime state refactoring, and automate operational recovery. The Terraform professional evaluates Variable Sets to share common AWS credentials and enterprise organizational tags across 50 distinct HCP Terraform workspaces without manual duplication.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
-      { id: 'A', text: "Hardcode the credentials into every child module configuration file." },
-      { id: 'B', text: "Create an HCP Terraform Variable Set containing the shared credentials and tags, and apply it globally to all workspaces or specific projects." },
-      { id: 'C', text: "Copy-paste the credentials manually into 50 individual workspace settings pages." },
-      { id: 'D', text: "Commit cloud access keys directly to the public Git repository." }
+      { id: 'A', text: "Pass the credentials into each configuration as module input variables instead." },
+      { id: 'B', text: "Create a variable set with the shared credentials and apply it to the projects that need it." },
+      { id: 'C', text: "Set the credentials as workspace variables and keep the fifty copies in step by API." },
+      { id: 'D', text: "Store the credentials in the VCS repository and read them with `file()` at plan time." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -429,10 +429,10 @@ export const HASHICORP_TFP_QUESTIONS_20 = [
     scenario: "A principal cloud platform architect is establishing high-availability standards, automated disaster recovery procedures, and infrastructure resilience frameworks across multi-region environments using Terraform. The Terraform professional evaluates Team Access to grant a team of developers permission to review plans and queue runs in a workspace without allowing them to edit workspace variables or delete the workspace.",
     question: "Which architectural approach or advanced configuration satisfies these multi-region recovery and resilience objectives?",
     options: [
-      { id: 'A', text: "Assign `Read` permissions which does not permit queuing runs." },
-      { id: 'B', text: "Share a single organization owner account credential among all teams." },
-      { id: 'C', text: "Assign the development team the `Write` permission on the workspace, reserving `Admin` for platform engineers." },
-      { id: 'D', text: "Assign `Admin` permissions to all corporate employees." }
+      { id: 'A', text: "Give the team `Read` on the workspace and let the platform engineers queue the runs." },
+      { id: 'B', text: "Give the team `Plan` on the workspace, which permits speculative runs but no applies." },
+      { id: 'C', text: "Give the team `Write` on the workspace and reserve `Admin` for the platform engineers." },
+      { id: 'D', text: "Give the team `Admin` on the workspace and audit the settings changes afterwards." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -450,10 +450,10 @@ export const HASHICORP_TFP_QUESTIONS_20 = [
     scenario: "A complex enterprise multi-cloud platform experiences massive scaling requirements and requires modular, automated, and performant infrastructure provisioning across dozens of teams. The Terraform professional evaluates Team Access to grant a team of developers permission to review plans and queue runs in a workspace without allowing them to edit workspace variables or delete the workspace.",
     question: "Which architectural pattern or Terraform capability manages this scale effectively while preventing dependency bottlenecks and configuration drift?",
     options: [
-      { id: 'A', text: "Share a single organization owner account credential among all teams." },
-      { id: 'B', text: "Assign `Admin` permissions to all corporate employees." },
-      { id: 'C', text: "Assign the development team the `Write` permission on the workspace, reserving `Admin` for platform engineers." },
-      { id: 'D', text: "Assign `Read` permissions which does not permit queuing runs." }
+      { id: 'A', text: "Give the team `Plan` on the workspace, which permits speculative runs but no applies." },
+      { id: 'B', text: "Give the team `Admin` on the workspace and audit the settings changes afterwards." },
+      { id: 'C', text: "Give the team `Write` on the workspace and reserve `Admin` for the platform engineers." },
+      { id: 'D', text: "Give the team `Read` on the workspace and let the platform engineers queue the runs." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -471,10 +471,10 @@ export const HASHICORP_TFP_QUESTIONS_20 = [
     scenario: "A security compliance auditor requires cryptographic state protection, policy-as-code enforcement, and automated governance across all enterprise Terraform delivery pipelines. The Terraform professional evaluates Team Access to grant a team of developers permission to review plans and queue runs in a workspace without allowing them to edit workspace variables or delete the workspace.",
     question: "Which solution implements these mandatory infrastructure as code security and governance controls?",
     options: [
-      { id: 'A', text: "Share a single organization owner account credential among all teams." },
-      { id: 'B', text: "Assign `Admin` permissions to all corporate employees." },
-      { id: 'C', text: "Assign the development team the `Write` permission on the workspace, reserving `Admin` for platform engineers." },
-      { id: 'D', text: "Assign `Read` permissions which does not permit queuing runs." }
+      { id: 'A', text: "Give the team `Plan` on the workspace, which permits speculative runs but no applies." },
+      { id: 'B', text: "Give the team `Admin` on the workspace and audit the settings changes afterwards." },
+      { id: 'C', text: "Give the team `Write` on the workspace and reserve `Admin` for the platform engineers." },
+      { id: 'D', text: "Give the team `Read` on the workspace and let the platform engineers queue the runs." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -492,10 +492,10 @@ export const HASHICORP_TFP_QUESTIONS_20 = [
     scenario: "An enterprise is modernizing on-premises infrastructure and refactoring monolithic legacy deployments into modular, cloud-native architectures using advanced Terraform practices. The Terraform professional evaluates Team Access to grant a team of developers permission to review plans and queue runs in a workspace without allowing them to edit workspace variables or delete the workspace.",
     question: "Which practice or platform feature enables the engineering team to modernize provisioning workflows with minimal operational friction?",
     options: [
-      { id: 'A', text: "Assign `Admin` permissions to all corporate employees." },
-      { id: 'B', text: "Share a single organization owner account credential among all teams." },
-      { id: 'C', text: "Assign `Read` permissions which does not permit queuing runs." },
-      { id: 'D', text: "Assign the development team the `Write` permission on the workspace, reserving `Admin` for platform engineers." }
+      { id: 'A', text: "Give the team `Admin` on the workspace and audit the settings changes afterwards." },
+      { id: 'B', text: "Give the team `Plan` on the workspace, which permits speculative runs but no applies." },
+      { id: 'C', text: "Give the team `Read` on the workspace and let the platform engineers queue the runs." },
+      { id: 'D', text: "Give the team `Write` on the workspace and reserve `Admin` for the platform engineers." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -513,10 +513,10 @@ export const HASHICORP_TFP_QUESTIONS_20 = [
     scenario: "A platform reliability team is optimizing system resilience to eliminate single points of failure, streamline zero-downtime state refactoring, and automate operational recovery. The Terraform professional evaluates Team Access to grant a team of developers permission to review plans and queue runs in a workspace without allowing them to edit workspace variables or delete the workspace.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
-      { id: 'A', text: "Assign `Admin` permissions to all corporate employees." },
-      { id: 'B', text: "Assign the development team the `Write` permission on the workspace, reserving `Admin` for platform engineers." },
-      { id: 'C', text: "Share a single organization owner account credential among all teams." },
-      { id: 'D', text: "Assign `Read` permissions which does not permit queuing runs." }
+      { id: 'A', text: "Give the team `Admin` on the workspace and audit the settings changes afterwards." },
+      { id: 'B', text: "Give the team `Write` on the workspace and reserve `Admin` for the platform engineers." },
+      { id: 'C', text: "Give the team `Plan` on the workspace, which permits speculative runs but no applies." },
+      { id: 'D', text: "Give the team `Read` on the workspace and let the platform engineers queue the runs." }
     ],
     correctAnswers: ['B'],
     type: "single",

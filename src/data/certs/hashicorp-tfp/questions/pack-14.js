@@ -219,10 +219,10 @@ export const HASHICORP_TFP_QUESTIONS_14 = [
     scenario: "A principal cloud platform architect is establishing high-availability standards, automated disaster recovery procedures, and infrastructure resilience frameworks across multi-region environments using Terraform. The Terraform professional evaluates Native Testing to validate that a reusable Terraform module correctly calculates CIDR subnets and sets resource tags without deploying real cloud resources.",
     question: "Which architectural approach or advanced configuration satisfies these multi-region recovery and resilience objectives?",
     options: [
-      { id: 'A', text: "Deploy the module to production and check if anyone complains." },
-      { id: 'B', text: "Terraform does not support native testing frameworks." },
-      { id: 'C', text: "Write custom Bash scripts parsing plan text outputs with grep." },
-      { id: 'D', text: "Create a `tests/unit.tftest.hcl` file containing `run` blocks with `command = plan` and custom `assert` conditions." }
+      { id: 'A', text: "Add a `check` block to the module so the assertions run on every plan and apply." },
+      { id: 'B', text: "Add a policy set in HCP Terraform that evaluates the plan against the same rules." },
+      { id: 'C', text: "Add a pipeline step that runs `terraform plan -json` and asserts on the output." },
+      { id: 'D', text: "Add a `tests/*.tftest.hcl` file with `run` blocks at `command = plan` and `assert` conditions." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -240,10 +240,10 @@ export const HASHICORP_TFP_QUESTIONS_14 = [
     scenario: "A complex enterprise multi-cloud platform experiences massive scaling requirements and requires modular, automated, and performant infrastructure provisioning across dozens of teams. The Terraform professional evaluates Native Testing to validate that a reusable Terraform module correctly calculates CIDR subnets and sets resource tags without deploying real cloud resources.",
     question: "Which architectural pattern or Terraform capability manages this scale effectively while preventing dependency bottlenecks and configuration drift?",
     options: [
-      { id: 'A', text: "Create a `tests/unit.tftest.hcl` file containing `run` blocks with `command = plan` and custom `assert` conditions." },
-      { id: 'B', text: "Terraform does not support native testing frameworks." },
-      { id: 'C', text: "Deploy the module to production and check if anyone complains." },
-      { id: 'D', text: "Write custom Bash scripts parsing plan text outputs with grep." }
+      { id: 'A', text: "Add a `tests/*.tftest.hcl` file with `run` blocks at `command = plan` and `assert` conditions." },
+      { id: 'B', text: "Add a policy set in HCP Terraform that evaluates the plan against the same rules." },
+      { id: 'C', text: "Add a `check` block to the module so the assertions run on every plan and apply." },
+      { id: 'D', text: "Add a pipeline step that runs `terraform plan -json` and asserts on the output." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -261,10 +261,10 @@ export const HASHICORP_TFP_QUESTIONS_14 = [
     scenario: "A security compliance auditor requires cryptographic state protection, policy-as-code enforcement, and automated governance across all enterprise Terraform delivery pipelines. The Terraform professional evaluates Native Testing to validate that a reusable Terraform module correctly calculates CIDR subnets and sets resource tags without deploying real cloud resources.",
     question: "Which solution implements these mandatory infrastructure as code security and governance controls?",
     options: [
-      { id: 'A', text: "Deploy the module to production and check if anyone complains." },
-      { id: 'B', text: "Create a `tests/unit.tftest.hcl` file containing `run` blocks with `command = plan` and custom `assert` conditions." },
-      { id: 'C', text: "Terraform does not support native testing frameworks." },
-      { id: 'D', text: "Write custom Bash scripts parsing plan text outputs with grep." }
+      { id: 'A', text: "Add a `check` block to the module so the assertions run on every plan and apply." },
+      { id: 'B', text: "Add a `tests/*.tftest.hcl` file with `run` blocks at `command = plan` and `assert` conditions." },
+      { id: 'C', text: "Add a policy set in HCP Terraform that evaluates the plan against the same rules." },
+      { id: 'D', text: "Add a pipeline step that runs `terraform plan -json` and asserts on the output." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -282,10 +282,10 @@ export const HASHICORP_TFP_QUESTIONS_14 = [
     scenario: "An enterprise is modernizing on-premises infrastructure and refactoring monolithic legacy deployments into modular, cloud-native architectures using advanced Terraform practices. The Terraform professional evaluates Native Testing to validate that a reusable Terraform module correctly calculates CIDR subnets and sets resource tags without deploying real cloud resources.",
     question: "Which practice or platform feature enables the engineering team to modernize provisioning workflows with minimal operational friction?",
     options: [
-      { id: 'A', text: "Terraform does not support native testing frameworks." },
-      { id: 'B', text: "Deploy the module to production and check if anyone complains." },
-      { id: 'C', text: "Create a `tests/unit.tftest.hcl` file containing `run` blocks with `command = plan` and custom `assert` conditions." },
-      { id: 'D', text: "Write custom Bash scripts parsing plan text outputs with grep." }
+      { id: 'A', text: "Add a policy set in HCP Terraform that evaluates the plan against the same rules." },
+      { id: 'B', text: "Add a `check` block to the module so the assertions run on every plan and apply." },
+      { id: 'C', text: "Add a `tests/*.tftest.hcl` file with `run` blocks at `command = plan` and `assert` conditions." },
+      { id: 'D', text: "Add a pipeline step that runs `terraform plan -json` and asserts on the output." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -303,10 +303,10 @@ export const HASHICORP_TFP_QUESTIONS_14 = [
     scenario: "A platform reliability team is optimizing system resilience to eliminate single points of failure, streamline zero-downtime state refactoring, and automate operational recovery. The Terraform professional evaluates Native Testing to validate that a reusable Terraform module correctly calculates CIDR subnets and sets resource tags without deploying real cloud resources.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
-      { id: 'A', text: "Create a `tests/unit.tftest.hcl` file containing `run` blocks with `command = plan` and custom `assert` conditions." },
-      { id: 'B', text: "Terraform does not support native testing frameworks." },
-      { id: 'C', text: "Deploy the module to production and check if anyone complains." },
-      { id: 'D', text: "Write custom Bash scripts parsing plan text outputs with grep." }
+      { id: 'A', text: "Add a `tests/*.tftest.hcl` file with `run` blocks at `command = plan` and `assert` conditions." },
+      { id: 'B', text: "Add a policy set in HCP Terraform that evaluates the plan against the same rules." },
+      { id: 'C', text: "Add a `check` block to the module so the assertions run on every plan and apply." },
+      { id: 'D', text: "Add a pipeline step that runs `terraform plan -json` and asserts on the output." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -324,10 +324,10 @@ export const HASHICORP_TFP_QUESTIONS_14 = [
     scenario: "A principal cloud platform architect is establishing high-availability standards, automated disaster recovery procedures, and infrastructure resilience frameworks across multi-region environments using Terraform. The Terraform professional evaluates Mock Testing to run fast, cost-free automated unit tests for a Terraform module in a pull request CI pipeline without granting AWS credentials.",
     question: "Which architectural approach or advanced configuration satisfies these multi-region recovery and resilience objectives?",
     options: [
-      { id: 'A', text: "Grant full administrator AWS credentials to every untrusted pull request runner." },
-      { id: 'B', text: "Use `mock_provider \"aws\" {}` blocks inside `.tftest.hcl` files to simulate provider responses without cloud API calls." },
-      { id: 'C', text: "Simulate cloud resources using local SQLite databases." },
-      { id: 'D', text: "Skip all testing in CI pipelines to save cloud costs." }
+      { id: 'A', text: "Use a read-only cloud credential in CI so the plan runs but nothing can be created." },
+      { id: 'B', text: "Use `mock_provider \"aws\" {}` blocks in the `.tftest.hcl` files so no API call is made." },
+      { id: 'C', text: "Use a local provider such as `null` in place of the cloud one for the test runs." },
+      { id: 'D', text: "Use `command = plan` in the test runs, which never contacts the cloud provider." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -345,10 +345,10 @@ export const HASHICORP_TFP_QUESTIONS_14 = [
     scenario: "A complex enterprise multi-cloud platform experiences massive scaling requirements and requires modular, automated, and performant infrastructure provisioning across dozens of teams. The Terraform professional evaluates Mock Testing to run fast, cost-free automated unit tests for a Terraform module in a pull request CI pipeline without granting AWS credentials.",
     question: "Which architectural pattern or Terraform capability manages this scale effectively while preventing dependency bottlenecks and configuration drift?",
     options: [
-      { id: 'A', text: "Use `mock_provider \"aws\" {}` blocks inside `.tftest.hcl` files to simulate provider responses without cloud API calls." },
-      { id: 'B', text: "Grant full administrator AWS credentials to every untrusted pull request runner." },
-      { id: 'C', text: "Skip all testing in CI pipelines to save cloud costs." },
-      { id: 'D', text: "Simulate cloud resources using local SQLite databases." }
+      { id: 'A', text: "Use `mock_provider \"aws\" {}` blocks in the `.tftest.hcl` files so no API call is made." },
+      { id: 'B', text: "Use a read-only cloud credential in CI so the plan runs but nothing can be created." },
+      { id: 'C', text: "Use `command = plan` in the test runs, which never contacts the cloud provider." },
+      { id: 'D', text: "Use a local provider such as `null` in place of the cloud one for the test runs." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -366,10 +366,10 @@ export const HASHICORP_TFP_QUESTIONS_14 = [
     scenario: "A security compliance auditor requires cryptographic state protection, policy-as-code enforcement, and automated governance across all enterprise Terraform delivery pipelines. The Terraform professional evaluates Mock Testing to run fast, cost-free automated unit tests for a Terraform module in a pull request CI pipeline without granting AWS credentials.",
     question: "Which solution implements these mandatory infrastructure as code security and governance controls?",
     options: [
-      { id: 'A', text: "Simulate cloud resources using local SQLite databases." },
-      { id: 'B', text: "Use `mock_provider \"aws\" {}` blocks inside `.tftest.hcl` files to simulate provider responses without cloud API calls." },
-      { id: 'C', text: "Skip all testing in CI pipelines to save cloud costs." },
-      { id: 'D', text: "Grant full administrator AWS credentials to every untrusted pull request runner." }
+      { id: 'A', text: "Use a local provider such as `null` in place of the cloud one for the test runs." },
+      { id: 'B', text: "Use `mock_provider \"aws\" {}` blocks in the `.tftest.hcl` files so no API call is made." },
+      { id: 'C', text: "Use `command = plan` in the test runs, which never contacts the cloud provider." },
+      { id: 'D', text: "Use a read-only cloud credential in CI so the plan runs but nothing can be created." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -387,10 +387,10 @@ export const HASHICORP_TFP_QUESTIONS_14 = [
     scenario: "An enterprise is modernizing on-premises infrastructure and refactoring monolithic legacy deployments into modular, cloud-native architectures using advanced Terraform practices. The Terraform professional evaluates Mock Testing to run fast, cost-free automated unit tests for a Terraform module in a pull request CI pipeline without granting AWS credentials.",
     question: "Which practice or platform feature enables the engineering team to modernize provisioning workflows with minimal operational friction?",
     options: [
-      { id: 'A', text: "Use `mock_provider \"aws\" {}` blocks inside `.tftest.hcl` files to simulate provider responses without cloud API calls." },
-      { id: 'B', text: "Grant full administrator AWS credentials to every untrusted pull request runner." },
-      { id: 'C', text: "Skip all testing in CI pipelines to save cloud costs." },
-      { id: 'D', text: "Simulate cloud resources using local SQLite databases." }
+      { id: 'A', text: "Use `mock_provider \"aws\" {}` blocks in the `.tftest.hcl` files so no API call is made." },
+      { id: 'B', text: "Use a read-only cloud credential in CI so the plan runs but nothing can be created." },
+      { id: 'C', text: "Use `command = plan` in the test runs, which never contacts the cloud provider." },
+      { id: 'D', text: "Use a local provider such as `null` in place of the cloud one for the test runs." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -408,10 +408,10 @@ export const HASHICORP_TFP_QUESTIONS_14 = [
     scenario: "A platform reliability team is optimizing system resilience to eliminate single points of failure, streamline zero-downtime state refactoring, and automate operational recovery. The Terraform professional evaluates Mock Testing to run fast, cost-free automated unit tests for a Terraform module in a pull request CI pipeline without granting AWS credentials.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
-      { id: 'A', text: "Grant full administrator AWS credentials to every untrusted pull request runner." },
-      { id: 'B', text: "Use `mock_provider \"aws\" {}` blocks inside `.tftest.hcl` files to simulate provider responses without cloud API calls." },
-      { id: 'C', text: "Simulate cloud resources using local SQLite databases." },
-      { id: 'D', text: "Skip all testing in CI pipelines to save cloud costs." }
+      { id: 'A', text: "Use a read-only cloud credential in CI so the plan runs but nothing can be created." },
+      { id: 'B', text: "Use `mock_provider \"aws\" {}` blocks in the `.tftest.hcl` files so no API call is made." },
+      { id: 'C', text: "Use a local provider such as `null` in place of the cloud one for the test runs." },
+      { id: 'D', text: "Use `command = plan` in the test runs, which never contacts the cloud provider." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -429,10 +429,10 @@ export const HASHICORP_TFP_QUESTIONS_14 = [
     scenario: "A principal cloud platform architect is establishing high-availability standards, automated disaster recovery procedures, and infrastructure resilience frameworks across multi-region environments using Terraform. The Terraform professional evaluates Module Documentation to maintain accurate, up-to-date documentation for module inputs, outputs, requirements, and providers automatically as code evolves.",
     question: "Which architectural approach or advanced configuration satisfies these multi-region recovery and resilience objectives?",
     options: [
-      { id: 'A', text: "Write documentation manually in Word documents stored outside the repository." },
-      { id: 'B', text: "Rely on developers to manually keep README tables updated in every pull request." },
-      { id: 'C', text: "Integrate `terraform-docs` into pre-commit hooks to automatically generate markdown tables in `README.md`." },
-      { id: 'D', text: "Omit documentation and instruct developers to read raw `.tf` source code." }
+      { id: 'A', text: "Keep the documentation in a wiki that the module owners update per release." },
+      { id: 'B', text: "Require the README tables to be updated in the same pull request as the change." },
+      { id: 'C', text: "Run `terraform-docs` from a pre-commit hook to regenerate the README tables." },
+      { id: 'D', text: "Generate the documentation in CI and publish it to the registry listing only." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -450,10 +450,10 @@ export const HASHICORP_TFP_QUESTIONS_14 = [
     scenario: "A complex enterprise multi-cloud platform experiences massive scaling requirements and requires modular, automated, and performant infrastructure provisioning across dozens of teams. The Terraform professional evaluates Module Documentation to maintain accurate, up-to-date documentation for module inputs, outputs, requirements, and providers automatically as code evolves.",
     question: "Which architectural pattern or Terraform capability manages this scale effectively while preventing dependency bottlenecks and configuration drift?",
     options: [
-      { id: 'A', text: "Integrate `terraform-docs` into pre-commit hooks to automatically generate markdown tables in `README.md`." },
-      { id: 'B', text: "Omit documentation and instruct developers to read raw `.tf` source code." },
-      { id: 'C', text: "Write documentation manually in Word documents stored outside the repository." },
-      { id: 'D', text: "Rely on developers to manually keep README tables updated in every pull request." }
+      { id: 'A', text: "Run `terraform-docs` from a pre-commit hook to regenerate the README tables." },
+      { id: 'B', text: "Generate the documentation in CI and publish it to the registry listing only." },
+      { id: 'C', text: "Keep the documentation in a wiki that the module owners update per release." },
+      { id: 'D', text: "Require the README tables to be updated in the same pull request as the change." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -471,10 +471,10 @@ export const HASHICORP_TFP_QUESTIONS_14 = [
     scenario: "A security compliance auditor requires cryptographic state protection, policy-as-code enforcement, and automated governance across all enterprise Terraform delivery pipelines. The Terraform professional evaluates Module Documentation to maintain accurate, up-to-date documentation for module inputs, outputs, requirements, and providers automatically as code evolves.",
     question: "Which solution implements these mandatory infrastructure as code security and governance controls?",
     options: [
-      { id: 'A', text: "Write documentation manually in Word documents stored outside the repository." },
-      { id: 'B', text: "Rely on developers to manually keep README tables updated in every pull request." },
-      { id: 'C', text: "Integrate `terraform-docs` into pre-commit hooks to automatically generate markdown tables in `README.md`." },
-      { id: 'D', text: "Omit documentation and instruct developers to read raw `.tf` source code." }
+      { id: 'A', text: "Keep the documentation in a wiki that the module owners update per release." },
+      { id: 'B', text: "Require the README tables to be updated in the same pull request as the change." },
+      { id: 'C', text: "Run `terraform-docs` from a pre-commit hook to regenerate the README tables." },
+      { id: 'D', text: "Generate the documentation in CI and publish it to the registry listing only." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -492,10 +492,10 @@ export const HASHICORP_TFP_QUESTIONS_14 = [
     scenario: "An enterprise is modernizing on-premises infrastructure and refactoring monolithic legacy deployments into modular, cloud-native architectures using advanced Terraform practices. The Terraform professional evaluates Module Documentation to maintain accurate, up-to-date documentation for module inputs, outputs, requirements, and providers automatically as code evolves.",
     question: "Which practice or platform feature enables the engineering team to modernize provisioning workflows with minimal operational friction?",
     options: [
-      { id: 'A', text: "Integrate `terraform-docs` into pre-commit hooks to automatically generate markdown tables in `README.md`." },
-      { id: 'B', text: "Omit documentation and instruct developers to read raw `.tf` source code." },
-      { id: 'C', text: "Write documentation manually in Word documents stored outside the repository." },
-      { id: 'D', text: "Rely on developers to manually keep README tables updated in every pull request." }
+      { id: 'A', text: "Run `terraform-docs` from a pre-commit hook to regenerate the README tables." },
+      { id: 'B', text: "Generate the documentation in CI and publish it to the registry listing only." },
+      { id: 'C', text: "Keep the documentation in a wiki that the module owners update per release." },
+      { id: 'D', text: "Require the README tables to be updated in the same pull request as the change." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -513,10 +513,10 @@ export const HASHICORP_TFP_QUESTIONS_14 = [
     scenario: "A platform reliability team is optimizing system resilience to eliminate single points of failure, streamline zero-downtime state refactoring, and automate operational recovery. The Terraform professional evaluates Module Documentation to maintain accurate, up-to-date documentation for module inputs, outputs, requirements, and providers automatically as code evolves.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
-      { id: 'A', text: "Rely on developers to manually keep README tables updated in every pull request." },
-      { id: 'B', text: "Omit documentation and instruct developers to read raw `.tf` source code." },
-      { id: 'C', text: "Integrate `terraform-docs` into pre-commit hooks to automatically generate markdown tables in `README.md`." },
-      { id: 'D', text: "Write documentation manually in Word documents stored outside the repository." }
+      { id: 'A', text: "Require the README tables to be updated in the same pull request as the change." },
+      { id: 'B', text: "Generate the documentation in CI and publish it to the registry listing only." },
+      { id: 'C', text: "Run `terraform-docs` from a pre-commit hook to regenerate the README tables." },
+      { id: 'D', text: "Keep the documentation in a wiki that the module owners update per release." }
     ],
     correctAnswers: ['C'],
     type: "single",

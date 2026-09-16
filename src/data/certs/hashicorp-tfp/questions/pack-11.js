@@ -9,10 +9,10 @@ export const HASHICORP_TFP_QUESTIONS_11 = [
     scenario: "A principal cloud platform architect is establishing high-availability standards, automated disaster recovery procedures, and infrastructure resilience frameworks across multi-region environments using Terraform. The Terraform professional evaluates Configuration Validation to ensure that an EC2 instance provisioned by a module uses an encrypted EBS root block device without relying solely on cloud provider API failures.",
     question: "Which architectural approach or advanced configuration satisfies these multi-region recovery and resilience objectives?",
     options: [
-      { id: 'A', text: "Assume developer code review catches all unencrypted volume configurations." },
-      { id: 'B', text: "Add a `lifecycle { precondition { condition = data.aws_ami.selected.root_device_name != \"\" && ... } }` or postcondition block." },
-      { id: 'C', text: "Write a custom external script that runs after deployment to check if the volume is encrypted." },
-      { id: 'D', text: "Disable EBS encryption checks in the AWS account." }
+      { id: 'A', text: "Add a `validation` block on the variable that carries the volume's encryption setting." },
+      { id: 'B', text: "Add a `lifecycle` `precondition` asserting the encryption attribute before the resource is created." },
+      { id: 'C', text: "Add an external data source that queries the volume after the apply and fails on drift." },
+      { id: 'D', text: "Add a `check` block that asserts on the volume once the configuration has applied." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -30,10 +30,10 @@ export const HASHICORP_TFP_QUESTIONS_11 = [
     scenario: "A complex enterprise multi-cloud platform experiences massive scaling requirements and requires modular, automated, and performant infrastructure provisioning across dozens of teams. The Terraform professional evaluates Configuration Validation to ensure that an EC2 instance provisioned by a module uses an encrypted EBS root block device without relying solely on cloud provider API failures.",
     question: "Which architectural pattern or Terraform capability manages this scale effectively while preventing dependency bottlenecks and configuration drift?",
     options: [
-      { id: 'A', text: "Assume developer code review catches all unencrypted volume configurations." },
-      { id: 'B', text: "Disable EBS encryption checks in the AWS account." },
-      { id: 'C', text: "Add a `lifecycle { precondition { condition = data.aws_ami.selected.root_device_name != \"\" && ... } }` or postcondition block." },
-      { id: 'D', text: "Write a custom external script that runs after deployment to check if the volume is encrypted." }
+      { id: 'A', text: "Add a `validation` block on the variable that carries the volume's encryption setting." },
+      { id: 'B', text: "Add a `check` block that asserts on the volume once the configuration has applied." },
+      { id: 'C', text: "Add a `lifecycle` `precondition` asserting the encryption attribute before the resource is created." },
+      { id: 'D', text: "Add an external data source that queries the volume after the apply and fails on drift." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -51,10 +51,10 @@ export const HASHICORP_TFP_QUESTIONS_11 = [
     scenario: "A security compliance auditor requires cryptographic state protection, policy-as-code enforcement, and automated governance across all enterprise Terraform delivery pipelines. The Terraform professional evaluates Configuration Validation to ensure that an EC2 instance provisioned by a module uses an encrypted EBS root block device without relying solely on cloud provider API failures.",
     question: "Which solution implements these mandatory infrastructure as code security and governance controls?",
     options: [
-      { id: 'A', text: "Add a `lifecycle { precondition { condition = data.aws_ami.selected.root_device_name != \"\" && ... } }` or postcondition block." },
-      { id: 'B', text: "Write a custom external script that runs after deployment to check if the volume is encrypted." },
-      { id: 'C', text: "Assume developer code review catches all unencrypted volume configurations." },
-      { id: 'D', text: "Disable EBS encryption checks in the AWS account." }
+      { id: 'A', text: "Add a `lifecycle` `precondition` asserting the encryption attribute before the resource is created." },
+      { id: 'B', text: "Add an external data source that queries the volume after the apply and fails on drift." },
+      { id: 'C', text: "Add a `validation` block on the variable that carries the volume's encryption setting." },
+      { id: 'D', text: "Add a `check` block that asserts on the volume once the configuration has applied." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -72,10 +72,10 @@ export const HASHICORP_TFP_QUESTIONS_11 = [
     scenario: "An enterprise is modernizing on-premises infrastructure and refactoring monolithic legacy deployments into modular, cloud-native architectures using advanced Terraform practices. The Terraform professional evaluates Configuration Validation to ensure that an EC2 instance provisioned by a module uses an encrypted EBS root block device without relying solely on cloud provider API failures.",
     question: "Which practice or platform feature enables the engineering team to modernize provisioning workflows with minimal operational friction?",
     options: [
-      { id: 'A', text: "Add a `lifecycle { precondition { condition = data.aws_ami.selected.root_device_name != \"\" && ... } }` or postcondition block." },
-      { id: 'B', text: "Write a custom external script that runs after deployment to check if the volume is encrypted." },
-      { id: 'C', text: "Assume developer code review catches all unencrypted volume configurations." },
-      { id: 'D', text: "Disable EBS encryption checks in the AWS account." }
+      { id: 'A', text: "Add a `lifecycle` `precondition` asserting the encryption attribute before the resource is created." },
+      { id: 'B', text: "Add an external data source that queries the volume after the apply and fails on drift." },
+      { id: 'C', text: "Add a `validation` block on the variable that carries the volume's encryption setting." },
+      { id: 'D', text: "Add a `check` block that asserts on the volume once the configuration has applied." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -93,10 +93,10 @@ export const HASHICORP_TFP_QUESTIONS_11 = [
     scenario: "A platform reliability team is optimizing system resilience to eliminate single points of failure, streamline zero-downtime state refactoring, and automate operational recovery. The Terraform professional evaluates Configuration Validation to ensure that an EC2 instance provisioned by a module uses an encrypted EBS root block device without relying solely on cloud provider API failures.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
-      { id: 'A', text: "Assume developer code review catches all unencrypted volume configurations." },
-      { id: 'B', text: "Disable EBS encryption checks in the AWS account." },
-      { id: 'C', text: "Add a `lifecycle { precondition { condition = data.aws_ami.selected.root_device_name != \"\" && ... } }` or postcondition block." },
-      { id: 'D', text: "Write a custom external script that runs after deployment to check if the volume is encrypted." }
+      { id: 'A', text: "Add a `validation` block on the variable that carries the volume's encryption setting." },
+      { id: 'B', text: "Add a `check` block that asserts on the volume once the configuration has applied." },
+      { id: 'C', text: "Add a `lifecycle` `precondition` asserting the encryption attribute before the resource is created." },
+      { id: 'D', text: "Add an external data source that queries the volume after the apply and fails on drift." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -114,10 +114,10 @@ export const HASHICORP_TFP_QUESTIONS_11 = [
     scenario: "A principal cloud platform architect is establishing high-availability standards, automated disaster recovery procedures, and infrastructure resilience frameworks across multi-region environments using Terraform. The Terraform professional evaluates Collection Manipulation to flatten a nested map of VPC subnets across multiple availability zones into a single flat list suitable for `for_each` resource iteration.",
     question: "Which architectural approach or advanced configuration satisfies these multi-region recovery and resilience objectives?",
     options: [
-      { id: 'A', text: "Use `flatten()` combined with nested `[for k, v in ... : [for ...]]` expressions to produce a single list of objects." },
-      { id: 'B', text: "Write a custom Go provider to flatten JSON arrays." },
-      { id: 'C', text: "Manually write out 30 separate subnet resource declarations." },
-      { id: 'D', text: "Store nested data in environment variables." }
+      { id: 'A', text: "Use `flatten()` over nested `for` expressions to produce one list of objects." },
+      { id: 'B', text: "Use `setproduct()` over the two lists to produce one list of objects." },
+      { id: 'C', text: "Use `for_each` over the outer map and declare each subnet separately." },
+      { id: 'D', text: "Use `jsondecode()` on the raw value and index it by position." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -135,10 +135,10 @@ export const HASHICORP_TFP_QUESTIONS_11 = [
     scenario: "A complex enterprise multi-cloud platform experiences massive scaling requirements and requires modular, automated, and performant infrastructure provisioning across dozens of teams. The Terraform professional evaluates Collection Manipulation to flatten a nested map of VPC subnets across multiple availability zones into a single flat list suitable for `for_each` resource iteration.",
     question: "Which architectural pattern or Terraform capability manages this scale effectively while preventing dependency bottlenecks and configuration drift?",
     options: [
-      { id: 'A', text: "Write a custom Go provider to flatten JSON arrays." },
-      { id: 'B', text: "Store nested data in environment variables." },
-      { id: 'C', text: "Manually write out 30 separate subnet resource declarations." },
-      { id: 'D', text: "Use `flatten()` combined with nested `[for k, v in ... : [for ...]]` expressions to produce a single list of objects." }
+      { id: 'A', text: "Use `setproduct()` over the two lists to produce one list of objects." },
+      { id: 'B', text: "Use `jsondecode()` on the raw value and index it by position." },
+      { id: 'C', text: "Use `for_each` over the outer map and declare each subnet separately." },
+      { id: 'D', text: "Use `flatten()` over nested `for` expressions to produce one list of objects." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -156,10 +156,10 @@ export const HASHICORP_TFP_QUESTIONS_11 = [
     scenario: "A security compliance auditor requires cryptographic state protection, policy-as-code enforcement, and automated governance across all enterprise Terraform delivery pipelines. The Terraform professional evaluates Collection Manipulation to flatten a nested map of VPC subnets across multiple availability zones into a single flat list suitable for `for_each` resource iteration.",
     question: "Which solution implements these mandatory infrastructure as code security and governance controls?",
     options: [
-      { id: 'A', text: "Write a custom Go provider to flatten JSON arrays." },
-      { id: 'B', text: "Manually write out 30 separate subnet resource declarations." },
-      { id: 'C', text: "Use `flatten()` combined with nested `[for k, v in ... : [for ...]]` expressions to produce a single list of objects." },
-      { id: 'D', text: "Store nested data in environment variables." }
+      { id: 'A', text: "Use `setproduct()` over the two lists to produce one list of objects." },
+      { id: 'B', text: "Use `for_each` over the outer map and declare each subnet separately." },
+      { id: 'C', text: "Use `flatten()` over nested `for` expressions to produce one list of objects." },
+      { id: 'D', text: "Use `jsondecode()` on the raw value and index it by position." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -177,10 +177,10 @@ export const HASHICORP_TFP_QUESTIONS_11 = [
     scenario: "An enterprise is modernizing on-premises infrastructure and refactoring monolithic legacy deployments into modular, cloud-native architectures using advanced Terraform practices. The Terraform professional evaluates Collection Manipulation to flatten a nested map of VPC subnets across multiple availability zones into a single flat list suitable for `for_each` resource iteration.",
     question: "Which practice or platform feature enables the engineering team to modernize provisioning workflows with minimal operational friction?",
     options: [
-      { id: 'A', text: "Use `flatten()` combined with nested `[for k, v in ... : [for ...]]` expressions to produce a single list of objects." },
-      { id: 'B', text: "Write a custom Go provider to flatten JSON arrays." },
-      { id: 'C', text: "Manually write out 30 separate subnet resource declarations." },
-      { id: 'D', text: "Store nested data in environment variables." }
+      { id: 'A', text: "Use `flatten()` over nested `for` expressions to produce one list of objects." },
+      { id: 'B', text: "Use `setproduct()` over the two lists to produce one list of objects." },
+      { id: 'C', text: "Use `for_each` over the outer map and declare each subnet separately." },
+      { id: 'D', text: "Use `jsondecode()` on the raw value and index it by position." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -198,10 +198,10 @@ export const HASHICORP_TFP_QUESTIONS_11 = [
     scenario: "A platform reliability team is optimizing system resilience to eliminate single points of failure, streamline zero-downtime state refactoring, and automate operational recovery. The Terraform professional evaluates Collection Manipulation to flatten a nested map of VPC subnets across multiple availability zones into a single flat list suitable for `for_each` resource iteration.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
-      { id: 'A', text: "Use `flatten()` combined with nested `[for k, v in ... : [for ...]]` expressions to produce a single list of objects." },
-      { id: 'B', text: "Write a custom Go provider to flatten JSON arrays." },
-      { id: 'C', text: "Manually write out 30 separate subnet resource declarations." },
-      { id: 'D', text: "Store nested data in environment variables." }
+      { id: 'A', text: "Use `flatten()` over nested `for` expressions to produce one list of objects." },
+      { id: 'B', text: "Use `setproduct()` over the two lists to produce one list of objects." },
+      { id: 'C', text: "Use `for_each` over the outer map and declare each subnet separately." },
+      { id: 'D', text: "Use `jsondecode()` on the raw value and index it by position." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -219,10 +219,10 @@ export const HASHICORP_TFP_QUESTIONS_11 = [
     scenario: "A principal cloud platform architect is establishing high-availability standards, automated disaster recovery procedures, and infrastructure resilience frameworks across multi-region environments using Terraform. The Terraform professional evaluates Declarative Refactoring to refactor a legacy standalone `aws_s3_bucket.data` into a new module `module.storage.aws_s3_bucket.this` without requiring manual CLI state commands from team members.",
     question: "Which architectural approach or advanced configuration satisfies these multi-region recovery and resilience objectives?",
     options: [
-      { id: 'A', text: "Allow Terraform to destroy the production S3 bucket and recreate it under the module." },
-      { id: 'B', text: "Edit the remote JSON state file in an external editor." },
-      { id: 'C', text: "Add a `moved { from = aws_s3_bucket.data; to = module.storage.aws_s3_bucket.this }` block in the configuration." },
-      { id: 'D', text: "Instruct every developer to manually run `terraform state mv` on their personal machines." }
+      { id: 'A', text: "Let the apply destroy the bucket and recreate it under the module's address." },
+      { id: 'B', text: "Edit the remote state document and rewrite the resource's address by hand." },
+      { id: 'C', text: "Add a `moved` block giving the resource's old address and its new module address." },
+      { id: 'D', text: "Have each developer run `terraform state mv` locally against the shared state." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -240,10 +240,10 @@ export const HASHICORP_TFP_QUESTIONS_11 = [
     scenario: "A complex enterprise multi-cloud platform experiences massive scaling requirements and requires modular, automated, and performant infrastructure provisioning across dozens of teams. The Terraform professional evaluates Declarative Refactoring to refactor a legacy standalone `aws_s3_bucket.data` into a new module `module.storage.aws_s3_bucket.this` without requiring manual CLI state commands from team members.",
     question: "Which architectural pattern or Terraform capability manages this scale effectively while preventing dependency bottlenecks and configuration drift?",
     options: [
-      { id: 'A', text: "Instruct every developer to manually run `terraform state mv` on their personal machines." },
-      { id: 'B', text: "Add a `moved { from = aws_s3_bucket.data; to = module.storage.aws_s3_bucket.this }` block in the configuration." },
-      { id: 'C', text: "Edit the remote JSON state file in an external editor." },
-      { id: 'D', text: "Allow Terraform to destroy the production S3 bucket and recreate it under the module." }
+      { id: 'A', text: "Have each developer run `terraform state mv` locally against the shared state." },
+      { id: 'B', text: "Add a `moved` block giving the resource's old address and its new module address." },
+      { id: 'C', text: "Edit the remote state document and rewrite the resource's address by hand." },
+      { id: 'D', text: "Let the apply destroy the bucket and recreate it under the module's address." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -261,10 +261,10 @@ export const HASHICORP_TFP_QUESTIONS_11 = [
     scenario: "A security compliance auditor requires cryptographic state protection, policy-as-code enforcement, and automated governance across all enterprise Terraform delivery pipelines. The Terraform professional evaluates Declarative Refactoring to refactor a legacy standalone `aws_s3_bucket.data` into a new module `module.storage.aws_s3_bucket.this` without requiring manual CLI state commands from team members.",
     question: "Which solution implements these mandatory infrastructure as code security and governance controls?",
     options: [
-      { id: 'A', text: "Edit the remote JSON state file in an external editor." },
-      { id: 'B', text: "Allow Terraform to destroy the production S3 bucket and recreate it under the module." },
-      { id: 'C', text: "Instruct every developer to manually run `terraform state mv` on their personal machines." },
-      { id: 'D', text: "Add a `moved { from = aws_s3_bucket.data; to = module.storage.aws_s3_bucket.this }` block in the configuration." }
+      { id: 'A', text: "Edit the remote state document and rewrite the resource's address by hand." },
+      { id: 'B', text: "Let the apply destroy the bucket and recreate it under the module's address." },
+      { id: 'C', text: "Have each developer run `terraform state mv` locally against the shared state." },
+      { id: 'D', text: "Add a `moved` block giving the resource's old address and its new module address." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -282,10 +282,10 @@ export const HASHICORP_TFP_QUESTIONS_11 = [
     scenario: "An enterprise is modernizing on-premises infrastructure and refactoring monolithic legacy deployments into modular, cloud-native architectures using advanced Terraform practices. The Terraform professional evaluates Declarative Refactoring to refactor a legacy standalone `aws_s3_bucket.data` into a new module `module.storage.aws_s3_bucket.this` without requiring manual CLI state commands from team members.",
     question: "Which practice or platform feature enables the engineering team to modernize provisioning workflows with minimal operational friction?",
     options: [
-      { id: 'A', text: "Add a `moved { from = aws_s3_bucket.data; to = module.storage.aws_s3_bucket.this }` block in the configuration." },
-      { id: 'B', text: "Instruct every developer to manually run `terraform state mv` on their personal machines." },
-      { id: 'C', text: "Allow Terraform to destroy the production S3 bucket and recreate it under the module." },
-      { id: 'D', text: "Edit the remote JSON state file in an external editor." }
+      { id: 'A', text: "Add a `moved` block giving the resource's old address and its new module address." },
+      { id: 'B', text: "Have each developer run `terraform state mv` locally against the shared state." },
+      { id: 'C', text: "Let the apply destroy the bucket and recreate it under the module's address." },
+      { id: 'D', text: "Edit the remote state document and rewrite the resource's address by hand." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -303,10 +303,10 @@ export const HASHICORP_TFP_QUESTIONS_11 = [
     scenario: "A platform reliability team is optimizing system resilience to eliminate single points of failure, streamline zero-downtime state refactoring, and automate operational recovery. The Terraform professional evaluates Declarative Refactoring to refactor a legacy standalone `aws_s3_bucket.data` into a new module `module.storage.aws_s3_bucket.this` without requiring manual CLI state commands from team members.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
-      { id: 'A', text: "Add a `moved { from = aws_s3_bucket.data; to = module.storage.aws_s3_bucket.this }` block in the configuration." },
-      { id: 'B', text: "Instruct every developer to manually run `terraform state mv` on their personal machines." },
-      { id: 'C', text: "Allow Terraform to destroy the production S3 bucket and recreate it under the module." },
-      { id: 'D', text: "Edit the remote JSON state file in an external editor." }
+      { id: 'A', text: "Add a `moved` block giving the resource's old address and its new module address." },
+      { id: 'B', text: "Have each developer run `terraform state mv` locally against the shared state." },
+      { id: 'C', text: "Let the apply destroy the bucket and recreate it under the module's address." },
+      { id: 'D', text: "Edit the remote state document and rewrite the resource's address by hand." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -324,10 +324,10 @@ export const HASHICORP_TFP_QUESTIONS_11 = [
     scenario: "A principal cloud platform architect is establishing high-availability standards, automated disaster recovery procedures, and infrastructure resilience frameworks across multi-region environments using Terraform. The Terraform professional evaluates Continuous Validation to verify continuously that an internal corporate website returns an HTTP 200 status code and SSL certificate validity without blocking resource provisioning.",
     question: "Which architectural approach or advanced configuration satisfies these multi-region recovery and resilience objectives?",
     options: [
-      { id: 'A', text: "Define a `check` block with a scoped `data \"http\"` source and an `assert { condition = ... }` statement." },
-      { id: 'B', text: "Put the HTTP check inside a null_resource with local-exec that aborts the pipeline." },
-      { id: 'C', text: "Rely on external cron scripts outside of Terraform." },
-      { id: 'D', text: "Never validate endpoint health in infrastructure as code." }
+      { id: 'A', text: "Add a `check` block with a scoped `data \"http\"` source and an `assert` condition." },
+      { id: 'B', text: "Add a `null_resource` whose `local-exec` curls the endpoint and exits non-zero." },
+      { id: 'C', text: "Add an external monitor outside Terraform that pages when the endpoint fails." },
+      { id: 'D', text: "Add a `postcondition` on the load balancer resource asserting on its state." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -345,10 +345,10 @@ export const HASHICORP_TFP_QUESTIONS_11 = [
     scenario: "A complex enterprise multi-cloud platform experiences massive scaling requirements and requires modular, automated, and performant infrastructure provisioning across dozens of teams. The Terraform professional evaluates Continuous Validation to verify continuously that an internal corporate website returns an HTTP 200 status code and SSL certificate validity without blocking resource provisioning.",
     question: "Which architectural pattern or Terraform capability manages this scale effectively while preventing dependency bottlenecks and configuration drift?",
     options: [
-      { id: 'A', text: "Define a `check` block with a scoped `data \"http\"` source and an `assert { condition = ... }` statement." },
-      { id: 'B', text: "Put the HTTP check inside a null_resource with local-exec that aborts the pipeline." },
-      { id: 'C', text: "Rely on external cron scripts outside of Terraform." },
-      { id: 'D', text: "Never validate endpoint health in infrastructure as code." }
+      { id: 'A', text: "Add a `check` block with a scoped `data \"http\"` source and an `assert` condition." },
+      { id: 'B', text: "Add a `null_resource` whose `local-exec` curls the endpoint and exits non-zero." },
+      { id: 'C', text: "Add an external monitor outside Terraform that pages when the endpoint fails." },
+      { id: 'D', text: "Add a `postcondition` on the load balancer resource asserting on its state." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -366,10 +366,10 @@ export const HASHICORP_TFP_QUESTIONS_11 = [
     scenario: "A security compliance auditor requires cryptographic state protection, policy-as-code enforcement, and automated governance across all enterprise Terraform delivery pipelines. The Terraform professional evaluates Continuous Validation to verify continuously that an internal corporate website returns an HTTP 200 status code and SSL certificate validity without blocking resource provisioning.",
     question: "Which solution implements these mandatory infrastructure as code security and governance controls?",
     options: [
-      { id: 'A', text: "Rely on external cron scripts outside of Terraform." },
-      { id: 'B', text: "Never validate endpoint health in infrastructure as code." },
-      { id: 'C', text: "Define a `check` block with a scoped `data \"http\"` source and an `assert { condition = ... }` statement." },
-      { id: 'D', text: "Put the HTTP check inside a null_resource with local-exec that aborts the pipeline." }
+      { id: 'A', text: "Add an external monitor outside Terraform that pages when the endpoint fails." },
+      { id: 'B', text: "Add a `postcondition` on the load balancer resource asserting on its state." },
+      { id: 'C', text: "Add a `check` block with a scoped `data \"http\"` source and an `assert` condition." },
+      { id: 'D', text: "Add a `null_resource` whose `local-exec` curls the endpoint and exits non-zero." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -387,10 +387,10 @@ export const HASHICORP_TFP_QUESTIONS_11 = [
     scenario: "An enterprise is modernizing on-premises infrastructure and refactoring monolithic legacy deployments into modular, cloud-native architectures using advanced Terraform practices. The Terraform professional evaluates Continuous Validation to verify continuously that an internal corporate website returns an HTTP 200 status code and SSL certificate validity without blocking resource provisioning.",
     question: "Which practice or platform feature enables the engineering team to modernize provisioning workflows with minimal operational friction?",
     options: [
-      { id: 'A', text: "Rely on external cron scripts outside of Terraform." },
-      { id: 'B', text: "Define a `check` block with a scoped `data \"http\"` source and an `assert { condition = ... }` statement." },
-      { id: 'C', text: "Put the HTTP check inside a null_resource with local-exec that aborts the pipeline." },
-      { id: 'D', text: "Never validate endpoint health in infrastructure as code." }
+      { id: 'A', text: "Add an external monitor outside Terraform that pages when the endpoint fails." },
+      { id: 'B', text: "Add a `check` block with a scoped `data \"http\"` source and an `assert` condition." },
+      { id: 'C', text: "Add a `null_resource` whose `local-exec` curls the endpoint and exits non-zero." },
+      { id: 'D', text: "Add a `postcondition` on the load balancer resource asserting on its state." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -408,10 +408,10 @@ export const HASHICORP_TFP_QUESTIONS_11 = [
     scenario: "A platform reliability team is optimizing system resilience to eliminate single points of failure, streamline zero-downtime state refactoring, and automate operational recovery. The Terraform professional evaluates Continuous Validation to verify continuously that an internal corporate website returns an HTTP 200 status code and SSL certificate validity without blocking resource provisioning.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
-      { id: 'A', text: "Never validate endpoint health in infrastructure as code." },
-      { id: 'B', text: "Rely on external cron scripts outside of Terraform." },
-      { id: 'C', text: "Put the HTTP check inside a null_resource with local-exec that aborts the pipeline." },
-      { id: 'D', text: "Define a `check` block with a scoped `data \"http\"` source and an `assert { condition = ... }` statement." }
+      { id: 'A', text: "Add a `postcondition` on the load balancer resource asserting on its state." },
+      { id: 'B', text: "Add an external monitor outside Terraform that pages when the endpoint fails." },
+      { id: 'C', text: "Add a `null_resource` whose `local-exec` curls the endpoint and exits non-zero." },
+      { id: 'D', text: "Add a `check` block with a scoped `data \"http\"` source and an `assert` condition." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -429,10 +429,10 @@ export const HASHICORP_TFP_QUESTIONS_11 = [
     scenario: "A principal cloud platform architect is establishing high-availability standards, automated disaster recovery procedures, and infrastructure resilience frameworks across multi-region environments using Terraform. The Terraform professional evaluates Declarative Import to bring 50 unmanaged AWS DynamoDB tables into Terraform management and automatically generate initial HCL resource blocks.",
     question: "Which architectural approach or advanced configuration satisfies these multi-region recovery and resilience objectives?",
     options: [
-      { id: 'A', text: "Author `import {}` blocks specifying `to` and `id`, then run `terraform plan -generate-config-out=generated.tf`." },
-      { id: 'B', text: "Run `terraform import` 50 times and manually copy JSON state attributes into HCL." },
-      { id: 'C', text: "Delete the 50 production tables and recreate them using Terraform." },
-      { id: 'D', text: "Write 50 resource blocks from scratch by hand guessing every configuration attribute." }
+      { id: 'A', text: "Write `import {}` blocks with `to` and `id`, then `plan -generate-config-out`." },
+      { id: 'B', text: "Run `terraform import` per table and write each resource block by hand." },
+      { id: 'C', text: "Recreate the tables through Terraform and migrate the data across." },
+      { id: 'D', text: "Write the resource blocks first and let the next apply adopt them." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -450,10 +450,10 @@ export const HASHICORP_TFP_QUESTIONS_11 = [
     scenario: "A complex enterprise multi-cloud platform experiences massive scaling requirements and requires modular, automated, and performant infrastructure provisioning across dozens of teams. The Terraform professional evaluates Declarative Import to bring 50 unmanaged AWS DynamoDB tables into Terraform management and automatically generate initial HCL resource blocks.",
     question: "Which architectural pattern or Terraform capability manages this scale effectively while preventing dependency bottlenecks and configuration drift?",
     options: [
-      { id: 'A', text: "Run `terraform import` 50 times and manually copy JSON state attributes into HCL." },
-      { id: 'B', text: "Delete the 50 production tables and recreate them using Terraform." },
-      { id: 'C', text: "Author `import {}` blocks specifying `to` and `id`, then run `terraform plan -generate-config-out=generated.tf`." },
-      { id: 'D', text: "Write 50 resource blocks from scratch by hand guessing every configuration attribute." }
+      { id: 'A', text: "Run `terraform import` per table and write each resource block by hand." },
+      { id: 'B', text: "Recreate the tables through Terraform and migrate the data across." },
+      { id: 'C', text: "Write `import {}` blocks with `to` and `id`, then `plan -generate-config-out`." },
+      { id: 'D', text: "Write the resource blocks first and let the next apply adopt them." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -471,10 +471,10 @@ export const HASHICORP_TFP_QUESTIONS_11 = [
     scenario: "A security compliance auditor requires cryptographic state protection, policy-as-code enforcement, and automated governance across all enterprise Terraform delivery pipelines. The Terraform professional evaluates Declarative Import to bring 50 unmanaged AWS DynamoDB tables into Terraform management and automatically generate initial HCL resource blocks.",
     question: "Which solution implements these mandatory infrastructure as code security and governance controls?",
     options: [
-      { id: 'A', text: "Write 50 resource blocks from scratch by hand guessing every configuration attribute." },
-      { id: 'B', text: "Delete the 50 production tables and recreate them using Terraform." },
-      { id: 'C', text: "Run `terraform import` 50 times and manually copy JSON state attributes into HCL." },
-      { id: 'D', text: "Author `import {}` blocks specifying `to` and `id`, then run `terraform plan -generate-config-out=generated.tf`." }
+      { id: 'A', text: "Write the resource blocks first and let the next apply adopt them." },
+      { id: 'B', text: "Recreate the tables through Terraform and migrate the data across." },
+      { id: 'C', text: "Run `terraform import` per table and write each resource block by hand." },
+      { id: 'D', text: "Write `import {}` blocks with `to` and `id`, then `plan -generate-config-out`." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -492,10 +492,10 @@ export const HASHICORP_TFP_QUESTIONS_11 = [
     scenario: "An enterprise is modernizing on-premises infrastructure and refactoring monolithic legacy deployments into modular, cloud-native architectures using advanced Terraform practices. The Terraform professional evaluates Declarative Import to bring 50 unmanaged AWS DynamoDB tables into Terraform management and automatically generate initial HCL resource blocks.",
     question: "Which practice or platform feature enables the engineering team to modernize provisioning workflows with minimal operational friction?",
     options: [
-      { id: 'A', text: "Author `import {}` blocks specifying `to` and `id`, then run `terraform plan -generate-config-out=generated.tf`." },
-      { id: 'B', text: "Delete the 50 production tables and recreate them using Terraform." },
-      { id: 'C', text: "Write 50 resource blocks from scratch by hand guessing every configuration attribute." },
-      { id: 'D', text: "Run `terraform import` 50 times and manually copy JSON state attributes into HCL." }
+      { id: 'A', text: "Write `import {}` blocks with `to` and `id`, then `plan -generate-config-out`." },
+      { id: 'B', text: "Recreate the tables through Terraform and migrate the data across." },
+      { id: 'C', text: "Write the resource blocks first and let the next apply adopt them." },
+      { id: 'D', text: "Run `terraform import` per table and write each resource block by hand." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -513,10 +513,10 @@ export const HASHICORP_TFP_QUESTIONS_11 = [
     scenario: "A platform reliability team is optimizing system resilience to eliminate single points of failure, streamline zero-downtime state refactoring, and automate operational recovery. The Terraform professional evaluates Declarative Import to bring 50 unmanaged AWS DynamoDB tables into Terraform management and automatically generate initial HCL resource blocks.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
-      { id: 'A', text: "Author `import {}` blocks specifying `to` and `id`, then run `terraform plan -generate-config-out=generated.tf`." },
-      { id: 'B', text: "Write 50 resource blocks from scratch by hand guessing every configuration attribute." },
-      { id: 'C', text: "Run `terraform import` 50 times and manually copy JSON state attributes into HCL." },
-      { id: 'D', text: "Delete the 50 production tables and recreate them using Terraform." }
+      { id: 'A', text: "Write `import {}` blocks with `to` and `id`, then `plan -generate-config-out`." },
+      { id: 'B', text: "Write the resource blocks first and let the next apply adopt them." },
+      { id: 'C', text: "Run `terraform import` per table and write each resource block by hand." },
+      { id: 'D', text: "Recreate the tables through Terraform and migrate the data across." }
     ],
     correctAnswers: ['A'],
     type: "single",

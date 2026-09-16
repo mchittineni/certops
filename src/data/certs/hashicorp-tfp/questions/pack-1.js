@@ -73,7 +73,7 @@ export const HASHICORP_TFP_QUESTIONS_1 = [
     question: "How is that wired correctly?",
     options: [
       { id: 'A', text: "Use a provider meta-argument on each resource inside the module." },
-      { id: 'B', text: "Declare configuration_aliases in the module required_providers, and pass providers = { aws = aws.replica } in the module block." },
+      { id: 'B', text: "`configuration_aliases` in the module, with `providers` in the call." },
       { id: 'C', text: "Define the aliased provider block inside the module." },
       { id: 'D', text: "Set a region variable on the module and let it inherit the default provider." }
     ],
@@ -114,10 +114,10 @@ export const HASHICORP_TFP_QUESTIONS_1 = [
     scenario: "Two engineers run terraform apply against the same S3-backed state at the same time.",
     question: "What does state locking prevent, and how is it provided for the S3 backend?",
     options: [
-      { id: 'A', text: "It encrypts the state file so simultaneous writes are rejected." },
-      { id: 'B', text: "It prevents concurrent writes from corrupting state or duplicating resources; the S3 backend supports locking via DynamoDB or S3 native lockfile support depending on the configuration." },
-      { id: 'C', text: "It prevents reading state while an apply runs, using S3 object versioning." },
-      { id: 'D', text: "It prevents drift by refreshing state before every plan." }
+      { id: 'A', text: "It encrypts the state object so a second writer's request is rejected by the backend." },
+      { id: 'B', text: "It stops concurrent writes corrupting state; S3 locks with DynamoDB." },
+      { id: 'C', text: "It stops state being read while an apply runs, using the bucket's object versioning." },
+      { id: 'D', text: "It prevents drift by refreshing the state against the provider before every plan." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -177,10 +177,10 @@ export const HASHICORP_TFP_QUESTIONS_1 = [
     scenario: "An organisation must block any run that would create an unencrypted storage bucket, across every workspace, without relying on reviewers noticing it.",
     question: "Which HCP Terraform capability enforces that automatically?",
     options: [
-      { id: 'A', text: "A policy set (Sentinel or OPA) attached to the organisation or a project, evaluated between plan and apply." },
-      { id: 'B', text: "A required manual apply approval." },
-      { id: 'C', text: "A workspace variable marked sensitive." },
-      { id: 'D', text: "A run task that posts a comment on the pull request." }
+      { id: 'A', text: "A policy set on the organisation, evaluated between plan and apply." },
+      { id: 'B', text: "A required manual approval before the apply may proceed." },
+      { id: 'C', text: "A workspace variable marked sensitive for the credential." },
+      { id: 'D', text: "A run task that posts its findings on the pull request." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -219,7 +219,7 @@ export const HASHICORP_TFP_QUESTIONS_1 = [
     scenario: "A production database was created by hand and must now be managed by Terraform, with the change reviewable in a pull request and repeatable in CI.",
     question: "Which mechanism fits that requirement best?",
     options: [
-      { id: 'A', text: "An import block in the configuration naming the target address and the resource id." },
+      { id: 'A', text: "An `import` block naming the target address and the resource id." },
       { id: 'B', text: "Recreating the database with Terraform and migrating the data." },
       { id: 'C', text: "terraform import run once by an engineer on their laptop." },
       { id: 'D', text: "terraform state push with a hand-edited state file." }
@@ -242,7 +242,7 @@ export const HASHICORP_TFP_QUESTIONS_1 = [
     options: [
       { id: 'A', text: "Validates variable values against their type constraints." },
       { id: 'B', text: "Creates the remote state bucket if it does not exist." },
-      { id: 'C', text: "Initialises the backend, installs required providers and modules, and writes or verifies the dependency lock file." },
+      { id: 'C', text: "Initialises the backend, installs providers and modules, writes the lock file." },
       { id: 'D', text: "Refreshes state against the real infrastructure and reports drift." }
     ],
     correctAnswers: ['C'],
@@ -282,10 +282,10 @@ export const HASHICORP_TFP_QUESTIONS_1 = [
     scenario: "A plan fails with \"Invalid for_each argument: the for_each value depends on resource attributes that cannot be determined until apply\".",
     question: "What causes this and how is it commonly resolved?",
     options: [
-      { id: 'A', text: "Terraform needs -parallelism=1 to evaluate for_each." },
-      { id: 'B', text: "The for_each value is a list; convert it to a set with toset." },
-      { id: 'C', text: "The provider version is too old; upgrade it." },
-      { id: 'D', text: "The for_each keys derive from values unknown until apply; restructure so keys come from known inputs, or split the apply into stages." }
+      { id: 'A', text: "Terraform needs `-parallelism=1` in order to evaluate `for_each` correctly." },
+      { id: 'B', text: "The `for_each` value is a list, so it has to be converted with `toset`." },
+      { id: 'C', text: "The provider version is too old and needs upgrading before it works." },
+      { id: 'D', text: "The keys are unknown until apply; restructure or split the apply in stages." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -303,10 +303,10 @@ export const HASHICORP_TFP_QUESTIONS_1 = [
     scenario: "A networking configuration and an application configuration live in separate state files and separate pipelines. The application needs the VPC and subnet ids produced by the networking run.",
     question: "Which approach is the most maintainable?",
     options: [
-      { id: 'A', text: "Copy the ids into the application variables file after each networking apply." },
-      { id: 'B', text: "Merge the two configurations into one state file." },
-      { id: 'C', text: "Import the networking resources into the application state as well." },
-      { id: 'D', text: "Publish the values as outputs of the networking workspace and consume them with terraform_remote_state or an HCP Terraform outputs data source." }
+      { id: 'A', text: "Copy the ids into the application's variables after each networking apply." },
+      { id: 'B', text: "Merge the two configurations into a single state file for both tiers." },
+      { id: 'C', text: "Import the networking resources into the application's state as well." },
+      { id: 'D', text: "Publish them as networking outputs and read them with `terraform_remote_state`." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -387,10 +387,10 @@ export const HASHICORP_TFP_QUESTIONS_1 = [
     scenario: "terraform plan fails with \"Error: Cycle: aws_security_group.a, aws_security_group_rule.b, aws_security_group.c\".",
     question: "What is the usual root cause and remedy?",
     options: [
-      { id: 'A', text: "The provider is not initialised; run terraform init -upgrade." },
-      { id: 'B', text: "Two resources reference each other, so the graph has no valid order; break the cycle by extracting the mutual reference into a separate resource such as a standalone rule." },
-      { id: 'C', text: "The state file is corrupt; restore it from a backup." },
-      { id: 'D', text: "Parallelism is too high; rerun with -parallelism=1." }
+      { id: 'A', text: "The provider is not initialised, so run `terraform init -upgrade` and retry." },
+      { id: 'B', text: "Two resources reference each other, so break the cycle by extracting the mutual reference." },
+      { id: 'C', text: "The state file is corrupt, so restore it from the backend's previous version." },
+      { id: 'D', text: "The parallelism is too high, so re-run the plan with `-parallelism=1`." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -429,7 +429,7 @@ export const HASHICORP_TFP_QUESTIONS_1 = [
     scenario: "A configuration computes a naming prefix from the environment and project inputs, used in a dozen places. The value must not be overridable by the caller.",
     question: "Where should it be defined?",
     options: [
-      { id: 'A', text: "In a locals block, because locals are internal computed values that callers cannot override." },
+      { id: 'A', text: "In a `locals` block, since locals are internal and cannot be overridden." },
       { id: 'B', text: "In a variable with a default, because defaults cannot be changed." },
       { id: 'C', text: "In a data source, so it refreshes each run." },
       { id: 'D', text: "In an output, so it is computed once." }
@@ -451,7 +451,7 @@ export const HASHICORP_TFP_QUESTIONS_1 = [
     question: "Which statement is correct?",
     options: [
       { id: 'A', text: "It stores backend credentials and must be encrypted before committing." },
-      { id: 'B', text: "It records selected provider versions and their checksums and should be committed so every run uses identical providers." },
+      { id: 'B', text: "It records the selected provider versions and hashes, and should be committed." },
       { id: 'C', text: "It records module versions and is regenerated on every plan, so it should be ignored." },
       { id: 'D', text: "It contains resource state and must never be committed." }
     ],
@@ -472,7 +472,7 @@ export const HASHICORP_TFP_QUESTIONS_1 = [
     question: "Which approach is reliable?",
     options: [
       { id: 'A', text: "Using terraform plan -detailed-exitcode, which returns a distinct code for deletions." },
-      { id: 'B', text: "terraform plan -out=tfplan then terraform show -json tfplan, parsing resource_changes actions with a JSON tool." },
+      { id: 'B', text: "`plan -out=tfplan`, then `show -json tfplan` parsed for `resource_changes`." },
       { id: 'C', text: "Grepping the human-readable plan output for the word destroy." },
       { id: 'D', text: "Reading the state file before and after the run." }
     ],
@@ -493,7 +493,7 @@ export const HASHICORP_TFP_QUESTIONS_1 = [
     question: "Which review comment is correct?",
     options: [
       { id: 'A', text: "Region should stay but subnet_ids should be looked up with a data source inside the module." },
-      { id: 'B', text: "Credentials, region, and backend settings do not belong in a module interface; they are provider and root-level concerns." },
+      { id: 'B', text: "Credentials, region and backend settings are provider and root concerns, not module inputs." },
       { id: 'C', text: "All six should become required variables with no defaults." },
       { id: 'D', text: "The module should define its own backend block so it can be applied directly." }
     ],
@@ -513,7 +513,7 @@ export const HASHICORP_TFP_QUESTIONS_1 = [
     scenario: "Every plan proposes to update the same tag on a resource, even immediately after a successful apply. Another system adds that tag automatically.",
     question: "Which configuration stops the perpetual diff appropriately?",
     options: [
-      { id: 'A', text: "A lifecycle block with ignore_changes on that specific tag attribute." },
+      { id: 'A', text: "A `lifecycle` block ignoring changes to that tag." },
       { id: 'B', text: "lifecycle { ignore_changes = all } on the resource." },
       { id: 'C', text: "Removing the resource from state after each apply." },
       { id: 'D', text: "Running plan with -refresh=false permanently." }

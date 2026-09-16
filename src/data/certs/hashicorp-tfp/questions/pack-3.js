@@ -10,7 +10,7 @@ export const HASHICORP_TFP_QUESTIONS_3 = [
     question: "Which idiom expresses that?",
     options: [
       { id: 'A', text: "depends_on = [var.enable_monitoring]" },
-      { id: 'B', text: "count = var.enable_monitoring ? 1 : 0 on the resource, referencing it as resource.name[0]." },
+      { id: 'B', text: "`count = var.enable_monitoring ? 1 : 0`, referenced as `[0]`." },
       { id: 'C', text: "An if block around the resource." },
       { id: 'D', text: "A conditional expression inside the resource body." }
     ],
@@ -31,7 +31,7 @@ export const HASHICORP_TFP_QUESTIONS_3 = [
     question: "What is the correct procedure?",
     options: [
       { id: 'A', text: "Delete the state file and reinitialise." },
-      { id: 'B', text: "Confirm no operation is actually running, then run terraform force-unlock with the reported lock ID." },
+      { id: 'B', text: "Confirm no operation is running, then `force-unlock` with the lock ID." },
       { id: 'C', text: "Run terraform apply -lock=false as the permanent workaround." },
       { id: 'D', text: "Delete the lock table or lock object directly as the first step." }
     ],
@@ -73,7 +73,7 @@ export const HASHICORP_TFP_QUESTIONS_3 = [
     question: "What happens on the next terraform init in CI?",
     options: [
       { id: 'A', text: "Terraform installs 5.40.0 because it satisfies the constraint." },
-      { id: 'B', text: "Terraform installs 5.31.0 as recorded in the lock file; upgrading requires terraform init -upgrade and a lock file commit." },
+      { id: 'B', text: "It installs 5.31.0 from the lock file; `init -upgrade` is needed to move." },
       { id: 'C', text: "Terraform installs the newest version and silently rewrites the lock file." },
       { id: 'D', text: "Terraform fails because the lock file is out of date." }
     ],
@@ -114,10 +114,10 @@ export const HASHICORP_TFP_QUESTIONS_3 = [
     scenario: "Runs must reach a Terraform provider API that is only available inside a private network with no inbound internet access.",
     question: "Which execution option supports that?",
     options: [
-      { id: 'A', text: "Local execution with state stored remotely, which is the only option." },
-      { id: 'B', text: "Remote execution with an allow-list of HCP Terraform IP addresses inbound." },
-      { id: 'C', text: "A self-hosted agent in agent execution mode, which polls HCP Terraform outbound and runs the operation inside the private network." },
-      { id: 'D', text: "A run task that proxies provider traffic." }
+      { id: 'A', text: "Local execution with the state stored remotely, which is the only option." },
+      { id: 'B', text: "Remote execution with an inbound allow-list of the platform's addresses." },
+      { id: 'C', text: "A self-hosted agent in agent mode, which polls outbound and runs inside the network." },
+      { id: 'D', text: "A run task that proxies the provider traffic into the network." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -135,10 +135,10 @@ export const HASHICORP_TFP_QUESTIONS_3 = [
     scenario: "A plan proposes to create a resource that clearly already exists in the cloud, and apply then fails with an already-exists error from the provider.",
     question: "What is the underlying situation?",
     options: [
-      { id: 'A', text: "The object is not in Terraform state - it was created outside Terraform or removed from state - so it must be imported." },
-      { id: 'B', text: "The provider cache is stale; run terraform init -upgrade." },
-      { id: 'C', text: "The resource needs prevent_destroy set." },
-      { id: 'D', text: "The plan file is out of date; regenerate it." }
+      { id: 'A', text: "The object is not in state, so it has to be imported first." },
+      { id: 'B', text: "The provider cache is stale, so `terraform init -upgrade` is needed first." },
+      { id: 'C', text: "The resource needs `prevent_destroy` set before it can be managed." },
+      { id: 'D', text: "The saved plan file is out of date and has to be regenerated." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -177,10 +177,10 @@ export const HASHICORP_TFP_QUESTIONS_3 = [
     scenario: "A module should be publishable to a Terraform registry and consumed by version constraint.",
     question: "Which requirements must be met?",
     options: [
-      { id: 'A', text: "A repository named terraform-PROVIDER-NAME, a standard file layout with main.tf, variables.tf, and outputs.tf, and semver git tags such as v1.2.0." },
-      { id: 'B', text: "A single main.tf file and any repository name." },
-      { id: 'C', text: "A backend block declaring where the module state lives." },
-      { id: 'D', text: "A provider block pinning the exact provider version." }
+      { id: 'A', text: "A `terraform-PROVIDER-NAME` repository, the standard file layout, and semver tags." },
+      { id: 'B', text: "A single `main.tf` file, with any repository name and a release tag." },
+      { id: 'C', text: "A backend block declaring where the module's own state will live." },
+      { id: 'D', text: "A provider block pinning the exact provider version to be used." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -201,7 +201,7 @@ export const HASHICORP_TFP_QUESTIONS_3 = [
       { id: 'A', text: "terraform apply -lock=false -no-color" },
       { id: 'B', text: "terraform apply -refresh=false" },
       { id: 'C', text: "terraform apply -auto-approve -input=true" },
-      { id: 'D', text: "terraform apply -input=false -no-color, applying a saved plan file" }
+      { id: 'D', text: "`terraform apply -input=false` against a saved plan file" }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -240,10 +240,10 @@ export const HASHICORP_TFP_QUESTIONS_3 = [
     scenario: "A plan reports that an instance must be replaced, with the reason \"# forces replacement\" next to an attribute nobody edited.",
     question: "Which investigation step is most useful first?",
     options: [
-      { id: 'A', text: "Immediately run terraform state rm on the resource." },
-      { id: 'B', text: "Downgrade Terraform to the previous version." },
-      { id: 'C', text: "Disable refresh so the plan stops noticing." },
-      { id: 'D', text: "Read the plan diff carefully to see which attribute changed and why - typically a computed upstream value, a provider default change, or drift - then decide whether to fix the source or ignore it." }
+      { id: 'A', text: "Run `terraform state rm` on the resource so the next plan stops proposing the change." },
+      { id: 'B', text: "Downgrade Terraform to the previous version, since the plan format changed between them." },
+      { id: 'C', text: "Run with `-refresh=false` so the plan stops noticing the drift on each invocation." },
+      { id: 'D', text: "Read the plan diff to see which attribute changed and why, then decide to fix the source or ignore it." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -261,10 +261,10 @@ export const HASHICORP_TFP_QUESTIONS_3 = [
     scenario: "An organisation wants developers to be able to queue plans but only a platform team to approve applies in production workspaces.",
     question: "Which mechanism enforces that?",
     options: [
-      { id: 'A', text: "Team access permissions on the workspace, granting plan-only to developers and apply to the platform team." },
-      { id: 'B', text: "A variable set marked sensitive." },
-      { id: 'C', text: "Setting the workspace to auto-apply." },
-      { id: 'D', text: "A Sentinel policy checking the username." }
+      { id: 'A', text: "Team permissions: plan-only for developers, apply for platform." },
+      { id: 'B', text: "A variable set marked sensitive so developers cannot read it." },
+      { id: 'C', text: "Setting the workspace to auto-apply once a plan succeeds." },
+      { id: 'D', text: "A Sentinel policy that checks the username on each apply." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -282,10 +282,10 @@ export const HASHICORP_TFP_QUESTIONS_3 = [
     scenario: "A configuration must move its state from the local backend to a remote one, keeping all managed resources.",
     question: "What is the supported procedure?",
     options: [
-      { id: 'A', text: "Add the new backend configuration and run terraform init, accepting the prompt to copy existing state to the new backend." },
-      { id: 'B', text: "Use terraform workspace new to create the remote state." },
-      { id: 'C', text: "Run terraform destroy, change the backend, then apply again." },
-      { id: 'D', text: "Manually upload terraform.tfstate and delete .terraform." }
+      { id: 'A', text: "Add the backend block and run `init`, accepting the prompt to copy the state." },
+      { id: 'B', text: "Use `terraform workspace new` to create the state in the remote backend." },
+      { id: 'C', text: "Run `terraform destroy`, change the backend, and apply the configuration." },
+      { id: 'D', text: "Upload `terraform.tfstate` by hand and delete the `.terraform` directory." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -324,10 +324,10 @@ export const HASHICORP_TFP_QUESTIONS_3 = [
     scenario: "A configuration uses a remote-exec provisioner to install packages on every new virtual machine, and runs frequently fail when SSH is briefly unavailable.",
     question: "Which alternative does HashiCorp recommend?",
     options: [
-      { id: 'A', text: "Move the provisioner to a null_resource with triggers." },
-      { id: 'B', text: "Run the provisioner with when = destroy instead." },
-      { id: 'C', text: "Bake the software into a machine image or use cloud-init / user_data, treating provisioners as a last resort." },
-      { id: 'D', text: "Add a longer timeout and retry loop to the provisioner." }
+      { id: 'A', text: "Move the provisioner onto a `null_resource` with triggers instead." },
+      { id: 'B', text: "Run the provisioner with `when = destroy` so failures do not block." },
+      { id: 'C', text: "Bake it into an image or use `user_data`; provisioners are a last resort." },
+      { id: 'D', text: "Add a longer timeout and a retry loop around the provisioner." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -366,10 +366,10 @@ export const HASHICORP_TFP_QUESTIONS_3 = [
     scenario: "A run fails immediately with \"error configuring Terraform AWS Provider: no valid credential sources found\".",
     question: "Where should the engineer look?",
     options: [
-      { id: 'A', text: "The credential chain available to the process - environment variables, shared config files, instance or workload identity - rather than the Terraform configuration itself." },
-      { id: 'B', text: "The state file, which stores credentials." },
-      { id: 'C', text: "The dependency lock file." },
-      { id: 'D', text: "The resource blocks, which must each declare credentials." }
+      { id: 'A', text: "The credential chain the process sees, not the configuration." },
+      { id: 'B', text: "The state file, which records the credentials the last run authenticated with." },
+      { id: 'C', text: "The dependency lock file, which records the versions and their checksums." },
+      { id: 'D', text: "The resource blocks, each of which must declare the credentials it will use." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -387,10 +387,10 @@ export const HASHICORP_TFP_QUESTIONS_3 = [
     scenario: "Someone deletes the remote state file for a live environment. The infrastructure is untouched.",
     question: "What is the impact and the recovery path?",
     options: [
-      { id: 'A', text: "The provider blocks the next apply until state is restored." },
-      { id: 'B', text: "Terraform rebuilds state automatically on the next refresh." },
-      { id: 'C', text: "Nothing changes, because state is derived from the configuration." },
-      { id: 'D', text: "Terraform no longer knows about any resource and would plan to create everything again; recover from backend versioning or a backup, otherwise re-import every resource." }
+      { id: 'A', text: "The provider refuses the next apply until the state has been restored from a backup." },
+      { id: 'B', text: "Terraform rebuilds the state on the next refresh from what it finds in the account." },
+      { id: 'C', text: "Nothing changes, since the state is derived from the configuration on each run." },
+      { id: 'D', text: "Terraform knows of no resource and would recreate everything; restore from versioning or re-import." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -410,7 +410,7 @@ export const HASHICORP_TFP_QUESTIONS_3 = [
     options: [
       { id: 'A', text: "A notification configuration posting to the tool." },
       { id: 'B', text: "A variable set holding the tool API key." },
-      { id: 'C', text: "A run task attached at the post-plan stage, configured as mandatory so a failing result stops the run." },
+      { id: 'C', text: "A mandatory run task attached at the post-plan stage." },
       { id: 'D', text: "A private registry module wrapping the tool." }
     ],
     correctAnswers: ['C'],
@@ -450,7 +450,7 @@ export const HASHICORP_TFP_QUESTIONS_3 = [
     scenario: "A widely used internal module has a breaking change to its input interface, and thirty consumers pin it with ~> 2.0.",
     question: "What is the right release strategy?",
     options: [
-      { id: 'A', text: "Release it as 3.0.0 following semantic versioning, document the migration, and let consumers move their constraint deliberately." },
+      { id: 'A', text: "Release it as 3.0.0, document the migration, and let consumers move." },
       { id: 'B', text: "Release it as 2.9.0 so consumers pick it up automatically and find out quickly." },
       { id: 'C', text: "Force-push a new tag over 2.8.0." },
       { id: 'D', text: "Ask consumers to stop pinning versions." }
@@ -492,10 +492,10 @@ export const HASHICORP_TFP_QUESTIONS_3 = [
     scenario: "An apply fails with \"Provider produced inconsistent final plan\" naming an attribute the provider set differently from the planned value.",
     question: "What does this indicate?",
     options: [
-      { id: 'A', text: "The state file is corrupt and must be restored." },
-      { id: 'B', text: "Terraform core is out of date and must be downgraded." },
-      { id: 'C', text: "Two applies ran concurrently." },
-      { id: 'D', text: "A provider bug or a mismatch between the planned and applied value; workarounds include upgrading the provider, adding ignore_changes for that attribute, or reporting it upstream." }
+      { id: 'A', text: "The state file is corrupt and has to be restored from the backend's previous version." },
+      { id: 'B', text: "Terraform core is ahead of the provider's protocol, so core must be downgraded." },
+      { id: 'C', text: "Two applies ran concurrently, so one overwrote the other's view of the attribute." },
+      { id: 'D', text: "A provider bug or plan/apply mismatch; upgrade it or add `ignore_changes`." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -513,10 +513,10 @@ export const HASHICORP_TFP_QUESTIONS_3 = [
     scenario: "The same configuration is used for several environments whose backends differ only in the state key, and the key must not be hard-coded in the repository.",
     question: "Which mechanism supports that?",
     options: [
-      { id: 'A', text: "Passing -var=\"key=...\" to terraform init." },
-      { id: 'B', text: "A partial backend block plus terraform init -backend-config=env.hcl or -backend-config=\"key=...\" at init time." },
-      { id: 'C', text: "A locals block computing the key." },
-      { id: 'D', text: "Interpolating a variable into the backend block." }
+      { id: 'A', text: "Passing `-var=\"key=...\"` to `terraform init` on each invocation." },
+      { id: 'B', text: "A partial backend block plus `init -backend-config` at initialisation time." },
+      { id: 'C', text: "A `locals` block computing the key the backend should use." },
+      { id: 'D', text: "Interpolating a variable directly into the backend block." }
     ],
     correctAnswers: ['B'],
     type: "single",

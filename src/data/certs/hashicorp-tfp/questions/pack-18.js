@@ -9,10 +9,10 @@ export const HASHICORP_TFP_QUESTIONS_18 = [
     scenario: "A principal cloud platform architect is establishing high-availability standards, automated disaster recovery procedures, and infrastructure resilience frameworks across multi-region environments using Terraform. The Terraform professional evaluates Scheduled Drift to detect when cloud resources have been modified out-of-band via the AWS console without waiting for the next developer code commit.",
     question: "Which architectural approach or advanced configuration satisfies these multi-region recovery and resilience objectives?",
     options: [
-      { id: 'A', text: "Assume cloud infrastructure never changes unless a Git commit is merged." },
-      { id: 'B', text: "Rely on annual disaster recovery game days to uncover drift." },
-      { id: 'C', text: "Disable remote state access to hide configuration drift." },
-      { id: 'D', text: "Configure scheduled speculative plans (e.g., HCP Terraform Drift Detection or nightly CI cron jobs) with alert webhooks." }
+      { id: 'A', text: "Compare the cloud provider's config history against the last applied plan each week." },
+      { id: 'B', text: "Run a full `terraform apply` on a schedule so any drift is corrected automatically." },
+      { id: 'C', text: "Enable the provider's own change notifications and route them to the platform team." },
+      { id: 'D', text: "Schedule drift detection runs, or nightly speculative plans, with alerts on the difference." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -30,10 +30,10 @@ export const HASHICORP_TFP_QUESTIONS_18 = [
     scenario: "A complex enterprise multi-cloud platform experiences massive scaling requirements and requires modular, automated, and performant infrastructure provisioning across dozens of teams. The Terraform professional evaluates Scheduled Drift to detect when cloud resources have been modified out-of-band via the AWS console without waiting for the next developer code commit.",
     question: "Which architectural pattern or Terraform capability manages this scale effectively while preventing dependency bottlenecks and configuration drift?",
     options: [
-      { id: 'A', text: "Configure scheduled speculative plans (e.g., HCP Terraform Drift Detection or nightly CI cron jobs) with alert webhooks." },
-      { id: 'B', text: "Rely on annual disaster recovery game days to uncover drift." },
-      { id: 'C', text: "Assume cloud infrastructure never changes unless a Git commit is merged." },
-      { id: 'D', text: "Disable remote state access to hide configuration drift." }
+      { id: 'A', text: "Schedule drift detection runs, or nightly speculative plans, with alerts on the difference." },
+      { id: 'B', text: "Run a full `terraform apply` on a schedule so any drift is corrected automatically." },
+      { id: 'C', text: "Compare the cloud provider's config history against the last applied plan each week." },
+      { id: 'D', text: "Enable the provider's own change notifications and route them to the platform team." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -51,10 +51,10 @@ export const HASHICORP_TFP_QUESTIONS_18 = [
     scenario: "A security compliance auditor requires cryptographic state protection, policy-as-code enforcement, and automated governance across all enterprise Terraform delivery pipelines. The Terraform professional evaluates Scheduled Drift to detect when cloud resources have been modified out-of-band via the AWS console without waiting for the next developer code commit.",
     question: "Which solution implements these mandatory infrastructure as code security and governance controls?",
     options: [
-      { id: 'A', text: "Disable remote state access to hide configuration drift." },
-      { id: 'B', text: "Configure scheduled speculative plans (e.g., HCP Terraform Drift Detection or nightly CI cron jobs) with alert webhooks." },
-      { id: 'C', text: "Assume cloud infrastructure never changes unless a Git commit is merged." },
-      { id: 'D', text: "Rely on annual disaster recovery game days to uncover drift." }
+      { id: 'A', text: "Enable the provider's own change notifications and route them to the platform team." },
+      { id: 'B', text: "Schedule drift detection runs, or nightly speculative plans, with alerts on the difference." },
+      { id: 'C', text: "Compare the cloud provider's config history against the last applied plan each week." },
+      { id: 'D', text: "Run a full `terraform apply` on a schedule so any drift is corrected automatically." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -72,10 +72,10 @@ export const HASHICORP_TFP_QUESTIONS_18 = [
     scenario: "An enterprise is modernizing on-premises infrastructure and refactoring monolithic legacy deployments into modular, cloud-native architectures using advanced Terraform practices. The Terraform professional evaluates Scheduled Drift to detect when cloud resources have been modified out-of-band via the AWS console without waiting for the next developer code commit.",
     question: "Which practice or platform feature enables the engineering team to modernize provisioning workflows with minimal operational friction?",
     options: [
-      { id: 'A', text: "Configure scheduled speculative plans (e.g., HCP Terraform Drift Detection or nightly CI cron jobs) with alert webhooks." },
-      { id: 'B', text: "Rely on annual disaster recovery game days to uncover drift." },
-      { id: 'C', text: "Assume cloud infrastructure never changes unless a Git commit is merged." },
-      { id: 'D', text: "Disable remote state access to hide configuration drift." }
+      { id: 'A', text: "Schedule drift detection runs, or nightly speculative plans, with alerts on the difference." },
+      { id: 'B', text: "Run a full `terraform apply` on a schedule so any drift is corrected automatically." },
+      { id: 'C', text: "Compare the cloud provider's config history against the last applied plan each week." },
+      { id: 'D', text: "Enable the provider's own change notifications and route them to the platform team." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -93,10 +93,10 @@ export const HASHICORP_TFP_QUESTIONS_18 = [
     scenario: "A platform reliability team is optimizing system resilience to eliminate single points of failure, streamline zero-downtime state refactoring, and automate operational recovery. The Terraform professional evaluates Scheduled Drift to detect when cloud resources have been modified out-of-band via the AWS console without waiting for the next developer code commit.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
-      { id: 'A', text: "Disable remote state access to hide configuration drift." },
-      { id: 'B', text: "Rely on annual disaster recovery game days to uncover drift." },
-      { id: 'C', text: "Configure scheduled speculative plans (e.g., HCP Terraform Drift Detection or nightly CI cron jobs) with alert webhooks." },
-      { id: 'D', text: "Assume cloud infrastructure never changes unless a Git commit is merged." }
+      { id: 'A', text: "Enable the provider's own change notifications and route them to the platform team." },
+      { id: 'B', text: "Run a full `terraform apply` on a schedule so any drift is corrected automatically." },
+      { id: 'C', text: "Schedule drift detection runs, or nightly speculative plans, with alerts on the difference." },
+      { id: 'D', text: "Compare the cloud provider's config history against the last applied plan each week." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -114,10 +114,10 @@ export const HASHICORP_TFP_QUESTIONS_18 = [
     scenario: "A principal cloud platform architect is establishing high-availability standards, automated disaster recovery procedures, and infrastructure resilience frameworks across multi-region environments using Terraform. The Terraform professional evaluates Variable Precedence to understand which value takes priority when a variable is defined simultaneously in `variables.tf`, `terraform.tfvars`, and via `TF_VAR_`.",
     question: "Which architectural approach or advanced configuration satisfies these multi-region recovery and resilience objectives?",
     options: [
-      { id: 'A', text: "Terraform picks an arbitrary variable source at random." },
-      { id: 'B', text: "The default value in `variables.tf` always overrides all other values." },
-      { id: 'C', text: "Command-line `-var` flags take highest precedence, followed by `-var-file`, `*.auto.tfvars`, `terraform.tfvars`, `TF_VAR_` env vars, and defaults." },
-      { id: 'D', text: "`TF_VAR_` environment variables override command-line `-var` flags." }
+      { id: 'A', text: "`terraform.tfvars` wins, then `-var`, then `*.auto.tfvars`, `TF_VAR_` env vars and defaults." },
+      { id: 'B', text: "The default in `variables.tf` wins, and every other source is applied only when it is absent." },
+      { id: 'C', text: "`-var` wins, then `-var-file`, then `*.auto.tfvars`, `terraform.tfvars`, `TF_VAR_` and defaults." },
+      { id: 'D', text: "`TF_VAR_` environment variables win, then `-var`, then the various variable files in order." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -135,10 +135,10 @@ export const HASHICORP_TFP_QUESTIONS_18 = [
     scenario: "A complex enterprise multi-cloud platform experiences massive scaling requirements and requires modular, automated, and performant infrastructure provisioning across dozens of teams. The Terraform professional evaluates Variable Precedence to understand which value takes priority when a variable is defined simultaneously in `variables.tf`, `terraform.tfvars`, and via `TF_VAR_`.",
     question: "Which architectural pattern or Terraform capability manages this scale effectively while preventing dependency bottlenecks and configuration drift?",
     options: [
-      { id: 'A', text: "Command-line `-var` flags take highest precedence, followed by `-var-file`, `*.auto.tfvars`, `terraform.tfvars`, `TF_VAR_` env vars, and defaults." },
-      { id: 'B', text: "The default value in `variables.tf` always overrides all other values." },
-      { id: 'C', text: "`TF_VAR_` environment variables override command-line `-var` flags." },
-      { id: 'D', text: "Terraform picks an arbitrary variable source at random." }
+      { id: 'A', text: "`-var` wins, then `-var-file`, then `*.auto.tfvars`, `terraform.tfvars`, `TF_VAR_` and defaults." },
+      { id: 'B', text: "The default in `variables.tf` wins, and every other source is applied only when it is absent." },
+      { id: 'C', text: "`TF_VAR_` environment variables win, then `-var`, then the various variable files in order." },
+      { id: 'D', text: "`terraform.tfvars` wins, then `-var`, then `*.auto.tfvars`, `TF_VAR_` env vars and defaults." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -156,10 +156,10 @@ export const HASHICORP_TFP_QUESTIONS_18 = [
     scenario: "A security compliance auditor requires cryptographic state protection, policy-as-code enforcement, and automated governance across all enterprise Terraform delivery pipelines. The Terraform professional evaluates Variable Precedence to understand which value takes priority when a variable is defined simultaneously in `variables.tf`, `terraform.tfvars`, and via `TF_VAR_`.",
     question: "Which solution implements these mandatory infrastructure as code security and governance controls?",
     options: [
-      { id: 'A', text: "`TF_VAR_` environment variables override command-line `-var` flags." },
-      { id: 'B', text: "The default value in `variables.tf` always overrides all other values." },
-      { id: 'C', text: "Terraform picks an arbitrary variable source at random." },
-      { id: 'D', text: "Command-line `-var` flags take highest precedence, followed by `-var-file`, `*.auto.tfvars`, `terraform.tfvars`, `TF_VAR_` env vars, and defaults." }
+      { id: 'A', text: "`TF_VAR_` environment variables win, then `-var`, then the various variable files in order." },
+      { id: 'B', text: "The default in `variables.tf` wins, and every other source is applied only when it is absent." },
+      { id: 'C', text: "`terraform.tfvars` wins, then `-var`, then `*.auto.tfvars`, `TF_VAR_` env vars and defaults." },
+      { id: 'D', text: "`-var` wins, then `-var-file`, then `*.auto.tfvars`, `terraform.tfvars`, `TF_VAR_` and defaults." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -177,10 +177,10 @@ export const HASHICORP_TFP_QUESTIONS_18 = [
     scenario: "An enterprise is modernizing on-premises infrastructure and refactoring monolithic legacy deployments into modular, cloud-native architectures using advanced Terraform practices. The Terraform professional evaluates Variable Precedence to understand which value takes priority when a variable is defined simultaneously in `variables.tf`, `terraform.tfvars`, and via `TF_VAR_`.",
     question: "Which practice or platform feature enables the engineering team to modernize provisioning workflows with minimal operational friction?",
     options: [
-      { id: 'A', text: "The default value in `variables.tf` always overrides all other values." },
-      { id: 'B', text: "Command-line `-var` flags take highest precedence, followed by `-var-file`, `*.auto.tfvars`, `terraform.tfvars`, `TF_VAR_` env vars, and defaults." },
-      { id: 'C', text: "Terraform picks an arbitrary variable source at random." },
-      { id: 'D', text: "`TF_VAR_` environment variables override command-line `-var` flags." }
+      { id: 'A', text: "The default in `variables.tf` wins, and every other source is applied only when it is absent." },
+      { id: 'B', text: "`-var` wins, then `-var-file`, then `*.auto.tfvars`, `terraform.tfvars`, `TF_VAR_` and defaults." },
+      { id: 'C', text: "`terraform.tfvars` wins, then `-var`, then `*.auto.tfvars`, `TF_VAR_` env vars and defaults." },
+      { id: 'D', text: "`TF_VAR_` environment variables win, then `-var`, then the various variable files in order." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -198,10 +198,10 @@ export const HASHICORP_TFP_QUESTIONS_18 = [
     scenario: "A platform reliability team is optimizing system resilience to eliminate single points of failure, streamline zero-downtime state refactoring, and automate operational recovery. The Terraform professional evaluates Variable Precedence to understand which value takes priority when a variable is defined simultaneously in `variables.tf`, `terraform.tfvars`, and via `TF_VAR_`.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
-      { id: 'A', text: "Terraform picks an arbitrary variable source at random." },
-      { id: 'B', text: "Command-line `-var` flags take highest precedence, followed by `-var-file`, `*.auto.tfvars`, `terraform.tfvars`, `TF_VAR_` env vars, and defaults." },
-      { id: 'C', text: "`TF_VAR_` environment variables override command-line `-var` flags." },
-      { id: 'D', text: "The default value in `variables.tf` always overrides all other values." }
+      { id: 'A', text: "`terraform.tfvars` wins, then `-var`, then `*.auto.tfvars`, `TF_VAR_` env vars and defaults." },
+      { id: 'B', text: "`-var` wins, then `-var-file`, then `*.auto.tfvars`, `terraform.tfvars`, `TF_VAR_` and defaults." },
+      { id: 'C', text: "`TF_VAR_` environment variables win, then `-var`, then the various variable files in order." },
+      { id: 'D', text: "The default in `variables.tf` wins, and every other source is applied only when it is absent." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -219,10 +219,10 @@ export const HASHICORP_TFP_QUESTIONS_18 = [
     scenario: "A principal cloud platform architect is establishing high-availability standards, automated disaster recovery procedures, and infrastructure resilience frameworks across multi-region environments using Terraform. The Terraform professional evaluates Provider Management to run Terraform in a strictly air-gapped, isolated environment with zero outbound internet access to the public Terraform Registry.",
     question: "Which architectural approach or advanced configuration satisfies these multi-region recovery and resilience objectives?",
     options: [
-      { id: 'A', text: "Allow production servers to connect to the public internet temporarily during apply." },
-      { id: 'B', text: "Terraform cannot run in environments without direct internet access." },
-      { id: 'C', text: "Compile custom provider binaries on the air-gapped servers from memory." },
-      { id: 'D', text: "Use `terraform providers mirror &lt;directory&gt;` in a connected environment to create a local provider mirror, and configure CLI network mirrors." }
+      { id: 'A', text: "Copy the `.terraform` directory from a connected machine onto each air-gapped host." },
+      { id: 'B', text: "Vendor the providers into the repository and reference them with `dev_overrides`." },
+      { id: 'C', text: "Run `terraform init -plugin-dir` against a share holding the downloaded plugins." },
+      { id: 'D', text: "Build a provider mirror with `terraform providers mirror` and point the CLI config at it." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -240,10 +240,10 @@ export const HASHICORP_TFP_QUESTIONS_18 = [
     scenario: "A complex enterprise multi-cloud platform experiences massive scaling requirements and requires modular, automated, and performant infrastructure provisioning across dozens of teams. The Terraform professional evaluates Provider Management to run Terraform in a strictly air-gapped, isolated environment with zero outbound internet access to the public Terraform Registry.",
     question: "Which architectural pattern or Terraform capability manages this scale effectively while preventing dependency bottlenecks and configuration drift?",
     options: [
-      { id: 'A', text: "Compile custom provider binaries on the air-gapped servers from memory." },
-      { id: 'B', text: "Allow production servers to connect to the public internet temporarily during apply." },
-      { id: 'C', text: "Terraform cannot run in environments without direct internet access." },
-      { id: 'D', text: "Use `terraform providers mirror &lt;directory&gt;` in a connected environment to create a local provider mirror, and configure CLI network mirrors." }
+      { id: 'A', text: "Run `terraform init -plugin-dir` against a share holding the downloaded plugins." },
+      { id: 'B', text: "Copy the `.terraform` directory from a connected machine onto each air-gapped host." },
+      { id: 'C', text: "Vendor the providers into the repository and reference them with `dev_overrides`." },
+      { id: 'D', text: "Build a provider mirror with `terraform providers mirror` and point the CLI config at it." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -261,10 +261,10 @@ export const HASHICORP_TFP_QUESTIONS_18 = [
     scenario: "A security compliance auditor requires cryptographic state protection, policy-as-code enforcement, and automated governance across all enterprise Terraform delivery pipelines. The Terraform professional evaluates Provider Management to run Terraform in a strictly air-gapped, isolated environment with zero outbound internet access to the public Terraform Registry.",
     question: "Which solution implements these mandatory infrastructure as code security and governance controls?",
     options: [
-      { id: 'A', text: "Use `terraform providers mirror &lt;directory&gt;` in a connected environment to create a local provider mirror, and configure CLI network mirrors." },
-      { id: 'B', text: "Allow production servers to connect to the public internet temporarily during apply." },
-      { id: 'C', text: "Compile custom provider binaries on the air-gapped servers from memory." },
-      { id: 'D', text: "Terraform cannot run in environments without direct internet access." }
+      { id: 'A', text: "Build a provider mirror with `terraform providers mirror` and point the CLI config at it." },
+      { id: 'B', text: "Copy the `.terraform` directory from a connected machine onto each air-gapped host." },
+      { id: 'C', text: "Run `terraform init -plugin-dir` against a share holding the downloaded plugins." },
+      { id: 'D', text: "Vendor the providers into the repository and reference them with `dev_overrides`." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -282,10 +282,10 @@ export const HASHICORP_TFP_QUESTIONS_18 = [
     scenario: "An enterprise is modernizing on-premises infrastructure and refactoring monolithic legacy deployments into modular, cloud-native architectures using advanced Terraform practices. The Terraform professional evaluates Provider Management to run Terraform in a strictly air-gapped, isolated environment with zero outbound internet access to the public Terraform Registry.",
     question: "Which practice or platform feature enables the engineering team to modernize provisioning workflows with minimal operational friction?",
     options: [
-      { id: 'A', text: "Use `terraform providers mirror &lt;directory&gt;` in a connected environment to create a local provider mirror, and configure CLI network mirrors." },
-      { id: 'B', text: "Allow production servers to connect to the public internet temporarily during apply." },
-      { id: 'C', text: "Compile custom provider binaries on the air-gapped servers from memory." },
-      { id: 'D', text: "Terraform cannot run in environments without direct internet access." }
+      { id: 'A', text: "Build a provider mirror with `terraform providers mirror` and point the CLI config at it." },
+      { id: 'B', text: "Copy the `.terraform` directory from a connected machine onto each air-gapped host." },
+      { id: 'C', text: "Run `terraform init -plugin-dir` against a share holding the downloaded plugins." },
+      { id: 'D', text: "Vendor the providers into the repository and reference them with `dev_overrides`." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -303,10 +303,10 @@ export const HASHICORP_TFP_QUESTIONS_18 = [
     scenario: "A platform reliability team is optimizing system resilience to eliminate single points of failure, streamline zero-downtime state refactoring, and automate operational recovery. The Terraform professional evaluates Provider Management to run Terraform in a strictly air-gapped, isolated environment with zero outbound internet access to the public Terraform Registry.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
-      { id: 'A', text: "Use `terraform providers mirror &lt;directory&gt;` in a connected environment to create a local provider mirror, and configure CLI network mirrors." },
-      { id: 'B', text: "Compile custom provider binaries on the air-gapped servers from memory." },
-      { id: 'C', text: "Terraform cannot run in environments without direct internet access." },
-      { id: 'D', text: "Allow production servers to connect to the public internet temporarily during apply." }
+      { id: 'A', text: "Build a provider mirror with `terraform providers mirror` and point the CLI config at it." },
+      { id: 'B', text: "Run `terraform init -plugin-dir` against a share holding the downloaded plugins." },
+      { id: 'C', text: "Vendor the providers into the repository and reference them with `dev_overrides`." },
+      { id: 'D', text: "Copy the `.terraform` directory from a connected machine onto each air-gapped host." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -429,10 +429,10 @@ export const HASHICORP_TFP_QUESTIONS_18 = [
     scenario: "A principal cloud platform architect is establishing high-availability standards, automated disaster recovery procedures, and infrastructure resilience frameworks across multi-region environments using Terraform. The Terraform professional evaluates HCP Agents to allow HCP Terraform to manage private on-premises vSphere and OpenStack infrastructure behind a corporate firewall without opening inbound ports.",
     question: "Which architectural approach or advanced configuration satisfies these multi-region recovery and resilience objectives?",
     options: [
-      { id: 'A', text: "Deploy self-hosted HCP Terraform Agents in the private network and configure target workspaces to use the agent pool." },
-      { id: 'B', text: "Open inbound firewall ports on the corporate network to the entire public internet." },
-      { id: 'C', text: "Deploy a public reverse proxy with no authentication in the DMZ." },
-      { id: 'D', text: "Run all commands locally from an administrator's laptop." }
+      { id: 'A', text: "Run HCP Terraform agents inside the private network and point the workspaces at the pool." },
+      { id: 'B', text: "Open the backend's inbound ports to the platform's published address ranges." },
+      { id: 'C', text: "Put an authenticated reverse proxy in the DMZ for the platform to reach through." },
+      { id: 'D', text: "Run the CLI from a bastion inside the network and store state in the backend." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -450,10 +450,10 @@ export const HASHICORP_TFP_QUESTIONS_18 = [
     scenario: "A complex enterprise multi-cloud platform experiences massive scaling requirements and requires modular, automated, and performant infrastructure provisioning across dozens of teams. The Terraform professional evaluates HCP Agents to allow HCP Terraform to manage private on-premises vSphere and OpenStack infrastructure behind a corporate firewall without opening inbound ports.",
     question: "Which architectural pattern or Terraform capability manages this scale effectively while preventing dependency bottlenecks and configuration drift?",
     options: [
-      { id: 'A', text: "Deploy a public reverse proxy with no authentication in the DMZ." },
-      { id: 'B', text: "Open inbound firewall ports on the corporate network to the entire public internet." },
-      { id: 'C', text: "Run all commands locally from an administrator's laptop." },
-      { id: 'D', text: "Deploy self-hosted HCP Terraform Agents in the private network and configure target workspaces to use the agent pool." }
+      { id: 'A', text: "Put an authenticated reverse proxy in the DMZ for the platform to reach through." },
+      { id: 'B', text: "Open the backend's inbound ports to the platform's published address ranges." },
+      { id: 'C', text: "Run the CLI from a bastion inside the network and store state in the backend." },
+      { id: 'D', text: "Run HCP Terraform agents inside the private network and point the workspaces at the pool." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -471,10 +471,10 @@ export const HASHICORP_TFP_QUESTIONS_18 = [
     scenario: "A security compliance auditor requires cryptographic state protection, policy-as-code enforcement, and automated governance across all enterprise Terraform delivery pipelines. The Terraform professional evaluates HCP Agents to allow HCP Terraform to manage private on-premises vSphere and OpenStack infrastructure behind a corporate firewall without opening inbound ports.",
     question: "Which solution implements these mandatory infrastructure as code security and governance controls?",
     options: [
-      { id: 'A', text: "Deploy self-hosted HCP Terraform Agents in the private network and configure target workspaces to use the agent pool." },
-      { id: 'B', text: "Open inbound firewall ports on the corporate network to the entire public internet." },
-      { id: 'C', text: "Deploy a public reverse proxy with no authentication in the DMZ." },
-      { id: 'D', text: "Run all commands locally from an administrator's laptop." }
+      { id: 'A', text: "Run HCP Terraform agents inside the private network and point the workspaces at the pool." },
+      { id: 'B', text: "Open the backend's inbound ports to the platform's published address ranges." },
+      { id: 'C', text: "Put an authenticated reverse proxy in the DMZ for the platform to reach through." },
+      { id: 'D', text: "Run the CLI from a bastion inside the network and store state in the backend." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -492,10 +492,10 @@ export const HASHICORP_TFP_QUESTIONS_18 = [
     scenario: "An enterprise is modernizing on-premises infrastructure and refactoring monolithic legacy deployments into modular, cloud-native architectures using advanced Terraform practices. The Terraform professional evaluates HCP Agents to allow HCP Terraform to manage private on-premises vSphere and OpenStack infrastructure behind a corporate firewall without opening inbound ports.",
     question: "Which practice or platform feature enables the engineering team to modernize provisioning workflows with minimal operational friction?",
     options: [
-      { id: 'A', text: "Run all commands locally from an administrator's laptop." },
-      { id: 'B', text: "Deploy a public reverse proxy with no authentication in the DMZ." },
-      { id: 'C', text: "Open inbound firewall ports on the corporate network to the entire public internet." },
-      { id: 'D', text: "Deploy self-hosted HCP Terraform Agents in the private network and configure target workspaces to use the agent pool." }
+      { id: 'A', text: "Run the CLI from a bastion inside the network and store state in the backend." },
+      { id: 'B', text: "Put an authenticated reverse proxy in the DMZ for the platform to reach through." },
+      { id: 'C', text: "Open the backend's inbound ports to the platform's published address ranges." },
+      { id: 'D', text: "Run HCP Terraform agents inside the private network and point the workspaces at the pool." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -513,10 +513,10 @@ export const HASHICORP_TFP_QUESTIONS_18 = [
     scenario: "A platform reliability team is optimizing system resilience to eliminate single points of failure, streamline zero-downtime state refactoring, and automate operational recovery. The Terraform professional evaluates HCP Agents to allow HCP Terraform to manage private on-premises vSphere and OpenStack infrastructure behind a corporate firewall without opening inbound ports.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
-      { id: 'A', text: "Deploy a public reverse proxy with no authentication in the DMZ." },
-      { id: 'B', text: "Deploy self-hosted HCP Terraform Agents in the private network and configure target workspaces to use the agent pool." },
-      { id: 'C', text: "Open inbound firewall ports on the corporate network to the entire public internet." },
-      { id: 'D', text: "Run all commands locally from an administrator's laptop." }
+      { id: 'A', text: "Put an authenticated reverse proxy in the DMZ for the platform to reach through." },
+      { id: 'B', text: "Run HCP Terraform agents inside the private network and point the workspaces at the pool." },
+      { id: 'C', text: "Open the backend's inbound ports to the platform's published address ranges." },
+      { id: 'D', text: "Run the CLI from a bastion inside the network and store state in the backend." }
     ],
     correctAnswers: ['B'],
     type: "single",

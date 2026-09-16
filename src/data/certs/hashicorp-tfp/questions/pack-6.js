@@ -30,10 +30,10 @@ export const HASHICORP_TFP_QUESTIONS_6 = [
     scenario: "A resource currently uses count over a list and must move to for_each keyed by name, without destroying the three existing objects.",
     question: "Which approach preserves them?",
     options: [
-      { id: 'A', text: "Change the meta-argument and accept the replacement." },
-      { id: 'B', text: "Delete the state entries and re-import each object." },
-      { id: 'C', text: "Run terraform refresh, which re-keys instances automatically." },
-      { id: 'D', text: "Add moved blocks mapping each old indexed address to its new keyed address, for example from resource.this[0] to resource.this[\"alpha\"]." }
+      { id: 'A', text: "Change the meta-argument and accept the replacement it produces." },
+      { id: 'B', text: "Delete the state entries and import each object at its new address." },
+      { id: 'C', text: "Run `terraform refresh`, which re-keys the instances automatically." },
+      { id: 'D', text: "Add `moved` blocks mapping each old indexed address to its new keyed one." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -51,10 +51,10 @@ export const HASHICORP_TFP_QUESTIONS_6 = [
     scenario: "A pipeline runs validate on every commit and a change still fails at apply with a cloud quota error.",
     question: "Which explanation is correct?",
     options: [
-      { id: 'A', text: "validate only checks formatting." },
-      { id: 'B', text: "validate failed to run because the backend was not initialised." },
-      { id: 'C', text: "validate would have caught it with the -check flag." },
-      { id: 'D', text: "validate checks configuration consistency offline; it cannot know provider-side state such as quotas, permissions, or existing object names." }
+      { id: 'A', text: "`validate` checks formatting only, which is why the error was not caught." },
+      { id: 'B', text: "`validate` did not run, because the backend had not been initialised." },
+      { id: 'C', text: "`validate` would have caught it had the `-check` flag been passed." },
+      { id: 'D', text: "`validate` checks offline and cannot know quotas or existing names." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -72,10 +72,10 @@ export const HASHICORP_TFP_QUESTIONS_6 = [
     scenario: "A module needs a database password supplied by the root module, and the value must stay redacted in output.",
     question: "What is required?",
     options: [
-      { id: 'A', text: "Store it in an output of the calling module." },
-      { id: 'B', text: "Nothing, because module inputs are always sensitive." },
-      { id: 'C', text: "Pass it through a local first to strip the marking." },
-      { id: 'D', text: "Declare the module variable with sensitive = true; sensitivity also propagates automatically from a sensitive value passed in." }
+      { id: 'A', text: "Return it as an output of the calling module, which marks it on the way out." },
+      { id: 'B', text: "Nothing is needed, since every module input is treated as sensitive." },
+      { id: 'C', text: "Pass it through a `local` first, which strips the sensitive marking." },
+      { id: 'D', text: "Declare the variable `sensitive = true`; it also propagates in." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -93,10 +93,10 @@ export const HASHICORP_TFP_QUESTIONS_6 = [
     scenario: "A resource creation fails after several minutes with a context deadline exceeded error from the provider.",
     question: "Which responses are reasonable? (Choose two.)",
     options: [
-      { id: 'A', text: "Check whether the underlying cloud operation is genuinely slow or stuck, since the object may still be being created." },
-      { id: 'B', text: "Delete the state file and retry." },
-      { id: 'C', text: "Lower the provider version to the oldest available." },
-      { id: 'D', text: "Increase the resource timeouts block for the create operation if the provider supports it." }
+      { id: 'A', text: "Check whether the cloud operation is genuinely still running." },
+      { id: 'B', text: "Delete the state file and retry the apply from a clean start." },
+      { id: 'C', text: "Downgrade the provider to the oldest version still available." },
+      { id: 'D', text: "Raise the resource's `timeouts` block for the create operation." }
     ],
     correctAnswers: ['A', 'D'],
     type: "multiple",
@@ -114,10 +114,10 @@ export const HASHICORP_TFP_QUESTIONS_6 = [
     scenario: "An organisation already runs Open Policy Agent for Kubernetes admission and wants one policy language across both.",
     question: "Which statement is accurate?",
     options: [
-      { id: 'A', text: "HCP Terraform supports both Sentinel and OPA policy sets, so an existing Rego investment can be reused for Terraform runs." },
-      { id: 'B', text: "Only OPA is supported since Sentinel was retired." },
-      { id: 'C', text: "Only Sentinel is supported; OPA must run as an external run task." },
-      { id: 'D', text: "Policies must be written in HCL." }
+      { id: 'A', text: "Both Sentinel and OPA are supported, so the Rego work carries over." },
+      { id: 'B', text: "Only OPA is supported now, since Sentinel has been retired." },
+      { id: 'C', text: "Only Sentinel is supported; OPA has to run as a run task." },
+      { id: 'D', text: "Policies have to be written in HCL rather than either." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -137,7 +137,7 @@ export const HASHICORP_TFP_QUESTIONS_6 = [
     options: [
       { id: 'A', text: "lookup for both." },
       { id: 'B', text: "can for the fallback value, and try for the boolean test." },
-      { id: 'C', text: "try for the fallback value, and can for the boolean validity test inside a condition." },
+      { id: 'C', text: "`try` for the fallback value, `can` for the boolean validity test." },
       { id: 'D', text: "coalesce for both." }
     ],
     correctAnswers: ['C'],
@@ -156,10 +156,10 @@ export const HASHICORP_TFP_QUESTIONS_6 = [
     scenario: "An engineer runs terraform workspace select dev and then terraform plan.",
     question: "What changes?",
     options: [
-      { id: 'A', text: "Terraform switches to a different backend." },
-      { id: 'B', text: "Terraform reads and writes the dev state within the same backend and configuration; terraform.workspace can also alter expressions." },
-      { id: 'C', text: "Terraform loads a different configuration directory." },
-      { id: 'D', text: "Terraform uses different provider credentials automatically." }
+      { id: 'A', text: "It switches to a different backend configured for that workspace." },
+      { id: 'B', text: "It reads and writes the dev state within the same backend." },
+      { id: 'C', text: "It loads a different configuration directory for that workspace." },
+      { id: 'D', text: "It uses a different set of provider credentials automatically." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -177,10 +177,10 @@ export const HASHICORP_TFP_QUESTIONS_6 = [
     scenario: "The same module version must be rolled out to dev, then staging, then production, with an approval before production.",
     question: "Which pipeline design expresses that cleanly?",
     options: [
-      { id: 'A', text: "Use one workspace and change a variable between applies." },
-      { id: 'B', text: "One pipeline per environment consuming a pinned module version, promoted by bumping that version in each environment configuration, with a manual approval gate before the production apply." },
-      { id: 'C', text: "A single apply that loops over all three environments in one state." },
-      { id: 'D', text: "Auto-apply everywhere and roll back if production breaks." }
+      { id: 'A', text: "One workspace with the environment supplied as a variable changed between applies." },
+      { id: 'B', text: "One pipeline per environment on a pinned version, with approval before production." },
+      { id: 'C', text: "One apply that loops over the three environments within a single state file." },
+      { id: 'D', text: "Auto-apply to every environment at once and roll production back on failure." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -198,10 +198,10 @@ export const HASHICORP_TFP_QUESTIONS_6 = [
     scenario: "A team proposes a module that wraps a single resource, passing every argument straight through with no defaults or logic.",
     question: "Which critique is sound?",
     options: [
-      { id: 'A', text: "Every resource should be wrapped for consistency." },
-      { id: 'B', text: "Wrapping a single resource improves plan performance." },
-      { id: 'C', text: "A pass-through wrapper adds indirection and a version to maintain without encapsulating anything; use the resource directly until there is real shared behaviour to capture." },
-      { id: 'D', text: "Modules are required in order to use for_each." }
+      { id: 'A', text: "Every resource should be wrapped, which keeps the call sites consistent across teams." },
+      { id: 'B', text: "Wrapping a single resource improves plan performance by narrowing the graph." },
+      { id: 'C', text: "A pass-through wrapper adds indirection and a version to maintain without encapsulating anything." },
+      { id: 'D', text: "A module is required in order to use `for_each` over a set of resources." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -219,10 +219,10 @@ export const HASHICORP_TFP_QUESTIONS_6 = [
     scenario: "An apply fails with an error saying the provider produced an unexpected new value or a null object for a resource after creation.",
     question: "What class of problem is this?",
     options: [
-      { id: 'A', text: "A corrupted lock file." },
-      { id: 'B', text: "A malformed variable definition." },
-      { id: 'C', text: "A missing depends_on." },
-      { id: 'D', text: "A provider defect violating the plugin contract; capture TF_LOG output, check the provider issue tracker, and try a different provider version." }
+      { id: 'A', text: "A corrupted dependency lock file; delete it and re-run `init` to resolve afresh." },
+      { id: 'B', text: "A malformed variable definition; the type constraint does not match the value." },
+      { id: 'C', text: "A missing `depends_on`; the graph evaluated the resources in the wrong order." },
+      { id: 'D', text: "A provider defect breaking the plugin contract; capture `TF_LOG` and report it." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -240,10 +240,10 @@ export const HASHICORP_TFP_QUESTIONS_6 = [
     scenario: "A reviewer asks for the comment syntax supported by HCL.",
     question: "Which forms are valid?",
     options: [
-      { id: 'A', text: "Hash for a single line, double slash for a single line, and slash-star to star-slash for a block." },
-      { id: 'B', text: "Only the hash form." },
-      { id: 'C', text: "Semicolon for a single line." },
-      { id: 'D', text: "Only XML-style comment delimiters." }
+      { id: 'A', text: "A hash for one line, and slash-star for a block." },
+      { id: 'B', text: "Only the hash form, for a single line at a time." },
+      { id: 'C', text: "A semicolon for one line, and no block form." },
+      { id: 'D', text: "Only the XML-style comment delimiters." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -261,10 +261,10 @@ export const HASHICORP_TFP_QUESTIONS_6 = [
     scenario: "Two separate configurations both declare and manage the same load balancer, and each apply reverts the other changes.",
     question: "What is the correct resolution?",
     options: [
-      { id: 'A', text: "Add ignore_changes to both configurations." },
-      { id: 'B', text: "Run the two configurations in a fixed order." },
-      { id: 'C', text: "Establish a single owner: remove the resource from one configuration and state with a removed block or state rm, and have that side consume it via a data source or output." },
-      { id: 'D', text: "Enable state locking on both backends." }
+      { id: 'A', text: "Add `ignore_changes` for the shared attributes to both of the configurations." },
+      { id: 'B', text: "Run the two configurations in a fixed order so the later one always wins." },
+      { id: 'C', text: "Give it a single owner: remove it from one side's state, and read it there as a data source." },
+      { id: 'D', text: "Enable state locking on both backends so the two runs cannot overlap." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -282,7 +282,7 @@ export const HASHICORP_TFP_QUESTIONS_6 = [
     scenario: "During a migration, no runs should be queued against a production workspace for several hours.",
     question: "Which control does that?",
     options: [
-      { id: 'A', text: "Setting the workspace to local execution." },
+      { id: 'A', text: "Setting the workspace to local execution, which keeps the state off the platform." },
       { id: 'B', text: "Locking the workspace, which prevents new runs from being queued until it is unlocked." },
       { id: 'C', text: "Removing all workspace variables." },
       { id: 'D', text: "Deleting the VCS connection temporarily." }
@@ -303,10 +303,10 @@ export const HASHICORP_TFP_QUESTIONS_6 = [
     scenario: "A build image pins the Terraform binary version, and a configuration declares required_version = \"~> 1.6\".",
     question: "Why does pinning both matter?",
     options: [
-      { id: 'A', text: "required_version installs the correct binary automatically." },
-      { id: 'B', text: "The image pin is unnecessary because required_version enforces it." },
-      { id: 'C', text: "Both are ignored when a remote backend is used." },
-      { id: 'D', text: "The image pin makes runs reproducible across jobs, and required_version fails fast with a clear message if someone runs an incompatible binary locally or in another pipeline." }
+      { id: 'A', text: "`required_version` installs the matching binary, so the image pin is belt and braces." },
+      { id: 'B', text: "The image pin is redundant, since `required_version` already enforces the version." },
+      { id: 'C', text: "Both are ignored when a remote backend runs the operation on its own agents." },
+      { id: 'D', text: "The image pin makes runs reproducible, and `required_version` fails fast on an incompatible binary." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -326,7 +326,7 @@ export const HASHICORP_TFP_QUESTIONS_6 = [
     options: [
       { id: 'A', text: "One file per resource, named after the resource type, with no variables file." },
       { id: 'B', text: "A src/ directory containing all .tf files." },
-      { id: 'C', text: "main.tf, variables.tf, outputs.tf, versions.tf, README.md, plus optional examples/ and modules/ directories." },
+      { id: 'C', text: "main.tf, variables.tf, outputs.tf, versions.tf and README.md, plus examples/" },
       { id: 'D', text: "A single terraform.tf containing everything, with no README." }
     ],
     correctAnswers: ['C'],
@@ -345,10 +345,10 @@ export const HASHICORP_TFP_QUESTIONS_6 = [
     scenario: "A module input is being renamed. Existing callers must keep working for one more minor version but should be warned.",
     question: "Which approach fits the language?",
     options: [
-      { id: 'A', text: "Remove the old variable immediately in a patch release." },
-      { id: 'B', text: "Add a moved block for the variable." },
-      { id: 'C', text: "Rename it and rely on Terraform to map the old name automatically." },
-      { id: 'D', text: "Keep both variables, prefer the new one with a coalesce-style local, and surface a warning through a check block or documented deprecation note until the old one is removed in a major release." }
+      { id: 'A', text: "Remove the old variable in the next patch release and note it in the changelog." },
+      { id: 'B', text: "Add a `moved` block for the variable so the old name resolves to the new one." },
+      { id: 'C', text: "Rename it and rely on Terraform to map the old name for one more version." },
+      { id: 'D', text: "Keep both, prefer the new one, and warn until the next major release." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -366,10 +366,10 @@ export const HASHICORP_TFP_QUESTIONS_6 = [
     scenario: "A cycle error names a module output and a module input, indicating the two modules reference each other.",
     question: "Which restructuring resolves it?",
     options: [
-      { id: 'A', text: "Convert one module output to a local." },
-      { id: 'B', text: "Add depends_on between the two modules." },
-      { id: 'C', text: "Break the mutual dependency by extracting the shared resource into a third module or the root, so both modules depend on it rather than on each other." },
-      { id: 'D', text: "Apply the modules with -target in sequence permanently." }
+      { id: 'A', text: "Convert one module's output into a local so the other can read it directly." },
+      { id: 'B', text: "Add `depends_on` between the two modules so the graph can order them." },
+      { id: 'C', text: "Break the cycle by extracting the shared resource into a third module." },
+      { id: 'D', text: "Apply the two modules with `-target` in sequence as a standing practice." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -387,10 +387,10 @@ export const HASHICORP_TFP_QUESTIONS_6 = [
     scenario: "A team reviews a stored state version after an incident.",
     question: "Which items are recorded in it?",
     options: [
-      { id: 'A', text: "The managed resource instances with their attribute values and dependencies, the output values, the serial and lineage, and the Terraform version that wrote it." },
-      { id: 'B', text: "The provider binaries used." },
-      { id: 'C', text: "The configuration files that produced it." },
-      { id: 'D', text: "The plan that was applied." }
+      { id: 'A', text: "The resource instances and attributes, the outputs, the serial and lineage." },
+      { id: 'B', text: "The provider binaries used for the run, so the same versions can be reinstalled." },
+      { id: 'C', text: "The configuration files that produced it, so the run can be reproduced exactly." },
+      { id: 'D', text: "The plan that was applied, so the change can be replayed against another state." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -408,10 +408,10 @@ export const HASHICORP_TFP_QUESTIONS_6 = [
     scenario: "Only modules from the organisation private registry may be used in production workspaces, and public registry sources must be rejected.",
     question: "Which enforcement is appropriate?",
     options: [
-      { id: 'A', text: "A README stating the rule." },
-      { id: 'B', text: "Removing internet access from the agents, which is sufficient on its own." },
-      { id: 'C', text: "A variable set listing approved modules." },
-      { id: 'D', text: "A policy evaluating the plan configuration for module sources, attached as a hard-mandatory policy set to the production project." }
+      { id: 'A', text: "A README stating the rule for every team to follow." },
+      { id: 'B', text: "Removing internet access from the agents, which suffices." },
+      { id: 'C', text: "A variable set listing the approved module sources." },
+      { id: 'D', text: "A policy on module sources, attached hard-mandatory to production." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -429,10 +429,10 @@ export const HASHICORP_TFP_QUESTIONS_6 = [
     scenario: "A working directory contains terraform.tfvars, prod.auto.tfvars, and extra.tfvars.",
     question: "Which files are loaded without a command-line flag?",
     options: [
-      { id: 'A', text: "Only terraform.tfvars" },
-      { id: 'B', text: "None of them" },
-      { id: 'C', text: "terraform.tfvars and prod.auto.tfvars" },
-      { id: 'D', text: "All three" }
+      { id: 'A', text: "terraform.tfvars, then the -var flag" },
+      { id: 'B', text: "prod.auto.tfvars, then terraform.tfvars" },
+      { id: 'C', text: "terraform.tfvars, then prod.auto.tfvars" },
+      { id: 'D', text: "terraform.tfvars only, with the rest ignored" }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -451,7 +451,7 @@ export const HASHICORP_TFP_QUESTIONS_6 = [
     question: "Which construct is designed for that?",
     options: [
       { id: 'A', text: "An output with a condition." },
-      { id: 'B', text: "A variable validation block." },
+      { id: 'B', text: "A `validation` block on the variable that carries the value in question." },
       { id: 'C', text: "A precondition on the resource." },
       { id: 'D', text: "A check block containing an optional data source and one or more assert conditions." }
     ],
@@ -471,10 +471,10 @@ export const HASHICORP_TFP_QUESTIONS_6 = [
     scenario: "A monorepo holds shared modules under modules/ and several root configurations under live/. A root configuration references ../../modules/network.",
     question: "What is the consequence of using a relative local path?",
     options: [
-      { id: 'A', text: "The lock file records the module content hash." },
-      { id: 'B', text: "Local paths are not supported for modules." },
-      { id: 'C', text: "There is no version boundary - every root picks up module changes immediately - which is fast for iteration but means a change can break many roots at once." },
-      { id: 'D', text: "Terraform copies the module and pins it at init." }
+      { id: 'A', text: "The lock file records the module's content hash, so a change fails `init` until relocked." },
+      { id: 'B', text: "Local paths are not supported for modules, so the source must be a registry address." },
+      { id: 'C', text: "There is no version boundary: every root picks up module changes at once, for better and worse." },
+      { id: 'D', text: "Terraform copies the module into `.terraform` and pins that copy at `init` time." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -492,10 +492,10 @@ export const HASHICORP_TFP_QUESTIONS_6 = [
     scenario: "A backend operation fails with an error about mismatched state lineage.",
     question: "What does that mean?",
     options: [
-      { id: 'A', text: "The state being written has a different lineage identifier from the one stored, indicating the two states came from different initialisations - usually a wrong backend key or a state overwritten from elsewhere." },
-      { id: 'B', text: "The provider schema changed." },
-      { id: 'C', text: "The Terraform version differs from the one that wrote state." },
-      { id: 'D', text: "A resource was renamed without a moved block." }
+      { id: 'A', text: "The state being written has a different lineage — usually a wrong backend key." },
+      { id: 'B', text: "The provider schema changed between the two runs, so the stored state cannot be read." },
+      { id: 'C', text: "The Terraform version differs from the one that wrote the state, so the format mismatches." },
+      { id: 'D', text: "A resource was renamed without a `moved` block, so the addresses no longer line up." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -513,10 +513,10 @@ export const HASHICORP_TFP_QUESTIONS_6 = [
     scenario: "Compliance requires that state be encrypted at rest and that access be auditable.",
     question: "Which combination satisfies that for an object-storage backend?",
     options: [
-      { id: 'A', text: "Marking every sensitive variable, which encrypts the values in state." },
-      { id: 'B', text: "Committing state to a private git repository." },
-      { id: 'C', text: "Server-side encryption with a managed key, bucket policies restricting access to the pipeline identity, versioning, and access logging." },
-      { id: 'D', text: "Relying on TLS to the backend, which encrypts state at rest." }
+      { id: 'A', text: "Marking every sensitive variable, which encrypts those values inside the state." },
+      { id: 'B', text: "Committing the state to a private git repository with restricted access." },
+      { id: 'C', text: "Server-side encryption, a scoped bucket policy, versioning and access logs." },
+      { id: 'D', text: "Relying on TLS to the backend, which also encrypts the state at rest." }
     ],
     correctAnswers: ['C'],
     type: "single",

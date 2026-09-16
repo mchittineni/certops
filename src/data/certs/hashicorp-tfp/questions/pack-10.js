@@ -30,10 +30,10 @@ export const HASHICORP_TFP_QUESTIONS_10 = [
     scenario: "An engineer deletes .terraform to clear a strange error.",
     question: "What is the consequence?",
     options: [
-      { id: 'A', text: "Providers, modules, and backend configuration must be reinstalled by running terraform init again; no state or configuration is lost." },
-      { id: 'B', text: "The state file is deleted along with it." },
-      { id: 'C', text: "The dependency lock file is invalidated and must be regenerated." },
-      { id: 'D', text: "The workspace selection is permanently lost." }
+      { id: 'A', text: "Providers, modules and backend config must be reinstalled by `init`." },
+      { id: 'B', text: "The state file is deleted along with the directory's contents." },
+      { id: 'C', text: "The dependency lock file is invalidated and must be rebuilt." },
+      { id: 'D', text: "The selected workspace is lost and cannot be recovered." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -51,10 +51,10 @@ export const HASHICORP_TFP_QUESTIONS_10 = [
     scenario: "A platform team owns networking and shared services; six product teams own their own applications and deploy many times a day.",
     question: "Which layout best matches those rates of change and ownership?",
     options: [
-      { id: 'A', text: "One state per environment containing everything, applied by the platform team on request." },
-      { id: 'B', text: "One state per cloud account regardless of team." },
-      { id: 'C', text: "A platform state per environment for networking and shared services, plus one state per product team per environment, with product states reading platform outputs." },
-      { id: 'D', text: "One state per resource type across all teams." }
+      { id: 'A', text: "One state per environment holding everything, applied by the platform team on request." },
+      { id: 'B', text: "One state per cloud account, whichever teams happen to deploy into it." },
+      { id: 'C', text: "A platform state per environment for shared services, plus one per product team reading its outputs." },
+      { id: 'D', text: "One state per resource type, shared by every team that uses that type." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -72,10 +72,10 @@ export const HASHICORP_TFP_QUESTIONS_10 = [
     scenario: "Two engineers plan the same commit against the same workspace and see different results.",
     question: "Which causes are plausible? (Choose two.)",
     options: [
-      { id: 'A', text: "Different terminal colour settings." },
-      { id: 'B', text: "Different resource ordering in the configuration files." },
-      { id: 'C', text: "Different provider versions because one of them has not honoured the committed lock file." },
-      { id: 'D', text: "Different variable values supplied locally, for example from an uncommitted tfvars file or environment variables." }
+      { id: 'A', text: "Different terminal colour settings between the two machines." },
+      { id: 'B', text: "Different ordering of the resource blocks in the files." },
+      { id: 'C', text: "Different provider versions, because one run ignored the lock file." },
+      { id: 'D', text: "Different variable values locally, from an uncommitted tfvars file." }
     ],
     correctAnswers: ['C', 'D'],
     type: "multiple",
@@ -95,7 +95,7 @@ export const HASHICORP_TFP_QUESTIONS_10 = [
     options: [
       { id: 'A', text: "Use a random suffix to guarantee uniqueness." },
       { id: 'B', text: "Include the environment in the label." },
-      { id: 'C', text: "A short label such as this or main, since the module name already provides the context in the full address." },
+      { id: 'C', text: "A short label such as `this`, since the module name already gives the context." },
       { id: 'D', text: "Repeat the module name in the label, for example aws_s3_bucket.logging_module_bucket." }
     ],
     correctAnswers: ['C'],
@@ -114,9 +114,9 @@ export const HASHICORP_TFP_QUESTIONS_10 = [
     scenario: "A hard-mandatory policy blocks an urgent production fix during an incident.",
     question: "What is the correct handling?",
     options: [
-      { id: 'A', text: "Deleting the run and re-queuing it bypasses the policy." },
-      { id: 'B', text: "Hard-mandatory policies cannot be overridden, so either the change must be adjusted to comply or an authorised owner must temporarily amend the policy set - both of which leave an audit record." },
-      { id: 'C', text: "Any workspace admin can override a hard-mandatory policy for a single run." },
+      { id: 'A', text: "Deleting the run and queuing it again evaluates the policy set from scratch." },
+      { id: 'B', text: "A hard-mandatory policy cannot be overridden: change the plan or the policy set." },
+      { id: 'C', text: "A workspace admin may override a hard-mandatory policy for a single run." },
       { id: 'D', text: "Switching the workspace to local execution bypasses the policy legitimately." }
     ],
     correctAnswers: ['B'],
@@ -135,10 +135,10 @@ export const HASHICORP_TFP_QUESTIONS_10 = [
     scenario: "A team believes marking a variable sensitive prevents the value being stored anywhere.",
     question: "Which correction is accurate?",
     options: [
-      { id: 'A', text: "Sensitive variables are stored encrypted in state." },
-      { id: 'B', text: "Sensitive variables cannot be used in resource arguments." },
-      { id: 'C', text: "Sensitive controls display only - the value still reaches state and the plan file - so storage must be protected separately." },
-      { id: 'D', text: "Sensitive variables are never written to state." }
+      { id: 'A', text: "A sensitive variable's value is stored encrypted within the state file." },
+      { id: 'B', text: "A sensitive variable cannot be used in a resource argument at all." },
+      { id: 'C', text: "Sensitive controls display only: the value still reaches state and the plan file." },
+      { id: 'D', text: "A sensitive variable's value is never written into the state file." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -156,10 +156,10 @@ export const HASHICORP_TFP_QUESTIONS_10 = [
     scenario: "An engineer needs to inspect state contents during an incident without downloading secrets to a laptop.",
     question: "Which approach is preferable?",
     options: [
-      { id: 'A', text: "Print the state to the CI log for shared visibility." },
-      { id: 'B', text: "Email the state file to the incident channel." },
-      { id: 'C', text: "Use terraform state list and state show for the specific addresses needed, ideally from the controlled runner, rather than downloading the whole state file." },
-      { id: 'D', text: "Download the state file and open it in an editor." }
+      { id: 'A', text: "Print the state into the CI log so the whole incident channel can read it." },
+      { id: 'B', text: "Send the state file to the incident channel so responders share one copy." },
+      { id: 'C', text: "Use `state list` and `state show` for the addresses needed, from the controlled runner." },
+      { id: 'D', text: "Download the state file and open it in an editor on the responder's laptop." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -177,10 +177,10 @@ export const HASHICORP_TFP_QUESTIONS_10 = [
     scenario: "The bucket and lock table that will store remote state must themselves be created by Terraform, which needs a backend.",
     question: "How is that chicken-and-egg problem usually solved?",
     options: [
-      { id: 'A', text: "Store the bootstrap state in the same bucket before it exists." },
-      { id: 'B', text: "Create the backend resources in a small bootstrap configuration using local state, then migrate that configuration to the remote backend it created, or provision them outside Terraform." },
-      { id: 'C', text: "Use a backend block that references the resources it defines." },
-      { id: 'D', text: "Terraform creates missing backend resources automatically on init." }
+      { id: 'A', text: "Store the bootstrap state in the bucket it creates, since the backend is read lazily." },
+      { id: 'B', text: "Create them from a bootstrap configuration on local state, then migrate it in." },
+      { id: 'C', text: "Use a backend block that references the resources the same configuration defines." },
+      { id: 'D', text: "Let Terraform create the missing backend resources itself during `terraform init`." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -198,10 +198,10 @@ export const HASHICORP_TFP_QUESTIONS_10 = [
     scenario: "terraform validate reports that a resource with the same type and name is declared twice in the same module.",
     question: "Why is this an error?",
     options: [
-      { id: 'A', text: "Terraform allows it but the provider does not." },
-      { id: 'B', text: "It is allowed if the blocks are in different files." },
-      { id: 'C', text: "The pair of type and name forms a unique address within a module, so two declarations would map to the same state entry." },
-      { id: 'D', text: "It is only an error when the two blocks differ." }
+      { id: 'A', text: "Terraform permits it, but the provider rejects the duplicate objects." },
+      { id: 'B', text: "It is permitted when the two blocks sit in different configuration files." },
+      { id: 'C', text: "The type and name pair is the address within a module, so both would map to one entry." },
+      { id: 'D', text: "It is an error only when the two blocks' arguments actually differ." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -240,10 +240,10 @@ export const HASHICORP_TFP_QUESTIONS_10 = [
     scenario: "A configuration is used for ephemeral environments that are created and destroyed daily, but destroys keep failing because of dependency ordering and retained resources.",
     question: "Which practices make destroys reliable?",
     options: [
-      { id: 'A', text: "Avoid prevent_destroy in ephemeral configurations, ensure deletion protection flags are variables that default off there, and let Terraform own the full dependency chain rather than importing shared resources." },
-      { id: 'B', text: "Always destroy with -target in dependency order." },
-      { id: 'C', text: "Set create_before_destroy on every resource." },
-      { id: 'D', text: "Delete the state after each environment instead of destroying." }
+      { id: 'A', text: "Avoid `prevent_destroy` in ephemeral configurations and default the flags off." },
+      { id: 'B', text: "Always destroy with `-target` in dependency order so nothing is removed prematurely." },
+      { id: 'C', text: "Set `create_before_destroy` on every resource so replacements never block a destroy." },
+      { id: 'D', text: "Delete the state after each environment rather than running a destroy against it." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -261,10 +261,10 @@ export const HASHICORP_TFP_QUESTIONS_10 = [
     scenario: "A workspace shows two kinds of runs in its history, one of which can never be applied.",
     question: "What distinguishes a speculative plan?",
     options: [
-      { id: 'A', text: "It is a plan that runs without provider credentials." },
-      { id: 'B', text: "It is a plan that ignores the current state." },
-      { id: 'C', text: "It is a plan-only run used for review, typically triggered by a pull request or terraform plan against the cloud backend, and it cannot be applied." },
-      { id: 'D', text: "It is a plan queued by an administrator only." }
+      { id: 'A', text: "A plan that runs without provider credentials, so no API call is made." },
+      { id: 'B', text: "A plan that ignores the current state and reports every resource as new." },
+      { id: 'C', text: "A plan-only run for review, usually from a pull request, which cannot be applied." },
+      { id: 'D', text: "A plan that only an administrator may queue, used before a release." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -282,10 +282,10 @@ export const HASHICORP_TFP_QUESTIONS_10 = [
     scenario: "While splitting a configuration, an engineer needs to know which provider configuration each state entry was created with.",
     question: "Where is that recorded?",
     options: [
-      { id: 'A', text: "In the dependency lock file." },
-      { id: 'B', text: "Nowhere; it is inferred from the configuration at run time." },
-      { id: 'C', text: "In the state entry itself, which stores the provider configuration address such as provider[\"registry.terraform.io/hashicorp/aws\"].west." },
-      { id: 'D', text: "In the .terraform/providers directory." }
+      { id: 'A', text: "In the dependency lock file, beside the provider's version and hashes." },
+      { id: 'B', text: "Nowhere: it is inferred from the configuration on each run instead." },
+      { id: 'C', text: "In the state entry itself, which records the provider configuration address." },
+      { id: 'D', text: "In the `.terraform/providers` directory the init step populates." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -303,10 +303,10 @@ export const HASHICORP_TFP_QUESTIONS_10 = [
     scenario: "A module could either accept a list of raw provider rule objects or accept high-level intents such as allow_https_from_internet.",
     question: "Which consideration should guide the choice?",
     options: [
-      { id: 'A', text: "The two are equivalent in practice." },
-      { id: 'B', text: "Intent-based inputs are required by the registry." },
-      { id: 'C', text: "Raw pass-through is always better because it is future-proof." },
-      { id: 'D', text: "Intent-based inputs encode organisational decisions and are easier to govern, while raw pass-through inputs are more flexible but shift responsibility for correctness back to every caller." }
+      { id: 'A', text: "The two are equivalent in practice, since every input ends up on a resource argument anyway." },
+      { id: 'B', text: "Intent-based inputs are required by the registry, which rejects modules exposing raw arguments." },
+      { id: 'C', text: "Raw pass-through is always better, since it survives every provider change without a module release." },
+      { id: 'D', text: "Intent-based inputs encode decisions and are governable; pass-through shifts the burden." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -324,10 +324,10 @@ export const HASHICORP_TFP_QUESTIONS_10 = [
     scenario: "A plan proposes changes nobody expects.",
     question: "Which check should come first?",
     options: [
-      { id: 'A', text: "Confirm which working directory, workspace, backend, and variable values the plan actually used, because the commonest cause is planning the wrong thing." },
-      { id: 'B', text: "Run apply to see what really happens." },
-      { id: 'C', text: "Delete the lock file and re-init." },
-      { id: 'D', text: "Immediately raise a provider bug report." }
+      { id: 'A', text: "Confirm the directory, workspace, backend and variables the plan used." },
+      { id: 'B', text: "Run the apply and see what actually happens against the real infrastructure." },
+      { id: 'C', text: "Delete the lock file and re-run `init` so the providers resolve afresh." },
+      { id: 'D', text: "Raise a provider bug report with the plan output attached to the issue." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -345,7 +345,7 @@ export const HASHICORP_TFP_QUESTIONS_10 = [
     scenario: "A repository contains fifteen root configurations and CI currently runs every one on every commit, taking an hour.",
     question: "Which improvement is most appropriate?",
     options: [
-      { id: 'A', text: "Detect which roots are affected by the changed files, including shared module paths, and plan only those." },
+      { id: 'A', text: "Detect which roots the changed files affect, and plan only those." },
       { id: 'B', text: "Plan only the first root and assume the rest are similar." },
       { id: 'C', text: "Run all roots in parallel with no change detection." },
       { id: 'D', text: "Merge the fifteen roots into one configuration." }
@@ -366,10 +366,10 @@ export const HASHICORP_TFP_QUESTIONS_10 = [
     scenario: "A configuration is being decommissioned as code, but the resources it manages must be handed to another team and stay running.",
     question: "Which path is correct?",
     options: [
-      { id: 'A', text: "Delete the old state file and let the resources become unmanaged permanently." },
-      { id: 'B', text: "Have the receiving configuration import the resources (or move the state entries across), then remove them from the old state without destroying, and finally delete the old configuration." },
-      { id: 'C', text: "Run terraform destroy and let the other team recreate everything." },
-      { id: 'D', text: "Copy the old state file into the new backend and keep both configurations." }
+      { id: 'A', text: "Delete the old state file and leave the resources unmanaged until they are rebuilt." },
+      { id: 'B', text: "Import them into the receiving configuration, then remove them from the old." },
+      { id: 'C', text: "Run `terraform destroy` on the old configuration and let the other team recreate." },
+      { id: 'D', text: "Copy the old state into the new backend and keep both configurations pointed at it." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -387,10 +387,10 @@ export const HASHICORP_TFP_QUESTIONS_10 = [
     scenario: "A root configuration has grown to a single 2,000-line main.tf and reviews have become difficult.",
     question: "Which refactor helps most without changing behaviour?",
     options: [
-      { id: 'A', text: "Split the file by concern into several .tf files in the same directory, since Terraform concatenates them and addresses are unchanged." },
+      { id: 'A', text: "Split it into several `.tf` files in the same directory, since addresses are unchanged." },
       { id: 'B', text: "Move half the resources into a child module, which is behaviour-neutral." },
-      { id: 'C', text: "Reorder the blocks alphabetically." },
-      { id: 'D', text: "Split the file across several directories." }
+      { id: 'C', text: "Reorder the blocks alphabetically so the file is easier to navigate." },
+      { id: 'D', text: "Split the file across several directories, one per concern it covers." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -408,10 +408,10 @@ export const HASHICORP_TFP_QUESTIONS_10 = [
     scenario: "A configuration contains a terraform block with a nested cloud block naming an organisation and workspaces.",
     question: "What does that block do?",
     options: [
-      { id: 'A', text: "It configures HCP Terraform as the state store and remote execution target for this configuration, taking the place of a backend block." },
-      { id: 'B', text: "It declares a provider for HCP Terraform resources." },
-      { id: 'C', text: "It is documentation only and has no effect." },
-      { id: 'D', text: "It sets the required Terraform version." }
+      { id: 'A', text: "It makes HCP Terraform the state store and execution target." },
+      { id: 'B', text: "It declares the provider used to manage HCP Terraform's own resources." },
+      { id: 'C', text: "It is documentation only, and has no effect on where state is kept." },
+      { id: 'D', text: "It sets the Terraform version the remote runs are required to use." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -431,7 +431,7 @@ export const HASHICORP_TFP_QUESTIONS_10 = [
     options: [
       { id: 'A', text: "One module with both providers configured internally." },
       { id: 'B', text: "One module that takes the provider name as a string and uses it in resource types." },
-      { id: 'C', text: "Write one module per provider with a deliberately similar interface, rather than one module branching internally on a provider variable." },
+      { id: 'C', text: "One module per provider with a deliberately similar interface." },
       { id: 'D', text: "One module with conditionals selecting resources from either provider." }
     ],
     correctAnswers: ['C'],
@@ -451,7 +451,7 @@ export const HASHICORP_TFP_QUESTIONS_10 = [
     question: "Which diagnostic steps are appropriate? (Choose two.)",
     options: [
       { id: 'A', text: "Enable TF_LOG to see which provider call is outstanding." },
-      { id: 'B', text: "Check for a state lock being waited on, and for slow or unreachable provider endpoints." },
+      { id: 'B', text: "Check for a state lock being waited on, or a slow provider endpoint." },
       { id: 'C', text: "Assume the binary is corrupt and reinstall Terraform." },
       { id: 'D', text: "Delete the configuration and rewrite it." }
     ],
@@ -471,10 +471,10 @@ export const HASHICORP_TFP_QUESTIONS_10 = [
     scenario: "A team must balance reproducibility against the effort of dependency upgrades.",
     question: "Which combination is a reasonable default?",
     options: [
-      { id: 'A', text: "Pin the Terraform version, commit the provider lock file, and use pessimistic constraints on providers and modules so upgrades are deliberate rather than accidental." },
-      { id: 'B', text: "Float everything to latest so upgrades happen continuously." },
-      { id: 'C', text: "Pin providers but let the Terraform binary float." },
-      { id: 'D', text: "Pin every provider and module to an exact version and never update." }
+      { id: 'A', text: "Pin the version, commit the lock file, and use pessimistic constraints." },
+      { id: 'B', text: "Float everything to the latest release so upgrades arrive continuously." },
+      { id: 'C', text: "Pin the providers but let the Terraform binary float with the runner image." },
+      { id: 'D', text: "Pin every provider and module to an exact version and never update them." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -492,10 +492,10 @@ export const HASHICORP_TFP_QUESTIONS_10 = [
     scenario: "A destroy must remove a database before the security group it uses, and Terraform is choosing the reverse order.",
     question: "How does Terraform order destroys?",
     options: [
-      { id: 'A', text: "Alphabetically by resource address." },
-      { id: 'B', text: "In the order the blocks appear in the files." },
-      { id: 'C', text: "In reverse dependency order, so a resource is destroyed before the things it depends on - meaning a missing reference or depends_on is the reason an order looks wrong." },
-      { id: 'D', text: "In the same order as creation." }
+      { id: 'A', text: "Alphabetically by resource address within each module in the configuration." },
+      { id: 'B', text: "In the order the blocks appear in the files, read from the top down." },
+      { id: 'C', text: "In reverse dependency order, so a missing reference explains a wrong order." },
+      { id: 'D', text: "In the same order as creation, since the graph is walked identically." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -513,10 +513,10 @@ export const HASHICORP_TFP_QUESTIONS_10 = [
     scenario: "A new tagging and encryption standard must apply to two hundred existing workspaces without breaking current deployments overnight.",
     question: "Which rollout sequence is sensible?",
     options: [
-      { id: 'A', text: "Enable hard-mandatory enforcement immediately so nobody can add new violations." },
-      { id: 'B', text: "Apply the standard only to new workspaces and leave existing ones alone permanently." },
-      { id: 'C', text: "Fix all two hundred workspaces manually before announcing the policy." },
-      { id: 'D', text: "Publish the policy in advisory mode first to measure the gap, provide a compliant module and variable set, then move to soft-mandatory and finally hard-mandatory with a communicated deadline." }
+      { id: 'A', text: "Enable hard-mandatory enforcement at once so no further violations can be introduced." },
+      { id: 'B', text: "Apply the standard to new workspaces only and leave the existing ones untouched." },
+      { id: 'C', text: "Fix all two hundred workspaces first, and announce the policy once they comply." },
+      { id: 'D', text: "Publish it advisory first, supply a compliant module, then enforce in stages." }
     ],
     correctAnswers: ['D'],
     type: "single",
