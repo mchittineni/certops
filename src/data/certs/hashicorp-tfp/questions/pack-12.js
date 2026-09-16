@@ -9,10 +9,10 @@ export const HASHICORP_TFP_QUESTIONS_12 = [
     scenario: "A principal cloud platform architect is establishing high-availability standards, automated disaster recovery procedures, and infrastructure resilience frameworks across multi-region environments using Terraform. The Terraform professional evaluates Optional Attributes to declare a complex variable schema for database instance options where advanced parameters have default fallbacks if omitted by callers.",
     question: "Which architectural approach or advanced configuration satisfies these multi-region recovery and resilience objectives?",
     options: [
-      { id: 'A', text: "Define the type using `object({ name = string, port = optional(number, 3306), backup_retention = optional(number, 7) })`." },
-      { id: 'B', text: "Define all fields as mandatory, forcing every caller to specify 30 redundant parameters." },
-      { id: 'C', text: "Use `any` type with no schema validation." },
-      { id: 'D', text: "Split the single configuration object into 30 separate scalar variables." }
+      { id: 'A', text: "Type it as an `object({ ... })` with `optional()` attributes carrying defaults." },
+      { id: 'B', text: "Type it as an `object({ ... })` with every attribute required of the caller." },
+      { id: 'C', text: "Type it as `any` and validate the shape in a `validation` block instead." },
+      { id: 'D', text: "Type each field as its own scalar variable with a default value each." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -30,10 +30,10 @@ export const HASHICORP_TFP_QUESTIONS_12 = [
     scenario: "A complex enterprise multi-cloud platform experiences massive scaling requirements and requires modular, automated, and performant infrastructure provisioning across dozens of teams. The Terraform professional evaluates Optional Attributes to declare a complex variable schema for database instance options where advanced parameters have default fallbacks if omitted by callers.",
     question: "Which architectural pattern or Terraform capability manages this scale effectively while preventing dependency bottlenecks and configuration drift?",
     options: [
-      { id: 'A', text: "Split the single configuration object into 30 separate scalar variables." },
-      { id: 'B', text: "Define the type using `object({ name = string, port = optional(number, 3306), backup_retention = optional(number, 7) })`." },
-      { id: 'C', text: "Use `any` type with no schema validation." },
-      { id: 'D', text: "Define all fields as mandatory, forcing every caller to specify 30 redundant parameters." }
+      { id: 'A', text: "Type each field as its own scalar variable with a default value each." },
+      { id: 'B', text: "Type it as an `object({ ... })` with `optional()` attributes carrying defaults." },
+      { id: 'C', text: "Type it as `any` and validate the shape in a `validation` block instead." },
+      { id: 'D', text: "Type it as an `object({ ... })` with every attribute required of the caller." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -51,10 +51,10 @@ export const HASHICORP_TFP_QUESTIONS_12 = [
     scenario: "A security compliance auditor requires cryptographic state protection, policy-as-code enforcement, and automated governance across all enterprise Terraform delivery pipelines. The Terraform professional evaluates Optional Attributes to declare a complex variable schema for database instance options where advanced parameters have default fallbacks if omitted by callers.",
     question: "Which solution implements these mandatory infrastructure as code security and governance controls?",
     options: [
-      { id: 'A', text: "Split the single configuration object into 30 separate scalar variables." },
-      { id: 'B', text: "Use `any` type with no schema validation." },
-      { id: 'C', text: "Define all fields as mandatory, forcing every caller to specify 30 redundant parameters." },
-      { id: 'D', text: "Define the type using `object({ name = string, port = optional(number, 3306), backup_retention = optional(number, 7) })`." }
+      { id: 'A', text: "Type each field as its own scalar variable with a default value each." },
+      { id: 'B', text: "Type it as `any` and validate the shape in a `validation` block instead." },
+      { id: 'C', text: "Type it as an `object({ ... })` with every attribute required of the caller." },
+      { id: 'D', text: "Type it as an `object({ ... })` with `optional()` attributes carrying defaults." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -72,10 +72,10 @@ export const HASHICORP_TFP_QUESTIONS_12 = [
     scenario: "An enterprise is modernizing on-premises infrastructure and refactoring monolithic legacy deployments into modular, cloud-native architectures using advanced Terraform practices. The Terraform professional evaluates Optional Attributes to declare a complex variable schema for database instance options where advanced parameters have default fallbacks if omitted by callers.",
     question: "Which practice or platform feature enables the engineering team to modernize provisioning workflows with minimal operational friction?",
     options: [
-      { id: 'A', text: "Use `any` type with no schema validation." },
-      { id: 'B', text: "Define the type using `object({ name = string, port = optional(number, 3306), backup_retention = optional(number, 7) })`." },
-      { id: 'C', text: "Define all fields as mandatory, forcing every caller to specify 30 redundant parameters." },
-      { id: 'D', text: "Split the single configuration object into 30 separate scalar variables." }
+      { id: 'A', text: "Type it as `any` and validate the shape in a `validation` block instead." },
+      { id: 'B', text: "Type it as an `object({ ... })` with `optional()` attributes carrying defaults." },
+      { id: 'C', text: "Type it as an `object({ ... })` with every attribute required of the caller." },
+      { id: 'D', text: "Type each field as its own scalar variable with a default value each." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -93,10 +93,10 @@ export const HASHICORP_TFP_QUESTIONS_12 = [
     scenario: "A platform reliability team is optimizing system resilience to eliminate single points of failure, streamline zero-downtime state refactoring, and automate operational recovery. The Terraform professional evaluates Optional Attributes to declare a complex variable schema for database instance options where advanced parameters have default fallbacks if omitted by callers.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
-      { id: 'A', text: "Split the single configuration object into 30 separate scalar variables." },
-      { id: 'B', text: "Define all fields as mandatory, forcing every caller to specify 30 redundant parameters." },
-      { id: 'C', text: "Define the type using `object({ name = string, port = optional(number, 3306), backup_retention = optional(number, 7) })`." },
-      { id: 'D', text: "Use `any` type with no schema validation." }
+      { id: 'A', text: "Type each field as its own scalar variable with a default value each." },
+      { id: 'B', text: "Type it as an `object({ ... })` with every attribute required of the caller." },
+      { id: 'C', text: "Type it as an `object({ ... })` with `optional()` attributes carrying defaults." },
+      { id: 'D', text: "Type it as `any` and validate the shape in a `validation` block instead." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -114,10 +114,10 @@ export const HASHICORP_TFP_QUESTIONS_12 = [
     scenario: "A principal cloud platform architect is establishing high-availability standards, automated disaster recovery procedures, and infrastructure resilience frameworks across multi-region environments using Terraform. The Terraform professional evaluates Dynamic Blocks to generate complex nested routing rule blocks within an Azure Application Gateway resource based on environment-specific routing maps.",
     question: "Which architectural approach or advanced configuration satisfies these multi-region recovery and resilience objectives?",
     options: [
-      { id: 'A', text: "Nested blocks cannot be generated dynamically in Terraform." },
-      { id: 'B', text: "Duplicate the 500-line Application Gateway resource block 10 times." },
-      { id: 'C', text: "Use a `dynamic \"request_routing_rule\"` block with `for_each = var.routing_rules` and `iterator = rule`." },
-      { id: 'D', text: "Configure routing rules through the Azure Portal post-deployment." }
+      { id: 'A', text: "Use `count` on the whole gateway resource, one instance per routing rule needed." },
+      { id: 'B', text: "Use a `for` expression to build the block's contents and assign it in one go." },
+      { id: 'C', text: "Use a `dynamic \"request_routing_rule\"` block with `for_each` over the rules variable." },
+      { id: 'D', text: "Use a separate `azurerm_application_gateway_rule` resource per routing rule." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -135,10 +135,10 @@ export const HASHICORP_TFP_QUESTIONS_12 = [
     scenario: "A complex enterprise multi-cloud platform experiences massive scaling requirements and requires modular, automated, and performant infrastructure provisioning across dozens of teams. The Terraform professional evaluates Dynamic Blocks to generate complex nested routing rule blocks within an Azure Application Gateway resource based on environment-specific routing maps.",
     question: "Which architectural pattern or Terraform capability manages this scale effectively while preventing dependency bottlenecks and configuration drift?",
     options: [
-      { id: 'A', text: "Duplicate the 500-line Application Gateway resource block 10 times." },
-      { id: 'B', text: "Configure routing rules through the Azure Portal post-deployment." },
-      { id: 'C', text: "Use a `dynamic \"request_routing_rule\"` block with `for_each = var.routing_rules` and `iterator = rule`." },
-      { id: 'D', text: "Nested blocks cannot be generated dynamically in Terraform." }
+      { id: 'A', text: "Use a `for` expression to build the block's contents and assign it in one go." },
+      { id: 'B', text: "Use a separate `azurerm_application_gateway_rule` resource per routing rule." },
+      { id: 'C', text: "Use a `dynamic \"request_routing_rule\"` block with `for_each` over the rules variable." },
+      { id: 'D', text: "Use `count` on the whole gateway resource, one instance per routing rule needed." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -156,10 +156,10 @@ export const HASHICORP_TFP_QUESTIONS_12 = [
     scenario: "A security compliance auditor requires cryptographic state protection, policy-as-code enforcement, and automated governance across all enterprise Terraform delivery pipelines. The Terraform professional evaluates Dynamic Blocks to generate complex nested routing rule blocks within an Azure Application Gateway resource based on environment-specific routing maps.",
     question: "Which solution implements these mandatory infrastructure as code security and governance controls?",
     options: [
-      { id: 'A', text: "Configure routing rules through the Azure Portal post-deployment." },
-      { id: 'B', text: "Nested blocks cannot be generated dynamically in Terraform." },
-      { id: 'C', text: "Use a `dynamic \"request_routing_rule\"` block with `for_each = var.routing_rules` and `iterator = rule`." },
-      { id: 'D', text: "Duplicate the 500-line Application Gateway resource block 10 times." }
+      { id: 'A', text: "Use a separate `azurerm_application_gateway_rule` resource per routing rule." },
+      { id: 'B', text: "Use `count` on the whole gateway resource, one instance per routing rule needed." },
+      { id: 'C', text: "Use a `dynamic \"request_routing_rule\"` block with `for_each` over the rules variable." },
+      { id: 'D', text: "Use a `for` expression to build the block's contents and assign it in one go." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -177,10 +177,10 @@ export const HASHICORP_TFP_QUESTIONS_12 = [
     scenario: "An enterprise is modernizing on-premises infrastructure and refactoring monolithic legacy deployments into modular, cloud-native architectures using advanced Terraform practices. The Terraform professional evaluates Dynamic Blocks to generate complex nested routing rule blocks within an Azure Application Gateway resource based on environment-specific routing maps.",
     question: "Which practice or platform feature enables the engineering team to modernize provisioning workflows with minimal operational friction?",
     options: [
-      { id: 'A', text: "Use a `dynamic \"request_routing_rule\"` block with `for_each = var.routing_rules` and `iterator = rule`." },
-      { id: 'B', text: "Duplicate the 500-line Application Gateway resource block 10 times." },
-      { id: 'C', text: "Configure routing rules through the Azure Portal post-deployment." },
-      { id: 'D', text: "Nested blocks cannot be generated dynamically in Terraform." }
+      { id: 'A', text: "Use a `dynamic \"request_routing_rule\"` block with `for_each` over the rules variable." },
+      { id: 'B', text: "Use a `for` expression to build the block's contents and assign it in one go." },
+      { id: 'C', text: "Use a separate `azurerm_application_gateway_rule` resource per routing rule." },
+      { id: 'D', text: "Use `count` on the whole gateway resource, one instance per routing rule needed." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -198,10 +198,10 @@ export const HASHICORP_TFP_QUESTIONS_12 = [
     scenario: "A platform reliability team is optimizing system resilience to eliminate single points of failure, streamline zero-downtime state refactoring, and automate operational recovery. The Terraform professional evaluates Dynamic Blocks to generate complex nested routing rule blocks within an Azure Application Gateway resource based on environment-specific routing maps.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
-      { id: 'A', text: "Use a `dynamic \"request_routing_rule\"` block with `for_each = var.routing_rules` and `iterator = rule`." },
-      { id: 'B', text: "Duplicate the 500-line Application Gateway resource block 10 times." },
-      { id: 'C', text: "Configure routing rules through the Azure Portal post-deployment." },
-      { id: 'D', text: "Nested blocks cannot be generated dynamically in Terraform." }
+      { id: 'A', text: "Use a `dynamic \"request_routing_rule\"` block with `for_each` over the rules variable." },
+      { id: 'B', text: "Use a `for` expression to build the block's contents and assign it in one go." },
+      { id: 'C', text: "Use a separate `azurerm_application_gateway_rule` resource per routing rule." },
+      { id: 'D', text: "Use `count` on the whole gateway resource, one instance per routing rule needed." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -219,10 +219,10 @@ export const HASHICORP_TFP_QUESTIONS_12 = [
     scenario: "A principal cloud platform architect is establishing high-availability standards, automated disaster recovery procedures, and infrastructure resilience frameworks across multi-region environments using Terraform. The Terraform professional evaluates Provider Aliases to deploy resources across two different AWS regions (us-east-1 and us-west-2) simultaneously within a single Terraform configuration.",
     question: "Which architectural approach or advanced configuration satisfies these multi-region recovery and resilience objectives?",
     options: [
-      { id: 'A', text: "Maintain two completely separate repositories and pass state between them over HTTP." },
-      { id: 'B', text: "Terraform does not support managing multiple regions in a single configuration." },
-      { id: 'C', text: "Define multiple `provider \"aws\"` blocks using the `alias` meta-argument (e.g., `alias = \"west\"`) and reference `provider = aws.west` in resources." },
-      { id: 'D', text: "Run `terraform apply` in us-east-1, then edit the provider region and run `apply` again." }
+      { id: 'A', text: "Keep one provider block and set the region from a variable, applying once per region." },
+      { id: 'B', text: "Keep one provider block and override the region with `-var` on each apply in turn." },
+      { id: 'C', text: "Declare additional `provider \"aws\"` blocks with `alias`, and set `provider = aws.west` per resource." },
+      { id: 'D', text: "Keep one workspace per region and duplicate the configuration in each of them." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -240,10 +240,10 @@ export const HASHICORP_TFP_QUESTIONS_12 = [
     scenario: "A complex enterprise multi-cloud platform experiences massive scaling requirements and requires modular, automated, and performant infrastructure provisioning across dozens of teams. The Terraform professional evaluates Provider Aliases to deploy resources across two different AWS regions (us-east-1 and us-west-2) simultaneously within a single Terraform configuration.",
     question: "Which architectural pattern or Terraform capability manages this scale effectively while preventing dependency bottlenecks and configuration drift?",
     options: [
-      { id: 'A', text: "Run `terraform apply` in us-east-1, then edit the provider region and run `apply` again." },
-      { id: 'B', text: "Maintain two completely separate repositories and pass state between them over HTTP." },
-      { id: 'C', text: "Define multiple `provider \"aws\"` blocks using the `alias` meta-argument (e.g., `alias = \"west\"`) and reference `provider = aws.west` in resources." },
-      { id: 'D', text: "Terraform does not support managing multiple regions in a single configuration." }
+      { id: 'A', text: "Keep one workspace per region and duplicate the configuration in each of them." },
+      { id: 'B', text: "Keep one provider block and set the region from a variable, applying once per region." },
+      { id: 'C', text: "Declare additional `provider \"aws\"` blocks with `alias`, and set `provider = aws.west` per resource." },
+      { id: 'D', text: "Keep one provider block and override the region with `-var` on each apply in turn." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -261,10 +261,10 @@ export const HASHICORP_TFP_QUESTIONS_12 = [
     scenario: "A security compliance auditor requires cryptographic state protection, policy-as-code enforcement, and automated governance across all enterprise Terraform delivery pipelines. The Terraform professional evaluates Provider Aliases to deploy resources across two different AWS regions (us-east-1 and us-west-2) simultaneously within a single Terraform configuration.",
     question: "Which solution implements these mandatory infrastructure as code security and governance controls?",
     options: [
-      { id: 'A', text: "Terraform does not support managing multiple regions in a single configuration." },
-      { id: 'B', text: "Run `terraform apply` in us-east-1, then edit the provider region and run `apply` again." },
-      { id: 'C', text: "Define multiple `provider \"aws\"` blocks using the `alias` meta-argument (e.g., `alias = \"west\"`) and reference `provider = aws.west` in resources." },
-      { id: 'D', text: "Maintain two completely separate repositories and pass state between them over HTTP." }
+      { id: 'A', text: "Keep one provider block and override the region with `-var` on each apply in turn." },
+      { id: 'B', text: "Keep one workspace per region and duplicate the configuration in each of them." },
+      { id: 'C', text: "Declare additional `provider \"aws\"` blocks with `alias`, and set `provider = aws.west` per resource." },
+      { id: 'D', text: "Keep one provider block and set the region from a variable, applying once per region." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -282,10 +282,10 @@ export const HASHICORP_TFP_QUESTIONS_12 = [
     scenario: "An enterprise is modernizing on-premises infrastructure and refactoring monolithic legacy deployments into modular, cloud-native architectures using advanced Terraform practices. The Terraform professional evaluates Provider Aliases to deploy resources across two different AWS regions (us-east-1 and us-west-2) simultaneously within a single Terraform configuration.",
     question: "Which practice or platform feature enables the engineering team to modernize provisioning workflows with minimal operational friction?",
     options: [
-      { id: 'A', text: "Define multiple `provider \"aws\"` blocks using the `alias` meta-argument (e.g., `alias = \"west\"`) and reference `provider = aws.west` in resources." },
-      { id: 'B', text: "Run `terraform apply` in us-east-1, then edit the provider region and run `apply` again." },
-      { id: 'C', text: "Maintain two completely separate repositories and pass state between them over HTTP." },
-      { id: 'D', text: "Terraform does not support managing multiple regions in a single configuration." }
+      { id: 'A', text: "Declare additional `provider \"aws\"` blocks with `alias`, and set `provider = aws.west` per resource." },
+      { id: 'B', text: "Keep one workspace per region and duplicate the configuration in each of them." },
+      { id: 'C', text: "Keep one provider block and set the region from a variable, applying once per region." },
+      { id: 'D', text: "Keep one provider block and override the region with `-var` on each apply in turn." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -303,10 +303,10 @@ export const HASHICORP_TFP_QUESTIONS_12 = [
     scenario: "A platform reliability team is optimizing system resilience to eliminate single points of failure, streamline zero-downtime state refactoring, and automate operational recovery. The Terraform professional evaluates Provider Aliases to deploy resources across two different AWS regions (us-east-1 and us-west-2) simultaneously within a single Terraform configuration.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
-      { id: 'A', text: "Terraform does not support managing multiple regions in a single configuration." },
-      { id: 'B', text: "Maintain two completely separate repositories and pass state between them over HTTP." },
-      { id: 'C', text: "Run `terraform apply` in us-east-1, then edit the provider region and run `apply` again." },
-      { id: 'D', text: "Define multiple `provider \"aws\"` blocks using the `alias` meta-argument (e.g., `alias = \"west\"`) and reference `provider = aws.west` in resources." }
+      { id: 'A', text: "Keep one provider block and override the region with `-var` on each apply in turn." },
+      { id: 'B', text: "Keep one provider block and set the region from a variable, applying once per region." },
+      { id: 'C', text: "Keep one workspace per region and duplicate the configuration in each of them." },
+      { id: 'D', text: "Declare additional `provider \"aws\"` blocks with `alias`, and set `provider = aws.west` per resource." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -324,10 +324,10 @@ export const HASHICORP_TFP_QUESTIONS_12 = [
     scenario: "A principal cloud platform architect is establishing high-availability standards, automated disaster recovery procedures, and infrastructure resilience frameworks across multi-region environments using Terraform. The Terraform professional evaluates Defensive Coding to extract an optional nested configuration value safely without causing Terraform to abort evaluation with an unhandled runtime error if the key is missing.",
     question: "Which architectural approach or advanced configuration satisfies these multi-region recovery and resilience objectives?",
     options: [
-      { id: 'A', text: "Write custom regex parsing functions in local shell scripts." },
-      { id: 'B', text: "Disable type checking across all module variables." },
-      { id: 'C', text: "Use the `try(var.settings.advanced.timeout, 30)` function to provide a fallback value if the attribute lookup fails." },
-      { id: 'D', text: "Let the configuration fail and require users to always provide full object hierarchies." }
+      { id: 'A', text: "Use `lookup(var.settings, \"timeout\", 30)`, which walks the nested attributes." },
+      { id: 'B', text: "Use `coalesce(var.settings.advanced.timeout, 30)` to substitute the default." },
+      { id: 'C', text: "Use `try(var.settings.advanced.timeout, 30)` so a missing attribute falls back." },
+      { id: 'D', text: "Use `can(var.settings.advanced.timeout)` as a `count` guard on the resource." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -345,10 +345,10 @@ export const HASHICORP_TFP_QUESTIONS_12 = [
     scenario: "A complex enterprise multi-cloud platform experiences massive scaling requirements and requires modular, automated, and performant infrastructure provisioning across dozens of teams. The Terraform professional evaluates Defensive Coding to extract an optional nested configuration value safely without causing Terraform to abort evaluation with an unhandled runtime error if the key is missing.",
     question: "Which architectural pattern or Terraform capability manages this scale effectively while preventing dependency bottlenecks and configuration drift?",
     options: [
-      { id: 'A', text: "Disable type checking across all module variables." },
-      { id: 'B', text: "Use the `try(var.settings.advanced.timeout, 30)` function to provide a fallback value if the attribute lookup fails." },
-      { id: 'C', text: "Write custom regex parsing functions in local shell scripts." },
-      { id: 'D', text: "Let the configuration fail and require users to always provide full object hierarchies." }
+      { id: 'A', text: "Use `coalesce(var.settings.advanced.timeout, 30)` to substitute the default." },
+      { id: 'B', text: "Use `try(var.settings.advanced.timeout, 30)` so a missing attribute falls back." },
+      { id: 'C', text: "Use `lookup(var.settings, \"timeout\", 30)`, which walks the nested attributes." },
+      { id: 'D', text: "Use `can(var.settings.advanced.timeout)` as a `count` guard on the resource." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -366,10 +366,10 @@ export const HASHICORP_TFP_QUESTIONS_12 = [
     scenario: "A security compliance auditor requires cryptographic state protection, policy-as-code enforcement, and automated governance across all enterprise Terraform delivery pipelines. The Terraform professional evaluates Defensive Coding to extract an optional nested configuration value safely without causing Terraform to abort evaluation with an unhandled runtime error if the key is missing.",
     question: "Which solution implements these mandatory infrastructure as code security and governance controls?",
     options: [
-      { id: 'A', text: "Let the configuration fail and require users to always provide full object hierarchies." },
-      { id: 'B', text: "Use the `try(var.settings.advanced.timeout, 30)` function to provide a fallback value if the attribute lookup fails." },
-      { id: 'C', text: "Disable type checking across all module variables." },
-      { id: 'D', text: "Write custom regex parsing functions in local shell scripts." }
+      { id: 'A', text: "Use `can(var.settings.advanced.timeout)` as a `count` guard on the resource." },
+      { id: 'B', text: "Use `try(var.settings.advanced.timeout, 30)` so a missing attribute falls back." },
+      { id: 'C', text: "Use `coalesce(var.settings.advanced.timeout, 30)` to substitute the default." },
+      { id: 'D', text: "Use `lookup(var.settings, \"timeout\", 30)`, which walks the nested attributes." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -387,10 +387,10 @@ export const HASHICORP_TFP_QUESTIONS_12 = [
     scenario: "An enterprise is modernizing on-premises infrastructure and refactoring monolithic legacy deployments into modular, cloud-native architectures using advanced Terraform practices. The Terraform professional evaluates Defensive Coding to extract an optional nested configuration value safely without causing Terraform to abort evaluation with an unhandled runtime error if the key is missing.",
     question: "Which practice or platform feature enables the engineering team to modernize provisioning workflows with minimal operational friction?",
     options: [
-      { id: 'A', text: "Use the `try(var.settings.advanced.timeout, 30)` function to provide a fallback value if the attribute lookup fails." },
-      { id: 'B', text: "Let the configuration fail and require users to always provide full object hierarchies." },
-      { id: 'C', text: "Write custom regex parsing functions in local shell scripts." },
-      { id: 'D', text: "Disable type checking across all module variables." }
+      { id: 'A', text: "Use `try(var.settings.advanced.timeout, 30)` so a missing attribute falls back." },
+      { id: 'B', text: "Use `can(var.settings.advanced.timeout)` as a `count` guard on the resource." },
+      { id: 'C', text: "Use `lookup(var.settings, \"timeout\", 30)`, which walks the nested attributes." },
+      { id: 'D', text: "Use `coalesce(var.settings.advanced.timeout, 30)` to substitute the default." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -408,10 +408,10 @@ export const HASHICORP_TFP_QUESTIONS_12 = [
     scenario: "A platform reliability team is optimizing system resilience to eliminate single points of failure, streamline zero-downtime state refactoring, and automate operational recovery. The Terraform professional evaluates Defensive Coding to extract an optional nested configuration value safely without causing Terraform to abort evaluation with an unhandled runtime error if the key is missing.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
-      { id: 'A', text: "Write custom regex parsing functions in local shell scripts." },
-      { id: 'B', text: "Let the configuration fail and require users to always provide full object hierarchies." },
-      { id: 'C', text: "Disable type checking across all module variables." },
-      { id: 'D', text: "Use the `try(var.settings.advanced.timeout, 30)` function to provide a fallback value if the attribute lookup fails." }
+      { id: 'A', text: "Use `lookup(var.settings, \"timeout\", 30)`, which walks the nested attributes." },
+      { id: 'B', text: "Use `can(var.settings.advanced.timeout)` as a `count` guard on the resource." },
+      { id: 'C', text: "Use `coalesce(var.settings.advanced.timeout, 30)` to substitute the default." },
+      { id: 'D', text: "Use `try(var.settings.advanced.timeout, 30)` so a missing attribute falls back." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -429,10 +429,10 @@ export const HASHICORP_TFP_QUESTIONS_12 = [
     scenario: "A principal cloud platform architect is establishing high-availability standards, automated disaster recovery procedures, and infrastructure resilience frameworks across multi-region environments using Terraform. The Terraform professional evaluates HCL Evolution to modernize a legacy Terraform 0.12 codebase to modern Terraform 1.x standards, eliminating deprecated provider data sources and syntax.",
     question: "Which architectural approach or advanced configuration satisfies these multi-region recovery and resilience objectives?",
     options: [
-      { id: 'A', text: "Replace deprecated `template_file` data sources with native `templatefile()` functions and remove obsolete `${var.foo}` redundant interpolation." },
-      { id: 'B', text: "Re-implement the entire infrastructure in shell scripts." },
-      { id: 'C', text: "Ignore deprecation warnings until pipelines completely fail." },
-      { id: 'D', text: "Freeze the codebase permanently on Terraform 0.12." }
+      { id: 'A', text: "Replace the `template_file` data sources with the `templatefile()` function and drop the redundant interpolation." },
+      { id: 'B', text: "Replace the `template_file` data sources with `local_file` resources rendered by an external script." },
+      { id: 'C', text: "Pin the `template` provider to its final release so the deprecation warning stops appearing." },
+      { id: 'D', text: "Pin the Terraform version in `required_version` so the deprecated syntax keeps working." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -450,10 +450,10 @@ export const HASHICORP_TFP_QUESTIONS_12 = [
     scenario: "A complex enterprise multi-cloud platform experiences massive scaling requirements and requires modular, automated, and performant infrastructure provisioning across dozens of teams. The Terraform professional evaluates HCL Evolution to modernize a legacy Terraform 0.12 codebase to modern Terraform 1.x standards, eliminating deprecated provider data sources and syntax.",
     question: "Which architectural pattern or Terraform capability manages this scale effectively while preventing dependency bottlenecks and configuration drift?",
     options: [
-      { id: 'A', text: "Replace deprecated `template_file` data sources with native `templatefile()` functions and remove obsolete `${var.foo}` redundant interpolation." },
-      { id: 'B', text: "Freeze the codebase permanently on Terraform 0.12." },
-      { id: 'C', text: "Re-implement the entire infrastructure in shell scripts." },
-      { id: 'D', text: "Ignore deprecation warnings until pipelines completely fail." }
+      { id: 'A', text: "Replace the `template_file` data sources with the `templatefile()` function and drop the redundant interpolation." },
+      { id: 'B', text: "Pin the Terraform version in `required_version` so the deprecated syntax keeps working." },
+      { id: 'C', text: "Replace the `template_file` data sources with `local_file` resources rendered by an external script." },
+      { id: 'D', text: "Pin the `template` provider to its final release so the deprecation warning stops appearing." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -471,10 +471,10 @@ export const HASHICORP_TFP_QUESTIONS_12 = [
     scenario: "A security compliance auditor requires cryptographic state protection, policy-as-code enforcement, and automated governance across all enterprise Terraform delivery pipelines. The Terraform professional evaluates HCL Evolution to modernize a legacy Terraform 0.12 codebase to modern Terraform 1.x standards, eliminating deprecated provider data sources and syntax.",
     question: "Which solution implements these mandatory infrastructure as code security and governance controls?",
     options: [
-      { id: 'A', text: "Re-implement the entire infrastructure in shell scripts." },
-      { id: 'B', text: "Ignore deprecation warnings until pipelines completely fail." },
-      { id: 'C', text: "Replace deprecated `template_file` data sources with native `templatefile()` functions and remove obsolete `${var.foo}` redundant interpolation." },
-      { id: 'D', text: "Freeze the codebase permanently on Terraform 0.12." }
+      { id: 'A', text: "Replace the `template_file` data sources with `local_file` resources rendered by an external script." },
+      { id: 'B', text: "Pin the `template` provider to its final release so the deprecation warning stops appearing." },
+      { id: 'C', text: "Replace the `template_file` data sources with the `templatefile()` function and drop the redundant interpolation." },
+      { id: 'D', text: "Pin the Terraform version in `required_version` so the deprecated syntax keeps working." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -492,10 +492,10 @@ export const HASHICORP_TFP_QUESTIONS_12 = [
     scenario: "An enterprise is modernizing on-premises infrastructure and refactoring monolithic legacy deployments into modular, cloud-native architectures using advanced Terraform practices. The Terraform professional evaluates HCL Evolution to modernize a legacy Terraform 0.12 codebase to modern Terraform 1.x standards, eliminating deprecated provider data sources and syntax.",
     question: "Which practice or platform feature enables the engineering team to modernize provisioning workflows with minimal operational friction?",
     options: [
-      { id: 'A', text: "Re-implement the entire infrastructure in shell scripts." },
-      { id: 'B', text: "Ignore deprecation warnings until pipelines completely fail." },
-      { id: 'C', text: "Replace deprecated `template_file` data sources with native `templatefile()` functions and remove obsolete `${var.foo}` redundant interpolation." },
-      { id: 'D', text: "Freeze the codebase permanently on Terraform 0.12." }
+      { id: 'A', text: "Replace the `template_file` data sources with `local_file` resources rendered by an external script." },
+      { id: 'B', text: "Pin the `template` provider to its final release so the deprecation warning stops appearing." },
+      { id: 'C', text: "Replace the `template_file` data sources with the `templatefile()` function and drop the redundant interpolation." },
+      { id: 'D', text: "Pin the Terraform version in `required_version` so the deprecated syntax keeps working." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -513,10 +513,10 @@ export const HASHICORP_TFP_QUESTIONS_12 = [
     scenario: "A platform reliability team is optimizing system resilience to eliminate single points of failure, streamline zero-downtime state refactoring, and automate operational recovery. The Terraform professional evaluates HCL Evolution to modernize a legacy Terraform 0.12 codebase to modern Terraform 1.x standards, eliminating deprecated provider data sources and syntax.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
-      { id: 'A', text: "Freeze the codebase permanently on Terraform 0.12." },
-      { id: 'B', text: "Re-implement the entire infrastructure in shell scripts." },
-      { id: 'C', text: "Replace deprecated `template_file` data sources with native `templatefile()` functions and remove obsolete `${var.foo}` redundant interpolation." },
-      { id: 'D', text: "Ignore deprecation warnings until pipelines completely fail." }
+      { id: 'A', text: "Pin the Terraform version in `required_version` so the deprecated syntax keeps working." },
+      { id: 'B', text: "Replace the `template_file` data sources with `local_file` resources rendered by an external script." },
+      { id: 'C', text: "Replace the `template_file` data sources with the `templatefile()` function and drop the redundant interpolation." },
+      { id: 'D', text: "Pin the `template` provider to its final release so the deprecation warning stops appearing." }
     ],
     correctAnswers: ['C'],
     type: "single",

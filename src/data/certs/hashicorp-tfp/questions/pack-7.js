@@ -9,10 +9,10 @@ export const HASHICORP_TFP_QUESTIONS_7 = [
     scenario: "A reviewer sees the expression \"${var.name}\" used as the whole value of an argument.",
     question: "What is the current idiom?",
     options: [
-      { id: 'A', text: "Wrap it in the tostring function." },
-      { id: 'B', text: "Interpolation is required for all variable references." },
-      { id: 'C', text: "Write var.name directly; wrapping a single reference in a template string is redundant and terraform fmt style guidance discourages it." },
-      { id: 'D', text: "Use ${{ var.name }} instead." }
+      { id: 'A', text: "Wrap it in `tostring()` so the type is explicit at the point of use." },
+      { id: 'B', text: "Interpolation is required for every variable reference in an argument." },
+      { id: 'C', text: "Write `var.name` directly; wrapping one reference in a template string is redundant." },
+      { id: 'D', text: "Use the doubled-brace form, which is the current template syntax." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -30,10 +30,10 @@ export const HASHICORP_TFP_QUESTIONS_7 = [
     scenario: "A root module passes an aliased provider to a child module, which in turn calls a grandchild module that also needs it.",
     question: "What must the child module do?",
     options: [
-      { id: 'A', text: "Use depends_on to link the provider." },
-      { id: 'B', text: "Nothing - aliased providers are inherited automatically at every level." },
-      { id: 'C', text: "Pass the provider explicitly to the grandchild with its own providers argument, because implicit inheritance only carries default provider configurations." },
-      { id: 'D', text: "Define a new provider block in the grandchild." }
+      { id: 'A', text: "Add `depends_on` between the modules so the provider is linked through." },
+      { id: 'B', text: "Nothing: an aliased provider is inherited automatically at every level." },
+      { id: 'C', text: "Pass the provider with `providers`, since only defaults are inherited." },
+      { id: 'D', text: "Declare a new provider block inside the grandchild module itself." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -72,10 +72,10 @@ export const HASHICORP_TFP_QUESTIONS_7 = [
     scenario: "Large applies intermittently fail with throttling errors from the cloud API.",
     question: "Which measures are appropriate? (Choose two.)",
     options: [
-      { id: 'A', text: "Split the configuration so each run touches fewer resources." },
+      { id: 'A', text: "Split the configuration so each run touches less." },
       { id: 'B', text: "Remove the dependency lock file." },
       { id: 'C', text: "Disable state locking to speed the run up." },
-      { id: 'D', text: "Reduce -parallelism so fewer concurrent provider operations are in flight." }
+      { id: 'D', text: "Reduce `-parallelism` so fewer calls run at once." }
     ],
     correctAnswers: ['A', 'D'],
     type: "multiple",
@@ -93,10 +93,10 @@ export const HASHICORP_TFP_QUESTIONS_7 = [
     scenario: "A resource block was deleted, and plan now fails with a reference error in several other places.",
     question: "What must happen?",
     options: [
-      { id: 'A', text: "Every reference to the removed address must be updated or removed too, since Terraform resolves references statically before planning." },
-      { id: 'B', text: "Run terraform refresh to drop stale references." },
-      { id: 'C', text: "Run terraform init to rebuild the reference index." },
-      { id: 'D', text: "Add a moved block for the deleted resource." }
+      { id: 'A', text: "Every reference to the removed address must go too." },
+      { id: 'B', text: "Run `terraform refresh`, which drops the references that no longer resolve." },
+      { id: 'C', text: "Run `terraform init`, which rebuilds the configuration's reference index." },
+      { id: 'D', text: "Add a `moved` block for the deleted resource so the references follow." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -114,10 +114,10 @@ export const HASHICORP_TFP_QUESTIONS_7 = [
     scenario: "A security team must review who changed workspace settings and who applied runs across the organisation over the last quarter.",
     question: "Which source provides that?",
     options: [
-      { id: 'A', text: "The organisation audit trail, streamed or exported for retention, complemented by per-workspace run history." },
-      { id: 'B', text: "Provider debug logs." },
-      { id: 'C', text: "The private registry publication log." },
-      { id: 'D', text: "The state file history alone." }
+      { id: 'A', text: "The organisation audit trail, with per-workspace run history." },
+      { id: 'B', text: "The provider debug logs collected from each of the runs." },
+      { id: 'C', text: "The private registry's own module publication log." },
+      { id: 'D', text: "The state file's version history on its own." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -135,10 +135,10 @@ export const HASHICORP_TFP_QUESTIONS_7 = [
     scenario: "A resource name must combine a prefix, an environment, and a short hash, stay within a 32 character limit, and contain only lowercase letters, digits, and hyphens.",
     question: "Which combination of ideas is soundest?",
     options: [
-      { id: 'A', text: "Use timestamp() in the name to avoid collisions." },
-      { id: 'B', text: "Compose the name in a local with join and lower, truncate with substr, and add a variable validation asserting the final pattern and length." },
-      { id: 'C', text: "Use uuid() so uniqueness is guaranteed." },
-      { id: 'D', text: "Concatenate the parts inline in every resource and hope they fit." }
+      { id: 'A', text: "Include `timestamp()` in the name so collisions cannot occur at all." },
+      { id: 'B', text: "Compose it in a local, truncate it, and validate the pattern." },
+      { id: 'C', text: "Include `uuid()` in the name, which guarantees it stays unique." },
+      { id: 'D', text: "Concatenate the parts inline at each resource and trust the length." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -159,7 +159,7 @@ export const HASHICORP_TFP_QUESTIONS_7 = [
       { id: 'A', text: "Set an environment variable named after the module input." },
       { id: 'B', text: "Fork the module for production." },
       { id: 'C', text: "Edit the default inside the module for production." },
-      { id: 'D', text: "Pass the production value as an argument in the module block of the production root configuration." }
+      { id: 'D', text: "Pass the production value in the module block of that root." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -177,10 +177,10 @@ export const HASHICORP_TFP_QUESTIONS_7 = [
     scenario: "Someone ran terraform state push with an old state file, and Terraform now plans to recreate resources that already exist.",
     question: "What is the recovery?",
     options: [
-      { id: 'A', text: "Run terraform refresh, which rebuilds the missing entries." },
-      { id: 'B', text: "Delete the state and re-import everything, which is the fastest path." },
-      { id: 'C', text: "Restore the correct state version from backend versioning or the HCP Terraform state history, verify with terraform plan showing no changes, and investigate how the push was permitted." },
-      { id: 'D', text: "Apply the plan so state and reality agree again." }
+      { id: 'A', text: "Run `terraform refresh`, which rebuilds the missing entries from the live infrastructure." },
+      { id: 'B', text: "Delete the state and import everything again, which is the fastest path back." },
+      { id: 'C', text: "Restore the correct state version, confirm with a plan, then find the cause." },
+      { id: 'D', text: "Apply the plan as it stands so that the state and reality agree once more." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -198,10 +198,10 @@ export const HASHICORP_TFP_QUESTIONS_7 = [
     scenario: "A team currently applies production changes from individual workstations with personal credentials.",
     question: "Which risks does moving to a central runner address?",
     options: [
-      { id: 'A', text: "Only the cost of cloud API calls." },
-      { id: 'B', text: "Only the speed of the apply." },
-      { id: 'C', text: "Nothing, provided everyone uses the same Terraform version." },
-      { id: 'D', text: "Inconsistent tool and provider versions, unaudited use of personal credentials, no shared run history, and no enforced review or policy gate." }
+      { id: 'A', text: "Only the cost of the cloud API calls each local run makes against the account." },
+      { id: 'B', text: "Only the speed of the apply, since a laptop is slower than a build agent." },
+      { id: 'C', text: "Nothing, as long as everyone is on the same Terraform and provider versions." },
+      { id: 'D', text: "Inconsistent versions, unaudited credentials, no run history, no policy gate." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -220,7 +220,7 @@ export const HASHICORP_TFP_QUESTIONS_7 = [
     question: "Which variable narrows the output?",
     options: [
       { id: 'A', text: "TF_DEBUG_PROVIDER=1" },
-      { id: 'B', text: "TF_LOG_PROVIDER, which sets the level for provider logs independently of TF_LOG_CORE." },
+      { id: 'B', text: "`TF_LOG_PROVIDER`, which is set independently of core." },
       { id: 'C', text: "TF_LOG=PROVIDER" },
       { id: 'D', text: "TF_LOG_PATH=provider.log, which filters by component." }
     ],
@@ -243,7 +243,7 @@ export const HASHICORP_TFP_QUESTIONS_7 = [
       { id: 'A', text: "Declare it as sensitive, which forces the caller to supply it." },
       { id: 'B', text: "Declare it with required = true." },
       { id: 'C', text: "Declare it with default = null, which makes it required." },
-      { id: 'D', text: "Declare the variable with no default, and run with -input=false so a missing value is an error instead of a prompt." }
+      { id: 'D', text: "No default on the variable, with `-input=false` on the run." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -262,7 +262,7 @@ export const HASHICORP_TFP_QUESTIONS_7 = [
     question: "Which testing feature supports that?",
     options: [
       { id: 'A', text: "Running terraform validate instead, which evaluates outputs." },
-      { id: 'B', text: "Mock providers together with run blocks using command = plan, so resources are never really created." },
+      { id: 'B', text: "Mock providers with `run` blocks at `command = plan`." },
       { id: 'C', text: "Setting parallelism to zero in the test file." },
       { id: 'D', text: "Marking the test file with dry_run = true." }
     ],
@@ -282,10 +282,10 @@ export const HASHICORP_TFP_QUESTIONS_7 = [
     scenario: "An engineer tries terraform workspace delete dev while resources still exist in that workspace state.",
     question: "What happens?",
     options: [
-      { id: 'A', text: "The command always succeeds and state is archived." },
-      { id: 'B', text: "The workspace and all its resources are destroyed." },
-      { id: 'C', text: "Terraform refuses unless the state is empty, because deleting it would orphan the managed resources; -force overrides at that cost." },
-      { id: 'D', text: "The workspace is deleted and its state merged into default." }
+      { id: 'A', text: "It always succeeds, and the state is archived rather than removed." },
+      { id: 'B', text: "The workspace and every resource it manages are destroyed together." },
+      { id: 'C', text: "It refuses unless the state is empty, to avoid orphaning." },
+      { id: 'D', text: "The workspace is deleted and its state merged into the default one." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -304,7 +304,7 @@ export const HASHICORP_TFP_QUESTIONS_7 = [
     question: "Which configuration matches?",
     options: [
       { id: 'A', text: "Manual apply everywhere to keep the settings uniform." },
-      { id: 'B', text: "Auto-apply enabled on development workspaces and disabled on production, where an authorised user confirms the plan." },
+      { id: 'B', text: "Auto-apply on development and off in production, where a person confirms." },
       { id: 'C', text: "Auto-apply everywhere with a policy that rejects production changes." },
       { id: 'D', text: "Auto-apply is a global organisation setting and cannot vary." }
     ],
@@ -324,10 +324,10 @@ export const HASHICORP_TFP_QUESTIONS_7 = [
     scenario: "A pipeline adds -refresh=false to speed up plans on a large configuration.",
     question: "What is the trade-off?",
     options: [
-      { id: 'A', text: "State is never written again." },
-      { id: 'B', text: "The plan is faster because provider reads are skipped, but it is computed against possibly stale state and will not show drift." },
-      { id: 'C', text: "The plan refuses to run without a saved plan file." },
-      { id: 'D', text: "The plan is identical but cached." }
+      { id: 'A', text: "The state is never written again, so a later run has nothing to compare." },
+      { id: 'B', text: "The plan is faster since the reads are skipped, but it may be stale and shows no drift." },
+      { id: 'C', text: "The plan refuses to run at all without a previously saved plan file." },
+      { id: 'D', text: "The plan is identical to a normal one, but served from a cache." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -345,10 +345,10 @@ export const HASHICORP_TFP_QUESTIONS_7 = [
     scenario: "Twenty firewall rules differ only in port, protocol, and description, and the current configuration repeats a nearly identical block twenty times.",
     question: "Which refactor is idiomatic?",
     options: [
-      { id: 'A', text: "Wrap the twenty blocks in a module and call it once." },
-      { id: 'B', text: "Move the rule data into a map local or variable and create the rules with for_each, so the data and the resource shape are separate." },
-      { id: 'C', text: "Generate the HCL with a shell script before each run." },
-      { id: 'D', text: "Use count with twenty conditional expressions." }
+      { id: 'A', text: "Wrap the twenty blocks in a module and call that module once." },
+      { id: 'B', text: "Move the rule data into a map and create the rules with `for_each`." },
+      { id: 'C', text: "Generate the HCL from a script before each plan is run." },
+      { id: 'D', text: "Use `count` with twenty conditional expressions over it." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -366,10 +366,10 @@ export const HASHICORP_TFP_QUESTIONS_7 = [
     scenario: "A plan completes cleanly and the apply fails immediately with an authorisation error from the cloud.",
     question: "Why can plan pass while apply fails?",
     options: [
-      { id: 'A', text: "Apply uses a different provider version." },
-      { id: 'B', text: "The plan file caches credentials that then expire." },
-      { id: 'C', text: "Plan mostly performs read operations, so an identity with read but not write permissions can plan successfully and only fail when the write is attempted." },
-      { id: 'D', text: "Plan does not contact the provider at all." }
+      { id: 'A', text: "Apply resolves a different provider version from the one the plan was built with." },
+      { id: 'B', text: "The saved plan caches the credentials, which have expired by the time apply runs." },
+      { id: 'C', text: "Plan mostly reads, so an identity with read but not write succeeds until the write is attempted." },
+      { id: 'D', text: "Plan never contacts the provider, so no permission is exercised until the apply." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -387,10 +387,10 @@ export const HASHICORP_TFP_QUESTIONS_7 = [
     scenario: "A new module version must be proven against a real environment before thirty consumers adopt it.",
     question: "Which practice fits?",
     options: [
-      { id: 'A', text: "Bump every consumer at once so problems are found quickly." },
-      { id: 'B', text: "Skip testing because semantic versioning guarantees compatibility." },
-      { id: 'C', text: "Publish the version and let consumers discover issues." },
-      { id: 'D', text: "Adopt the new version in a low-risk environment first, run its tests and a plan review there, then promote the version constraint outward." }
+      { id: 'A', text: "Bump every consumer at once, so any problem is found while attention is on it." },
+      { id: 'B', text: "Skip the testing, since semantic versioning already guarantees compatibility." },
+      { id: 'C', text: "Publish the version and let each consumer discover the issues in its own time." },
+      { id: 'D', text: "Adopt it in a low-risk environment first, review a plan there, then promote the constraint." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -408,10 +408,10 @@ export const HASHICORP_TFP_QUESTIONS_7 = [
     scenario: "A state file has grown to hundreds of megabytes, plans are slow, and the backend occasionally times out.",
     question: "Which remedy addresses the cause?",
     options: [
-      { id: 'A', text: "Compress the state file in the backend." },
-      { id: 'B', text: "Increase the backend timeout and continue." },
-      { id: 'C', text: "Switch to the local backend, which has no size limit." },
-      { id: 'D', text: "Split the configuration into several states along ownership and lifecycle boundaries, and remove resources that no longer need Terraform management." }
+      { id: 'A', text: "Compress the state object in the backend so each operation transfers less." },
+      { id: 'B', text: "Raise the backend's timeout so the larger state has time to transfer." },
+      { id: 'C', text: "Move to the local backend, which imposes no size limit on the state." },
+      { id: 'D', text: "Split into several states by ownership, and drop what no longer needs managing." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -450,10 +450,10 @@ export const HASHICORP_TFP_QUESTIONS_7 = [
     scenario: "A provider offers both an inline rule block on a security group and a standalone rule resource, and a team plans to manage some rules from another configuration.",
     question: "Which choice is correct and why?",
     options: [
-      { id: 'A', text: "Use inline blocks, because they plan faster." },
-      { id: 'B', text: "It makes no difference to behaviour." },
-      { id: 'C', text: "Use both forms together for redundancy." },
-      { id: 'D', text: "Use the standalone rule resource, because mixing inline blocks with externally managed rules causes each apply to remove rules it does not know about." }
+      { id: 'A', text: "The inline blocks, since they plan faster and keep the rules beside the group." },
+      { id: 'B', text: "It makes no behavioural difference, so either form may be used as preferred." },
+      { id: 'C', text: "Both forms together, so the rules are expressed redundantly and survive drift." },
+      { id: 'D', text: "The standalone rule resource, since inline blocks remove rules they do not know." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -472,7 +472,7 @@ export const HASHICORP_TFP_QUESTIONS_7 = [
     question: "How should the pipeline behave?",
     options: [
       { id: 'A', text: "Skip the check and continue, since the plan was already reviewed." },
-      { id: 'B', text: "Fail the pipeline and block the apply, because an unavailable check must not be treated as a pass." },
+      { id: 'B', text: "Fail the pipeline, since an unavailable check is not a pass." },
       { id: 'C', text: "Apply first and evaluate the policy afterwards." },
       { id: 'D', text: "Retry indefinitely until the check responds." }
     ],
@@ -492,10 +492,10 @@ export const HASHICORP_TFP_QUESTIONS_7 = [
     scenario: "A destroy plan for one small configuration lists resources the team believed belonged to another stack.",
     question: "What is the most likely cause and the safe response?",
     options: [
-      { id: 'A', text: "Terraform destroys resources by tag, so the tags overlap." },
-      { id: 'B', text: "The plan is showing resources from data sources." },
-      { id: 'C', text: "Destroy always includes every resource in the account." },
-      { id: 'D', text: "The working directory is pointed at the wrong state - a wrong backend key, workspace, or cloud workspace - so stop, confirm the backend and workspace, and inspect state before running anything." }
+      { id: 'A', text: "Terraform destroys by tag, so another configuration's resources carry the same tags." },
+      { id: 'B', text: "The plan is listing resources that come from data sources rather than from state." },
+      { id: 'C', text: "A destroy always covers every resource in the account the credentials can reach." },
+      { id: 'D', text: "The directory points at the wrong state, so confirm backend and workspace." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -515,7 +515,7 @@ export const HASHICORP_TFP_QUESTIONS_7 = [
     options: [
       { id: 'A', text: "Exact version pins for both providers and full provider configuration blocks." },
       { id: 'B', text: "Only a required_version constraint, leaving providers undeclared." },
-      { id: 'C', text: "required_providers entries with source addresses and permissive lower-bound constraints, and no provider configuration blocks." },
+      { id: 'C', text: "`required_providers` with source addresses and lower-bound constraints." },
       { id: 'D', text: "A backend block plus required_providers." }
     ],
     correctAnswers: ['C'],

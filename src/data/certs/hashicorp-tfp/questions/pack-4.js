@@ -30,10 +30,10 @@ export const HASHICORP_TFP_QUESTIONS_4 = [
     scenario: "A single state file holds networking, shared data stores, and a dozen applications. A mistake in one application plan risks the whole environment.",
     question: "Which restructuring addresses the risk?",
     options: [
-      { id: 'A', text: "Split into separate configurations and state files by lifecycle and ownership, wiring them together with outputs or data sources." },
-      { id: 'B', text: "Keep one state file but always use -target." },
-      { id: 'C', text: "Move every resource into one large module." },
-      { id: 'D', text: "Enable versioning on the state bucket." }
+      { id: 'A', text: "Split into separate states by lifecycle, wired together by outputs." },
+      { id: 'B', text: "Keep one state file but always apply it with `-target` on the changed part." },
+      { id: 'C', text: "Move every resource into one large module so the graph is easier to read." },
+      { id: 'D', text: "Enable versioning on the state bucket so a bad apply can be rolled back." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -52,7 +52,7 @@ export const HASHICORP_TFP_QUESTIONS_4 = [
     question: "Which answer is correct?",
     options: [
       { id: 'A', text: "The top level of the git repository." },
-      { id: 'B', text: "The directory in which Terraform is run - its .tf files form the root module, and any module blocks in them call child modules." },
+      { id: 'B', text: "The directory Terraform runs in: its `.tf` files are the root module." },
       { id: 'C', text: "Whichever directory contains the backend block, regardless of where Terraform runs." },
       { id: 'D', text: "The directory named root or modules/root." }
     ],
@@ -72,7 +72,7 @@ export const HASHICORP_TFP_QUESTIONS_4 = [
     scenario: "Every CI job spends minutes downloading the same providers from the internet, and the network is metered.",
     question: "Which mechanism removes the repeated downloads?",
     options: [
-      { id: 'A', text: "A provider plugin cache directory (TF_PLUGIN_CACHE_DIR) persisted between jobs, or a provider mirror." },
+      { id: 'A', text: "A provider plugin cache directory persisted between jobs, or a mirror." },
       { id: 'B', text: "Removing version constraints so any cached version is accepted." },
       { id: 'C', text: "Running terraform init -upgrade on every job." },
       { id: 'D', text: "Committing the .terraform directory to the repository." }
@@ -114,10 +114,10 @@ export const HASHICORP_TFP_QUESTIONS_4 = [
     scenario: "A plan fails with an error stating that a sensitive value cannot be used as a for_each argument or a resource identifier.",
     question: "Why does Terraform refuse, and what is the reasonable response?",
     options: [
-      { id: 'A', text: "Sensitive values are always null at plan time; add a default." },
-      { id: 'B', text: "The provider does not support sensitive inputs; upgrade it." },
-      { id: 'C', text: "Wrap the value in nonsensitive() as the standard fix." },
-      { id: 'D', text: "Instance keys appear in plan output and state addresses, which would expose the sensitive value; derive the keys from a non-sensitive source instead." }
+      { id: 'A', text: "A sensitive value is null at plan time, so the variable needs a default for planning." },
+      { id: 'B', text: "The provider does not support sensitive inputs at this version, so upgrade it." },
+      { id: 'C', text: "Wrap the value in `nonsensitive()`, which is the standard fix for this error." },
+      { id: 'D', text: "Instance keys appear in plan output, so derive them from a non-sensitive source." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -135,10 +135,10 @@ export const HASHICORP_TFP_QUESTIONS_4 = [
     scenario: "An application workspace needs outputs published by a networking workspace in the same organisation, with access controlled centrally.",
     question: "Which approach is idiomatic?",
     options: [
-      { id: 'A', text: "Copy the values into workspace variables manually after each run." },
-      { id: 'B', text: "Use the tfe_outputs data source (or terraform_remote_state with the cloud backend) and grant the consuming workspace remote state access." },
+      { id: 'A', text: "Copy the values into the workspace variables after each networking run." },
+      { id: 'B', text: "Use the `tfe_outputs` data source and grant the consumer remote state access." },
       { id: 'C', text: "Give the application workspace write access to the networking state." },
-      { id: 'D', text: "Download the state file and commit it to the application repository." }
+      { id: 'D', text: "Download the state file and commit it into the application repository." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -177,10 +177,10 @@ export const HASHICORP_TFP_QUESTIONS_4 = [
     scenario: "A configuration calls a module that calls a module that calls a module, and debugging a value now requires tracing four levels of variable pass-through.",
     question: "Which guidance applies?",
     options: [
-      { id: 'A', text: "Deep nesting is required for reuse and should be increased." },
-      { id: 'B', text: "Terraform forbids more than two levels of nesting." },
-      { id: 'C', text: "Keep nesting shallow - typically one or two levels - because each layer adds pass-through variables and obscures where values come from." },
-      { id: 'D', text: "Nesting depth has no effect because the graph is flattened." }
+      { id: 'A', text: "Deep nesting is what makes reuse possible, so it should be increased." },
+      { id: 'B', text: "Terraform forbids more than two levels of module nesting outright." },
+      { id: 'C', text: "Keep nesting shallow, since each layer hides where values come from." },
+      { id: 'D', text: "Nesting depth is irrelevant, since the graph is flattened at plan." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -219,10 +219,10 @@ export const HASHICORP_TFP_QUESTIONS_4 = [
     scenario: "An organisation wants to be alerted when infrastructure no longer matches its configuration, without automatically correcting it.",
     question: "Which approach implements that?",
     options: [
-      { id: 'A', text: "Run terraform apply -auto-approve nightly." },
-      { id: 'B', text: "Run terraform refresh and diff the state files by hand." },
-      { id: 'C', text: "Enable state versioning and compare serial numbers." },
-      { id: 'D', text: "Run terraform plan -detailed-exitcode on a schedule and alert when it exits 2, or use HCP Terraform health assessments." }
+      { id: 'A', text: "Run `apply -auto-approve` nightly so any drift is corrected at once." },
+      { id: 'B', text: "Run `terraform refresh` nightly and diff the two state files by hand." },
+      { id: 'C', text: "Enable state versioning and compare the serial between the versions." },
+      { id: 'D', text: "Run `plan -detailed-exitcode` on a schedule and alert on exit code 2." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -240,10 +240,10 @@ export const HASHICORP_TFP_QUESTIONS_4 = [
     scenario: "terraform validate reports \"Reference to undeclared resource: a managed resource aws_subnet.private has not been declared in the root module\".",
     question: "Which cause fits?",
     options: [
-      { id: 'A', text: "The resource is declared inside a child module, so the root must reference a module output instead of the resource address." },
-      { id: 'B', text: "The provider has not been initialised." },
-      { id: 'C', text: "The state file has not been refreshed." },
-      { id: 'D', text: "The resource exists in the cloud but not in state." }
+      { id: 'A', text: "It is declared in a child module, so the root must read a module output instead." },
+      { id: 'B', text: "The provider has not been initialised in the root working directory." },
+      { id: 'C', text: "The state file has not been refreshed since the resource was added." },
+      { id: 'D', text: "The resource exists in the cloud account but not yet in the state." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -261,10 +261,10 @@ export const HASHICORP_TFP_QUESTIONS_4 = [
     scenario: "An engineer runs terraform state rm aws_s3_bucket.logs.",
     question: "What happens?",
     options: [
-      { id: 'A', text: "Terraform forgets the bucket; the real bucket still exists but is no longer managed, and the next plan would try to create it if the configuration still declares it." },
-      { id: 'B', text: "The bucket is marked for replacement on the next apply." },
-      { id: 'C', text: "The bucket is deleted from the cloud." },
-      { id: 'D', text: "The configuration block is removed from the .tf files." }
+      { id: 'A', text: "Terraform forgets it: the bucket remains but unmanaged, and would be recreated." },
+      { id: 'B', text: "The bucket is marked for replacement, so the next apply destroys and recreates it." },
+      { id: 'C', text: "The bucket is deleted from the cloud along with its entry in the state file." },
+      { id: 'D', text: "The resource block is removed from the configuration files as well as state." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -282,10 +282,10 @@ export const HASHICORP_TFP_QUESTIONS_4 = [
     scenario: "A module is used in eight regions by eight root configurations. A change is needed that would break the two oldest consumers.",
     question: "Which release approach limits disruption?",
     options: [
-      { id: 'A', text: "Fork the module into two permanent copies." },
-      { id: 'B', text: "Add the new behaviour behind an optional input with a backwards-compatible default, release it as a minor version, and deprecate the old behaviour before removing it in a major release." },
-      { id: 'C', text: "Make the breaking change immediately and tell consumers to fix their code." },
-      { id: 'D', text: "Remove version constraints so everyone tracks main." }
+      { id: 'A', text: "Fork the module into two copies and let consumers move between them at their own pace." },
+      { id: 'B', text: "Add it behind an optional input with a compatible default, in a minor release." },
+      { id: 'C', text: "Make the breaking change now as a major release and tell consumers to update their calls." },
+      { id: 'D', text: "Drop the version constraints so every consumer tracks the module's default branch." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -303,10 +303,10 @@ export const HASHICORP_TFP_QUESTIONS_4 = [
     scenario: "Resources must be created in two AWS regions from one configuration.",
     question: "How is that expressed?",
     options: [
-      { id: 'A', text: "Two required_providers entries for the same provider." },
-      { id: 'B', text: "Two provider blocks, one default and one with alias = \"west\", with resources selecting provider = aws.west where needed." },
-      { id: 'C', text: "A for_each on the provider block." },
-      { id: 'D', text: "One provider block whose region is a list." }
+      { id: 'A', text: "Two `required_providers` entries for the same provider source." },
+      { id: 'B', text: "Two provider blocks, one default and one aliased, selected per resource." },
+      { id: 'C', text: "A `for_each` on the provider block over the region list." },
+      { id: 'D', text: "One provider block whose region argument takes a list." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -366,10 +366,10 @@ export const HASHICORP_TFP_QUESTIONS_4 = [
     scenario: "A configuration with several thousand resources takes twenty minutes to plan, dominated by provider API calls during refresh.",
     question: "Which measures genuinely help? (Choose two.)",
     options: [
-      { id: 'A', text: "Split the configuration into smaller state files aligned to ownership and rate of change." },
+      { id: 'A', text: "Split into smaller state files by ownership." },
       { id: 'B', text: "Set -parallelism=1 to reduce provider load." },
       { id: 'C', text: "Remove the dependency lock file." },
-      { id: 'D', text: "Reduce unnecessary data sources and avoid re-reading large collections on every run." }
+      { id: 'D', text: "Remove data sources that re-read large collections." }
     ],
     correctAnswers: ['A', 'D'],
     type: "multiple",
@@ -387,10 +387,10 @@ export const HASHICORP_TFP_QUESTIONS_4 = [
     scenario: "A team upgrades Terraform from an older minor version, applies once, and then a colleague on the old version cannot run plan.",
     question: "Why?",
     options: [
-      { id: 'A', text: "The backend rejects connections from mismatched clients." },
-      { id: 'B', text: "State records the Terraform version that wrote it, and older versions refuse to operate on state written by a newer one; everyone must upgrade together." },
-      { id: 'C', text: "The provider lock file pins the CLI version." },
-      { id: 'D', text: "The state file format is unreadable to any other version." }
+      { id: 'A', text: "The backend rejects connections from clients whose version does not match its own." },
+      { id: 'B', text: "State records the version that wrote it, and an older binary refuses to operate on newer state." },
+      { id: 'C', text: "The dependency lock file pins the CLI version as well as the provider versions." },
+      { id: 'D', text: "The state format is unreadable to any version other than the one that wrote it." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -429,10 +429,10 @@ export const HASHICORP_TFP_QUESTIONS_4 = [
     scenario: "A module creates a VPC, subnets, and a route table, and its consumers need to attach further resources.",
     question: "Which outputs are most useful?",
     options: [
-      { id: 'A', text: "The provider credentials used during the run." },
-      { id: 'B', text: "Every attribute of every resource, so nothing is missing." },
-      { id: 'C', text: "The input variables, echoed back." },
-      { id: 'D', text: "The identifiers and attributes consumers must reference, such as vpc_id and subnet_ids, described and typed clearly." }
+      { id: 'A', text: "The provider credentials the module used during the run." },
+      { id: 'B', text: "Every attribute of every resource, so nothing can be missing." },
+      { id: 'C', text: "The input variables, echoed back for the caller to confirm." },
+      { id: 'D', text: "The identifiers consumers reference, such as `vpc_id`, typed and described." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -450,10 +450,10 @@ export const HASHICORP_TFP_QUESTIONS_4 = [
     scenario: "An organisation wants application teams to create standard infrastructure from a catalogue without writing Terraform or having repository access.",
     question: "Which capability supports that?",
     options: [
-      { id: 'A', text: "A variable set applied organisation-wide." },
-      { id: 'B', text: "No-code modules published in the private registry, which teams instantiate through the UI into new workspaces." },
-      { id: 'C', text: "A Sentinel policy that creates resources." },
-      { id: 'D', text: "A run task that generates configuration." }
+      { id: 'A', text: "A variable set applied across the whole organisation's workspaces." },
+      { id: 'B', text: "No-code modules in the private registry, instantiated into new workspaces." },
+      { id: 'C', text: "A Sentinel policy that creates the resources when a run passes." },
+      { id: 'D', text: "A run task that generates the configuration before each plan." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -471,10 +471,10 @@ export const HASHICORP_TFP_QUESTIONS_4 = [
     scenario: "A pipeline plans on a pull request and applies after merge, several hours later. Occasionally the apply does something the reviewer did not see.",
     question: "Which change makes the applied change equal the reviewed one?",
     options: [
-      { id: 'A', text: "Re-run plan at apply time and compare the text output manually." },
-      { id: 'B', text: "Use -auto-approve so no human is involved." },
-      { id: 'C', text: "Disable refresh during apply." },
-      { id: 'D', text: "Save the plan artifact and apply that exact file, so a state change since the plan causes the apply to fail rather than silently differ." }
+      { id: 'A', text: "Re-run the plan at apply time and compare the two text outputs by eye." },
+      { id: 'B', text: "Use `-auto-approve` so no human has to compare anything at all." },
+      { id: 'C', text: "Disable refresh during the apply so the state cannot have moved." },
+      { id: 'D', text: "Save the plan and apply that file, so a state change fails the apply." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -492,7 +492,7 @@ export const HASHICORP_TFP_QUESTIONS_4 = [
     scenario: "An operator deleted a managed database by hand in the console. The next Terraform plan is run.",
     question: "What does Terraform do?",
     options: [
-      { id: 'A', text: "Refresh detects the object is gone and the plan proposes to create it again, since the configuration still declares it." },
+      { id: 'A', text: "Refresh sees it is gone and the plan proposes to create it again." },
       { id: 'B', text: "Terraform silently removes the resource from the configuration." },
       { id: 'C', text: "Terraform restores the deleted object from state." },
       { id: 'D', text: "Terraform errors out and refuses to plan until state is repaired." }
@@ -513,10 +513,10 @@ export const HASHICORP_TFP_QUESTIONS_4 = [
     scenario: "A production resource changed unexpectedly and the team needs to know which run made the change and who approved it.",
     question: "Which source answers that most directly?",
     options: [
-      { id: 'A', text: "terraform graph output." },
-      { id: 'B', text: "The dependency lock file." },
+      { id: 'A', text: "The `terraform graph` output for the configuration at that revision." },
+      { id: 'B', text: "The dependency lock file, which records the versions and their checksums." },
       { id: 'C', text: "The current state file, which records the author of each attribute." },
-      { id: 'D', text: "The run history in HCP Terraform (or the CI job history and state version history), which records the plan, the applier, and the resulting state version." }
+      { id: 'D', text: "The run history — plan, applier and resulting state version — in the platform or CI." }
     ],
     correctAnswers: ['D'],
     type: "single",

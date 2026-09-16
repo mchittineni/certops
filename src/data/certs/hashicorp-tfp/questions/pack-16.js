@@ -9,10 +9,10 @@ export const HASHICORP_TFP_QUESTIONS_16 = [
     scenario: "A principal cloud platform architect is establishing high-availability standards, automated disaster recovery procedures, and infrastructure resilience frameworks across multi-region environments using Terraform. The Terraform professional evaluates State Encryption to protect sensitive database passwords and private keys stored in Terraform state with customer-managed cryptographic keys and automated key rotation.",
     question: "Which architectural approach or advanced configuration satisfies these multi-region recovery and resilience objectives?",
     options: [
-      { id: 'A', text: "Configure the native `encryption {}` block in Terraform configuration with KMS key providers and method configurations." },
-      { id: 'B', text: "Encode the state file with base64 and assume it is cryptographically secure." },
-      { id: 'C', text: "Commit the state file to private GitHub repositories with no encryption." },
-      { id: 'D', text: "Disable state persistence to avoid storing secrets." }
+      { id: 'A', text: "Configure the native `encryption {}` block with a KMS key provider and method." },
+      { id: 'B', text: "Configure the backend's own server-side encryption with a customer-managed key." },
+      { id: 'C', text: "Configure the backend to write to a private bucket with versioning switched on." },
+      { id: 'D', text: "Configure `sensitive = true` on the variables so the values are absent from state." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -30,10 +30,10 @@ export const HASHICORP_TFP_QUESTIONS_16 = [
     scenario: "A complex enterprise multi-cloud platform experiences massive scaling requirements and requires modular, automated, and performant infrastructure provisioning across dozens of teams. The Terraform professional evaluates State Encryption to protect sensitive database passwords and private keys stored in Terraform state with customer-managed cryptographic keys and automated key rotation.",
     question: "Which architectural pattern or Terraform capability manages this scale effectively while preventing dependency bottlenecks and configuration drift?",
     options: [
-      { id: 'A', text: "Disable state persistence to avoid storing secrets." },
-      { id: 'B', text: "Commit the state file to private GitHub repositories with no encryption." },
-      { id: 'C', text: "Encode the state file with base64 and assume it is cryptographically secure." },
-      { id: 'D', text: "Configure the native `encryption {}` block in Terraform configuration with KMS key providers and method configurations." }
+      { id: 'A', text: "Configure `sensitive = true` on the variables so the values are absent from state." },
+      { id: 'B', text: "Configure the backend to write to a private bucket with versioning switched on." },
+      { id: 'C', text: "Configure the backend's own server-side encryption with a customer-managed key." },
+      { id: 'D', text: "Configure the native `encryption {}` block with a KMS key provider and method." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -51,10 +51,10 @@ export const HASHICORP_TFP_QUESTIONS_16 = [
     scenario: "A security compliance auditor requires cryptographic state protection, policy-as-code enforcement, and automated governance across all enterprise Terraform delivery pipelines. The Terraform professional evaluates State Encryption to protect sensitive database passwords and private keys stored in Terraform state with customer-managed cryptographic keys and automated key rotation.",
     question: "Which solution implements these mandatory infrastructure as code security and governance controls?",
     options: [
-      { id: 'A', text: "Configure the native `encryption {}` block in Terraform configuration with KMS key providers and method configurations." },
-      { id: 'B', text: "Encode the state file with base64 and assume it is cryptographically secure." },
-      { id: 'C', text: "Commit the state file to private GitHub repositories with no encryption." },
-      { id: 'D', text: "Disable state persistence to avoid storing secrets." }
+      { id: 'A', text: "Configure the native `encryption {}` block with a KMS key provider and method." },
+      { id: 'B', text: "Configure the backend's own server-side encryption with a customer-managed key." },
+      { id: 'C', text: "Configure the backend to write to a private bucket with versioning switched on." },
+      { id: 'D', text: "Configure `sensitive = true` on the variables so the values are absent from state." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -72,10 +72,10 @@ export const HASHICORP_TFP_QUESTIONS_16 = [
     scenario: "An enterprise is modernizing on-premises infrastructure and refactoring monolithic legacy deployments into modular, cloud-native architectures using advanced Terraform practices. The Terraform professional evaluates State Encryption to protect sensitive database passwords and private keys stored in Terraform state with customer-managed cryptographic keys and automated key rotation.",
     question: "Which practice or platform feature enables the engineering team to modernize provisioning workflows with minimal operational friction?",
     options: [
-      { id: 'A', text: "Commit the state file to private GitHub repositories with no encryption." },
-      { id: 'B', text: "Disable state persistence to avoid storing secrets." },
-      { id: 'C', text: "Configure the native `encryption {}` block in Terraform configuration with KMS key providers and method configurations." },
-      { id: 'D', text: "Encode the state file with base64 and assume it is cryptographically secure." }
+      { id: 'A', text: "Configure the backend to write to a private bucket with versioning switched on." },
+      { id: 'B', text: "Configure `sensitive = true` on the variables so the values are absent from state." },
+      { id: 'C', text: "Configure the native `encryption {}` block with a KMS key provider and method." },
+      { id: 'D', text: "Configure the backend's own server-side encryption with a customer-managed key." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -93,10 +93,10 @@ export const HASHICORP_TFP_QUESTIONS_16 = [
     scenario: "A platform reliability team is optimizing system resilience to eliminate single points of failure, streamline zero-downtime state refactoring, and automate operational recovery. The Terraform professional evaluates State Encryption to protect sensitive database passwords and private keys stored in Terraform state with customer-managed cryptographic keys and automated key rotation.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
-      { id: 'A', text: "Disable state persistence to avoid storing secrets." },
-      { id: 'B', text: "Commit the state file to private GitHub repositories with no encryption." },
-      { id: 'C', text: "Encode the state file with base64 and assume it is cryptographically secure." },
-      { id: 'D', text: "Configure the native `encryption {}` block in Terraform configuration with KMS key providers and method configurations." }
+      { id: 'A', text: "Configure `sensitive = true` on the variables so the values are absent from state." },
+      { id: 'B', text: "Configure the backend to write to a private bucket with versioning switched on." },
+      { id: 'C', text: "Configure the backend's own server-side encryption with a customer-managed key." },
+      { id: 'D', text: "Configure the native `encryption {}` block with a KMS key provider and method." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -114,10 +114,10 @@ export const HASHICORP_TFP_QUESTIONS_16 = [
     scenario: "A principal cloud platform architect is establishing high-availability standards, automated disaster recovery procedures, and infrastructure resilience frameworks across multi-region environments using Terraform. The Terraform professional evaluates State Disaster Recovery to repair an edge-case state corruption issue in a remote backend by safely downloading the raw state JSON and pushing the corrected file.",
     question: "Which architectural approach or advanced configuration satisfies these multi-region recovery and resilience objectives?",
     options: [
-      { id: 'A', text: "Directly overwrite the remote S3 object using AWS CLI s3 cp without serial verification." },
-      { id: 'B', text: "Delete the state file and rebuild all infrastructure from memory." },
-      { id: 'C', text: "Run `terraform state pull &gt; state.json`, make precise modifications, increment the serial number, and upload via `terraform state push state.json`." },
-      { id: 'D', text: "Execute `terraform destroy -force`." }
+      { id: 'A', text: "Overwrite the remote object with `aws s3 cp` after editing the downloaded copy." },
+      { id: 'B', text: "Remove the resource with `terraform state rm` and import it again afterwards." },
+      { id: 'C', text: "`terraform state pull`, edit, bump the serial, then `terraform state push` the file back." },
+      { id: 'D', text: "Roll the bucket back to the previous object version and re-run the plan." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -135,10 +135,10 @@ export const HASHICORP_TFP_QUESTIONS_16 = [
     scenario: "A complex enterprise multi-cloud platform experiences massive scaling requirements and requires modular, automated, and performant infrastructure provisioning across dozens of teams. The Terraform professional evaluates State Disaster Recovery to repair an edge-case state corruption issue in a remote backend by safely downloading the raw state JSON and pushing the corrected file.",
     question: "Which architectural pattern or Terraform capability manages this scale effectively while preventing dependency bottlenecks and configuration drift?",
     options: [
-      { id: 'A', text: "Run `terraform state pull &gt; state.json`, make precise modifications, increment the serial number, and upload via `terraform state push state.json`." },
-      { id: 'B', text: "Execute `terraform destroy -force`." },
-      { id: 'C', text: "Directly overwrite the remote S3 object using AWS CLI s3 cp without serial verification." },
-      { id: 'D', text: "Delete the state file and rebuild all infrastructure from memory." }
+      { id: 'A', text: "`terraform state pull`, edit, bump the serial, then `terraform state push` the file back." },
+      { id: 'B', text: "Roll the bucket back to the previous object version and re-run the plan." },
+      { id: 'C', text: "Overwrite the remote object with `aws s3 cp` after editing the downloaded copy." },
+      { id: 'D', text: "Remove the resource with `terraform state rm` and import it again afterwards." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -156,10 +156,10 @@ export const HASHICORP_TFP_QUESTIONS_16 = [
     scenario: "A security compliance auditor requires cryptographic state protection, policy-as-code enforcement, and automated governance across all enterprise Terraform delivery pipelines. The Terraform professional evaluates State Disaster Recovery to repair an edge-case state corruption issue in a remote backend by safely downloading the raw state JSON and pushing the corrected file.",
     question: "Which solution implements these mandatory infrastructure as code security and governance controls?",
     options: [
-      { id: 'A', text: "Run `terraform state pull &gt; state.json`, make precise modifications, increment the serial number, and upload via `terraform state push state.json`." },
-      { id: 'B', text: "Directly overwrite the remote S3 object using AWS CLI s3 cp without serial verification." },
-      { id: 'C', text: "Delete the state file and rebuild all infrastructure from memory." },
-      { id: 'D', text: "Execute `terraform destroy -force`." }
+      { id: 'A', text: "`terraform state pull`, edit, bump the serial, then `terraform state push` the file back." },
+      { id: 'B', text: "Overwrite the remote object with `aws s3 cp` after editing the downloaded copy." },
+      { id: 'C', text: "Remove the resource with `terraform state rm` and import it again afterwards." },
+      { id: 'D', text: "Roll the bucket back to the previous object version and re-run the plan." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -177,10 +177,10 @@ export const HASHICORP_TFP_QUESTIONS_16 = [
     scenario: "An enterprise is modernizing on-premises infrastructure and refactoring monolithic legacy deployments into modular, cloud-native architectures using advanced Terraform practices. The Terraform professional evaluates State Disaster Recovery to repair an edge-case state corruption issue in a remote backend by safely downloading the raw state JSON and pushing the corrected file.",
     question: "Which practice or platform feature enables the engineering team to modernize provisioning workflows with minimal operational friction?",
     options: [
-      { id: 'A', text: "Execute `terraform destroy -force`." },
-      { id: 'B', text: "Run `terraform state pull &gt; state.json`, make precise modifications, increment the serial number, and upload via `terraform state push state.json`." },
-      { id: 'C', text: "Delete the state file and rebuild all infrastructure from memory." },
-      { id: 'D', text: "Directly overwrite the remote S3 object using AWS CLI s3 cp without serial verification." }
+      { id: 'A', text: "Roll the bucket back to the previous object version and re-run the plan." },
+      { id: 'B', text: "`terraform state pull`, edit, bump the serial, then `terraform state push` the file back." },
+      { id: 'C', text: "Remove the resource with `terraform state rm` and import it again afterwards." },
+      { id: 'D', text: "Overwrite the remote object with `aws s3 cp` after editing the downloaded copy." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -198,10 +198,10 @@ export const HASHICORP_TFP_QUESTIONS_16 = [
     scenario: "A platform reliability team is optimizing system resilience to eliminate single points of failure, streamline zero-downtime state refactoring, and automate operational recovery. The Terraform professional evaluates State Disaster Recovery to repair an edge-case state corruption issue in a remote backend by safely downloading the raw state JSON and pushing the corrected file.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
-      { id: 'A', text: "Run `terraform state pull &gt; state.json`, make precise modifications, increment the serial number, and upload via `terraform state push state.json`." },
-      { id: 'B', text: "Directly overwrite the remote S3 object using AWS CLI s3 cp without serial verification." },
-      { id: 'C', text: "Delete the state file and rebuild all infrastructure from memory." },
-      { id: 'D', text: "Execute `terraform destroy -force`." }
+      { id: 'A', text: "`terraform state pull`, edit, bump the serial, then `terraform state push` the file back." },
+      { id: 'B', text: "Overwrite the remote object with `aws s3 cp` after editing the downloaded copy." },
+      { id: 'C', text: "Remove the resource with `terraform state rm` and import it again afterwards." },
+      { id: 'D', text: "Roll the bucket back to the previous object version and re-run the plan." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -219,10 +219,10 @@ export const HASHICORP_TFP_QUESTIONS_16 = [
     scenario: "A principal cloud platform architect is establishing high-availability standards, automated disaster recovery procedures, and infrastructure resilience frameworks across multi-region environments using Terraform. The Terraform professional evaluates State Architecture to improve plan execution speed and eliminate lock contention across a team by decomposing a 5,000-resource state file.",
     question: "Which architectural approach or advanced configuration satisfies these multi-region recovery and resilience objectives?",
     options: [
-      { id: 'A', text: "Split the monolithic configuration into multiple smaller root modules (networking, compute, data) and connect them via `terraform_remote_state`." },
-      { id: 'B', text: "Increase the timeout of `terraform apply` to 24 hours." },
-      { id: 'C', text: "Run `terraform apply` with `-parallelism=500` to overwhelm cloud provider rate limits." },
-      { id: 'D', text: "Disable state locking to allow simultaneous runs on the monolith." }
+      { id: 'A', text: "Split it into networking, compute and data root modules joined by `terraform_remote_state`." },
+      { id: 'B', text: "Raise the apply timeout and the provider's own retry count so the run completes." },
+      { id: 'C', text: "Raise `-parallelism` so more of the graph is applied in each pass of the run." },
+      { id: 'D', text: "Split the configuration by workspace, with one workspace per environment tier." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -240,10 +240,10 @@ export const HASHICORP_TFP_QUESTIONS_16 = [
     scenario: "A complex enterprise multi-cloud platform experiences massive scaling requirements and requires modular, automated, and performant infrastructure provisioning across dozens of teams. The Terraform professional evaluates State Architecture to improve plan execution speed and eliminate lock contention across a team by decomposing a 5,000-resource state file.",
     question: "Which architectural pattern or Terraform capability manages this scale effectively while preventing dependency bottlenecks and configuration drift?",
     options: [
-      { id: 'A', text: "Split the monolithic configuration into multiple smaller root modules (networking, compute, data) and connect them via `terraform_remote_state`." },
-      { id: 'B', text: "Increase the timeout of `terraform apply` to 24 hours." },
-      { id: 'C', text: "Run `terraform apply` with `-parallelism=500` to overwhelm cloud provider rate limits." },
-      { id: 'D', text: "Disable state locking to allow simultaneous runs on the monolith." }
+      { id: 'A', text: "Split it into networking, compute and data root modules joined by `terraform_remote_state`." },
+      { id: 'B', text: "Raise the apply timeout and the provider's own retry count so the run completes." },
+      { id: 'C', text: "Raise `-parallelism` so more of the graph is applied in each pass of the run." },
+      { id: 'D', text: "Split the configuration by workspace, with one workspace per environment tier." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -261,10 +261,10 @@ export const HASHICORP_TFP_QUESTIONS_16 = [
     scenario: "A security compliance auditor requires cryptographic state protection, policy-as-code enforcement, and automated governance across all enterprise Terraform delivery pipelines. The Terraform professional evaluates State Architecture to improve plan execution speed and eliminate lock contention across a team by decomposing a 5,000-resource state file.",
     question: "Which solution implements these mandatory infrastructure as code security and governance controls?",
     options: [
-      { id: 'A', text: "Split the monolithic configuration into multiple smaller root modules (networking, compute, data) and connect them via `terraform_remote_state`." },
-      { id: 'B', text: "Run `terraform apply` with `-parallelism=500` to overwhelm cloud provider rate limits." },
-      { id: 'C', text: "Disable state locking to allow simultaneous runs on the monolith." },
-      { id: 'D', text: "Increase the timeout of `terraform apply` to 24 hours." }
+      { id: 'A', text: "Split it into networking, compute and data root modules joined by `terraform_remote_state`." },
+      { id: 'B', text: "Raise `-parallelism` so more of the graph is applied in each pass of the run." },
+      { id: 'C', text: "Split the configuration by workspace, with one workspace per environment tier." },
+      { id: 'D', text: "Raise the apply timeout and the provider's own retry count so the run completes." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -282,10 +282,10 @@ export const HASHICORP_TFP_QUESTIONS_16 = [
     scenario: "An enterprise is modernizing on-premises infrastructure and refactoring monolithic legacy deployments into modular, cloud-native architectures using advanced Terraform practices. The Terraform professional evaluates State Architecture to improve plan execution speed and eliminate lock contention across a team by decomposing a 5,000-resource state file.",
     question: "Which practice or platform feature enables the engineering team to modernize provisioning workflows with minimal operational friction?",
     options: [
-      { id: 'A', text: "Disable state locking to allow simultaneous runs on the monolith." },
-      { id: 'B', text: "Split the monolithic configuration into multiple smaller root modules (networking, compute, data) and connect them via `terraform_remote_state`." },
-      { id: 'C', text: "Run `terraform apply` with `-parallelism=500` to overwhelm cloud provider rate limits." },
-      { id: 'D', text: "Increase the timeout of `terraform apply` to 24 hours." }
+      { id: 'A', text: "Split the configuration by workspace, with one workspace per environment tier." },
+      { id: 'B', text: "Split it into networking, compute and data root modules joined by `terraform_remote_state`." },
+      { id: 'C', text: "Raise `-parallelism` so more of the graph is applied in each pass of the run." },
+      { id: 'D', text: "Raise the apply timeout and the provider's own retry count so the run completes." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -303,10 +303,10 @@ export const HASHICORP_TFP_QUESTIONS_16 = [
     scenario: "A platform reliability team is optimizing system resilience to eliminate single points of failure, streamline zero-downtime state refactoring, and automate operational recovery. The Terraform professional evaluates State Architecture to improve plan execution speed and eliminate lock contention across a team by decomposing a 5,000-resource state file.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
-      { id: 'A', text: "Split the monolithic configuration into multiple smaller root modules (networking, compute, data) and connect them via `terraform_remote_state`." },
-      { id: 'B', text: "Increase the timeout of `terraform apply` to 24 hours." },
-      { id: 'C', text: "Run `terraform apply` with `-parallelism=500` to overwhelm cloud provider rate limits." },
-      { id: 'D', text: "Disable state locking to allow simultaneous runs on the monolith." }
+      { id: 'A', text: "Split it into networking, compute and data root modules joined by `terraform_remote_state`." },
+      { id: 'B', text: "Raise the apply timeout and the provider's own retry count so the run completes." },
+      { id: 'C', text: "Raise `-parallelism` so more of the graph is applied in each pass of the run." },
+      { id: 'D', text: "Split the configuration by workspace, with one workspace per environment tier." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -324,10 +324,10 @@ export const HASHICORP_TFP_QUESTIONS_16 = [
     scenario: "A principal cloud platform architect is establishing high-availability standards, automated disaster recovery procedures, and infrastructure resilience frameworks across multi-region environments using Terraform. The Terraform professional evaluates State Sanitization to cleanse an accidentally exposed production database credential recorded in historical remote state bucket versions.",
     question: "Which architectural approach or advanced configuration satisfies these multi-region recovery and resilience objectives?",
     options: [
-      { id: 'A', text: "Rotate the credential in the database immediately, update Terraform code, apply changes, and purge historical state versions in S3." },
-      { id: 'B', text: "Rely on GitHub commit deletion to purge remote S3 objects." },
-      { id: 'C', text: "Change the database username and leave the old password active." },
-      { id: 'D', text: "Delete the Terraform codebase and stop using infrastructure as code." }
+      { id: 'A', text: "Rotate the credential at the database, update the configuration, apply, and purge the old state versions." },
+      { id: 'B', text: "Remove the value from the repository's history, which also clears the remote state copies." },
+      { id: 'C', text: "Move the value into a `sensitive = true` variable, which redacts it in the stored state." },
+      { id: 'D', text: "Move the resource out of Terraform and manage that credential outside the configuration." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -345,10 +345,10 @@ export const HASHICORP_TFP_QUESTIONS_16 = [
     scenario: "A complex enterprise multi-cloud platform experiences massive scaling requirements and requires modular, automated, and performant infrastructure provisioning across dozens of teams. The Terraform professional evaluates State Sanitization to cleanse an accidentally exposed production database credential recorded in historical remote state bucket versions.",
     question: "Which architectural pattern or Terraform capability manages this scale effectively while preventing dependency bottlenecks and configuration drift?",
     options: [
-      { id: 'A', text: "Change the database username and leave the old password active." },
-      { id: 'B', text: "Rotate the credential in the database immediately, update Terraform code, apply changes, and purge historical state versions in S3." },
-      { id: 'C', text: "Rely on GitHub commit deletion to purge remote S3 objects." },
-      { id: 'D', text: "Delete the Terraform codebase and stop using infrastructure as code." }
+      { id: 'A', text: "Move the value into a `sensitive = true` variable, which redacts it in the stored state." },
+      { id: 'B', text: "Rotate the credential at the database, update the configuration, apply, and purge the old state versions." },
+      { id: 'C', text: "Remove the value from the repository's history, which also clears the remote state copies." },
+      { id: 'D', text: "Move the resource out of Terraform and manage that credential outside the configuration." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -366,10 +366,10 @@ export const HASHICORP_TFP_QUESTIONS_16 = [
     scenario: "A security compliance auditor requires cryptographic state protection, policy-as-code enforcement, and automated governance across all enterprise Terraform delivery pipelines. The Terraform professional evaluates State Sanitization to cleanse an accidentally exposed production database credential recorded in historical remote state bucket versions.",
     question: "Which solution implements these mandatory infrastructure as code security and governance controls?",
     options: [
-      { id: 'A', text: "Rotate the credential in the database immediately, update Terraform code, apply changes, and purge historical state versions in S3." },
-      { id: 'B', text: "Change the database username and leave the old password active." },
-      { id: 'C', text: "Delete the Terraform codebase and stop using infrastructure as code." },
-      { id: 'D', text: "Rely on GitHub commit deletion to purge remote S3 objects." }
+      { id: 'A', text: "Rotate the credential at the database, update the configuration, apply, and purge the old state versions." },
+      { id: 'B', text: "Move the value into a `sensitive = true` variable, which redacts it in the stored state." },
+      { id: 'C', text: "Move the resource out of Terraform and manage that credential outside the configuration." },
+      { id: 'D', text: "Remove the value from the repository's history, which also clears the remote state copies." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -387,10 +387,10 @@ export const HASHICORP_TFP_QUESTIONS_16 = [
     scenario: "An enterprise is modernizing on-premises infrastructure and refactoring monolithic legacy deployments into modular, cloud-native architectures using advanced Terraform practices. The Terraform professional evaluates State Sanitization to cleanse an accidentally exposed production database credential recorded in historical remote state bucket versions.",
     question: "Which practice or platform feature enables the engineering team to modernize provisioning workflows with minimal operational friction?",
     options: [
-      { id: 'A', text: "Rotate the credential in the database immediately, update Terraform code, apply changes, and purge historical state versions in S3." },
-      { id: 'B', text: "Change the database username and leave the old password active." },
-      { id: 'C', text: "Delete the Terraform codebase and stop using infrastructure as code." },
-      { id: 'D', text: "Rely on GitHub commit deletion to purge remote S3 objects." }
+      { id: 'A', text: "Rotate the credential at the database, update the configuration, apply, and purge the old state versions." },
+      { id: 'B', text: "Move the value into a `sensitive = true` variable, which redacts it in the stored state." },
+      { id: 'C', text: "Move the resource out of Terraform and manage that credential outside the configuration." },
+      { id: 'D', text: "Remove the value from the repository's history, which also clears the remote state copies." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -408,10 +408,10 @@ export const HASHICORP_TFP_QUESTIONS_16 = [
     scenario: "A platform reliability team is optimizing system resilience to eliminate single points of failure, streamline zero-downtime state refactoring, and automate operational recovery. The Terraform professional evaluates State Sanitization to cleanse an accidentally exposed production database credential recorded in historical remote state bucket versions.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
-      { id: 'A', text: "Delete the Terraform codebase and stop using infrastructure as code." },
-      { id: 'B', text: "Rotate the credential in the database immediately, update Terraform code, apply changes, and purge historical state versions in S3." },
-      { id: 'C', text: "Change the database username and leave the old password active." },
-      { id: 'D', text: "Rely on GitHub commit deletion to purge remote S3 objects." }
+      { id: 'A', text: "Move the resource out of Terraform and manage that credential outside the configuration." },
+      { id: 'B', text: "Rotate the credential at the database, update the configuration, apply, and purge the old state versions." },
+      { id: 'C', text: "Move the value into a `sensitive = true` variable, which redacts it in the stored state." },
+      { id: 'D', text: "Remove the value from the repository's history, which also clears the remote state copies." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -429,10 +429,10 @@ export const HASHICORP_TFP_QUESTIONS_16 = [
     scenario: "A principal cloud platform architect is establishing high-availability standards, automated disaster recovery procedures, and infrastructure resilience frameworks across multi-region environments using Terraform. The Terraform professional evaluates Targeting Risks to understand the operational risks of using `terraform apply -target=resource` for everyday infrastructure updates.",
     question: "Which architectural approach or advanced configuration satisfies these multi-region recovery and resilience objectives?",
     options: [
-      { id: 'A', text: "`-target` can introduce state divergence, violate hidden dependencies, and lead to unintended configuration drift; it is intended only for emergency recovery." },
-      { id: 'B', text: "`-target` is the recommended way to deploy routine production updates daily." },
-      { id: 'C', text: "`-target` automatically updates all dependent resources in the graph." },
-      { id: 'D', text: "`-target` permanently deletes all un-targeted resources from the state file." }
+      { id: 'A', text: "`-target` can leave state divergent and skip hidden dependencies; it is for emergency recovery only." },
+      { id: 'B', text: "`-target` is the supported way to apply a routine change to one part of a large configuration." },
+      { id: 'C', text: "`-target` applies the named resource and every resource that depends on it in the graph." },
+      { id: 'D', text: "`-target` removes the untargeted resources from state so the next plan re-imports them." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -450,10 +450,10 @@ export const HASHICORP_TFP_QUESTIONS_16 = [
     scenario: "A complex enterprise multi-cloud platform experiences massive scaling requirements and requires modular, automated, and performant infrastructure provisioning across dozens of teams. The Terraform professional evaluates Targeting Risks to understand the operational risks of using `terraform apply -target=resource` for everyday infrastructure updates.",
     question: "Which architectural pattern or Terraform capability manages this scale effectively while preventing dependency bottlenecks and configuration drift?",
     options: [
-      { id: 'A', text: "`-target` automatically updates all dependent resources in the graph." },
-      { id: 'B', text: "`-target` can introduce state divergence, violate hidden dependencies, and lead to unintended configuration drift; it is intended only for emergency recovery." },
-      { id: 'C', text: "`-target` is the recommended way to deploy routine production updates daily." },
-      { id: 'D', text: "`-target` permanently deletes all un-targeted resources from the state file." }
+      { id: 'A', text: "`-target` applies the named resource and every resource that depends on it in the graph." },
+      { id: 'B', text: "`-target` can leave state divergent and skip hidden dependencies; it is for emergency recovery only." },
+      { id: 'C', text: "`-target` is the supported way to apply a routine change to one part of a large configuration." },
+      { id: 'D', text: "`-target` removes the untargeted resources from state so the next plan re-imports them." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -471,10 +471,10 @@ export const HASHICORP_TFP_QUESTIONS_16 = [
     scenario: "A security compliance auditor requires cryptographic state protection, policy-as-code enforcement, and automated governance across all enterprise Terraform delivery pipelines. The Terraform professional evaluates Targeting Risks to understand the operational risks of using `terraform apply -target=resource` for everyday infrastructure updates.",
     question: "Which solution implements these mandatory infrastructure as code security and governance controls?",
     options: [
-      { id: 'A', text: "`-target` can introduce state divergence, violate hidden dependencies, and lead to unintended configuration drift; it is intended only for emergency recovery." },
-      { id: 'B', text: "`-target` automatically updates all dependent resources in the graph." },
-      { id: 'C', text: "`-target` permanently deletes all un-targeted resources from the state file." },
-      { id: 'D', text: "`-target` is the recommended way to deploy routine production updates daily." }
+      { id: 'A', text: "`-target` can leave state divergent and skip hidden dependencies; it is for emergency recovery only." },
+      { id: 'B', text: "`-target` applies the named resource and every resource that depends on it in the graph." },
+      { id: 'C', text: "`-target` removes the untargeted resources from state so the next plan re-imports them." },
+      { id: 'D', text: "`-target` is the supported way to apply a routine change to one part of a large configuration." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -492,10 +492,10 @@ export const HASHICORP_TFP_QUESTIONS_16 = [
     scenario: "An enterprise is modernizing on-premises infrastructure and refactoring monolithic legacy deployments into modular, cloud-native architectures using advanced Terraform practices. The Terraform professional evaluates Targeting Risks to understand the operational risks of using `terraform apply -target=resource` for everyday infrastructure updates.",
     question: "Which practice or platform feature enables the engineering team to modernize provisioning workflows with minimal operational friction?",
     options: [
-      { id: 'A', text: "`-target` permanently deletes all un-targeted resources from the state file." },
-      { id: 'B', text: "`-target` automatically updates all dependent resources in the graph." },
-      { id: 'C', text: "`-target` is the recommended way to deploy routine production updates daily." },
-      { id: 'D', text: "`-target` can introduce state divergence, violate hidden dependencies, and lead to unintended configuration drift; it is intended only for emergency recovery." }
+      { id: 'A', text: "`-target` removes the untargeted resources from state so the next plan re-imports them." },
+      { id: 'B', text: "`-target` applies the named resource and every resource that depends on it in the graph." },
+      { id: 'C', text: "`-target` is the supported way to apply a routine change to one part of a large configuration." },
+      { id: 'D', text: "`-target` can leave state divergent and skip hidden dependencies; it is for emergency recovery only." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -513,10 +513,10 @@ export const HASHICORP_TFP_QUESTIONS_16 = [
     scenario: "A platform reliability team is optimizing system resilience to eliminate single points of failure, streamline zero-downtime state refactoring, and automate operational recovery. The Terraform professional evaluates Targeting Risks to understand the operational risks of using `terraform apply -target=resource` for everyday infrastructure updates.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
-      { id: 'A', text: "`-target` automatically updates all dependent resources in the graph." },
-      { id: 'B', text: "`-target` permanently deletes all un-targeted resources from the state file." },
-      { id: 'C', text: "`-target` can introduce state divergence, violate hidden dependencies, and lead to unintended configuration drift; it is intended only for emergency recovery." },
-      { id: 'D', text: "`-target` is the recommended way to deploy routine production updates daily." }
+      { id: 'A', text: "`-target` applies the named resource and every resource that depends on it in the graph." },
+      { id: 'B', text: "`-target` removes the untargeted resources from state so the next plan re-imports them." },
+      { id: 'C', text: "`-target` can leave state divergent and skip hidden dependencies; it is for emergency recovery only." },
+      { id: 'D', text: "`-target` is the supported way to apply a routine change to one part of a large configuration." }
     ],
     correctAnswers: ['C'],
     type: "single",

@@ -9,10 +9,10 @@ export const HASHICORP_TFP_QUESTIONS_17 = [
     scenario: "A principal cloud platform architect is establishing high-availability standards, automated disaster recovery procedures, and infrastructure resilience frameworks across multi-region environments using Terraform. The Terraform professional evaluates Cross-State Sharing to share network subnet IDs from a foundational networking workspace to an application compute workspace in HCP Terraform.",
     question: "Which architectural approach or advanced configuration satisfies these multi-region recovery and resilience objectives?",
     options: [
-      { id: 'A', text: "Use HCP Terraform workspace outputs via `tfe_outputs` or `terraform_remote_state` with fine-grained workspace sharing permissions." },
-      { id: 'B', text: "Hardcode subnet IDs in application variable files committed to Git." },
-      { id: 'C', text: "Grant application developers root access to the networking state S3 bucket." },
-      { id: 'D', text: "Deploy all applications directly inside the networking workspace." }
+      { id: 'A', text: "Share the networking outputs through `tfe_outputs`, with workspace sharing scoped to the consumers." },
+      { id: 'B', text: "Copy the subnet IDs into each application's variable file at the start of a sprint." },
+      { id: 'C', text: "Give the application workspaces read access to the networking state bucket directly." },
+      { id: 'D', text: "Move the application resources into the networking workspace so no sharing is needed." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -30,10 +30,10 @@ export const HASHICORP_TFP_QUESTIONS_17 = [
     scenario: "A complex enterprise multi-cloud platform experiences massive scaling requirements and requires modular, automated, and performant infrastructure provisioning across dozens of teams. The Terraform professional evaluates Cross-State Sharing to share network subnet IDs from a foundational networking workspace to an application compute workspace in HCP Terraform.",
     question: "Which architectural pattern or Terraform capability manages this scale effectively while preventing dependency bottlenecks and configuration drift?",
     options: [
-      { id: 'A', text: "Grant application developers root access to the networking state S3 bucket." },
-      { id: 'B', text: "Deploy all applications directly inside the networking workspace." },
-      { id: 'C', text: "Use HCP Terraform workspace outputs via `tfe_outputs` or `terraform_remote_state` with fine-grained workspace sharing permissions." },
-      { id: 'D', text: "Hardcode subnet IDs in application variable files committed to Git." }
+      { id: 'A', text: "Give the application workspaces read access to the networking state bucket directly." },
+      { id: 'B', text: "Move the application resources into the networking workspace so no sharing is needed." },
+      { id: 'C', text: "Share the networking outputs through `tfe_outputs`, with workspace sharing scoped to the consumers." },
+      { id: 'D', text: "Copy the subnet IDs into each application's variable file at the start of a sprint." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -51,10 +51,10 @@ export const HASHICORP_TFP_QUESTIONS_17 = [
     scenario: "A security compliance auditor requires cryptographic state protection, policy-as-code enforcement, and automated governance across all enterprise Terraform delivery pipelines. The Terraform professional evaluates Cross-State Sharing to share network subnet IDs from a foundational networking workspace to an application compute workspace in HCP Terraform.",
     question: "Which solution implements these mandatory infrastructure as code security and governance controls?",
     options: [
-      { id: 'A', text: "Hardcode subnet IDs in application variable files committed to Git." },
-      { id: 'B', text: "Use HCP Terraform workspace outputs via `tfe_outputs` or `terraform_remote_state` with fine-grained workspace sharing permissions." },
-      { id: 'C', text: "Deploy all applications directly inside the networking workspace." },
-      { id: 'D', text: "Grant application developers root access to the networking state S3 bucket." }
+      { id: 'A', text: "Copy the subnet IDs into each application's variable file at the start of a sprint." },
+      { id: 'B', text: "Share the networking outputs through `tfe_outputs`, with workspace sharing scoped to the consumers." },
+      { id: 'C', text: "Move the application resources into the networking workspace so no sharing is needed." },
+      { id: 'D', text: "Give the application workspaces read access to the networking state bucket directly." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -72,10 +72,10 @@ export const HASHICORP_TFP_QUESTIONS_17 = [
     scenario: "An enterprise is modernizing on-premises infrastructure and refactoring monolithic legacy deployments into modular, cloud-native architectures using advanced Terraform practices. The Terraform professional evaluates Cross-State Sharing to share network subnet IDs from a foundational networking workspace to an application compute workspace in HCP Terraform.",
     question: "Which practice or platform feature enables the engineering team to modernize provisioning workflows with minimal operational friction?",
     options: [
-      { id: 'A', text: "Deploy all applications directly inside the networking workspace." },
-      { id: 'B', text: "Grant application developers root access to the networking state S3 bucket." },
-      { id: 'C', text: "Hardcode subnet IDs in application variable files committed to Git." },
-      { id: 'D', text: "Use HCP Terraform workspace outputs via `tfe_outputs` or `terraform_remote_state` with fine-grained workspace sharing permissions." }
+      { id: 'A', text: "Move the application resources into the networking workspace so no sharing is needed." },
+      { id: 'B', text: "Give the application workspaces read access to the networking state bucket directly." },
+      { id: 'C', text: "Copy the subnet IDs into each application's variable file at the start of a sprint." },
+      { id: 'D', text: "Share the networking outputs through `tfe_outputs`, with workspace sharing scoped to the consumers." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -93,10 +93,10 @@ export const HASHICORP_TFP_QUESTIONS_17 = [
     scenario: "A platform reliability team is optimizing system resilience to eliminate single points of failure, streamline zero-downtime state refactoring, and automate operational recovery. The Terraform professional evaluates Cross-State Sharing to share network subnet IDs from a foundational networking workspace to an application compute workspace in HCP Terraform.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
-      { id: 'A', text: "Use HCP Terraform workspace outputs via `tfe_outputs` or `terraform_remote_state` with fine-grained workspace sharing permissions." },
-      { id: 'B', text: "Hardcode subnet IDs in application variable files committed to Git." },
-      { id: 'C', text: "Grant application developers root access to the networking state S3 bucket." },
-      { id: 'D', text: "Deploy all applications directly inside the networking workspace." }
+      { id: 'A', text: "Share the networking outputs through `tfe_outputs`, with workspace sharing scoped to the consumers." },
+      { id: 'B', text: "Copy the subnet IDs into each application's variable file at the start of a sprint." },
+      { id: 'C', text: "Give the application workspaces read access to the networking state bucket directly." },
+      { id: 'D', text: "Move the application resources into the networking workspace so no sharing is needed." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -114,10 +114,10 @@ export const HASHICORP_TFP_QUESTIONS_17 = [
     scenario: "A principal cloud platform architect is establishing high-availability standards, automated disaster recovery procedures, and infrastructure resilience frameworks across multi-region environments using Terraform. The Terraform professional evaluates CLI Replace to force the destruction and recreation of a specific virtual machine instance that has become corrupted without modifying HCL code.",
     question: "Which architectural approach or advanced configuration satisfies these multi-region recovery and resilience objectives?",
     options: [
-      { id: 'A', text: "Manually terminate the VM in the cloud console and let Terraform crash." },
-      { id: 'B', text: "Delete the instance from state using `state rm`." },
-      { id: 'C', text: "Run `terraform taint` which is deprecated in modern Terraform versions." },
-      { id: 'D', text: "Execute `terraform apply -replace=\"aws_instance.web\"` to mark the resource for recreation in the execution plan." }
+      { id: 'A', text: "Run `terraform taint aws_instance.web`, then apply to recreate the resource." },
+      { id: 'B', text: "Run `terraform state rm aws_instance.web`, then apply to create it again." },
+      { id: 'C', text: "Run `terraform apply -refresh-only` so the drift is written into the state." },
+      { id: 'D', text: "Run `terraform apply -replace=\"aws_instance.web\"` to recreate that resource." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -135,10 +135,10 @@ export const HASHICORP_TFP_QUESTIONS_17 = [
     scenario: "A complex enterprise multi-cloud platform experiences massive scaling requirements and requires modular, automated, and performant infrastructure provisioning across dozens of teams. The Terraform professional evaluates CLI Replace to force the destruction and recreation of a specific virtual machine instance that has become corrupted without modifying HCL code.",
     question: "Which architectural pattern or Terraform capability manages this scale effectively while preventing dependency bottlenecks and configuration drift?",
     options: [
-      { id: 'A', text: "Manually terminate the VM in the cloud console and let Terraform crash." },
-      { id: 'B', text: "Delete the instance from state using `state rm`." },
-      { id: 'C', text: "Run `terraform taint` which is deprecated in modern Terraform versions." },
-      { id: 'D', text: "Execute `terraform apply -replace=\"aws_instance.web\"` to mark the resource for recreation in the execution plan." }
+      { id: 'A', text: "Run `terraform taint aws_instance.web`, then apply to recreate the resource." },
+      { id: 'B', text: "Run `terraform state rm aws_instance.web`, then apply to create it again." },
+      { id: 'C', text: "Run `terraform apply -refresh-only` so the drift is written into the state." },
+      { id: 'D', text: "Run `terraform apply -replace=\"aws_instance.web\"` to recreate that resource." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -156,10 +156,10 @@ export const HASHICORP_TFP_QUESTIONS_17 = [
     scenario: "A security compliance auditor requires cryptographic state protection, policy-as-code enforcement, and automated governance across all enterprise Terraform delivery pipelines. The Terraform professional evaluates CLI Replace to force the destruction and recreation of a specific virtual machine instance that has become corrupted without modifying HCL code.",
     question: "Which solution implements these mandatory infrastructure as code security and governance controls?",
     options: [
-      { id: 'A', text: "Execute `terraform apply -replace=\"aws_instance.web\"` to mark the resource for recreation in the execution plan." },
-      { id: 'B', text: "Run `terraform taint` which is deprecated in modern Terraform versions." },
-      { id: 'C', text: "Delete the instance from state using `state rm`." },
-      { id: 'D', text: "Manually terminate the VM in the cloud console and let Terraform crash." }
+      { id: 'A', text: "Run `terraform apply -replace=\"aws_instance.web\"` to recreate that resource." },
+      { id: 'B', text: "Run `terraform apply -refresh-only` so the drift is written into the state." },
+      { id: 'C', text: "Run `terraform state rm aws_instance.web`, then apply to create it again." },
+      { id: 'D', text: "Run `terraform taint aws_instance.web`, then apply to recreate the resource." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -177,10 +177,10 @@ export const HASHICORP_TFP_QUESTIONS_17 = [
     scenario: "An enterprise is modernizing on-premises infrastructure and refactoring monolithic legacy deployments into modular, cloud-native architectures using advanced Terraform practices. The Terraform professional evaluates CLI Replace to force the destruction and recreation of a specific virtual machine instance that has become corrupted without modifying HCL code.",
     question: "Which practice or platform feature enables the engineering team to modernize provisioning workflows with minimal operational friction?",
     options: [
-      { id: 'A', text: "Delete the instance from state using `state rm`." },
-      { id: 'B', text: "Execute `terraform apply -replace=\"aws_instance.web\"` to mark the resource for recreation in the execution plan." },
-      { id: 'C', text: "Run `terraform taint` which is deprecated in modern Terraform versions." },
-      { id: 'D', text: "Manually terminate the VM in the cloud console and let Terraform crash." }
+      { id: 'A', text: "Run `terraform state rm aws_instance.web`, then apply to create it again." },
+      { id: 'B', text: "Run `terraform apply -replace=\"aws_instance.web\"` to recreate that resource." },
+      { id: 'C', text: "Run `terraform apply -refresh-only` so the drift is written into the state." },
+      { id: 'D', text: "Run `terraform taint aws_instance.web`, then apply to recreate the resource." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -198,10 +198,10 @@ export const HASHICORP_TFP_QUESTIONS_17 = [
     scenario: "A platform reliability team is optimizing system resilience to eliminate single points of failure, streamline zero-downtime state refactoring, and automate operational recovery. The Terraform professional evaluates CLI Replace to force the destruction and recreation of a specific virtual machine instance that has become corrupted without modifying HCL code.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
-      { id: 'A', text: "Execute `terraform apply -replace=\"aws_instance.web\"` to mark the resource for recreation in the execution plan." },
-      { id: 'B', text: "Run `terraform taint` which is deprecated in modern Terraform versions." },
-      { id: 'C', text: "Delete the instance from state using `state rm`." },
-      { id: 'D', text: "Manually terminate the VM in the cloud console and let Terraform crash." }
+      { id: 'A', text: "Run `terraform apply -replace=\"aws_instance.web\"` to recreate that resource." },
+      { id: 'B', text: "Run `terraform apply -refresh-only` so the drift is written into the state." },
+      { id: 'C', text: "Run `terraform state rm aws_instance.web`, then apply to create it again." },
+      { id: 'D', text: "Run `terraform taint aws_instance.web`, then apply to recreate the resource." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -219,10 +219,10 @@ export const HASHICORP_TFP_QUESTIONS_17 = [
     scenario: "A principal cloud platform architect is establishing high-availability standards, automated disaster recovery procedures, and infrastructure resilience frameworks across multi-region environments using Terraform. The Terraform professional evaluates CI/CD Automation to design an automated, secure CI/CD pipeline for Terraform that guarantees speculative review and eliminates concurrency collisions.",
     question: "Which architectural approach or advanced configuration satisfies these multi-region recovery and resilience objectives?",
     options: [
-      { id: 'A', text: "Run `terraform plan -out=tfplan` on pull requests, require manual sign-off on the plan artifact, and run `terraform apply tfplan` upon merge." },
-      { id: 'B', text: "Have CI runners execute `terraform apply` without saving a plan file artifact." },
-      { id: 'C', text: "Run Terraform operations locally on developer laptops and skip CI/CD automation entirely." },
-      { id: 'D', text: "Run `terraform apply -auto-approve` directly on every commit to personal feature branches." }
+      { id: 'A', text: "Run `plan -out=tfplan` on the pull request, require sign-off, and `apply tfplan` on merge." },
+      { id: 'B', text: "Run `apply` directly in CI on merge, with the plan shown in the job log for review." },
+      { id: 'C', text: "Run `plan` in CI and have an engineer re-run `apply` locally after the approval." },
+      { id: 'D', text: "Run `apply -auto-approve` on every branch so the environment always matches HEAD." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -240,10 +240,10 @@ export const HASHICORP_TFP_QUESTIONS_17 = [
     scenario: "A complex enterprise multi-cloud platform experiences massive scaling requirements and requires modular, automated, and performant infrastructure provisioning across dozens of teams. The Terraform professional evaluates CI/CD Automation to design an automated, secure CI/CD pipeline for Terraform that guarantees speculative review and eliminates concurrency collisions.",
     question: "Which architectural pattern or Terraform capability manages this scale effectively while preventing dependency bottlenecks and configuration drift?",
     options: [
-      { id: 'A', text: "Run `terraform plan -out=tfplan` on pull requests, require manual sign-off on the plan artifact, and run `terraform apply tfplan` upon merge." },
-      { id: 'B', text: "Run `terraform apply -auto-approve` directly on every commit to personal feature branches." },
-      { id: 'C', text: "Have CI runners execute `terraform apply` without saving a plan file artifact." },
-      { id: 'D', text: "Run Terraform operations locally on developer laptops and skip CI/CD automation entirely." }
+      { id: 'A', text: "Run `plan -out=tfplan` on the pull request, require sign-off, and `apply tfplan` on merge." },
+      { id: 'B', text: "Run `apply -auto-approve` on every branch so the environment always matches HEAD." },
+      { id: 'C', text: "Run `apply` directly in CI on merge, with the plan shown in the job log for review." },
+      { id: 'D', text: "Run `plan` in CI and have an engineer re-run `apply` locally after the approval." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -261,10 +261,10 @@ export const HASHICORP_TFP_QUESTIONS_17 = [
     scenario: "A security compliance auditor requires cryptographic state protection, policy-as-code enforcement, and automated governance across all enterprise Terraform delivery pipelines. The Terraform professional evaluates CI/CD Automation to design an automated, secure CI/CD pipeline for Terraform that guarantees speculative review and eliminates concurrency collisions.",
     question: "Which solution implements these mandatory infrastructure as code security and governance controls?",
     options: [
-      { id: 'A', text: "Run Terraform operations locally on developer laptops and skip CI/CD automation entirely." },
-      { id: 'B', text: "Have CI runners execute `terraform apply` without saving a plan file artifact." },
-      { id: 'C', text: "Run `terraform apply -auto-approve` directly on every commit to personal feature branches." },
-      { id: 'D', text: "Run `terraform plan -out=tfplan` on pull requests, require manual sign-off on the plan artifact, and run `terraform apply tfplan` upon merge." }
+      { id: 'A', text: "Run `plan` in CI and have an engineer re-run `apply` locally after the approval." },
+      { id: 'B', text: "Run `apply` directly in CI on merge, with the plan shown in the job log for review." },
+      { id: 'C', text: "Run `apply -auto-approve` on every branch so the environment always matches HEAD." },
+      { id: 'D', text: "Run `plan -out=tfplan` on the pull request, require sign-off, and `apply tfplan` on merge." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -282,10 +282,10 @@ export const HASHICORP_TFP_QUESTIONS_17 = [
     scenario: "An enterprise is modernizing on-premises infrastructure and refactoring monolithic legacy deployments into modular, cloud-native architectures using advanced Terraform practices. The Terraform professional evaluates CI/CD Automation to design an automated, secure CI/CD pipeline for Terraform that guarantees speculative review and eliminates concurrency collisions.",
     question: "Which practice or platform feature enables the engineering team to modernize provisioning workflows with minimal operational friction?",
     options: [
-      { id: 'A', text: "Run `terraform plan -out=tfplan` on pull requests, require manual sign-off on the plan artifact, and run `terraform apply tfplan` upon merge." },
-      { id: 'B', text: "Run `terraform apply -auto-approve` directly on every commit to personal feature branches." },
-      { id: 'C', text: "Have CI runners execute `terraform apply` without saving a plan file artifact." },
-      { id: 'D', text: "Run Terraform operations locally on developer laptops and skip CI/CD automation entirely." }
+      { id: 'A', text: "Run `plan -out=tfplan` on the pull request, require sign-off, and `apply tfplan` on merge." },
+      { id: 'B', text: "Run `apply -auto-approve` on every branch so the environment always matches HEAD." },
+      { id: 'C', text: "Run `apply` directly in CI on merge, with the plan shown in the job log for review." },
+      { id: 'D', text: "Run `plan` in CI and have an engineer re-run `apply` locally after the approval." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -303,10 +303,10 @@ export const HASHICORP_TFP_QUESTIONS_17 = [
     scenario: "A platform reliability team is optimizing system resilience to eliminate single points of failure, streamline zero-downtime state refactoring, and automate operational recovery. The Terraform professional evaluates CI/CD Automation to design an automated, secure CI/CD pipeline for Terraform that guarantees speculative review and eliminates concurrency collisions.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
-      { id: 'A', text: "Have CI runners execute `terraform apply` without saving a plan file artifact." },
-      { id: 'B', text: "Run Terraform operations locally on developer laptops and skip CI/CD automation entirely." },
-      { id: 'C', text: "Run `terraform plan -out=tfplan` on pull requests, require manual sign-off on the plan artifact, and run `terraform apply tfplan` upon merge." },
-      { id: 'D', text: "Run `terraform apply -auto-approve` directly on every commit to personal feature branches." }
+      { id: 'A', text: "Run `apply` directly in CI on merge, with the plan shown in the job log for review." },
+      { id: 'B', text: "Run `plan` in CI and have an engineer re-run `apply` locally after the approval." },
+      { id: 'C', text: "Run `plan -out=tfplan` on the pull request, require sign-off, and `apply tfplan` on merge." },
+      { id: 'D', text: "Run `apply -auto-approve` on every branch so the environment always matches HEAD." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -324,10 +324,10 @@ export const HASHICORP_TFP_QUESTIONS_17 = [
     scenario: "A principal cloud platform architect is establishing high-availability standards, automated disaster recovery procedures, and infrastructure resilience frameworks across multi-region environments using Terraform. The Terraform professional evaluates Policy as Code to prevent engineers from provisioning unencrypted S3 buckets or oversized cloud instances before `terraform apply` executes.",
     question: "Which architectural approach or advanced configuration satisfies these multi-region recovery and resilience objectives?",
     options: [
-      { id: 'A', text: "Implement Policy as Code (HCP Terraform Sentinel or OPA Rego) to evaluate saved plan files and block runs that violate policies." },
-      { id: 'B', text: "Rely on security engineers manually reviewing thousands of lines of plan output." },
-      { id: 'C', text: "Scan resources only after they have been running in production for three months." },
-      { id: 'D', text: "Disable all automated guardrails to speed up developer release velocity." }
+      { id: 'A', text: "Add policy as code — Sentinel or OPA — evaluating the saved plan and blocking violations." },
+      { id: 'B', text: "Add a required reviewer on the run, so an engineer reads the plan before it applies." },
+      { id: 'C', text: "Add a scanner over the deployed accounts that reports violations after each apply." },
+      { id: 'D', text: "Add a pre-commit hook running the linter, so violations are caught before the push." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -345,10 +345,10 @@ export const HASHICORP_TFP_QUESTIONS_17 = [
     scenario: "A complex enterprise multi-cloud platform experiences massive scaling requirements and requires modular, automated, and performant infrastructure provisioning across dozens of teams. The Terraform professional evaluates Policy as Code to prevent engineers from provisioning unencrypted S3 buckets or oversized cloud instances before `terraform apply` executes.",
     question: "Which architectural pattern or Terraform capability manages this scale effectively while preventing dependency bottlenecks and configuration drift?",
     options: [
-      { id: 'A', text: "Implement Policy as Code (HCP Terraform Sentinel or OPA Rego) to evaluate saved plan files and block runs that violate policies." },
-      { id: 'B', text: "Rely on security engineers manually reviewing thousands of lines of plan output." },
-      { id: 'C', text: "Scan resources only after they have been running in production for three months." },
-      { id: 'D', text: "Disable all automated guardrails to speed up developer release velocity." }
+      { id: 'A', text: "Add policy as code — Sentinel or OPA — evaluating the saved plan and blocking violations." },
+      { id: 'B', text: "Add a required reviewer on the run, so an engineer reads the plan before it applies." },
+      { id: 'C', text: "Add a scanner over the deployed accounts that reports violations after each apply." },
+      { id: 'D', text: "Add a pre-commit hook running the linter, so violations are caught before the push." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -366,10 +366,10 @@ export const HASHICORP_TFP_QUESTIONS_17 = [
     scenario: "A security compliance auditor requires cryptographic state protection, policy-as-code enforcement, and automated governance across all enterprise Terraform delivery pipelines. The Terraform professional evaluates Policy as Code to prevent engineers from provisioning unencrypted S3 buckets or oversized cloud instances before `terraform apply` executes.",
     question: "Which solution implements these mandatory infrastructure as code security and governance controls?",
     options: [
-      { id: 'A', text: "Rely on security engineers manually reviewing thousands of lines of plan output." },
-      { id: 'B', text: "Implement Policy as Code (HCP Terraform Sentinel or OPA Rego) to evaluate saved plan files and block runs that violate policies." },
-      { id: 'C', text: "Disable all automated guardrails to speed up developer release velocity." },
-      { id: 'D', text: "Scan resources only after they have been running in production for three months." }
+      { id: 'A', text: "Add a required reviewer on the run, so an engineer reads the plan before it applies." },
+      { id: 'B', text: "Add policy as code — Sentinel or OPA — evaluating the saved plan and blocking violations." },
+      { id: 'C', text: "Add a pre-commit hook running the linter, so violations are caught before the push." },
+      { id: 'D', text: "Add a scanner over the deployed accounts that reports violations after each apply." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -387,10 +387,10 @@ export const HASHICORP_TFP_QUESTIONS_17 = [
     scenario: "An enterprise is modernizing on-premises infrastructure and refactoring monolithic legacy deployments into modular, cloud-native architectures using advanced Terraform practices. The Terraform professional evaluates Policy as Code to prevent engineers from provisioning unencrypted S3 buckets or oversized cloud instances before `terraform apply` executes.",
     question: "Which practice or platform feature enables the engineering team to modernize provisioning workflows with minimal operational friction?",
     options: [
-      { id: 'A', text: "Disable all automated guardrails to speed up developer release velocity." },
-      { id: 'B', text: "Scan resources only after they have been running in production for three months." },
-      { id: 'C', text: "Rely on security engineers manually reviewing thousands of lines of plan output." },
-      { id: 'D', text: "Implement Policy as Code (HCP Terraform Sentinel or OPA Rego) to evaluate saved plan files and block runs that violate policies." }
+      { id: 'A', text: "Add a pre-commit hook running the linter, so violations are caught before the push." },
+      { id: 'B', text: "Add a scanner over the deployed accounts that reports violations after each apply." },
+      { id: 'C', text: "Add a required reviewer on the run, so an engineer reads the plan before it applies." },
+      { id: 'D', text: "Add policy as code — Sentinel or OPA — evaluating the saved plan and blocking violations." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -408,10 +408,10 @@ export const HASHICORP_TFP_QUESTIONS_17 = [
     scenario: "A platform reliability team is optimizing system resilience to eliminate single points of failure, streamline zero-downtime state refactoring, and automate operational recovery. The Terraform professional evaluates Policy as Code to prevent engineers from provisioning unencrypted S3 buckets or oversized cloud instances before `terraform apply` executes.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
-      { id: 'A', text: "Disable all automated guardrails to speed up developer release velocity." },
-      { id: 'B', text: "Scan resources only after they have been running in production for three months." },
-      { id: 'C', text: "Rely on security engineers manually reviewing thousands of lines of plan output." },
-      { id: 'D', text: "Implement Policy as Code (HCP Terraform Sentinel or OPA Rego) to evaluate saved plan files and block runs that violate policies." }
+      { id: 'A', text: "Add a pre-commit hook running the linter, so violations are caught before the push." },
+      { id: 'B', text: "Add a scanner over the deployed accounts that reports violations after each apply." },
+      { id: 'C', text: "Add a required reviewer on the run, so an engineer reads the plan before it applies." },
+      { id: 'D', text: "Add policy as code — Sentinel or OPA — evaluating the saved plan and blocking violations." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -429,10 +429,10 @@ export const HASHICORP_TFP_QUESTIONS_17 = [
     scenario: "A principal cloud platform architect is establishing high-availability standards, automated disaster recovery procedures, and infrastructure resilience frameworks across multi-region environments using Terraform. The Terraform professional evaluates Cost Estimation to give infrastructure teams visibility into how a proposed Terraform pull request will impact monthly AWS spending before merging.",
     question: "Which architectural approach or advanced configuration satisfies these multi-region recovery and resilience objectives?",
     options: [
-      { id: 'A', text: "Instruct developers to calculate AWS pricing manually using pen and paper." },
-      { id: 'B', text: "Prohibit scaling cloud resources under any circumstance." },
-      { id: 'C', text: "Enable Cost Estimation in HCP Terraform or integrate tools like Infracost into pull request pipelines to comment with cost deltas." },
-      { id: 'D', text: "Wait for the monthly AWS bill to discover unexpected spending surges." }
+      { id: 'A', text: "Add a policy check that fails the run when an instance type is outside the allowed list." },
+      { id: 'B', text: "Add a budget alert in the cloud account so the team is told once spend has risen." },
+      { id: 'C', text: "Enable cost estimation in HCP Terraform, or run Infracost in the pull request pipeline." },
+      { id: 'D', text: "Add a tagging standard so the monthly bill can be attributed to each team later." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -450,10 +450,10 @@ export const HASHICORP_TFP_QUESTIONS_17 = [
     scenario: "A complex enterprise multi-cloud platform experiences massive scaling requirements and requires modular, automated, and performant infrastructure provisioning across dozens of teams. The Terraform professional evaluates Cost Estimation to give infrastructure teams visibility into how a proposed Terraform pull request will impact monthly AWS spending before merging.",
     question: "Which architectural pattern or Terraform capability manages this scale effectively while preventing dependency bottlenecks and configuration drift?",
     options: [
-      { id: 'A', text: "Enable Cost Estimation in HCP Terraform or integrate tools like Infracost into pull request pipelines to comment with cost deltas." },
-      { id: 'B', text: "Wait for the monthly AWS bill to discover unexpected spending surges." },
-      { id: 'C', text: "Instruct developers to calculate AWS pricing manually using pen and paper." },
-      { id: 'D', text: "Prohibit scaling cloud resources under any circumstance." }
+      { id: 'A', text: "Enable cost estimation in HCP Terraform, or run Infracost in the pull request pipeline." },
+      { id: 'B', text: "Add a tagging standard so the monthly bill can be attributed to each team later." },
+      { id: 'C', text: "Add a policy check that fails the run when an instance type is outside the allowed list." },
+      { id: 'D', text: "Add a budget alert in the cloud account so the team is told once spend has risen." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -471,10 +471,10 @@ export const HASHICORP_TFP_QUESTIONS_17 = [
     scenario: "A security compliance auditor requires cryptographic state protection, policy-as-code enforcement, and automated governance across all enterprise Terraform delivery pipelines. The Terraform professional evaluates Cost Estimation to give infrastructure teams visibility into how a proposed Terraform pull request will impact monthly AWS spending before merging.",
     question: "Which solution implements these mandatory infrastructure as code security and governance controls?",
     options: [
-      { id: 'A', text: "Prohibit scaling cloud resources under any circumstance." },
-      { id: 'B', text: "Wait for the monthly AWS bill to discover unexpected spending surges." },
-      { id: 'C', text: "Enable Cost Estimation in HCP Terraform or integrate tools like Infracost into pull request pipelines to comment with cost deltas." },
-      { id: 'D', text: "Instruct developers to calculate AWS pricing manually using pen and paper." }
+      { id: 'A', text: "Add a budget alert in the cloud account so the team is told once spend has risen." },
+      { id: 'B', text: "Add a tagging standard so the monthly bill can be attributed to each team later." },
+      { id: 'C', text: "Enable cost estimation in HCP Terraform, or run Infracost in the pull request pipeline." },
+      { id: 'D', text: "Add a policy check that fails the run when an instance type is outside the allowed list." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -492,10 +492,10 @@ export const HASHICORP_TFP_QUESTIONS_17 = [
     scenario: "An enterprise is modernizing on-premises infrastructure and refactoring monolithic legacy deployments into modular, cloud-native architectures using advanced Terraform practices. The Terraform professional evaluates Cost Estimation to give infrastructure teams visibility into how a proposed Terraform pull request will impact monthly AWS spending before merging.",
     question: "Which practice or platform feature enables the engineering team to modernize provisioning workflows with minimal operational friction?",
     options: [
-      { id: 'A', text: "Wait for the monthly AWS bill to discover unexpected spending surges." },
-      { id: 'B', text: "Prohibit scaling cloud resources under any circumstance." },
-      { id: 'C', text: "Instruct developers to calculate AWS pricing manually using pen and paper." },
-      { id: 'D', text: "Enable Cost Estimation in HCP Terraform or integrate tools like Infracost into pull request pipelines to comment with cost deltas." }
+      { id: 'A', text: "Add a tagging standard so the monthly bill can be attributed to each team later." },
+      { id: 'B', text: "Add a budget alert in the cloud account so the team is told once spend has risen." },
+      { id: 'C', text: "Add a policy check that fails the run when an instance type is outside the allowed list." },
+      { id: 'D', text: "Enable cost estimation in HCP Terraform, or run Infracost in the pull request pipeline." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -513,10 +513,10 @@ export const HASHICORP_TFP_QUESTIONS_17 = [
     scenario: "A platform reliability team is optimizing system resilience to eliminate single points of failure, streamline zero-downtime state refactoring, and automate operational recovery. The Terraform professional evaluates Cost Estimation to give infrastructure teams visibility into how a proposed Terraform pull request will impact monthly AWS spending before merging.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees platform availability?",
     options: [
-      { id: 'A', text: "Enable Cost Estimation in HCP Terraform or integrate tools like Infracost into pull request pipelines to comment with cost deltas." },
-      { id: 'B', text: "Wait for the monthly AWS bill to discover unexpected spending surges." },
-      { id: 'C', text: "Instruct developers to calculate AWS pricing manually using pen and paper." },
-      { id: 'D', text: "Prohibit scaling cloud resources under any circumstance." }
+      { id: 'A', text: "Enable cost estimation in HCP Terraform, or run Infracost in the pull request pipeline." },
+      { id: 'B', text: "Add a tagging standard so the monthly bill can be attributed to each team later." },
+      { id: 'C', text: "Add a policy check that fails the run when an instance type is outside the allowed list." },
+      { id: 'D', text: "Add a budget alert in the cloud account so the team is told once spend has risen." }
     ],
     correctAnswers: ['A'],
     type: "single",

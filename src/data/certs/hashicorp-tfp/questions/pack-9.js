@@ -30,10 +30,10 @@ export const HASHICORP_TFP_QUESTIONS_9 = [
     scenario: "Terraform reports a successful apply, yet the deployed service returns errors because a security group rule is missing that a colleague deleted manually last week.",
     question: "Why did Terraform not restore it?",
     options: [
-      { id: 'A', text: "The rule is managed as an inline block or is not in the configuration at all, or the run did not refresh - Terraform only reconciles what its configuration and state describe." },
-      { id: 'B', text: "The provider cached the previous result." },
-      { id: 'C', text: "Terraform never repairs deleted resources." },
-      { id: 'D', text: "Apply always skips security groups." }
+      { id: 'A', text: "The rule is inline or absent from the configuration, so there was nothing to reconcile." },
+      { id: 'B', text: "The provider cached the previous read, so the refresh did not see the deletion at all." },
+      { id: 'C', text: "Terraform never repairs a deleted resource; it only reports the drift in the plan." },
+      { id: 'D', text: "Apply skips security group rules, which the provider manages on its own schedule." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -51,10 +51,10 @@ export const HASHICORP_TFP_QUESTIONS_9 = [
     scenario: "A git repository holds many modules under a modules directory, and only one is needed.",
     question: "Which source syntax selects it?",
     options: [
-      { id: 'A', text: "A double slash before the subdirectory, as in git::https://example.com/repo.git//modules/vpc?ref=v1.0.0" },
-      { id: 'B', text: "A subdir argument alongside source." },
-      { id: 'C', text: "A path argument in the module block." },
-      { id: 'D', text: "A single slash before the subdirectory." }
+      { id: 'A', text: "A double slash before the subdirectory in the source string." },
+      { id: 'B', text: "A `subdir` argument declared alongside `source` in the block" },
+      { id: 'C', text: "A `path` argument declared inside the module block itself" },
+      { id: 'D', text: "A single slash before the subdirectory in the source string" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -74,7 +74,7 @@ export const HASHICORP_TFP_QUESTIONS_9 = [
     options: [
       { id: 'A', text: "Checking that terraform state list returns any output." },
       { id: 'B', text: "Comparing state file sizes." },
-      { id: 'C', text: "A full terraform plan showing no changes, which proves state, configuration, and reality agree." },
+      { id: 'C', text: "A full plan showing no changes at all against that state." },
       { id: 'D', text: "Confirming the state serial increased." }
     ],
     correctAnswers: ['C'],
@@ -93,10 +93,10 @@ export const HASHICORP_TFP_QUESTIONS_9 = [
     scenario: "A network change must land before an application change in a different state, and both are managed by different pipelines.",
     question: "Which approach makes the ordering reliable?",
     options: [
-      { id: 'A', text: "Apply the application change twice." },
-      { id: 'B', text: "Schedule the two pipelines a few minutes apart." },
-      { id: 'C', text: "Merge both configurations into one state permanently." },
-      { id: 'D', text: "Make the dependency explicit - run triggers or a pipeline dependency - and have the consumer read the producer outputs so it fails clearly if the change has not landed." }
+      { id: 'A', text: "Apply the consuming configuration twice, so the second run sees the new value." },
+      { id: 'B', text: "Schedule the two pipelines a few minutes apart so the producer always lands first." },
+      { id: 'C', text: "Merge the two configurations into one state so the graph orders them for you." },
+      { id: 'D', text: "Make the dependency explicit, and read the producer's outputs." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -114,10 +114,10 @@ export const HASHICORP_TFP_QUESTIONS_9 = [
     scenario: "Workspaces, variable sets, and team permissions are currently clicked together in the UI and drift from the documented standard.",
     question: "Which approach addresses that?",
     options: [
-      { id: 'A', text: "Restrict UI access to one administrator." },
-      { id: 'B', text: "Export the settings to a spreadsheet weekly." },
-      { id: 'C', text: "Manage the organisation with the tfe provider from a dedicated administration configuration, so workspaces and permissions are themselves reviewed code." },
-      { id: 'D', text: "Write a runbook describing the manual steps precisely." }
+      { id: 'A', text: "Restrict interface access to one administrator who makes every change by hand." },
+      { id: 'B', text: "Export the settings to a spreadsheet weekly and diff it against the last copy." },
+      { id: 'C', text: "Manage the organisation with the `tfe` provider, so it is reviewed code." },
+      { id: 'D', text: "Write a runbook describing each manual step precisely, and audit against it." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -135,10 +135,10 @@ export const HASHICORP_TFP_QUESTIONS_9 = [
     scenario: "A multi-line policy document must be embedded in a configuration with consistent indentation.",
     question: "Which syntax is appropriate?",
     options: [
-      { id: 'A', text: "Backtick-delimited template literals." },
-      { id: 'B', text: "Concatenating lines with the plus operator." },
-      { id: 'C', text: "An indented heredoc introduced with <<-EOT and terminated by EOT, which strips the leading indentation." },
-      { id: 'D', text: "A single-quoted multi-line string." }
+      { id: 'A', text: "A backtick-delimited template literal spanning the lines." },
+      { id: 'B', text: "Concatenating the lines together with the plus operator." },
+      { id: 'C', text: "An indented heredoc opened with `<<-EOT`." },
+      { id: 'D', text: "A single-quoted string spanning several lines of text." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -156,10 +156,10 @@ export const HASHICORP_TFP_QUESTIONS_9 = [
     scenario: "An IAM policy document is currently a heredoc containing hand-written JSON, and a missing comma broke a deployment.",
     question: "Which alternative is more robust?",
     options: [
-      { id: 'A', text: "Base64-encode the JSON to avoid syntax issues." },
-      { id: 'B', text: "Store the JSON in a file and read it with the file function." },
-      { id: 'C', text: "Build the document as an HCL object and pass it through jsonencode, or use the provider dedicated policy document data source." },
-      { id: 'D', text: "Keep the heredoc but validate it with a shell script before apply." }
+      { id: 'A', text: "Base64-encode the JSON so the syntax cannot be mangled on the way in." },
+      { id: 'B', text: "Keep the JSON in a file and read it in with the `file` function." },
+      { id: 'C', text: "Build it as an HCL object through `jsonencode`." },
+      { id: 'D', text: "Keep the heredoc and validate it with a script before each apply." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -177,10 +177,10 @@ export const HASHICORP_TFP_QUESTIONS_9 = [
     scenario: "A handful of manually created development resources could be imported or simply destroyed and recreated by Terraform.",
     question: "Which consideration should decide it?",
     options: [
-      { id: 'A', text: "Whether the objects hold state or identity that cannot be recreated cheaply - data, DNS names, certificates, allow-list entries - in which case import; otherwise recreation is simpler and yields cleaner configuration." },
-      { id: 'B', text: "The decision depends only on the provider." },
-      { id: 'C', text: "Recreation is always preferable because imported resources cannot be managed normally." },
-      { id: 'D', text: "Import is always preferable because it is faster." }
+      { id: 'A', text: "Whether the objects hold state or identity that cannot be cheaply recreated." },
+      { id: 'B', text: "Whether the provider supports import for those resource types at the version in use." },
+      { id: 'C', text: "Recreation is always preferable, since an imported resource cannot be managed normally." },
+      { id: 'D', text: "Import is always preferable, since it avoids any downtime while the objects move." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -198,10 +198,10 @@ export const HASHICORP_TFP_QUESTIONS_9 = [
     scenario: "A plan fails with \"Invalid count argument: the count value depends on resource attributes that cannot be determined until apply\".",
     question: "Which remedy is correct?",
     options: [
-      { id: 'A', text: "Wrap the count expression in tonumber." },
-      { id: 'B', text: "Increase parallelism so the value resolves sooner." },
-      { id: 'C', text: "Add depends_on so the other resource is created first." },
-      { id: 'D', text: "Derive the count from values known at plan time, such as variables or the length of an input list, rather than from an attribute produced by another resource." }
+      { id: 'A', text: "Wrap the count expression in `tonumber` so the unknown value resolves to a number." },
+      { id: 'B', text: "Raise the parallelism so the upstream resource is created before the count is read." },
+      { id: 'C', text: "Add `depends_on` so the other resource is created before the count is evaluated." },
+      { id: 'D', text: "Derive the count from plan-time values, not another resource's attribute." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -240,10 +240,10 @@ export const HASHICORP_TFP_QUESTIONS_9 = [
     scenario: "A for_each is keyed by an availability zone id fetched from a data source, and occasionally the plan proposes to destroy and recreate every instance.",
     question: "What is happening and how is it fixed?",
     options: [
-      { id: 'A', text: "The data source returns zones in a different order or with different values, changing the keys; key on stable business identifiers and sort or filter the data deterministically." },
-      { id: 'B', text: "The state file has lost its lineage." },
-      { id: 'C', text: "The provider is caching the data source incorrectly; disable refresh." },
-      { id: 'D', text: "for_each cannot be used with data sources at all." }
+      { id: 'A', text: "The data source returns the zones in a different order, changing the keys." },
+      { id: 'B', text: "The state file has lost its lineage, so every instance is treated as new on each run." },
+      { id: 'C', text: "The provider caches the data source wrongly, so refresh has to be disabled for it." },
+      { id: 'D', text: "`for_each` cannot be used with a data source, so the keys are recomputed each time." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -261,10 +261,10 @@ export const HASHICORP_TFP_QUESTIONS_9 = [
     scenario: "State for a payments workspace contains sensitive values and only two people should be able to download it.",
     question: "Which control applies?",
     options: [
-      { id: 'A', text: "Workspace team permissions, where the state download capability is granted by admin or explicitly configured custom permissions rather than by plan or write access alone." },
-      { id: 'B', text: "Setting the workspace to local execution." },
-      { id: 'C', text: "Enabling remote state sharing, which restricts access." },
-      { id: 'D', text: "Marking every output sensitive, which blocks downloads." }
+      { id: 'A', text: "Workspace team permissions, where download needs an explicit grant." },
+      { id: 'B', text: "Setting the workspace to local execution, which keeps the state off the platform." },
+      { id: 'C', text: "Enabling remote state sharing, which narrows who may read the state outputs." },
+      { id: 'D', text: "Marking every output sensitive, which prevents the state being downloaded." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -282,10 +282,10 @@ export const HASHICORP_TFP_QUESTIONS_9 = [
     scenario: "A pull request adds a new input to a shared module and changes a default.",
     question: "Which review points matter most?",
     options: [
-      { id: 'A', text: "Only whether the resource names are consistent." },
-      { id: 'B', text: "Whether the module pins exact provider versions." },
-      { id: 'C', text: "Only whether terraform fmt passes." },
-      { id: 'D', text: "Whether the new input is typed, described, and defaulted compatibly, and whether the changed default alters existing consumers plans - which would make it a breaking change." }
+      { id: 'A', text: "Whether the resource names follow the same convention as the rest of the module's resources." },
+      { id: 'B', text: "Whether the module pins exact provider versions rather than a permissive constraint." },
+      { id: 'C', text: "Whether `terraform fmt` passes and the examples directory still reflects the interface." },
+      { id: 'D', text: "Whether the input is typed and defaulted compatibly, and whether the default shifts existing plans." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -303,10 +303,10 @@ export const HASHICORP_TFP_QUESTIONS_9 = [
     scenario: "An autoscaling group desired capacity is changed constantly by an autoscaler, and Terraform keeps trying to reset it.",
     question: "Which handling is correct?",
     options: [
-      { id: 'A', text: "Add ignore_changes for the capacity attribute so the external system owns it, while Terraform continues to own the rest of the resource." },
-      { id: 'B', text: "Disable the autoscaler." },
-      { id: 'C', text: "Remove the resource from Terraform management entirely." },
-      { id: 'D', text: "Run Terraform more frequently so it wins." }
+      { id: 'A', text: "Add `ignore_changes` for the capacity attribute, leaving Terraform to own the rest." },
+      { id: 'B', text: "Disable the external autoscaler so only Terraform changes the capacity." },
+      { id: 'C', text: "Remove the resource from Terraform's management altogether and import it later." },
+      { id: 'D', text: "Run Terraform more often so its value is the one that is in force." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -325,7 +325,7 @@ export const HASHICORP_TFP_QUESTIONS_9 = [
     question: "What do those indicate?",
     options: [
       { id: 'A', text: "Managed, unmanaged, imported, and tainted." },
-      { id: 'B', text: "Create, destroy, update in place, and destroy then create (replacement) respectively." },
+      { id: 'B', text: "Create, destroy, update in place, and replace." },
       { id: 'C', text: "Warning, error, info, and debug." },
       { id: 'D', text: "Added, removed, renamed, and moved." }
     ],
@@ -346,9 +346,9 @@ export const HASHICORP_TFP_QUESTIONS_9 = [
     question: "Which improvements genuinely help? (Choose two.)",
     options: [
       { id: 'A', text: "Reduce the size of each configuration so a typical change touches fewer resources." },
-      { id: 'B', text: "Summarise the change counts and highlight destroy and replace actions from the JSON plan, collapsing the full output behind a details block." },
-      { id: 'C', text: "Post only the exit code." },
-      { id: 'D', text: "Run plan with -no-color so the output is shorter." }
+      { id: 'B', text: "Summarise the change counts from the JSON plan, collapsing the detail." },
+      { id: 'C', text: "Post only the exit code and link to the run for anyone who wants detail." },
+      { id: 'D', text: "Run the plan with `-no-color` so the posted output is shorter to read." }
     ],
     correctAnswers: ['A', 'B'],
     type: "multiple",
@@ -366,10 +366,10 @@ export const HASHICORP_TFP_QUESTIONS_9 = [
     scenario: "A provider release has a known data-loss bug and no workspace may use it until a fix ships.",
     question: "Which combination is most effective?",
     options: [
-      { id: 'A', text: "An email asking teams not to upgrade." },
-      { id: 'B', text: "Deleting the provider from the plugin cache on the agents." },
-      { id: 'C', text: "A policy that fails runs using the affected version, plus updating the shared module and root constraints to exclude it, for example with a != or upper-bound constraint." },
-      { id: 'D', text: "Setting the lock file to read-only." }
+      { id: 'A', text: "An announcement asking teams not to upgrade until the fix has been released." },
+      { id: 'B', text: "Deleting the affected version from the plugin cache on each of the agents." },
+      { id: 'C', text: "A policy failing runs on that version, plus module and root constraints excluding it." },
+      { id: 'D', text: "Making the dependency lock file read-only so it cannot be regenerated." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -387,10 +387,10 @@ export const HASHICORP_TFP_QUESTIONS_9 = [
     scenario: "A root configuration and two child modules all declare required_providers for the same provider with different constraints.",
     question: "How does Terraform resolve it?",
     options: [
-      { id: 'A', text: "It selects a single version satisfying the intersection of every constraint in the configuration, and fails if no such version exists." },
-      { id: 'B', text: "Each module gets its own provider version." },
-      { id: 'C', text: "The newest constraint encountered wins." },
-      { id: 'D', text: "The root module constraint always wins." }
+      { id: 'A', text: "It picks one version satisfying every constraint's intersection, and fails when none exists." },
+      { id: 'B', text: "Each module resolves its own provider version independently of the others." },
+      { id: 'C', text: "The newest constraint encountered during the walk wins over the earlier ones." },
+      { id: 'D', text: "The root module's constraint always wins over any constraint in a child." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -411,7 +411,7 @@ export const HASHICORP_TFP_QUESTIONS_9 = [
       { id: 'A', text: "A changelog of module releases." },
       { id: 'B', text: "The module semantic version number." },
       { id: 'C', text: "Provider credentials." },
-      { id: 'D', text: "The terraform block with required_version and required_providers." }
+      { id: 'D', text: "The `terraform` block, with version and providers." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -429,10 +429,10 @@ export const HASHICORP_TFP_QUESTIONS_9 = [
     scenario: "A brand new configuration is applied against an empty backend.",
     question: "Which sequence describes it?",
     options: [
-      { id: 'A', text: "Terraform creates a new state with a fresh lineage, plans every resource as a create, applies them, and writes each created object into state as it goes." },
-      { id: 'B', text: "Terraform requires an explicit terraform state init command first." },
-      { id: 'C', text: "Terraform scans the cloud account and adopts matching resources automatically." },
-      { id: 'D', text: "Terraform writes state only after every resource succeeds." }
+      { id: 'A', text: "It starts a fresh state, plans every resource as a create, and records each one as it is made." },
+      { id: 'B', text: "It requires an explicit state initialisation command to be run before the plan." },
+      { id: 'C', text: "It scans the cloud account and adopts any resources that match the configuration." },
+      { id: 'D', text: "It writes the state file only once every resource in the plan has succeeded." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -450,10 +450,10 @@ export const HASHICORP_TFP_QUESTIONS_9 = [
     scenario: "A module applies correctly from a local path but fails when consumed from the private registry at the same version tag.",
     question: "Which cause should be checked first?",
     options: [
-      { id: 'A', text: "Local modules use a different provider version." },
-      { id: 'B', text: "Registry modules ignore variable defaults." },
-      { id: 'C', text: "Registry modules cannot use for_each." },
-      { id: 'D', text: "The published tag does not contain the same code - the change was never committed, tagged, or the tag points at an older commit - so compare the published contents with the local working tree." }
+      { id: 'A', text: "The local module resolves a different provider version from the published one." },
+      { id: 'B', text: "Registry modules ignore variable defaults, so the caller must supply each value." },
+      { id: 'C', text: "Registry modules cannot be used with `for_each`, so the call is expanded once." },
+      { id: 'D', text: "The published tag does not hold the same code; compare it with the tree." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -471,10 +471,10 @@ export const HASHICORP_TFP_QUESTIONS_9 = [
     scenario: "A pipeline stores plan files as build artifacts so they can be applied after approval.",
     question: "Which precaution matters?",
     options: [
-      { id: 'A', text: "Treat the plan file as sensitive, because it can contain resource attribute values including secrets, and restrict who can download build artifacts." },
-      { id: 'B', text: "Nothing, because plan files contain only action verbs." },
-      { id: 'C', text: "Convert the plan to JSON, which redacts secrets." },
-      { id: 'D', text: "Nothing, because plan files are encrypted by Terraform." }
+      { id: 'A', text: "Treat the plan file as sensitive and restrict who downloads artifacts." },
+      { id: 'B', text: "Nothing, since a plan file records only the actions and not the values." },
+      { id: 'C', text: "Convert the plan to JSON first, which redacts the sensitive values." },
+      { id: 'D', text: "Nothing, since Terraform encrypts the plan file when it writes it." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -495,7 +495,7 @@ export const HASHICORP_TFP_QUESTIONS_9 = [
       { id: 'A', text: "A conditional expression returning null for the whole block." },
       { id: 'B', text: "count on the resource." },
       { id: 'C', text: "An if statement before the block." },
-      { id: 'D', text: "A dynamic \"logging\" block whose for_each iterates over a list that is empty when logging is disabled." }
+      { id: 'D', text: "A `dynamic \"logging\"` block whose `for_each` is empty when disabled." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -513,10 +513,10 @@ export const HASHICORP_TFP_QUESTIONS_9 = [
     scenario: "Two business units with separate HCP Terraform organisations need the same internal modules.",
     question: "Which options are realistic?",
     options: [
-      { id: 'A', text: "Use a local path that crosses organisation boundaries." },
-      { id: 'B', text: "Publish the modules to a git repository both can read and consume them by git source with tags, or publish them in each organisation private registry from the same repository." },
-      { id: 'C', text: "Copy the module files into each consuming repository." },
-      { id: 'D', text: "Private registries are automatically shared across all organisations in an account." }
+      { id: 'A', text: "Use a local path source that crosses the two organisations' repositories." },
+      { id: 'B', text: "Publish to a git repository both can read, or register it in each one." },
+      { id: 'C', text: "Copy the module's files into each consuming repository and keep them in step." },
+      { id: 'D', text: "Private registries are shared across the organisations under one account." }
     ],
     correctAnswers: ['B'],
     type: "single",

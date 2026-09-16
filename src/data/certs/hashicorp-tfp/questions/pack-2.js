@@ -30,10 +30,10 @@ export const HASHICORP_TFP_QUESTIONS_2 = [
     scenario: "A monolithic configuration is being split, and a set of resources must move from the old state to a new configuration state without recreating anything.",
     question: "Which sequence is appropriate?",
     options: [
-      { id: 'A', text: "terraform state mv -state-out with the target state file (or pull, edit, push carefully), after backing up both states - or re-import the resources into the new configuration." },
-      { id: 'B', text: "A moved block, which works across separate state files." },
-      { id: 'C', text: "Deleting the resources from the old configuration and applying, then adding them to the new one." },
-      { id: 'D', text: "Copying the whole old state file to the new backend." }
+      { id: 'A', text: "`terraform state mv -state-out` against the target state, after backing up both copies." },
+      { id: 'B', text: "A `moved` block, which also works across two separate state files." },
+      { id: 'C', text: "Deleting them from the old configuration and applying, then adding them to the new." },
+      { id: 'D', text: "Copying the whole old state file into the new configuration's backend." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -93,10 +93,10 @@ export const HASHICORP_TFP_QUESTIONS_2 = [
     scenario: "A module must fail the run if the AMI it selected is not owned by an approved account, and the check must run against the resolved value rather than the input.",
     question: "Which construct expresses that?",
     options: [
-      { id: 'A', text: "A variable validation block." },
-      { id: 'B', text: "An output with sensitive = true." },
-      { id: 'C', text: "A check block on the provider." },
-      { id: 'D', text: "A lifecycle precondition (or postcondition) block with a condition and error_message on the resource or data source." }
+      { id: 'A', text: "A `validation` block on the variable that carries the value in question." },
+      { id: 'B', text: "An output marked `sensitive = true`, which fails when the value is wrong." },
+      { id: 'C', text: "A `check` block scoped to the provider that runs after each apply." },
+      { id: 'D', text: "A `lifecycle` precondition with a condition and `error_message` on the resource." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -114,7 +114,7 @@ export const HASHICORP_TFP_QUESTIONS_2 = [
     scenario: "Twenty workspaces all need the same set of cloud credentials and standard tags, and rotating them one workspace at a time is error-prone.",
     question: "Which HCP Terraform feature solves this?",
     options: [
-      { id: 'A', text: "A variable set scoped to the organisation, a project, or a chosen list of workspaces." },
+      { id: 'A', text: "A variable set scoped to the organisation or chosen workspaces." },
       { id: 'B', text: "A workspace template that clones variables on creation." },
       { id: 'C', text: "A .tfvars file committed to each repository." },
       { id: 'D', text: "A run task that injects variables at plan time." }
@@ -135,10 +135,10 @@ export const HASHICORP_TFP_QUESTIONS_2 = [
     scenario: "After removing a module that defined its own provider block, destroy fails with \"Provider configuration not present: to work with resource X its original provider configuration is required\".",
     question: "What is the correct recovery?",
     options: [
-      { id: 'A', text: "Run terraform init -reconfigure, which regenerates the provider configuration." },
-      { id: 'B', text: "Set the provider version to any value in required_providers." },
-      { id: 'C', text: "Delete the state file and start again." },
-      { id: 'D', text: "Temporarily restore an equivalent provider configuration in the root module so the orphaned resources can be destroyed, then remove them and the provider." }
+      { id: 'A', text: "Run `terraform init -reconfigure`, which regenerates the provider configuration." },
+      { id: 'B', text: "Set any provider version in `required_providers` so the plugin loads again." },
+      { id: 'C', text: "Delete the state file and start the configuration again from scratch." },
+      { id: 'D', text: "Restore an equivalent provider configuration so the orphans can be destroyed, then remove both." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -177,10 +177,10 @@ export const HASHICORP_TFP_QUESTIONS_2 = [
     scenario: "An engineer routinely applies with -target to speed up runs in a large configuration.",
     question: "Which criticism is accurate?",
     options: [
-      { id: 'A', text: "Targeting only works with the local backend." },
-      { id: 'B', text: "Targeting skips state locking, risking corruption." },
-      { id: 'C', text: "Targeting applies a partial graph, so state can end up inconsistent with the configuration; it is intended for recovering from errors rather than routine use." },
-      { id: 'D', text: "Targeting is unsupported and always fails in recent versions." }
+      { id: 'A', text: "Targeting only works with the local backend, so a remote backend rejects the flag." },
+      { id: 'B', text: "Targeting skips the state lock, so a concurrent run can corrupt the state file." },
+      { id: 'C', text: "Targeting applies a partial graph, so state can diverge; it is for recovery." },
+      { id: 'D', text: "Targeting is unsupported in recent versions and fails with a deprecation error." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -219,10 +219,10 @@ export const HASHICORP_TFP_QUESTIONS_2 = [
     scenario: "A module input must accept a collection of subnet definitions, each with a cidr string and an availability_zone string, and reject anything else at plan time.",
     question: "Which type constraint is best?",
     options: [
-      { id: 'A', text: "map(any)" },
-      { id: 'B', text: "any" },
-      { id: 'C', text: "map(object({ cidr = string, availability_zone = string }))" },
-      { id: 'D', text: "list(string)" }
+      { id: 'A', text: "map(object({ cidr = string, az = string }))" },
+      { id: 'B', text: "list(object({ cidr = string }))" },
+      { id: 'C', text: "map(object({ cidr = string }))." },
+      { id: 'D', text: "map(list(string))" }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -240,10 +240,10 @@ export const HASHICORP_TFP_QUESTIONS_2 = [
     scenario: "A colleague asks whether terraform plan changes anything in the real world when it refreshes.",
     question: "Which description is accurate?",
     options: [
-      { id: 'A', text: "Refresh reads the current attributes of managed objects from their providers and updates state to match; it never modifies the remote objects." },
-      { id: 'B', text: "Refresh rewrites remote resources so they match the configuration." },
-      { id: 'C', text: "Refresh deletes state entries for resources it cannot find." },
-      { id: 'D', text: "Refresh is a no-op when a remote backend is used." }
+      { id: 'A', text: "Refresh reads the managed objects' current attributes into state; it never changes them." },
+      { id: 'B', text: "Refresh rewrites the remote objects so that they match the configuration." },
+      { id: 'C', text: "Refresh deletes the state entries for resources it can no longer find." },
+      { id: 'D', text: "Refresh is a no-op whenever a remote backend is in use for the state." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -282,10 +282,10 @@ export const HASHICORP_TFP_QUESTIONS_2 = [
     scenario: "A pipeline must authenticate to a cloud provider without storing long-lived access keys anywhere in the repository or the CI configuration.",
     question: "Which approach best meets that requirement?",
     options: [
-      { id: 'A', text: "Commit an encrypted credentials file and decrypt it in the job." },
-      { id: 'B', text: "Use OIDC or workload identity federation so the CI job exchanges a short-lived token for cloud credentials at run time." },
-      { id: 'C', text: "Pass the access key as a -var value on the command line." },
-      { id: 'D', text: "Store the key in a Terraform variable marked sensitive." }
+      { id: 'A', text: "Commit an encrypted credentials file and decrypt it inside the job." },
+      { id: 'B', text: "Use OIDC federation so the job exchanges a short-lived token at run time." },
+      { id: 'C', text: "Pass the access key as a `-var` value on the command line." },
+      { id: 'D', text: "Store the key in a Terraform variable marked as sensitive." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -303,7 +303,7 @@ export const HASHICORP_TFP_QUESTIONS_2 = [
     scenario: "One module must be instantiated once per team, with different inputs, and referenced individually by team name elsewhere in the configuration.",
     question: "Which construct supports that?",
     options: [
-      { id: 'A', text: "for_each on the module block, referencing module.name[\"team\"].output." },
+      { id: 'A', text: "`for_each` on the module block, read by key." },
       { id: 'B', text: "depends_on with a list of team names." },
       { id: 'C', text: "A dynamic block wrapping the module." },
       { id: 'D', text: "Copying the module block once per team." }
@@ -325,7 +325,7 @@ export const HASHICORP_TFP_QUESTIONS_2 = [
     question: "What happens by default?",
     options: [
       { id: 'A', text: "The workspace is locked until the pull request is closed." },
-      { id: 'B', text: "A speculative plan runs and reports back on the pull request, without the ability to apply." },
+      { id: 'B', text: "A speculative plan runs and reports on the pull request, but cannot apply." },
       { id: 'C', text: "A full plan and apply runs immediately." },
       { id: 'D', text: "Nothing happens until the branch is merged and a run is queued manually." }
     ],
@@ -348,7 +348,7 @@ export const HASHICORP_TFP_QUESTIONS_2 = [
       { id: 'A', text: "A provisioner that sleeps before the application is created." },
       { id: 'B', text: "Placing the attachment block earlier in the file." },
       { id: 'C', text: "Wrapping both in the same module." },
-      { id: 'D', text: "depends_on = [aws_iam_role_policy_attachment.this] on the application resource." }
+      { id: 'D', text: "`depends_on` on the application resource, naming the attachment." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -366,10 +366,10 @@ export const HASHICORP_TFP_QUESTIONS_2 = [
     scenario: "A team proposes committing terraform.tfstate to a public repository so everyone can see the current infrastructure.",
     question: "Which objection is correct?",
     options: [
-      { id: 'A', text: "State files are binary and cannot be diffed, so version control adds nothing." },
-      { id: 'B', text: "State stores all resource attributes in plain text, including values marked sensitive, so it must be treated as a secret and kept in an access-controlled encrypted backend." },
-      { id: 'C', text: "State is regenerated on every plan, so committing it has no effect." },
-      { id: 'D', text: "Only the lock file needs protecting; state itself is redacted." }
+      { id: 'A', text: "State files are binary and cannot be diffed, so version control adds nothing useful." },
+      { id: 'B', text: "State holds every attribute in clear, so it belongs in an encrypted backend." },
+      { id: 'C', text: "State is regenerated on each plan, so committing a copy has no lasting effect." },
+      { id: 'D', text: "Only the lock file needs protecting, since the state itself is already redacted." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -387,10 +387,10 @@ export const HASHICORP_TFP_QUESTIONS_2 = [
     scenario: "An apply creates six of ten resources and then fails on the seventh because of a provider quota error. The engineer wants to know the safe next step.",
     question: "What is the state of the world and the right action?",
     options: [
-      { id: 'A', text: "Terraform rolls back the six created resources automatically." },
-      { id: 'B', text: "The state file is invalid and must be restored from backup." },
-      { id: 'C', text: "The six created resources are recorded in state; fix the quota or configuration and run plan and apply again, which will create only the remaining resources." },
-      { id: 'D', text: "terraform destroy must be run before retrying." }
+      { id: 'A', text: "Terraform rolls the six created resources back automatically when the apply fails." },
+      { id: 'B', text: "The state file is now invalid and has to be restored from the backend's backup." },
+      { id: 'C', text: "The six created resources are in state; fix the quota and re-run, which creates only the rest." },
+      { id: 'D', text: "A `terraform destroy` has to be run before the apply can safely be retried." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -429,10 +429,10 @@ export const HASHICORP_TFP_QUESTIONS_2 = [
     scenario: "A team is debating whether to build one large module that provisions an entire environment or several focused modules composed by a thin root configuration.",
     question: "Which consideration should drive the decision?",
     options: [
-      { id: 'A', text: "Fewer modules always plan faster, so one module is preferable." },
-      { id: 'B', text: "Modules should encapsulate a coherent unit with a stable interface; overly large modules become untestable and hard to change, while overly small wrappers add indirection without value." },
-      { id: 'C', text: "Every resource should have its own module for maximum reuse." },
-      { id: 'D', text: "Module count should match the number of cloud accounts." }
+      { id: 'A', text: "Fewer modules always plan faster, so a single module is the preferable structure." },
+      { id: 'B', text: "A module should encapsulate a coherent unit with a stable interface." },
+      { id: 'C', text: "Every resource should sit in its own module, which gives the maximum reuse." },
+      { id: 'D', text: "The module count should track the number of cloud accounts being managed." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -450,7 +450,7 @@ export const HASHICORP_TFP_QUESTIONS_2 = [
     scenario: "A load-balanced instance must be replaced when its AMI changes, but the new instance has to exist and be healthy before the old one is destroyed.",
     question: "Which lifecycle setting supports that?",
     options: [
-      { id: 'A', text: "create_before_destroy = true, with unique naming so the two can coexist." },
+      { id: 'A', text: "`create_before_destroy = true`, with unique naming." },
       { id: 'B', text: "replace_triggered_by = [aws_ami.this]" },
       { id: 'C', text: "prevent_destroy = true" },
       { id: 'D', text: "ignore_changes = [ami]" }
@@ -471,10 +471,10 @@ export const HASHICORP_TFP_QUESTIONS_2 = [
     scenario: "An organisation wants internal modules to be discoverable, versioned, and consumable by a short address rather than a git URL with a ref.",
     question: "Which capability provides that?",
     options: [
-      { id: 'A', text: "A Sentinel policy that rewrites module sources." },
-      { id: 'B', text: "A workspace variable set containing module paths." },
-      { id: 'C', text: "A run task that fetches modules." },
-      { id: 'D', text: "The private module registry, which publishes tagged modules from connected VCS repositories with documented inputs and versions." }
+      { id: 'A', text: "A Sentinel policy that rewrites each module source to the approved one." },
+      { id: 'B', text: "A workspace variable set holding the approved module source paths." },
+      { id: 'C', text: "A run task that fetches the modules before the plan is evaluated." },
+      { id: 'D', text: "The private module registry, publishing tagged modules from connected repositories." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -492,10 +492,10 @@ export const HASHICORP_TFP_QUESTIONS_2 = [
     scenario: "A team uses terraform workspace new prod and terraform workspace new dev inside one configuration and one backend, and is now hitting problems isolating credentials and blast radius.",
     question: "Which assessment is accurate?",
     options: [
-      { id: 'A', text: "CLI workspaces require the local backend." },
-      { id: 'B', text: "CLI workspaces only switch state within the same backend and configuration; strongly isolated environments usually want separate backends or HCP Terraform workspaces with their own credentials." },
-      { id: 'C', text: "CLI workspaces are deprecated and removed." },
-      { id: 'D', text: "CLI workspaces provide full isolation including separate credentials and backends." }
+      { id: 'A', text: "CLI workspaces require the local backend, so a remote backend cannot use them." },
+      { id: 'B', text: "CLI workspaces only switch state within one backend, so isolation needs more." },
+      { id: 'C', text: "CLI workspaces are deprecated and were removed in a recent Terraform release." },
+      { id: 'D', text: "CLI workspaces isolate fully, including separate credentials and backends." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -515,7 +515,7 @@ export const HASHICORP_TFP_QUESTIONS_2 = [
     options: [
       { id: 'A', text: "terraform graph, which renders the dependency graph." },
       { id: 'B', text: "terraform providers schema -json." },
-      { id: 'C', text: "terraform console, which evaluates expressions against the current state and configuration." },
+      { id: 'C', text: "`terraform console`, which evaluates against the current state." },
       { id: 'D', text: "terraform force-unlock." }
     ],
     correctAnswers: ['C'],
