@@ -9,7 +9,7 @@ export const K8S_CKA_QUESTIONS_18 = [
     scenario: "A platform engineering team is establishing high-availability standards and operational disaster recovery procedures for enterprise Kubernetes clusters. The Kubernetes administrator needs to create an encrypted point-in-time backup of the cluster's etcd state before executing a major control plane configuration change.",
     question: "Which architectural approach or configuration satisfies these cluster reliability and recovery requirements?",
     options: [
-      { id: 'A', text: "Copy `/var/lib/etcd` to another path while etcd is still serving writes." },
+      { id: 'A', text: "Copy `/var/lib/etcd` to another path while etcd is still serving writes to it." },
       { id: 'B', text: "Take a volume snapshot of the etcd disk without quiescing the member." },
       { id: 'C', text: "Run `kubectl get all -A -o yaml` and keep the output as the backup." },
       { id: 'D', text: "Run `etcdctl snapshot save` with the CA, certificate and key for the endpoint." }
@@ -31,7 +31,7 @@ export const K8S_CKA_QUESTIONS_18 = [
     question: "Which architectural approach should the administrator select to manage this demand efficiently without cluster instability?",
     options: [
       { id: 'A', text: "Run `etcdctl snapshot save` with the CA, certificate and key for the endpoint." },
-      { id: 'B', text: "Copy `/var/lib/etcd` to another path while etcd is still serving writes." },
+      { id: 'B', text: "Copy `/var/lib/etcd` to another path while etcd is still serving writes to it." },
       { id: 'C', text: "Run `kubectl get all -A -o yaml` and keep the output as the backup." },
       { id: 'D', text: "Take a volume snapshot of the etcd disk without quiescing the member." }
     ],
@@ -52,7 +52,7 @@ export const K8S_CKA_QUESTIONS_18 = [
     question: "Which solution implements these mandatory Kubernetes security and governance controls?",
     options: [
       { id: 'A', text: "Run `etcdctl snapshot save` with the CA, certificate and key for the endpoint." },
-      { id: 'B', text: "Copy `/var/lib/etcd` to another path while etcd is still serving writes." },
+      { id: 'B', text: "Copy `/var/lib/etcd` to another path while etcd is still serving writes to it." },
       { id: 'C', text: "Run `kubectl get all -A -o yaml` and keep the output as the backup." },
       { id: 'D', text: "Take a volume snapshot of the etcd disk without quiescing the member." }
     ],
@@ -73,7 +73,7 @@ export const K8S_CKA_QUESTIONS_18 = [
     question: "Which operational pattern or feature enables the engineering team to achieve seamless workload execution with minimal complexity?",
     options: [
       { id: 'A', text: "Run `etcdctl snapshot save` with the CA, certificate and key for the endpoint." },
-      { id: 'B', text: "Copy `/var/lib/etcd` to another path while etcd is still serving writes." },
+      { id: 'B', text: "Copy `/var/lib/etcd` to another path while etcd is still serving writes to it." },
       { id: 'C', text: "Run `kubectl get all -A -o yaml` and keep the output as the backup." },
       { id: 'D', text: "Take a volume snapshot of the etcd disk without quiescing the member." }
     ],
@@ -96,7 +96,7 @@ export const K8S_CKA_QUESTIONS_18 = [
       { id: 'A', text: "Run `kubectl get all -A -o yaml` and keep the output as the backup." },
       { id: 'B', text: "Take a volume snapshot of the etcd disk without quiescing the member." },
       { id: 'C', text: "Run `etcdctl snapshot save` with the CA, certificate and key for the endpoint." },
-      { id: 'D', text: "Copy `/var/lib/etcd` to another path while etcd is still serving writes." }
+      { id: 'D', text: "Copy `/var/lib/etcd` to another path while etcd is still serving writes to it." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -220,7 +220,7 @@ export const K8S_CKA_QUESTIONS_18 = [
     question: "Which architectural approach or configuration satisfies these cluster reliability and recovery requirements?",
     options: [
       { id: 'A', text: "Create a `Role` with pod and service read verbs in `staging`, bound to the user with a `RoleBinding`." },
-      { id: 'B', text: "Create a `ClusterRole` with those read verbs, bound to the user with a `ClusterRoleBinding`." },
+      { id: 'B', text: "Create a `ClusterRole` carrying those same read verbs, bound to the user with a `ClusterRoleBinding`." },
       { id: 'C', text: "Bind the built-in `view` ClusterRole to the user with a `ClusterRoleBinding` on the cluster." },
       { id: 'D', text: "Add the user to the API server's static token file with a group the `view` role is bound to." }
     ],
@@ -243,7 +243,7 @@ export const K8S_CKA_QUESTIONS_18 = [
       { id: 'A', text: "Bind the built-in `view` ClusterRole to the user with a `ClusterRoleBinding` on the cluster." },
       { id: 'B', text: "Add the user to the API server's static token file with a group the `view` role is bound to." },
       { id: 'C', text: "Create a `Role` with pod and service read verbs in `staging`, bound to the user with a `RoleBinding`." },
-      { id: 'D', text: "Create a `ClusterRole` with those read verbs, bound to the user with a `ClusterRoleBinding`." }
+      { id: 'D', text: "Create a `ClusterRole` carrying those same read verbs, bound to the user with a `ClusterRoleBinding`." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -263,7 +263,7 @@ export const K8S_CKA_QUESTIONS_18 = [
     options: [
       { id: 'A', text: "Bind the built-in `view` ClusterRole to the user with a `ClusterRoleBinding` on the cluster." },
       { id: 'B', text: "Create a `Role` with pod and service read verbs in `staging`, bound to the user with a `RoleBinding`." },
-      { id: 'C', text: "Create a `ClusterRole` with those read verbs, bound to the user with a `ClusterRoleBinding`." },
+      { id: 'C', text: "Create a `ClusterRole` carrying those same read verbs, bound to the user with a `ClusterRoleBinding`." },
       { id: 'D', text: "Add the user to the API server's static token file with a group the `view` role is bound to." }
     ],
     correctAnswers: ['B'],
@@ -284,7 +284,7 @@ export const K8S_CKA_QUESTIONS_18 = [
     options: [
       { id: 'A', text: "Add the user to the API server's static token file with a group the `view` role is bound to." },
       { id: 'B', text: "Bind the built-in `view` ClusterRole to the user with a `ClusterRoleBinding` on the cluster." },
-      { id: 'C', text: "Create a `ClusterRole` with those read verbs, bound to the user with a `ClusterRoleBinding`." },
+      { id: 'C', text: "Create a `ClusterRole` carrying those same read verbs, bound to the user with a `ClusterRoleBinding`." },
       { id: 'D', text: "Create a `Role` with pod and service read verbs in `staging`, bound to the user with a `RoleBinding`." }
     ],
     correctAnswers: ['D'],
@@ -304,7 +304,7 @@ export const K8S_CKA_QUESTIONS_18 = [
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees cluster stability?",
     options: [
       { id: 'A', text: "Create a `Role` with pod and service read verbs in `staging`, bound to the user with a `RoleBinding`." },
-      { id: 'B', text: "Create a `ClusterRole` with those read verbs, bound to the user with a `ClusterRoleBinding`." },
+      { id: 'B', text: "Create a `ClusterRole` carrying those same read verbs, bound to the user with a `ClusterRoleBinding`." },
       { id: 'C', text: "Bind the built-in `view` ClusterRole to the user with a `ClusterRoleBinding` on the cluster." },
       { id: 'D', text: "Add the user to the API server's static token file with a group the `view` role is bound to." }
     ],
@@ -432,7 +432,7 @@ export const K8S_CKA_QUESTIONS_18 = [
       { id: 'A', text: "Give the pod its own ServiceAccount and a projected token with an `audience` and expiry." },
       { id: 'B', text: "Give the pod its own ServiceAccount and mount its long-lived token Secret as a volume." },
       { id: 'C', text: "Give the pod the `default` ServiceAccount with `automountServiceAccountToken: true`." },
-      { id: 'D', text: "Give the pod a client certificate issued from the cluster CA through a CSR at start-up." }
+      { id: 'D', text: "Give the pod a client certificate issued from the cluster CA through a CSR at start-up time." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -452,7 +452,7 @@ export const K8S_CKA_QUESTIONS_18 = [
     options: [
       { id: 'A', text: "Give the pod its own ServiceAccount and mount its long-lived token Secret as a volume." },
       { id: 'B', text: "Give the pod its own ServiceAccount and a projected token with an `audience` and expiry." },
-      { id: 'C', text: "Give the pod a client certificate issued from the cluster CA through a CSR at start-up." },
+      { id: 'C', text: "Give the pod a client certificate issued from the cluster CA through a CSR at start-up time." },
       { id: 'D', text: "Give the pod the `default` ServiceAccount with `automountServiceAccountToken: true`." }
     ],
     correctAnswers: ['B'],
@@ -474,7 +474,7 @@ export const K8S_CKA_QUESTIONS_18 = [
       { id: 'A', text: "Give the pod the `default` ServiceAccount with `automountServiceAccountToken: true`." },
       { id: 'B', text: "Give the pod its own ServiceAccount and a projected token with an `audience` and expiry." },
       { id: 'C', text: "Give the pod its own ServiceAccount and mount its long-lived token Secret as a volume." },
-      { id: 'D', text: "Give the pod a client certificate issued from the cluster CA through a CSR at start-up." }
+      { id: 'D', text: "Give the pod a client certificate issued from the cluster CA through a CSR at start-up time." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -495,7 +495,7 @@ export const K8S_CKA_QUESTIONS_18 = [
       { id: 'A', text: "Give the pod its own ServiceAccount and a projected token with an `audience` and expiry." },
       { id: 'B', text: "Give the pod its own ServiceAccount and mount its long-lived token Secret as a volume." },
       { id: 'C', text: "Give the pod the `default` ServiceAccount with `automountServiceAccountToken: true`." },
-      { id: 'D', text: "Give the pod a client certificate issued from the cluster CA through a CSR at start-up." }
+      { id: 'D', text: "Give the pod a client certificate issued from the cluster CA through a CSR at start-up time." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -515,7 +515,7 @@ export const K8S_CKA_QUESTIONS_18 = [
     options: [
       { id: 'A', text: "Give the pod its own ServiceAccount and mount its long-lived token Secret as a volume." },
       { id: 'B', text: "Give the pod its own ServiceAccount and a projected token with an `audience` and expiry." },
-      { id: 'C', text: "Give the pod a client certificate issued from the cluster CA through a CSR at start-up." },
+      { id: 'C', text: "Give the pod a client certificate issued from the cluster CA through a CSR at start-up time." },
       { id: 'D', text: "Give the pod the `default` ServiceAccount with `automountServiceAccountToken: true`." }
     ],
     correctAnswers: ['B'],

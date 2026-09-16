@@ -12,7 +12,7 @@ export const K8S_CKA_QUESTIONS_16 = [
       { id: 'A', text: "Set a `RollingUpdate` strategy with `maxSurge` and `maxUnavailable` on the Deployment." },
       { id: 'B', text: "Set a `Recreate` strategy so the old pods stop before the new ones are started." },
       { id: 'C', text: "Set `minReadySeconds` high enough that the rollout pauses between each new pod." },
-      { id: 'D', text: "Set `revisionHistoryLimit: 0` so the rollout replaces pods without keeping history." }
+      { id: 'D', text: "Set `revisionHistoryLimit: 0` so the rollout replaces the pods without keeping any history." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -33,7 +33,7 @@ export const K8S_CKA_QUESTIONS_16 = [
       { id: 'A', text: "Set a `RollingUpdate` strategy with `maxSurge` and `maxUnavailable` on the Deployment." },
       { id: 'B', text: "Set a `Recreate` strategy so the old pods stop before the new ones are started." },
       { id: 'C', text: "Set `minReadySeconds` high enough that the rollout pauses between each new pod." },
-      { id: 'D', text: "Set `revisionHistoryLimit: 0` so the rollout replaces pods without keeping history." }
+      { id: 'D', text: "Set `revisionHistoryLimit: 0` so the rollout replaces the pods without keeping any history." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -53,7 +53,7 @@ export const K8S_CKA_QUESTIONS_16 = [
     options: [
       { id: 'A', text: "Set `minReadySeconds` high enough that the rollout pauses between each new pod." },
       { id: 'B', text: "Set a `Recreate` strategy so the old pods stop before the new ones are started." },
-      { id: 'C', text: "Set `revisionHistoryLimit: 0` so the rollout replaces pods without keeping history." },
+      { id: 'C', text: "Set `revisionHistoryLimit: 0` so the rollout replaces the pods without keeping any history." },
       { id: 'D', text: "Set a `RollingUpdate` strategy with `maxSurge` and `maxUnavailable` on the Deployment." }
     ],
     correctAnswers: ['D'],
@@ -75,7 +75,7 @@ export const K8S_CKA_QUESTIONS_16 = [
       { id: 'A', text: "Set a `RollingUpdate` strategy with `maxSurge` and `maxUnavailable` on the Deployment." },
       { id: 'B', text: "Set a `Recreate` strategy so the old pods stop before the new ones are started." },
       { id: 'C', text: "Set `minReadySeconds` high enough that the rollout pauses between each new pod." },
-      { id: 'D', text: "Set `revisionHistoryLimit: 0` so the rollout replaces pods without keeping history." }
+      { id: 'D', text: "Set `revisionHistoryLimit: 0` so the rollout replaces the pods without keeping any history." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -96,7 +96,7 @@ export const K8S_CKA_QUESTIONS_16 = [
       { id: 'A', text: "Set a `RollingUpdate` strategy with `maxSurge` and `maxUnavailable` on the Deployment." },
       { id: 'B', text: "Set a `Recreate` strategy so the old pods stop before the new ones are started." },
       { id: 'C', text: "Set `minReadySeconds` high enough that the rollout pauses between each new pod." },
-      { id: 'D', text: "Set `revisionHistoryLimit: 0` so the rollout replaces pods without keeping history." }
+      { id: 'D', text: "Set `revisionHistoryLimit: 0` so the rollout replaces the pods without keeping any history." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -221,7 +221,7 @@ export const K8S_CKA_QUESTIONS_16 = [
     options: [
       { id: 'A', text: "Deploy the database as a `StatefulSet` accompanied by a Headless Service and `volumeClaimTemplates`." },
       { id: 'B', text: "Run the database inside an ephemeral Job controller." },
-      { id: 'C', text: "Deploy the database as a standard stateless Deployment sharing a single PersistentVolume." },
+      { id: 'C', text: "Deploy the database as a standard stateless Deployment, with all replicas sharing one PersistentVolume." },
       { id: 'D', text: "Deploy the database as a ReplicaSet using hostPort networking." }
     ],
     correctAnswers: ['A'],
@@ -241,7 +241,7 @@ export const K8S_CKA_QUESTIONS_16 = [
     question: "Which architectural approach should the administrator select to manage this demand efficiently without cluster instability?",
     options: [
       { id: 'A', text: "Deploy the database as a `StatefulSet` accompanied by a Headless Service and `volumeClaimTemplates`." },
-      { id: 'B', text: "Deploy the database as a standard stateless Deployment sharing a single PersistentVolume." },
+      { id: 'B', text: "Deploy the database as a standard stateless Deployment, with all replicas sharing one PersistentVolume." },
       { id: 'C', text: "Deploy the database as a ReplicaSet using hostPort networking." },
       { id: 'D', text: "Run the database inside an ephemeral Job controller." }
     ],
@@ -264,7 +264,7 @@ export const K8S_CKA_QUESTIONS_16 = [
       { id: 'A', text: "Deploy the database as a ReplicaSet using hostPort networking." },
       { id: 'B', text: "Run the database inside an ephemeral Job controller." },
       { id: 'C', text: "Deploy the database as a `StatefulSet` accompanied by a Headless Service and `volumeClaimTemplates`." },
-      { id: 'D', text: "Deploy the database as a standard stateless Deployment sharing a single PersistentVolume." }
+      { id: 'D', text: "Deploy the database as a standard stateless Deployment, with all replicas sharing one PersistentVolume." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -283,7 +283,7 @@ export const K8S_CKA_QUESTIONS_16 = [
     question: "Which operational pattern or feature enables the engineering team to achieve seamless workload execution with minimal complexity?",
     options: [
       { id: 'A', text: "Deploy the database as a `StatefulSet` accompanied by a Headless Service and `volumeClaimTemplates`." },
-      { id: 'B', text: "Deploy the database as a standard stateless Deployment sharing a single PersistentVolume." },
+      { id: 'B', text: "Deploy the database as a standard stateless Deployment, with all replicas sharing one PersistentVolume." },
       { id: 'C', text: "Deploy the database as a ReplicaSet using hostPort networking." },
       { id: 'D', text: "Run the database inside an ephemeral Job controller." }
     ],
@@ -306,7 +306,7 @@ export const K8S_CKA_QUESTIONS_16 = [
       { id: 'A', text: "Deploy the database as a `StatefulSet` accompanied by a Headless Service and `volumeClaimTemplates`." },
       { id: 'B', text: "Deploy the database as a ReplicaSet using hostPort networking." },
       { id: 'C', text: "Run the database inside an ephemeral Job controller." },
-      { id: 'D', text: "Deploy the database as a standard stateless Deployment sharing a single PersistentVolume." }
+      { id: 'D', text: "Deploy the database as a standard stateless Deployment, with all replicas sharing one PersistentVolume." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -431,7 +431,7 @@ export const K8S_CKA_QUESTIONS_16 = [
     options: [
       { id: 'A', text: "Set `podAntiAffinity` with `requiredDuringSchedulingIgnoredDuringExecution` on the payment pod labels." },
       { id: 'B', text: "Set `podAntiAffinity` with `preferredDuringSchedulingIgnoredDuringExecution` on those same labels." },
-      { id: 'C', text: "Set `topologySpreadConstraints` on the hostname key with `whenUnsatisfiable: ScheduleAnyway`." },
+      { id: 'C', text: "Set `topologySpreadConstraints` on the hostname topology key with `whenUnsatisfiable: ScheduleAnyway`." },
       { id: 'D', text: "Set `nodeSelector` on a labelled node pool so the replicas land only on the payment nodes." }
     ],
     correctAnswers: ['A'],
@@ -452,7 +452,7 @@ export const K8S_CKA_QUESTIONS_16 = [
     options: [
       { id: 'A', text: "Set `nodeSelector` on a labelled node pool so the replicas land only on the payment nodes." },
       { id: 'B', text: "Set `podAntiAffinity` with `requiredDuringSchedulingIgnoredDuringExecution` on the payment pod labels." },
-      { id: 'C', text: "Set `topologySpreadConstraints` on the hostname key with `whenUnsatisfiable: ScheduleAnyway`." },
+      { id: 'C', text: "Set `topologySpreadConstraints` on the hostname topology key with `whenUnsatisfiable: ScheduleAnyway`." },
       { id: 'D', text: "Set `podAntiAffinity` with `preferredDuringSchedulingIgnoredDuringExecution` on those same labels." }
     ],
     correctAnswers: ['B'],
@@ -471,7 +471,7 @@ export const K8S_CKA_QUESTIONS_16 = [
     scenario: "A compliance auditor requires strict isolation of cluster resources, least-privilege administrative access, and secure network traffic policies across all namespaces. The Kubernetes administrator needs to ensure that replica pods of a critical payment service are never placed on the same worker node to eliminate single node failure risk.",
     question: "Which solution implements these mandatory Kubernetes security and governance controls?",
     options: [
-      { id: 'A', text: "Set `topologySpreadConstraints` on the hostname key with `whenUnsatisfiable: ScheduleAnyway`." },
+      { id: 'A', text: "Set `topologySpreadConstraints` on the hostname topology key with `whenUnsatisfiable: ScheduleAnyway`." },
       { id: 'B', text: "Set `podAntiAffinity` with `preferredDuringSchedulingIgnoredDuringExecution` on those same labels." },
       { id: 'C', text: "Set `nodeSelector` on a labelled node pool so the replicas land only on the payment nodes." },
       { id: 'D', text: "Set `podAntiAffinity` with `requiredDuringSchedulingIgnoredDuringExecution` on the payment pod labels." }
@@ -493,7 +493,7 @@ export const K8S_CKA_QUESTIONS_16 = [
     question: "Which operational pattern or feature enables the engineering team to achieve seamless workload execution with minimal complexity?",
     options: [
       { id: 'A', text: "Set `nodeSelector` on a labelled node pool so the replicas land only on the payment nodes." },
-      { id: 'B', text: "Set `topologySpreadConstraints` on the hostname key with `whenUnsatisfiable: ScheduleAnyway`." },
+      { id: 'B', text: "Set `topologySpreadConstraints` on the hostname topology key with `whenUnsatisfiable: ScheduleAnyway`." },
       { id: 'C', text: "Set `podAntiAffinity` with `preferredDuringSchedulingIgnoredDuringExecution` on those same labels." },
       { id: 'D', text: "Set `podAntiAffinity` with `requiredDuringSchedulingIgnoredDuringExecution` on the payment pod labels." }
     ],
@@ -515,7 +515,7 @@ export const K8S_CKA_QUESTIONS_16 = [
     options: [
       { id: 'A', text: "Set `podAntiAffinity` with `requiredDuringSchedulingIgnoredDuringExecution` on the payment pod labels." },
       { id: 'B', text: "Set `podAntiAffinity` with `preferredDuringSchedulingIgnoredDuringExecution` on those same labels." },
-      { id: 'C', text: "Set `topologySpreadConstraints` on the hostname key with `whenUnsatisfiable: ScheduleAnyway`." },
+      { id: 'C', text: "Set `topologySpreadConstraints` on the hostname topology key with `whenUnsatisfiable: ScheduleAnyway`." },
       { id: 'D', text: "Set `nodeSelector` on a labelled node pool so the replicas land only on the payment nodes." }
     ],
     correctAnswers: ['A'],

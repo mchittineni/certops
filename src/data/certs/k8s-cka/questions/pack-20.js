@@ -220,7 +220,7 @@ export const K8S_CKA_QUESTIONS_20 = [
     question: "Which architectural approach or configuration satisfies these cluster reliability and recovery requirements?",
     options: [
       { id: 'A', text: "Deploy an ingress controller and define an `Ingress` with the host and path rules." },
-      { id: 'B', text: "Deploy a `LoadBalancer` Service per path, each with its own external address." },
+      { id: 'B', text: "Deploy a separate `LoadBalancer` Service per path, each with its own external address." },
       { id: 'C', text: "Deploy a `NodePort` Service per path and front them with an external proxy." },
       { id: 'D', text: "Deploy a Gateway API `Gateway` without any route attached to it yet." }
     ],
@@ -241,7 +241,7 @@ export const K8S_CKA_QUESTIONS_20 = [
     question: "Which architectural approach should the administrator select to manage this demand efficiently without cluster instability?",
     options: [
       { id: 'A', text: "Deploy an ingress controller and define an `Ingress` with the host and path rules." },
-      { id: 'B', text: "Deploy a `LoadBalancer` Service per path, each with its own external address." },
+      { id: 'B', text: "Deploy a separate `LoadBalancer` Service per path, each with its own external address." },
       { id: 'C', text: "Deploy a `NodePort` Service per path and front them with an external proxy." },
       { id: 'D', text: "Deploy a Gateway API `Gateway` without any route attached to it yet." }
     ],
@@ -262,7 +262,7 @@ export const K8S_CKA_QUESTIONS_20 = [
     question: "Which solution implements these mandatory Kubernetes security and governance controls?",
     options: [
       { id: 'A', text: "Deploy a Gateway API `Gateway` without any route attached to it yet." },
-      { id: 'B', text: "Deploy a `LoadBalancer` Service per path, each with its own external address." },
+      { id: 'B', text: "Deploy a separate `LoadBalancer` Service per path, each with its own external address." },
       { id: 'C', text: "Deploy an ingress controller and define an `Ingress` with the host and path rules." },
       { id: 'D', text: "Deploy a `NodePort` Service per path and front them with an external proxy." }
     ],
@@ -285,7 +285,7 @@ export const K8S_CKA_QUESTIONS_20 = [
       { id: 'A', text: "Deploy an ingress controller and define an `Ingress` with the host and path rules." },
       { id: 'B', text: "Deploy a `NodePort` Service per path and front them with an external proxy." },
       { id: 'C', text: "Deploy a Gateway API `Gateway` without any route attached to it yet." },
-      { id: 'D', text: "Deploy a `LoadBalancer` Service per path, each with its own external address." }
+      { id: 'D', text: "Deploy a separate `LoadBalancer` Service per path, each with its own external address." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -304,7 +304,7 @@ export const K8S_CKA_QUESTIONS_20 = [
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees cluster stability?",
     options: [
       { id: 'A', text: "Deploy an ingress controller and define an `Ingress` with the host and path rules." },
-      { id: 'B', text: "Deploy a `LoadBalancer` Service per path, each with its own external address." },
+      { id: 'B', text: "Deploy a separate `LoadBalancer` Service per path, each with its own external address." },
       { id: 'C', text: "Deploy a `NodePort` Service per path and front them with an external proxy." },
       { id: 'D', text: "Deploy a Gateway API `Gateway` without any route attached to it yet." }
     ],
@@ -432,7 +432,7 @@ export const K8S_CKA_QUESTIONS_20 = [
       { id: 'A', text: "Create a `NetworkPolicy` with an empty `podSelector` and both `policyTypes`, with no allow rules." },
       { id: 'B', text: "Create a `NetworkPolicy` with an empty `podSelector` and `policyTypes: [Ingress]` only." },
       { id: 'C', text: "Create a `NetworkPolicy` whose `podSelector` matches every pod label used in the namespace." },
-      { id: 'D', text: "Create a `NetworkPolicy` with an egress rule denying UDP 53, which stops all name resolution." }
+      { id: 'D', text: "Create a `NetworkPolicy` with an egress rule denying UDP 53, which stops all name resolution too." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -453,7 +453,7 @@ export const K8S_CKA_QUESTIONS_20 = [
       { id: 'A', text: "Create a `NetworkPolicy` with an empty `podSelector` and both `policyTypes`, with no allow rules." },
       { id: 'B', text: "Create a `NetworkPolicy` with an empty `podSelector` and `policyTypes: [Ingress]` only." },
       { id: 'C', text: "Create a `NetworkPolicy` whose `podSelector` matches every pod label used in the namespace." },
-      { id: 'D', text: "Create a `NetworkPolicy` with an egress rule denying UDP 53, which stops all name resolution." }
+      { id: 'D', text: "Create a `NetworkPolicy` with an egress rule denying UDP 53, which stops all name resolution too." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -474,7 +474,7 @@ export const K8S_CKA_QUESTIONS_20 = [
       { id: 'A', text: "Create a `NetworkPolicy` whose `podSelector` matches every pod label used in the namespace." },
       { id: 'B', text: "Create a `NetworkPolicy` with an empty `podSelector` and both `policyTypes`, with no allow rules." },
       { id: 'C', text: "Create a `NetworkPolicy` with an empty `podSelector` and `policyTypes: [Ingress]` only." },
-      { id: 'D', text: "Create a `NetworkPolicy` with an egress rule denying UDP 53, which stops all name resolution." }
+      { id: 'D', text: "Create a `NetworkPolicy` with an egress rule denying UDP 53, which stops all name resolution too." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -495,7 +495,7 @@ export const K8S_CKA_QUESTIONS_20 = [
       { id: 'A', text: "Create a `NetworkPolicy` with an empty `podSelector` and both `policyTypes`, with no allow rules." },
       { id: 'B', text: "Create a `NetworkPolicy` with an empty `podSelector` and `policyTypes: [Ingress]` only." },
       { id: 'C', text: "Create a `NetworkPolicy` whose `podSelector` matches every pod label used in the namespace." },
-      { id: 'D', text: "Create a `NetworkPolicy` with an egress rule denying UDP 53, which stops all name resolution." }
+      { id: 'D', text: "Create a `NetworkPolicy` with an egress rule denying UDP 53, which stops all name resolution too." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -515,7 +515,7 @@ export const K8S_CKA_QUESTIONS_20 = [
     options: [
       { id: 'A', text: "Create a `NetworkPolicy` with an empty `podSelector` and `policyTypes: [Ingress]` only." },
       { id: 'B', text: "Create a `NetworkPolicy` with an empty `podSelector` and both `policyTypes`, with no allow rules." },
-      { id: 'C', text: "Create a `NetworkPolicy` with an egress rule denying UDP 53, which stops all name resolution." },
+      { id: 'C', text: "Create a `NetworkPolicy` with an egress rule denying UDP 53, which stops all name resolution too." },
       { id: 'D', text: "Create a `NetworkPolicy` whose `podSelector` matches every pod label used in the namespace." }
     ],
     correctAnswers: ['B'],

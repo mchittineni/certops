@@ -9,7 +9,7 @@ export const K8S_CKA_QUESTIONS_14 = [
     scenario: "A platform engineering team is establishing high-availability standards and operational disaster recovery procedures for enterprise Kubernetes clusters. The Kubernetes administrator needs to troubleshoot why pods across the cluster cannot resolve external domain names or internal `.cluster.local` service names.",
     question: "Which architectural approach or configuration satisfies these cluster reliability and recovery requirements?",
     options: [
-      { id: 'A', text: "Check each node's `/etc/resolv.conf` and point it at the cluster's own service address." },
+      { id: 'A', text: "Check each node's `/etc/resolv.conf` and point it at the cluster's own service address instead." },
       { id: 'B', text: "Check the kube-proxy DaemonSet's logs and confirm the DNS service has a cluster IP." },
       { id: 'C', text: "Check the pods' `dnsPolicy` and set it to `Default` so they use the node's resolver." },
       { id: 'D', text: "Check the CoreDNS pods in `kube-system`, read their logs, and verify the Corefile ConfigMap." }
@@ -31,7 +31,7 @@ export const K8S_CKA_QUESTIONS_14 = [
     question: "Which architectural approach should the administrator select to manage this demand efficiently without cluster instability?",
     options: [
       { id: 'A', text: "Check the pods' `dnsPolicy` and set it to `Default` so they use the node's resolver." },
-      { id: 'B', text: "Check each node's `/etc/resolv.conf` and point it at the cluster's own service address." },
+      { id: 'B', text: "Check each node's `/etc/resolv.conf` and point it at the cluster's own service address instead." },
       { id: 'C', text: "Check the kube-proxy DaemonSet's logs and confirm the DNS service has a cluster IP." },
       { id: 'D', text: "Check the CoreDNS pods in `kube-system`, read their logs, and verify the Corefile ConfigMap." }
     ],
@@ -52,7 +52,7 @@ export const K8S_CKA_QUESTIONS_14 = [
     question: "Which solution implements these mandatory Kubernetes security and governance controls?",
     options: [
       { id: 'A', text: "Check the CoreDNS pods in `kube-system`, read their logs, and verify the Corefile ConfigMap." },
-      { id: 'B', text: "Check each node's `/etc/resolv.conf` and point it at the cluster's own service address." },
+      { id: 'B', text: "Check each node's `/etc/resolv.conf` and point it at the cluster's own service address instead." },
       { id: 'C', text: "Check the pods' `dnsPolicy` and set it to `Default` so they use the node's resolver." },
       { id: 'D', text: "Check the kube-proxy DaemonSet's logs and confirm the DNS service has a cluster IP." }
     ],
@@ -72,7 +72,7 @@ export const K8S_CKA_QUESTIONS_14 = [
     scenario: "An enterprise is modernizing on-premises virtualized infrastructure and migrating core enterprise workloads into production Kubernetes clusters. The Kubernetes administrator needs to troubleshoot why pods across the cluster cannot resolve external domain names or internal `.cluster.local` service names.",
     question: "Which operational pattern or feature enables the engineering team to achieve seamless workload execution with minimal complexity?",
     options: [
-      { id: 'A', text: "Check each node's `/etc/resolv.conf` and point it at the cluster's own service address." },
+      { id: 'A', text: "Check each node's `/etc/resolv.conf` and point it at the cluster's own service address instead." },
       { id: 'B', text: "Check the pods' `dnsPolicy` and set it to `Default` so they use the node's resolver." },
       { id: 'C', text: "Check the CoreDNS pods in `kube-system`, read their logs, and verify the Corefile ConfigMap." },
       { id: 'D', text: "Check the kube-proxy DaemonSet's logs and confirm the DNS service has a cluster IP." }
@@ -95,7 +95,7 @@ export const K8S_CKA_QUESTIONS_14 = [
     options: [
       { id: 'A', text: "Check the pods' `dnsPolicy` and set it to `Default` so they use the node's resolver." },
       { id: 'B', text: "Check the CoreDNS pods in `kube-system`, read their logs, and verify the Corefile ConfigMap." },
-      { id: 'C', text: "Check each node's `/etc/resolv.conf` and point it at the cluster's own service address." },
+      { id: 'C', text: "Check each node's `/etc/resolv.conf` and point it at the cluster's own service address instead." },
       { id: 'D', text: "Check the kube-proxy DaemonSet's logs and confirm the DNS service has a cluster IP." }
     ],
     correctAnswers: ['B'],
@@ -116,7 +116,7 @@ export const K8S_CKA_QUESTIONS_14 = [
     options: [
       { id: 'A', text: "Run `kubectl describe pod` and read the `FailedScheduling` events for the unmet resource." },
       { id: 'B', text: "Run `kubectl get events -A` and look for the node's own `NodeNotReady` transitions." },
-      { id: 'C', text: "Run `kubectl top nodes` and compare each node's usage with the pod's declared limits." },
+      { id: 'C', text: "Run `kubectl top nodes` and compare each node's usage with the pod's declared resource limits." },
       { id: 'D', text: "Run `kubectl get pod -o yaml` and check the `nodeName` the scheduler has assigned it." }
     ],
     correctAnswers: ['A'],
@@ -137,7 +137,7 @@ export const K8S_CKA_QUESTIONS_14 = [
     options: [
       { id: 'A', text: "Run `kubectl describe pod` and read the `FailedScheduling` events for the unmet resource." },
       { id: 'B', text: "Run `kubectl get events -A` and look for the node's own `NodeNotReady` transitions." },
-      { id: 'C', text: "Run `kubectl top nodes` and compare each node's usage with the pod's declared limits." },
+      { id: 'C', text: "Run `kubectl top nodes` and compare each node's usage with the pod's declared resource limits." },
       { id: 'D', text: "Run `kubectl get pod -o yaml` and check the `nodeName` the scheduler has assigned it." }
     ],
     correctAnswers: ['A'],
@@ -158,7 +158,7 @@ export const K8S_CKA_QUESTIONS_14 = [
     options: [
       { id: 'A', text: "Run `kubectl describe pod` and read the `FailedScheduling` events for the unmet resource." },
       { id: 'B', text: "Run `kubectl get events -A` and look for the node's own `NodeNotReady` transitions." },
-      { id: 'C', text: "Run `kubectl top nodes` and compare each node's usage with the pod's declared limits." },
+      { id: 'C', text: "Run `kubectl top nodes` and compare each node's usage with the pod's declared resource limits." },
       { id: 'D', text: "Run `kubectl get pod -o yaml` and check the `nodeName` the scheduler has assigned it." }
     ],
     correctAnswers: ['A'],
@@ -177,7 +177,7 @@ export const K8S_CKA_QUESTIONS_14 = [
     scenario: "An enterprise is modernizing on-premises virtualized infrastructure and migrating core enterprise workloads into production Kubernetes clusters. The Kubernetes administrator needs to diagnose why several new pods remain permanently in `Pending` status after a batch deployment.",
     question: "Which operational pattern or feature enables the engineering team to achieve seamless workload execution with minimal complexity?",
     options: [
-      { id: 'A', text: "Run `kubectl top nodes` and compare each node's usage with the pod's declared limits." },
+      { id: 'A', text: "Run `kubectl top nodes` and compare each node's usage with the pod's declared resource limits." },
       { id: 'B', text: "Run `kubectl get pod -o yaml` and check the `nodeName` the scheduler has assigned it." },
       { id: 'C', text: "Run `kubectl describe pod` and read the `FailedScheduling` events for the unmet resource." },
       { id: 'D', text: "Run `kubectl get events -A` and look for the node's own `NodeNotReady` transitions." }
@@ -199,7 +199,7 @@ export const K8S_CKA_QUESTIONS_14 = [
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees cluster stability?",
     options: [
       { id: 'A', text: "Run `kubectl describe pod` and read the `FailedScheduling` events for the unmet resource." },
-      { id: 'B', text: "Run `kubectl top nodes` and compare each node's usage with the pod's declared limits." },
+      { id: 'B', text: "Run `kubectl top nodes` and compare each node's usage with the pod's declared resource limits." },
       { id: 'C', text: "Run `kubectl get pod -o yaml` and check the `nodeName` the scheduler has assigned it." },
       { id: 'D', text: "Run `kubectl get events -A` and look for the node's own `NodeNotReady` transitions." }
     ],
@@ -326,7 +326,7 @@ export const K8S_CKA_QUESTIONS_14 = [
     options: [
       { id: 'A', text: "Check the `kube-proxy` pod's logs on that node and the host's iptables or IPVS rules." },
       { id: 'B', text: "Check the CNI DaemonSet's pod on that node and the routes it has programmed." },
-      { id: 'C', text: "Check the node's `NetworkUnavailable` condition and the addresses it has registered." },
+      { id: 'C', text: "Check the node's `NetworkUnavailable` condition and the pod addresses it has registered." },
       { id: 'D', text: "Check the Service's endpoints and confirm the node's pods appear among them." }
     ],
     correctAnswers: ['A'],
@@ -348,7 +348,7 @@ export const K8S_CKA_QUESTIONS_14 = [
       { id: 'A', text: "Check the Service's endpoints and confirm the node's pods appear among them." },
       { id: 'B', text: "Check the CNI DaemonSet's pod on that node and the routes it has programmed." },
       { id: 'C', text: "Check the `kube-proxy` pod's logs on that node and the host's iptables or IPVS rules." },
-      { id: 'D', text: "Check the node's `NetworkUnavailable` condition and the addresses it has registered." }
+      { id: 'D', text: "Check the node's `NetworkUnavailable` condition and the pod addresses it has registered." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -367,7 +367,7 @@ export const K8S_CKA_QUESTIONS_14 = [
     question: "Which solution implements these mandatory Kubernetes security and governance controls?",
     options: [
       { id: 'A', text: "Check the CNI DaemonSet's pod on that node and the routes it has programmed." },
-      { id: 'B', text: "Check the node's `NetworkUnavailable` condition and the addresses it has registered." },
+      { id: 'B', text: "Check the node's `NetworkUnavailable` condition and the pod addresses it has registered." },
       { id: 'C', text: "Check the `kube-proxy` pod's logs on that node and the host's iptables or IPVS rules." },
       { id: 'D', text: "Check the Service's endpoints and confirm the node's pods appear among them." }
     ],
@@ -387,7 +387,7 @@ export const K8S_CKA_QUESTIONS_14 = [
     scenario: "An enterprise is modernizing on-premises virtualized infrastructure and migrating core enterprise workloads into production Kubernetes clusters. The Kubernetes administrator needs to investigate why network traffic to ClusterIP Services fails on a specific worker node while working on all other nodes.",
     question: "Which operational pattern or feature enables the engineering team to achieve seamless workload execution with minimal complexity?",
     options: [
-      { id: 'A', text: "Check the node's `NetworkUnavailable` condition and the addresses it has registered." },
+      { id: 'A', text: "Check the node's `NetworkUnavailable` condition and the pod addresses it has registered." },
       { id: 'B', text: "Check the CNI DaemonSet's pod on that node and the routes it has programmed." },
       { id: 'C', text: "Check the Service's endpoints and confirm the node's pods appear among them." },
       { id: 'D', text: "Check the `kube-proxy` pod's logs on that node and the host's iptables or IPVS rules." }
@@ -410,7 +410,7 @@ export const K8S_CKA_QUESTIONS_14 = [
     options: [
       { id: 'A', text: "Check the `kube-proxy` pod's logs on that node and the host's iptables or IPVS rules." },
       { id: 'B', text: "Check the CNI DaemonSet's pod on that node and the routes it has programmed." },
-      { id: 'C', text: "Check the node's `NetworkUnavailable` condition and the addresses it has registered." },
+      { id: 'C', text: "Check the node's `NetworkUnavailable` condition and the pod addresses it has registered." },
       { id: 'D', text: "Check the Service's endpoints and confirm the node's pods appear among them." }
     ],
     correctAnswers: ['A'],
