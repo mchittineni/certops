@@ -9,7 +9,7 @@ export const AWS_SCS_QUESTIONS_11 = [
     scenario: "An enterprise cloud security architect is establishing multi-account security baselines, identity perimeters, and regulatory compliance guardrails across an AWS Organization. The security engineer needs to isolate an EC2 instance communicating with command-and-control servers automatically within seconds of detection.",
     question: "Which architectural approach or AWS security configuration satisfies these enterprise security objectives?",
     options: [
-      { id: 'A', text: "An EventBridge rule on the GuardDuty finding, running a Lambda that isolates the instance" },
+      { id: 'A', text: "An EventBridge rule on the finding, running a Lambda that isolates it" },
       { id: 'B', text: "Route the GuardDuty finding to an SNS topic that pages the on-call analyst." },
       { id: 'C', text: "Route the finding to a Step Functions workflow that snapshots the volumes first." },
       { id: 'D', text: "Route the finding to Security Hub and let its automation rule suppress the duplicates." }
@@ -30,7 +30,7 @@ export const AWS_SCS_QUESTIONS_11 = [
     scenario: "A security operations center (SOC) detects an active security anomaly and potential credential compromise across production AWS workloads. The security engineer needs to isolate an EC2 instance communicating with command-and-control servers automatically within seconds of detection.",
     question: "Which incident response workflow or AWS service configuration contains the threat effectively while preserving forensic evidence?",
     options: [
-      { id: 'A', text: "An EventBridge rule on the GuardDuty finding, running a Lambda that isolates the instance" },
+      { id: 'A', text: "An EventBridge rule on the finding, running a Lambda that isolates it" },
       { id: 'B', text: "Route the GuardDuty finding to an SNS topic that pages the on-call analyst." },
       { id: 'C', text: "Route the finding to a Step Functions workflow that snapshots the volumes first." },
       { id: 'D', text: "Route the finding to Security Hub and let its automation rule suppress the duplicates." }
@@ -51,7 +51,7 @@ export const AWS_SCS_QUESTIONS_11 = [
     scenario: "A security compliance auditor requires strict least-privilege access, cryptographic key separation of duties, and continuous audit verification across all IAM principals. The security engineer needs to isolate an EC2 instance communicating with command-and-control servers automatically within seconds of detection.",
     question: "Which IAM design pattern or encryption policy satisfies these mandatory access controls?",
     options: [
-      { id: 'A', text: "An EventBridge rule on the GuardDuty finding, running a Lambda that isolates the instance" },
+      { id: 'A', text: "An EventBridge rule on the finding, running a Lambda that isolates it" },
       { id: 'B', text: "Route the GuardDuty finding to an SNS topic that pages the on-call analyst." },
       { id: 'C', text: "Route the finding to a Step Functions workflow that snapshots the volumes first." },
       { id: 'D', text: "Route the finding to Security Hub and let its automation rule suppress the duplicates." }
@@ -72,7 +72,7 @@ export const AWS_SCS_QUESTIONS_11 = [
     scenario: "A financial data privacy team is implementing defense-in-depth protection, automated secret rotation, and immutable audit logging for sensitive customer records. The security engineer needs to isolate an EC2 instance communicating with command-and-control servers automatically within seconds of detection.",
     question: "Which AWS data protection mechanism or encryption strategy guarantees confidentiality and integrity?",
     options: [
-      { id: 'A', text: "An EventBridge rule on the GuardDuty finding, running a Lambda that isolates the instance" },
+      { id: 'A', text: "An EventBridge rule on the finding, running a Lambda that isolates it" },
       { id: 'B', text: "Route the GuardDuty finding to an SNS topic that pages the on-call analyst." },
       { id: 'C', text: "Route the finding to a Step Functions workflow that snapshots the volumes first." },
       { id: 'D', text: "Route the finding to Security Hub and let its automation rule suppress the duplicates." }
@@ -93,7 +93,7 @@ export const AWS_SCS_QUESTIONS_11 = [
     scenario: "A cloud platform reliability team is hardening network perimeters, isolating hybrid VPCs, and automating vulnerability remediation across elastic EC2 and EKS clusters. The security engineer needs to isolate an EC2 instance communicating with command-and-control servers automatically within seconds of detection.",
     question: "Which network design or AWS infrastructure security configuration guarantees high availability and perimeter defense?",
     options: [
-      { id: 'A', text: "An EventBridge rule on the GuardDuty finding, running a Lambda that isolates the instance" },
+      { id: 'A', text: "An EventBridge rule on the finding, running a Lambda that isolates it" },
       { id: 'B', text: "Route the GuardDuty finding to an SNS topic that pages the on-call analyst." },
       { id: 'C', text: "Route the finding to a Step Functions workflow that snapshots the volumes first." },
       { id: 'D', text: "Route the finding to Security Hub and let its automation rule suppress the duplicates." }
@@ -114,7 +114,7 @@ export const AWS_SCS_QUESTIONS_11 = [
     scenario: "An enterprise cloud security architect is establishing multi-account security baselines, identity perimeters, and regulatory compliance guardrails across an AWS Organization. The security engineer needs to investigate the full scope and lateral movement of an attacker who accessed an S3 bucket and created unauthorized IAM users.",
     question: "Which architectural approach or AWS security configuration satisfies these enterprise security objectives?",
     options: [
-      { id: 'A', text: "Query the CloudTrail logs in Athena and join them with the flow logs by address." },
+      { id: 'A', text: "Query the CloudTrail logs in Athena and join them with the flow logs by address and time." },
       { id: 'B', text: "Read the GuardDuty findings in order and follow the resources each one names." },
       { id: 'C', text: "Replay the CloudWatch metrics around the window to locate the affected service." },
       { id: 'D', text: "Enable Detective to correlate CloudTrail, flow logs and GuardDuty findings in one graph" }
@@ -135,7 +135,7 @@ export const AWS_SCS_QUESTIONS_11 = [
     scenario: "A security operations center (SOC) detects an active security anomaly and potential credential compromise across production AWS workloads. The security engineer needs to investigate the full scope and lateral movement of an attacker who accessed an S3 bucket and created unauthorized IAM users.",
     question: "Which incident response workflow or AWS service configuration contains the threat effectively while preserving forensic evidence?",
     options: [
-      { id: 'A', text: "Query the CloudTrail logs in Athena and join them with the flow logs by address." },
+      { id: 'A', text: "Query the CloudTrail logs in Athena and join them with the flow logs by address and time." },
       { id: 'B', text: "Replay the CloudWatch metrics around the window to locate the affected service." },
       { id: 'C', text: "Enable Detective to correlate CloudTrail, flow logs and GuardDuty findings in one graph" },
       { id: 'D', text: "Read the GuardDuty findings in order and follow the resources each one names." }
@@ -158,7 +158,7 @@ export const AWS_SCS_QUESTIONS_11 = [
     options: [
       { id: 'A', text: "Enable Detective to correlate CloudTrail, flow logs and GuardDuty findings in one graph" },
       { id: 'B', text: "Read the GuardDuty findings in order and follow the resources each one names." },
-      { id: 'C', text: "Query the CloudTrail logs in Athena and join them with the flow logs by address." },
+      { id: 'C', text: "Query the CloudTrail logs in Athena and join them with the flow logs by address and time." },
       { id: 'D', text: "Replay the CloudWatch metrics around the window to locate the affected service." }
     ],
     correctAnswers: ['A'],
@@ -179,7 +179,7 @@ export const AWS_SCS_QUESTIONS_11 = [
     options: [
       { id: 'A', text: "Enable Detective to correlate CloudTrail, flow logs and GuardDuty findings in one graph" },
       { id: 'B', text: "Read the GuardDuty findings in order and follow the resources each one names." },
-      { id: 'C', text: "Query the CloudTrail logs in Athena and join them with the flow logs by address." },
+      { id: 'C', text: "Query the CloudTrail logs in Athena and join them with the flow logs by address and time." },
       { id: 'D', text: "Replay the CloudWatch metrics around the window to locate the affected service." }
     ],
     correctAnswers: ['A'],
@@ -198,7 +198,7 @@ export const AWS_SCS_QUESTIONS_11 = [
     scenario: "A cloud platform reliability team is hardening network perimeters, isolating hybrid VPCs, and automating vulnerability remediation across elastic EC2 and EKS clusters. The security engineer needs to investigate the full scope and lateral movement of an attacker who accessed an S3 bucket and created unauthorized IAM users.",
     question: "Which network design or AWS infrastructure security configuration guarantees high availability and perimeter defense?",
     options: [
-      { id: 'A', text: "Query the CloudTrail logs in Athena and join them with the flow logs by address." },
+      { id: 'A', text: "Query the CloudTrail logs in Athena and join them with the flow logs by address and time." },
       { id: 'B', text: "Replay the CloudWatch metrics around the window to locate the affected service." },
       { id: 'C', text: "Enable Detective to correlate CloudTrail, flow logs and GuardDuty findings in one graph" },
       { id: 'D', text: "Read the GuardDuty findings in order and follow the resources each one names." }
@@ -429,7 +429,7 @@ export const AWS_SCS_QUESTIONS_11 = [
     scenario: "An enterprise cloud security architect is establishing multi-account security baselines, identity perimeters, and regulatory compliance guardrails across an AWS Organization. The security engineer needs to enable security analysts to remediate non-compliant S3 buckets or open security groups with one click from a central console.",
     question: "Which architectural approach or AWS security configuration satisfies these enterprise security objectives?",
     options: [
-      { id: 'A', text: "Security Hub custom actions sending findings to EventBridge, which runs Automation runbooks." },
+      { id: 'A', text: "Security Hub custom actions to EventBridge, which run Automation runbooks" },
       { id: 'B', text: "Security Hub automation rules that suppress the findings once they are triaged." },
       { id: 'C', text: "A scheduled Lambda polling the findings API and acting on those it recognises." },
       { id: 'D', text: "An EventBridge rule per finding type, each paging the account's own owner." }
@@ -450,7 +450,7 @@ export const AWS_SCS_QUESTIONS_11 = [
     scenario: "A security operations center (SOC) detects an active security anomaly and potential credential compromise across production AWS workloads. The security engineer needs to enable security analysts to remediate non-compliant S3 buckets or open security groups with one click from a central console.",
     question: "Which incident response workflow or AWS service configuration contains the threat effectively while preserving forensic evidence?",
     options: [
-      { id: 'A', text: "Security Hub custom actions sending findings to EventBridge, which runs Automation runbooks." },
+      { id: 'A', text: "Security Hub custom actions to EventBridge, which run Automation runbooks" },
       { id: 'B', text: "An EventBridge rule per finding type, each paging the account's own owner." },
       { id: 'C', text: "Security Hub automation rules that suppress the findings once they are triaged." },
       { id: 'D', text: "A scheduled Lambda polling the findings API and acting on those it recognises." }
@@ -472,7 +472,7 @@ export const AWS_SCS_QUESTIONS_11 = [
     question: "Which IAM design pattern or encryption policy satisfies these mandatory access controls?",
     options: [
       { id: 'A', text: "Security Hub automation rules that suppress the findings once they are triaged." },
-      { id: 'B', text: "Security Hub custom actions sending findings to EventBridge, which runs Automation runbooks." },
+      { id: 'B', text: "Security Hub custom actions to EventBridge, which run Automation runbooks" },
       { id: 'C', text: "An EventBridge rule per finding type, each paging the account's own owner." },
       { id: 'D', text: "A scheduled Lambda polling the findings API and acting on those it recognises." }
     ],
@@ -495,7 +495,7 @@ export const AWS_SCS_QUESTIONS_11 = [
       { id: 'A', text: "Security Hub automation rules that suppress the findings once they are triaged." },
       { id: 'B', text: "An EventBridge rule per finding type, each paging the account's own owner." },
       { id: 'C', text: "A scheduled Lambda polling the findings API and acting on those it recognises." },
-      { id: 'D', text: "Security Hub custom actions sending findings to EventBridge, which runs Automation runbooks." }
+      { id: 'D', text: "Security Hub custom actions to EventBridge, which run Automation runbooks" }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -513,7 +513,7 @@ export const AWS_SCS_QUESTIONS_11 = [
     scenario: "A cloud platform reliability team is hardening network perimeters, isolating hybrid VPCs, and automating vulnerability remediation across elastic EC2 and EKS clusters. The security engineer needs to enable security analysts to remediate non-compliant S3 buckets or open security groups with one click from a central console.",
     question: "Which network design or AWS infrastructure security configuration guarantees high availability and perimeter defense?",
     options: [
-      { id: 'A', text: "Security Hub custom actions sending findings to EventBridge, which runs Automation runbooks." },
+      { id: 'A', text: "Security Hub custom actions to EventBridge, which run Automation runbooks" },
       { id: 'B', text: "Security Hub automation rules that suppress the findings once they are triaged." },
       { id: 'C', text: "A scheduled Lambda polling the findings API and acting on those it recognises." },
       { id: 'D', text: "An EventBridge rule per finding type, each paging the account's own owner." }

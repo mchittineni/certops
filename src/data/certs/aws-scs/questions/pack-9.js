@@ -348,7 +348,7 @@ export const AWS_SCS_QUESTIONS_9 = [
       { id: 'A', text: "Control Tower with the elective guardrails only, and evidence gathered per account" },
       { id: 'B', text: "Organization-wide Config rules, with each account's owner reviewing its own findings" },
       { id: 'C', text: "Control Tower with mandatory guardrails, Config conformance packs and Audit Manager evidence" },
-      { id: 'D', text: "Service control policies alone, which prevent the non-compliant action from being taken" }
+      { id: 'D', text: "Service control policies alone, which prevent the non-compliant action from being taken at all" }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -369,7 +369,7 @@ export const AWS_SCS_QUESTIONS_9 = [
       { id: 'A', text: "Control Tower with mandatory guardrails, Config conformance packs and Audit Manager evidence" },
       { id: 'B', text: "Organization-wide Config rules, with each account's owner reviewing its own findings" },
       { id: 'C', text: "Control Tower with the elective guardrails only, and evidence gathered per account" },
-      { id: 'D', text: "Service control policies alone, which prevent the non-compliant action from being taken" }
+      { id: 'D', text: "Service control policies alone, which prevent the non-compliant action from being taken at all" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -390,7 +390,7 @@ export const AWS_SCS_QUESTIONS_9 = [
       { id: 'A', text: "Control Tower with mandatory guardrails, Config conformance packs and Audit Manager evidence" },
       { id: 'B', text: "Organization-wide Config rules, with each account's owner reviewing its own findings" },
       { id: 'C', text: "Control Tower with the elective guardrails only, and evidence gathered per account" },
-      { id: 'D', text: "Service control policies alone, which prevent the non-compliant action from being taken" }
+      { id: 'D', text: "Service control policies alone, which prevent the non-compliant action from being taken at all" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -411,7 +411,7 @@ export const AWS_SCS_QUESTIONS_9 = [
       { id: 'A', text: "Control Tower with the elective guardrails only, and evidence gathered per account" },
       { id: 'B', text: "Control Tower with mandatory guardrails, Config conformance packs and Audit Manager evidence" },
       { id: 'C', text: "Organization-wide Config rules, with each account's owner reviewing its own findings" },
-      { id: 'D', text: "Service control policies alone, which prevent the non-compliant action from being taken" }
+      { id: 'D', text: "Service control policies alone, which prevent the non-compliant action from being taken at all" }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -431,7 +431,7 @@ export const AWS_SCS_QUESTIONS_9 = [
     options: [
       { id: 'A', text: "Control Tower with the elective guardrails only, and evidence gathered per account" },
       { id: 'B', text: "Control Tower with mandatory guardrails, Config conformance packs and Audit Manager evidence" },
-      { id: 'C', text: "Service control policies alone, which prevent the non-compliant action from being taken" },
+      { id: 'C', text: "Service control policies alone, which prevent the non-compliant action from being taken at all" },
       { id: 'D', text: "Organization-wide Config rules, with each account's owner reviewing its own findings" }
     ],
     correctAnswers: ['B'],
@@ -452,7 +452,7 @@ export const AWS_SCS_QUESTIONS_9 = [
     options: [
       { id: 'A', text: "Control Tower with the elective guardrails only, and evidence gathered per account" },
       { id: 'B', text: "Control Tower with mandatory guardrails, Config conformance packs and Audit Manager evidence" },
-      { id: 'C', text: "Service control policies alone, which prevent the non-compliant action from being taken" },
+      { id: 'C', text: "Service control policies alone, which prevent the non-compliant action from being taken at all" },
       { id: 'D', text: "Organization-wide Config rules, with each account's owner reviewing its own findings" }
     ],
     correctAnswers: ['B'],
@@ -472,7 +472,7 @@ export const AWS_SCS_QUESTIONS_9 = [
     question: "Which governance architecture best fulfills objective #7?",
     options: [
       { id: 'A', text: "Control Tower with mandatory guardrails, Config conformance packs and Audit Manager evidence" },
-      { id: 'B', text: "Service control policies alone, which prevent the non-compliant action from being taken" },
+      { id: 'B', text: "Service control policies alone, which prevent the non-compliant action from being taken at all" },
       { id: 'C', text: "Organization-wide Config rules, with each account's owner reviewing its own findings" },
       { id: 'D', text: "Control Tower with the elective guardrails only, and evidence gathered per account" }
     ],
@@ -493,7 +493,7 @@ export const AWS_SCS_QUESTIONS_9 = [
     question: "Which governance architecture best fulfills objective #8?",
     options: [
       { id: 'A', text: "Control Tower with mandatory guardrails, Config conformance packs and Audit Manager evidence" },
-      { id: 'B', text: "Service control policies alone, which prevent the non-compliant action from being taken" },
+      { id: 'B', text: "Service control policies alone, which prevent the non-compliant action from being taken at all" },
       { id: 'C', text: "Control Tower with the elective guardrails only, and evidence gathered per account" },
       { id: 'D', text: "Organization-wide Config rules, with each account's owner reviewing its own findings" }
     ],
@@ -514,7 +514,7 @@ export const AWS_SCS_QUESTIONS_9 = [
     question: "Which governance architecture best fulfills objective #9?",
     options: [
       { id: 'A', text: "Control Tower with mandatory guardrails, Config conformance packs and Audit Manager evidence" },
-      { id: 'B', text: "Service control policies alone, which prevent the non-compliant action from being taken" },
+      { id: 'B', text: "Service control policies alone, which prevent the non-compliant action from being taken at all" },
       { id: 'C', text: "Control Tower with the elective guardrails only, and evidence gathered per account" },
       { id: 'D', text: "Organization-wide Config rules, with each account's owner reviewing its own findings" }
     ],

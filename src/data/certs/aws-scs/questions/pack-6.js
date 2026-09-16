@@ -158,7 +158,7 @@ export const AWS_SCS_QUESTIONS_6 = [
     options: [
       { id: 'A', text: "IAM users per employee with enforced MFA and a strict password policy" },
       { id: 'B', text: "IAM roles assumed from a single shared user account with enforced MFA" },
-      { id: 'C', text: "IAM Identity Center with the built-in directory and rotated access keys" },
+      { id: 'C', text: "IAM Identity Center with its own built-in directory and manually rotated access keys" },
       { id: 'D', text: "IAM Identity Center with SAML federation, enforced MFA, and rotated credentials" }
     ],
     correctAnswers: ['D'],
@@ -180,7 +180,7 @@ export const AWS_SCS_QUESTIONS_6 = [
       { id: 'A', text: "IAM roles assumed from a single shared user account with enforced MFA" },
       { id: 'B', text: "IAM users per employee with enforced MFA and a strict password policy" },
       { id: 'C', text: "IAM Identity Center with SAML federation, enforced MFA, and rotated credentials" },
-      { id: 'D', text: "IAM Identity Center with the built-in directory and rotated access keys" }
+      { id: 'D', text: "IAM Identity Center with its own built-in directory and manually rotated access keys" }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -198,7 +198,7 @@ export const AWS_SCS_QUESTIONS_6 = [
     scenario: "An identity architect is establishing least privilege, temporary credentials, and federation across an AWS enterprise estate.",
     question: "Which IAM architecture best satisfies objective #3?",
     options: [
-      { id: 'A', text: "IAM Identity Center with the built-in directory and rotated access keys" },
+      { id: 'A', text: "IAM Identity Center with its own built-in directory and manually rotated access keys" },
       { id: 'B', text: "IAM users per employee with enforced MFA and a strict password policy" },
       { id: 'C', text: "IAM Identity Center with SAML federation, enforced MFA, and rotated credentials" },
       { id: 'D', text: "IAM roles assumed from a single shared user account with enforced MFA" }
@@ -220,7 +220,7 @@ export const AWS_SCS_QUESTIONS_6 = [
     question: "Which IAM architecture best satisfies objective #4?",
     options: [
       { id: 'A', text: "IAM users per employee with enforced MFA and a strict password policy" },
-      { id: 'B', text: "IAM Identity Center with the built-in directory and rotated access keys" },
+      { id: 'B', text: "IAM Identity Center with its own built-in directory and manually rotated access keys" },
       { id: 'C', text: "IAM Identity Center with SAML federation, enforced MFA, and rotated credentials" },
       { id: 'D', text: "IAM roles assumed from a single shared user account with enforced MFA" }
     ],
@@ -240,7 +240,7 @@ export const AWS_SCS_QUESTIONS_6 = [
     scenario: "An identity architect is establishing least privilege, temporary credentials, and federation across an AWS enterprise estate.",
     question: "Which IAM architecture best satisfies objective #5?",
     options: [
-      { id: 'A', text: "IAM Identity Center with the built-in directory and rotated access keys" },
+      { id: 'A', text: "IAM Identity Center with its own built-in directory and manually rotated access keys" },
       { id: 'B', text: "IAM roles assumed from a single shared user account with enforced MFA" },
       { id: 'C', text: "IAM Identity Center with SAML federation, enforced MFA, and rotated credentials" },
       { id: 'D', text: "IAM users per employee with enforced MFA and a strict password policy" }
@@ -263,7 +263,7 @@ export const AWS_SCS_QUESTIONS_6 = [
     options: [
       { id: 'A', text: "IAM Identity Center with SAML federation, enforced MFA, and rotated credentials" },
       { id: 'B', text: "IAM roles assumed from a single shared user account with enforced MFA" },
-      { id: 'C', text: "IAM Identity Center with the built-in directory and rotated access keys" },
+      { id: 'C', text: "IAM Identity Center with its own built-in directory and manually rotated access keys" },
       { id: 'D', text: "IAM users per employee with enforced MFA and a strict password policy" }
     ],
     correctAnswers: ['A'],
@@ -284,7 +284,7 @@ export const AWS_SCS_QUESTIONS_6 = [
     options: [
       { id: 'A', text: "IAM users per employee with enforced MFA and a strict password policy" },
       { id: 'B', text: "IAM Identity Center with SAML federation, enforced MFA, and rotated credentials" },
-      { id: 'C', text: "IAM Identity Center with the built-in directory and rotated access keys" },
+      { id: 'C', text: "IAM Identity Center with its own built-in directory and manually rotated access keys" },
       { id: 'D', text: "IAM roles assumed from a single shared user account with enforced MFA" }
     ],
     correctAnswers: ['B'],
@@ -306,7 +306,7 @@ export const AWS_SCS_QUESTIONS_6 = [
       { id: 'A', text: "IAM users per employee with enforced MFA and a strict password policy" },
       { id: 'B', text: "IAM roles assumed from a single shared user account with enforced MFA" },
       { id: 'C', text: "IAM Identity Center with SAML federation, enforced MFA, and rotated credentials" },
-      { id: 'D', text: "IAM Identity Center with the built-in directory and rotated access keys" }
+      { id: 'D', text: "IAM Identity Center with its own built-in directory and manually rotated access keys" }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -325,7 +325,7 @@ export const AWS_SCS_QUESTIONS_6 = [
     question: "Which IAM architecture best satisfies objective #9?",
     options: [
       { id: 'A', text: "IAM Identity Center with SAML federation, enforced MFA, and rotated credentials" },
-      { id: 'B', text: "IAM Identity Center with the built-in directory and rotated access keys" },
+      { id: 'B', text: "IAM Identity Center with its own built-in directory and manually rotated access keys" },
       { id: 'C', text: "IAM users per employee with enforced MFA and a strict password policy" },
       { id: 'D', text: "IAM roles assumed from a single shared user account with enforced MFA" }
     ],
@@ -346,7 +346,7 @@ export const AWS_SCS_QUESTIONS_6 = [
     question: "Which IAM architecture best satisfies objective #10?",
     options: [
       { id: 'A', text: "IAM users per employee with enforced MFA and a strict password policy" },
-      { id: 'B', text: "IAM Identity Center with the built-in directory and rotated access keys" },
+      { id: 'B', text: "IAM Identity Center with its own built-in directory and manually rotated access keys" },
       { id: 'C', text: "IAM Identity Center with SAML federation, enforced MFA, and rotated credentials" },
       { id: 'D', text: "IAM roles assumed from a single shared user account with enforced MFA" }
     ],
@@ -368,7 +368,7 @@ export const AWS_SCS_QUESTIONS_6 = [
     options: [
       { id: 'A', text: "IAM Identity Center with SAML federation, enforced MFA, and rotated credentials" },
       { id: 'B', text: "IAM users per employee with enforced MFA and a strict password policy" },
-      { id: 'C', text: "IAM Identity Center with the built-in directory and rotated access keys" },
+      { id: 'C', text: "IAM Identity Center with its own built-in directory and manually rotated access keys" },
       { id: 'D', text: "IAM roles assumed from a single shared user account with enforced MFA" }
     ],
     correctAnswers: ['A'],
@@ -388,7 +388,7 @@ export const AWS_SCS_QUESTIONS_6 = [
     question: "Which IAM architecture best satisfies objective #12?",
     options: [
       { id: 'A', text: "IAM roles assumed from a single shared user account with enforced MFA" },
-      { id: 'B', text: "IAM Identity Center with the built-in directory and rotated access keys" },
+      { id: 'B', text: "IAM Identity Center with its own built-in directory and manually rotated access keys" },
       { id: 'C', text: "IAM users per employee with enforced MFA and a strict password policy" },
       { id: 'D', text: "IAM Identity Center with SAML federation, enforced MFA, and rotated credentials" }
     ],
@@ -409,7 +409,7 @@ export const AWS_SCS_QUESTIONS_6 = [
     question: "Which IAM architecture best satisfies objective #13?",
     options: [
       { id: 'A', text: "IAM users per employee with enforced MFA and a strict password policy" },
-      { id: 'B', text: "IAM Identity Center with the built-in directory and rotated access keys" },
+      { id: 'B', text: "IAM Identity Center with its own built-in directory and manually rotated access keys" },
       { id: 'C', text: "IAM Identity Center with SAML federation, enforced MFA, and rotated credentials" },
       { id: 'D', text: "IAM roles assumed from a single shared user account with enforced MFA" }
     ],
@@ -431,7 +431,7 @@ export const AWS_SCS_QUESTIONS_6 = [
     options: [
       { id: 'A', text: "IAM users per employee with enforced MFA and a strict password policy" },
       { id: 'B', text: "IAM Identity Center with SAML federation, enforced MFA, and rotated credentials" },
-      { id: 'C', text: "IAM Identity Center with the built-in directory and rotated access keys" },
+      { id: 'C', text: "IAM Identity Center with its own built-in directory and manually rotated access keys" },
       { id: 'D', text: "IAM roles assumed from a single shared user account with enforced MFA" }
     ],
     correctAnswers: ['B'],
@@ -452,7 +452,7 @@ export const AWS_SCS_QUESTIONS_6 = [
     options: [
       { id: 'A', text: "IAM roles assumed from a single shared user account with enforced MFA" },
       { id: 'B', text: "IAM Identity Center with SAML federation, enforced MFA, and rotated credentials" },
-      { id: 'C', text: "IAM Identity Center with the built-in directory and rotated access keys" },
+      { id: 'C', text: "IAM Identity Center with its own built-in directory and manually rotated access keys" },
       { id: 'D', text: "IAM users per employee with enforced MFA and a strict password policy" }
     ],
     correctAnswers: ['B'],
@@ -471,7 +471,7 @@ export const AWS_SCS_QUESTIONS_6 = [
     scenario: "An identity architect is establishing least privilege, temporary credentials, and federation across an AWS enterprise estate.",
     question: "Which IAM architecture best satisfies objective #16?",
     options: [
-      { id: 'A', text: "IAM Identity Center with the built-in directory and rotated access keys" },
+      { id: 'A', text: "IAM Identity Center with its own built-in directory and manually rotated access keys" },
       { id: 'B', text: "IAM Identity Center with SAML federation, enforced MFA, and rotated credentials" },
       { id: 'C', text: "IAM roles assumed from a single shared user account with enforced MFA" },
       { id: 'D', text: "IAM users per employee with enforced MFA and a strict password policy" }
@@ -495,7 +495,7 @@ export const AWS_SCS_QUESTIONS_6 = [
       { id: 'A', text: "IAM users per employee with enforced MFA and a strict password policy" },
       { id: 'B', text: "IAM roles assumed from a single shared user account with enforced MFA" },
       { id: 'C', text: "IAM Identity Center with SAML federation, enforced MFA, and rotated credentials" },
-      { id: 'D', text: "IAM Identity Center with the built-in directory and rotated access keys" }
+      { id: 'D', text: "IAM Identity Center with its own built-in directory and manually rotated access keys" }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -515,7 +515,7 @@ export const AWS_SCS_QUESTIONS_6 = [
     options: [
       { id: 'A', text: "IAM users per employee with enforced MFA and a strict password policy" },
       { id: 'B', text: "IAM Identity Center with SAML federation, enforced MFA, and rotated credentials" },
-      { id: 'C', text: "IAM Identity Center with the built-in directory and rotated access keys" },
+      { id: 'C', text: "IAM Identity Center with its own built-in directory and manually rotated access keys" },
       { id: 'D', text: "IAM roles assumed from a single shared user account with enforced MFA" }
     ],
     correctAnswers: ['B'],
