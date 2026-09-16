@@ -9,10 +9,10 @@ export const AWS_SCS_QUESTIONS_2 = [
     scenario: "A security operations center (SOC) is configuring threat detection, incident triage, and automated containment across AWS environments.",
     question: "Which threat detection architecture best satisfies objective #24?",
     options: [
-      { id: 'A', text: "Granting public SSH ingress to all instances to enable rapid external forensic inspection" },
-      { id: 'B', text: "Aggregating security findings in AWS Security Hub, analyzing root cause graphs in Amazon Detective, and automating containment via EventBridge" },
-      { id: 'C', text: "Relying on end-user email reports as the sole source of threat intelligence" },
-      { id: 'D', text: "Disabling Amazon GuardDuty to save on VPC Flow Log and DNS log analysis fees" }
+      { id: 'A', text: "Aggregating findings in Security Hub and triaging them from each account's own console" },
+      { id: 'B', text: "Aggregating findings in Security Hub, investigating in Detective, and containing through EventBridge" },
+      { id: 'C', text: "Streaming GuardDuty findings to a queue that the on-call engineer reads each morning" },
+      { id: 'D', text: "Enabling GuardDuty in one account and reviewing its findings in the monthly report" }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -30,10 +30,10 @@ export const AWS_SCS_QUESTIONS_2 = [
     scenario: "A security operations center (SOC) is configuring threat detection, incident triage, and automated containment across AWS environments.",
     question: "Which threat detection architecture best satisfies objective #25?",
     options: [
-      { id: 'A', text: "Granting public SSH ingress to all instances to enable rapid external forensic inspection" },
-      { id: 'B', text: "Relying on end-user email reports as the sole source of threat intelligence" },
-      { id: 'C', text: "Aggregating security findings in AWS Security Hub, analyzing root cause graphs in Amazon Detective, and automating containment via EventBridge" },
-      { id: 'D', text: "Disabling Amazon GuardDuty to save on VPC Flow Log and DNS log analysis fees" }
+      { id: 'A', text: "Aggregating findings in Security Hub and triaging them from each account's own console" },
+      { id: 'B', text: "Streaming GuardDuty findings to a queue that the on-call engineer reads each morning" },
+      { id: 'C', text: "Aggregating findings in Security Hub, investigating in Detective, and containing through EventBridge" },
+      { id: 'D', text: "Enabling GuardDuty in one account and reviewing its findings in the monthly report" }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -51,10 +51,10 @@ export const AWS_SCS_QUESTIONS_2 = [
     scenario: "A security operations center (SOC) is configuring threat detection, incident triage, and automated containment across AWS environments.",
     question: "Which threat detection architecture best satisfies objective #26?",
     options: [
-      { id: 'A', text: "Relying on end-user email reports as the sole source of threat intelligence" },
-      { id: 'B', text: "Disabling Amazon GuardDuty to save on VPC Flow Log and DNS log analysis fees" },
-      { id: 'C', text: "Granting public SSH ingress to all instances to enable rapid external forensic inspection" },
-      { id: 'D', text: "Aggregating security findings in AWS Security Hub, analyzing root cause graphs in Amazon Detective, and automating containment via EventBridge" }
+      { id: 'A', text: "Streaming GuardDuty findings to a queue that the on-call engineer reads each morning" },
+      { id: 'B', text: "Enabling GuardDuty in one account and reviewing its findings in the monthly report" },
+      { id: 'C', text: "Aggregating findings in Security Hub and triaging them from each account's own console" },
+      { id: 'D', text: "Aggregating findings in Security Hub, investigating in Detective, and containing through EventBridge" }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -72,10 +72,10 @@ export const AWS_SCS_QUESTIONS_2 = [
     scenario: "A security operations center (SOC) is configuring threat detection, incident triage, and automated containment across AWS environments.",
     question: "Which threat detection architecture best satisfies objective #27?",
     options: [
-      { id: 'A', text: "Disabling Amazon GuardDuty to save on VPC Flow Log and DNS log analysis fees" },
-      { id: 'B', text: "Aggregating security findings in AWS Security Hub, analyzing root cause graphs in Amazon Detective, and automating containment via EventBridge" },
-      { id: 'C', text: "Relying on end-user email reports as the sole source of threat intelligence" },
-      { id: 'D', text: "Granting public SSH ingress to all instances to enable rapid external forensic inspection" }
+      { id: 'A', text: "Enabling GuardDuty in one account and reviewing its findings in the monthly report" },
+      { id: 'B', text: "Aggregating findings in Security Hub, investigating in Detective, and containing through EventBridge" },
+      { id: 'C', text: "Streaming GuardDuty findings to a queue that the on-call engineer reads each morning" },
+      { id: 'D', text: "Aggregating findings in Security Hub and triaging them from each account's own console" }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -93,10 +93,10 @@ export const AWS_SCS_QUESTIONS_2 = [
     scenario: "A security operations center (SOC) is configuring threat detection, incident triage, and automated containment across AWS environments.",
     question: "Which threat detection architecture best satisfies objective #28?",
     options: [
-      { id: 'A', text: "Disabling Amazon GuardDuty to save on VPC Flow Log and DNS log analysis fees" },
-      { id: 'B', text: "Granting public SSH ingress to all instances to enable rapid external forensic inspection" },
-      { id: 'C', text: "Aggregating security findings in AWS Security Hub, analyzing root cause graphs in Amazon Detective, and automating containment via EventBridge" },
-      { id: 'D', text: "Relying on end-user email reports as the sole source of threat intelligence" }
+      { id: 'A', text: "Enabling GuardDuty in one account and reviewing its findings in the monthly report" },
+      { id: 'B', text: "Aggregating findings in Security Hub and triaging them from each account's own console" },
+      { id: 'C', text: "Aggregating findings in Security Hub, investigating in Detective, and containing through EventBridge" },
+      { id: 'D', text: "Streaming GuardDuty findings to a queue that the on-call engineer reads each morning" }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -114,10 +114,10 @@ export const AWS_SCS_QUESTIONS_2 = [
     scenario: "A security operations center (SOC) is configuring threat detection, incident triage, and automated containment across AWS environments.",
     question: "Which threat detection architecture best satisfies objective #29?",
     options: [
-      { id: 'A', text: "Granting public SSH ingress to all instances to enable rapid external forensic inspection" },
-      { id: 'B', text: "Aggregating security findings in AWS Security Hub, analyzing root cause graphs in Amazon Detective, and automating containment via EventBridge" },
-      { id: 'C', text: "Relying on end-user email reports as the sole source of threat intelligence" },
-      { id: 'D', text: "Disabling Amazon GuardDuty to save on VPC Flow Log and DNS log analysis fees" }
+      { id: 'A', text: "Aggregating findings in Security Hub and triaging them from each account's own console" },
+      { id: 'B', text: "Aggregating findings in Security Hub, investigating in Detective, and containing through EventBridge" },
+      { id: 'C', text: "Streaming GuardDuty findings to a queue that the on-call engineer reads each morning" },
+      { id: 'D', text: "Enabling GuardDuty in one account and reviewing its findings in the monthly report" }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -135,10 +135,10 @@ export const AWS_SCS_QUESTIONS_2 = [
     scenario: "A security operations center (SOC) is configuring threat detection, incident triage, and automated containment across AWS environments.",
     question: "Which threat detection architecture best satisfies objective #30?",
     options: [
-      { id: 'A', text: "Aggregating security findings in AWS Security Hub, analyzing root cause graphs in Amazon Detective, and automating containment via EventBridge" },
-      { id: 'B', text: "Granting public SSH ingress to all instances to enable rapid external forensic inspection" },
-      { id: 'C', text: "Relying on end-user email reports as the sole source of threat intelligence" },
-      { id: 'D', text: "Disabling Amazon GuardDuty to save on VPC Flow Log and DNS log analysis fees" }
+      { id: 'A', text: "Aggregating findings in Security Hub, investigating in Detective, and containing through EventBridge" },
+      { id: 'B', text: "Aggregating findings in Security Hub and triaging them from each account's own console" },
+      { id: 'C', text: "Streaming GuardDuty findings to a queue that the on-call engineer reads each morning" },
+      { id: 'D', text: "Enabling GuardDuty in one account and reviewing its findings in the monthly report" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -156,10 +156,10 @@ export const AWS_SCS_QUESTIONS_2 = [
     scenario: "A security operations center (SOC) is configuring threat detection, incident triage, and automated containment across AWS environments.",
     question: "Which threat detection architecture best satisfies objective #31?",
     options: [
-      { id: 'A', text: "Disabling Amazon GuardDuty to save on VPC Flow Log and DNS log analysis fees" },
-      { id: 'B', text: "Granting public SSH ingress to all instances to enable rapid external forensic inspection" },
-      { id: 'C', text: "Relying on end-user email reports as the sole source of threat intelligence" },
-      { id: 'D', text: "Aggregating security findings in AWS Security Hub, analyzing root cause graphs in Amazon Detective, and automating containment via EventBridge" }
+      { id: 'A', text: "Enabling GuardDuty in one account and reviewing its findings in the monthly report" },
+      { id: 'B', text: "Aggregating findings in Security Hub and triaging them from each account's own console" },
+      { id: 'C', text: "Streaming GuardDuty findings to a queue that the on-call engineer reads each morning" },
+      { id: 'D', text: "Aggregating findings in Security Hub, investigating in Detective, and containing through EventBridge" }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -177,10 +177,10 @@ export const AWS_SCS_QUESTIONS_2 = [
     scenario: "A security operations center (SOC) is configuring threat detection, incident triage, and automated containment across AWS environments.",
     question: "Which threat detection architecture best satisfies objective #32?",
     options: [
-      { id: 'A', text: "Relying on end-user email reports as the sole source of threat intelligence" },
-      { id: 'B', text: "Aggregating security findings in AWS Security Hub, analyzing root cause graphs in Amazon Detective, and automating containment via EventBridge" },
-      { id: 'C', text: "Disabling Amazon GuardDuty to save on VPC Flow Log and DNS log analysis fees" },
-      { id: 'D', text: "Granting public SSH ingress to all instances to enable rapid external forensic inspection" }
+      { id: 'A', text: "Streaming GuardDuty findings to a queue that the on-call engineer reads each morning" },
+      { id: 'B', text: "Aggregating findings in Security Hub, investigating in Detective, and containing through EventBridge" },
+      { id: 'C', text: "Enabling GuardDuty in one account and reviewing its findings in the monthly report" },
+      { id: 'D', text: "Aggregating findings in Security Hub and triaging them from each account's own console" }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -198,10 +198,10 @@ export const AWS_SCS_QUESTIONS_2 = [
     scenario: "A security operations center (SOC) is configuring threat detection, incident triage, and automated containment across AWS environments.",
     question: "Which threat detection architecture best satisfies objective #33?",
     options: [
-      { id: 'A', text: "Aggregating security findings in AWS Security Hub, analyzing root cause graphs in Amazon Detective, and automating containment via EventBridge" },
-      { id: 'B', text: "Disabling Amazon GuardDuty to save on VPC Flow Log and DNS log analysis fees" },
-      { id: 'C', text: "Granting public SSH ingress to all instances to enable rapid external forensic inspection" },
-      { id: 'D', text: "Relying on end-user email reports as the sole source of threat intelligence" }
+      { id: 'A', text: "Aggregating findings in Security Hub, investigating in Detective, and containing through EventBridge" },
+      { id: 'B', text: "Enabling GuardDuty in one account and reviewing its findings in the monthly report" },
+      { id: 'C', text: "Aggregating findings in Security Hub and triaging them from each account's own console" },
+      { id: 'D', text: "Streaming GuardDuty findings to a queue that the on-call engineer reads each morning" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -220,7 +220,7 @@ export const AWS_SCS_QUESTIONS_2 = [
     question: "Which CloudTrail feature provides cryptographic proof of log integrity?",
     options: [
       { id: 'A', text: "CloudWatch Logs metric filter alarms" },
-      { id: 'B', text: "CloudTrail log file integrity validation with digest files" },
+      { id: 'B', text: "CloudTrail log file integrity validation" },
       { id: 'C', text: "S3 Object Versioning alone" },
       { id: 'D', text: "S3 Server-Side Encryption with SSE-S3" }
     ],
@@ -242,7 +242,7 @@ export const AWS_SCS_QUESTIONS_2 = [
     options: [
       { id: 'A', text: "The KMS key must be configured as an AWS managed key (aws/cloudtrail) with public decryption access" },
       { id: 'B', text: "KMS CMKs cannot be used with organization trails; only S3 default AES-256 encryption is supported" },
-      { id: 'C', text: "The KMS key policy must grant kms:GenerateDataKey* permissions to cloudtrail.amazonaws.com with a StringLike condition matching the CloudTrail ARN, and grant kms:Decrypt permissions to authorized security auditors in the log archive account" },
+      { id: 'C', text: "The key policy must grant `kms:GenerateDataKey*` to the CloudTrail principal for that trail" },
       { id: 'D', text: "The KMS key policy must delegate all permissions exclusively to IAM users in the member accounts" }
     ],
     correctAnswers: ['C'],
@@ -263,7 +263,7 @@ export const AWS_SCS_QUESTIONS_2 = [
     options: [
       { id: 'A', text: "Enable Amazon S3 server access logging and compare the byte counts with CloudWatch metrics" },
       { id: 'B', text: "Write a custom AWS Lambda function that computes MD5 checksums of objects as they are written to S3" },
-      { id: 'C', text: "Enable CloudTrail log file integrity validation, which delivers cryptographically signed digest files containing SHA-256 hashes of the log files, and verify them using the AWS CLI command aws cloudtrail validate-logs" },
+      { id: 'C', text: "Enable log file integrity validation, which delivers signed digest files of the log hashes" },
       { id: 'D', text: "Configure Amazon EventBridge to capture CloudTrail PutObject API calls and store the events in DynamoDB" }
     ],
     correctAnswers: ['C'],
@@ -284,7 +284,7 @@ export const AWS_SCS_QUESTIONS_2 = [
     options: [
       { id: 'A', text: "Create a CloudWatch Synthetics canary to query the S3 bucket every 5 minutes" },
       { id: 'B', text: "Enable CloudTrail Insights on the existing management trail" },
-      { id: 'C', text: "Configure CloudTrail Data Events for the specific S3 bucket ARNs with read and write event selectors enabled" },
+      { id: 'C', text: "CloudTrail data events for those bucket ARNs, with read and write selectors" },
       { id: 'D', text: "Attach an S3 bucket policy denying all PutObject calls without an explicit Principal" }
     ],
     correctAnswers: ['C'],
@@ -303,10 +303,10 @@ export const AWS_SCS_QUESTIONS_2 = [
     scenario: "A security architect in an AWS Organizations environment must ensure that all member accounts have CloudTrail enabled, member account administrators cannot disable logging, and all logs are encrypted and aggregated into a central S3 bucket in a locked-down Log Archive account.",
     question: "Which combination of steps achieves this organizational security requirement?",
     options: [
-      { id: 'A', text: "Configure Amazon VPC Flow Logs in every VPC and stream them to an Amazon Kinesis Data Firehose in the master account" },
-      { id: 'B', text: "Use AWS Systems Manager to install a third-party syslog forwarder on all EC2 instances across member accounts" },
-      { id: 'C', text: "Deploy an AWS CloudFormation template into every member account that creates a local trail writing to a local S3 bucket" },
-      { id: 'D', text: "Create an Organization Trail in the Organizations management account, deliver logs to an S3 bucket in the Log Archive account with a bucket policy permitting cloudtrail.amazonaws.com, and encrypt logs with a customer managed KMS key whose key policy grants CloudTrail encrypt permissions across the organization" }
+      { id: 'A', text: "VPC Flow Logs in each VPC, streamed through Firehose into the management account's bucket" },
+      { id: 'B', text: "A syslog forwarder installed on each instance by Systems Manager, shipping to the archive" },
+      { id: 'C', text: "A stack set creating a local trail in every account, each writing to its own local bucket" },
+      { id: 'D', text: "An organization trail delivering to the log archive bucket, encrypted with a key the service may use" }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -345,10 +345,10 @@ export const AWS_SCS_QUESTIONS_2 = [
     scenario: "To satisfy CIS AWS Foundations Benchmark compliance, an alert must fire immediately whenever the AWS account root user logs in or executes any API action.",
     question: "Which CloudWatch Logs metric filter pattern identifies root account activity from CloudTrail logs?",
     options: [
-      { id: 'A', text: "<code>{ $.eventSource = \"iam.amazonaws.com\" }</code>" },
+      { id: 'A', text: "<code>{($.eventSource=iam.amazonaws.com)&&($.readOnly=false)}</code>" },
       { id: 'B', text: "<code>{ $.userIdentity.userName = \"admin\" }</code>" },
       { id: 'C', text: "<code>{ $.errorCode = \"AccessDenied\" }</code>" },
-      { id: 'D', text: "<code>{ $.userIdentity.type = \"Root\" && $.userIdentity.invokedBy NOT EXISTS && $.eventType != \"AwsServiceEvent\" }</code>" }
+      { id: 'D', text: "<code>{ $.userIdentity.type = \"Root\" && $.eventType != \"AwsServiceEvent\" }</code>" }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -366,7 +366,7 @@ export const AWS_SCS_QUESTIONS_2 = [
     scenario: "A security engineer investigates a data exfiltration incident. Standard VPC Flow Logs show that connections were accepted, but do not provide the TCP flags or the specific source/destination packet IP addresses needed to differentiate intermediate NAT gateways from actual client endpoints.",
     question: "How should the VPC Flow Log configuration be updated to capture these forensic attributes?",
     options: [
-      { id: 'A', text: "Create a new VPC Flow Log with a custom format string that includes <code>tcp-flags</code>, <code>pkt-srcaddr</code>, <code>pkt-dstaddr</code>, and <code>flow-direction</code>" },
+      { id: 'A', text: "A flow log with a custom format adding the TCP flags and the packet source address" },
       { id: 'B', text: "Decrease the aggregation interval from 10 minutes to 1 minute without changing the format" },
       { id: 'C', text: "Switch the flow log capture from All to Reject only" },
       { id: 'D', text: "Attach an AWS WAF Web ACL to the VPC route table" }
@@ -390,7 +390,7 @@ export const AWS_SCS_QUESTIONS_2 = [
       { id: 'A', text: "Publish to an AWS CodePipeline pipeline" },
       { id: 'B', text: "Publish to an Amazon SNS topic subscribed to an HTTP webhook" },
       { id: 'C', text: "Publish to Amazon S3 and write a cron job to poll S3 every 10 seconds" },
-      { id: 'D', text: "Publish directly to an Amazon Kinesis Data Firehose delivery stream configured with the Splunk destination endpoint" }
+      { id: 'D', text: "Publish to a Firehose delivery stream with the Splunk endpoint as destination" }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -410,7 +410,7 @@ export const AWS_SCS_QUESTIONS_2 = [
     options: [
       { id: 'A', text: "Filter pattern <code>[..., action=\"ACCEPT\"]</code> with metric value 100" },
       { id: 'B', text: "Filter pattern <code>{ $.status = \"SUCCESS\" }</code> with alarm threshold 100" },
-      { id: 'C', text: "Filter pattern <code>[version, account, eni, source, destination, srcport, dstport, protocol, packets, bytes, windowstart, windowend, action=\"REJECT\", flowlogstatus]</code> with metric value 1 and an alarm threshold of 100 over a 5-minute period" },
+      { id: 'C', text: "A filter pattern binding the flow log fields and matching on the rejected destination port" },
       { id: 'D', text: "Filter pattern <code>{ $.bytes &gt; 1000000 }</code>" }
     ],
     correctAnswers: ['C'],
@@ -431,7 +431,7 @@ export const AWS_SCS_QUESTIONS_2 = [
     options: [
       { id: 'A', text: "Amazon S3 Server Access Logging" },
       { id: 'B', text: "AWS CloudTrail Management Events" },
-      { id: 'C', text: "Route 53 Resolver Query Logging associated with the VPC, delivering query logs to S3, CloudWatch Logs, or Kinesis Data Firehose" },
+      { id: 'C', text: "Resolver query logging on the VPC, delivered to S3" },
       { id: 'D', text: "VPC Flow Logs with default formatting" }
     ],
     correctAnswers: ['C'],
@@ -452,7 +452,7 @@ export const AWS_SCS_QUESTIONS_2 = [
     options: [
       { id: 'A', text: "Create a CloudWatch Synthetics canary to test EBS volume creation" },
       { id: 'B', text: "Create an IAM policy with a Deny effect on ec2:CreateVolume without an encryption tag" },
-      { id: 'C', text: "Enable AWS Config recording for EBS volumes, deploy the managed rule <code>encrypted-volumes</code>, and configure an EventBridge rule matching non-compliant evaluation results to trigger an SNS notification" },
+      { id: 'C', text: "Config recording for volumes with the `encrypted-volumes` rule and an EventBridge target" },
       { id: 'D', text: "Deploy Amazon Inspector to scan running EC2 instances once per month" }
     ],
     correctAnswers: ['C'],
@@ -473,7 +473,7 @@ export const AWS_SCS_QUESTIONS_2 = [
     options: [
       { id: 'A', text: "Configure cross-region S3 replication of Config history files to a single bucket" },
       { id: 'B', text: "Manually export AWS Config snapshots to CSV files from each region weekly" },
-      { id: 'C', text: "Configure an AWS Config Aggregator in the delegated administrator account authorized for the entire AWS Organization" },
+      { id: 'C', text: "A Config aggregator in the delegated administrator account for the organization" },
       { id: 'D', text: "Deploy an Amazon OpenSearch cluster in each member account" }
     ],
     correctAnswers: ['C'],
@@ -492,10 +492,10 @@ export const AWS_SCS_QUESTIONS_2 = [
     scenario: "A security requirement states that any modification to IAM policies, roles, or users must trigger an immediate notification to the lead security engineer.",
     question: "Which CloudWatch Logs metric filter pattern captures IAM policy and permission changes from CloudTrail?",
     options: [
-      { id: 'A', text: "<code>{ $.eventSource = \"ec2.amazonaws.com\" }</code>" },
-      { id: 'B', text: "<code>{ $.eventName = \"ConsoleLogin\" }</code>" },
-      { id: 'C', text: "<code>{ $.userIdentity.type = \"AssumedRole\" }</code>" },
-      { id: 'D', text: "<code>{($.eventName=DeleteGroupPolicy)||($.eventName=DeleteRolePolicy)||($.eventName=DeleteUserPolicy)||($.eventName=PutGroupPolicy)||($.eventName=PutRolePolicy)||($.eventName=PutUserPolicy)||($.eventName=CreatePolicy)||($.eventName=DeletePolicy)||($.eventName=CreatePolicyVersion)||($.eventName=DeletePolicyVersion)||($.eventName=AttachRolePolicy)||($.eventName=DetachRolePolicy)}</code>" }
+      { id: 'A', text: "<code>{($.eventSource=iam.amazonaws.com)&&($.eventName=GetRole)}</code>" },
+      { id: 'B', text: "<code>{($.eventName=ConsoleLogin)&&($.errorMessage=\"Failed\")}</code>" },
+      { id: 'C', text: "<code>{($.userIdentity.type=AssumedRole)&&($.readOnly=false)}</code>" },
+      { id: 'D', text: "<code>{($.eventName=PutRolePolicy)||($.eventName=AttachRolePolicy)}</code>" }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -516,7 +516,7 @@ export const AWS_SCS_QUESTIONS_2 = [
       { id: 'A', text: "Move the Athena workgroup to a different AWS Region" },
       { id: 'B', text: "Disable S3 bucket versioning on the CloudTrail bucket" },
       { id: 'C', text: "Convert the CloudTrail JSON files to uncompressed CSV format" },
-      { id: 'D', text: "Enable Athena Partition Projection based on year, month, and day in the table DDL and query with WHERE year='2026' AND month='09' AND day='02'" }
+      { id: 'D', text: "Athena partition projection on year, month and day" }
     ],
     correctAnswers: ['D'],
     type: "single",

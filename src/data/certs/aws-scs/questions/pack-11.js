@@ -9,10 +9,10 @@ export const AWS_SCS_QUESTIONS_11 = [
     scenario: "An enterprise cloud security architect is establishing multi-account security baselines, identity perimeters, and regulatory compliance guardrails across an AWS Organization. The security engineer needs to isolate an EC2 instance communicating with command-and-control servers automatically within seconds of detection.",
     question: "Which architectural approach or AWS security configuration satisfies these enterprise security objectives?",
     options: [
-      { id: 'A', text: "Configure Amazon EventBridge to capture GuardDuty findings and trigger a Lambda function that attaches an isolation security group." },
-      { id: 'B', text: "Require a security analyst to manually review email alerts and log into the AWS console over the weekend." },
-      { id: 'C', text: "Terminate the entire AWS account immediately upon receiving any GuardDuty finding." },
-      { id: 'D', text: "Disable GuardDuty finding generation to prevent unnecessary automation triggers." }
+      { id: 'A', text: "An EventBridge rule on the GuardDuty finding, running a Lambda that isolates the instance" },
+      { id: 'B', text: "Route the GuardDuty finding to an SNS topic that pages the on-call analyst." },
+      { id: 'C', text: "Route the finding to a Step Functions workflow that snapshots the volumes first." },
+      { id: 'D', text: "Route the finding to Security Hub and let its automation rule suppress the duplicates." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -30,10 +30,10 @@ export const AWS_SCS_QUESTIONS_11 = [
     scenario: "A security operations center (SOC) detects an active security anomaly and potential credential compromise across production AWS workloads. The security engineer needs to isolate an EC2 instance communicating with command-and-control servers automatically within seconds of detection.",
     question: "Which incident response workflow or AWS service configuration contains the threat effectively while preserving forensic evidence?",
     options: [
-      { id: 'A', text: "Configure Amazon EventBridge to capture GuardDuty findings and trigger a Lambda function that attaches an isolation security group." },
-      { id: 'B', text: "Require a security analyst to manually review email alerts and log into the AWS console over the weekend." },
-      { id: 'C', text: "Terminate the entire AWS account immediately upon receiving any GuardDuty finding." },
-      { id: 'D', text: "Disable GuardDuty finding generation to prevent unnecessary automation triggers." }
+      { id: 'A', text: "An EventBridge rule on the GuardDuty finding, running a Lambda that isolates the instance" },
+      { id: 'B', text: "Route the GuardDuty finding to an SNS topic that pages the on-call analyst." },
+      { id: 'C', text: "Route the finding to a Step Functions workflow that snapshots the volumes first." },
+      { id: 'D', text: "Route the finding to Security Hub and let its automation rule suppress the duplicates." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -51,10 +51,10 @@ export const AWS_SCS_QUESTIONS_11 = [
     scenario: "A security compliance auditor requires strict least-privilege access, cryptographic key separation of duties, and continuous audit verification across all IAM principals. The security engineer needs to isolate an EC2 instance communicating with command-and-control servers automatically within seconds of detection.",
     question: "Which IAM design pattern or encryption policy satisfies these mandatory access controls?",
     options: [
-      { id: 'A', text: "Configure Amazon EventBridge to capture GuardDuty findings and trigger a Lambda function that attaches an isolation security group." },
-      { id: 'B', text: "Require a security analyst to manually review email alerts and log into the AWS console over the weekend." },
-      { id: 'C', text: "Terminate the entire AWS account immediately upon receiving any GuardDuty finding." },
-      { id: 'D', text: "Disable GuardDuty finding generation to prevent unnecessary automation triggers." }
+      { id: 'A', text: "An EventBridge rule on the GuardDuty finding, running a Lambda that isolates the instance" },
+      { id: 'B', text: "Route the GuardDuty finding to an SNS topic that pages the on-call analyst." },
+      { id: 'C', text: "Route the finding to a Step Functions workflow that snapshots the volumes first." },
+      { id: 'D', text: "Route the finding to Security Hub and let its automation rule suppress the duplicates." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -72,10 +72,10 @@ export const AWS_SCS_QUESTIONS_11 = [
     scenario: "A financial data privacy team is implementing defense-in-depth protection, automated secret rotation, and immutable audit logging for sensitive customer records. The security engineer needs to isolate an EC2 instance communicating with command-and-control servers automatically within seconds of detection.",
     question: "Which AWS data protection mechanism or encryption strategy guarantees confidentiality and integrity?",
     options: [
-      { id: 'A', text: "Configure Amazon EventBridge to capture GuardDuty findings and trigger a Lambda function that attaches an isolation security group." },
-      { id: 'B', text: "Require a security analyst to manually review email alerts and log into the AWS console over the weekend." },
-      { id: 'C', text: "Terminate the entire AWS account immediately upon receiving any GuardDuty finding." },
-      { id: 'D', text: "Disable GuardDuty finding generation to prevent unnecessary automation triggers." }
+      { id: 'A', text: "An EventBridge rule on the GuardDuty finding, running a Lambda that isolates the instance" },
+      { id: 'B', text: "Route the GuardDuty finding to an SNS topic that pages the on-call analyst." },
+      { id: 'C', text: "Route the finding to a Step Functions workflow that snapshots the volumes first." },
+      { id: 'D', text: "Route the finding to Security Hub and let its automation rule suppress the duplicates." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -93,10 +93,10 @@ export const AWS_SCS_QUESTIONS_11 = [
     scenario: "A cloud platform reliability team is hardening network perimeters, isolating hybrid VPCs, and automating vulnerability remediation across elastic EC2 and EKS clusters. The security engineer needs to isolate an EC2 instance communicating with command-and-control servers automatically within seconds of detection.",
     question: "Which network design or AWS infrastructure security configuration guarantees high availability and perimeter defense?",
     options: [
-      { id: 'A', text: "Configure Amazon EventBridge to capture GuardDuty findings and trigger a Lambda function that attaches an isolation security group." },
-      { id: 'B', text: "Require a security analyst to manually review email alerts and log into the AWS console over the weekend." },
-      { id: 'C', text: "Terminate the entire AWS account immediately upon receiving any GuardDuty finding." },
-      { id: 'D', text: "Disable GuardDuty finding generation to prevent unnecessary automation triggers." }
+      { id: 'A', text: "An EventBridge rule on the GuardDuty finding, running a Lambda that isolates the instance" },
+      { id: 'B', text: "Route the GuardDuty finding to an SNS topic that pages the on-call analyst." },
+      { id: 'C', text: "Route the finding to a Step Functions workflow that snapshots the volumes first." },
+      { id: 'D', text: "Route the finding to Security Hub and let its automation rule suppress the duplicates." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -114,10 +114,10 @@ export const AWS_SCS_QUESTIONS_11 = [
     scenario: "An enterprise cloud security architect is establishing multi-account security baselines, identity perimeters, and regulatory compliance guardrails across an AWS Organization. The security engineer needs to investigate the full scope and lateral movement of an attacker who accessed an S3 bucket and created unauthorized IAM users.",
     question: "Which architectural approach or AWS security configuration satisfies these enterprise security objectives?",
     options: [
-      { id: 'A', text: "Delete CloudTrail logs to prevent the attacker from tracking security forensic queries." },
-      { id: 'B', text: "Manually download gigabytes of raw gzip CloudTrail files and grep through them using a spreadsheet program." },
-      { id: 'C', text: "Rely exclusively on basic CloudWatch billing metrics to determine the breach root cause." },
-      { id: 'D', text: "Enable Amazon Detective to analyze and visualize correlated CloudTrail events, VPC Flow Logs, and GuardDuty findings in a graph model." }
+      { id: 'A', text: "Query the CloudTrail logs in Athena and join them with the flow logs by address." },
+      { id: 'B', text: "Read the GuardDuty findings in order and follow the resources each one names." },
+      { id: 'C', text: "Replay the CloudWatch metrics around the window to locate the affected service." },
+      { id: 'D', text: "Enable Detective to correlate CloudTrail, flow logs and GuardDuty findings in one graph" }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -135,10 +135,10 @@ export const AWS_SCS_QUESTIONS_11 = [
     scenario: "A security operations center (SOC) detects an active security anomaly and potential credential compromise across production AWS workloads. The security engineer needs to investigate the full scope and lateral movement of an attacker who accessed an S3 bucket and created unauthorized IAM users.",
     question: "Which incident response workflow or AWS service configuration contains the threat effectively while preserving forensic evidence?",
     options: [
-      { id: 'A', text: "Delete CloudTrail logs to prevent the attacker from tracking security forensic queries." },
-      { id: 'B', text: "Rely exclusively on basic CloudWatch billing metrics to determine the breach root cause." },
-      { id: 'C', text: "Enable Amazon Detective to analyze and visualize correlated CloudTrail events, VPC Flow Logs, and GuardDuty findings in a graph model." },
-      { id: 'D', text: "Manually download gigabytes of raw gzip CloudTrail files and grep through them using a spreadsheet program." }
+      { id: 'A', text: "Query the CloudTrail logs in Athena and join them with the flow logs by address." },
+      { id: 'B', text: "Replay the CloudWatch metrics around the window to locate the affected service." },
+      { id: 'C', text: "Enable Detective to correlate CloudTrail, flow logs and GuardDuty findings in one graph" },
+      { id: 'D', text: "Read the GuardDuty findings in order and follow the resources each one names." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -156,10 +156,10 @@ export const AWS_SCS_QUESTIONS_11 = [
     scenario: "A security compliance auditor requires strict least-privilege access, cryptographic key separation of duties, and continuous audit verification across all IAM principals. The security engineer needs to investigate the full scope and lateral movement of an attacker who accessed an S3 bucket and created unauthorized IAM users.",
     question: "Which IAM design pattern or encryption policy satisfies these mandatory access controls?",
     options: [
-      { id: 'A', text: "Enable Amazon Detective to analyze and visualize correlated CloudTrail events, VPC Flow Logs, and GuardDuty findings in a graph model." },
-      { id: 'B', text: "Manually download gigabytes of raw gzip CloudTrail files and grep through them using a spreadsheet program." },
-      { id: 'C', text: "Delete CloudTrail logs to prevent the attacker from tracking security forensic queries." },
-      { id: 'D', text: "Rely exclusively on basic CloudWatch billing metrics to determine the breach root cause." }
+      { id: 'A', text: "Enable Detective to correlate CloudTrail, flow logs and GuardDuty findings in one graph" },
+      { id: 'B', text: "Read the GuardDuty findings in order and follow the resources each one names." },
+      { id: 'C', text: "Query the CloudTrail logs in Athena and join them with the flow logs by address." },
+      { id: 'D', text: "Replay the CloudWatch metrics around the window to locate the affected service." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -177,10 +177,10 @@ export const AWS_SCS_QUESTIONS_11 = [
     scenario: "A financial data privacy team is implementing defense-in-depth protection, automated secret rotation, and immutable audit logging for sensitive customer records. The security engineer needs to investigate the full scope and lateral movement of an attacker who accessed an S3 bucket and created unauthorized IAM users.",
     question: "Which AWS data protection mechanism or encryption strategy guarantees confidentiality and integrity?",
     options: [
-      { id: 'A', text: "Enable Amazon Detective to analyze and visualize correlated CloudTrail events, VPC Flow Logs, and GuardDuty findings in a graph model." },
-      { id: 'B', text: "Manually download gigabytes of raw gzip CloudTrail files and grep through them using a spreadsheet program." },
-      { id: 'C', text: "Delete CloudTrail logs to prevent the attacker from tracking security forensic queries." },
-      { id: 'D', text: "Rely exclusively on basic CloudWatch billing metrics to determine the breach root cause." }
+      { id: 'A', text: "Enable Detective to correlate CloudTrail, flow logs and GuardDuty findings in one graph" },
+      { id: 'B', text: "Read the GuardDuty findings in order and follow the resources each one names." },
+      { id: 'C', text: "Query the CloudTrail logs in Athena and join them with the flow logs by address." },
+      { id: 'D', text: "Replay the CloudWatch metrics around the window to locate the affected service." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -198,10 +198,10 @@ export const AWS_SCS_QUESTIONS_11 = [
     scenario: "A cloud platform reliability team is hardening network perimeters, isolating hybrid VPCs, and automating vulnerability remediation across elastic EC2 and EKS clusters. The security engineer needs to investigate the full scope and lateral movement of an attacker who accessed an S3 bucket and created unauthorized IAM users.",
     question: "Which network design or AWS infrastructure security configuration guarantees high availability and perimeter defense?",
     options: [
-      { id: 'A', text: "Delete CloudTrail logs to prevent the attacker from tracking security forensic queries." },
-      { id: 'B', text: "Rely exclusively on basic CloudWatch billing metrics to determine the breach root cause." },
-      { id: 'C', text: "Enable Amazon Detective to analyze and visualize correlated CloudTrail events, VPC Flow Logs, and GuardDuty findings in a graph model." },
-      { id: 'D', text: "Manually download gigabytes of raw gzip CloudTrail files and grep through them using a spreadsheet program." }
+      { id: 'A', text: "Query the CloudTrail logs in Athena and join them with the flow logs by address." },
+      { id: 'B', text: "Replay the CloudWatch metrics around the window to locate the affected service." },
+      { id: 'C', text: "Enable Detective to correlate CloudTrail, flow logs and GuardDuty findings in one graph" },
+      { id: 'D', text: "Read the GuardDuty findings in order and follow the resources each one names." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -222,7 +222,7 @@ export const AWS_SCS_QUESTIONS_11 = [
       { id: 'A', text: "Delete the IAM user immediately, destroying all historic CloudTrail event references and forensic evidence." },
       { id: 'B', text: "Send an email to the user asking them to delete the compromised credential voluntarily." },
       { id: 'C', text: "Change the user's password while leaving active long-term access keys and STS session tokens untouched." },
-      { id: 'D', text: "Deactivate the IAM access key, attach an inline `DenyAll` policy with an explicit Deny on all actions, and revoke active STS sessions." }
+      { id: 'D', text: "Deactivate the key, attach an explicit deny-all policy, and revoke the active sessions" }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -243,7 +243,7 @@ export const AWS_SCS_QUESTIONS_11 = [
       { id: 'A', text: "Change the user's password while leaving active long-term access keys and STS session tokens untouched." },
       { id: 'B', text: "Delete the IAM user immediately, destroying all historic CloudTrail event references and forensic evidence." },
       { id: 'C', text: "Send an email to the user asking them to delete the compromised credential voluntarily." },
-      { id: 'D', text: "Deactivate the IAM access key, attach an inline `DenyAll` policy with an explicit Deny on all actions, and revoke active STS sessions." }
+      { id: 'D', text: "Deactivate the key, attach an explicit deny-all policy, and revoke the active sessions" }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -261,7 +261,7 @@ export const AWS_SCS_QUESTIONS_11 = [
     scenario: "A security compliance auditor requires strict least-privilege access, cryptographic key separation of duties, and continuous audit verification across all IAM principals. The security engineer needs to neutralize an active compromised IAM long-term access key immediately while preserving identity attributes for audit.",
     question: "Which IAM design pattern or encryption policy satisfies these mandatory access controls?",
     options: [
-      { id: 'A', text: "Deactivate the IAM access key, attach an inline `DenyAll` policy with an explicit Deny on all actions, and revoke active STS sessions." },
+      { id: 'A', text: "Deactivate the key, attach an explicit deny-all policy, and revoke the active sessions" },
       { id: 'B', text: "Delete the IAM user immediately, destroying all historic CloudTrail event references and forensic evidence." },
       { id: 'C', text: "Change the user's password while leaving active long-term access keys and STS session tokens untouched." },
       { id: 'D', text: "Send an email to the user asking them to delete the compromised credential voluntarily." }
@@ -282,7 +282,7 @@ export const AWS_SCS_QUESTIONS_11 = [
     scenario: "A financial data privacy team is implementing defense-in-depth protection, automated secret rotation, and immutable audit logging for sensitive customer records. The security engineer needs to neutralize an active compromised IAM long-term access key immediately while preserving identity attributes for audit.",
     question: "Which AWS data protection mechanism or encryption strategy guarantees confidentiality and integrity?",
     options: [
-      { id: 'A', text: "Deactivate the IAM access key, attach an inline `DenyAll` policy with an explicit Deny on all actions, and revoke active STS sessions." },
+      { id: 'A', text: "Deactivate the key, attach an explicit deny-all policy, and revoke the active sessions" },
       { id: 'B', text: "Delete the IAM user immediately, destroying all historic CloudTrail event references and forensic evidence." },
       { id: 'C', text: "Change the user's password while leaving active long-term access keys and STS session tokens untouched." },
       { id: 'D', text: "Send an email to the user asking them to delete the compromised credential voluntarily." }
@@ -305,7 +305,7 @@ export const AWS_SCS_QUESTIONS_11 = [
     options: [
       { id: 'A', text: "Change the user's password while leaving active long-term access keys and STS session tokens untouched." },
       { id: 'B', text: "Send an email to the user asking them to delete the compromised credential voluntarily." },
-      { id: 'C', text: "Deactivate the IAM access key, attach an inline `DenyAll` policy with an explicit Deny on all actions, and revoke active STS sessions." },
+      { id: 'C', text: "Deactivate the key, attach an explicit deny-all policy, and revoke the active sessions" },
       { id: 'D', text: "Delete the IAM user immediately, destroying all historic CloudTrail event references and forensic evidence." }
     ],
     correctAnswers: ['C'],
@@ -324,7 +324,7 @@ export const AWS_SCS_QUESTIONS_11 = [
     scenario: "An enterprise cloud security architect is establishing multi-account security baselines, identity perimeters, and regulatory compliance guardrails across an AWS Organization. The security engineer needs to acquire forensically sound volatile RAM and persistent disk state from a suspected compromised EC2 instance without rebooting.",
     question: "Which architectural approach or AWS security configuration satisfies these enterprise security objectives?",
     options: [
-      { id: 'A', text: "Execute an SSM Automation document to capture volatile RAM to an isolated S3 bucket and take EBS volume snapshots immediately." },
+      { id: 'A', text: "An Automation document capturing memory to an isolated bucket and snapshotting the volumes." },
       { id: 'B', text: "Reboot the instance to single-user mode to inspect running processes directly." },
       { id: 'C', text: "Stop the instance immediately, permanently destroying volatile RAM and in-flight network sockets." },
       { id: 'D', text: "Run unencrypted disk cloning utilities that transmit raw forensic images across the public internet." }
@@ -347,7 +347,7 @@ export const AWS_SCS_QUESTIONS_11 = [
     options: [
       { id: 'A', text: "Run unencrypted disk cloning utilities that transmit raw forensic images across the public internet." },
       { id: 'B', text: "Reboot the instance to single-user mode to inspect running processes directly." },
-      { id: 'C', text: "Execute an SSM Automation document to capture volatile RAM to an isolated S3 bucket and take EBS volume snapshots immediately." },
+      { id: 'C', text: "An Automation document capturing memory to an isolated bucket and snapshotting the volumes." },
       { id: 'D', text: "Stop the instance immediately, permanently destroying volatile RAM and in-flight network sockets." }
     ],
     correctAnswers: ['C'],
@@ -368,7 +368,7 @@ export const AWS_SCS_QUESTIONS_11 = [
     options: [
       { id: 'A', text: "Stop the instance immediately, permanently destroying volatile RAM and in-flight network sockets." },
       { id: 'B', text: "Run unencrypted disk cloning utilities that transmit raw forensic images across the public internet." },
-      { id: 'C', text: "Execute an SSM Automation document to capture volatile RAM to an isolated S3 bucket and take EBS volume snapshots immediately." },
+      { id: 'C', text: "An Automation document capturing memory to an isolated bucket and snapshotting the volumes." },
       { id: 'D', text: "Reboot the instance to single-user mode to inspect running processes directly." }
     ],
     correctAnswers: ['C'],
@@ -387,7 +387,7 @@ export const AWS_SCS_QUESTIONS_11 = [
     scenario: "A financial data privacy team is implementing defense-in-depth protection, automated secret rotation, and immutable audit logging for sensitive customer records. The security engineer needs to acquire forensically sound volatile RAM and persistent disk state from a suspected compromised EC2 instance without rebooting.",
     question: "Which AWS data protection mechanism or encryption strategy guarantees confidentiality and integrity?",
     options: [
-      { id: 'A', text: "Execute an SSM Automation document to capture volatile RAM to an isolated S3 bucket and take EBS volume snapshots immediately." },
+      { id: 'A', text: "An Automation document capturing memory to an isolated bucket and snapshotting the volumes." },
       { id: 'B', text: "Reboot the instance to single-user mode to inspect running processes directly." },
       { id: 'C', text: "Stop the instance immediately, permanently destroying volatile RAM and in-flight network sockets." },
       { id: 'D', text: "Run unencrypted disk cloning utilities that transmit raw forensic images across the public internet." }
@@ -408,7 +408,7 @@ export const AWS_SCS_QUESTIONS_11 = [
     scenario: "A cloud platform reliability team is hardening network perimeters, isolating hybrid VPCs, and automating vulnerability remediation across elastic EC2 and EKS clusters. The security engineer needs to acquire forensically sound volatile RAM and persistent disk state from a suspected compromised EC2 instance without rebooting.",
     question: "Which network design or AWS infrastructure security configuration guarantees high availability and perimeter defense?",
     options: [
-      { id: 'A', text: "Execute an SSM Automation document to capture volatile RAM to an isolated S3 bucket and take EBS volume snapshots immediately." },
+      { id: 'A', text: "An Automation document capturing memory to an isolated bucket and snapshotting the volumes." },
       { id: 'B', text: "Run unencrypted disk cloning utilities that transmit raw forensic images across the public internet." },
       { id: 'C', text: "Reboot the instance to single-user mode to inspect running processes directly." },
       { id: 'D', text: "Stop the instance immediately, permanently destroying volatile RAM and in-flight network sockets." }
@@ -429,10 +429,10 @@ export const AWS_SCS_QUESTIONS_11 = [
     scenario: "An enterprise cloud security architect is establishing multi-account security baselines, identity perimeters, and regulatory compliance guardrails across an AWS Organization. The security engineer needs to enable security analysts to remediate non-compliant S3 buckets or open security groups with one click from a central console.",
     question: "Which architectural approach or AWS security configuration satisfies these enterprise security objectives?",
     options: [
-      { id: 'A', text: "Configure AWS Security Hub Custom Actions that send finding events to Amazon EventBridge, invoking AWS Systems Manager Automation runbooks." },
-      { id: 'B', text: "Disable Security Hub compliance standards (CIS AWS Foundations) to clear the finding queue." },
-      { id: 'C', text: "Write custom shell scripts on individual developer laptops that invoke raw AWS CLI delete commands." },
-      { id: 'D', text: "Grant full administrative IAM rights to all third-party finding ingestion integrations." }
+      { id: 'A', text: "Security Hub custom actions sending findings to EventBridge, which runs Automation runbooks." },
+      { id: 'B', text: "Security Hub automation rules that suppress the findings once they are triaged." },
+      { id: 'C', text: "A scheduled Lambda polling the findings API and acting on those it recognises." },
+      { id: 'D', text: "An EventBridge rule per finding type, each paging the account's own owner." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -450,10 +450,10 @@ export const AWS_SCS_QUESTIONS_11 = [
     scenario: "A security operations center (SOC) detects an active security anomaly and potential credential compromise across production AWS workloads. The security engineer needs to enable security analysts to remediate non-compliant S3 buckets or open security groups with one click from a central console.",
     question: "Which incident response workflow or AWS service configuration contains the threat effectively while preserving forensic evidence?",
     options: [
-      { id: 'A', text: "Configure AWS Security Hub Custom Actions that send finding events to Amazon EventBridge, invoking AWS Systems Manager Automation runbooks." },
-      { id: 'B', text: "Grant full administrative IAM rights to all third-party finding ingestion integrations." },
-      { id: 'C', text: "Disable Security Hub compliance standards (CIS AWS Foundations) to clear the finding queue." },
-      { id: 'D', text: "Write custom shell scripts on individual developer laptops that invoke raw AWS CLI delete commands." }
+      { id: 'A', text: "Security Hub custom actions sending findings to EventBridge, which runs Automation runbooks." },
+      { id: 'B', text: "An EventBridge rule per finding type, each paging the account's own owner." },
+      { id: 'C', text: "Security Hub automation rules that suppress the findings once they are triaged." },
+      { id: 'D', text: "A scheduled Lambda polling the findings API and acting on those it recognises." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -471,10 +471,10 @@ export const AWS_SCS_QUESTIONS_11 = [
     scenario: "A security compliance auditor requires strict least-privilege access, cryptographic key separation of duties, and continuous audit verification across all IAM principals. The security engineer needs to enable security analysts to remediate non-compliant S3 buckets or open security groups with one click from a central console.",
     question: "Which IAM design pattern or encryption policy satisfies these mandatory access controls?",
     options: [
-      { id: 'A', text: "Disable Security Hub compliance standards (CIS AWS Foundations) to clear the finding queue." },
-      { id: 'B', text: "Configure AWS Security Hub Custom Actions that send finding events to Amazon EventBridge, invoking AWS Systems Manager Automation runbooks." },
-      { id: 'C', text: "Grant full administrative IAM rights to all third-party finding ingestion integrations." },
-      { id: 'D', text: "Write custom shell scripts on individual developer laptops that invoke raw AWS CLI delete commands." }
+      { id: 'A', text: "Security Hub automation rules that suppress the findings once they are triaged." },
+      { id: 'B', text: "Security Hub custom actions sending findings to EventBridge, which runs Automation runbooks." },
+      { id: 'C', text: "An EventBridge rule per finding type, each paging the account's own owner." },
+      { id: 'D', text: "A scheduled Lambda polling the findings API and acting on those it recognises." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -492,10 +492,10 @@ export const AWS_SCS_QUESTIONS_11 = [
     scenario: "A financial data privacy team is implementing defense-in-depth protection, automated secret rotation, and immutable audit logging for sensitive customer records. The security engineer needs to enable security analysts to remediate non-compliant S3 buckets or open security groups with one click from a central console.",
     question: "Which AWS data protection mechanism or encryption strategy guarantees confidentiality and integrity?",
     options: [
-      { id: 'A', text: "Disable Security Hub compliance standards (CIS AWS Foundations) to clear the finding queue." },
-      { id: 'B', text: "Grant full administrative IAM rights to all third-party finding ingestion integrations." },
-      { id: 'C', text: "Write custom shell scripts on individual developer laptops that invoke raw AWS CLI delete commands." },
-      { id: 'D', text: "Configure AWS Security Hub Custom Actions that send finding events to Amazon EventBridge, invoking AWS Systems Manager Automation runbooks." }
+      { id: 'A', text: "Security Hub automation rules that suppress the findings once they are triaged." },
+      { id: 'B', text: "An EventBridge rule per finding type, each paging the account's own owner." },
+      { id: 'C', text: "A scheduled Lambda polling the findings API and acting on those it recognises." },
+      { id: 'D', text: "Security Hub custom actions sending findings to EventBridge, which runs Automation runbooks." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -513,10 +513,10 @@ export const AWS_SCS_QUESTIONS_11 = [
     scenario: "A cloud platform reliability team is hardening network perimeters, isolating hybrid VPCs, and automating vulnerability remediation across elastic EC2 and EKS clusters. The security engineer needs to enable security analysts to remediate non-compliant S3 buckets or open security groups with one click from a central console.",
     question: "Which network design or AWS infrastructure security configuration guarantees high availability and perimeter defense?",
     options: [
-      { id: 'A', text: "Configure AWS Security Hub Custom Actions that send finding events to Amazon EventBridge, invoking AWS Systems Manager Automation runbooks." },
-      { id: 'B', text: "Disable Security Hub compliance standards (CIS AWS Foundations) to clear the finding queue." },
-      { id: 'C', text: "Write custom shell scripts on individual developer laptops that invoke raw AWS CLI delete commands." },
-      { id: 'D', text: "Grant full administrative IAM rights to all third-party finding ingestion integrations." }
+      { id: 'A', text: "Security Hub custom actions sending findings to EventBridge, which runs Automation runbooks." },
+      { id: 'B', text: "Security Hub automation rules that suppress the findings once they are triaged." },
+      { id: 'C', text: "A scheduled Lambda polling the findings API and acting on those it recognises." },
+      { id: 'D', text: "An EventBridge rule per finding type, each paging the account's own owner." }
     ],
     correctAnswers: ['A'],
     type: "single",

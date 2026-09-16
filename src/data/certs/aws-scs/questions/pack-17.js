@@ -9,10 +9,10 @@ export const AWS_SCS_QUESTIONS_17 = [
     scenario: "An enterprise cloud security architect is establishing multi-account security baselines, identity perimeters, and regulatory compliance guardrails across an AWS Organization. The security engineer needs to allow a third-party SaaS security monitoring platform to assume an IAM role in your AWS account without risking confused deputy attacks.",
     question: "Which architectural approach or AWS security configuration satisfies these enterprise security objectives?",
     options: [
-      { id: 'A', text: "Require the SaaS provider to supply a unique, secret `ExternalId` in their STS AssumeRole request and enforce it in the role trust policy." },
-      { id: 'B', text: "Allow the SaaS provider to assume the role based solely on their AWS Account ID without an ExternalId." },
-      { id: 'C', text: "Create a long-term IAM user with an access key and email the credentials to the third-party vendor." },
-      { id: 'D', text: "Grant the third-party vendor unrestricted root credentials to your AWS account." }
+      { id: 'A', text: "Require a secret `ExternalId` on the provider's `AssumeRole` and enforce it" },
+      { id: 'B', text: "Trust the provider's account ID alone, with no external identifier on the role." },
+      { id: 'C', text: "Issue the provider an IAM user whose access keys the platform team rotates." },
+      { id: 'D', text: "Give the provider a role with a wildcard trust policy and a permissions boundary." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -30,10 +30,10 @@ export const AWS_SCS_QUESTIONS_17 = [
     scenario: "A security operations center (SOC) detects an active security anomaly and potential credential compromise across production AWS workloads. The security engineer needs to allow a third-party SaaS security monitoring platform to assume an IAM role in your AWS account without risking confused deputy attacks.",
     question: "Which incident response workflow or AWS service configuration contains the threat effectively while preserving forensic evidence?",
     options: [
-      { id: 'A', text: "Create a long-term IAM user with an access key and email the credentials to the third-party vendor." },
-      { id: 'B', text: "Require the SaaS provider to supply a unique, secret `ExternalId` in their STS AssumeRole request and enforce it in the role trust policy." },
-      { id: 'C', text: "Allow the SaaS provider to assume the role based solely on their AWS Account ID without an ExternalId." },
-      { id: 'D', text: "Grant the third-party vendor unrestricted root credentials to your AWS account." }
+      { id: 'A', text: "Issue the provider an IAM user whose access keys the platform team rotates." },
+      { id: 'B', text: "Require a secret `ExternalId` on the provider's `AssumeRole` and enforce it" },
+      { id: 'C', text: "Trust the provider's account ID alone, with no external identifier on the role." },
+      { id: 'D', text: "Give the provider a role with a wildcard trust policy and a permissions boundary." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -51,10 +51,10 @@ export const AWS_SCS_QUESTIONS_17 = [
     scenario: "A security compliance auditor requires strict least-privilege access, cryptographic key separation of duties, and continuous audit verification across all IAM principals. The security engineer needs to allow a third-party SaaS security monitoring platform to assume an IAM role in your AWS account without risking confused deputy attacks.",
     question: "Which IAM design pattern or encryption policy satisfies these mandatory access controls?",
     options: [
-      { id: 'A', text: "Create a long-term IAM user with an access key and email the credentials to the third-party vendor." },
-      { id: 'B', text: "Allow the SaaS provider to assume the role based solely on their AWS Account ID without an ExternalId." },
-      { id: 'C', text: "Grant the third-party vendor unrestricted root credentials to your AWS account." },
-      { id: 'D', text: "Require the SaaS provider to supply a unique, secret `ExternalId` in their STS AssumeRole request and enforce it in the role trust policy." }
+      { id: 'A', text: "Issue the provider an IAM user whose access keys the platform team rotates." },
+      { id: 'B', text: "Trust the provider's account ID alone, with no external identifier on the role." },
+      { id: 'C', text: "Give the provider a role with a wildcard trust policy and a permissions boundary." },
+      { id: 'D', text: "Require a secret `ExternalId` on the provider's `AssumeRole` and enforce it" }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -72,10 +72,10 @@ export const AWS_SCS_QUESTIONS_17 = [
     scenario: "A financial data privacy team is implementing defense-in-depth protection, automated secret rotation, and immutable audit logging for sensitive customer records. The security engineer needs to allow a third-party SaaS security monitoring platform to assume an IAM role in your AWS account without risking confused deputy attacks.",
     question: "Which AWS data protection mechanism or encryption strategy guarantees confidentiality and integrity?",
     options: [
-      { id: 'A', text: "Require the SaaS provider to supply a unique, secret `ExternalId` in their STS AssumeRole request and enforce it in the role trust policy." },
-      { id: 'B', text: "Create a long-term IAM user with an access key and email the credentials to the third-party vendor." },
-      { id: 'C', text: "Grant the third-party vendor unrestricted root credentials to your AWS account." },
-      { id: 'D', text: "Allow the SaaS provider to assume the role based solely on their AWS Account ID without an ExternalId." }
+      { id: 'A', text: "Require a secret `ExternalId` on the provider's `AssumeRole` and enforce it" },
+      { id: 'B', text: "Issue the provider an IAM user whose access keys the platform team rotates." },
+      { id: 'C', text: "Give the provider a role with a wildcard trust policy and a permissions boundary." },
+      { id: 'D', text: "Trust the provider's account ID alone, with no external identifier on the role." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -93,10 +93,10 @@ export const AWS_SCS_QUESTIONS_17 = [
     scenario: "A cloud platform reliability team is hardening network perimeters, isolating hybrid VPCs, and automating vulnerability remediation across elastic EC2 and EKS clusters. The security engineer needs to allow a third-party SaaS security monitoring platform to assume an IAM role in your AWS account without risking confused deputy attacks.",
     question: "Which network design or AWS infrastructure security configuration guarantees high availability and perimeter defense?",
     options: [
-      { id: 'A', text: "Require the SaaS provider to supply a unique, secret `ExternalId` in their STS AssumeRole request and enforce it in the role trust policy." },
-      { id: 'B', text: "Allow the SaaS provider to assume the role based solely on their AWS Account ID without an ExternalId." },
-      { id: 'C', text: "Create a long-term IAM user with an access key and email the credentials to the third-party vendor." },
-      { id: 'D', text: "Grant the third-party vendor unrestricted root credentials to your AWS account." }
+      { id: 'A', text: "Require a secret `ExternalId` on the provider's `AssumeRole` and enforce it" },
+      { id: 'B', text: "Trust the provider's account ID alone, with no external identifier on the role." },
+      { id: 'C', text: "Issue the provider an IAM user whose access keys the platform team rotates." },
+      { id: 'D', text: "Give the provider a role with a wildcard trust policy and a permissions boundary." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -114,10 +114,10 @@ export const AWS_SCS_QUESTIONS_17 = [
     scenario: "An enterprise cloud security architect is establishing multi-account security baselines, identity perimeters, and regulatory compliance guardrails across an AWS Organization. The security engineer needs to enable Account B to read and write KMS-encrypted objects in an S3 bucket owned by Account A without assuming IAM roles.",
     question: "Which architectural approach or AWS security configuration satisfies these enterprise security objectives?",
     options: [
-      { id: 'A', text: "Use AWS Managed Key `aws/s3`, which can never be shared across different AWS accounts." },
-      { id: 'B', text: "Disable encryption on the S3 bucket so KMS permissions are unnecessary." },
-      { id: 'C', text: "Make the S3 bucket publicly readable to 0.0.0.0/0." },
-      { id: 'D', text: "Attach an S3 bucket policy allowing Account B and grant Account B usage permissions on the Customer Managed KMS Key policy." }
+      { id: 'A', text: "A bucket policy allowing Account B, with the bucket left on the AWS-managed S3 key." },
+      { id: 'B', text: "A role in Account A that Account B assumes, with the bucket policy left unchanged." },
+      { id: 'C', text: "An access point in Account A scoped to Account B, with no change to the key policy." },
+      { id: 'D', text: "A bucket policy allowing Account B, plus key policy permissions for Account B to use the key." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -135,10 +135,10 @@ export const AWS_SCS_QUESTIONS_17 = [
     scenario: "A security operations center (SOC) detects an active security anomaly and potential credential compromise across production AWS workloads. The security engineer needs to enable Account B to read and write KMS-encrypted objects in an S3 bucket owned by Account A without assuming IAM roles.",
     question: "Which incident response workflow or AWS service configuration contains the threat effectively while preserving forensic evidence?",
     options: [
-      { id: 'A', text: "Attach an S3 bucket policy allowing Account B and grant Account B usage permissions on the Customer Managed KMS Key policy." },
-      { id: 'B', text: "Make the S3 bucket publicly readable to 0.0.0.0/0." },
-      { id: 'C', text: "Disable encryption on the S3 bucket so KMS permissions are unnecessary." },
-      { id: 'D', text: "Use AWS Managed Key `aws/s3`, which can never be shared across different AWS accounts." }
+      { id: 'A', text: "A bucket policy allowing Account B, plus key policy permissions for Account B to use the key." },
+      { id: 'B', text: "An access point in Account A scoped to Account B, with no change to the key policy." },
+      { id: 'C', text: "A role in Account A that Account B assumes, with the bucket policy left unchanged." },
+      { id: 'D', text: "A bucket policy allowing Account B, with the bucket left on the AWS-managed S3 key." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -156,10 +156,10 @@ export const AWS_SCS_QUESTIONS_17 = [
     scenario: "A security compliance auditor requires strict least-privilege access, cryptographic key separation of duties, and continuous audit verification across all IAM principals. The security engineer needs to enable Account B to read and write KMS-encrypted objects in an S3 bucket owned by Account A without assuming IAM roles.",
     question: "Which IAM design pattern or encryption policy satisfies these mandatory access controls?",
     options: [
-      { id: 'A', text: "Attach an S3 bucket policy allowing Account B and grant Account B usage permissions on the Customer Managed KMS Key policy." },
-      { id: 'B', text: "Use AWS Managed Key `aws/s3`, which can never be shared across different AWS accounts." },
-      { id: 'C', text: "Make the S3 bucket publicly readable to 0.0.0.0/0." },
-      { id: 'D', text: "Disable encryption on the S3 bucket so KMS permissions are unnecessary." }
+      { id: 'A', text: "A bucket policy allowing Account B, plus key policy permissions for Account B to use the key." },
+      { id: 'B', text: "A bucket policy allowing Account B, with the bucket left on the AWS-managed S3 key." },
+      { id: 'C', text: "An access point in Account A scoped to Account B, with no change to the key policy." },
+      { id: 'D', text: "A role in Account A that Account B assumes, with the bucket policy left unchanged." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -177,10 +177,10 @@ export const AWS_SCS_QUESTIONS_17 = [
     scenario: "A financial data privacy team is implementing defense-in-depth protection, automated secret rotation, and immutable audit logging for sensitive customer records. The security engineer needs to enable Account B to read and write KMS-encrypted objects in an S3 bucket owned by Account A without assuming IAM roles.",
     question: "Which AWS data protection mechanism or encryption strategy guarantees confidentiality and integrity?",
     options: [
-      { id: 'A', text: "Attach an S3 bucket policy allowing Account B and grant Account B usage permissions on the Customer Managed KMS Key policy." },
-      { id: 'B', text: "Use AWS Managed Key `aws/s3`, which can never be shared across different AWS accounts." },
-      { id: 'C', text: "Make the S3 bucket publicly readable to 0.0.0.0/0." },
-      { id: 'D', text: "Disable encryption on the S3 bucket so KMS permissions are unnecessary." }
+      { id: 'A', text: "A bucket policy allowing Account B, plus key policy permissions for Account B to use the key." },
+      { id: 'B', text: "A bucket policy allowing Account B, with the bucket left on the AWS-managed S3 key." },
+      { id: 'C', text: "An access point in Account A scoped to Account B, with no change to the key policy." },
+      { id: 'D', text: "A role in Account A that Account B assumes, with the bucket policy left unchanged." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -198,10 +198,10 @@ export const AWS_SCS_QUESTIONS_17 = [
     scenario: "A cloud platform reliability team is hardening network perimeters, isolating hybrid VPCs, and automating vulnerability remediation across elastic EC2 and EKS clusters. The security engineer needs to enable Account B to read and write KMS-encrypted objects in an S3 bucket owned by Account A without assuming IAM roles.",
     question: "Which network design or AWS infrastructure security configuration guarantees high availability and perimeter defense?",
     options: [
-      { id: 'A', text: "Attach an S3 bucket policy allowing Account B and grant Account B usage permissions on the Customer Managed KMS Key policy." },
-      { id: 'B', text: "Use AWS Managed Key `aws/s3`, which can never be shared across different AWS accounts." },
-      { id: 'C', text: "Make the S3 bucket publicly readable to 0.0.0.0/0." },
-      { id: 'D', text: "Disable encryption on the S3 bucket so KMS permissions are unnecessary." }
+      { id: 'A', text: "A bucket policy allowing Account B, plus key policy permissions for Account B to use the key." },
+      { id: 'B', text: "A bucket policy allowing Account B, with the bucket left on the AWS-managed S3 key." },
+      { id: 'C', text: "An access point in Account A scoped to Account B, with no change to the key policy." },
+      { id: 'D', text: "A role in Account A that Account B assumes, with the bucket policy left unchanged." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -219,10 +219,10 @@ export const AWS_SCS_QUESTIONS_17 = [
     scenario: "An enterprise cloud security architect is establishing multi-account security baselines, identity perimeters, and regulatory compliance guardrails across an AWS Organization. The security engineer needs to identify all S3 buckets, KMS keys, and IAM roles shared outside the corporate AWS Organization and generate right-sized policies.",
     question: "Which architectural approach or AWS security configuration satisfies these enterprise security objectives?",
     options: [
-      { id: 'A', text: "Manually inspect thousands of individual resource JSON policies across 50 AWS accounts in the web console." },
-      { id: 'B', text: "Enable IAM Access Analyzer to detect external sharing findings and use its CloudTrail policy generator to author least-privilege IAM policies." },
-      { id: 'C', text: "Grant wildcard `*` permissions to all application roles to prevent permission-related outages." },
-      { id: 'D', text: "Assume no resources are exposed to the internet without automated validation." }
+      { id: 'A', text: "Review each account's resource policies through a scheduled Config query." },
+      { id: 'B', text: "IAM Access Analyzer for the external findings, with its policy generator" },
+      { id: 'C', text: "Grant the application roles wildcard permissions and audit their use afterwards." },
+      { id: 'D', text: "Rely on the account's public access block settings to catch external exposure." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -240,10 +240,10 @@ export const AWS_SCS_QUESTIONS_17 = [
     scenario: "A security operations center (SOC) detects an active security anomaly and potential credential compromise across production AWS workloads. The security engineer needs to identify all S3 buckets, KMS keys, and IAM roles shared outside the corporate AWS Organization and generate right-sized policies.",
     question: "Which incident response workflow or AWS service configuration contains the threat effectively while preserving forensic evidence?",
     options: [
-      { id: 'A', text: "Enable IAM Access Analyzer to detect external sharing findings and use its CloudTrail policy generator to author least-privilege IAM policies." },
-      { id: 'B', text: "Manually inspect thousands of individual resource JSON policies across 50 AWS accounts in the web console." },
-      { id: 'C', text: "Assume no resources are exposed to the internet without automated validation." },
-      { id: 'D', text: "Grant wildcard `*` permissions to all application roles to prevent permission-related outages." }
+      { id: 'A', text: "IAM Access Analyzer for the external findings, with its policy generator" },
+      { id: 'B', text: "Review each account's resource policies through a scheduled Config query." },
+      { id: 'C', text: "Rely on the account's public access block settings to catch external exposure." },
+      { id: 'D', text: "Grant the application roles wildcard permissions and audit their use afterwards." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -261,10 +261,10 @@ export const AWS_SCS_QUESTIONS_17 = [
     scenario: "A security compliance auditor requires strict least-privilege access, cryptographic key separation of duties, and continuous audit verification across all IAM principals. The security engineer needs to identify all S3 buckets, KMS keys, and IAM roles shared outside the corporate AWS Organization and generate right-sized policies.",
     question: "Which IAM design pattern or encryption policy satisfies these mandatory access controls?",
     options: [
-      { id: 'A', text: "Enable IAM Access Analyzer to detect external sharing findings and use its CloudTrail policy generator to author least-privilege IAM policies." },
-      { id: 'B', text: "Manually inspect thousands of individual resource JSON policies across 50 AWS accounts in the web console." },
-      { id: 'C', text: "Assume no resources are exposed to the internet without automated validation." },
-      { id: 'D', text: "Grant wildcard `*` permissions to all application roles to prevent permission-related outages." }
+      { id: 'A', text: "IAM Access Analyzer for the external findings, with its policy generator" },
+      { id: 'B', text: "Review each account's resource policies through a scheduled Config query." },
+      { id: 'C', text: "Rely on the account's public access block settings to catch external exposure." },
+      { id: 'D', text: "Grant the application roles wildcard permissions and audit their use afterwards." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -282,10 +282,10 @@ export const AWS_SCS_QUESTIONS_17 = [
     scenario: "A financial data privacy team is implementing defense-in-depth protection, automated secret rotation, and immutable audit logging for sensitive customer records. The security engineer needs to identify all S3 buckets, KMS keys, and IAM roles shared outside the corporate AWS Organization and generate right-sized policies.",
     question: "Which AWS data protection mechanism or encryption strategy guarantees confidentiality and integrity?",
     options: [
-      { id: 'A', text: "Enable IAM Access Analyzer to detect external sharing findings and use its CloudTrail policy generator to author least-privilege IAM policies." },
-      { id: 'B', text: "Manually inspect thousands of individual resource JSON policies across 50 AWS accounts in the web console." },
-      { id: 'C', text: "Assume no resources are exposed to the internet without automated validation." },
-      { id: 'D', text: "Grant wildcard `*` permissions to all application roles to prevent permission-related outages." }
+      { id: 'A', text: "IAM Access Analyzer for the external findings, with its policy generator" },
+      { id: 'B', text: "Review each account's resource policies through a scheduled Config query." },
+      { id: 'C', text: "Rely on the account's public access block settings to catch external exposure." },
+      { id: 'D', text: "Grant the application roles wildcard permissions and audit their use afterwards." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -303,10 +303,10 @@ export const AWS_SCS_QUESTIONS_17 = [
     scenario: "A cloud platform reliability team is hardening network perimeters, isolating hybrid VPCs, and automating vulnerability remediation across elastic EC2 and EKS clusters. The security engineer needs to identify all S3 buckets, KMS keys, and IAM roles shared outside the corporate AWS Organization and generate right-sized policies.",
     question: "Which network design or AWS infrastructure security configuration guarantees high availability and perimeter defense?",
     options: [
-      { id: 'A', text: "Enable IAM Access Analyzer to detect external sharing findings and use its CloudTrail policy generator to author least-privilege IAM policies." },
-      { id: 'B', text: "Assume no resources are exposed to the internet without automated validation." },
-      { id: 'C', text: "Grant wildcard `*` permissions to all application roles to prevent permission-related outages." },
-      { id: 'D', text: "Manually inspect thousands of individual resource JSON policies across 50 AWS accounts in the web console." }
+      { id: 'A', text: "IAM Access Analyzer for the external findings, with its policy generator" },
+      { id: 'B', text: "Rely on the account's public access block settings to catch external exposure." },
+      { id: 'C', text: "Grant the application roles wildcard permissions and audit their use afterwards." },
+      { id: 'D', text: "Review each account's resource policies through a scheduled Config query." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -324,10 +324,10 @@ export const AWS_SCS_QUESTIONS_17 = [
     scenario: "An enterprise cloud security architect is establishing multi-account security baselines, identity perimeters, and regulatory compliance guardrails across an AWS Organization. The security engineer needs to ensure that critical actions like terminating EC2 instances or deleting S3 objects can only be executed by users authenticated with hardware MFA.",
     question: "Which architectural approach or AWS security configuration satisfies these enterprise security objectives?",
     options: [
-      { id: 'A', text: "Rely on console login MFA alone, leaving CLI and API requests unprotected." },
-      { id: 'B', text: "Include an explicit `Deny` block in IAM policies for target actions with condition `BoolIfExists: { 'aws:MultiFactorAuthPresent': 'false' }`." },
-      { id: 'C', text: "Disable MFA requirements to prevent developers from being locked out when traveling." },
-      { id: 'D', text: "Send an email to developers asking them to enable MFA voluntarily on their smartphones." }
+      { id: 'A', text: "An IAM Identity Center MFA policy requiring a second factor at sign-in." },
+      { id: 'B', text: "An explicit `Deny` on those actions when `aws:MultiFactorAuthPresent` is false." },
+      { id: 'C', text: "A permissions boundary on each role restricting it to read-only actions." },
+      { id: 'D', text: "A Config rule that reports principals without an MFA device enrolled." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -345,10 +345,10 @@ export const AWS_SCS_QUESTIONS_17 = [
     scenario: "A security operations center (SOC) detects an active security anomaly and potential credential compromise across production AWS workloads. The security engineer needs to ensure that critical actions like terminating EC2 instances or deleting S3 objects can only be executed by users authenticated with hardware MFA.",
     question: "Which incident response workflow or AWS service configuration contains the threat effectively while preserving forensic evidence?",
     options: [
-      { id: 'A', text: "Include an explicit `Deny` block in IAM policies for target actions with condition `BoolIfExists: { 'aws:MultiFactorAuthPresent': 'false' }`." },
-      { id: 'B', text: "Rely on console login MFA alone, leaving CLI and API requests unprotected." },
-      { id: 'C', text: "Send an email to developers asking them to enable MFA voluntarily on their smartphones." },
-      { id: 'D', text: "Disable MFA requirements to prevent developers from being locked out when traveling." }
+      { id: 'A', text: "An explicit `Deny` on those actions when `aws:MultiFactorAuthPresent` is false." },
+      { id: 'B', text: "An IAM Identity Center MFA policy requiring a second factor at sign-in." },
+      { id: 'C', text: "A Config rule that reports principals without an MFA device enrolled." },
+      { id: 'D', text: "A permissions boundary on each role restricting it to read-only actions." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -366,10 +366,10 @@ export const AWS_SCS_QUESTIONS_17 = [
     scenario: "A security compliance auditor requires strict least-privilege access, cryptographic key separation of duties, and continuous audit verification across all IAM principals. The security engineer needs to ensure that critical actions like terminating EC2 instances or deleting S3 objects can only be executed by users authenticated with hardware MFA.",
     question: "Which IAM design pattern or encryption policy satisfies these mandatory access controls?",
     options: [
-      { id: 'A', text: "Include an explicit `Deny` block in IAM policies for target actions with condition `BoolIfExists: { 'aws:MultiFactorAuthPresent': 'false' }`." },
-      { id: 'B', text: "Rely on console login MFA alone, leaving CLI and API requests unprotected." },
-      { id: 'C', text: "Send an email to developers asking them to enable MFA voluntarily on their smartphones." },
-      { id: 'D', text: "Disable MFA requirements to prevent developers from being locked out when traveling." }
+      { id: 'A', text: "An explicit `Deny` on those actions when `aws:MultiFactorAuthPresent` is false." },
+      { id: 'B', text: "An IAM Identity Center MFA policy requiring a second factor at sign-in." },
+      { id: 'C', text: "A Config rule that reports principals without an MFA device enrolled." },
+      { id: 'D', text: "A permissions boundary on each role restricting it to read-only actions." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -387,10 +387,10 @@ export const AWS_SCS_QUESTIONS_17 = [
     scenario: "A financial data privacy team is implementing defense-in-depth protection, automated secret rotation, and immutable audit logging for sensitive customer records. The security engineer needs to ensure that critical actions like terminating EC2 instances or deleting S3 objects can only be executed by users authenticated with hardware MFA.",
     question: "Which AWS data protection mechanism or encryption strategy guarantees confidentiality and integrity?",
     options: [
-      { id: 'A', text: "Include an explicit `Deny` block in IAM policies for target actions with condition `BoolIfExists: { 'aws:MultiFactorAuthPresent': 'false' }`." },
-      { id: 'B', text: "Send an email to developers asking them to enable MFA voluntarily on their smartphones." },
-      { id: 'C', text: "Disable MFA requirements to prevent developers from being locked out when traveling." },
-      { id: 'D', text: "Rely on console login MFA alone, leaving CLI and API requests unprotected." }
+      { id: 'A', text: "An explicit `Deny` on those actions when `aws:MultiFactorAuthPresent` is false." },
+      { id: 'B', text: "A Config rule that reports principals without an MFA device enrolled." },
+      { id: 'C', text: "A permissions boundary on each role restricting it to read-only actions." },
+      { id: 'D', text: "An IAM Identity Center MFA policy requiring a second factor at sign-in." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -408,10 +408,10 @@ export const AWS_SCS_QUESTIONS_17 = [
     scenario: "A cloud platform reliability team is hardening network perimeters, isolating hybrid VPCs, and automating vulnerability remediation across elastic EC2 and EKS clusters. The security engineer needs to ensure that critical actions like terminating EC2 instances or deleting S3 objects can only be executed by users authenticated with hardware MFA.",
     question: "Which network design or AWS infrastructure security configuration guarantees high availability and perimeter defense?",
     options: [
-      { id: 'A', text: "Include an explicit `Deny` block in IAM policies for target actions with condition `BoolIfExists: { 'aws:MultiFactorAuthPresent': 'false' }`." },
-      { id: 'B', text: "Rely on console login MFA alone, leaving CLI and API requests unprotected." },
-      { id: 'C', text: "Send an email to developers asking them to enable MFA voluntarily on their smartphones." },
-      { id: 'D', text: "Disable MFA requirements to prevent developers from being locked out when traveling." }
+      { id: 'A', text: "An explicit `Deny` on those actions when `aws:MultiFactorAuthPresent` is false." },
+      { id: 'B', text: "An IAM Identity Center MFA policy requiring a second factor at sign-in." },
+      { id: 'C', text: "A Config rule that reports principals without an MFA device enrolled." },
+      { id: 'D', text: "A permissions boundary on each role restricting it to read-only actions." }
     ],
     correctAnswers: ['A'],
     type: "single",

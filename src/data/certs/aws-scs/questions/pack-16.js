@@ -9,7 +9,7 @@ export const AWS_SCS_QUESTIONS_16 = [
     scenario: "An enterprise cloud security architect is establishing multi-account security baselines, identity perimeters, and regulatory compliance guardrails across an AWS Organization. The security engineer needs to prevent workloads in development VPCs from initiating network connections to production databases while sharing common security services.",
     question: "Which architectural approach or AWS security configuration satisfies these enterprise security objectives?",
     options: [
-      { id: 'A', text: "Associate each VPC attachment with a dedicated Transit Gateway route table and omit routes between development and production VPCs." },
+      { id: 'A', text: "A dedicated route table per attachment, with no route between the two environments" },
       { id: 'B', text: "Create full-mesh VPC peering connections between all development and production VPCs." },
       { id: 'C', text: "Route all traffic through a single default route table that interconnects every subnet across the enterprise." },
       { id: 'D', text: "Disable network firewalls between development and production environments." }
@@ -32,7 +32,7 @@ export const AWS_SCS_QUESTIONS_16 = [
     options: [
       { id: 'A', text: "Create full-mesh VPC peering connections between all development and production VPCs." },
       { id: 'B', text: "Route all traffic through a single default route table that interconnects every subnet across the enterprise." },
-      { id: 'C', text: "Associate each VPC attachment with a dedicated Transit Gateway route table and omit routes between development and production VPCs." },
+      { id: 'C', text: "A dedicated route table per attachment, with no route between the two environments" },
       { id: 'D', text: "Disable network firewalls between development and production environments." }
     ],
     correctAnswers: ['C'],
@@ -53,7 +53,7 @@ export const AWS_SCS_QUESTIONS_16 = [
     options: [
       { id: 'A', text: "Route all traffic through a single default route table that interconnects every subnet across the enterprise." },
       { id: 'B', text: "Disable network firewalls between development and production environments." },
-      { id: 'C', text: "Associate each VPC attachment with a dedicated Transit Gateway route table and omit routes between development and production VPCs." },
+      { id: 'C', text: "A dedicated route table per attachment, with no route between the two environments" },
       { id: 'D', text: "Create full-mesh VPC peering connections between all development and production VPCs." }
     ],
     correctAnswers: ['C'],
@@ -72,7 +72,7 @@ export const AWS_SCS_QUESTIONS_16 = [
     scenario: "A financial data privacy team is implementing defense-in-depth protection, automated secret rotation, and immutable audit logging for sensitive customer records. The security engineer needs to prevent workloads in development VPCs from initiating network connections to production databases while sharing common security services.",
     question: "Which AWS data protection mechanism or encryption strategy guarantees confidentiality and integrity?",
     options: [
-      { id: 'A', text: "Associate each VPC attachment with a dedicated Transit Gateway route table and omit routes between development and production VPCs." },
+      { id: 'A', text: "A dedicated route table per attachment, with no route between the two environments" },
       { id: 'B', text: "Route all traffic through a single default route table that interconnects every subnet across the enterprise." },
       { id: 'C', text: "Disable network firewalls between development and production environments." },
       { id: 'D', text: "Create full-mesh VPC peering connections between all development and production VPCs." }
@@ -93,7 +93,7 @@ export const AWS_SCS_QUESTIONS_16 = [
     scenario: "A cloud platform reliability team is hardening network perimeters, isolating hybrid VPCs, and automating vulnerability remediation across elastic EC2 and EKS clusters. The security engineer needs to prevent workloads in development VPCs from initiating network connections to production databases while sharing common security services.",
     question: "Which network design or AWS infrastructure security configuration guarantees high availability and perimeter defense?",
     options: [
-      { id: 'A', text: "Associate each VPC attachment with a dedicated Transit Gateway route table and omit routes between development and production VPCs." },
+      { id: 'A', text: "A dedicated route table per attachment, with no route between the two environments" },
       { id: 'B', text: "Create full-mesh VPC peering connections between all development and production VPCs." },
       { id: 'C', text: "Route all traffic through a single default route table that interconnects every subnet across the enterprise." },
       { id: 'D', text: "Disable network firewalls between development and production environments." }
@@ -114,7 +114,7 @@ export const AWS_SCS_QUESTIONS_16 = [
     scenario: "An enterprise cloud security architect is establishing multi-account security baselines, identity perimeters, and regulatory compliance guardrails across an AWS Organization. The security engineer needs to allow development team leads to create IAM roles for their microservices without allowing them to escalate privileges to AdministratorAccess.",
     question: "Which architectural approach or AWS security configuration satisfies these enterprise security objectives?",
     options: [
-      { id: 'A', text: "Attach an IAM Permissions Boundary to developer roles, requiring any newly created role to have that boundary attached." },
+      { id: 'A', text: "A permissions boundary on the developer roles, required on any role they create." },
       { id: 'B', text: "Grant developers unrestricted `iam:*` permissions across all AWS accounts." },
       { id: 'C', text: "Disable IAM role creation and force all microservices to share a single static access key." },
       { id: 'D', text: "Rely on annual code reviews to detect unauthorized administrative role creation." }
@@ -135,7 +135,7 @@ export const AWS_SCS_QUESTIONS_16 = [
     scenario: "A security operations center (SOC) detects an active security anomaly and potential credential compromise across production AWS workloads. The security engineer needs to allow development team leads to create IAM roles for their microservices without allowing them to escalate privileges to AdministratorAccess.",
     question: "Which incident response workflow or AWS service configuration contains the threat effectively while preserving forensic evidence?",
     options: [
-      { id: 'A', text: "Attach an IAM Permissions Boundary to developer roles, requiring any newly created role to have that boundary attached." },
+      { id: 'A', text: "A permissions boundary on the developer roles, required on any role they create." },
       { id: 'B', text: "Rely on annual code reviews to detect unauthorized administrative role creation." },
       { id: 'C', text: "Grant developers unrestricted `iam:*` permissions across all AWS accounts." },
       { id: 'D', text: "Disable IAM role creation and force all microservices to share a single static access key." }
@@ -156,7 +156,7 @@ export const AWS_SCS_QUESTIONS_16 = [
     scenario: "A security compliance auditor requires strict least-privilege access, cryptographic key separation of duties, and continuous audit verification across all IAM principals. The security engineer needs to allow development team leads to create IAM roles for their microservices without allowing them to escalate privileges to AdministratorAccess.",
     question: "Which IAM design pattern or encryption policy satisfies these mandatory access controls?",
     options: [
-      { id: 'A', text: "Attach an IAM Permissions Boundary to developer roles, requiring any newly created role to have that boundary attached." },
+      { id: 'A', text: "A permissions boundary on the developer roles, required on any role they create." },
       { id: 'B', text: "Grant developers unrestricted `iam:*` permissions across all AWS accounts." },
       { id: 'C', text: "Disable IAM role creation and force all microservices to share a single static access key." },
       { id: 'D', text: "Rely on annual code reviews to detect unauthorized administrative role creation." }
@@ -178,7 +178,7 @@ export const AWS_SCS_QUESTIONS_16 = [
     question: "Which AWS data protection mechanism or encryption strategy guarantees confidentiality and integrity?",
     options: [
       { id: 'A', text: "Disable IAM role creation and force all microservices to share a single static access key." },
-      { id: 'B', text: "Attach an IAM Permissions Boundary to developer roles, requiring any newly created role to have that boundary attached." },
+      { id: 'B', text: "A permissions boundary on the developer roles, required on any role they create." },
       { id: 'C', text: "Grant developers unrestricted `iam:*` permissions across all AWS accounts." },
       { id: 'D', text: "Rely on annual code reviews to detect unauthorized administrative role creation." }
     ],
@@ -198,7 +198,7 @@ export const AWS_SCS_QUESTIONS_16 = [
     scenario: "A cloud platform reliability team is hardening network perimeters, isolating hybrid VPCs, and automating vulnerability remediation across elastic EC2 and EKS clusters. The security engineer needs to allow development team leads to create IAM roles for their microservices without allowing them to escalate privileges to AdministratorAccess.",
     question: "Which network design or AWS infrastructure security configuration guarantees high availability and perimeter defense?",
     options: [
-      { id: 'A', text: "Attach an IAM Permissions Boundary to developer roles, requiring any newly created role to have that boundary attached." },
+      { id: 'A', text: "A permissions boundary on the developer roles, required on any role they create." },
       { id: 'B', text: "Grant developers unrestricted `iam:*` permissions across all AWS accounts." },
       { id: 'C', text: "Disable IAM role creation and force all microservices to share a single static access key." },
       { id: 'D', text: "Rely on annual code reviews to detect unauthorized administrative role creation." }
@@ -219,10 +219,10 @@ export const AWS_SCS_QUESTIONS_16 = [
     scenario: "An enterprise cloud security architect is establishing multi-account security baselines, identity perimeters, and regulatory compliance guardrails across an AWS Organization. The security engineer needs to prevent all member accounts in an AWS Organization from launching resources in unapproved geographic regions or disabling GuardDuty.",
     question: "Which architectural approach or AWS security configuration satisfies these enterprise security objectives?",
     options: [
-      { id: 'A', text: "Configure IAM policies on individual users in each account, leaving root accounts unrestricted." },
-      { id: 'B', text: "Attach an AWS Organizations Service Control Policy (SCP) with an explicit Deny on non-whitelisted regions and security service disablement." },
-      { id: 'C', text: "Rely on billing alerts to discover resources deployed in unapproved regions weeks after deployment." },
-      { id: 'D', text: "Send an executive email memo asking developers not to use overseas AWS regions." }
+      { id: 'A', text: "A permissions boundary on each role restricting it to the permitted regions." },
+      { id: 'B', text: "An SCP denying the non-permitted regions and the security services' disablement." },
+      { id: 'C', text: "A Config rule reporting resources created outside the permitted regions." },
+      { id: 'D', text: "An IAM policy on each user denying the regions, applied by the account owner." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -240,10 +240,10 @@ export const AWS_SCS_QUESTIONS_16 = [
     scenario: "A security operations center (SOC) detects an active security anomaly and potential credential compromise across production AWS workloads. The security engineer needs to prevent all member accounts in an AWS Organization from launching resources in unapproved geographic regions or disabling GuardDuty.",
     question: "Which incident response workflow or AWS service configuration contains the threat effectively while preserving forensic evidence?",
     options: [
-      { id: 'A', text: "Attach an AWS Organizations Service Control Policy (SCP) with an explicit Deny on non-whitelisted regions and security service disablement." },
-      { id: 'B', text: "Configure IAM policies on individual users in each account, leaving root accounts unrestricted." },
-      { id: 'C', text: "Send an executive email memo asking developers not to use overseas AWS regions." },
-      { id: 'D', text: "Rely on billing alerts to discover resources deployed in unapproved regions weeks after deployment." }
+      { id: 'A', text: "An SCP denying the non-permitted regions and the security services' disablement." },
+      { id: 'B', text: "A permissions boundary on each role restricting it to the permitted regions." },
+      { id: 'C', text: "An IAM policy on each user denying the regions, applied by the account owner." },
+      { id: 'D', text: "A Config rule reporting resources created outside the permitted regions." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -261,10 +261,10 @@ export const AWS_SCS_QUESTIONS_16 = [
     scenario: "A security compliance auditor requires strict least-privilege access, cryptographic key separation of duties, and continuous audit verification across all IAM principals. The security engineer needs to prevent all member accounts in an AWS Organization from launching resources in unapproved geographic regions or disabling GuardDuty.",
     question: "Which IAM design pattern or encryption policy satisfies these mandatory access controls?",
     options: [
-      { id: 'A', text: "Attach an AWS Organizations Service Control Policy (SCP) with an explicit Deny on non-whitelisted regions and security service disablement." },
-      { id: 'B', text: "Configure IAM policies on individual users in each account, leaving root accounts unrestricted." },
-      { id: 'C', text: "Send an executive email memo asking developers not to use overseas AWS regions." },
-      { id: 'D', text: "Rely on billing alerts to discover resources deployed in unapproved regions weeks after deployment." }
+      { id: 'A', text: "An SCP denying the non-permitted regions and the security services' disablement." },
+      { id: 'B', text: "A permissions boundary on each role restricting it to the permitted regions." },
+      { id: 'C', text: "An IAM policy on each user denying the regions, applied by the account owner." },
+      { id: 'D', text: "A Config rule reporting resources created outside the permitted regions." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -282,10 +282,10 @@ export const AWS_SCS_QUESTIONS_16 = [
     scenario: "A financial data privacy team is implementing defense-in-depth protection, automated secret rotation, and immutable audit logging for sensitive customer records. The security engineer needs to prevent all member accounts in an AWS Organization from launching resources in unapproved geographic regions or disabling GuardDuty.",
     question: "Which AWS data protection mechanism or encryption strategy guarantees confidentiality and integrity?",
     options: [
-      { id: 'A', text: "Rely on billing alerts to discover resources deployed in unapproved regions weeks after deployment." },
-      { id: 'B', text: "Attach an AWS Organizations Service Control Policy (SCP) with an explicit Deny on non-whitelisted regions and security service disablement." },
-      { id: 'C', text: "Send an executive email memo asking developers not to use overseas AWS regions." },
-      { id: 'D', text: "Configure IAM policies on individual users in each account, leaving root accounts unrestricted." }
+      { id: 'A', text: "A Config rule reporting resources created outside the permitted regions." },
+      { id: 'B', text: "An SCP denying the non-permitted regions and the security services' disablement." },
+      { id: 'C', text: "An IAM policy on each user denying the regions, applied by the account owner." },
+      { id: 'D', text: "A permissions boundary on each role restricting it to the permitted regions." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -303,10 +303,10 @@ export const AWS_SCS_QUESTIONS_16 = [
     scenario: "A cloud platform reliability team is hardening network perimeters, isolating hybrid VPCs, and automating vulnerability remediation across elastic EC2 and EKS clusters. The security engineer needs to prevent all member accounts in an AWS Organization from launching resources in unapproved geographic regions or disabling GuardDuty.",
     question: "Which network design or AWS infrastructure security configuration guarantees high availability and perimeter defense?",
     options: [
-      { id: 'A', text: "Rely on billing alerts to discover resources deployed in unapproved regions weeks after deployment." },
-      { id: 'B', text: "Send an executive email memo asking developers not to use overseas AWS regions." },
-      { id: 'C', text: "Configure IAM policies on individual users in each account, leaving root accounts unrestricted." },
-      { id: 'D', text: "Attach an AWS Organizations Service Control Policy (SCP) with an explicit Deny on non-whitelisted regions and security service disablement." }
+      { id: 'A', text: "A Config rule reporting resources created outside the permitted regions." },
+      { id: 'B', text: "An IAM policy on each user denying the regions, applied by the account owner." },
+      { id: 'C', text: "A permissions boundary on each role restricting it to the permitted regions." },
+      { id: 'D', text: "An SCP denying the non-permitted regions and the security services' disablement." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -324,10 +324,10 @@ export const AWS_SCS_QUESTIONS_16 = [
     scenario: "An enterprise cloud security architect is establishing multi-account security baselines, identity perimeters, and regulatory compliance guardrails across an AWS Organization. The security engineer needs to grant developers access to manage only the EC2 instances, S3 buckets, and RDS databases matching their specific team tag.",
     question: "Which architectural approach or AWS security configuration satisfies these enterprise security objectives?",
     options: [
-      { id: 'A', text: "Grant all developers unrestricted access to all resources regardless of project ownership." },
-      { id: 'B', text: "Create hundreds of bespoke IAM policies listing explicit resource ARNs for every developer." },
-      { id: 'C', text: "Require developers to switch AWS accounts for every individual resource modification." },
-      { id: 'D', text: "Implement Attribute-Based Access Control (ABAC) using IAM policies with the condition `StringEquals: { 'aws:ResourceTag/Team': '${aws:PrincipalTag/Team}' }`." }
+      { id: 'A', text: "RBAC with one IAM group per team and a managed policy attached to each of them." },
+      { id: 'B', text: "One IAM policy per developer, listing the resource ARNs that developer may use." },
+      { id: 'C', text: "One account per team, with a role in each that the developers assume as needed." },
+      { id: 'D', text: "ABAC with a condition matching `aws:ResourceTag/Team` to `aws:PrincipalTag/Team`." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -345,10 +345,10 @@ export const AWS_SCS_QUESTIONS_16 = [
     scenario: "A security operations center (SOC) detects an active security anomaly and potential credential compromise across production AWS workloads. The security engineer needs to grant developers access to manage only the EC2 instances, S3 buckets, and RDS databases matching their specific team tag.",
     question: "Which incident response workflow or AWS service configuration contains the threat effectively while preserving forensic evidence?",
     options: [
-      { id: 'A', text: "Implement Attribute-Based Access Control (ABAC) using IAM policies with the condition `StringEquals: { 'aws:ResourceTag/Team': '${aws:PrincipalTag/Team}' }`." },
-      { id: 'B', text: "Create hundreds of bespoke IAM policies listing explicit resource ARNs for every developer." },
-      { id: 'C', text: "Grant all developers unrestricted access to all resources regardless of project ownership." },
-      { id: 'D', text: "Require developers to switch AWS accounts for every individual resource modification." }
+      { id: 'A', text: "ABAC with a condition matching `aws:ResourceTag/Team` to `aws:PrincipalTag/Team`." },
+      { id: 'B', text: "One IAM policy per developer, listing the resource ARNs that developer may use." },
+      { id: 'C', text: "RBAC with one IAM group per team and a managed policy attached to each of them." },
+      { id: 'D', text: "One account per team, with a role in each that the developers assume as needed." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -366,10 +366,10 @@ export const AWS_SCS_QUESTIONS_16 = [
     scenario: "A security compliance auditor requires strict least-privilege access, cryptographic key separation of duties, and continuous audit verification across all IAM principals. The security engineer needs to grant developers access to manage only the EC2 instances, S3 buckets, and RDS databases matching their specific team tag.",
     question: "Which IAM design pattern or encryption policy satisfies these mandatory access controls?",
     options: [
-      { id: 'A', text: "Grant all developers unrestricted access to all resources regardless of project ownership." },
-      { id: 'B', text: "Require developers to switch AWS accounts for every individual resource modification." },
-      { id: 'C', text: "Implement Attribute-Based Access Control (ABAC) using IAM policies with the condition `StringEquals: { 'aws:ResourceTag/Team': '${aws:PrincipalTag/Team}' }`." },
-      { id: 'D', text: "Create hundreds of bespoke IAM policies listing explicit resource ARNs for every developer." }
+      { id: 'A', text: "RBAC with one IAM group per team and a managed policy attached to each of them." },
+      { id: 'B', text: "One account per team, with a role in each that the developers assume as needed." },
+      { id: 'C', text: "ABAC with a condition matching `aws:ResourceTag/Team` to `aws:PrincipalTag/Team`." },
+      { id: 'D', text: "One IAM policy per developer, listing the resource ARNs that developer may use." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -387,10 +387,10 @@ export const AWS_SCS_QUESTIONS_16 = [
     scenario: "A financial data privacy team is implementing defense-in-depth protection, automated secret rotation, and immutable audit logging for sensitive customer records. The security engineer needs to grant developers access to manage only the EC2 instances, S3 buckets, and RDS databases matching their specific team tag.",
     question: "Which AWS data protection mechanism or encryption strategy guarantees confidentiality and integrity?",
     options: [
-      { id: 'A', text: "Implement Attribute-Based Access Control (ABAC) using IAM policies with the condition `StringEquals: { 'aws:ResourceTag/Team': '${aws:PrincipalTag/Team}' }`." },
-      { id: 'B', text: "Grant all developers unrestricted access to all resources regardless of project ownership." },
-      { id: 'C', text: "Require developers to switch AWS accounts for every individual resource modification." },
-      { id: 'D', text: "Create hundreds of bespoke IAM policies listing explicit resource ARNs for every developer." }
+      { id: 'A', text: "ABAC with a condition matching `aws:ResourceTag/Team` to `aws:PrincipalTag/Team`." },
+      { id: 'B', text: "RBAC with one IAM group per team and a managed policy attached to each of them." },
+      { id: 'C', text: "One account per team, with a role in each that the developers assume as needed." },
+      { id: 'D', text: "One IAM policy per developer, listing the resource ARNs that developer may use." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -408,10 +408,10 @@ export const AWS_SCS_QUESTIONS_16 = [
     scenario: "A cloud platform reliability team is hardening network perimeters, isolating hybrid VPCs, and automating vulnerability remediation across elastic EC2 and EKS clusters. The security engineer needs to grant developers access to manage only the EC2 instances, S3 buckets, and RDS databases matching their specific team tag.",
     question: "Which network design or AWS infrastructure security configuration guarantees high availability and perimeter defense?",
     options: [
-      { id: 'A', text: "Grant all developers unrestricted access to all resources regardless of project ownership." },
-      { id: 'B', text: "Implement Attribute-Based Access Control (ABAC) using IAM policies with the condition `StringEquals: { 'aws:ResourceTag/Team': '${aws:PrincipalTag/Team}' }`." },
-      { id: 'C', text: "Create hundreds of bespoke IAM policies listing explicit resource ARNs for every developer." },
-      { id: 'D', text: "Require developers to switch AWS accounts for every individual resource modification." }
+      { id: 'A', text: "RBAC with one IAM group per team and a managed policy attached to each of them." },
+      { id: 'B', text: "ABAC with a condition matching `aws:ResourceTag/Team` to `aws:PrincipalTag/Team`." },
+      { id: 'C', text: "One IAM policy per developer, listing the resource ARNs that developer may use." },
+      { id: 'D', text: "One account per team, with a role in each that the developers assume as needed." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -429,10 +429,10 @@ export const AWS_SCS_QUESTIONS_16 = [
     scenario: "An enterprise cloud security architect is establishing multi-account security baselines, identity perimeters, and regulatory compliance guardrails across an AWS Organization. The security engineer needs to manage human access across 200 AWS accounts through corporate Okta or Azure AD with automated user offboarding.",
     question: "Which architectural approach or AWS security configuration satisfies these enterprise security objectives?",
     options: [
-      { id: 'A', text: "Allow developers to access production accounts without multi-factor authentication." },
-      { id: 'B', text: "Create local IAM users with static passwords in every individual AWS account." },
-      { id: 'C', text: "Configure AWS IAM Identity Center (AWS SSO) with SCIM identity synchronization and assign scoped Permission Sets across accounts." },
-      { id: 'D', text: "Distribute a shared master root password spreadsheet to all developers." }
+      { id: 'A', text: "IAM Identity Center with the built-in directory and one permission set for all." },
+      { id: 'B', text: "IAM users created in each account, with a password policy and enforced MFA." },
+      { id: 'C', text: "IAM Identity Center with SCIM synchronisation and scoped permission sets per account." },
+      { id: 'D', text: "A single hub account holding the users, with roles assumed into the others." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -450,10 +450,10 @@ export const AWS_SCS_QUESTIONS_16 = [
     scenario: "A security operations center (SOC) detects an active security anomaly and potential credential compromise across production AWS workloads. The security engineer needs to manage human access across 200 AWS accounts through corporate Okta or Azure AD with automated user offboarding.",
     question: "Which incident response workflow or AWS service configuration contains the threat effectively while preserving forensic evidence?",
     options: [
-      { id: 'A', text: "Configure AWS IAM Identity Center (AWS SSO) with SCIM identity synchronization and assign scoped Permission Sets across accounts." },
-      { id: 'B', text: "Create local IAM users with static passwords in every individual AWS account." },
-      { id: 'C', text: "Distribute a shared master root password spreadsheet to all developers." },
-      { id: 'D', text: "Allow developers to access production accounts without multi-factor authentication." }
+      { id: 'A', text: "IAM Identity Center with SCIM synchronisation and scoped permission sets per account." },
+      { id: 'B', text: "IAM users created in each account, with a password policy and enforced MFA." },
+      { id: 'C', text: "A single hub account holding the users, with roles assumed into the others." },
+      { id: 'D', text: "IAM Identity Center with the built-in directory and one permission set for all." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -471,10 +471,10 @@ export const AWS_SCS_QUESTIONS_16 = [
     scenario: "A security compliance auditor requires strict least-privilege access, cryptographic key separation of duties, and continuous audit verification across all IAM principals. The security engineer needs to manage human access across 200 AWS accounts through corporate Okta or Azure AD with automated user offboarding.",
     question: "Which IAM design pattern or encryption policy satisfies these mandatory access controls?",
     options: [
-      { id: 'A', text: "Create local IAM users with static passwords in every individual AWS account." },
-      { id: 'B', text: "Distribute a shared master root password spreadsheet to all developers." },
-      { id: 'C', text: "Configure AWS IAM Identity Center (AWS SSO) with SCIM identity synchronization and assign scoped Permission Sets across accounts." },
-      { id: 'D', text: "Allow developers to access production accounts without multi-factor authentication." }
+      { id: 'A', text: "IAM users created in each account, with a password policy and enforced MFA." },
+      { id: 'B', text: "A single hub account holding the users, with roles assumed into the others." },
+      { id: 'C', text: "IAM Identity Center with SCIM synchronisation and scoped permission sets per account." },
+      { id: 'D', text: "IAM Identity Center with the built-in directory and one permission set for all." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -492,10 +492,10 @@ export const AWS_SCS_QUESTIONS_16 = [
     scenario: "A financial data privacy team is implementing defense-in-depth protection, automated secret rotation, and immutable audit logging for sensitive customer records. The security engineer needs to manage human access across 200 AWS accounts through corporate Okta or Azure AD with automated user offboarding.",
     question: "Which AWS data protection mechanism or encryption strategy guarantees confidentiality and integrity?",
     options: [
-      { id: 'A', text: "Configure AWS IAM Identity Center (AWS SSO) with SCIM identity synchronization and assign scoped Permission Sets across accounts." },
-      { id: 'B', text: "Create local IAM users with static passwords in every individual AWS account." },
-      { id: 'C', text: "Distribute a shared master root password spreadsheet to all developers." },
-      { id: 'D', text: "Allow developers to access production accounts without multi-factor authentication." }
+      { id: 'A', text: "IAM Identity Center with SCIM synchronisation and scoped permission sets per account." },
+      { id: 'B', text: "IAM users created in each account, with a password policy and enforced MFA." },
+      { id: 'C', text: "A single hub account holding the users, with roles assumed into the others." },
+      { id: 'D', text: "IAM Identity Center with the built-in directory and one permission set for all." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -513,10 +513,10 @@ export const AWS_SCS_QUESTIONS_16 = [
     scenario: "A cloud platform reliability team is hardening network perimeters, isolating hybrid VPCs, and automating vulnerability remediation across elastic EC2 and EKS clusters. The security engineer needs to manage human access across 200 AWS accounts through corporate Okta or Azure AD with automated user offboarding.",
     question: "Which network design or AWS infrastructure security configuration guarantees high availability and perimeter defense?",
     options: [
-      { id: 'A', text: "Configure AWS IAM Identity Center (AWS SSO) with SCIM identity synchronization and assign scoped Permission Sets across accounts." },
-      { id: 'B', text: "Create local IAM users with static passwords in every individual AWS account." },
-      { id: 'C', text: "Distribute a shared master root password spreadsheet to all developers." },
-      { id: 'D', text: "Allow developers to access production accounts without multi-factor authentication." }
+      { id: 'A', text: "IAM Identity Center with SCIM synchronisation and scoped permission sets per account." },
+      { id: 'B', text: "IAM users created in each account, with a password policy and enforced MFA." },
+      { id: 'C', text: "A single hub account holding the users, with roles assumed into the others." },
+      { id: 'D', text: "IAM Identity Center with the built-in directory and one permission set for all." }
     ],
     correctAnswers: ['A'],
     type: "single",

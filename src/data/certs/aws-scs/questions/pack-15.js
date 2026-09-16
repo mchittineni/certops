@@ -9,7 +9,7 @@ export const AWS_SCS_QUESTIONS_15 = [
     scenario: "An enterprise cloud security architect is establishing multi-account security baselines, identity perimeters, and regulatory compliance guardrails across an AWS Organization. The security engineer needs to route all ingress and egress VPC traffic transparently through a scalable fleet of third-party deep packet inspection appliances.",
     question: "Which architectural approach or AWS security configuration satisfies these enterprise security objectives?",
     options: [
-      { id: 'A', text: "Deploy a Gateway Load Balancer (GWLB) backed by a firewall appliance fleet, using Gateway Load Balancer Endpoints (GWLBE) in consumer VPCs." },
+      { id: 'A', text: "A Gateway Load Balancer with the appliance fleet, reached by endpoints in the consumer VPCs" },
       { id: 'B', text: "Configure EC2 instances as static NAT routers with single points of failure and source NAT port exhaustion." },
       { id: 'C', text: "Route traffic through public internet VPN tunnels to on-premises hardware appliances." },
       { id: 'D', text: "Disable deep packet inspection to improve network throughput." }
@@ -30,7 +30,7 @@ export const AWS_SCS_QUESTIONS_15 = [
     scenario: "A security operations center (SOC) detects an active security anomaly and potential credential compromise across production AWS workloads. The security engineer needs to route all ingress and egress VPC traffic transparently through a scalable fleet of third-party deep packet inspection appliances.",
     question: "Which incident response workflow or AWS service configuration contains the threat effectively while preserving forensic evidence?",
     options: [
-      { id: 'A', text: "Deploy a Gateway Load Balancer (GWLB) backed by a firewall appliance fleet, using Gateway Load Balancer Endpoints (GWLBE) in consumer VPCs." },
+      { id: 'A', text: "A Gateway Load Balancer with the appliance fleet, reached by endpoints in the consumer VPCs" },
       { id: 'B', text: "Configure EC2 instances as static NAT routers with single points of failure and source NAT port exhaustion." },
       { id: 'C', text: "Route traffic through public internet VPN tunnels to on-premises hardware appliances." },
       { id: 'D', text: "Disable deep packet inspection to improve network throughput." }
@@ -53,7 +53,7 @@ export const AWS_SCS_QUESTIONS_15 = [
     options: [
       { id: 'A', text: "Route traffic through public internet VPN tunnels to on-premises hardware appliances." },
       { id: 'B', text: "Disable deep packet inspection to improve network throughput." },
-      { id: 'C', text: "Deploy a Gateway Load Balancer (GWLB) backed by a firewall appliance fleet, using Gateway Load Balancer Endpoints (GWLBE) in consumer VPCs." },
+      { id: 'C', text: "A Gateway Load Balancer with the appliance fleet, reached by endpoints in the consumer VPCs" },
       { id: 'D', text: "Configure EC2 instances as static NAT routers with single points of failure and source NAT port exhaustion." }
     ],
     correctAnswers: ['C'],
@@ -72,7 +72,7 @@ export const AWS_SCS_QUESTIONS_15 = [
     scenario: "A financial data privacy team is implementing defense-in-depth protection, automated secret rotation, and immutable audit logging for sensitive customer records. The security engineer needs to route all ingress and egress VPC traffic transparently through a scalable fleet of third-party deep packet inspection appliances.",
     question: "Which AWS data protection mechanism or encryption strategy guarantees confidentiality and integrity?",
     options: [
-      { id: 'A', text: "Deploy a Gateway Load Balancer (GWLB) backed by a firewall appliance fleet, using Gateway Load Balancer Endpoints (GWLBE) in consumer VPCs." },
+      { id: 'A', text: "A Gateway Load Balancer with the appliance fleet, reached by endpoints in the consumer VPCs" },
       { id: 'B', text: "Configure EC2 instances as static NAT routers with single points of failure and source NAT port exhaustion." },
       { id: 'C', text: "Route traffic through public internet VPN tunnels to on-premises hardware appliances." },
       { id: 'D', text: "Disable deep packet inspection to improve network throughput." }
@@ -93,7 +93,7 @@ export const AWS_SCS_QUESTIONS_15 = [
     scenario: "A cloud platform reliability team is hardening network perimeters, isolating hybrid VPCs, and automating vulnerability remediation across elastic EC2 and EKS clusters. The security engineer needs to route all ingress and egress VPC traffic transparently through a scalable fleet of third-party deep packet inspection appliances.",
     question: "Which network design or AWS infrastructure security configuration guarantees high availability and perimeter defense?",
     options: [
-      { id: 'A', text: "Deploy a Gateway Load Balancer (GWLB) backed by a firewall appliance fleet, using Gateway Load Balancer Endpoints (GWLBE) in consumer VPCs." },
+      { id: 'A', text: "A Gateway Load Balancer with the appliance fleet, reached by endpoints in the consumer VPCs" },
       { id: 'B', text: "Disable deep packet inspection to improve network throughput." },
       { id: 'C', text: "Configure EC2 instances as static NAT routers with single points of failure and source NAT port exhaustion." },
       { id: 'D', text: "Route traffic through public internet VPN tunnels to on-premises hardware appliances." }
@@ -114,10 +114,10 @@ export const AWS_SCS_QUESTIONS_15 = [
     scenario: "An enterprise cloud security architect is establishing multi-account security baselines, identity perimeters, and regulatory compliance guardrails across an AWS Organization. The security engineer needs to allow systems engineers to access private EC2 instances administrative shells without opening inbound port 22 or maintaining bastion hosts.",
     question: "Which architectural approach or AWS security configuration satisfies these enterprise security objectives?",
     options: [
-      { id: 'A', text: "Use AWS Systems Manager Session Manager, encrypting sessions with a customer-managed KMS key and streaming audit logs to CloudWatch." },
-      { id: 'B', text: "Deploy a single unpatched Linux bastion host with public IP and static credentials." },
-      { id: 'C', text: "Open inbound SSH port 22 to 0.0.0.0/0 on all production EC2 instances." },
-      { id: 'D', text: "Store private SSH keys in a public GitHub repository so all team members can access them." }
+      { id: 'A', text: "Session Manager, with sessions encrypted by a customer-managed key and logged to CloudWatch." },
+      { id: 'B', text: "A bastion host in a public subnet, with SSH keys rotated by Systems Manager." },
+      { id: 'C', text: "EC2 Instance Connect from the console, with the security group opened per session." },
+      { id: 'D', text: "A VPN into the VPC, with the instances' SSH access limited to the VPN subnet." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -135,10 +135,10 @@ export const AWS_SCS_QUESTIONS_15 = [
     scenario: "A security operations center (SOC) detects an active security anomaly and potential credential compromise across production AWS workloads. The security engineer needs to allow systems engineers to access private EC2 instances administrative shells without opening inbound port 22 or maintaining bastion hosts.",
     question: "Which incident response workflow or AWS service configuration contains the threat effectively while preserving forensic evidence?",
     options: [
-      { id: 'A', text: "Store private SSH keys in a public GitHub repository so all team members can access them." },
-      { id: 'B', text: "Deploy a single unpatched Linux bastion host with public IP and static credentials." },
-      { id: 'C', text: "Use AWS Systems Manager Session Manager, encrypting sessions with a customer-managed KMS key and streaming audit logs to CloudWatch." },
-      { id: 'D', text: "Open inbound SSH port 22 to 0.0.0.0/0 on all production EC2 instances." }
+      { id: 'A', text: "A VPN into the VPC, with the instances' SSH access limited to the VPN subnet." },
+      { id: 'B', text: "A bastion host in a public subnet, with SSH keys rotated by Systems Manager." },
+      { id: 'C', text: "Session Manager, with sessions encrypted by a customer-managed key and logged to CloudWatch." },
+      { id: 'D', text: "EC2 Instance Connect from the console, with the security group opened per session." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -156,10 +156,10 @@ export const AWS_SCS_QUESTIONS_15 = [
     scenario: "A security compliance auditor requires strict least-privilege access, cryptographic key separation of duties, and continuous audit verification across all IAM principals. The security engineer needs to allow systems engineers to access private EC2 instances administrative shells without opening inbound port 22 or maintaining bastion hosts.",
     question: "Which IAM design pattern or encryption policy satisfies these mandatory access controls?",
     options: [
-      { id: 'A', text: "Open inbound SSH port 22 to 0.0.0.0/0 on all production EC2 instances." },
-      { id: 'B', text: "Deploy a single unpatched Linux bastion host with public IP and static credentials." },
-      { id: 'C', text: "Store private SSH keys in a public GitHub repository so all team members can access them." },
-      { id: 'D', text: "Use AWS Systems Manager Session Manager, encrypting sessions with a customer-managed KMS key and streaming audit logs to CloudWatch." }
+      { id: 'A', text: "EC2 Instance Connect from the console, with the security group opened per session." },
+      { id: 'B', text: "A bastion host in a public subnet, with SSH keys rotated by Systems Manager." },
+      { id: 'C', text: "A VPN into the VPC, with the instances' SSH access limited to the VPN subnet." },
+      { id: 'D', text: "Session Manager, with sessions encrypted by a customer-managed key and logged to CloudWatch." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -177,10 +177,10 @@ export const AWS_SCS_QUESTIONS_15 = [
     scenario: "A financial data privacy team is implementing defense-in-depth protection, automated secret rotation, and immutable audit logging for sensitive customer records. The security engineer needs to allow systems engineers to access private EC2 instances administrative shells without opening inbound port 22 or maintaining bastion hosts.",
     question: "Which AWS data protection mechanism or encryption strategy guarantees confidentiality and integrity?",
     options: [
-      { id: 'A', text: "Use AWS Systems Manager Session Manager, encrypting sessions with a customer-managed KMS key and streaming audit logs to CloudWatch." },
-      { id: 'B', text: "Open inbound SSH port 22 to 0.0.0.0/0 on all production EC2 instances." },
-      { id: 'C', text: "Store private SSH keys in a public GitHub repository so all team members can access them." },
-      { id: 'D', text: "Deploy a single unpatched Linux bastion host with public IP and static credentials." }
+      { id: 'A', text: "Session Manager, with sessions encrypted by a customer-managed key and logged to CloudWatch." },
+      { id: 'B', text: "EC2 Instance Connect from the console, with the security group opened per session." },
+      { id: 'C', text: "A VPN into the VPC, with the instances' SSH access limited to the VPN subnet." },
+      { id: 'D', text: "A bastion host in a public subnet, with SSH keys rotated by Systems Manager." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -198,10 +198,10 @@ export const AWS_SCS_QUESTIONS_15 = [
     scenario: "A cloud platform reliability team is hardening network perimeters, isolating hybrid VPCs, and automating vulnerability remediation across elastic EC2 and EKS clusters. The security engineer needs to allow systems engineers to access private EC2 instances administrative shells without opening inbound port 22 or maintaining bastion hosts.",
     question: "Which network design or AWS infrastructure security configuration guarantees high availability and perimeter defense?",
     options: [
-      { id: 'A', text: "Open inbound SSH port 22 to 0.0.0.0/0 on all production EC2 instances." },
-      { id: 'B', text: "Use AWS Systems Manager Session Manager, encrypting sessions with a customer-managed KMS key and streaming audit logs to CloudWatch." },
-      { id: 'C', text: "Deploy a single unpatched Linux bastion host with public IP and static credentials." },
-      { id: 'D', text: "Store private SSH keys in a public GitHub repository so all team members can access them." }
+      { id: 'A', text: "EC2 Instance Connect from the console, with the security group opened per session." },
+      { id: 'B', text: "Session Manager, with sessions encrypted by a customer-managed key and logged to CloudWatch." },
+      { id: 'C', text: "A bastion host in a public subnet, with SSH keys rotated by Systems Manager." },
+      { id: 'D', text: "A VPN into the VPC, with the instances' SSH access limited to the VPN subnet." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -219,7 +219,7 @@ export const AWS_SCS_QUESTIONS_15 = [
     scenario: "An enterprise cloud security architect is establishing multi-account security baselines, identity perimeters, and regulatory compliance guardrails across an AWS Organization. The security engineer needs to automate the installation of critical operating system security patches across thousands of Linux and Windows EC2 instances.",
     question: "Which architectural approach or AWS security configuration satisfies these enterprise security objectives?",
     options: [
-      { id: 'A', text: "Configure SSM Patch Manager with custom patch baselines, auto-approval delays, and scheduled Maintenance Windows." },
+      { id: 'A', text: "Patch Manager with custom baselines, approval delays and scheduled windows." },
       { id: 'B', text: "Reboot servers at random times during peak customer business hours without notice." },
       { id: 'C', text: "Log into each server individually via SSH every Sunday to run manual yum/apt update commands." },
       { id: 'D', text: "Disable operating system security updates to avoid testing application compatibility." }
@@ -243,7 +243,7 @@ export const AWS_SCS_QUESTIONS_15 = [
       { id: 'A', text: "Reboot servers at random times during peak customer business hours without notice." },
       { id: 'B', text: "Disable operating system security updates to avoid testing application compatibility." },
       { id: 'C', text: "Log into each server individually via SSH every Sunday to run manual yum/apt update commands." },
-      { id: 'D', text: "Configure SSM Patch Manager with custom patch baselines, auto-approval delays, and scheduled Maintenance Windows." }
+      { id: 'D', text: "Patch Manager with custom baselines, approval delays and scheduled windows." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -264,7 +264,7 @@ export const AWS_SCS_QUESTIONS_15 = [
       { id: 'A', text: "Disable operating system security updates to avoid testing application compatibility." },
       { id: 'B', text: "Log into each server individually via SSH every Sunday to run manual yum/apt update commands." },
       { id: 'C', text: "Reboot servers at random times during peak customer business hours without notice." },
-      { id: 'D', text: "Configure SSM Patch Manager with custom patch baselines, auto-approval delays, and scheduled Maintenance Windows." }
+      { id: 'D', text: "Patch Manager with custom baselines, approval delays and scheduled windows." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -282,7 +282,7 @@ export const AWS_SCS_QUESTIONS_15 = [
     scenario: "A financial data privacy team is implementing defense-in-depth protection, automated secret rotation, and immutable audit logging for sensitive customer records. The security engineer needs to automate the installation of critical operating system security patches across thousands of Linux and Windows EC2 instances.",
     question: "Which AWS data protection mechanism or encryption strategy guarantees confidentiality and integrity?",
     options: [
-      { id: 'A', text: "Configure SSM Patch Manager with custom patch baselines, auto-approval delays, and scheduled Maintenance Windows." },
+      { id: 'A', text: "Patch Manager with custom baselines, approval delays and scheduled windows." },
       { id: 'B', text: "Reboot servers at random times during peak customer business hours without notice." },
       { id: 'C', text: "Log into each server individually via SSH every Sunday to run manual yum/apt update commands." },
       { id: 'D', text: "Disable operating system security updates to avoid testing application compatibility." }
@@ -303,7 +303,7 @@ export const AWS_SCS_QUESTIONS_15 = [
     scenario: "A cloud platform reliability team is hardening network perimeters, isolating hybrid VPCs, and automating vulnerability remediation across elastic EC2 and EKS clusters. The security engineer needs to automate the installation of critical operating system security patches across thousands of Linux and Windows EC2 instances.",
     question: "Which network design or AWS infrastructure security configuration guarantees high availability and perimeter defense?",
     options: [
-      { id: 'A', text: "Configure SSM Patch Manager with custom patch baselines, auto-approval delays, and scheduled Maintenance Windows." },
+      { id: 'A', text: "Patch Manager with custom baselines, approval delays and scheduled windows." },
       { id: 'B', text: "Log into each server individually via SSH every Sunday to run manual yum/apt update commands." },
       { id: 'C', text: "Disable operating system security updates to avoid testing application compatibility." },
       { id: 'D', text: "Reboot servers at random times during peak customer business hours without notice." }
@@ -324,10 +324,10 @@ export const AWS_SCS_QUESTIONS_15 = [
     scenario: "An enterprise cloud security architect is establishing multi-account security baselines, identity perimeters, and regulatory compliance guardrails across an AWS Organization. The security engineer needs to restrict pods in an Amazon EKS cluster so they can only access their specific DynamoDB table and prevent cluster API exposure to the internet.",
     question: "Which architectural approach or AWS security configuration satisfies these enterprise security objectives?",
     options: [
-      { id: 'A', text: "Configure IAM Roles for Service Accounts (IRSA) with least-privilege policies, and set the EKS cluster API endpoint to Private-only." },
-      { id: 'B', text: "Store AWS access keys as plaintext environment variables inside pod definitions." },
-      { id: 'C', text: "Attach the AdministratorAccess IAM policy to the worker node EC2 instance profile, granting all pods full AWS permissions." },
-      { id: 'D', text: "Expose the Kubernetes API server endpoint to 0.0.0.0/0 without authentication." }
+      { id: 'A', text: "IAM Roles for Service Accounts with least-privilege policies, and a private API endpoint" },
+      { id: 'B', text: "Attach the pod's permissions to the node instance profile, shared by every pod on it." },
+      { id: 'C', text: "Use a Kubernetes service account token exchanged for credentials by a sidecar." },
+      { id: 'D', text: "Leave the API endpoint public and restrict it with a CIDR allow-list instead." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -345,10 +345,10 @@ export const AWS_SCS_QUESTIONS_15 = [
     scenario: "A security operations center (SOC) detects an active security anomaly and potential credential compromise across production AWS workloads. The security engineer needs to restrict pods in an Amazon EKS cluster so they can only access their specific DynamoDB table and prevent cluster API exposure to the internet.",
     question: "Which incident response workflow or AWS service configuration contains the threat effectively while preserving forensic evidence?",
     options: [
-      { id: 'A', text: "Attach the AdministratorAccess IAM policy to the worker node EC2 instance profile, granting all pods full AWS permissions." },
-      { id: 'B', text: "Configure IAM Roles for Service Accounts (IRSA) with least-privilege policies, and set the EKS cluster API endpoint to Private-only." },
-      { id: 'C', text: "Store AWS access keys as plaintext environment variables inside pod definitions." },
-      { id: 'D', text: "Expose the Kubernetes API server endpoint to 0.0.0.0/0 without authentication." }
+      { id: 'A', text: "Use a Kubernetes service account token exchanged for credentials by a sidecar." },
+      { id: 'B', text: "IAM Roles for Service Accounts with least-privilege policies, and a private API endpoint" },
+      { id: 'C', text: "Attach the pod's permissions to the node instance profile, shared by every pod on it." },
+      { id: 'D', text: "Leave the API endpoint public and restrict it with a CIDR allow-list instead." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -366,10 +366,10 @@ export const AWS_SCS_QUESTIONS_15 = [
     scenario: "A security compliance auditor requires strict least-privilege access, cryptographic key separation of duties, and continuous audit verification across all IAM principals. The security engineer needs to restrict pods in an Amazon EKS cluster so they can only access their specific DynamoDB table and prevent cluster API exposure to the internet.",
     question: "Which IAM design pattern or encryption policy satisfies these mandatory access controls?",
     options: [
-      { id: 'A', text: "Configure IAM Roles for Service Accounts (IRSA) with least-privilege policies, and set the EKS cluster API endpoint to Private-only." },
-      { id: 'B', text: "Attach the AdministratorAccess IAM policy to the worker node EC2 instance profile, granting all pods full AWS permissions." },
-      { id: 'C', text: "Expose the Kubernetes API server endpoint to 0.0.0.0/0 without authentication." },
-      { id: 'D', text: "Store AWS access keys as plaintext environment variables inside pod definitions." }
+      { id: 'A', text: "IAM Roles for Service Accounts with least-privilege policies, and a private API endpoint" },
+      { id: 'B', text: "Use a Kubernetes service account token exchanged for credentials by a sidecar." },
+      { id: 'C', text: "Leave the API endpoint public and restrict it with a CIDR allow-list instead." },
+      { id: 'D', text: "Attach the pod's permissions to the node instance profile, shared by every pod on it." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -387,10 +387,10 @@ export const AWS_SCS_QUESTIONS_15 = [
     scenario: "A financial data privacy team is implementing defense-in-depth protection, automated secret rotation, and immutable audit logging for sensitive customer records. The security engineer needs to restrict pods in an Amazon EKS cluster so they can only access their specific DynamoDB table and prevent cluster API exposure to the internet.",
     question: "Which AWS data protection mechanism or encryption strategy guarantees confidentiality and integrity?",
     options: [
-      { id: 'A', text: "Configure IAM Roles for Service Accounts (IRSA) with least-privilege policies, and set the EKS cluster API endpoint to Private-only." },
-      { id: 'B', text: "Attach the AdministratorAccess IAM policy to the worker node EC2 instance profile, granting all pods full AWS permissions." },
-      { id: 'C', text: "Expose the Kubernetes API server endpoint to 0.0.0.0/0 without authentication." },
-      { id: 'D', text: "Store AWS access keys as plaintext environment variables inside pod definitions." }
+      { id: 'A', text: "IAM Roles for Service Accounts with least-privilege policies, and a private API endpoint" },
+      { id: 'B', text: "Use a Kubernetes service account token exchanged for credentials by a sidecar." },
+      { id: 'C', text: "Leave the API endpoint public and restrict it with a CIDR allow-list instead." },
+      { id: 'D', text: "Attach the pod's permissions to the node instance profile, shared by every pod on it." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -408,10 +408,10 @@ export const AWS_SCS_QUESTIONS_15 = [
     scenario: "A cloud platform reliability team is hardening network perimeters, isolating hybrid VPCs, and automating vulnerability remediation across elastic EC2 and EKS clusters. The security engineer needs to restrict pods in an Amazon EKS cluster so they can only access their specific DynamoDB table and prevent cluster API exposure to the internet.",
     question: "Which network design or AWS infrastructure security configuration guarantees high availability and perimeter defense?",
     options: [
-      { id: 'A', text: "Store AWS access keys as plaintext environment variables inside pod definitions." },
-      { id: 'B', text: "Configure IAM Roles for Service Accounts (IRSA) with least-privilege policies, and set the EKS cluster API endpoint to Private-only." },
-      { id: 'C', text: "Expose the Kubernetes API server endpoint to 0.0.0.0/0 without authentication." },
-      { id: 'D', text: "Attach the AdministratorAccess IAM policy to the worker node EC2 instance profile, granting all pods full AWS permissions." }
+      { id: 'A', text: "Attach the pod's permissions to the node instance profile, shared by every pod on it." },
+      { id: 'B', text: "IAM Roles for Service Accounts with least-privilege policies, and a private API endpoint" },
+      { id: 'C', text: "Leave the API endpoint public and restrict it with a CIDR allow-list instead." },
+      { id: 'D', text: "Use a Kubernetes service account token exchanged for credentials by a sidecar." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -430,7 +430,7 @@ export const AWS_SCS_QUESTIONS_15 = [
     question: "Which architectural approach or AWS security configuration satisfies these enterprise security objectives?",
     options: [
       { id: 'A', text: "Make the S3 bucket publicly readable to 0.0.0.0/0 so CloudFront can fetch objects." },
-      { id: 'B', text: "Configure CloudFront Origin Access Control (OAC) with an S3 bucket policy allowing `s3:GetObject` only to the CloudFront distribution ARN." },
+      { id: 'B', text: "CloudFront Origin Access Control, with the bucket policy allowing only that distribution" },
       { id: 'C', text: "Disable CloudFront caching and force all requests to hit the backend origin directly." },
       { id: 'D', text: "Use deprecated Origin Access Identity (OAI) which lacks support for SSE-KMS encryption and dynamic PUT requests." }
     ],
@@ -450,7 +450,7 @@ export const AWS_SCS_QUESTIONS_15 = [
     scenario: "A security operations center (SOC) detects an active security anomaly and potential credential compromise across production AWS workloads. The security engineer needs to ensure users can only access private S3 bucket static assets through an encrypted CloudFront CDN distribution and not directly via S3 URLs.",
     question: "Which incident response workflow or AWS service configuration contains the threat effectively while preserving forensic evidence?",
     options: [
-      { id: 'A', text: "Configure CloudFront Origin Access Control (OAC) with an S3 bucket policy allowing `s3:GetObject` only to the CloudFront distribution ARN." },
+      { id: 'A', text: "CloudFront Origin Access Control, with the bucket policy allowing only that distribution" },
       { id: 'B', text: "Make the S3 bucket publicly readable to 0.0.0.0/0 so CloudFront can fetch objects." },
       { id: 'C', text: "Use deprecated Origin Access Identity (OAI) which lacks support for SSE-KMS encryption and dynamic PUT requests." },
       { id: 'D', text: "Disable CloudFront caching and force all requests to hit the backend origin directly." }
@@ -472,7 +472,7 @@ export const AWS_SCS_QUESTIONS_15 = [
     question: "Which IAM design pattern or encryption policy satisfies these mandatory access controls?",
     options: [
       { id: 'A', text: "Disable CloudFront caching and force all requests to hit the backend origin directly." },
-      { id: 'B', text: "Configure CloudFront Origin Access Control (OAC) with an S3 bucket policy allowing `s3:GetObject` only to the CloudFront distribution ARN." },
+      { id: 'B', text: "CloudFront Origin Access Control, with the bucket policy allowing only that distribution" },
       { id: 'C', text: "Use deprecated Origin Access Identity (OAI) which lacks support for SSE-KMS encryption and dynamic PUT requests." },
       { id: 'D', text: "Make the S3 bucket publicly readable to 0.0.0.0/0 so CloudFront can fetch objects." }
     ],
@@ -492,7 +492,7 @@ export const AWS_SCS_QUESTIONS_15 = [
     scenario: "A financial data privacy team is implementing defense-in-depth protection, automated secret rotation, and immutable audit logging for sensitive customer records. The security engineer needs to ensure users can only access private S3 bucket static assets through an encrypted CloudFront CDN distribution and not directly via S3 URLs.",
     question: "Which AWS data protection mechanism or encryption strategy guarantees confidentiality and integrity?",
     options: [
-      { id: 'A', text: "Configure CloudFront Origin Access Control (OAC) with an S3 bucket policy allowing `s3:GetObject` only to the CloudFront distribution ARN." },
+      { id: 'A', text: "CloudFront Origin Access Control, with the bucket policy allowing only that distribution" },
       { id: 'B', text: "Use deprecated Origin Access Identity (OAI) which lacks support for SSE-KMS encryption and dynamic PUT requests." },
       { id: 'C', text: "Disable CloudFront caching and force all requests to hit the backend origin directly." },
       { id: 'D', text: "Make the S3 bucket publicly readable to 0.0.0.0/0 so CloudFront can fetch objects." }
@@ -516,7 +516,7 @@ export const AWS_SCS_QUESTIONS_15 = [
       { id: 'A', text: "Make the S3 bucket publicly readable to 0.0.0.0/0 so CloudFront can fetch objects." },
       { id: 'B', text: "Disable CloudFront caching and force all requests to hit the backend origin directly." },
       { id: 'C', text: "Use deprecated Origin Access Identity (OAI) which lacks support for SSE-KMS encryption and dynamic PUT requests." },
-      { id: 'D', text: "Configure CloudFront Origin Access Control (OAC) with an S3 bucket policy allowing `s3:GetObject` only to the CloudFront distribution ARN." }
+      { id: 'D', text: "CloudFront Origin Access Control, with the bucket policy allowing only that distribution" }
     ],
     correctAnswers: ['D'],
     type: "single",

@@ -114,7 +114,7 @@ export const AWS_SCS_QUESTIONS_13 = [
     scenario: "An enterprise cloud security architect is establishing multi-account security baselines, identity perimeters, and regulatory compliance guardrails across an AWS Organization. The security engineer needs to receive immediate alerts whenever someone logs into the AWS Management Console using the root account credentials.",
     question: "Which architectural approach or AWS security configuration satisfies these enterprise security objectives?",
     options: [
-      { id: 'A', text: "Create a CloudWatch Logs metric filter matching `$.userIdentity.type = \"Root\"` on CloudTrail events and trigger an SNS alarm." },
+      { id: 'A', text: "A metric filter on `userIdentity.type = Root` in CloudTrail, alarming to SNS." },
       { id: 'B', text: "Check the AWS billing statement at the end of the month to see if root account fees were charged." },
       { id: 'C', text: "Disable root account alerting to avoid distracting the security team." },
       { id: 'D', text: "Rely on human team members to verbally notify the team when they use the root account." }
@@ -135,7 +135,7 @@ export const AWS_SCS_QUESTIONS_13 = [
     scenario: "A security operations center (SOC) detects an active security anomaly and potential credential compromise across production AWS workloads. The security engineer needs to receive immediate alerts whenever someone logs into the AWS Management Console using the root account credentials.",
     question: "Which incident response workflow or AWS service configuration contains the threat effectively while preserving forensic evidence?",
     options: [
-      { id: 'A', text: "Create a CloudWatch Logs metric filter matching `$.userIdentity.type = \"Root\"` on CloudTrail events and trigger an SNS alarm." },
+      { id: 'A', text: "A metric filter on `userIdentity.type = Root` in CloudTrail, alarming to SNS." },
       { id: 'B', text: "Check the AWS billing statement at the end of the month to see if root account fees were charged." },
       { id: 'C', text: "Disable root account alerting to avoid distracting the security team." },
       { id: 'D', text: "Rely on human team members to verbally notify the team when they use the root account." }
@@ -156,7 +156,7 @@ export const AWS_SCS_QUESTIONS_13 = [
     scenario: "A security compliance auditor requires strict least-privilege access, cryptographic key separation of duties, and continuous audit verification across all IAM principals. The security engineer needs to receive immediate alerts whenever someone logs into the AWS Management Console using the root account credentials.",
     question: "Which IAM design pattern or encryption policy satisfies these mandatory access controls?",
     options: [
-      { id: 'A', text: "Create a CloudWatch Logs metric filter matching `$.userIdentity.type = \"Root\"` on CloudTrail events and trigger an SNS alarm." },
+      { id: 'A', text: "A metric filter on `userIdentity.type = Root` in CloudTrail, alarming to SNS." },
       { id: 'B', text: "Check the AWS billing statement at the end of the month to see if root account fees were charged." },
       { id: 'C', text: "Disable root account alerting to avoid distracting the security team." },
       { id: 'D', text: "Rely on human team members to verbally notify the team when they use the root account." }
@@ -177,7 +177,7 @@ export const AWS_SCS_QUESTIONS_13 = [
     scenario: "A financial data privacy team is implementing defense-in-depth protection, automated secret rotation, and immutable audit logging for sensitive customer records. The security engineer needs to receive immediate alerts whenever someone logs into the AWS Management Console using the root account credentials.",
     question: "Which AWS data protection mechanism or encryption strategy guarantees confidentiality and integrity?",
     options: [
-      { id: 'A', text: "Create a CloudWatch Logs metric filter matching `$.userIdentity.type = \"Root\"` on CloudTrail events and trigger an SNS alarm." },
+      { id: 'A', text: "A metric filter on `userIdentity.type = Root` in CloudTrail, alarming to SNS." },
       { id: 'B', text: "Check the AWS billing statement at the end of the month to see if root account fees were charged." },
       { id: 'C', text: "Disable root account alerting to avoid distracting the security team." },
       { id: 'D', text: "Rely on human team members to verbally notify the team when they use the root account." }
@@ -198,7 +198,7 @@ export const AWS_SCS_QUESTIONS_13 = [
     scenario: "A cloud platform reliability team is hardening network perimeters, isolating hybrid VPCs, and automating vulnerability remediation across elastic EC2 and EKS clusters. The security engineer needs to receive immediate alerts whenever someone logs into the AWS Management Console using the root account credentials.",
     question: "Which network design or AWS infrastructure security configuration guarantees high availability and perimeter defense?",
     options: [
-      { id: 'A', text: "Create a CloudWatch Logs metric filter matching `$.userIdentity.type = \"Root\"` on CloudTrail events and trigger an SNS alarm." },
+      { id: 'A', text: "A metric filter on `userIdentity.type = Root` in CloudTrail, alarming to SNS." },
       { id: 'B', text: "Check the AWS billing statement at the end of the month to see if root account fees were charged." },
       { id: 'C', text: "Disable root account alerting to avoid distracting the security team." },
       { id: 'D', text: "Rely on human team members to verbally notify the team when they use the root account." }
@@ -219,7 +219,7 @@ export const AWS_SCS_QUESTIONS_13 = [
     scenario: "An enterprise cloud security architect is establishing multi-account security baselines, identity perimeters, and regulatory compliance guardrails across an AWS Organization. The security engineer needs to analyze dropped network packets and Suricata intrusion prevention alerts generated by AWS Network Firewall.",
     question: "Which architectural approach or AWS security configuration satisfies these enterprise security objectives?",
     options: [
-      { id: 'A', text: "Configure AWS Network Firewall logging to stream `Alert` and `Flow` logs directly to Amazon S3 or CloudWatch Logs." },
+      { id: 'A', text: "Network Firewall logging, streaming the alert and flow logs to S3 or CloudWatch." },
       { id: 'B', text: "Log into the firewall appliance operating system directly via SSH to run tcpdump." },
       { id: 'C', text: "Disable logging to improve network firewall throughput by 5%." },
       { id: 'D', text: "Assume all dropped packets are harmless and omit intrusion logging." }
@@ -240,7 +240,7 @@ export const AWS_SCS_QUESTIONS_13 = [
     scenario: "A security operations center (SOC) detects an active security anomaly and potential credential compromise across production AWS workloads. The security engineer needs to analyze dropped network packets and Suricata intrusion prevention alerts generated by AWS Network Firewall.",
     question: "Which incident response workflow or AWS service configuration contains the threat effectively while preserving forensic evidence?",
     options: [
-      { id: 'A', text: "Configure AWS Network Firewall logging to stream `Alert` and `Flow` logs directly to Amazon S3 or CloudWatch Logs." },
+      { id: 'A', text: "Network Firewall logging, streaming the alert and flow logs to S3 or CloudWatch." },
       { id: 'B', text: "Log into the firewall appliance operating system directly via SSH to run tcpdump." },
       { id: 'C', text: "Disable logging to improve network firewall throughput by 5%." },
       { id: 'D', text: "Assume all dropped packets are harmless and omit intrusion logging." }
@@ -261,7 +261,7 @@ export const AWS_SCS_QUESTIONS_13 = [
     scenario: "A security compliance auditor requires strict least-privilege access, cryptographic key separation of duties, and continuous audit verification across all IAM principals. The security engineer needs to analyze dropped network packets and Suricata intrusion prevention alerts generated by AWS Network Firewall.",
     question: "Which IAM design pattern or encryption policy satisfies these mandatory access controls?",
     options: [
-      { id: 'A', text: "Configure AWS Network Firewall logging to stream `Alert` and `Flow` logs directly to Amazon S3 or CloudWatch Logs." },
+      { id: 'A', text: "Network Firewall logging, streaming the alert and flow logs to S3 or CloudWatch." },
       { id: 'B', text: "Log into the firewall appliance operating system directly via SSH to run tcpdump." },
       { id: 'C', text: "Disable logging to improve network firewall throughput by 5%." },
       { id: 'D', text: "Assume all dropped packets are harmless and omit intrusion logging." }
@@ -283,7 +283,7 @@ export const AWS_SCS_QUESTIONS_13 = [
     question: "Which AWS data protection mechanism or encryption strategy guarantees confidentiality and integrity?",
     options: [
       { id: 'A', text: "Log into the firewall appliance operating system directly via SSH to run tcpdump." },
-      { id: 'B', text: "Configure AWS Network Firewall logging to stream `Alert` and `Flow` logs directly to Amazon S3 or CloudWatch Logs." },
+      { id: 'B', text: "Network Firewall logging, streaming the alert and flow logs to S3 or CloudWatch." },
       { id: 'C', text: "Assume all dropped packets are harmless and omit intrusion logging." },
       { id: 'D', text: "Disable logging to improve network firewall throughput by 5%." }
     ],
@@ -306,7 +306,7 @@ export const AWS_SCS_QUESTIONS_13 = [
       { id: 'A', text: "Assume all dropped packets are harmless and omit intrusion logging." },
       { id: 'B', text: "Disable logging to improve network firewall throughput by 5%." },
       { id: 'C', text: "Log into the firewall appliance operating system directly via SSH to run tcpdump." },
-      { id: 'D', text: "Configure AWS Network Firewall logging to stream `Alert` and `Flow` logs directly to Amazon S3 or CloudWatch Logs." }
+      { id: 'D', text: "Network Firewall logging, streaming the alert and flow logs to S3 or CloudWatch." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -324,10 +324,10 @@ export const AWS_SCS_QUESTIONS_13 = [
     scenario: "An enterprise cloud security architect is establishing multi-account security baselines, identity perimeters, and regulatory compliance guardrails across an AWS Organization. The security engineer needs to log all incoming HTTP requests blocked by AWS WAF while ensuring sensitive user passwords and authorization headers are never logged.",
     question: "Which architectural approach or AWS security configuration satisfies these enterprise security objectives?",
     options: [
-      { id: 'A', text: "Enable AWS WAF full logging to Amazon Kinesis Data Firehose with `RedactedFields` configured for `Authorization` and `Cookie` headers." },
-      { id: 'B', text: "Log traffic only when the web application crashes." },
-      { id: 'C', text: "Disable WAF logging to avoid capturing sensitive credentials in log files." },
-      { id: 'D', text: "Store plaintext HTTP request bodies containing user passwords in public S3 buckets." }
+      { id: 'A', text: "WAF logging to Firehose with `RedactedFields` set for the `Authorization` and `Cookie` headers." },
+      { id: 'B', text: "WAF logging to Firehose with sampling enabled so only a fraction of requests is stored." },
+      { id: 'C', text: "WAF logging to CloudWatch Logs with a data protection policy masking the credentials." },
+      { id: 'D', text: "WAF logging to S3 with the bucket encrypted and a lifecycle rule expiring the objects." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -345,10 +345,10 @@ export const AWS_SCS_QUESTIONS_13 = [
     scenario: "A security operations center (SOC) detects an active security anomaly and potential credential compromise across production AWS workloads. The security engineer needs to log all incoming HTTP requests blocked by AWS WAF while ensuring sensitive user passwords and authorization headers are never logged.",
     question: "Which incident response workflow or AWS service configuration contains the threat effectively while preserving forensic evidence?",
     options: [
-      { id: 'A', text: "Store plaintext HTTP request bodies containing user passwords in public S3 buckets." },
-      { id: 'B', text: "Disable WAF logging to avoid capturing sensitive credentials in log files." },
-      { id: 'C', text: "Log traffic only when the web application crashes." },
-      { id: 'D', text: "Enable AWS WAF full logging to Amazon Kinesis Data Firehose with `RedactedFields` configured for `Authorization` and `Cookie` headers." }
+      { id: 'A', text: "WAF logging to S3 with the bucket encrypted and a lifecycle rule expiring the objects." },
+      { id: 'B', text: "WAF logging to CloudWatch Logs with a data protection policy masking the credentials." },
+      { id: 'C', text: "WAF logging to Firehose with sampling enabled so only a fraction of requests is stored." },
+      { id: 'D', text: "WAF logging to Firehose with `RedactedFields` set for the `Authorization` and `Cookie` headers." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -366,10 +366,10 @@ export const AWS_SCS_QUESTIONS_13 = [
     scenario: "A security compliance auditor requires strict least-privilege access, cryptographic key separation of duties, and continuous audit verification across all IAM principals. The security engineer needs to log all incoming HTTP requests blocked by AWS WAF while ensuring sensitive user passwords and authorization headers are never logged.",
     question: "Which IAM design pattern or encryption policy satisfies these mandatory access controls?",
     options: [
-      { id: 'A', text: "Enable AWS WAF full logging to Amazon Kinesis Data Firehose with `RedactedFields` configured for `Authorization` and `Cookie` headers." },
-      { id: 'B', text: "Disable WAF logging to avoid capturing sensitive credentials in log files." },
-      { id: 'C', text: "Store plaintext HTTP request bodies containing user passwords in public S3 buckets." },
-      { id: 'D', text: "Log traffic only when the web application crashes." }
+      { id: 'A', text: "WAF logging to Firehose with `RedactedFields` set for the `Authorization` and `Cookie` headers." },
+      { id: 'B', text: "WAF logging to CloudWatch Logs with a data protection policy masking the credentials." },
+      { id: 'C', text: "WAF logging to S3 with the bucket encrypted and a lifecycle rule expiring the objects." },
+      { id: 'D', text: "WAF logging to Firehose with sampling enabled so only a fraction of requests is stored." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -387,10 +387,10 @@ export const AWS_SCS_QUESTIONS_13 = [
     scenario: "A financial data privacy team is implementing defense-in-depth protection, automated secret rotation, and immutable audit logging for sensitive customer records. The security engineer needs to log all incoming HTTP requests blocked by AWS WAF while ensuring sensitive user passwords and authorization headers are never logged.",
     question: "Which AWS data protection mechanism or encryption strategy guarantees confidentiality and integrity?",
     options: [
-      { id: 'A', text: "Enable AWS WAF full logging to Amazon Kinesis Data Firehose with `RedactedFields` configured for `Authorization` and `Cookie` headers." },
-      { id: 'B', text: "Disable WAF logging to avoid capturing sensitive credentials in log files." },
-      { id: 'C', text: "Store plaintext HTTP request bodies containing user passwords in public S3 buckets." },
-      { id: 'D', text: "Log traffic only when the web application crashes." }
+      { id: 'A', text: "WAF logging to Firehose with `RedactedFields` set for the `Authorization` and `Cookie` headers." },
+      { id: 'B', text: "WAF logging to CloudWatch Logs with a data protection policy masking the credentials." },
+      { id: 'C', text: "WAF logging to S3 with the bucket encrypted and a lifecycle rule expiring the objects." },
+      { id: 'D', text: "WAF logging to Firehose with sampling enabled so only a fraction of requests is stored." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -408,10 +408,10 @@ export const AWS_SCS_QUESTIONS_13 = [
     scenario: "A cloud platform reliability team is hardening network perimeters, isolating hybrid VPCs, and automating vulnerability remediation across elastic EC2 and EKS clusters. The security engineer needs to log all incoming HTTP requests blocked by AWS WAF while ensuring sensitive user passwords and authorization headers are never logged.",
     question: "Which network design or AWS infrastructure security configuration guarantees high availability and perimeter defense?",
     options: [
-      { id: 'A', text: "Disable WAF logging to avoid capturing sensitive credentials in log files." },
-      { id: 'B', text: "Store plaintext HTTP request bodies containing user passwords in public S3 buckets." },
-      { id: 'C', text: "Enable AWS WAF full logging to Amazon Kinesis Data Firehose with `RedactedFields` configured for `Authorization` and `Cookie` headers." },
-      { id: 'D', text: "Log traffic only when the web application crashes." }
+      { id: 'A', text: "WAF logging to CloudWatch Logs with a data protection policy masking the credentials." },
+      { id: 'B', text: "WAF logging to S3 with the bucket encrypted and a lifecycle rule expiring the objects." },
+      { id: 'C', text: "WAF logging to Firehose with `RedactedFields` set for the `Authorization` and `Cookie` headers." },
+      { id: 'D', text: "WAF logging to Firehose with sampling enabled so only a fraction of requests is stored." }
     ],
     correctAnswers: ['C'],
     type: "single",

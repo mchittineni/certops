@@ -9,7 +9,7 @@ export const AWS_SCS_QUESTIONS_6 = [
     scenario: "A custom intrusion detection system (IDS) analyzes application error logs and identifies malicious IP addresses executing vulnerability probes. The security team wants to block these IP addresses at the CloudFront edge within seconds.",
     question: "Which AWS WAF component should be updated programmatically to enforce immediate blocking?",
     options: [
-      { id: 'A', text: "An AWS WAF **IP Set** associated with a rule set to Block in the Web ACL, updated dynamically using the AWS SDK API <code>UpdateIPSet</code>" },
+      { id: 'A', text: "A WAF IP set blocked by a rule, updated by API" },
       { id: 'B', text: "A Network ACL entry created manually in each subnet" },
       { id: 'C', text: "A security group ingress rule with action Deny" },
       { id: 'D', text: "An IAM user policy containing IP restrictions" }
@@ -32,7 +32,7 @@ export const AWS_SCS_QUESTIONS_6 = [
     options: [
       { id: 'A', text: "An AWS WAF Web ACL matching HTTP 200 responses" },
       { id: 'B', text: "A Network ACL attached to the API Gateway edge server" },
-      { id: 'C', text: "An **API Gateway Resource Policy** with an explicit Allow for the partner IAM role ARNs and a default Deny for all other callers" },
+      { id: 'C', text: "An API Gateway resource policy allowing the partner roles and denying the rest" },
       { id: 'D', text: "An IAM group policy attached to the API Gateway deployment stage" }
     ],
     correctAnswers: ['C'],
@@ -52,7 +52,7 @@ export const AWS_SCS_QUESTIONS_6 = [
     question: "Which CloudFront mechanism restricts viewer access to authorized users?",
     options: [
       { id: 'A', text: "Configure S3 bucket public-read permissions with long obfuscated object keys" },
-      { id: 'B', text: "Generate CloudFront **Signed URLs** or **Signed Cookies** using a CloudFront key group and private RSA key, setting an expiration timestamp and optional IP address restriction" },
+      { id: 'B', text: "CloudFront signed URLs or cookies from a key group, with an expiry on each one" },
       { id: 'C', text: "Require all users to enter AWS IAM access keys in their web browsers" },
       { id: 'D', text: "Deploy an AWS WAF rate-limiting rule on the video files" }
     ],
@@ -75,7 +75,7 @@ export const AWS_SCS_QUESTIONS_6 = [
       { id: 'A', text: "AWS Config managed rules running once per week" },
       { id: 'B', text: "AWS CloudFormation template deployments on every instance boot" },
       { id: 'C', text: "Amazon EventBridge rules monitoring EC2 CPU usage" },
-      { id: 'D', text: "AWS Systems Manager **State Manager** associations executing compliance documents on a recurring schedule" }
+      { id: 'D', text: "State Manager associations running compliance documents on a schedule" }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -95,7 +95,7 @@ export const AWS_SCS_QUESTIONS_6 = [
     options: [
       { id: 'A', text: "Network Firewall does not support stateless rules" },
       { id: 'B', text: "Stateless and stateful rules are merged into a single iptables chain" },
-      { id: 'C', text: "Stateless rule groups evaluate first; matching packets can be dropped, passed immediately, or forwarded to stateful rule groups for deep packet inspection" },
+      { id: 'C', text: "Stateless groups run first: a packet is dropped, passed, or forwarded to the stateful ones" },
       { id: 'D', text: "Stateful rule groups evaluate first, and stateless groups evaluate only on error" }
     ],
     correctAnswers: ['C'],
@@ -116,7 +116,7 @@ export const AWS_SCS_QUESTIONS_6 = [
     options: [
       { id: 'A', text: "Apply an AWS Organizations Service Control Policy (SCP) at the root level" },
       { id: 'B', text: "Use AWS Systems Manager Parameter Store to store encrypted IAM credentials" },
-      { id: 'C', text: "Attach an IAM permissions boundary to all developer roles and mandate that any role created by leads must have that permissions boundary attached using a condition in the lead's IAM policy" },
+      { id: 'C', text: "A permissions boundary on the developer roles, required on any role the leads create" },
       { id: 'D', text: "Require all developers to share a single shared administrative IAM user account" }
     ],
     correctAnswers: ['C'],
@@ -137,7 +137,7 @@ export const AWS_SCS_QUESTIONS_6 = [
     options: [
       { id: 'A', text: "A service-linked role trust policy allowing only aws:SourceArn from AWS Cost Explorer" },
       { id: 'B', text: "A condition restricting source IP to the SaaS vendor's public CIDR range" },
-      { id: 'C', text: "A condition requiring the sts:ExternalId provided uniquely by the SaaS vendor for this customer relationship" },
+      { id: 'C', text: "A condition requiring the `sts:ExternalId` the vendor issues for this customer" },
       { id: 'D', text: "Attaching the AdministratorAccess policy to the cross-account role" }
     ],
     correctAnswers: ['C'],
@@ -156,10 +156,10 @@ export const AWS_SCS_QUESTIONS_6 = [
     scenario: "An identity architect is establishing least privilege, temporary credentials, and federation across an AWS enterprise estate.",
     question: "Which IAM architecture best satisfies objective #1?",
     options: [
-      { id: 'A', text: "Hardcoding root account access credentials in application configuration files" },
-      { id: 'B', text: "Creating long-lived IAM user access keys for every employee and disabling MFA" },
-      { id: 'C', text: "Disabling IAM Access Analyzer and allowing unrestricted cross-account trust policies" },
-      { id: 'D', text: "Enforcing AWS IAM Identity Center with SAML 2.0 federation, MFA enforcement, and automated credential rotation" }
+      { id: 'A', text: "IAM users per employee with enforced MFA and a strict password policy" },
+      { id: 'B', text: "IAM roles assumed from a single shared user account with enforced MFA" },
+      { id: 'C', text: "IAM Identity Center with the built-in directory and rotated access keys" },
+      { id: 'D', text: "IAM Identity Center with SAML federation, enforced MFA, and rotated credentials" }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -177,10 +177,10 @@ export const AWS_SCS_QUESTIONS_6 = [
     scenario: "An identity architect is establishing least privilege, temporary credentials, and federation across an AWS enterprise estate.",
     question: "Which IAM architecture best satisfies objective #2?",
     options: [
-      { id: 'A', text: "Creating long-lived IAM user access keys for every employee and disabling MFA" },
-      { id: 'B', text: "Hardcoding root account access credentials in application configuration files" },
-      { id: 'C', text: "Enforcing AWS IAM Identity Center with SAML 2.0 federation, MFA enforcement, and automated credential rotation" },
-      { id: 'D', text: "Disabling IAM Access Analyzer and allowing unrestricted cross-account trust policies" }
+      { id: 'A', text: "IAM roles assumed from a single shared user account with enforced MFA" },
+      { id: 'B', text: "IAM users per employee with enforced MFA and a strict password policy" },
+      { id: 'C', text: "IAM Identity Center with SAML federation, enforced MFA, and rotated credentials" },
+      { id: 'D', text: "IAM Identity Center with the built-in directory and rotated access keys" }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -198,10 +198,10 @@ export const AWS_SCS_QUESTIONS_6 = [
     scenario: "An identity architect is establishing least privilege, temporary credentials, and federation across an AWS enterprise estate.",
     question: "Which IAM architecture best satisfies objective #3?",
     options: [
-      { id: 'A', text: "Disabling IAM Access Analyzer and allowing unrestricted cross-account trust policies" },
-      { id: 'B', text: "Hardcoding root account access credentials in application configuration files" },
-      { id: 'C', text: "Enforcing AWS IAM Identity Center with SAML 2.0 federation, MFA enforcement, and automated credential rotation" },
-      { id: 'D', text: "Creating long-lived IAM user access keys for every employee and disabling MFA" }
+      { id: 'A', text: "IAM Identity Center with the built-in directory and rotated access keys" },
+      { id: 'B', text: "IAM users per employee with enforced MFA and a strict password policy" },
+      { id: 'C', text: "IAM Identity Center with SAML federation, enforced MFA, and rotated credentials" },
+      { id: 'D', text: "IAM roles assumed from a single shared user account with enforced MFA" }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -219,10 +219,10 @@ export const AWS_SCS_QUESTIONS_6 = [
     scenario: "An identity architect is establishing least privilege, temporary credentials, and federation across an AWS enterprise estate.",
     question: "Which IAM architecture best satisfies objective #4?",
     options: [
-      { id: 'A', text: "Hardcoding root account access credentials in application configuration files" },
-      { id: 'B', text: "Disabling IAM Access Analyzer and allowing unrestricted cross-account trust policies" },
-      { id: 'C', text: "Enforcing AWS IAM Identity Center with SAML 2.0 federation, MFA enforcement, and automated credential rotation" },
-      { id: 'D', text: "Creating long-lived IAM user access keys for every employee and disabling MFA" }
+      { id: 'A', text: "IAM users per employee with enforced MFA and a strict password policy" },
+      { id: 'B', text: "IAM Identity Center with the built-in directory and rotated access keys" },
+      { id: 'C', text: "IAM Identity Center with SAML federation, enforced MFA, and rotated credentials" },
+      { id: 'D', text: "IAM roles assumed from a single shared user account with enforced MFA" }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -240,10 +240,10 @@ export const AWS_SCS_QUESTIONS_6 = [
     scenario: "An identity architect is establishing least privilege, temporary credentials, and federation across an AWS enterprise estate.",
     question: "Which IAM architecture best satisfies objective #5?",
     options: [
-      { id: 'A', text: "Disabling IAM Access Analyzer and allowing unrestricted cross-account trust policies" },
-      { id: 'B', text: "Creating long-lived IAM user access keys for every employee and disabling MFA" },
-      { id: 'C', text: "Enforcing AWS IAM Identity Center with SAML 2.0 federation, MFA enforcement, and automated credential rotation" },
-      { id: 'D', text: "Hardcoding root account access credentials in application configuration files" }
+      { id: 'A', text: "IAM Identity Center with the built-in directory and rotated access keys" },
+      { id: 'B', text: "IAM roles assumed from a single shared user account with enforced MFA" },
+      { id: 'C', text: "IAM Identity Center with SAML federation, enforced MFA, and rotated credentials" },
+      { id: 'D', text: "IAM users per employee with enforced MFA and a strict password policy" }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -261,10 +261,10 @@ export const AWS_SCS_QUESTIONS_6 = [
     scenario: "An identity architect is establishing least privilege, temporary credentials, and federation across an AWS enterprise estate.",
     question: "Which IAM architecture best satisfies objective #6?",
     options: [
-      { id: 'A', text: "Enforcing AWS IAM Identity Center with SAML 2.0 federation, MFA enforcement, and automated credential rotation" },
-      { id: 'B', text: "Creating long-lived IAM user access keys for every employee and disabling MFA" },
-      { id: 'C', text: "Disabling IAM Access Analyzer and allowing unrestricted cross-account trust policies" },
-      { id: 'D', text: "Hardcoding root account access credentials in application configuration files" }
+      { id: 'A', text: "IAM Identity Center with SAML federation, enforced MFA, and rotated credentials" },
+      { id: 'B', text: "IAM roles assumed from a single shared user account with enforced MFA" },
+      { id: 'C', text: "IAM Identity Center with the built-in directory and rotated access keys" },
+      { id: 'D', text: "IAM users per employee with enforced MFA and a strict password policy" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -282,10 +282,10 @@ export const AWS_SCS_QUESTIONS_6 = [
     scenario: "An identity architect is establishing least privilege, temporary credentials, and federation across an AWS enterprise estate.",
     question: "Which IAM architecture best satisfies objective #7?",
     options: [
-      { id: 'A', text: "Hardcoding root account access credentials in application configuration files" },
-      { id: 'B', text: "Enforcing AWS IAM Identity Center with SAML 2.0 federation, MFA enforcement, and automated credential rotation" },
-      { id: 'C', text: "Disabling IAM Access Analyzer and allowing unrestricted cross-account trust policies" },
-      { id: 'D', text: "Creating long-lived IAM user access keys for every employee and disabling MFA" }
+      { id: 'A', text: "IAM users per employee with enforced MFA and a strict password policy" },
+      { id: 'B', text: "IAM Identity Center with SAML federation, enforced MFA, and rotated credentials" },
+      { id: 'C', text: "IAM Identity Center with the built-in directory and rotated access keys" },
+      { id: 'D', text: "IAM roles assumed from a single shared user account with enforced MFA" }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -303,10 +303,10 @@ export const AWS_SCS_QUESTIONS_6 = [
     scenario: "An identity architect is establishing least privilege, temporary credentials, and federation across an AWS enterprise estate.",
     question: "Which IAM architecture best satisfies objective #8?",
     options: [
-      { id: 'A', text: "Hardcoding root account access credentials in application configuration files" },
-      { id: 'B', text: "Creating long-lived IAM user access keys for every employee and disabling MFA" },
-      { id: 'C', text: "Enforcing AWS IAM Identity Center with SAML 2.0 federation, MFA enforcement, and automated credential rotation" },
-      { id: 'D', text: "Disabling IAM Access Analyzer and allowing unrestricted cross-account trust policies" }
+      { id: 'A', text: "IAM users per employee with enforced MFA and a strict password policy" },
+      { id: 'B', text: "IAM roles assumed from a single shared user account with enforced MFA" },
+      { id: 'C', text: "IAM Identity Center with SAML federation, enforced MFA, and rotated credentials" },
+      { id: 'D', text: "IAM Identity Center with the built-in directory and rotated access keys" }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -324,10 +324,10 @@ export const AWS_SCS_QUESTIONS_6 = [
     scenario: "An identity architect is establishing least privilege, temporary credentials, and federation across an AWS enterprise estate.",
     question: "Which IAM architecture best satisfies objective #9?",
     options: [
-      { id: 'A', text: "Enforcing AWS IAM Identity Center with SAML 2.0 federation, MFA enforcement, and automated credential rotation" },
-      { id: 'B', text: "Disabling IAM Access Analyzer and allowing unrestricted cross-account trust policies" },
-      { id: 'C', text: "Hardcoding root account access credentials in application configuration files" },
-      { id: 'D', text: "Creating long-lived IAM user access keys for every employee and disabling MFA" }
+      { id: 'A', text: "IAM Identity Center with SAML federation, enforced MFA, and rotated credentials" },
+      { id: 'B', text: "IAM Identity Center with the built-in directory and rotated access keys" },
+      { id: 'C', text: "IAM users per employee with enforced MFA and a strict password policy" },
+      { id: 'D', text: "IAM roles assumed from a single shared user account with enforced MFA" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -345,10 +345,10 @@ export const AWS_SCS_QUESTIONS_6 = [
     scenario: "An identity architect is establishing least privilege, temporary credentials, and federation across an AWS enterprise estate.",
     question: "Which IAM architecture best satisfies objective #10?",
     options: [
-      { id: 'A', text: "Hardcoding root account access credentials in application configuration files" },
-      { id: 'B', text: "Disabling IAM Access Analyzer and allowing unrestricted cross-account trust policies" },
-      { id: 'C', text: "Enforcing AWS IAM Identity Center with SAML 2.0 federation, MFA enforcement, and automated credential rotation" },
-      { id: 'D', text: "Creating long-lived IAM user access keys for every employee and disabling MFA" }
+      { id: 'A', text: "IAM users per employee with enforced MFA and a strict password policy" },
+      { id: 'B', text: "IAM Identity Center with the built-in directory and rotated access keys" },
+      { id: 'C', text: "IAM Identity Center with SAML federation, enforced MFA, and rotated credentials" },
+      { id: 'D', text: "IAM roles assumed from a single shared user account with enforced MFA" }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -366,10 +366,10 @@ export const AWS_SCS_QUESTIONS_6 = [
     scenario: "An identity architect is establishing least privilege, temporary credentials, and federation across an AWS enterprise estate.",
     question: "Which IAM architecture best satisfies objective #11?",
     options: [
-      { id: 'A', text: "Enforcing AWS IAM Identity Center with SAML 2.0 federation, MFA enforcement, and automated credential rotation" },
-      { id: 'B', text: "Hardcoding root account access credentials in application configuration files" },
-      { id: 'C', text: "Disabling IAM Access Analyzer and allowing unrestricted cross-account trust policies" },
-      { id: 'D', text: "Creating long-lived IAM user access keys for every employee and disabling MFA" }
+      { id: 'A', text: "IAM Identity Center with SAML federation, enforced MFA, and rotated credentials" },
+      { id: 'B', text: "IAM users per employee with enforced MFA and a strict password policy" },
+      { id: 'C', text: "IAM Identity Center with the built-in directory and rotated access keys" },
+      { id: 'D', text: "IAM roles assumed from a single shared user account with enforced MFA" }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -387,10 +387,10 @@ export const AWS_SCS_QUESTIONS_6 = [
     scenario: "An identity architect is establishing least privilege, temporary credentials, and federation across an AWS enterprise estate.",
     question: "Which IAM architecture best satisfies objective #12?",
     options: [
-      { id: 'A', text: "Creating long-lived IAM user access keys for every employee and disabling MFA" },
-      { id: 'B', text: "Disabling IAM Access Analyzer and allowing unrestricted cross-account trust policies" },
-      { id: 'C', text: "Hardcoding root account access credentials in application configuration files" },
-      { id: 'D', text: "Enforcing AWS IAM Identity Center with SAML 2.0 federation, MFA enforcement, and automated credential rotation" }
+      { id: 'A', text: "IAM roles assumed from a single shared user account with enforced MFA" },
+      { id: 'B', text: "IAM Identity Center with the built-in directory and rotated access keys" },
+      { id: 'C', text: "IAM users per employee with enforced MFA and a strict password policy" },
+      { id: 'D', text: "IAM Identity Center with SAML federation, enforced MFA, and rotated credentials" }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -408,10 +408,10 @@ export const AWS_SCS_QUESTIONS_6 = [
     scenario: "An identity architect is establishing least privilege, temporary credentials, and federation across an AWS enterprise estate.",
     question: "Which IAM architecture best satisfies objective #13?",
     options: [
-      { id: 'A', text: "Hardcoding root account access credentials in application configuration files" },
-      { id: 'B', text: "Disabling IAM Access Analyzer and allowing unrestricted cross-account trust policies" },
-      { id: 'C', text: "Enforcing AWS IAM Identity Center with SAML 2.0 federation, MFA enforcement, and automated credential rotation" },
-      { id: 'D', text: "Creating long-lived IAM user access keys for every employee and disabling MFA" }
+      { id: 'A', text: "IAM users per employee with enforced MFA and a strict password policy" },
+      { id: 'B', text: "IAM Identity Center with the built-in directory and rotated access keys" },
+      { id: 'C', text: "IAM Identity Center with SAML federation, enforced MFA, and rotated credentials" },
+      { id: 'D', text: "IAM roles assumed from a single shared user account with enforced MFA" }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -429,10 +429,10 @@ export const AWS_SCS_QUESTIONS_6 = [
     scenario: "An identity architect is establishing least privilege, temporary credentials, and federation across an AWS enterprise estate.",
     question: "Which IAM architecture best satisfies objective #14?",
     options: [
-      { id: 'A', text: "Hardcoding root account access credentials in application configuration files" },
-      { id: 'B', text: "Enforcing AWS IAM Identity Center with SAML 2.0 federation, MFA enforcement, and automated credential rotation" },
-      { id: 'C', text: "Disabling IAM Access Analyzer and allowing unrestricted cross-account trust policies" },
-      { id: 'D', text: "Creating long-lived IAM user access keys for every employee and disabling MFA" }
+      { id: 'A', text: "IAM users per employee with enforced MFA and a strict password policy" },
+      { id: 'B', text: "IAM Identity Center with SAML federation, enforced MFA, and rotated credentials" },
+      { id: 'C', text: "IAM Identity Center with the built-in directory and rotated access keys" },
+      { id: 'D', text: "IAM roles assumed from a single shared user account with enforced MFA" }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -450,10 +450,10 @@ export const AWS_SCS_QUESTIONS_6 = [
     scenario: "An identity architect is establishing least privilege, temporary credentials, and federation across an AWS enterprise estate.",
     question: "Which IAM architecture best satisfies objective #15?",
     options: [
-      { id: 'A', text: "Creating long-lived IAM user access keys for every employee and disabling MFA" },
-      { id: 'B', text: "Enforcing AWS IAM Identity Center with SAML 2.0 federation, MFA enforcement, and automated credential rotation" },
-      { id: 'C', text: "Disabling IAM Access Analyzer and allowing unrestricted cross-account trust policies" },
-      { id: 'D', text: "Hardcoding root account access credentials in application configuration files" }
+      { id: 'A', text: "IAM roles assumed from a single shared user account with enforced MFA" },
+      { id: 'B', text: "IAM Identity Center with SAML federation, enforced MFA, and rotated credentials" },
+      { id: 'C', text: "IAM Identity Center with the built-in directory and rotated access keys" },
+      { id: 'D', text: "IAM users per employee with enforced MFA and a strict password policy" }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -471,10 +471,10 @@ export const AWS_SCS_QUESTIONS_6 = [
     scenario: "An identity architect is establishing least privilege, temporary credentials, and federation across an AWS enterprise estate.",
     question: "Which IAM architecture best satisfies objective #16?",
     options: [
-      { id: 'A', text: "Disabling IAM Access Analyzer and allowing unrestricted cross-account trust policies" },
-      { id: 'B', text: "Enforcing AWS IAM Identity Center with SAML 2.0 federation, MFA enforcement, and automated credential rotation" },
-      { id: 'C', text: "Creating long-lived IAM user access keys for every employee and disabling MFA" },
-      { id: 'D', text: "Hardcoding root account access credentials in application configuration files" }
+      { id: 'A', text: "IAM Identity Center with the built-in directory and rotated access keys" },
+      { id: 'B', text: "IAM Identity Center with SAML federation, enforced MFA, and rotated credentials" },
+      { id: 'C', text: "IAM roles assumed from a single shared user account with enforced MFA" },
+      { id: 'D', text: "IAM users per employee with enforced MFA and a strict password policy" }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -492,10 +492,10 @@ export const AWS_SCS_QUESTIONS_6 = [
     scenario: "An identity architect is establishing least privilege, temporary credentials, and federation across an AWS enterprise estate.",
     question: "Which IAM architecture best satisfies objective #17?",
     options: [
-      { id: 'A', text: "Hardcoding root account access credentials in application configuration files" },
-      { id: 'B', text: "Creating long-lived IAM user access keys for every employee and disabling MFA" },
-      { id: 'C', text: "Enforcing AWS IAM Identity Center with SAML 2.0 federation, MFA enforcement, and automated credential rotation" },
-      { id: 'D', text: "Disabling IAM Access Analyzer and allowing unrestricted cross-account trust policies" }
+      { id: 'A', text: "IAM users per employee with enforced MFA and a strict password policy" },
+      { id: 'B', text: "IAM roles assumed from a single shared user account with enforced MFA" },
+      { id: 'C', text: "IAM Identity Center with SAML federation, enforced MFA, and rotated credentials" },
+      { id: 'D', text: "IAM Identity Center with the built-in directory and rotated access keys" }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -513,10 +513,10 @@ export const AWS_SCS_QUESTIONS_6 = [
     scenario: "An identity architect is establishing least privilege, temporary credentials, and federation across an AWS enterprise estate.",
     question: "Which IAM architecture best satisfies objective #18?",
     options: [
-      { id: 'A', text: "Hardcoding root account access credentials in application configuration files" },
-      { id: 'B', text: "Enforcing AWS IAM Identity Center with SAML 2.0 federation, MFA enforcement, and automated credential rotation" },
-      { id: 'C', text: "Disabling IAM Access Analyzer and allowing unrestricted cross-account trust policies" },
-      { id: 'D', text: "Creating long-lived IAM user access keys for every employee and disabling MFA" }
+      { id: 'A', text: "IAM users per employee with enforced MFA and a strict password policy" },
+      { id: 'B', text: "IAM Identity Center with SAML federation, enforced MFA, and rotated credentials" },
+      { id: 'C', text: "IAM Identity Center with the built-in directory and rotated access keys" },
+      { id: 'D', text: "IAM roles assumed from a single shared user account with enforced MFA" }
     ],
     correctAnswers: ['B'],
     type: "single",
