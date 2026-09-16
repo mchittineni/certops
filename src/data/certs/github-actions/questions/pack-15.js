@@ -9,10 +9,10 @@ export const GITHUB_ACTIONS_QUESTIONS_15 = [
     scenario: "A devops automation engineering team is establishing high-availability pipeline standards, runner recovery procedures, and operational resilience baselines for GitHub Actions. The GitHub Actions engineer needs to protect CI/CD pipelines from malicious upstream tag-hijacking attacks on third-party actions from GitHub Marketplace.",
     question: "Which architectural approach or configuration satisfies these CI/CD disaster recovery and operational continuity objectives?",
     options: [
-      { id: 'A', text: "Reference `@main` to always run bleeding-edge code." },
-      { id: 'B', text: "Download action zip archives into personal developer workstations." },
-      { id: 'C', text: "Pin the action reference to its full 40-character commit SHA (e.g., `uses: actions/checkout@b4ffde... # v4.1.1`)." },
-      { id: 'D', text: "Reference the action with the mutable `@v4` tag." }
+      { id: 'A', text: "Pin the action to `@main`, so each run picks up the newest published code." },
+      { id: 'B', text: "Vendor the action's source into the repository and reference the local path." },
+      { id: 'C', text: "Pin the action to its full 40-character commit SHA, with the version in a comment." },
+      { id: 'D', text: "Pin the action to its major version tag, which the publisher moves forward." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -30,10 +30,10 @@ export const GITHUB_ACTIONS_QUESTIONS_15 = [
     scenario: "A high-throughput software engineering organization experiences massive surges in concurrent build and test requests across thousands of enterprise repositories. The GitHub Actions engineer needs to protect CI/CD pipelines from malicious upstream tag-hijacking attacks on third-party actions from GitHub Marketplace.",
     question: "Which workflow architecture or runner configuration manages this execution volume effectively while preventing queue congestion and latency?",
     options: [
-      { id: 'A', text: "Reference the action with the mutable `@v4` tag." },
-      { id: 'B', text: "Download action zip archives into personal developer workstations." },
-      { id: 'C', text: "Reference `@main` to always run bleeding-edge code." },
-      { id: 'D', text: "Pin the action reference to its full 40-character commit SHA (e.g., `uses: actions/checkout@b4ffde... # v4.1.1`)." }
+      { id: 'A', text: "Pin the action to its major version tag, which the publisher moves forward." },
+      { id: 'B', text: "Vendor the action's source into the repository and reference the local path." },
+      { id: 'C', text: "Pin the action to `@main`, so each run picks up the newest published code." },
+      { id: 'D', text: "Pin the action to its full 40-character commit SHA, with the version in a comment." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -51,10 +51,10 @@ export const GITHUB_ACTIONS_QUESTIONS_15 = [
     scenario: "A security compliance auditor requires cryptographic supply chain verification, keyless cloud authentication, and automated governance across all GitHub Actions workflows. The GitHub Actions engineer needs to protect CI/CD pipelines from malicious upstream tag-hijacking attacks on third-party actions from GitHub Marketplace.",
     question: "Which solution implements these mandatory CI/CD security and compliance controls?",
     options: [
-      { id: 'A', text: "Pin the action reference to its full 40-character commit SHA (e.g., `uses: actions/checkout@b4ffde... # v4.1.1`)." },
-      { id: 'B', text: "Reference the action with the mutable `@v4` tag." },
-      { id: 'C', text: "Reference `@main` to always run bleeding-edge code." },
-      { id: 'D', text: "Download action zip archives into personal developer workstations." }
+      { id: 'A', text: "Pin the action to its full 40-character commit SHA, with the version in a comment." },
+      { id: 'B', text: "Pin the action to its major version tag, which the publisher moves forward." },
+      { id: 'C', text: "Pin the action to `@main`, so each run picks up the newest published code." },
+      { id: 'D', text: "Vendor the action's source into the repository and reference the local path." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -72,10 +72,10 @@ export const GITHUB_ACTIONS_QUESTIONS_15 = [
     scenario: "An enterprise is modernizing legacy on-premises CI/CD infrastructure and migrating automated delivery workflows to GitHub Actions. The GitHub Actions engineer needs to protect CI/CD pipelines from malicious upstream tag-hijacking attacks on third-party actions from GitHub Marketplace.",
     question: "Which practice or platform feature enables the engineering team to modernize automated delivery with minimal operational friction?",
     options: [
-      { id: 'A', text: "Download action zip archives into personal developer workstations." },
-      { id: 'B', text: "Reference `@main` to always run bleeding-edge code." },
-      { id: 'C', text: "Reference the action with the mutable `@v4` tag." },
-      { id: 'D', text: "Pin the action reference to its full 40-character commit SHA (e.g., `uses: actions/checkout@b4ffde... # v4.1.1`)." }
+      { id: 'A', text: "Vendor the action's source into the repository and reference the local path." },
+      { id: 'B', text: "Pin the action to `@main`, so each run picks up the newest published code." },
+      { id: 'C', text: "Pin the action to its major version tag, which the publisher moves forward." },
+      { id: 'D', text: "Pin the action to its full 40-character commit SHA, with the version in a comment." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -93,10 +93,10 @@ export const GITHUB_ACTIONS_QUESTIONS_15 = [
     scenario: "A platform operations team is optimizing system reliability to eliminate single points of failure, accelerate build caching, and ensure secure failure handling. The GitHub Actions engineer needs to protect CI/CD pipelines from malicious upstream tag-hijacking attacks on third-party actions from GitHub Marketplace.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees pipeline availability?",
     options: [
-      { id: 'A', text: "Download action zip archives into personal developer workstations." },
-      { id: 'B', text: "Reference `@main` to always run bleeding-edge code." },
-      { id: 'C', text: "Reference the action with the mutable `@v4` tag." },
-      { id: 'D', text: "Pin the action reference to its full 40-character commit SHA (e.g., `uses: actions/checkout@b4ffde... # v4.1.1`)." }
+      { id: 'A', text: "Vendor the action's source into the repository and reference the local path." },
+      { id: 'B', text: "Pin the action to `@main`, so each run picks up the newest published code." },
+      { id: 'C', text: "Pin the action to its major version tag, which the publisher moves forward." },
+      { id: 'D', text: "Pin the action to its full 40-character commit SHA, with the version in a comment." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -114,10 +114,10 @@ export const GITHUB_ACTIONS_QUESTIONS_15 = [
     scenario: "A devops automation engineering team is establishing high-availability pipeline standards, runner recovery procedures, and operational resilience baselines for GitHub Actions. The GitHub Actions engineer needs to call a reusable deployment workflow and pass all caller repository secrets to it without declaring each secret individually.",
     question: "Which architectural approach or configuration satisfies these CI/CD disaster recovery and operational continuity objectives?",
     options: [
-      { id: 'A', text: "In the calling workflow, specify `secrets: inherit` under the reusable workflow invocation." },
-      { id: 'B', text: "Hardcode all secret values inside the reusable workflow YAML file." },
-      { id: 'C', text: "Pass secrets as plaintext `inputs:` parameters." },
-      { id: 'D', text: "Reusable workflows cannot access secrets under any circumstance." }
+      { id: 'A', text: "Add `secrets: inherit` to the reusable workflow invocation." },
+      { id: 'B', text: "Declare each secret under `secrets:` on the called workflow." },
+      { id: 'C', text: "Pass the secret values through the workflow's `inputs:`." },
+      { id: 'D', text: "Reusable workflows cannot receive secrets from a caller." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -135,10 +135,10 @@ export const GITHUB_ACTIONS_QUESTIONS_15 = [
     scenario: "A high-throughput software engineering organization experiences massive surges in concurrent build and test requests across thousands of enterprise repositories. The GitHub Actions engineer needs to call a reusable deployment workflow and pass all caller repository secrets to it without declaring each secret individually.",
     question: "Which workflow architecture or runner configuration manages this execution volume effectively while preventing queue congestion and latency?",
     options: [
-      { id: 'A', text: "Reusable workflows cannot access secrets under any circumstance." },
-      { id: 'B', text: "Pass secrets as plaintext `inputs:` parameters." },
-      { id: 'C', text: "Hardcode all secret values inside the reusable workflow YAML file." },
-      { id: 'D', text: "In the calling workflow, specify `secrets: inherit` under the reusable workflow invocation." }
+      { id: 'A', text: "Reusable workflows cannot receive secrets from a caller." },
+      { id: 'B', text: "Pass the secret values through the workflow's `inputs:`." },
+      { id: 'C', text: "Declare each secret under `secrets:` on the called workflow." },
+      { id: 'D', text: "Add `secrets: inherit` to the reusable workflow invocation." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -156,10 +156,10 @@ export const GITHUB_ACTIONS_QUESTIONS_15 = [
     scenario: "A security compliance auditor requires cryptographic supply chain verification, keyless cloud authentication, and automated governance across all GitHub Actions workflows. The GitHub Actions engineer needs to call a reusable deployment workflow and pass all caller repository secrets to it without declaring each secret individually.",
     question: "Which solution implements these mandatory CI/CD security and compliance controls?",
     options: [
-      { id: 'A', text: "In the calling workflow, specify `secrets: inherit` under the reusable workflow invocation." },
-      { id: 'B', text: "Hardcode all secret values inside the reusable workflow YAML file." },
-      { id: 'C', text: "Pass secrets as plaintext `inputs:` parameters." },
-      { id: 'D', text: "Reusable workflows cannot access secrets under any circumstance." }
+      { id: 'A', text: "Add `secrets: inherit` to the reusable workflow invocation." },
+      { id: 'B', text: "Declare each secret under `secrets:` on the called workflow." },
+      { id: 'C', text: "Pass the secret values through the workflow's `inputs:`." },
+      { id: 'D', text: "Reusable workflows cannot receive secrets from a caller." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -177,10 +177,10 @@ export const GITHUB_ACTIONS_QUESTIONS_15 = [
     scenario: "An enterprise is modernizing legacy on-premises CI/CD infrastructure and migrating automated delivery workflows to GitHub Actions. The GitHub Actions engineer needs to call a reusable deployment workflow and pass all caller repository secrets to it without declaring each secret individually.",
     question: "Which practice or platform feature enables the engineering team to modernize automated delivery with minimal operational friction?",
     options: [
-      { id: 'A', text: "Hardcode all secret values inside the reusable workflow YAML file." },
-      { id: 'B', text: "Pass secrets as plaintext `inputs:` parameters." },
-      { id: 'C', text: "In the calling workflow, specify `secrets: inherit` under the reusable workflow invocation." },
-      { id: 'D', text: "Reusable workflows cannot access secrets under any circumstance." }
+      { id: 'A', text: "Declare each secret under `secrets:` on the called workflow." },
+      { id: 'B', text: "Pass the secret values through the workflow's `inputs:`." },
+      { id: 'C', text: "Add `secrets: inherit` to the reusable workflow invocation." },
+      { id: 'D', text: "Reusable workflows cannot receive secrets from a caller." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -198,10 +198,10 @@ export const GITHUB_ACTIONS_QUESTIONS_15 = [
     scenario: "A platform operations team is optimizing system reliability to eliminate single points of failure, accelerate build caching, and ensure secure failure handling. The GitHub Actions engineer needs to call a reusable deployment workflow and pass all caller repository secrets to it without declaring each secret individually.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees pipeline availability?",
     options: [
-      { id: 'A', text: "Hardcode all secret values inside the reusable workflow YAML file." },
-      { id: 'B', text: "In the calling workflow, specify `secrets: inherit` under the reusable workflow invocation." },
-      { id: 'C', text: "Reusable workflows cannot access secrets under any circumstance." },
-      { id: 'D', text: "Pass secrets as plaintext `inputs:` parameters." }
+      { id: 'A', text: "Declare each secret under `secrets:` on the called workflow." },
+      { id: 'B', text: "Add `secrets: inherit` to the reusable workflow invocation." },
+      { id: 'C', text: "Reusable workflows cannot receive secrets from a caller." },
+      { id: 'D', text: "Pass the secret values through the workflow's `inputs:`." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -219,10 +219,10 @@ export const GITHUB_ACTIONS_QUESTIONS_15 = [
     scenario: "A devops automation engineering team is establishing high-availability pipeline standards, runner recovery procedures, and operational resilience baselines for GitHub Actions. The GitHub Actions engineer needs to capture a generated release version number produced by a reusable build workflow and use it in a subsequent notification job.",
     question: "Which architectural approach or configuration satisfies these CI/CD disaster recovery and operational continuity objectives?",
     options: [
-      { id: 'A', text: "Declare `outputs:` in the reusable workflow mapped to job outputs, and reference `needs.&lt;reusable-job-id&gt;.outputs.&lt;output-name&gt;`." },
-      { id: 'B', text: "Pass the output via an unencrypted environment variable on the host runner." },
-      { id: 'C', text: "Write the output to a text file on a shared network drive." },
-      { id: 'D', text: "Reusable workflows cannot export outputs to caller workflows." }
+      { id: 'A', text: "Declare `outputs:` on the reusable workflow and read `needs.&lt;job&gt;.outputs.&lt;name&gt;`." },
+      { id: 'B', text: "Write the value to `$GITHUB_ENV` in the reusable workflow for the caller to read." },
+      { id: 'C', text: "Upload the value as an artifact and download it in the calling workflow's job." },
+      { id: 'D', text: "Reusable workflows cannot return outputs, so the caller must recompute the value." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -240,10 +240,10 @@ export const GITHUB_ACTIONS_QUESTIONS_15 = [
     scenario: "A high-throughput software engineering organization experiences massive surges in concurrent build and test requests across thousands of enterprise repositories. The GitHub Actions engineer needs to capture a generated release version number produced by a reusable build workflow and use it in a subsequent notification job.",
     question: "Which workflow architecture or runner configuration manages this execution volume effectively while preventing queue congestion and latency?",
     options: [
-      { id: 'A', text: "Reusable workflows cannot export outputs to caller workflows." },
-      { id: 'B', text: "Write the output to a text file on a shared network drive." },
-      { id: 'C', text: "Pass the output via an unencrypted environment variable on the host runner." },
-      { id: 'D', text: "Declare `outputs:` in the reusable workflow mapped to job outputs, and reference `needs.&lt;reusable-job-id&gt;.outputs.&lt;output-name&gt;`." }
+      { id: 'A', text: "Reusable workflows cannot return outputs, so the caller must recompute the value." },
+      { id: 'B', text: "Upload the value as an artifact and download it in the calling workflow's job." },
+      { id: 'C', text: "Write the value to `$GITHUB_ENV` in the reusable workflow for the caller to read." },
+      { id: 'D', text: "Declare `outputs:` on the reusable workflow and read `needs.&lt;job&gt;.outputs.&lt;name&gt;`." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -261,10 +261,10 @@ export const GITHUB_ACTIONS_QUESTIONS_15 = [
     scenario: "A security compliance auditor requires cryptographic supply chain verification, keyless cloud authentication, and automated governance across all GitHub Actions workflows. The GitHub Actions engineer needs to capture a generated release version number produced by a reusable build workflow and use it in a subsequent notification job.",
     question: "Which solution implements these mandatory CI/CD security and compliance controls?",
     options: [
-      { id: 'A', text: "Pass the output via an unencrypted environment variable on the host runner." },
-      { id: 'B', text: "Declare `outputs:` in the reusable workflow mapped to job outputs, and reference `needs.&lt;reusable-job-id&gt;.outputs.&lt;output-name&gt;`." },
-      { id: 'C', text: "Reusable workflows cannot export outputs to caller workflows." },
-      { id: 'D', text: "Write the output to a text file on a shared network drive." }
+      { id: 'A', text: "Write the value to `$GITHUB_ENV` in the reusable workflow for the caller to read." },
+      { id: 'B', text: "Declare `outputs:` on the reusable workflow and read `needs.&lt;job&gt;.outputs.&lt;name&gt;`." },
+      { id: 'C', text: "Reusable workflows cannot return outputs, so the caller must recompute the value." },
+      { id: 'D', text: "Upload the value as an artifact and download it in the calling workflow's job." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -282,10 +282,10 @@ export const GITHUB_ACTIONS_QUESTIONS_15 = [
     scenario: "An enterprise is modernizing legacy on-premises CI/CD infrastructure and migrating automated delivery workflows to GitHub Actions. The GitHub Actions engineer needs to capture a generated release version number produced by a reusable build workflow and use it in a subsequent notification job.",
     question: "Which practice or platform feature enables the engineering team to modernize automated delivery with minimal operational friction?",
     options: [
-      { id: 'A', text: "Declare `outputs:` in the reusable workflow mapped to job outputs, and reference `needs.&lt;reusable-job-id&gt;.outputs.&lt;output-name&gt;`." },
-      { id: 'B', text: "Pass the output via an unencrypted environment variable on the host runner." },
-      { id: 'C', text: "Write the output to a text file on a shared network drive." },
-      { id: 'D', text: "Reusable workflows cannot export outputs to caller workflows." }
+      { id: 'A', text: "Declare `outputs:` on the reusable workflow and read `needs.&lt;job&gt;.outputs.&lt;name&gt;`." },
+      { id: 'B', text: "Write the value to `$GITHUB_ENV` in the reusable workflow for the caller to read." },
+      { id: 'C', text: "Upload the value as an artifact and download it in the calling workflow's job." },
+      { id: 'D', text: "Reusable workflows cannot return outputs, so the caller must recompute the value." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -303,10 +303,10 @@ export const GITHUB_ACTIONS_QUESTIONS_15 = [
     scenario: "A platform operations team is optimizing system reliability to eliminate single points of failure, accelerate build caching, and ensure secure failure handling. The GitHub Actions engineer needs to capture a generated release version number produced by a reusable build workflow and use it in a subsequent notification job.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees pipeline availability?",
     options: [
-      { id: 'A', text: "Declare `outputs:` in the reusable workflow mapped to job outputs, and reference `needs.&lt;reusable-job-id&gt;.outputs.&lt;output-name&gt;`." },
-      { id: 'B', text: "Pass the output via an unencrypted environment variable on the host runner." },
-      { id: 'C', text: "Write the output to a text file on a shared network drive." },
-      { id: 'D', text: "Reusable workflows cannot export outputs to caller workflows." }
+      { id: 'A', text: "Declare `outputs:` on the reusable workflow and read `needs.&lt;job&gt;.outputs.&lt;name&gt;`." },
+      { id: 'B', text: "Write the value to `$GITHUB_ENV` in the reusable workflow for the caller to read." },
+      { id: 'C', text: "Upload the value as an artifact and download it in the calling workflow's job." },
+      { id: 'D', text: "Reusable workflows cannot return outputs, so the caller must recompute the value." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -324,10 +324,10 @@ export const GITHUB_ACTIONS_QUESTIONS_15 = [
     scenario: "A devops automation engineering team is establishing high-availability pipeline standards, runner recovery procedures, and operational resilience baselines for GitHub Actions. The GitHub Actions engineer needs to optimize workflow caching for a high-volume monorepo that frequently exceeds the 10GB GitHub Actions cache limit.",
     question: "Which architectural approach or configuration satisfies these CI/CD disaster recovery and operational continuity objectives?",
     options: [
-      { id: 'A', text: "Disable caching permanently across all branches." },
-      { id: 'B', text: "Store caches in Git repository branches as commit objects." },
-      { id: 'C', text: "Structure cache keys with granular prefixes, delete stale caches via the GitHub CLI or API, and let GitHub evict caches older than 7 days." },
-      { id: 'D', text: "Increase the cache limit to 100GB by filing a support ticket." }
+      { id: 'A', text: "Use one cache key per repository so every branch shares the same restored cache." },
+      { id: 'B', text: "Store the cache as a release asset so it is not subject to the size ceiling." },
+      { id: 'C', text: "Use granular cache key prefixes, prune stale caches by API, and let the 7-day eviction run." },
+      { id: 'D', text: "Raise the repository's cache limit and keep the existing single-key strategy." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -345,10 +345,10 @@ export const GITHUB_ACTIONS_QUESTIONS_15 = [
     scenario: "A high-throughput software engineering organization experiences massive surges in concurrent build and test requests across thousands of enterprise repositories. The GitHub Actions engineer needs to optimize workflow caching for a high-volume monorepo that frequently exceeds the 10GB GitHub Actions cache limit.",
     question: "Which workflow architecture or runner configuration manages this execution volume effectively while preventing queue congestion and latency?",
     options: [
-      { id: 'A', text: "Structure cache keys with granular prefixes, delete stale caches via the GitHub CLI or API, and let GitHub evict caches older than 7 days." },
-      { id: 'B', text: "Increase the cache limit to 100GB by filing a support ticket." },
-      { id: 'C', text: "Disable caching permanently across all branches." },
-      { id: 'D', text: "Store caches in Git repository branches as commit objects." }
+      { id: 'A', text: "Use granular cache key prefixes, prune stale caches by API, and let the 7-day eviction run." },
+      { id: 'B', text: "Raise the repository's cache limit and keep the existing single-key strategy." },
+      { id: 'C', text: "Use one cache key per repository so every branch shares the same restored cache." },
+      { id: 'D', text: "Store the cache as a release asset so it is not subject to the size ceiling." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -366,10 +366,10 @@ export const GITHUB_ACTIONS_QUESTIONS_15 = [
     scenario: "A security compliance auditor requires cryptographic supply chain verification, keyless cloud authentication, and automated governance across all GitHub Actions workflows. The GitHub Actions engineer needs to optimize workflow caching for a high-volume monorepo that frequently exceeds the 10GB GitHub Actions cache limit.",
     question: "Which solution implements these mandatory CI/CD security and compliance controls?",
     options: [
-      { id: 'A', text: "Structure cache keys with granular prefixes, delete stale caches via the GitHub CLI or API, and let GitHub evict caches older than 7 days." },
-      { id: 'B', text: "Disable caching permanently across all branches." },
-      { id: 'C', text: "Store caches in Git repository branches as commit objects." },
-      { id: 'D', text: "Increase the cache limit to 100GB by filing a support ticket." }
+      { id: 'A', text: "Use granular cache key prefixes, prune stale caches by API, and let the 7-day eviction run." },
+      { id: 'B', text: "Use one cache key per repository so every branch shares the same restored cache." },
+      { id: 'C', text: "Store the cache as a release asset so it is not subject to the size ceiling." },
+      { id: 'D', text: "Raise the repository's cache limit and keep the existing single-key strategy." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -387,10 +387,10 @@ export const GITHUB_ACTIONS_QUESTIONS_15 = [
     scenario: "An enterprise is modernizing legacy on-premises CI/CD infrastructure and migrating automated delivery workflows to GitHub Actions. The GitHub Actions engineer needs to optimize workflow caching for a high-volume monorepo that frequently exceeds the 10GB GitHub Actions cache limit.",
     question: "Which practice or platform feature enables the engineering team to modernize automated delivery with minimal operational friction?",
     options: [
-      { id: 'A', text: "Structure cache keys with granular prefixes, delete stale caches via the GitHub CLI or API, and let GitHub evict caches older than 7 days." },
-      { id: 'B', text: "Increase the cache limit to 100GB by filing a support ticket." },
-      { id: 'C', text: "Disable caching permanently across all branches." },
-      { id: 'D', text: "Store caches in Git repository branches as commit objects." }
+      { id: 'A', text: "Use granular cache key prefixes, prune stale caches by API, and let the 7-day eviction run." },
+      { id: 'B', text: "Raise the repository's cache limit and keep the existing single-key strategy." },
+      { id: 'C', text: "Use one cache key per repository so every branch shares the same restored cache." },
+      { id: 'D', text: "Store the cache as a release asset so it is not subject to the size ceiling." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -408,10 +408,10 @@ export const GITHUB_ACTIONS_QUESTIONS_15 = [
     scenario: "A platform operations team is optimizing system reliability to eliminate single points of failure, accelerate build caching, and ensure secure failure handling. The GitHub Actions engineer needs to optimize workflow caching for a high-volume monorepo that frequently exceeds the 10GB GitHub Actions cache limit.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees pipeline availability?",
     options: [
-      { id: 'A', text: "Disable caching permanently across all branches." },
-      { id: 'B', text: "Structure cache keys with granular prefixes, delete stale caches via the GitHub CLI or API, and let GitHub evict caches older than 7 days." },
-      { id: 'C', text: "Increase the cache limit to 100GB by filing a support ticket." },
-      { id: 'D', text: "Store caches in Git repository branches as commit objects." }
+      { id: 'A', text: "Use one cache key per repository so every branch shares the same restored cache." },
+      { id: 'B', text: "Use granular cache key prefixes, prune stale caches by API, and let the 7-day eviction run." },
+      { id: 'C', text: "Raise the repository's cache limit and keep the existing single-key strategy." },
+      { id: 'D', text: "Store the cache as a release asset so it is not subject to the size ceiling." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -429,10 +429,10 @@ export const GITHUB_ACTIONS_QUESTIONS_15 = [
     scenario: "A devops automation engineering team is establishing high-availability pipeline standards, runner recovery procedures, and operational resilience baselines for GitHub Actions. The GitHub Actions engineer needs to diagnose an obscure failure in a complex third-party composite action step by enabling verbose internal debugging logs.",
     question: "Which architectural approach or configuration satisfies these CI/CD disaster recovery and operational continuity objectives?",
     options: [
-      { id: 'A', text: "Reinstall the GitHub runner operating system." },
-      { id: 'B', text: "Set repository secret or variable `ACTIONS_STEP_DEBUG` and `ACTIONS_RUNNER_DEBUG` to `true` and re-run the failed jobs." },
-      { id: 'C', text: "Disable all logging to bypass the error." },
-      { id: 'D', text: "Add print statements inside the third-party action code directly." }
+      { id: 'A', text: "Set `ACTIONS_RUNNER_DEBUG` alone, which covers the action's own step output." },
+      { id: 'B', text: "Set `ACTIONS_STEP_DEBUG` and `ACTIONS_RUNNER_DEBUG` to true and re-run the job." },
+      { id: 'C', text: "Re-run the job with `--debug` passed to the workflow dispatch invocation." },
+      { id: 'D', text: "Fork the third-party action and add print statements to its source code." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -450,10 +450,10 @@ export const GITHUB_ACTIONS_QUESTIONS_15 = [
     scenario: "A high-throughput software engineering organization experiences massive surges in concurrent build and test requests across thousands of enterprise repositories. The GitHub Actions engineer needs to diagnose an obscure failure in a complex third-party composite action step by enabling verbose internal debugging logs.",
     question: "Which workflow architecture or runner configuration manages this execution volume effectively while preventing queue congestion and latency?",
     options: [
-      { id: 'A', text: "Add print statements inside the third-party action code directly." },
-      { id: 'B', text: "Disable all logging to bypass the error." },
-      { id: 'C', text: "Set repository secret or variable `ACTIONS_STEP_DEBUG` and `ACTIONS_RUNNER_DEBUG` to `true` and re-run the failed jobs." },
-      { id: 'D', text: "Reinstall the GitHub runner operating system." }
+      { id: 'A', text: "Fork the third-party action and add print statements to its source code." },
+      { id: 'B', text: "Re-run the job with `--debug` passed to the workflow dispatch invocation." },
+      { id: 'C', text: "Set `ACTIONS_STEP_DEBUG` and `ACTIONS_RUNNER_DEBUG` to true and re-run the job." },
+      { id: 'D', text: "Set `ACTIONS_RUNNER_DEBUG` alone, which covers the action's own step output." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -471,10 +471,10 @@ export const GITHUB_ACTIONS_QUESTIONS_15 = [
     scenario: "A security compliance auditor requires cryptographic supply chain verification, keyless cloud authentication, and automated governance across all GitHub Actions workflows. The GitHub Actions engineer needs to diagnose an obscure failure in a complex third-party composite action step by enabling verbose internal debugging logs.",
     question: "Which solution implements these mandatory CI/CD security and compliance controls?",
     options: [
-      { id: 'A', text: "Set repository secret or variable `ACTIONS_STEP_DEBUG` and `ACTIONS_RUNNER_DEBUG` to `true` and re-run the failed jobs." },
-      { id: 'B', text: "Reinstall the GitHub runner operating system." },
-      { id: 'C', text: "Add print statements inside the third-party action code directly." },
-      { id: 'D', text: "Disable all logging to bypass the error." }
+      { id: 'A', text: "Set `ACTIONS_STEP_DEBUG` and `ACTIONS_RUNNER_DEBUG` to true and re-run the job." },
+      { id: 'B', text: "Set `ACTIONS_RUNNER_DEBUG` alone, which covers the action's own step output." },
+      { id: 'C', text: "Fork the third-party action and add print statements to its source code." },
+      { id: 'D', text: "Re-run the job with `--debug` passed to the workflow dispatch invocation." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -492,10 +492,10 @@ export const GITHUB_ACTIONS_QUESTIONS_15 = [
     scenario: "An enterprise is modernizing legacy on-premises CI/CD infrastructure and migrating automated delivery workflows to GitHub Actions. The GitHub Actions engineer needs to diagnose an obscure failure in a complex third-party composite action step by enabling verbose internal debugging logs.",
     question: "Which practice or platform feature enables the engineering team to modernize automated delivery with minimal operational friction?",
     options: [
-      { id: 'A', text: "Set repository secret or variable `ACTIONS_STEP_DEBUG` and `ACTIONS_RUNNER_DEBUG` to `true` and re-run the failed jobs." },
-      { id: 'B', text: "Reinstall the GitHub runner operating system." },
-      { id: 'C', text: "Add print statements inside the third-party action code directly." },
-      { id: 'D', text: "Disable all logging to bypass the error." }
+      { id: 'A', text: "Set `ACTIONS_STEP_DEBUG` and `ACTIONS_RUNNER_DEBUG` to true and re-run the job." },
+      { id: 'B', text: "Set `ACTIONS_RUNNER_DEBUG` alone, which covers the action's own step output." },
+      { id: 'C', text: "Fork the third-party action and add print statements to its source code." },
+      { id: 'D', text: "Re-run the job with `--debug` passed to the workflow dispatch invocation." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -513,10 +513,10 @@ export const GITHUB_ACTIONS_QUESTIONS_15 = [
     scenario: "A platform operations team is optimizing system reliability to eliminate single points of failure, accelerate build caching, and ensure secure failure handling. The GitHub Actions engineer needs to diagnose an obscure failure in a complex third-party composite action step by enabling verbose internal debugging logs.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees pipeline availability?",
     options: [
-      { id: 'A', text: "Set repository secret or variable `ACTIONS_STEP_DEBUG` and `ACTIONS_RUNNER_DEBUG` to `true` and re-run the failed jobs." },
-      { id: 'B', text: "Reinstall the GitHub runner operating system." },
-      { id: 'C', text: "Add print statements inside the third-party action code directly." },
-      { id: 'D', text: "Disable all logging to bypass the error." }
+      { id: 'A', text: "Set `ACTIONS_STEP_DEBUG` and `ACTIONS_RUNNER_DEBUG` to true and re-run the job." },
+      { id: 'B', text: "Set `ACTIONS_RUNNER_DEBUG` alone, which covers the action's own step output." },
+      { id: 'C', text: "Fork the third-party action and add print statements to its source code." },
+      { id: 'D', text: "Re-run the job with `--debug` passed to the workflow dispatch invocation." }
     ],
     correctAnswers: ['A'],
     type: "single",

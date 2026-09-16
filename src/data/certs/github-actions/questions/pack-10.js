@@ -9,10 +9,10 @@ export const GITHUB_ACTIONS_QUESTIONS_10 = [
     scenario: "A team writes a schedule expected to run at exactly seven in the morning local time, every two minutes during an incident window, and never to be late.",
     question: "Which correction do they need?",
     options: [
-      { id: 'A', text: "Cron expressions follow the repository configured time zone, and the minimum interval is one minute." },
-      { id: 'B', text: "Schedules accept a seconds field, which allows sub-minute precision when needed." },
-      { id: 'C', text: "Cron expressions are interpreted in coordinated universal time rather than a local zone, the shortest supported interval is five minutes, and runs may be delayed during periods of high load, so a schedule is a best-effort trigger rather than a guarantee." },
-      { id: 'D', text: "Cron expressions are in coordinated universal time and runs are guaranteed to start within ten seconds of the scheduled moment." }
+      { id: 'A', text: "Cron follows the repository's configured time zone, and the minimum supported interval is one minute." },
+      { id: 'B', text: "Cron accepts a seconds field here, which allows sub-minute precision when a workflow needs it." },
+      { id: 'C', text: "Cron runs in UTC, the shortest interval is five minutes, and runs may be delayed — a schedule is best-effort." },
+      { id: 'D', text: "Cron runs in UTC and each run is guaranteed to start within ten seconds of the scheduled moment." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -31,7 +31,7 @@ export const GITHUB_ACTIONS_QUESTIONS_10 = [
     question: "What is most likely missing?",
     options: [
       { id: 'A', text: "The writing step has no name, which is what the steps context is keyed by." },
-      { id: 'B', text: "The writing step has no id, so there is no key under which the steps context can expose its outputs." },
+      { id: 'B', text: "The writing step has no `id`, so the steps context has no key for its outputs." },
       { id: 'C', text: "Step outputs are only readable from a different job through the needs context." },
       { id: 'D', text: "The reading step must declare needs naming the writing step." }
     ],
@@ -51,9 +51,9 @@ export const GITHUB_ACTIONS_QUESTIONS_10 = [
     scenario: "An author wants one condition to govern whether a whole workflow runs, and adds an if key at the top level of the workflow file next to the name and trigger declarations. The file is rejected.",
     question: "Where can conditions be placed, and what is the alternative?",
     options: [
-      { id: 'A', text: "Conditions are supported only on steps, so a job-level condition would also be rejected." },
-      { id: 'B', text: "Conditions are supported on jobs and on steps but not at workflow level, so the intent is expressed either by trigger filters or by putting the same condition on every job." },
-      { id: 'C', text: "Conditions are supported at workflow level but must appear before the trigger declaration." },
+      { id: 'A', text: "Conditions are supported only on steps, so a job-level condition would be rejected too." },
+      { id: 'B', text: "Conditions belong on jobs and steps, not at workflow level; use trigger filters." },
+      { id: 'C', text: "Conditions are supported at workflow level but must precede the trigger declaration." },
       { id: 'D', text: "Conditions are supported at workflow level only for scheduled workflows." }
     ],
     correctAnswers: ['B'],
@@ -72,10 +72,10 @@ export const GITHUB_ACTIONS_QUESTIONS_10 = [
     scenario: "A matrix of thirty jobs each calls an internal service that begins rejecting requests above six concurrent callers. The team wants to keep all thirty combinations while staying within that ceiling.",
     question: "Which setting applies?",
     options: [
-      { id: 'A', text: "Reducing the matrix to six combinations and iterating over the rest inside each job." },
-      { id: 'B', text: "A concurrency group on the job, which limits it to one at a time and is the only available control." },
-      { id: 'C', text: "A max-parallel value of six on the matrix strategy, which limits how many of its jobs run at once without reducing the number of combinations." },
-      { id: 'D', text: "A fail-fast setting, which staggers the jobs." }
+      { id: 'A', text: "Reducing the matrix to six combinations and looping over the rest inside each job." },
+      { id: 'B', text: "A `concurrency` group on the job, which limits it to one run at a time." },
+      { id: 'C', text: "A `max-parallel` of six on the matrix, which caps concurrency without cutting combinations." },
+      { id: 'D', text: "A `fail-fast: false` setting, which staggers the legs as they are queued." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -93,7 +93,7 @@ export const GITHUB_ACTIONS_QUESTIONS_10 = [
     scenario: "An older workflow sets a step output by echoing a set-output workflow command. Runs now show a warning about a deprecated command and the output is not set.",
     question: "What is the replacement?",
     options: [
-      { id: 'A', text: "Append a name and value pair to the file named by GITHUB_OUTPUT, which replaced the deprecated command form." },
+      { id: 'A', text: "Append a name and value to the file named by `GITHUB_OUTPUT`." },
       { id: 'B', text: "Use the set-env command instead, which supersedes set-output." },
       { id: 'C', text: "Declare the output in a job outputs block, which removes the need to set it from the step." },
       { id: 'D', text: "Prefix the command with a double colon, which re-enables the legacy syntax." }
@@ -114,10 +114,10 @@ export const GITHUB_ACTIONS_QUESTIONS_10 = [
     scenario: "A discovery step emits a JSON object describing a build plan as a step output. A later step needs to read individual fields of that object in workflow expressions rather than parsing it in shell.",
     question: "Which function is used?",
     options: [
-      { id: 'A', text: "There is no such function; JSON must be parsed by a shell step and re-emitted as separate outputs." },
-      { id: 'B', text: "The format function, which extracts named fields from a JSON string." },
-      { id: 'C', text: "The toJSON function, which converts a string into an addressable object." },
-      { id: 'D', text: "The fromJSON function, which parses a JSON string from an expression into an object or array whose properties can then be addressed." }
+      { id: 'A', text: "There is none; the JSON must be parsed in a shell step and re-emitted as outputs." },
+      { id: 'B', text: "`format`, which extracts the named fields out of a JSON string for the caller." },
+      { id: 'C', text: "`toJSON`, which converts a string into an object whose fields can be read." },
+      { id: 'D', text: "`fromJSON`, which parses a JSON string into an object or array the expression can address." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -135,10 +135,10 @@ export const GITHUB_ACTIONS_QUESTIONS_10 = [
     scenario: "A matrix produces twelve jobs that all appear in the checks list with the same job identifier and a bracketed list of values, which reviewers find hard to scan when one leg fails.",
     question: "Which change improves it?",
     options: [
-      { id: 'A', text: "Rename the job identifier to include the matrix values." },
-      { id: 'B', text: "Set run-name, which controls how each matrix leg is displayed." },
-      { id: 'C', text: "Add a display key to each matrix entry." },
-      { id: 'D', text: "Set the job name to an expression incorporating the meaningful matrix values, which becomes the displayed name for each leg." }
+      { id: 'A', text: "Rename the job identifier so that it includes the matrix values in its key." },
+      { id: 'B', text: "Set `run-name`, which controls how each matrix leg is shown in the list." },
+      { id: 'C', text: "Add a `display` key to each of the matrix entries in the strategy." },
+      { id: 'D', text: "Set the job `name` to an expression over the matrix values." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -177,10 +177,10 @@ export const GITHUB_ACTIONS_QUESTIONS_10 = [
     scenario: "A step needs several fields of the event payload that are awkward to thread through individual expressions, and the author would rather process the whole payload with a script.",
     question: "Where does the runner make it available?",
     options: [
-      { id: 'A', text: "Only through individual expressions, since the payload is never written to disk." },
-      { id: 'B', text: "As an environment variable named GITHUB_EVENT containing the serialised payload." },
-      { id: 'C', text: "As an artifact automatically attached to every run." },
-      { id: 'D', text: "As a JSON file on disk whose path is given by the GITHUB_EVENT_PATH environment variable, which the step can read and parse, treating the contents as untrusted input." }
+      { id: 'A', text: "Only through individual expressions, since the payload is never written to the disk." },
+      { id: 'B', text: "As an environment variable named `GITHUB_EVENT` holding the serialised payload." },
+      { id: 'C', text: "As an artifact the runner attaches automatically to every workflow run." },
+      { id: 'D', text: "As a JSON file at `GITHUB_EVENT_PATH`, which the step reads and treats as untrusted input." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -198,10 +198,10 @@ export const GITHUB_ACTIONS_QUESTIONS_10 = [
     scenario: "A team wants deployment to happen when a pull request is merged, and only then. Someone proposes triggering on the pull request closed activity and checking the merged flag; someone else proposes a push trigger on the default branch.",
     question: "Which is the more robust choice, and why?",
     options: [
-      { id: 'A', text: "Neither; deployment can only be triggered by a release event." },
-      { id: 'B', text: "The closed activity, because a push trigger also fires for pushes to other branches." },
-      { id: 'C', text: "The push trigger on the default branch, because it fires for every way a change lands there including direct pushes and merge queue merges, whereas the closed activity misses those paths." },
-      { id: 'D', text: "The two are exactly equivalent, so the choice is a matter of style." }
+      { id: 'A', text: "Neither; a deployment can only be triggered from a release event in this configuration." },
+      { id: 'B', text: "The closed activity, since a push trigger also fires for pushes to other branches." },
+      { id: 'C', text: "The push trigger on the default branch, since it fires however the change lands." },
+      { id: 'D', text: "The two are exactly equivalent, so the choice between them is one of style." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -219,10 +219,10 @@ export const GITHUB_ACTIONS_QUESTIONS_10 = [
     scenario: "An organization has four hundred pipelines in another continuous integration product. Leadership wants an inventory of what exists, an estimate of the effort, and automated conversion where it is feasible.",
     question: "Which tool is intended for this?",
     options: [
-      { id: 'A', text: "The actions synchronisation tool, which mirrors pipelines from other systems." },
-      { id: 'B', text: "Starter workflows, which detect the previous system and convert its configuration on first use." },
-      { id: 'C', text: "The GitHub Actions Importer, which audits an existing estate to report usage and complexity, forecasts runner needs, and performs dry-run and actual conversions of supported pipelines." },
-      { id: 'D', text: "There is no tooling; each pipeline must be rewritten by hand after a manual inventory." }
+      { id: 'A', text: "The actions synchronisation tool, which mirrors pipelines across from the other system." },
+      { id: 'B', text: "Starter workflows, which detect the previous system and convert its configuration." },
+      { id: 'C', text: "The Actions Importer, which audits the estate and converts the pipelines." },
+      { id: 'D', text: "There is no tooling, so each pipeline is rewritten by hand after an inventory." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -240,10 +240,10 @@ export const GITHUB_ACTIONS_QUESTIONS_10 = [
     scenario: "To keep things tidy an engineer organises workflow files into subject subdirectories beneath the workflows directory. None of the moved workflows are listed in the Actions tab any more.",
     question: "What is the rule?",
     options: [
-      { id: 'A', text: "Subdirectories are supported only for reusable workflows." },
-      { id: 'B', text: "Workflow files are read only from directly within the .github/workflows directory, and files placed in subdirectories beneath it are ignored." },
-      { id: 'C', text: "The files are read but their names must be unique across all subdirectories, which the move violated." },
-      { id: 'D', text: "Subdirectories are supported but each needs an index file listing its workflows." }
+      { id: 'A', text: "Subdirectories are supported, but only for workflows meant to be reused by callers." },
+      { id: 'B', text: "Workflow files are read only from directly inside `.github/workflows`; subdirectories are ignored." },
+      { id: 'C', text: "The files are read but their names must be unique across every subdirectory." },
+      { id: 'D', text: "Subdirectories are supported, but each needs an index file listing its workflows." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -261,10 +261,10 @@ export const GITHUB_ACTIONS_QUESTIONS_10 = [
     scenario: "A step invokes the GitHub CLI to comment on a pull request. The step fails saying no authentication token was found, even though the job has a suitable permissions block.",
     question: "What is missing?",
     options: [
-      { id: 'A', text: "The permissions block must additionally grant a cli scope." },
-      { id: 'B', text: "The command line must be installed with a setup step, which also configures authentication." },
-      { id: 'C', text: "The command line cannot authenticate inside a workflow and requires a personal access token stored in a secret." },
-      { id: 'D', text: "The command line reads its credential from an environment variable, so the step must set the token variable from the secrets context; a permissions block scopes the token but does not hand it to the tool." }
+      { id: 'A', text: "The permissions block has to grant an additional CLI scope before the tool can authenticate." },
+      { id: 'B', text: "The tool has to be installed by a setup step, which also configures its authentication." },
+      { id: 'C', text: "The tool cannot authenticate in a workflow and needs a personal access token in a secret." },
+      { id: 'D', text: "The tool reads its credential from an environment variable the step must set." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -282,10 +282,10 @@ export const GITHUB_ACTIONS_QUESTIONS_10 = [
     scenario: "The same reusable workflow must run in one organization on hosted runners and in another on a self-hosted fleet with different labels. Hard-coding a runs-on value makes it usable in only one of them.",
     question: "Which design handles both?",
     options: [
-      { id: 'A', text: "Omit runs-on, which makes the platform choose an available runner." },
-      { id: 'B', text: "Use a runs-on value listing both the hosted label and the self-hosted labels, so whichever exists is matched." },
-      { id: 'C', text: "Maintain two copies of the reusable workflow and let each organization call its own." },
-      { id: 'D', text: "Declare a runner label as a typed input of the reusable workflow with a sensible default, and reference that input in runs-on so each caller supplies the label its environment provides." }
+      { id: 'A', text: "Omit `runs-on` so the platform picks whichever runner happens to be available." },
+      { id: 'B', text: "Give `runs-on` both the hosted and self-hosted labels, so whichever exists matches." },
+      { id: 'C', text: "Keep two copies of the reusable workflow and let each organization call its own." },
+      { id: 'D', text: "Declare the runner label as a typed input with a default, and reference that input in `runs-on`." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -303,10 +303,10 @@ export const GITHUB_ACTIONS_QUESTIONS_10 = [
     scenario: "A legal request requires that the logs and artifacts of a specific set of workflow runs be removed ahead of their retention expiry, and the team needs the removal to be scriptable across many repositories.",
     question: "Which approach is available?",
     options: [
-      { id: 'A', text: "Make the repositories private, which removes previously generated logs." },
-      { id: 'B', text: "Runs cannot be deleted before their retention expires, so the request cannot be satisfied." },
-      { id: 'C', text: "Delete the logs and artifacts of the identified runs through the API endpoints for run logs and artifacts, or delete the runs themselves, driving it from a script across the repositories." },
-      { id: 'D', text: "Reduce the retention setting to one day, which retroactively removes existing data." }
+      { id: 'A', text: "Make the repositories private, which withdraws the logs that were generated while they were public." },
+      { id: 'B', text: "Runs cannot be deleted before their retention lapses, so the request cannot be satisfied at all." },
+      { id: 'C', text: "Delete the identified runs' logs and artifacts through the API, driven by a script across the repositories." },
+      { id: 'D', text: "Reduce the retention setting to one day, which removes the existing data retroactively." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -324,10 +324,10 @@ export const GITHUB_ACTIONS_QUESTIONS_10 = [
     scenario: "A platform team is asked to cut Actions spend by a third. Test coverage and release cadence must not be reduced, and the team has a full usage report to work from.",
     question: "Which set of levers is most likely to deliver that?",
     options: [
-      { id: 'A', text: "Cancel superseded runs with concurrency groups, restrict expensive non-Linux legs to the schedule rather than every pull request, filter triggers by path so unaffected work does not run, and cache dependencies effectively." },
-      { id: 'B', text: "Convert all workflows into reusable workflows, which are billed at a lower rate." },
-      { id: 'C', text: "Move every job to larger runners, since faster machines consume fewer minutes overall." },
-      { id: 'D', text: "Increase artifact retention so builds can be reused instead of repeated." }
+      { id: 'A', text: "Cancel superseded runs, schedule the expensive legs, filter by path, and cache." },
+      { id: 'B', text: "Convert every workflow into a reusable workflow, which is billed at a lower per-minute rate." },
+      { id: 'C', text: "Move every job onto larger runners, since a faster machine consumes fewer minutes overall." },
+      { id: 'D', text: "Increase artifact retention so previous builds can be reused rather than repeated." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -345,10 +345,10 @@ export const GITHUB_ACTIONS_QUESTIONS_10 = [
     scenario: "A composite action needs one step written in a shell script and another written in Python, and the author would rather not shell out to an interpreter by hand from a shell step.",
     question: "Is that supported?",
     options: [
-      { id: 'A', text: "Yes; each run step in a composite action declares its own shell, and the supported values include interpreters such as python as well as several shells." },
-      { id: 'B', text: "No; composite actions support only bash, so other languages require a container action." },
-      { id: 'C', text: "Yes, but only by setting a defaults block, which composite actions support." },
-      { id: 'D', text: "No; every run step in a composite action must use the same shell, declared once for the action." }
+      { id: 'A', text: "Yes: each `run` step declares its own shell, and interpreters such as python are supported." },
+      { id: 'B', text: "No: composite actions support bash only, so another language needs a container action." },
+      { id: 'C', text: "Yes, but only through a `defaults` block, which composite actions also support." },
+      { id: 'D', text: "No: every `run` step in a composite action must share one shell, declared once." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -366,10 +366,10 @@ export const GITHUB_ACTIONS_QUESTIONS_10 = [
     scenario: "An action mutates shared external state and is unsafe if two runs execute concurrently. The author looks for a way to declare that constraint in the action metadata so consumers cannot get it wrong.",
     question: "What is the situation?",
     options: [
-      { id: 'A', text: "Declare an exclusive input defaulting to true, which the runner interprets as a mutual exclusion request." },
-      { id: 'B', text: "Serialisation is a property of runs rather than of actions, so the metadata cannot express it; the action should document that callers must place it in a concurrency group, and where possible take a lock in the external system so correctness does not depend on the caller." },
-      { id: 'C', text: "Set the action to composite, which serialises its steps globally." },
-      { id: 'D', text: "Add a concurrency key to the runs block, which the runner honours across repositories." }
+      { id: 'A', text: "Declare an `exclusive` input defaulting to true, which the runner reads as a request for mutual exclusion." },
+      { id: 'B', text: "Serialisation is a property of runs, so document a concurrency group and lock externally." },
+      { id: 'C', text: "Set the action to composite, which serialises its steps globally across the repositories using it." },
+      { id: 'D', text: "Add a concurrency key to the `runs:` block, which the runner honours across every calling repository." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -387,10 +387,10 @@ export const GITHUB_ACTIONS_QUESTIONS_10 = [
     scenario: "A maintainer plans a release containing three changes: an input renamed, a new optional input with a default, and a bug fix that changes an output value in a case that was previously wrong.",
     question: "How should the release be versioned?",
     options: [
-      { id: 'A', text: "As a minor release, because the new input is additive and renames are considered internal." },
-      { id: 'B', text: "As a new major version, because renaming an input breaks every caller passing the old name, and the major version tag should only be moved forward for callers once they have migrated." },
-      { id: 'C', text: "As a patch release, because two of the three changes are backwards compatible." },
-      { id: 'D', text: "As a patch release with the old input kept as an undocumented alias, which is always preferable to a major version." }
+      { id: 'A', text: "As a minor release, since the new input is additive and a rename counts as internal." },
+      { id: 'B', text: "As a new major version, since renaming an input breaks every caller passing the old name." },
+      { id: 'C', text: "As a patch release, since two of the three changes are backwards compatible." },
+      { id: 'D', text: "As a patch release keeping the old input as an alias, which avoids a major bump." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -408,10 +408,10 @@ export const GITHUB_ACTIONS_QUESTIONS_10 = [
     scenario: "A team needs an action that runs three existing command-line tools in sequence with a little argument shaping. It must work on the Linux and macOS runners they use, start quickly, and be easy for the team to read and change.",
     question: "Which type is the best fit?",
     options: [
-      { id: 'A', text: "A JavaScript action, because only that type can shape arguments." },
-      { id: 'B', text: "A composite action, because it expresses a sequence of steps in the workflow syntax the team already knows, adds no build or image pull, and runs on any platform the underlying tools support." },
-      { id: 'C', text: "None; a sequence of tool invocations must remain inline in each workflow." },
-      { id: 'D', text: "A Docker container action, because it guarantees the tools are present." }
+      { id: 'A', text: "A JavaScript action, since only that type can shape the arguments it passes on." },
+      { id: 'B', text: "A composite action, since it needs no build or image pull to run the steps." },
+      { id: 'C', text: "None; a sequence of tool invocations has to stay inline in each workflow." },
+      { id: 'D', text: "A Docker container action, since it guarantees the tools are present." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -429,10 +429,10 @@ export const GITHUB_ACTIONS_QUESTIONS_10 = [
     scenario: "A team wants to attach its own machine to the organization runner pool. A reviewer asks what privilege that requires and whether an ordinary member could do it unnoticed.",
     question: "Which statement is accurate?",
     options: [
-      { id: 'A', text: "Registration requires only the organization name, since tokens are needed solely for removal." },
-      { id: 'B', text: "Registering a runner requires a registration token that only someone with administrative access at the corresponding level can obtain, and the registration is recorded in the audit log." },
-      { id: 'C', text: "Registration is unrestricted but runners must be approved before their first job, which is where the control lies." },
-      { id: 'D', text: "Any member with write access to a repository can register an organization runner." }
+      { id: 'A', text: "Registering needs only the organization name, since tokens exist solely for removal." },
+      { id: 'B', text: "Registering needs an administrator's token, and it is recorded in the audit log." },
+      { id: 'C', text: "Registering is open, but a runner must be approved before its first job runs." },
+      { id: 'D', text: "Any member with write access to a repository may register an organization runner." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -450,10 +450,10 @@ export const GITHUB_ACTIONS_QUESTIONS_10 = [
     scenario: "Twelve repositories call one reusable deployment workflow. Approvals and production credentials must apply consistently, and the platform team is deciding where the environment should be declared.",
     question: "Which arrangement works?",
     options: [
-      { id: 'A', text: "Environments cannot be combined with reusable workflows, so approvals must be implemented as a manual dispatch gate." },
-      { id: 'B', text: "Declare the environment on the job inside the reusable workflow, so its protection rules and environment secrets apply to every caller; the environment and its rules are resolved in the calling repository, so each repository must define it." },
-      { id: 'C', text: "Declare the environment in each calling workflow, because a reusable workflow cannot declare one." },
-      { id: 'D', text: "Declare the environment in the repository that hosts the reusable workflow, whose rules then apply to every caller." }
+      { id: 'A', text: "Environments cannot be combined with reusable workflows, so approvals need a manual dispatch gate instead." },
+      { id: 'B', text: "Declare the environment on the job in the reusable workflow; each calling repository must define that environment." },
+      { id: 'C', text: "Declare the environment in each calling workflow, since a reusable workflow may not declare one itself." },
+      { id: 'D', text: "Declare the environment in the repository hosting the reusable workflow, whose rules then cover every caller." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -471,10 +471,10 @@ export const GITHUB_ACTIONS_QUESTIONS_10 = [
     scenario: "A platform team must be paged when any deployment workflow fails in any of sixty repositories, and does not want to add a notification step to sixty workflows.",
     question: "Which integration achieves that centrally?",
     options: [
-      { id: 'A', text: "Add a scheduled workflow in one repository that polls the API for every other repository." },
-      { id: 'B', text: "Enable email notifications for the platform team on each repository." },
-      { id: 'C', text: "Subscribe an organization-level webhook to workflow run and deployment status events and route failures to the alerting system, so no repository workflow has to change." },
-      { id: 'D', text: "Configure a required status check that pages on failure." }
+      { id: 'A', text: "Add a scheduled workflow in one repository that polls the API for all the others." },
+      { id: 'B', text: "Turn on email notifications for the platform team on each repository in turn." },
+      { id: 'C', text: "Subscribe an organization webhook to workflow run events and route failures onward." },
+      { id: 'D', text: "Configure a required status check whose failure pages the on-call engineer." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -492,10 +492,10 @@ export const GITHUB_ACTIONS_QUESTIONS_10 = [
     scenario: "An organization is establishing a quarterly review of its Actions configuration, and wants the agenda to focus on the settings where drift causes real exposure rather than on cosmetic items.",
     question: "Which set of items belongs on that agenda?",
     options: [
-      { id: 'A', text: "The list of Marketplace actions by popularity, and which teams use the most minutes." },
-      { id: 'B', text: "The allowed actions policy and its allow list, default token permissions, runner group membership and repository access, stored secrets and their scope and age, and the cloud trust policies that accept identity tokens." },
-      { id: 'C', text: "The number of workflow runs per repository and the average run duration." },
-      { id: 'D', text: "Workflow file formatting, job naming conventions and badge placement in each README." }
+      { id: 'A', text: "The Marketplace actions ranked by popularity, and which teams are consuming the most minutes." },
+      { id: 'B', text: "The allowed actions policy, token permissions, runner group access, and secret scope and age." },
+      { id: 'C', text: "The number of workflow runs per repository and the average duration of each of them." },
+      { id: 'D', text: "Workflow file formatting, job naming conventions, and badge placement in each README." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -513,10 +513,10 @@ export const GITHUB_ACTIONS_QUESTIONS_10 = [
     scenario: "A workflow must build code from an untrusted contribution and then, separately, publish a signed artifact if the build passes. A reviewer asks how to arrange this so the publishing capability is never available while untrusted code executes.",
     question: "Which arrangement satisfies that?",
     options: [
-      { id: 'A', text: "Run both in one job, granting the write scopes only from the publishing step onward using a step-level permissions block." },
-      { id: 'B', text: "Run the build with continue-on-error and publish regardless, checking signatures afterwards." },
-      { id: 'C', text: "Run the untrusted build in a job with no secrets and a token holding no write scopes, hand its result forward as an artifact, and perform signing and publishing in a separate job that holds the credentials and never executes contributor code." },
-      { id: 'D', text: "Run both in one job on an ephemeral runner, since the runner being discarded prevents credential reuse." }
+      { id: 'A', text: "Run both in one job, granting the write scopes from the publishing step onward with step permissions." },
+      { id: 'B', text: "Run the build with `continue-on-error` and publish regardless, checking the signatures afterwards." },
+      { id: 'C', text: "Run the untrusted build with no secrets and a read-only token, pass its artifact to a separate signing job." },
+      { id: 'D', text: "Run both in one job on an ephemeral runner, since discarding the runner prevents credential reuse." }
     ],
     correctAnswers: ['C'],
     type: "single",

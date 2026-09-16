@@ -30,9 +30,9 @@ export const GITHUB_ACTIONS_QUESTIONS_5 = [
     scenario: "After a deployment job finishes, reviewers want a clickable link to the deployed preview site directly from the pull request and the Environments page, without pasting the URL into a comment.",
     question: "How is that link produced?",
     options: [
-      { id: 'A', text: "By writing the URL to GITHUB_STEP_SUMMARY, which the Environments page reads." },
-      { id: 'B', text: "By setting the url property alongside the name inside the job environment key, which may be an expression referring to a step output." },
-      { id: 'C', text: "By adding a deployment-url entry to the workflow permissions block." },
+      { id: 'A', text: "By writing the URL to `$GITHUB_STEP_SUMMARY`, which the Environments page reads." },
+      { id: 'B', text: "By setting `url` beside `name` in the job's `environment` key, which may be an expression." },
+      { id: 'C', text: "By adding a `deployment-url` entry to the workflow's own permissions block." },
       { id: 'D', text: "By naming an artifact after the URL, which the interface renders as a link." }
     ],
     correctAnswers: ['B'],
@@ -51,10 +51,10 @@ export const GITHUB_ACTIONS_QUESTIONS_5 = [
     scenario: "A workflow triggered by pull_request should also run when someone adds the run-e2e label to an existing pull request. Today it only runs when the pull request is opened, reopened or updated with new commits.",
     question: "What must change?",
     options: [
-      { id: 'A', text: "A separate workflow_dispatch trigger must be added and started by hand after labelling." },
-      { id: 'B', text: "The trigger must list activity types explicitly, adding labeled to the default set of opened, synchronize and reopened, because naming any types replaces the default set." },
-      { id: 'C', text: "The trigger must be changed to issues with a labeled type, since labels belong to issues." },
-      { id: 'D', text: "Nothing, because labelling counts as an update and already triggers the synchronize activity." }
+      { id: 'A', text: "A separate `workflow_dispatch` trigger has to be added and started by hand after labelling." },
+      { id: 'B', text: "The trigger must name its types, since naming any replaces the defaults." },
+      { id: 'C', text: "The trigger must become `issues` with a `labeled` type, since labels belong to issues." },
+      { id: 'D', text: "Nothing, since labelling counts as an update and fires the `synchronize` activity." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -73,9 +73,9 @@ export const GITHUB_ACTIONS_QUESTIONS_5 = [
     question: "Which expression idiom applies?",
     options: [
       { id: 'A', text: "A ternary conditional operator, which workflow expressions support directly." },
-      { id: 'B', text: "The coalesce function, which is provided for exactly this purpose." },
-      { id: 'C', text: "The logical or operator between the input reference and the default literal, which yields the first value that is not false or empty." },
-      { id: 'D', text: "The format function with the input as the only argument, which substitutes a default when empty." }
+      { id: 'B', text: "The `coalesce` function, which exists for exactly this substitution." },
+      { id: 'C', text: "A logical or between the input and the default, which yields the first non-empty value." },
+      { id: 'D', text: "The `format` function with the input alone, which substitutes when empty." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -93,10 +93,10 @@ export const GITHUB_ACTIONS_QUESTIONS_5 = [
     scenario: "A step needs a scratch directory that exists on Linux, macOS and Windows runners, is writable, and is cleaned up by the platform after the job. Hard-coding a Unix temporary path breaks the Windows leg of the matrix.",
     question: "Which context value should be used?",
     options: [
-      { id: 'A', text: "The runner.temp value, which points at a platform-appropriate temporary directory that is cleaned up at the end of the job." },
-      { id: 'B', text: "The runner.tool_cache value, which is provided for scratch data." },
-      { id: 'C', text: "The github.workspace value, which is the correct location for temporary files." },
-      { id: 'D', text: "A relative path, because the working directory is identical on every platform." }
+      { id: 'A', text: "`runner.temp`, a platform-appropriate directory cleaned up at the end of the job." },
+      { id: 'B', text: "`runner.tool_cache`, which is provided for scratch data during a job." },
+      { id: 'C', text: "`github.workspace`, the correct location for a job's temporary files." },
+      { id: 'D', text: "A relative path, since the working directory is the same on every platform." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -135,10 +135,10 @@ export const GITHUB_ACTIONS_QUESTIONS_5 = [
     scenario: "A debug bundle is only useful for a day or two, while release binaries from the same workflow should follow the repository default retention. The team does not want to change the repository setting.",
     question: "How is the shorter lifetime applied to just that artifact?",
     options: [
-      { id: 'A', text: "Upload the debug bundle to the cache instead, which expires sooner." },
-      { id: 'B', text: "Add a scheduled workflow that deletes the artifact through the API after two days." },
-      { id: 'C', text: "Prefix the artifact name with a marker that the platform interprets as short-lived." },
-      { id: 'D', text: "Pass a retention-days input to the upload step for the debug bundle, which may shorten but not exceed the configured maximum." }
+      { id: 'A', text: "Upload the debug bundle to the cache instead, where entries expire sooner." },
+      { id: 'B', text: "Add a scheduled workflow that deletes the artifact by API after two days." },
+      { id: 'C', text: "Prefix the artifact name with a marker the platform reads as short-lived." },
+      { id: 'D', text: "Pass `retention-days` on that upload step, which may shorten but not exceed the maximum." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -156,10 +156,10 @@ export const GITHUB_ACTIONS_QUESTIONS_5 = [
     scenario: "A workflow declares a boolean input named dry-run. A step condition compares the value from the event payload to the string false, and the branch is taken even when the person starting the run leaves the box unticked.",
     question: "What is going wrong?",
     options: [
-      { id: 'A', text: "Reading the value from the event payload yields a string, where any non-empty string is truthy, so the condition should compare the typed value from the inputs context instead." },
-      { id: 'B', text: "Conditions cannot evaluate booleans, so the comparison must be moved into a shell test." },
-      { id: 'C', text: "Boolean inputs are not supported by workflow_dispatch, so the value is always the literal string true." },
-      { id: 'D', text: "The default for a boolean input is true when unspecified, so a default of false must be declared." }
+      { id: 'A', text: "The payload value is a string and any non-empty string is truthy, so compare the typed `inputs` value." },
+      { id: 'B', text: "Conditions cannot evaluate booleans, so the comparison has to move into a shell test." },
+      { id: 'C', text: "Boolean inputs are unsupported by `workflow_dispatch`, so the value is always a string." },
+      { id: 'D', text: "A boolean input defaults to true when unspecified, so a false default must be declared." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -198,10 +198,10 @@ export const GITHUB_ACTIONS_QUESTIONS_5 = [
     scenario: "An authentication job obtains a short-lived token and sets it as a job output. The downstream job reads the output through the needs context and receives an empty value, although the job logs show the token was obtained.",
     question: "Why is the value empty?",
     options: [
-      { id: 'A', text: "Job outputs containing a value registered as a secret are redacted on the runner and never reach the platform, so a credential has to be re-obtained in the consuming job or stored in a secret manager instead." },
-      { id: 'B', text: "Outputs are only readable by jobs that also declare the same environment, which the downstream job omits." },
-      { id: 'C', text: "Job outputs are limited in length and the token exceeds it, so it must be split across two outputs." },
-      { id: 'D', text: "The needs context exposes only the job result, so any value must travel as an artifact." }
+      { id: 'A', text: "A job output holding a registered secret is redacted on the runner, so the value must be re-obtained downstream." },
+      { id: 'B', text: "Outputs are readable only by jobs declaring the same environment, which the downstream job omits." },
+      { id: 'C', text: "Job outputs have a length limit the token exceeds, so it has to be split across two outputs." },
+      { id: 'D', text: "The `needs` context exposes only the job result, so any value has to travel as an artifact." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -220,7 +220,7 @@ export const GITHUB_ACTIONS_QUESTIONS_5 = [
     question: "What is the most likely reason?",
     options: [
       { id: 'A', text: "The github-actions ecosystem only covers actions in the Marketplace, not those referenced by SHA." },
-      { id: 'B', text: "The Dependabot configuration file must be present on the default branch to take effect, and a copy on a feature branch is ignored." },
+      { id: 'B', text: "The Dependabot file must be on the default branch; a copy on a feature branch is ignored." },
       { id: 'C', text: "Dependabot requires the repository to have vulnerability alerts enabled before any version updates run." },
       { id: 'D', text: "Dependabot cannot update actions pinned to a commit SHA, only ones pinned to tags." }
     ],
@@ -240,10 +240,10 @@ export const GITHUB_ACTIONS_QUESTIONS_5 = [
     scenario: "A cache entry was saved containing a corrupted dependency tree. Every run now restores the bad entry and fails, and because the lockfile has not changed the key is identical each time.",
     question: "What is the most direct remedy?",
     options: [
-      { id: 'A', text: "Wait for the entry to be evicted, which happens within an hour of a failed restore." },
-      { id: 'B', text: "Set the cache action to read-only mode permanently." },
-      { id: 'C', text: "Delete the workflow run that created the entry, which removes its caches." },
-      { id: 'D', text: "Delete the offending cache entry from the repository caches view, or with the GitHub CLI cache commands, so the next run repopulates it." }
+      { id: 'A', text: "Wait for the entry to be evicted, which follows within an hour of a failed restore." },
+      { id: 'B', text: "Set the cache action to read-only mode so the bad entry is never written again." },
+      { id: 'C', text: "Delete the workflow run that created the entry, which removes its caches too." },
+      { id: 'D', text: "Delete the poisoned entry from the caches view or with the CLI, so the next run rebuilds it." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -261,10 +261,10 @@ export const GITHUB_ACTIONS_QUESTIONS_5 = [
     scenario: "A compliance requirement says a standard scanning workflow must execute on every pull request in fifty repositories, and that a repository owner must not be able to remove or bypass it by editing files in their own repository.",
     question: "Which mechanism provides that guarantee?",
     options: [
-      { id: 'A', text: "A reusable workflow that each repository is asked to call from its own pipeline." },
-      { id: 'B', text: "A starter workflow published in the organization .github repository." },
-      { id: 'C', text: "A branch protection rule in each repository requiring a status check with the agreed name." },
-      { id: 'D', text: "A repository ruleset defined at organization level that requires the specified workflow to pass, applied to the target repositories." }
+      { id: 'A', text: "A reusable workflow each repository is asked to call from its own pipeline." },
+      { id: 'B', text: "A starter workflow published in the organization's `.github` repository." },
+      { id: 'C', text: "A branch protection rule per repository requiring the agreed status check." },
+      { id: 'D', text: "An organization ruleset requiring that workflow to pass on those repositories." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -303,10 +303,10 @@ export const GITHUB_ACTIONS_QUESTIONS_5 = [
     scenario: "A reporting workflow triggered by workflow_run must read the coverage artifact uploaded by the build workflow that just completed. A plain download step in the reporting workflow finds nothing.",
     question: "Why, and what is required?",
     options: [
-      { id: 'A', text: "Artifacts are scoped to the run that created them, so the reporting workflow must fetch the artifact of the triggering run by its run identifier, taken from the workflow_run event payload, using the API or an action that supports a run identifier." },
-      { id: 'B', text: "The reporting workflow must declare needs on the build workflow, which makes the artifact visible." },
-      { id: 'C', text: "Artifacts are deleted as soon as their run completes, so the build workflow must write to the cache instead." },
-      { id: 'D', text: "Artifacts cannot cross runs under any circumstances, so the coverage data must be committed to a branch." }
+      { id: 'A', text: "Artifacts are scoped to their run, so the reporting workflow must fetch by the triggering run's identifier from the event payload." },
+      { id: 'B', text: "The reporting workflow has to declare `needs` on the build workflow, which is what makes the artifact visible to it." },
+      { id: 'C', text: "Artifacts are deleted as soon as their run finishes, so the build workflow has to write to the cache instead." },
+      { id: 'D', text: "Artifacts cannot cross runs at all, so the coverage data has to be committed to a branch to be read." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -324,10 +324,10 @@ export const GITHUB_ACTIONS_QUESTIONS_5 = [
     scenario: "A team requests that a community action be added to the organization allow list. The reviewer has to decide what evidence to require before approving it.",
     question: "Which considerations are most relevant to that decision?",
     options: [
-      { id: 'A', text: "Whether the action is listed in the Marketplace, which is sufficient evidence of safety." },
-      { id: 'B', text: "Whether the source can be reviewed and pinned to an immutable reference, what permissions and secrets the workflow will expose it to, and whether the publisher is maintained and verified." },
-      { id: 'C', text: "Whether the action is written in JavaScript, since container actions cannot be reviewed." },
-      { id: 'D', text: "The number of stars on the repository and how recently the README was updated." }
+      { id: 'A', text: "Whether the action appears in the Marketplace, which is sufficient evidence that it is safe to use." },
+      { id: 'B', text: "Whether the source is reviewable and pinnable, and whether it is maintained." },
+      { id: 'C', text: "Whether the action is written in JavaScript, since a container action cannot be reviewed at all." },
+      { id: 'D', text: "How many stars the repository has, and how recently its README was last updated by the author." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -345,10 +345,10 @@ export const GITHUB_ACTIONS_QUESTIONS_5 = [
     scenario: "A composite action ships a helper script beside its metadata file. A run step invokes the script by a path relative to the current directory, and every consumer sees a file-not-found error even though the file is present in the action repository.",
     question: "What is the correct reference?",
     options: [
-      { id: 'A', text: "A path built from github.action_path, which resolves to the directory the action was checked out into on the runner." },
-      { id: 'B', text: "An absolute path under the runner tool cache, where actions are staged." },
-      { id: 'C', text: "A path relative to the consuming repository root, since actions are copied into it." },
-      { id: 'D', text: "A path built from github.workspace, which contains the action files during execution." }
+      { id: 'A', text: "A path built from `github.action_path`, the directory the action was checked out into." },
+      { id: 'B', text: "An absolute path under the runner's tool cache, where the actions are staged." },
+      { id: 'C', text: "A path relative to the consuming repository, since actions are copied into it." },
+      { id: 'D', text: "A path built from `github.workspace`, which holds the action files at run time." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -366,10 +366,10 @@ export const GITHUB_ACTIONS_QUESTIONS_5 = [
     scenario: "An action is replacing its token input with a differently named one. Many workflows still pass the old name, and the author wants those runs to keep working for now while showing maintainers that a change is needed.",
     question: "Which metadata feature supports that transition?",
     options: [
-      { id: 'A', text: "Keep the old input declared and attach a deprecationMessage to it, so the runner warns when a caller supplies it while the value still reaches the action." },
-      { id: 'B', text: "Remove the old input and rely on the action code to read the raw environment variable, which produces a warning." },
-      { id: 'C', text: "Add a since key to the new input naming the version at which the old one stops working." },
-      { id: 'D', text: "Mark the old input required false, which emits a deprecation warning automatically." }
+      { id: 'A', text: "Keep the old input with a `deprecationMessage`, so callers are warned while it still works." },
+      { id: 'B', text: "Remove the old input and read the raw environment variable, which warns on use." },
+      { id: 'C', text: "Add a `since` key to the new input naming when the old one stops working." },
+      { id: 'D', text: "Mark the old input `required: false`, which emits a deprecation warning." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -408,10 +408,10 @@ export const GITHUB_ACTIONS_QUESTIONS_5 = [
     scenario: "An author wants a container action based on a widely used published image, but the image entry point starts a long-running server whereas the action needs to run a one-shot command and exit.",
     question: "How is that expressed in the action metadata?",
     options: [
-      { id: 'A', text: "Wrap the image in a composite action, which is the only way to change how a container starts." },
-      { id: 'B', text: "Set the image to the published reference and declare an entrypoint in the runs block, which overrides the entry point baked into the image, with args supplying the parameters." },
-      { id: 'C', text: "Set the image to the published reference and add a command key, which container actions use instead of entrypoint." },
-      { id: 'D', text: "Fork the image and rebuild it with a different entry point, because metadata cannot override it." }
+      { id: 'A', text: "Wrap the image in a composite action, the only way to change how the container is started." },
+      { id: 'B', text: "Point `image` at the published reference and declare an `entrypoint`, with `args` for the parameters." },
+      { id: 'C', text: "Point `image` at the reference and add a `command` key, which container actions use instead." },
+      { id: 'D', text: "Fork the image and rebuild it with the wanted entry point, since metadata cannot override." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -429,10 +429,10 @@ export const GITHUB_ACTIONS_QUESTIONS_5 = [
     scenario: "A cloud trust policy matches the subject claim for a specific repository and the main branch. The team now deploys from several release branches and from a reusable workflow, and keeping the trust policy in step with branch names has become error-prone.",
     question: "Which approach is more robust?",
     options: [
-      { id: 'A', text: "Switch back to a long-lived access key, since claim management is the weakness of federated access." },
-      { id: 'B', text: "Issue a separate role per branch and select the role with an expression at run time." },
-      { id: 'C', text: "Customise the subject claim for the repository so it is built from the deployment environment rather than the branch, and have the trust policy match that environment, which then also gates on the environment protection rules." },
-      { id: 'D', text: "Match on a wildcard covering every branch in the repository, since the repository portion of the claim is the real boundary." }
+      { id: 'A', text: "Switch back to a long-lived access key, since claim management is the weak point of federated access." },
+      { id: 'B', text: "Issue a separate role per branch and pick the role with an expression at run time." },
+      { id: 'C', text: "Customise the subject claim to carry the environment rather than the branch, and match that in the trust policy." },
+      { id: 'D', text: "Match a wildcard covering every branch, since the repository part of the claim is the real boundary." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -450,10 +450,10 @@ export const GITHUB_ACTIONS_QUESTIONS_5 = [
     scenario: "An enterprise operates one hardened runner fleet. Three of its eight organizations should be able to use the fleet, and the platform team wants to manage it in one place rather than registering runners separately in each organization.",
     question: "Which arrangement fits?",
     options: [
-      { id: 'A', text: "Register the runners three times, once per organization, pointing at the same machines." },
-      { id: 'B', text: "Register the runners at enterprise level, which automatically makes them available to every organization with no further configuration." },
-      { id: 'C', text: "Register the runners in one organization and add the other two as collaborators on that organization." },
-      { id: 'D', text: "Register the runners at enterprise level in a runner group whose access is granted to the three organizations, which may then further restrict it to particular repositories." }
+      { id: 'A', text: "Register the runners three times, once per organization, on the same machines." },
+      { id: 'B', text: "Register them at enterprise level, which reaches every organization by default." },
+      { id: 'C', text: "Register them in one organization and add the other two as collaborators." },
+      { id: 'D', text: "Register them at enterprise level in a runner group granted to the three organizations." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -471,10 +471,10 @@ export const GITHUB_ACTIONS_QUESTIONS_5 = [
     scenario: "A reviewer argues that repository secrets are safe from contributors because the interface never displays a stored secret value, only its name, so anyone with write access can be trusted with them.",
     question: "Which assessment is accurate?",
     options: [
-      { id: 'A', text: "The reviewer is correct: since values are never displayed, write access carries no secret exposure." },
-      { id: 'B', text: "Secrets are only exposed if a workflow explicitly disables log masking, which requires administrator rights." },
-      { id: 'C', text: "Anyone able to merge a change to a workflow file can cause a run to use a secret and print or transmit a transformed version of it, so write access should be treated as equivalent to access to every secret the repository holds; narrowing exposure means environment scoping with reviewers, and protecting the workflow path." },
-      { id: 'D', text: "Secrets are safe because masking prevents a secret from ever leaving the runner." }
+      { id: 'A', text: "The reviewer is right: since the values are never displayed, write access carries no exposure of the secrets." },
+      { id: 'B', text: "Secrets are exposed only when a workflow disables log masking, which needs administrator rights to do." },
+      { id: 'C', text: "Anyone who can merge a workflow change can make a run use and exfiltrate a secret, so write access equals secret access." },
+      { id: 'D', text: "Secrets are safe because masking stops the value ever leaving the runner in any form." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -492,10 +492,10 @@ export const GITHUB_ACTIONS_QUESTIONS_5 = [
     scenario: "A team is provisioning self-hosted runners for internal repositories. The build workflows are trusted, but the platform team wants to limit what a compromised or buggy build could reach on the host and on the network.",
     question: "Which configuration reflects the documented guidance?",
     options: [
-      { id: 'A', text: "Co-locate the runner with the artifact registry to reduce network exposure between them." },
-      { id: 'B', text: "Run the runner as an administrator so it can install whatever a build needs, and rely on the trusted repository boundary." },
-      { id: 'C', text: "Grant the runner host broad outbound access so that dependency resolution never fails, and audit the logs afterwards." },
-      { id: 'D', text: "Run the runner service under a dedicated unprivileged account on a machine that hosts nothing else, restrict its outbound network reach to what builds require, and prefer ephemeral instances so state does not carry between jobs." }
+      { id: 'A', text: "Co-locate the runner with the artifact registry so the traffic between them never leaves the network." },
+      { id: 'B', text: "Run the runner as an administrator so it can install whatever a build needs, trusting the repository boundary." },
+      { id: 'C', text: "Give the runner host broad outbound access so dependency resolution never fails, and audit the logs after." },
+      { id: 'D', text: "Run the runner as an unprivileged account on a dedicated host, restrict its outbound reach, and prefer ephemeral instances." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -513,10 +513,10 @@ export const GITHUB_ACTIONS_QUESTIONS_5 = [
     scenario: "An organization secret named REGISTRY_TOKEN is available to a repository, and that repository also defines a repository secret with the same name holding a different value. A workflow references the name.",
     question: "Which value does the workflow receive?",
     options: [
-      { id: 'A', text: "The organization secret, because organization settings override repository settings." },
-      { id: 'B', text: "Both concatenated, in the order organization then repository." },
-      { id: 'C', text: "Neither, because a name collision makes the reference ambiguous and the workflow fails." },
-      { id: 'D', text: "The repository secret, because the more specific scope takes precedence over the organization secret of the same name." }
+      { id: 'A', text: "The organization secret, since organization settings override the repository's own." },
+      { id: 'B', text: "Both concatenated, in the order the organization then the repository defines." },
+      { id: 'C', text: "Neither, since the name collision makes the reference ambiguous and fails." },
+      { id: 'D', text: "The repository secret, since the more specific scope takes precedence over the organization." }
     ],
     correctAnswers: ['D'],
     type: "single",

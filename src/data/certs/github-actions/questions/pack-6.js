@@ -9,10 +9,10 @@ export const GITHUB_ACTIONS_QUESTIONS_6 = [
     scenario: "A step is marked continue-on-error so the job proceeds regardless. A later step must post a warning when that tolerated step really did fail, but testing the step result in the usual way always reports success.",
     question: "Which property distinguishes the two?",
     options: [
-      { id: 'A', text: "The exit-code property, which is the only unmodified signal available." },
-      { id: 'B', text: "The outcome property of the step, which records the result before continue-on-error is applied, whereas conclusion records the result after it." },
-      { id: 'C', text: "Neither, because a tolerated failure is discarded and cannot be observed later in the job." },
-      { id: 'D', text: "The conclusion property, which records the raw result, whereas outcome is adjusted by continue-on-error." }
+      { id: 'A', text: "The step's `exit-code`, which is the only unmodified signal left available." },
+      { id: 'B', text: "The step's `outcome`, which records the result before `continue-on-error` is applied." },
+      { id: 'C', text: "Neither, since a tolerated failure is discarded and cannot be seen later." },
+      { id: 'D', text: "The step's `conclusion`, which records the raw result before adjustment." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -72,10 +72,10 @@ export const GITHUB_ACTIONS_QUESTIONS_6 = [
     scenario: "A discovery job emits a JSON array of changed services. On documentation-only pull requests the array is empty, and the team wants the downstream build job simply not to run rather than failing or running once with no input.",
     question: "What happens, and what should accompany it?",
     options: [
-      { id: 'A', text: "An empty matrix array is treated as a single wildcard job that builds everything." },
-      { id: 'B', text: "An empty matrix array produces one job with all matrix values unset, which must be guarded by a step condition." },
-      { id: 'C', text: "An empty matrix array fails the run with a strategy error, so the discovery job must emit a placeholder entry." },
-      { id: 'D', text: "An empty matrix array produces no jobs, so the build job is reported as skipped; any job that depends on it should use a status check function if it must still run." }
+      { id: 'A', text: "An empty matrix is treated as one wildcard job that builds everything in the repository." },
+      { id: 'B', text: "An empty matrix produces one job with the values unset, guarded by a step condition." },
+      { id: 'C', text: "An empty matrix fails the run, so the discovery job has to emit a placeholder entry." },
+      { id: 'D', text: "An empty matrix produces no jobs, so the build is skipped; dependants need a status check function." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -93,10 +93,10 @@ export const GITHUB_ACTIONS_QUESTIONS_6 = [
     scenario: "An administrator defines a non-sensitive configuration variable at organization level holding the internal artifact registry hostname. A workflow needs to read it.",
     question: "Which context exposes it?",
     options: [
-      { id: 'A', text: "The github context, under an organization property." },
-      { id: 'B', text: "The env context, which is populated automatically from organization variables." },
-      { id: 'C', text: "The secrets context, which exposes both secrets and variables." },
-      { id: 'D', text: "The vars context, which exposes configuration variables defined at organization, repository and environment level." }
+      { id: 'A', text: "The `github` context, under a property naming the owning organization." },
+      { id: 'B', text: "The `env` context, which is populated from the organization variables." },
+      { id: 'C', text: "The `secrets` context, which exposes both secrets and variables." },
+      { id: 'D', text: "The `vars` context, carrying organization, repository and environment variables." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -114,10 +114,10 @@ export const GITHUB_ACTIONS_QUESTIONS_6 = [
     scenario: "A run fails inside an action with a message that gives no useful detail. The maintainer wants the runner internal diagnostics and the step-level tracing for a single investigation, without permanently changing the workflow.",
     question: "Which approach provides it?",
     options: [
-      { id: 'A', text: "Re-run the jobs with the debug logging option enabled, or set the step and runner debug flags as repository secrets or variables for a broader investigation." },
-      { id: 'B', text: "Add a verbose flag to every step, which is the only supported mechanism." },
-      { id: 'C', text: "Increase the artifact retention period, which causes the runner to keep diagnostic files." },
-      { id: 'D', text: "Download the run logs archive, which always contains the debug streams whether or not debugging was enabled." }
+      { id: 'A', text: "Re-run the jobs with debug logging on, or set the debug flags as repository variables." },
+      { id: 'B', text: "Add a verbose flag to every step, the only supported mechanism for more output." },
+      { id: 'C', text: "Raise the artifact retention period, which makes the runner keep its diagnostics." },
+      { id: 'D', text: "Download the run's log archive, which holds the debug streams either way." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -135,10 +135,10 @@ export const GITHUB_ACTIONS_QUESTIONS_6 = [
     scenario: "Three independent verification jobs run in parallel: unit tests, linting and a licence check. A packaging job must start only after all three have succeeded, and must not start if any of them failed.",
     question: "How is that expressed?",
     options: [
-      { id: 'A', text: "Chain the three jobs with needs so they run in sequence, then have packaging depend on the last." },
-      { id: 'B', text: "Declare needs naming only the slowest of the three, since the others always finish first." },
-      { id: 'C', text: "Add a concurrency group shared by all four jobs." },
-      { id: 'D', text: "Declare needs on the packaging job as a list naming all three jobs, which waits for every one and inherits the implicit success requirement." }
+      { id: 'A', text: "Chain the three jobs with `needs` in sequence and have packaging depend on the last." },
+      { id: 'B', text: "Declare `needs` naming only the slowest of the three, since the others finish first." },
+      { id: 'C', text: "Add a `concurrency` group shared by all four jobs so they run one after another." },
+      { id: 'D', text: "Declare `needs` on the packaging job as a list of all three, which waits for each to succeed." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -156,10 +156,10 @@ export const GITHUB_ACTIONS_QUESTIONS_6 = [
     scenario: "The Actions list shows every run of a deployment workflow with the same workflow name, so operators cannot tell which environment and version each row deployed without opening it.",
     question: "Which key changes what the list displays?",
     options: [
-      { id: 'A', text: "The name key at workflow level, which is re-evaluated per run." },
-      { id: 'B', text: "The job name key, which replaces the run title when there is a single job." },
-      { id: 'C', text: "The run-name key at workflow level, which accepts an expression and sets the title shown for each run." },
-      { id: 'D', text: "A title property added to GITHUB_STEP_SUMMARY, which the list reads." }
+      { id: 'A', text: "The `name` key at workflow level, which is re-evaluated for each run started." },
+      { id: 'B', text: "The job's `name` key, which replaces the run title when there is one job." },
+      { id: 'C', text: "The `run-name` key at workflow level, which takes an expression and titles each run." },
+      { id: 'D', text: "A title property added to the step summary, which the run list then reads." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -178,7 +178,7 @@ export const GITHUB_ACTIONS_QUESTIONS_6 = [
     question: "How is that written?",
     options: [
       { id: 'A', text: "Setting permissions to contents: none, which is the only scope that can be removed." },
-      { id: 'B', text: "An empty permissions mapping on the job, which disables every scope of the automatic token for that job." },
+      { id: 'B', text: "An empty `permissions` mapping on the job, which removes every scope from its token." },
       { id: 'C', text: "Omitting the permissions key, which defaults to no permissions." },
       { id: 'D', text: "Setting the job to run on a self-hosted runner, which is not issued a token." }
     ],
@@ -199,7 +199,7 @@ export const GITHUB_ACTIONS_QUESTIONS_6 = [
     question: "Which adjustment helps?",
     options: [
       { id: 'A', text: "Raise the compression-level input so the archive is smaller and uploads faster." },
-      { id: 'B', text: "Lower the compression-level input on the upload step so the archive is created with little or no compression." },
+      { id: 'B', text: "Lower the `compression-level` on the upload so the archive is barely compressed." },
       { id: 'C', text: "Set retention-days to the minimum, which skips compression for short-lived artifacts." },
       { id: 'D', text: "Split the directory across ten artifacts, which parallelises compression." }
     ],
@@ -219,10 +219,10 @@ export const GITHUB_ACTIONS_QUESTIONS_6 = [
     scenario: "A job requesting a self-hosted label sits queued because the only runner carrying that label has been offline. After about a day the job vanishes from the run with a failure rather than continuing to wait.",
     question: "What happened?",
     options: [
-      { id: 'A', text: "The job timeout-minutes value elapsed, which counts queue time as execution time." },
-      { id: 'B', text: "A job waiting for a self-hosted runner is terminated once it has been queued for the maximum queue time of twenty-four hours." },
-      { id: 'C', text: "The workflow run reached the maximum total run duration of thirty-five days." },
-      { id: 'D', text: "The runner registration expired, which retroactively cancels queued jobs." }
+      { id: 'A', text: "The job's `timeout-minutes` elapsed, since queue time counts as execution time." },
+      { id: 'B', text: "A job waiting for a self-hosted runner is cancelled after the 24-hour queue limit." },
+      { id: 'C', text: "The run reached the maximum total workflow duration of thirty-five days." },
+      { id: 'D', text: "The runner's registration expired, which cancels the jobs queued for it." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -241,7 +241,7 @@ export const GITHUB_ACTIONS_QUESTIONS_6 = [
     question: "Which approach is appropriate?",
     options: [
       { id: 'A', text: "Read the artifact contents out of the run logs, where they are recorded." },
-      { id: 'B', text: "Use the GitHub CLI run download command with the run identifier, optionally naming the artifact." },
+      { id: 'B', text: "Use the CLI's `run download` with the run identifier and artifact name." },
       { id: 'C', text: "Re-run the workflow with an added step that copies the build to a shared drive." },
       { id: 'D', text: "Artifacts are only downloadable from the run page in a browser." }
     ],
@@ -261,10 +261,10 @@ export const GITHUB_ACTIONS_QUESTIONS_6 = [
     scenario: "An organization runs GitHub Enterprise Server in an isolated network. Workflows referencing common public actions fail because the actions cannot be resolved.",
     question: "Which approaches make those actions available?",
     options: [
-      { id: 'A', text: "Enable GitHub Connect so the server can resolve public actions from the hosted service, or use the actions synchronisation tooling to mirror the required action repositories onto the server." },
-      { id: 'B', text: "Reference the actions by their full commit SHA, which bypasses resolution." },
-      { id: 'C', text: "Run the affected workflows on GitHub-hosted runners, which resolve actions independently of the server." },
-      { id: 'D', text: "Add the public action repositories to the organization allow list, which mirrors them automatically." }
+      { id: 'A', text: "Enable GitHub Connect, or mirror the action repositories onto the server." },
+      { id: 'B', text: "Reference each action by its full commit SHA, which bypasses resolution entirely." },
+      { id: 'C', text: "Run the affected workflows on hosted runners, which resolve actions independently." },
+      { id: 'D', text: "Add the action repositories to the organization allow list, which mirrors them." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -282,7 +282,7 @@ export const GITHUB_ACTIONS_QUESTIONS_6 = [
     scenario: "Operations wants a fifteen-minute gap between a staging deployment succeeding and the production job starting, so that automated monitoring has time to raise an alert, with no human required to click anything when all is well.",
     question: "Which environment protection rule provides that?",
     options: [
-      { id: 'A', text: "A wait timer on the production environment, which delays the job by the configured number of minutes before it proceeds." },
+      { id: 'A', text: "A wait timer on the production environment, which delays the job by that many minutes." },
       { id: 'B', text: "Required reviewers on the production environment, with the reviewers instructed to wait fifteen minutes." },
       { id: 'C', text: "A concurrency group with a fifteen-minute cooldown property." },
       { id: 'D', text: "A step that sleeps for fifteen minutes at the start of the production job." }
@@ -303,10 +303,10 @@ export const GITHUB_ACTIONS_QUESTIONS_6 = [
     scenario: "A contributor discovers that pushing a branch and starting a manual dispatch from it lets them run the deployment job against production. The team wants only the default branch and release branches to be able to deploy there.",
     question: "Which control enforces that?",
     options: [
-      { id: 'A', text: "Branch protection on the release branches requiring review." },
-      { id: 'B', text: "A deployment branch policy on the production environment restricting which branches and tags may deploy to it." },
-      { id: 'C', text: "A job condition comparing github.ref to the permitted branch names." },
-      { id: 'D', text: "Removing the workflow_dispatch trigger so deployments are automatic only." }
+      { id: 'A', text: "Branch protection on the release branches requiring a review before merge." },
+      { id: 'B', text: "A deployment branch policy on the environment restricting which refs may deploy." },
+      { id: 'C', text: "A job condition comparing `github.ref` with the permitted branch names." },
+      { id: 'D', text: "Removing the `workflow_dispatch` trigger so deployments only run on push." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -345,9 +345,9 @@ export const GITHUB_ACTIONS_QUESTIONS_6 = [
     scenario: "A finance review asks why the Actions bill is dominated by a handful of jobs that each run for only a few minutes on Windows and macOS, while much longer Linux jobs contribute comparatively little.",
     question: "What explains the pattern?",
     options: [
-      { id: 'A', text: "Linux minutes are free on all plans, so only other platforms appear in the bill." },
-      { id: 'B', text: "Minutes on Windows and macOS runners are billed at a multiplier relative to Linux, so a short job on those platforms can cost more than a long Linux job." },
-      { id: 'C', text: "Jobs shorter than five minutes are rounded up to an hour on non-Linux platforms." },
+      { id: 'A', text: "Linux minutes are free on every plan, so only the other platforms reach the bill." },
+      { id: 'B', text: "Windows and macOS minutes bill at a multiplier over Linux, so a short job costs more." },
+      { id: 'C', text: "Jobs under five minutes are rounded up to an hour on the non-Linux platforms." },
       { id: 'D', text: "Windows and macOS runners are billed per job started rather than per minute." }
     ],
     correctAnswers: ['B'],
@@ -366,10 +366,10 @@ export const GITHUB_ACTIONS_QUESTIONS_6 = [
     scenario: "A composite action installs a toolchain and, when a boolean input asks for it, also warms a cache. The author wants the cache step to be skipped rather than to exit early with a no-op script.",
     question: "Is that possible, and how?",
     options: [
-      { id: 'A', text: "Yes, by setting continue-on-error on the step, which skips it when the input is false." },
-      { id: 'B', text: "No; composite action steps run unconditionally, so the script must decide for itself." },
-      { id: 'C', text: "Yes, but only by splitting the optional step into a second action that the caller conditions." },
-      { id: 'D', text: "Yes; steps in a composite action support an if condition, so the step can be conditioned on the input value from the inputs context." }
+      { id: 'A', text: "Yes, by setting `continue-on-error`, which skips the step when the input is false." },
+      { id: 'B', text: "No: composite steps run unconditionally, so the script must decide for itself." },
+      { id: 'C', text: "Yes, but only by splitting the step into a second action the caller conditions." },
+      { id: 'D', text: "Yes: a composite action's steps support `if`, so condition it on the inputs context." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -387,10 +387,10 @@ export const GITHUB_ACTIONS_QUESTIONS_6 = [
     scenario: "A JavaScript action needs to establish a network tunnel before its main logic runs and, importantly, before any of the other steps that come after it in the job, so those steps also benefit from the tunnel.",
     question: "Which metadata entry supports that?",
     options: [
-      { id: 'A', text: "A first-run flag on the main entry point." },
-      { id: 'B', text: "A pre entry in the runs block naming a script the runner executes before the main entry point, with pre-if controlling when it applies." },
-      { id: 'C', text: "A setup entry in the runs block, executed once per job." },
-      { id: 'D', text: "There is no such feature; the caller must add a separate setup step before the action." }
+      { id: 'A', text: "A first-run flag on the main entry point, which the runner honours per job." },
+      { id: 'B', text: "A `pre` entry in `runs` naming a script run before the main one, with `pre-if` to scope it." },
+      { id: 'C', text: "A `setup` entry in the `runs` block, which is executed once for each job." },
+      { id: 'D', text: "No such feature; the caller has to add its own setup step before the action." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -408,10 +408,10 @@ export const GITHUB_ACTIONS_QUESTIONS_6 = [
     scenario: "An action maintainer tags each release. Consumers follow the major version tag, which the maintainer keeps forgetting to move, so those consumers silently stay on an old release for weeks.",
     question: "Which practice removes the manual step safely?",
     options: [
-      { id: 'A', text: "Configuring the repository to alias the major version tag to the newest tag automatically in settings." },
-      { id: 'B', text: "Deleting the major version tag and instructing consumers to follow the default branch instead." },
-      { id: 'C', text: "A release-triggered workflow that force-updates the major version tag to the newly published release commit, guarded so it only runs for non-prerelease publications and only when the release is compatible." },
-      { id: 'D', text: "Publishing every release as a new major version, so the tag never needs moving." }
+      { id: 'A', text: "A repository setting that aliases the major tag to the newest release automatically." },
+      { id: 'B', text: "Deleting the major tag and telling consumers to follow the default branch instead." },
+      { id: 'C', text: "A release-triggered workflow that force-moves the major tag, guarded to skip prereleases." },
+      { id: 'D', text: "Publishing every release as a new major version, so no tag ever has to move." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -429,10 +429,10 @@ export const GITHUB_ACTIONS_QUESTIONS_6 = [
     scenario: "An internal service accepts OpenID Connect tokens but no published action exists for it. The team wants the workflow to obtain a token and exchange it directly, without storing any credential.",
     question: "How does the workflow obtain the token?",
     options: [
-      { id: 'A', text: "Grant the job the id-token: write permission, then request the token from the runner token endpoint using the request URL and request token environment variables, or through the toolkit helper that wraps them, supplying the intended audience." },
-      { id: 'B', text: "Call the repository API with the automatic token to mint an identity token." },
-      { id: 'C', text: "Tokens are only obtainable through published cloud login actions, so one must be written and published first." },
-      { id: 'D', text: "Read the token from the secrets context, where the platform places it when the permission is granted." }
+      { id: 'A', text: "Grant the job `id-token: write` and request the token from the runner's token endpoint with an audience." },
+      { id: 'B', text: "Call the repository API with the automatic token, which mints an identity token for the run." },
+      { id: 'C', text: "Tokens are obtainable only through a published cloud login action, so one must be written first." },
+      { id: 'D', text: "Read the token from the secrets context, where the platform puts it once the permission is set." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -450,10 +450,10 @@ export const GITHUB_ACTIONS_QUESTIONS_6 = [
     scenario: "A production environment has required reviewers configured. A team asks whether the person who pushed the change can approve their own deployment, and how many reviewers can be listed.",
     question: "Which description is accurate?",
     options: [
-      { id: 'A', text: "Any number of reviewers may be listed and all of them must approve before the job proceeds." },
-      { id: 'B', text: "Up to six individuals or teams may be listed as required reviewers, only one of them needs to approve, and the environment offers a setting that prevents the user who started the run from approving it." },
+      { id: 'A', text: "Any number of reviewers may be listed, and every one of them must approve before the job proceeds." },
+      { id: 'B', text: "Up to six reviewers may be listed, only one need approve, and a setting can bar the run's actor from approving." },
       { id: 'C', text: "Reviewers are limited to repository administrators, who may always approve their own runs." },
-      { id: 'D', text: "Approval is granted by whoever opens the run page first, and self-approval is always blocked." }
+      { id: 'D', text: "Approval falls to whoever opens the run page first, and self-approval is always blocked." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -471,10 +471,10 @@ export const GITHUB_ACTIONS_QUESTIONS_6 = [
     scenario: "A regulated environment requires that any software change on build hosts goes through a change record. Self-hosted runners currently update themselves when a new version is released, which conflicts with that requirement.",
     question: "What is the correct handling?",
     options: [
-      { id: 'A', text: "Block the update endpoint at the firewall, which stops the update without any operational obligation." },
-      { id: 'B', text: "Set an organization policy that freezes the runner version for all self-hosted runners." },
-      { id: 'C', text: "Nothing can be done; self-hosted runners always update themselves." },
-      { id: 'D', text: "Start the runner with the update-disabling option and take responsibility for installing new runner versions before the old one stops being supported, since an outdated runner eventually cannot connect." }
+      { id: 'A', text: "Block the update endpoint at the firewall, which stops the update with no further obligation." },
+      { id: 'B', text: "Set an organization policy freezing the runner version for every self-hosted runner." },
+      { id: 'C', text: "Nothing can be done, since a self-hosted runner always updates itself on connect." },
+      { id: 'D', text: "Start the runner with updates disabled and take on installing new versions before support lapses." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -492,10 +492,10 @@ export const GITHUB_ACTIONS_QUESTIONS_6 = [
     scenario: "A compliance programme requires seven years of records for changes to Actions policies, runner registrations and secret management. The platform audit log retains events for a shorter period.",
     question: "Which capability meets the requirement?",
     options: [
-      { id: 'A', text: "Configure audit log streaming to an external destination such as object storage or a log platform, which delivers events continuously so retention is governed by the destination." },
-      { id: 'B', text: "Export the audit log by hand each quarter from the web interface." },
-      { id: 'C', text: "Rely on workflow run logs, which capture the same governance events." },
-      { id: 'D', text: "Increase the audit log retention setting to the required number of years." }
+      { id: 'A', text: "Stream the audit log to an external store, whose retention then governs it." },
+      { id: 'B', text: "Export the audit log by hand each quarter from the enterprise web interface." },
+      { id: 'C', text: "Rely on the workflow run logs, which capture the same governance events." },
+      { id: 'D', text: "Raise the audit log retention setting to the number of years required." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -513,10 +513,10 @@ export const GITHUB_ACTIONS_QUESTIONS_6 = [
     scenario: "A platform team builds its own autoscaler rather than adopting the Kubernetes controller. Each runner must accept exactly one job and then exit, and no long-lived registration credential should be stored on the instance image.",
     question: "Which registration approach fits?",
     options: [
-      { id: 'A', text: "Bake a registration token into the instance image and rotate the image weekly." },
-      { id: 'B', text: "Register a persistent runner and have the last step of every job restart the host." },
-      { id: 'C', text: "Generate a just-in-time runner configuration through the API for each instance, which encodes a single-use ephemeral registration the runner consumes at start-up." },
-      { id: 'D', text: "Register each instance interactively with a personal access token held in the instance metadata." }
+      { id: 'A', text: "Bake a registration token into the machine image and rotate that image each week." },
+      { id: 'B', text: "Register a persistent runner and have the final step of each job restart the host." },
+      { id: 'C', text: "Generate a just-in-time runner configuration per instance, which is single-use and ephemeral." },
+      { id: 'D', text: "Register each instance with a personal access token held in its own metadata." }
     ],
     correctAnswers: ['C'],
     type: "single",

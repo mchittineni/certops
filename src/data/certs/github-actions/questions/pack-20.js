@@ -9,10 +9,10 @@ export const GITHUB_ACTIONS_QUESTIONS_20 = [
     scenario: "A devops automation engineering team is establishing high-availability pipeline standards, runner recovery procedures, and operational resilience baselines for GitHub Actions. The GitHub Actions engineer needs to prevent developers across an enterprise organization from using unvetted third-party actions from random GitHub users.",
     question: "Which architectural approach or configuration satisfies these CI/CD disaster recovery and operational continuity objectives?",
     options: [
-      { id: 'A', text: "Configure Enterprise Actions Policies to allow 'Local actions only' or 'Allow select actions' from verified creators." },
-      { id: 'B', text: "Allow all public marketplace actions without restrictions." },
-      { id: 'C', text: "Disable GitHub Actions completely across the enterprise." },
-      { id: 'D', text: "Instruct developers to read third-party source code voluntarily." }
+      { id: 'A', text: "Set the enterprise Actions policy to local actions only, or to selected creators." },
+      { id: 'B', text: "Allow all Marketplace actions but require each to be pinned to a commit SHA." },
+      { id: 'C', text: "Disable Actions for the enterprise and run the pipelines on the old system." },
+      { id: 'D', text: "Allow all actions and review the audit log for the ones that were used." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -30,10 +30,10 @@ export const GITHUB_ACTIONS_QUESTIONS_20 = [
     scenario: "A high-throughput software engineering organization experiences massive surges in concurrent build and test requests across thousands of enterprise repositories. The GitHub Actions engineer needs to prevent developers across an enterprise organization from using unvetted third-party actions from random GitHub users.",
     question: "Which workflow architecture or runner configuration manages this execution volume effectively while preventing queue congestion and latency?",
     options: [
-      { id: 'A', text: "Configure Enterprise Actions Policies to allow 'Local actions only' or 'Allow select actions' from verified creators." },
-      { id: 'B', text: "Allow all public marketplace actions without restrictions." },
-      { id: 'C', text: "Disable GitHub Actions completely across the enterprise." },
-      { id: 'D', text: "Instruct developers to read third-party source code voluntarily." }
+      { id: 'A', text: "Set the enterprise Actions policy to local actions only, or to selected creators." },
+      { id: 'B', text: "Allow all Marketplace actions but require each to be pinned to a commit SHA." },
+      { id: 'C', text: "Disable Actions for the enterprise and run the pipelines on the old system." },
+      { id: 'D', text: "Allow all actions and review the audit log for the ones that were used." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -51,10 +51,10 @@ export const GITHUB_ACTIONS_QUESTIONS_20 = [
     scenario: "A security compliance auditor requires cryptographic supply chain verification, keyless cloud authentication, and automated governance across all GitHub Actions workflows. The GitHub Actions engineer needs to prevent developers across an enterprise organization from using unvetted third-party actions from random GitHub users.",
     question: "Which solution implements these mandatory CI/CD security and compliance controls?",
     options: [
-      { id: 'A', text: "Disable GitHub Actions completely across the enterprise." },
-      { id: 'B', text: "Allow all public marketplace actions without restrictions." },
-      { id: 'C', text: "Instruct developers to read third-party source code voluntarily." },
-      { id: 'D', text: "Configure Enterprise Actions Policies to allow 'Local actions only' or 'Allow select actions' from verified creators." }
+      { id: 'A', text: "Disable Actions for the enterprise and run the pipelines on the old system." },
+      { id: 'B', text: "Allow all Marketplace actions but require each to be pinned to a commit SHA." },
+      { id: 'C', text: "Allow all actions and review the audit log for the ones that were used." },
+      { id: 'D', text: "Set the enterprise Actions policy to local actions only, or to selected creators." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -72,10 +72,10 @@ export const GITHUB_ACTIONS_QUESTIONS_20 = [
     scenario: "An enterprise is modernizing legacy on-premises CI/CD infrastructure and migrating automated delivery workflows to GitHub Actions. The GitHub Actions engineer needs to prevent developers across an enterprise organization from using unvetted third-party actions from random GitHub users.",
     question: "Which practice or platform feature enables the engineering team to modernize automated delivery with minimal operational friction?",
     options: [
-      { id: 'A', text: "Instruct developers to read third-party source code voluntarily." },
-      { id: 'B', text: "Configure Enterprise Actions Policies to allow 'Local actions only' or 'Allow select actions' from verified creators." },
-      { id: 'C', text: "Disable GitHub Actions completely across the enterprise." },
-      { id: 'D', text: "Allow all public marketplace actions without restrictions." }
+      { id: 'A', text: "Allow all actions and review the audit log for the ones that were used." },
+      { id: 'B', text: "Set the enterprise Actions policy to local actions only, or to selected creators." },
+      { id: 'C', text: "Disable Actions for the enterprise and run the pipelines on the old system." },
+      { id: 'D', text: "Allow all Marketplace actions but require each to be pinned to a commit SHA." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -93,10 +93,10 @@ export const GITHUB_ACTIONS_QUESTIONS_20 = [
     scenario: "A platform operations team is optimizing system reliability to eliminate single points of failure, accelerate build caching, and ensure secure failure handling. The GitHub Actions engineer needs to prevent developers across an enterprise organization from using unvetted third-party actions from random GitHub users.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees pipeline availability?",
     options: [
-      { id: 'A', text: "Configure Enterprise Actions Policies to allow 'Local actions only' or 'Allow select actions' from verified creators." },
-      { id: 'B', text: "Allow all public marketplace actions without restrictions." },
-      { id: 'C', text: "Disable GitHub Actions completely across the enterprise." },
-      { id: 'D', text: "Instruct developers to read third-party source code voluntarily." }
+      { id: 'A', text: "Set the enterprise Actions policy to local actions only, or to selected creators." },
+      { id: 'B', text: "Allow all Marketplace actions but require each to be pinned to a commit SHA." },
+      { id: 'C', text: "Disable Actions for the enterprise and run the pipelines on the old system." },
+      { id: 'D', text: "Allow all actions and review the audit log for the ones that were used." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -114,10 +114,10 @@ export const GITHUB_ACTIONS_QUESTIONS_20 = [
     scenario: "A devops automation engineering team is establishing high-availability pipeline standards, runner recovery procedures, and operational resilience baselines for GitHub Actions. The GitHub Actions engineer needs to prevent an attacker from executing arbitrary bash commands via malicious pull request titles or issue comments in a workflow step.",
     question: "Which architectural approach or configuration satisfies these CI/CD disaster recovery and operational continuity objectives?",
     options: [
-      { id: 'A', text: "Interpolate context strings directly inside inline bash commands: `run: echo \"${{ github.event.issue.title }}\"`." },
-      { id: 'B', text: "Pass untrusted context values (`${{ github.event.issue.title }}`) through step environment variables (`env:`) rather than inline script interpolation." },
-      { id: 'C', text: "Trust all pull request titles to contain safe characters." },
-      { id: 'D', text: "Disable all automated pull request workflows." }
+      { id: 'A', text: "Interpolate the value directly in the `run:` block and quote it in the shell." },
+      { id: 'B', text: "Pass the untrusted value through the step's `env:` rather than interpolating it inline." },
+      { id: 'C', text: "Validate the value against a pattern in an earlier step before using it." },
+      { id: 'D', text: "Restrict the trigger to `pull_request_target` so only trusted code runs." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -135,10 +135,10 @@ export const GITHUB_ACTIONS_QUESTIONS_20 = [
     scenario: "A high-throughput software engineering organization experiences massive surges in concurrent build and test requests across thousands of enterprise repositories. The GitHub Actions engineer needs to prevent an attacker from executing arbitrary bash commands via malicious pull request titles or issue comments in a workflow step.",
     question: "Which workflow architecture or runner configuration manages this execution volume effectively while preventing queue congestion and latency?",
     options: [
-      { id: 'A', text: "Interpolate context strings directly inside inline bash commands: `run: echo \"${{ github.event.issue.title }}\"`." },
-      { id: 'B', text: "Pass untrusted context values (`${{ github.event.issue.title }}`) through step environment variables (`env:`) rather than inline script interpolation." },
-      { id: 'C', text: "Trust all pull request titles to contain safe characters." },
-      { id: 'D', text: "Disable all automated pull request workflows." }
+      { id: 'A', text: "Interpolate the value directly in the `run:` block and quote it in the shell." },
+      { id: 'B', text: "Pass the untrusted value through the step's `env:` rather than interpolating it inline." },
+      { id: 'C', text: "Validate the value against a pattern in an earlier step before using it." },
+      { id: 'D', text: "Restrict the trigger to `pull_request_target` so only trusted code runs." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -156,10 +156,10 @@ export const GITHUB_ACTIONS_QUESTIONS_20 = [
     scenario: "A security compliance auditor requires cryptographic supply chain verification, keyless cloud authentication, and automated governance across all GitHub Actions workflows. The GitHub Actions engineer needs to prevent an attacker from executing arbitrary bash commands via malicious pull request titles or issue comments in a workflow step.",
     question: "Which solution implements these mandatory CI/CD security and compliance controls?",
     options: [
-      { id: 'A', text: "Pass untrusted context values (`${{ github.event.issue.title }}`) through step environment variables (`env:`) rather than inline script interpolation." },
-      { id: 'B', text: "Interpolate context strings directly inside inline bash commands: `run: echo \"${{ github.event.issue.title }}\"`." },
-      { id: 'C', text: "Disable all automated pull request workflows." },
-      { id: 'D', text: "Trust all pull request titles to contain safe characters." }
+      { id: 'A', text: "Pass the untrusted value through the step's `env:` rather than interpolating it inline." },
+      { id: 'B', text: "Interpolate the value directly in the `run:` block and quote it in the shell." },
+      { id: 'C', text: "Restrict the trigger to `pull_request_target` so only trusted code runs." },
+      { id: 'D', text: "Validate the value against a pattern in an earlier step before using it." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -177,10 +177,10 @@ export const GITHUB_ACTIONS_QUESTIONS_20 = [
     scenario: "An enterprise is modernizing legacy on-premises CI/CD infrastructure and migrating automated delivery workflows to GitHub Actions. The GitHub Actions engineer needs to prevent an attacker from executing arbitrary bash commands via malicious pull request titles or issue comments in a workflow step.",
     question: "Which practice or platform feature enables the engineering team to modernize automated delivery with minimal operational friction?",
     options: [
-      { id: 'A', text: "Disable all automated pull request workflows." },
-      { id: 'B', text: "Trust all pull request titles to contain safe characters." },
-      { id: 'C', text: "Pass untrusted context values (`${{ github.event.issue.title }}`) through step environment variables (`env:`) rather than inline script interpolation." },
-      { id: 'D', text: "Interpolate context strings directly inside inline bash commands: `run: echo \"${{ github.event.issue.title }}\"`." }
+      { id: 'A', text: "Restrict the trigger to `pull_request_target` so only trusted code runs." },
+      { id: 'B', text: "Validate the value against a pattern in an earlier step before using it." },
+      { id: 'C', text: "Pass the untrusted value through the step's `env:` rather than interpolating it inline." },
+      { id: 'D', text: "Interpolate the value directly in the `run:` block and quote it in the shell." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -198,10 +198,10 @@ export const GITHUB_ACTIONS_QUESTIONS_20 = [
     scenario: "A platform operations team is optimizing system reliability to eliminate single points of failure, accelerate build caching, and ensure secure failure handling. The GitHub Actions engineer needs to prevent an attacker from executing arbitrary bash commands via malicious pull request titles or issue comments in a workflow step.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees pipeline availability?",
     options: [
-      { id: 'A', text: "Interpolate context strings directly inside inline bash commands: `run: echo \"${{ github.event.issue.title }}\"`." },
-      { id: 'B', text: "Trust all pull request titles to contain safe characters." },
-      { id: 'C', text: "Disable all automated pull request workflows." },
-      { id: 'D', text: "Pass untrusted context values (`${{ github.event.issue.title }}`) through step environment variables (`env:`) rather than inline script interpolation." }
+      { id: 'A', text: "Interpolate the value directly in the `run:` block and quote it in the shell." },
+      { id: 'B', text: "Validate the value against a pattern in an earlier step before using it." },
+      { id: 'C', text: "Restrict the trigger to `pull_request_target` so only trusted code runs." },
+      { id: 'D', text: "Pass the untrusted value through the step's `env:` rather than interpolating it inline." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -219,10 +219,10 @@ export const GITHUB_ACTIONS_QUESTIONS_20 = [
     scenario: "A devops automation engineering team is establishing high-availability pipeline standards, runner recovery procedures, and operational resilience baselines for GitHub Actions. The GitHub Actions engineer needs to guarantee that every repository across an enterprise organization runs a mandatory security scan on all pull requests before merging.",
     question: "Which architectural approach or configuration satisfies these CI/CD disaster recovery and operational continuity objectives?",
     options: [
-      { id: 'A', text: "Manually copy the security workflow into all 500 enterprise repositories." },
-      { id: 'B', text: "Perform compliance audits manually once every six months." },
-      { id: 'C', text: "Trust all developers to include the security scan in their local workflows." },
-      { id: 'D', text: "Configure an Organization Rule (or Repository Ruleset) requiring specific status checks from a centralized workflow." }
+      { id: 'A', text: "Copy the security workflow into each of the repositories with a sync job." },
+      { id: 'B', text: "Audit the repositories every six months against the published standard." },
+      { id: 'C', text: "Publish the workflow as a starter template each team is asked to adopt." },
+      { id: 'D', text: "Configure an organization ruleset requiring the centralized workflow's status check." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -240,10 +240,10 @@ export const GITHUB_ACTIONS_QUESTIONS_20 = [
     scenario: "A high-throughput software engineering organization experiences massive surges in concurrent build and test requests across thousands of enterprise repositories. The GitHub Actions engineer needs to guarantee that every repository across an enterprise organization runs a mandatory security scan on all pull requests before merging.",
     question: "Which workflow architecture or runner configuration manages this execution volume effectively while preventing queue congestion and latency?",
     options: [
-      { id: 'A', text: "Manually copy the security workflow into all 500 enterprise repositories." },
-      { id: 'B', text: "Configure an Organization Rule (or Repository Ruleset) requiring specific status checks from a centralized workflow." },
-      { id: 'C', text: "Perform compliance audits manually once every six months." },
-      { id: 'D', text: "Trust all developers to include the security scan in their local workflows." }
+      { id: 'A', text: "Copy the security workflow into each of the repositories with a sync job." },
+      { id: 'B', text: "Configure an organization ruleset requiring the centralized workflow's status check." },
+      { id: 'C', text: "Audit the repositories every six months against the published standard." },
+      { id: 'D', text: "Publish the workflow as a starter template each team is asked to adopt." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -261,10 +261,10 @@ export const GITHUB_ACTIONS_QUESTIONS_20 = [
     scenario: "A security compliance auditor requires cryptographic supply chain verification, keyless cloud authentication, and automated governance across all GitHub Actions workflows. The GitHub Actions engineer needs to guarantee that every repository across an enterprise organization runs a mandatory security scan on all pull requests before merging.",
     question: "Which solution implements these mandatory CI/CD security and compliance controls?",
     options: [
-      { id: 'A', text: "Configure an Organization Rule (or Repository Ruleset) requiring specific status checks from a centralized workflow." },
-      { id: 'B', text: "Manually copy the security workflow into all 500 enterprise repositories." },
-      { id: 'C', text: "Trust all developers to include the security scan in their local workflows." },
-      { id: 'D', text: "Perform compliance audits manually once every six months." }
+      { id: 'A', text: "Configure an organization ruleset requiring the centralized workflow's status check." },
+      { id: 'B', text: "Copy the security workflow into each of the repositories with a sync job." },
+      { id: 'C', text: "Publish the workflow as a starter template each team is asked to adopt." },
+      { id: 'D', text: "Audit the repositories every six months against the published standard." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -282,10 +282,10 @@ export const GITHUB_ACTIONS_QUESTIONS_20 = [
     scenario: "An enterprise is modernizing legacy on-premises CI/CD infrastructure and migrating automated delivery workflows to GitHub Actions. The GitHub Actions engineer needs to guarantee that every repository across an enterprise organization runs a mandatory security scan on all pull requests before merging.",
     question: "Which practice or platform feature enables the engineering team to modernize automated delivery with minimal operational friction?",
     options: [
-      { id: 'A', text: "Configure an Organization Rule (or Repository Ruleset) requiring specific status checks from a centralized workflow." },
-      { id: 'B', text: "Manually copy the security workflow into all 500 enterprise repositories." },
-      { id: 'C', text: "Trust all developers to include the security scan in their local workflows." },
-      { id: 'D', text: "Perform compliance audits manually once every six months." }
+      { id: 'A', text: "Configure an organization ruleset requiring the centralized workflow's status check." },
+      { id: 'B', text: "Copy the security workflow into each of the repositories with a sync job." },
+      { id: 'C', text: "Publish the workflow as a starter template each team is asked to adopt." },
+      { id: 'D', text: "Audit the repositories every six months against the published standard." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -303,10 +303,10 @@ export const GITHUB_ACTIONS_QUESTIONS_20 = [
     scenario: "A platform operations team is optimizing system reliability to eliminate single points of failure, accelerate build caching, and ensure secure failure handling. The GitHub Actions engineer needs to guarantee that every repository across an enterprise organization runs a mandatory security scan on all pull requests before merging.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees pipeline availability?",
     options: [
-      { id: 'A', text: "Configure an Organization Rule (or Repository Ruleset) requiring specific status checks from a centralized workflow." },
-      { id: 'B', text: "Manually copy the security workflow into all 500 enterprise repositories." },
-      { id: 'C', text: "Trust all developers to include the security scan in their local workflows." },
-      { id: 'D', text: "Perform compliance audits manually once every six months." }
+      { id: 'A', text: "Configure an organization ruleset requiring the centralized workflow's status check." },
+      { id: 'B', text: "Copy the security workflow into each of the repositories with a sync job." },
+      { id: 'C', text: "Publish the workflow as a starter template each team is asked to adopt." },
+      { id: 'D', text: "Audit the repositories every six months against the published standard." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -324,10 +324,10 @@ export const GITHUB_ACTIONS_QUESTIONS_20 = [
     scenario: "A devops automation engineering team is establishing high-availability pipeline standards, runner recovery procedures, and operational resilience baselines for GitHub Actions. The GitHub Actions engineer needs to manage a shared SonarQube API token and container registry credentials across 100 repositories in an organization with centralized access control.",
     question: "Which architectural approach or configuration satisfies these CI/CD disaster recovery and operational continuity objectives?",
     options: [
-      { id: 'A', text: "Share the secret with developers via chat." },
-      { id: 'B', text: "Commit the secret to a public repository README file." },
-      { id: 'C', text: "Duplicate the secret manually in 100 individual repository settings pages." },
-      { id: 'D', text: "Create Organization Secrets configured with repository access policies (All repositories, Private repositories, or Selected repositories)." }
+      { id: 'A', text: "Create environment secrets on a shared environment each repository targets." },
+      { id: 'B', text: "Create a repository secret in a central repo and pass it through as an input." },
+      { id: 'C', text: "Create the same repository secret in each of the hundred repositories." },
+      { id: 'D', text: "Create organization secrets with a repository access policy on each one." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -345,10 +345,10 @@ export const GITHUB_ACTIONS_QUESTIONS_20 = [
     scenario: "A high-throughput software engineering organization experiences massive surges in concurrent build and test requests across thousands of enterprise repositories. The GitHub Actions engineer needs to manage a shared SonarQube API token and container registry credentials across 100 repositories in an organization with centralized access control.",
     question: "Which workflow architecture or runner configuration manages this execution volume effectively while preventing queue congestion and latency?",
     options: [
-      { id: 'A', text: "Duplicate the secret manually in 100 individual repository settings pages." },
-      { id: 'B', text: "Create Organization Secrets configured with repository access policies (All repositories, Private repositories, or Selected repositories)." },
-      { id: 'C', text: "Share the secret with developers via chat." },
-      { id: 'D', text: "Commit the secret to a public repository README file." }
+      { id: 'A', text: "Create the same repository secret in each of the hundred repositories." },
+      { id: 'B', text: "Create organization secrets with a repository access policy on each one." },
+      { id: 'C', text: "Create environment secrets on a shared environment each repository targets." },
+      { id: 'D', text: "Create a repository secret in a central repo and pass it through as an input." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -366,10 +366,10 @@ export const GITHUB_ACTIONS_QUESTIONS_20 = [
     scenario: "A security compliance auditor requires cryptographic supply chain verification, keyless cloud authentication, and automated governance across all GitHub Actions workflows. The GitHub Actions engineer needs to manage a shared SonarQube API token and container registry credentials across 100 repositories in an organization with centralized access control.",
     question: "Which solution implements these mandatory CI/CD security and compliance controls?",
     options: [
-      { id: 'A', text: "Duplicate the secret manually in 100 individual repository settings pages." },
-      { id: 'B', text: "Create Organization Secrets configured with repository access policies (All repositories, Private repositories, or Selected repositories)." },
-      { id: 'C', text: "Share the secret with developers via chat." },
-      { id: 'D', text: "Commit the secret to a public repository README file." }
+      { id: 'A', text: "Create the same repository secret in each of the hundred repositories." },
+      { id: 'B', text: "Create organization secrets with a repository access policy on each one." },
+      { id: 'C', text: "Create environment secrets on a shared environment each repository targets." },
+      { id: 'D', text: "Create a repository secret in a central repo and pass it through as an input." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -387,10 +387,10 @@ export const GITHUB_ACTIONS_QUESTIONS_20 = [
     scenario: "An enterprise is modernizing legacy on-premises CI/CD infrastructure and migrating automated delivery workflows to GitHub Actions. The GitHub Actions engineer needs to manage a shared SonarQube API token and container registry credentials across 100 repositories in an organization with centralized access control.",
     question: "Which practice or platform feature enables the engineering team to modernize automated delivery with minimal operational friction?",
     options: [
-      { id: 'A', text: "Commit the secret to a public repository README file." },
-      { id: 'B', text: "Duplicate the secret manually in 100 individual repository settings pages." },
-      { id: 'C', text: "Share the secret with developers via chat." },
-      { id: 'D', text: "Create Organization Secrets configured with repository access policies (All repositories, Private repositories, or Selected repositories)." }
+      { id: 'A', text: "Create a repository secret in a central repo and pass it through as an input." },
+      { id: 'B', text: "Create the same repository secret in each of the hundred repositories." },
+      { id: 'C', text: "Create environment secrets on a shared environment each repository targets." },
+      { id: 'D', text: "Create organization secrets with a repository access policy on each one." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -408,10 +408,10 @@ export const GITHUB_ACTIONS_QUESTIONS_20 = [
     scenario: "A platform operations team is optimizing system reliability to eliminate single points of failure, accelerate build caching, and ensure secure failure handling. The GitHub Actions engineer needs to manage a shared SonarQube API token and container registry credentials across 100 repositories in an organization with centralized access control.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees pipeline availability?",
     options: [
-      { id: 'A', text: "Duplicate the secret manually in 100 individual repository settings pages." },
-      { id: 'B', text: "Create Organization Secrets configured with repository access policies (All repositories, Private repositories, or Selected repositories)." },
-      { id: 'C', text: "Share the secret with developers via chat." },
-      { id: 'D', text: "Commit the secret to a public repository README file." }
+      { id: 'A', text: "Create the same repository secret in each of the hundred repositories." },
+      { id: 'B', text: "Create organization secrets with a repository access policy on each one." },
+      { id: 'C', text: "Create environment secrets on a shared environment each repository targets." },
+      { id: 'D', text: "Create a repository secret in a central repo and pass it through as an input." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -429,10 +429,10 @@ export const GITHUB_ACTIONS_QUESTIONS_20 = [
     scenario: "A devops automation engineering team is establishing high-availability pipeline standards, runner recovery procedures, and operational resilience baselines for GitHub Actions. The GitHub Actions engineer needs to investigate an unauthorized modification to a self-hosted runner group or determine who downloaded an encrypted repository secret.",
     question: "Which architectural approach or configuration satisfies these CI/CD disaster recovery and operational continuity objectives?",
     options: [
-      { id: 'A', text: "Inspect the git commit history of the repository." },
-      { id: 'B', text: "Query the GitHub Enterprise Audit Log for actions-related events (`action:org.runner_group.*` or `action:workflows.*`)." },
-      { id: 'C', text: "Assume GitHub does not record administrative actions." },
-      { id: 'D', text: "Review developer browser search history." }
+      { id: 'A', text: "Query the repository's commit history for changes to the workflow files." },
+      { id: 'B', text: "Query the enterprise audit log for the `action:workflows.*` event types." },
+      { id: 'C', text: "Query the runs API and infer the change from which workflows stopped running." },
+      { id: 'D', text: "Query the organization's security log, which covers only authentication events." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -450,10 +450,10 @@ export const GITHUB_ACTIONS_QUESTIONS_20 = [
     scenario: "A high-throughput software engineering organization experiences massive surges in concurrent build and test requests across thousands of enterprise repositories. The GitHub Actions engineer needs to investigate an unauthorized modification to a self-hosted runner group or determine who downloaded an encrypted repository secret.",
     question: "Which workflow architecture or runner configuration manages this execution volume effectively while preventing queue congestion and latency?",
     options: [
-      { id: 'A', text: "Query the GitHub Enterprise Audit Log for actions-related events (`action:org.runner_group.*` or `action:workflows.*`)." },
-      { id: 'B', text: "Inspect the git commit history of the repository." },
-      { id: 'C', text: "Review developer browser search history." },
-      { id: 'D', text: "Assume GitHub does not record administrative actions." }
+      { id: 'A', text: "Query the enterprise audit log for the `action:workflows.*` event types." },
+      { id: 'B', text: "Query the repository's commit history for changes to the workflow files." },
+      { id: 'C', text: "Query the organization's security log, which covers only authentication events." },
+      { id: 'D', text: "Query the runs API and infer the change from which workflows stopped running." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -471,10 +471,10 @@ export const GITHUB_ACTIONS_QUESTIONS_20 = [
     scenario: "A security compliance auditor requires cryptographic supply chain verification, keyless cloud authentication, and automated governance across all GitHub Actions workflows. The GitHub Actions engineer needs to investigate an unauthorized modification to a self-hosted runner group or determine who downloaded an encrypted repository secret.",
     question: "Which solution implements these mandatory CI/CD security and compliance controls?",
     options: [
-      { id: 'A', text: "Inspect the git commit history of the repository." },
-      { id: 'B', text: "Assume GitHub does not record administrative actions." },
-      { id: 'C', text: "Review developer browser search history." },
-      { id: 'D', text: "Query the GitHub Enterprise Audit Log for actions-related events (`action:org.runner_group.*` or `action:workflows.*`)." }
+      { id: 'A', text: "Query the repository's commit history for changes to the workflow files." },
+      { id: 'B', text: "Query the runs API and infer the change from which workflows stopped running." },
+      { id: 'C', text: "Query the organization's security log, which covers only authentication events." },
+      { id: 'D', text: "Query the enterprise audit log for the `action:workflows.*` event types." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -492,10 +492,10 @@ export const GITHUB_ACTIONS_QUESTIONS_20 = [
     scenario: "An enterprise is modernizing legacy on-premises CI/CD infrastructure and migrating automated delivery workflows to GitHub Actions. The GitHub Actions engineer needs to investigate an unauthorized modification to a self-hosted runner group or determine who downloaded an encrypted repository secret.",
     question: "Which practice or platform feature enables the engineering team to modernize automated delivery with minimal operational friction?",
     options: [
-      { id: 'A', text: "Assume GitHub does not record administrative actions." },
-      { id: 'B', text: "Review developer browser search history." },
-      { id: 'C', text: "Inspect the git commit history of the repository." },
-      { id: 'D', text: "Query the GitHub Enterprise Audit Log for actions-related events (`action:org.runner_group.*` or `action:workflows.*`)." }
+      { id: 'A', text: "Query the runs API and infer the change from which workflows stopped running." },
+      { id: 'B', text: "Query the organization's security log, which covers only authentication events." },
+      { id: 'C', text: "Query the repository's commit history for changes to the workflow files." },
+      { id: 'D', text: "Query the enterprise audit log for the `action:workflows.*` event types." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -513,10 +513,10 @@ export const GITHUB_ACTIONS_QUESTIONS_20 = [
     scenario: "A platform operations team is optimizing system reliability to eliminate single points of failure, accelerate build caching, and ensure secure failure handling. The GitHub Actions engineer needs to investigate an unauthorized modification to a self-hosted runner group or determine who downloaded an encrypted repository secret.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees pipeline availability?",
     options: [
-      { id: 'A', text: "Query the GitHub Enterprise Audit Log for actions-related events (`action:org.runner_group.*` or `action:workflows.*`)." },
-      { id: 'B', text: "Inspect the git commit history of the repository." },
-      { id: 'C', text: "Review developer browser search history." },
-      { id: 'D', text: "Assume GitHub does not record administrative actions." }
+      { id: 'A', text: "Query the enterprise audit log for the `action:workflows.*` event types." },
+      { id: 'B', text: "Query the repository's commit history for changes to the workflow files." },
+      { id: 'C', text: "Query the organization's security log, which covers only authentication events." },
+      { id: 'D', text: "Query the runs API and infer the change from which workflows stopped running." }
     ],
     correctAnswers: ['A'],
     type: "single",

@@ -9,10 +9,10 @@ export const GITHUB_ACTIONS_QUESTIONS_16 = [
     scenario: "A devops automation engineering team is establishing high-availability pipeline standards, runner recovery procedures, and operational resilience baselines for GitHub Actions. The GitHub Actions engineer needs to trigger an on-demand workflow run and stream its live console logs directly inside a developer terminal without opening a web browser.",
     question: "Which architectural approach or configuration satisfies these CI/CD disaster recovery and operational continuity objectives?",
     options: [
-      { id: 'A', text: "Constantly refresh the browser web interface." },
-      { id: 'B', text: "Run `gh workflow run &lt;workflow-name&gt;` followed by `gh run watch` to stream live execution logs in the terminal." },
-      { id: 'C', text: "Use curl commands with manual bearer tokens." },
-      { id: 'D', text: "SSH into the GitHub cloud datacenter." }
+      { id: 'A', text: "Run `gh workflow view &lt;name&gt;` and refresh it until the run finishes." },
+      { id: 'B', text: "Run `gh workflow run &lt;name&gt;`, then `gh run watch` to stream the logs." },
+      { id: 'C', text: "Run `gh api` against the runs endpoint and poll it from a shell loop." },
+      { id: 'D', text: "Run `gh run download` to fetch the artifacts once the run has ended." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -30,10 +30,10 @@ export const GITHUB_ACTIONS_QUESTIONS_16 = [
     scenario: "A high-throughput software engineering organization experiences massive surges in concurrent build and test requests across thousands of enterprise repositories. The GitHub Actions engineer needs to trigger an on-demand workflow run and stream its live console logs directly inside a developer terminal without opening a web browser.",
     question: "Which workflow architecture or runner configuration manages this execution volume effectively while preventing queue congestion and latency?",
     options: [
-      { id: 'A', text: "Use curl commands with manual bearer tokens." },
-      { id: 'B', text: "Run `gh workflow run &lt;workflow-name&gt;` followed by `gh run watch` to stream live execution logs in the terminal." },
-      { id: 'C', text: "SSH into the GitHub cloud datacenter." },
-      { id: 'D', text: "Constantly refresh the browser web interface." }
+      { id: 'A', text: "Run `gh api` against the runs endpoint and poll it from a shell loop." },
+      { id: 'B', text: "Run `gh workflow run &lt;name&gt;`, then `gh run watch` to stream the logs." },
+      { id: 'C', text: "Run `gh run download` to fetch the artifacts once the run has ended." },
+      { id: 'D', text: "Run `gh workflow view &lt;name&gt;` and refresh it until the run finishes." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -51,10 +51,10 @@ export const GITHUB_ACTIONS_QUESTIONS_16 = [
     scenario: "A security compliance auditor requires cryptographic supply chain verification, keyless cloud authentication, and automated governance across all GitHub Actions workflows. The GitHub Actions engineer needs to trigger an on-demand workflow run and stream its live console logs directly inside a developer terminal without opening a web browser.",
     question: "Which solution implements these mandatory CI/CD security and compliance controls?",
     options: [
-      { id: 'A', text: "Run `gh workflow run &lt;workflow-name&gt;` followed by `gh run watch` to stream live execution logs in the terminal." },
-      { id: 'B', text: "Use curl commands with manual bearer tokens." },
-      { id: 'C', text: "Constantly refresh the browser web interface." },
-      { id: 'D', text: "SSH into the GitHub cloud datacenter." }
+      { id: 'A', text: "Run `gh workflow run &lt;name&gt;`, then `gh run watch` to stream the logs." },
+      { id: 'B', text: "Run `gh api` against the runs endpoint and poll it from a shell loop." },
+      { id: 'C', text: "Run `gh workflow view &lt;name&gt;` and refresh it until the run finishes." },
+      { id: 'D', text: "Run `gh run download` to fetch the artifacts once the run has ended." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -72,10 +72,10 @@ export const GITHUB_ACTIONS_QUESTIONS_16 = [
     scenario: "An enterprise is modernizing legacy on-premises CI/CD infrastructure and migrating automated delivery workflows to GitHub Actions. The GitHub Actions engineer needs to trigger an on-demand workflow run and stream its live console logs directly inside a developer terminal without opening a web browser.",
     question: "Which practice or platform feature enables the engineering team to modernize automated delivery with minimal operational friction?",
     options: [
-      { id: 'A', text: "SSH into the GitHub cloud datacenter." },
-      { id: 'B', text: "Constantly refresh the browser web interface." },
-      { id: 'C', text: "Use curl commands with manual bearer tokens." },
-      { id: 'D', text: "Run `gh workflow run &lt;workflow-name&gt;` followed by `gh run watch` to stream live execution logs in the terminal." }
+      { id: 'A', text: "Run `gh run download` to fetch the artifacts once the run has ended." },
+      { id: 'B', text: "Run `gh workflow view &lt;name&gt;` and refresh it until the run finishes." },
+      { id: 'C', text: "Run `gh api` against the runs endpoint and poll it from a shell loop." },
+      { id: 'D', text: "Run `gh workflow run &lt;name&gt;`, then `gh run watch` to stream the logs." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -93,10 +93,10 @@ export const GITHUB_ACTIONS_QUESTIONS_16 = [
     scenario: "A platform operations team is optimizing system reliability to eliminate single points of failure, accelerate build caching, and ensure secure failure handling. The GitHub Actions engineer needs to trigger an on-demand workflow run and stream its live console logs directly inside a developer terminal without opening a web browser.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees pipeline availability?",
     options: [
-      { id: 'A', text: "Run `gh workflow run &lt;workflow-name&gt;` followed by `gh run watch` to stream live execution logs in the terminal." },
-      { id: 'B', text: "Use curl commands with manual bearer tokens." },
-      { id: 'C', text: "Constantly refresh the browser web interface." },
-      { id: 'D', text: "SSH into the GitHub cloud datacenter." }
+      { id: 'A', text: "Run `gh workflow run &lt;name&gt;`, then `gh run watch` to stream the logs." },
+      { id: 'B', text: "Run `gh api` against the runs endpoint and poll it from a shell loop." },
+      { id: 'C', text: "Run `gh workflow view &lt;name&gt;` and refresh it until the run finishes." },
+      { id: 'D', text: "Run `gh run download` to fetch the artifacts once the run has ended." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -114,10 +114,10 @@ export const GITHUB_ACTIONS_QUESTIONS_16 = [
     scenario: "A devops automation engineering team is establishing high-availability pipeline standards, runner recovery procedures, and operational resilience baselines for GitHub Actions. The GitHub Actions engineer needs to automate the creation of weekly pull requests updating outdated npm and Docker dependencies across a repository.",
     question: "Which architectural approach or configuration satisfies these CI/CD disaster recovery and operational continuity objectives?",
     options: [
-      { id: 'A', text: "Add a `.github/dependabot.yml` configuration file specifying package ecosystems (`npm`, `docker`), directories, and schedule intervals." },
-      { id: 'B', text: "Write a cron script that commits package updates directly to main without review." },
-      { id: 'C', text: "Disable automated updates to prevent new code changes." },
-      { id: 'D', text: "Manually check npm registry website once a year for package updates." }
+      { id: 'A', text: "Add `.github/dependabot.yml` naming the ecosystems, directories and schedule." },
+      { id: 'B', text: "Add a scheduled workflow that runs the package manager's update command." },
+      { id: 'C', text: "Enable Dependabot security updates only, which need no configuration file." },
+      { id: 'D', text: "Add a scheduled workflow that opens an issue listing the outdated packages." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -135,10 +135,10 @@ export const GITHUB_ACTIONS_QUESTIONS_16 = [
     scenario: "A high-throughput software engineering organization experiences massive surges in concurrent build and test requests across thousands of enterprise repositories. The GitHub Actions engineer needs to automate the creation of weekly pull requests updating outdated npm and Docker dependencies across a repository.",
     question: "Which workflow architecture or runner configuration manages this execution volume effectively while preventing queue congestion and latency?",
     options: [
-      { id: 'A', text: "Write a cron script that commits package updates directly to main without review." },
-      { id: 'B', text: "Disable automated updates to prevent new code changes." },
-      { id: 'C', text: "Add a `.github/dependabot.yml` configuration file specifying package ecosystems (`npm`, `docker`), directories, and schedule intervals." },
-      { id: 'D', text: "Manually check npm registry website once a year for package updates." }
+      { id: 'A', text: "Add a scheduled workflow that runs the package manager's update command." },
+      { id: 'B', text: "Enable Dependabot security updates only, which need no configuration file." },
+      { id: 'C', text: "Add `.github/dependabot.yml` naming the ecosystems, directories and schedule." },
+      { id: 'D', text: "Add a scheduled workflow that opens an issue listing the outdated packages." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -156,10 +156,10 @@ export const GITHUB_ACTIONS_QUESTIONS_16 = [
     scenario: "A security compliance auditor requires cryptographic supply chain verification, keyless cloud authentication, and automated governance across all GitHub Actions workflows. The GitHub Actions engineer needs to automate the creation of weekly pull requests updating outdated npm and Docker dependencies across a repository.",
     question: "Which solution implements these mandatory CI/CD security and compliance controls?",
     options: [
-      { id: 'A', text: "Manually check npm registry website once a year for package updates." },
-      { id: 'B', text: "Add a `.github/dependabot.yml` configuration file specifying package ecosystems (`npm`, `docker`), directories, and schedule intervals." },
-      { id: 'C', text: "Disable automated updates to prevent new code changes." },
-      { id: 'D', text: "Write a cron script that commits package updates directly to main without review." }
+      { id: 'A', text: "Add a scheduled workflow that opens an issue listing the outdated packages." },
+      { id: 'B', text: "Add `.github/dependabot.yml` naming the ecosystems, directories and schedule." },
+      { id: 'C', text: "Enable Dependabot security updates only, which need no configuration file." },
+      { id: 'D', text: "Add a scheduled workflow that runs the package manager's update command." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -177,10 +177,10 @@ export const GITHUB_ACTIONS_QUESTIONS_16 = [
     scenario: "An enterprise is modernizing legacy on-premises CI/CD infrastructure and migrating automated delivery workflows to GitHub Actions. The GitHub Actions engineer needs to automate the creation of weekly pull requests updating outdated npm and Docker dependencies across a repository.",
     question: "Which practice or platform feature enables the engineering team to modernize automated delivery with minimal operational friction?",
     options: [
-      { id: 'A', text: "Add a `.github/dependabot.yml` configuration file specifying package ecosystems (`npm`, `docker`), directories, and schedule intervals." },
-      { id: 'B', text: "Write a cron script that commits package updates directly to main without review." },
-      { id: 'C', text: "Disable automated updates to prevent new code changes." },
-      { id: 'D', text: "Manually check npm registry website once a year for package updates." }
+      { id: 'A', text: "Add `.github/dependabot.yml` naming the ecosystems, directories and schedule." },
+      { id: 'B', text: "Add a scheduled workflow that runs the package manager's update command." },
+      { id: 'C', text: "Enable Dependabot security updates only, which need no configuration file." },
+      { id: 'D', text: "Add a scheduled workflow that opens an issue listing the outdated packages." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -198,10 +198,10 @@ export const GITHUB_ACTIONS_QUESTIONS_16 = [
     scenario: "A platform operations team is optimizing system reliability to eliminate single points of failure, accelerate build caching, and ensure secure failure handling. The GitHub Actions engineer needs to automate the creation of weekly pull requests updating outdated npm and Docker dependencies across a repository.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees pipeline availability?",
     options: [
-      { id: 'A', text: "Disable automated updates to prevent new code changes." },
-      { id: 'B', text: "Add a `.github/dependabot.yml` configuration file specifying package ecosystems (`npm`, `docker`), directories, and schedule intervals." },
-      { id: 'C', text: "Write a cron script that commits package updates directly to main without review." },
-      { id: 'D', text: "Manually check npm registry website once a year for package updates." }
+      { id: 'A', text: "Enable Dependabot security updates only, which need no configuration file." },
+      { id: 'B', text: "Add `.github/dependabot.yml` naming the ecosystems, directories and schedule." },
+      { id: 'C', text: "Add a scheduled workflow that runs the package manager's update command." },
+      { id: 'D', text: "Add a scheduled workflow that opens an issue listing the outdated packages." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -219,10 +219,10 @@ export const GITHUB_ACTIONS_QUESTIONS_16 = [
     scenario: "A devops automation engineering team is establishing high-availability pipeline standards, runner recovery procedures, and operational resilience baselines for GitHub Actions. The GitHub Actions engineer needs to ensure that GitHub Actions workflow files automatically receive pull requests whenever third-party actions release new versions or security patches.",
     question: "Which architectural approach or configuration satisfies these CI/CD disaster recovery and operational continuity objectives?",
     options: [
-      { id: 'A', text: "Include `package-ecosystem: 'github-actions'` in `.github/dependabot.yml` targeting the `/.github/workflows` directory." },
-      { id: 'B', text: "Manually inspect Marketplace pages of every action once a month." },
-      { id: 'C', text: "Reference `@master` so actions update silently without pull requests." },
-      { id: 'D', text: "Ignore action updates until a build fails." }
+      { id: 'A', text: "Add `package-ecosystem: 'github-actions'` to `.github/dependabot.yml`." },
+      { id: 'B', text: "Subscribe to each action's repository releases and review them monthly." },
+      { id: 'C', text: "Reference each action by `@main` so updates arrive without a pull request." },
+      { id: 'D', text: "Pin each action by SHA and refresh the pins when a build starts failing." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -240,10 +240,10 @@ export const GITHUB_ACTIONS_QUESTIONS_16 = [
     scenario: "A high-throughput software engineering organization experiences massive surges in concurrent build and test requests across thousands of enterprise repositories. The GitHub Actions engineer needs to ensure that GitHub Actions workflow files automatically receive pull requests whenever third-party actions release new versions or security patches.",
     question: "Which workflow architecture or runner configuration manages this execution volume effectively while preventing queue congestion and latency?",
     options: [
-      { id: 'A', text: "Include `package-ecosystem: 'github-actions'` in `.github/dependabot.yml` targeting the `/.github/workflows` directory." },
-      { id: 'B', text: "Manually inspect Marketplace pages of every action once a month." },
-      { id: 'C', text: "Reference `@master` so actions update silently without pull requests." },
-      { id: 'D', text: "Ignore action updates until a build fails." }
+      { id: 'A', text: "Add `package-ecosystem: 'github-actions'` to `.github/dependabot.yml`." },
+      { id: 'B', text: "Subscribe to each action's repository releases and review them monthly." },
+      { id: 'C', text: "Reference each action by `@main` so updates arrive without a pull request." },
+      { id: 'D', text: "Pin each action by SHA and refresh the pins when a build starts failing." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -261,10 +261,10 @@ export const GITHUB_ACTIONS_QUESTIONS_16 = [
     scenario: "A security compliance auditor requires cryptographic supply chain verification, keyless cloud authentication, and automated governance across all GitHub Actions workflows. The GitHub Actions engineer needs to ensure that GitHub Actions workflow files automatically receive pull requests whenever third-party actions release new versions or security patches.",
     question: "Which solution implements these mandatory CI/CD security and compliance controls?",
     options: [
-      { id: 'A', text: "Reference `@master` so actions update silently without pull requests." },
-      { id: 'B', text: "Ignore action updates until a build fails." },
-      { id: 'C', text: "Include `package-ecosystem: 'github-actions'` in `.github/dependabot.yml` targeting the `/.github/workflows` directory." },
-      { id: 'D', text: "Manually inspect Marketplace pages of every action once a month." }
+      { id: 'A', text: "Reference each action by `@main` so updates arrive without a pull request." },
+      { id: 'B', text: "Pin each action by SHA and refresh the pins when a build starts failing." },
+      { id: 'C', text: "Add `package-ecosystem: 'github-actions'` to `.github/dependabot.yml`." },
+      { id: 'D', text: "Subscribe to each action's repository releases and review them monthly." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -282,10 +282,10 @@ export const GITHUB_ACTIONS_QUESTIONS_16 = [
     scenario: "An enterprise is modernizing legacy on-premises CI/CD infrastructure and migrating automated delivery workflows to GitHub Actions. The GitHub Actions engineer needs to ensure that GitHub Actions workflow files automatically receive pull requests whenever third-party actions release new versions or security patches.",
     question: "Which practice or platform feature enables the engineering team to modernize automated delivery with minimal operational friction?",
     options: [
-      { id: 'A', text: "Include `package-ecosystem: 'github-actions'` in `.github/dependabot.yml` targeting the `/.github/workflows` directory." },
-      { id: 'B', text: "Manually inspect Marketplace pages of every action once a month." },
-      { id: 'C', text: "Reference `@master` so actions update silently without pull requests." },
-      { id: 'D', text: "Ignore action updates until a build fails." }
+      { id: 'A', text: "Add `package-ecosystem: 'github-actions'` to `.github/dependabot.yml`." },
+      { id: 'B', text: "Subscribe to each action's repository releases and review them monthly." },
+      { id: 'C', text: "Reference each action by `@main` so updates arrive without a pull request." },
+      { id: 'D', text: "Pin each action by SHA and refresh the pins when a build starts failing." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -303,10 +303,10 @@ export const GITHUB_ACTIONS_QUESTIONS_16 = [
     scenario: "A platform operations team is optimizing system reliability to eliminate single points of failure, accelerate build caching, and ensure secure failure handling. The GitHub Actions engineer needs to ensure that GitHub Actions workflow files automatically receive pull requests whenever third-party actions release new versions or security patches.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees pipeline availability?",
     options: [
-      { id: 'A', text: "Manually inspect Marketplace pages of every action once a month." },
-      { id: 'B', text: "Include `package-ecosystem: 'github-actions'` in `.github/dependabot.yml` targeting the `/.github/workflows` directory." },
-      { id: 'C', text: "Ignore action updates until a build fails." },
-      { id: 'D', text: "Reference `@master` so actions update silently without pull requests." }
+      { id: 'A', text: "Subscribe to each action's repository releases and review them monthly." },
+      { id: 'B', text: "Add `package-ecosystem: 'github-actions'` to `.github/dependabot.yml`." },
+      { id: 'C', text: "Pin each action by SHA and refresh the pins when a build starts failing." },
+      { id: 'D', text: "Reference each action by `@main` so updates arrive without a pull request." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -324,10 +324,10 @@ export const GITHUB_ACTIONS_QUESTIONS_16 = [
     scenario: "A devops automation engineering team is establishing high-availability pipeline standards, runner recovery procedures, and operational resilience baselines for GitHub Actions. The GitHub Actions engineer needs to provide standardized, pre-configured workflow templates that developers across an enterprise can select when creating new repositories.",
     question: "Which architectural approach or configuration satisfies these CI/CD disaster recovery and operational continuity objectives?",
     options: [
-      { id: 'A', text: "Add workflow `.yml` files accompanied by `.properties.json` files to the `workflow-templates` directory of the organization's `.github` repository." },
-      { id: 'B', text: "Email workflow templates as text attachments to all developers." },
-      { id: 'C', text: "Manually commit workflow files into every newly created repository by hand." },
-      { id: 'D', text: "Starter workflows cannot be customized at the organization level." }
+      { id: 'A', text: "Add the `.yml` and `.properties.json` files to `workflow-templates` in the `.github` repo." },
+      { id: 'B', text: "Add the workflow files to a template repository that new projects are created from." },
+      { id: 'C', text: "Add the workflow files to each repository through a scheduled sync workflow." },
+      { id: 'D', text: "Add the workflows as a required workflow at the organization level instead." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -345,10 +345,10 @@ export const GITHUB_ACTIONS_QUESTIONS_16 = [
     scenario: "A high-throughput software engineering organization experiences massive surges in concurrent build and test requests across thousands of enterprise repositories. The GitHub Actions engineer needs to provide standardized, pre-configured workflow templates that developers across an enterprise can select when creating new repositories.",
     question: "Which workflow architecture or runner configuration manages this execution volume effectively while preventing queue congestion and latency?",
     options: [
-      { id: 'A', text: "Starter workflows cannot be customized at the organization level." },
-      { id: 'B', text: "Manually commit workflow files into every newly created repository by hand." },
-      { id: 'C', text: "Email workflow templates as text attachments to all developers." },
-      { id: 'D', text: "Add workflow `.yml` files accompanied by `.properties.json` files to the `workflow-templates` directory of the organization's `.github` repository." }
+      { id: 'A', text: "Add the workflows as a required workflow at the organization level instead." },
+      { id: 'B', text: "Add the workflow files to each repository through a scheduled sync workflow." },
+      { id: 'C', text: "Add the workflow files to a template repository that new projects are created from." },
+      { id: 'D', text: "Add the `.yml` and `.properties.json` files to `workflow-templates` in the `.github` repo." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -366,10 +366,10 @@ export const GITHUB_ACTIONS_QUESTIONS_16 = [
     scenario: "A security compliance auditor requires cryptographic supply chain verification, keyless cloud authentication, and automated governance across all GitHub Actions workflows. The GitHub Actions engineer needs to provide standardized, pre-configured workflow templates that developers across an enterprise can select when creating new repositories.",
     question: "Which solution implements these mandatory CI/CD security and compliance controls?",
     options: [
-      { id: 'A', text: "Add workflow `.yml` files accompanied by `.properties.json` files to the `workflow-templates` directory of the organization's `.github` repository." },
-      { id: 'B', text: "Email workflow templates as text attachments to all developers." },
-      { id: 'C', text: "Manually commit workflow files into every newly created repository by hand." },
-      { id: 'D', text: "Starter workflows cannot be customized at the organization level." }
+      { id: 'A', text: "Add the `.yml` and `.properties.json` files to `workflow-templates` in the `.github` repo." },
+      { id: 'B', text: "Add the workflow files to a template repository that new projects are created from." },
+      { id: 'C', text: "Add the workflow files to each repository through a scheduled sync workflow." },
+      { id: 'D', text: "Add the workflows as a required workflow at the organization level instead." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -387,10 +387,10 @@ export const GITHUB_ACTIONS_QUESTIONS_16 = [
     scenario: "An enterprise is modernizing legacy on-premises CI/CD infrastructure and migrating automated delivery workflows to GitHub Actions. The GitHub Actions engineer needs to provide standardized, pre-configured workflow templates that developers across an enterprise can select when creating new repositories.",
     question: "Which practice or platform feature enables the engineering team to modernize automated delivery with minimal operational friction?",
     options: [
-      { id: 'A', text: "Email workflow templates as text attachments to all developers." },
-      { id: 'B', text: "Manually commit workflow files into every newly created repository by hand." },
-      { id: 'C', text: "Add workflow `.yml` files accompanied by `.properties.json` files to the `workflow-templates` directory of the organization's `.github` repository." },
-      { id: 'D', text: "Starter workflows cannot be customized at the organization level." }
+      { id: 'A', text: "Add the workflow files to a template repository that new projects are created from." },
+      { id: 'B', text: "Add the workflow files to each repository through a scheduled sync workflow." },
+      { id: 'C', text: "Add the `.yml` and `.properties.json` files to `workflow-templates` in the `.github` repo." },
+      { id: 'D', text: "Add the workflows as a required workflow at the organization level instead." }
     ],
     correctAnswers: ['C'],
     type: "single",
@@ -408,10 +408,10 @@ export const GITHUB_ACTIONS_QUESTIONS_16 = [
     scenario: "A platform operations team is optimizing system reliability to eliminate single points of failure, accelerate build caching, and ensure secure failure handling. The GitHub Actions engineer needs to provide standardized, pre-configured workflow templates that developers across an enterprise can select when creating new repositories.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees pipeline availability?",
     options: [
-      { id: 'A', text: "Add workflow `.yml` files accompanied by `.properties.json` files to the `workflow-templates` directory of the organization's `.github` repository." },
-      { id: 'B', text: "Email workflow templates as text attachments to all developers." },
-      { id: 'C', text: "Manually commit workflow files into every newly created repository by hand." },
-      { id: 'D', text: "Starter workflows cannot be customized at the organization level." }
+      { id: 'A', text: "Add the `.yml` and `.properties.json` files to `workflow-templates` in the `.github` repo." },
+      { id: 'B', text: "Add the workflow files to a template repository that new projects are created from." },
+      { id: 'C', text: "Add the workflow files to each repository through a scheduled sync workflow." },
+      { id: 'D', text: "Add the workflows as a required workflow at the organization level instead." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -429,10 +429,10 @@ export const GITHUB_ACTIONS_QUESTIONS_16 = [
     scenario: "A devops automation engineering team is establishing high-availability pipeline standards, runner recovery procedures, and operational resilience baselines for GitHub Actions. The GitHub Actions engineer needs to automatically create a formal GitHub Release and attach compiled binary assets whenever a new semantic version tag (`v*.*.*`) is pushed.",
     question: "Which architectural approach or configuration satisfies these CI/CD disaster recovery and operational continuity objectives?",
     options: [
-      { id: 'A', text: "Create GitHub Releases manually by hand clicking in the web UI." },
-      { id: 'B', text: "Trigger on `push: tags: ['v*']` and use `softprops/action-gh-release` with `files:` pointing to compiled artifacts." },
-      { id: 'C', text: "Commit release binary archives directly into the main Git branch." },
-      { id: 'D', text: "Store release binaries in an unauthenticated S3 bucket." }
+      { id: 'A', text: "Trigger on `release: types: [published]` and build the artifacts then." },
+      { id: 'B', text: "Trigger on `push: tags: ['v*']` and attach the built files to a release." },
+      { id: 'C', text: "Trigger on `push` to `main` and commit the built archives to the branch." },
+      { id: 'D', text: "Trigger on `workflow_dispatch` and upload the build to object storage." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -450,10 +450,10 @@ export const GITHUB_ACTIONS_QUESTIONS_16 = [
     scenario: "A high-throughput software engineering organization experiences massive surges in concurrent build and test requests across thousands of enterprise repositories. The GitHub Actions engineer needs to automatically create a formal GitHub Release and attach compiled binary assets whenever a new semantic version tag (`v*.*.*`) is pushed.",
     question: "Which workflow architecture or runner configuration manages this execution volume effectively while preventing queue congestion and latency?",
     options: [
-      { id: 'A', text: "Create GitHub Releases manually by hand clicking in the web UI." },
-      { id: 'B', text: "Trigger on `push: tags: ['v*']` and use `softprops/action-gh-release` with `files:` pointing to compiled artifacts." },
-      { id: 'C', text: "Commit release binary archives directly into the main Git branch." },
-      { id: 'D', text: "Store release binaries in an unauthenticated S3 bucket." }
+      { id: 'A', text: "Trigger on `release: types: [published]` and build the artifacts then." },
+      { id: 'B', text: "Trigger on `push: tags: ['v*']` and attach the built files to a release." },
+      { id: 'C', text: "Trigger on `push` to `main` and commit the built archives to the branch." },
+      { id: 'D', text: "Trigger on `workflow_dispatch` and upload the build to object storage." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -471,10 +471,10 @@ export const GITHUB_ACTIONS_QUESTIONS_16 = [
     scenario: "A security compliance auditor requires cryptographic supply chain verification, keyless cloud authentication, and automated governance across all GitHub Actions workflows. The GitHub Actions engineer needs to automatically create a formal GitHub Release and attach compiled binary assets whenever a new semantic version tag (`v*.*.*`) is pushed.",
     question: "Which solution implements these mandatory CI/CD security and compliance controls?",
     options: [
-      { id: 'A', text: "Trigger on `push: tags: ['v*']` and use `softprops/action-gh-release` with `files:` pointing to compiled artifacts." },
-      { id: 'B', text: "Create GitHub Releases manually by hand clicking in the web UI." },
-      { id: 'C', text: "Store release binaries in an unauthenticated S3 bucket." },
-      { id: 'D', text: "Commit release binary archives directly into the main Git branch." }
+      { id: 'A', text: "Trigger on `push: tags: ['v*']` and attach the built files to a release." },
+      { id: 'B', text: "Trigger on `release: types: [published]` and build the artifacts then." },
+      { id: 'C', text: "Trigger on `workflow_dispatch` and upload the build to object storage." },
+      { id: 'D', text: "Trigger on `push` to `main` and commit the built archives to the branch." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -492,10 +492,10 @@ export const GITHUB_ACTIONS_QUESTIONS_16 = [
     scenario: "An enterprise is modernizing legacy on-premises CI/CD infrastructure and migrating automated delivery workflows to GitHub Actions. The GitHub Actions engineer needs to automatically create a formal GitHub Release and attach compiled binary assets whenever a new semantic version tag (`v*.*.*`) is pushed.",
     question: "Which practice or platform feature enables the engineering team to modernize automated delivery with minimal operational friction?",
     options: [
-      { id: 'A', text: "Commit release binary archives directly into the main Git branch." },
-      { id: 'B', text: "Store release binaries in an unauthenticated S3 bucket." },
-      { id: 'C', text: "Create GitHub Releases manually by hand clicking in the web UI." },
-      { id: 'D', text: "Trigger on `push: tags: ['v*']` and use `softprops/action-gh-release` with `files:` pointing to compiled artifacts." }
+      { id: 'A', text: "Trigger on `push` to `main` and commit the built archives to the branch." },
+      { id: 'B', text: "Trigger on `workflow_dispatch` and upload the build to object storage." },
+      { id: 'C', text: "Trigger on `release: types: [published]` and build the artifacts then." },
+      { id: 'D', text: "Trigger on `push: tags: ['v*']` and attach the built files to a release." }
     ],
     correctAnswers: ['D'],
     type: "single",
@@ -513,10 +513,10 @@ export const GITHUB_ACTIONS_QUESTIONS_16 = [
     scenario: "A platform operations team is optimizing system reliability to eliminate single points of failure, accelerate build caching, and ensure secure failure handling. The GitHub Actions engineer needs to automatically create a formal GitHub Release and attach compiled binary assets whenever a new semantic version tag (`v*.*.*`) is pushed.",
     question: "Which design pattern or configuration eliminates operational bottlenecks and guarantees pipeline availability?",
     options: [
-      { id: 'A', text: "Trigger on `push: tags: ['v*']` and use `softprops/action-gh-release` with `files:` pointing to compiled artifacts." },
-      { id: 'B', text: "Create GitHub Releases manually by hand clicking in the web UI." },
-      { id: 'C', text: "Store release binaries in an unauthenticated S3 bucket." },
-      { id: 'D', text: "Commit release binary archives directly into the main Git branch." }
+      { id: 'A', text: "Trigger on `push: tags: ['v*']` and attach the built files to a release." },
+      { id: 'B', text: "Trigger on `release: types: [published]` and build the artifacts then." },
+      { id: 'C', text: "Trigger on `workflow_dispatch` and upload the build to object storage." },
+      { id: 'D', text: "Trigger on `push` to `main` and commit the built archives to the branch." }
     ],
     correctAnswers: ['A'],
     type: "single",
