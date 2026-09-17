@@ -1,0 +1,530 @@
+export const AWS_SAP_QUESTIONS = [
+  {
+    id: "aws-sap-201",
+    difficulty: "medium",
+    certId: "aws-sap",
+    domainId: "d1",
+    domainName: "Design Solutions for Organizational Complexity",
+    title: "Choosing an Organizational Unit Structure",
+    scenario: "A company is designing its organization. It has production and non-production workloads, a security team needing different controls, and infrastructure accounts. Policies must differ by environment and by function without exceptions per account.",
+    question: "Which structuring principle should guide the design?",
+    options: [
+      { id: 'A', text: "Group accounts into organizational units by the controls they need rather than by the business unit that owns them, so that one policy covers the whole unit and no per-account exception is required." },
+      { id: 'B', text: "Group accounts into organizational units by business unit so each unit's costs are reported together and its own policies can be applied to its accounts." },
+      { id: 'C', text: "Group accounts into organizational units by AWS Region so that data residency controls can be applied consistently to the accounts operating in each Region." },
+      { id: 'D', text: "Keep every account directly under the root and attach an individual service control policy to each one reflecting that account's particular requirements." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Organizational units exist to apply policy, so grouping by the controls required means a service control policy attached to the unit fits every account in it and no per-account exception is needed. Grouping by business unit mixes production and development under one policy, forcing exceptions. Accounts are not Region-scoped, so a Region-based structure does not map onto how accounts exist. Attaching a policy per account under the root abandons inheritance entirely and becomes unmanageable as the estate grows.",
+    referenceUrl: "https://docs.aws.amazon.com/whitepapers/latest/organizing-your-aws-environment/organizing-workloads-with-multiple-accounts.html",
+    tags: ["Organizations", "Organizational Units", "Governance", "Landing Zone"]
+  },
+  {
+    id: "aws-sap-202",
+    difficulty: "hard",
+    certId: "aws-sap",
+    domainId: "d1",
+    domainName: "Design Solutions for Organizational Complexity",
+    title: "Restricting Access to a Known Network Perimeter",
+    scenario: "A company requires that credentials issued to its workforce only work from its corporate network or its own VPCs, so that a stolen credential used from elsewhere fails even if it is otherwise valid.",
+    question: "Which condition set expresses this perimeter?",
+    options: [
+      { id: 'A', text: "Deny requests unless aws:SourceIp matches the corporate ranges or aws:SourceVpc matches the company's own VPCs, exempting service-linked principals so that legitimate AWS service calls continue to work." },
+      { id: 'B', text: "Deny requests unless aws:SourceIp matches the corporate ranges, applied through a service control policy at the organization root for every principal." },
+      { id: 'C', text: "Deny requests unless aws:PrincipalOrgID matches the organization, which ensures that only principals belonging to the company's own accounts are able to call." },
+      { id: 'D', text: "Deny requests unless aws:SecureTransport is true, so that credentials presented over an unencrypted connection are rejected wherever they are used from." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "A network perimeter must cover both paths credentials legitimately travel, the corporate network and traffic originating inside the company's VPCs, and AWS services acting on your behalf must be exempted or they break; combining the source address and source VPC conditions with that exemption is the documented data perimeter pattern. Source address alone breaks every call made from within a VPC through an endpoint. The organization condition establishes identity rather than location. Requiring encrypted transport is worthwhile but says nothing about where a request came from.",
+    referenceUrl: "https://docs.aws.amazon.com/whitepapers/latest/building-a-data-perimeter-on-aws/welcome.html",
+    tags: ["Data Perimeter", "IAM Conditions", "SCP", "Security"]
+  },
+  {
+    id: "aws-sap-203",
+    difficulty: "medium",
+    certId: "aws-sap",
+    domainId: "d1",
+    domainName: "Design Solutions for Organizational Complexity",
+    title: "Consolidating Monitoring Across Accounts",
+    scenario: "Operations engineers currently switch between 40 accounts to read CloudWatch dashboards and alarms during an incident. Leadership wants one console view of metrics and alarms from every account without copying the data.",
+    question: "Which capability provides the unified view?",
+    options: [
+      { id: 'A', text: "CloudWatch cross-account observability, linking the source accounts to a monitoring account." },
+      { id: 'B', text: "A metric stream in each account delivering the metrics to a central Amazon S3 bucket through Kinesis Data Firehose for querying by the operations engineers." },
+      { id: 'C', text: "A Lambda function in the monitoring account that assumes a role in each source account and republishes the metrics it collects as custom CloudWatch metrics." },
+      { id: 'D', text: "Amazon Managed Grafana with a CloudWatch data source per account." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Cross-account observability links source accounts to a monitoring account so metrics, logs, and traces are visible and searchable there natively, with no duplication and no pipeline to run. Metric streams to S3 move the data and lose the alarm and console experience. A republishing function duplicates every metric and doubles the metric cost while adding code to operate. Managed Grafana genuinely can query many accounts and is a good visualization layer, but it needs a data source and permissions configured per account and does not bring alarms into one place.",
+    referenceUrl: "https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Unified-Cross-Account.html",
+    tags: ["CloudWatch", "Cross-Account Observability", "Operations", "Multi-Account"]
+  },
+  {
+    id: "aws-sap-204",
+    difficulty: "medium",
+    certId: "aws-sap",
+    domainId: "d1",
+    domainName: "Design Solutions for Organizational Complexity",
+    title: "Allocating Address Space Without Collisions",
+    scenario: "Teams create VPCs themselves and have twice chosen overlapping CIDR ranges, which blocked later Transit Gateway attachments. The network team wants allocation to be automatic and collision-free without becoming a ticket queue.",
+    question: "Which service manages the allocation?",
+    options: [
+      { id: 'A', text: "Amazon VPC IP Address Manager, with pools per Region and environment that teams allocate from." },
+      { id: 'B', text: "AWS Resource Access Manager, sharing pre-created subnets from a central network account so teams launch into ranges the network team has already allocated." },
+      { id: 'C', text: "A CIDR register kept in the network team's documentation and consulted before each VPC." },
+      { id: 'D', text: "AWS Config with a custom rule that evaluates each newly created VPC and reports any CIDR block overlapping a range already in use elsewhere in the organization." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "IPAM is purpose-built for this: hierarchical pools are shared across the organization, allocations are made from them automatically without overlap, and utilization is monitored, so teams stay self-service while collisions become impossible. Sharing pre-created subnets works for a shared VPC model but removes the teams' ability to create their own VPCs. A manually maintained record is the process that already failed twice. A Config rule detects an overlap after the VPC exists, by which point it must be rebuilt.",
+    referenceUrl: "https://docs.aws.amazon.com/vpc/latest/ipam/what-it-is-ipam.html",
+    tags: ["IPAM", "VPC", "Address Management", "Networking"]
+  },
+  {
+    id: "aws-sap-205",
+    difficulty: "hard",
+    certId: "aws-sap",
+    domainId: "d1",
+    domainName: "Design Solutions for Organizational Complexity",
+    title: "Responding to a Compromised Workload Account",
+    scenario: "GuardDuty reports credential exfiltration from an EC2 instance in a workload account. The security team must contain the incident without destroying evidence and without waiting for the application team to respond.",
+    question: "Which containment sequence is appropriate?",
+    options: [
+      { id: 'A', text: "Isolate the instance with a deny-all security group, snapshot its volumes for forensics, revoke the role's issued sessions, then investigate from the captured copy rather than the live host." },
+      { id: 'B', text: "Terminate the compromised instance immediately so the attacker loses access, then launch a replacement from the most recent known-good Amazon Machine Image." },
+      { id: 'C', text: "Detach the instance's IAM instance profile and leave it running so the application continues to serve traffic while the security team investigates the incident." },
+      { id: 'D', text: "Move the account into a quarantine organizational unit with a deny-all service control policy so that every principal in the account loses access immediately." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Containment must stop the attacker while preserving evidence, so isolating network access first, capturing volume snapshots for forensics, and then revoking the role's issued sessions achieves both, and analysis happens on the copy. Terminating the instance destroys memory and disk evidence. Detaching the instance profile removes new credentials but leaves already-issued session tokens valid and the attacker present on a running host. A deny-all policy on the whole account is disproportionate and blocks the responders alongside the attacker.",
+    referenceUrl: "https://docs.aws.amazon.com/whitepapers/latest/aws-security-incident-response-guide/welcome.html",
+    tags: ["Incident Response", "GuardDuty", "Forensics", "Security"]
+  },
+  {
+    id: "aws-sap-206",
+    difficulty: "easy",
+    certId: "aws-sap",
+    domainId: "d1",
+    domainName: "Design Solutions for Organizational Complexity",
+    title: "Naming the Boundary for Consolidated Billing",
+    scenario: "A finance team asks which accounts' usage is combined for volume pricing tiers and Reserved Instance discounts, and where the single monthly invoice comes from in an organization with nested organizational units.",
+    question: "What determines the consolidated billing boundary?",
+    options: [
+      { id: 'A', text: "The organization itself, with the management account receiving one invoice for every member account." },
+      { id: 'B', text: "Each organizational unit, with usage aggregated within the unit and a separate invoice produced for each one of them at the end of the billing period." },
+      { id: 'C', text: "Each AWS Region, with usage aggregated per Region so that volume pricing tiers are reached independently in every Region the organization operates in." },
+      { id: 'D', text: "Each linked account individually, with volume tiers reached separately." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Consolidated billing operates at the organization level: usage from every member account is combined so volume tiers are reached sooner, and the management account is billed once for the whole organization. Organizational units are a policy and structural device with no billing boundary of their own. Volume tiers are calculated on combined usage rather than per Region. Separate invoicing per account is what consolidated billing replaces.",
+    referenceUrl: "https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/consolidated-billing.html",
+    tags: ["Consolidated Billing", "Organizations", "Cost", "Pricing"]
+  },
+  {
+    id: "aws-sap-207",
+    difficulty: "hard",
+    certId: "aws-sap",
+    domainId: "d2",
+    domainName: "Design for New Solutions",
+    title: "Designing for a Predictable Traffic Spike",
+    scenario: "A ticketing site expects 50 times normal traffic at an announced on-sale moment. The architecture uses Auto Scaling, Aurora, and a Lambda checkout path. Scaling reactively has failed before because the spike arrives within seconds.",
+    question: "Which combination prepares the system for the known moment? (Choose TWO)",
+    options: [
+      { id: 'A', text: "Pre-scale the Auto Scaling groups with a scheduled action ahead of the on-sale time." },
+      { id: 'B', text: "Request provisioned concurrency for the checkout function and warm the Aurora cluster with additional readers before the event." },
+      { id: 'C', text: "Lower the Auto Scaling target tracking threshold so that scaling begins earlier once the traffic from the on-sale moment starts arriving at the load balancer." },
+      { id: 'D', text: "Enable Aurora Serverless v2 on the cluster so capacity scales automatically as the checkout traffic arrives at the database during the on-sale period." },
+      { id: 'E', text: "Add an Amazon CloudFront distribution in front of the site so that the static assets are served from the edge during the on-sale period." }
+    ],
+    correctAnswers: ['A', 'B'],
+    type: "multiple",
+    explanation: "When the moment is known, capacity should exist before it rather than being requested during it, so scheduled scaling for the instance fleet and provisioned concurrency plus extra readers for the serverless and database tiers put the capacity in place in advance. Lowering the tracking threshold still reacts after traffic arrives, which is what failed previously. Aurora Serverless v2 scales in seconds but starts from its current capacity and a 50-fold step outpaces it. Edge caching is worth having and reduces origin load, but it does not prepare the checkout path that actually saturates.",
+    referenceUrl: "https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-scheduled-scaling.html",
+    tags: ["Auto Scaling", "Provisioned Concurrency", "Scaling", "Events"]
+  },
+  {
+    id: "aws-sap-208",
+    difficulty: "medium",
+    certId: "aws-sap",
+    domainId: "d2",
+    domainName: "Design for New Solutions",
+    title: "Selecting a Store for Time-Series Telemetry",
+    scenario: "A platform ingests 2 million device measurements per second, queries recent data for dashboards, keeps two years for trend analysis, and needs interpolation and time-window functions in its queries.",
+    question: "Which database suits the workload?",
+    options: [
+      { id: 'A', text: "Amazon Timestream, which tiers recent data in memory and older data in magnetic storage." },
+      { id: 'B', text: "Amazon DynamoDB with a composite key of device and timestamp, and a time to live attribute expiring the measurements once the two-year retention period has elapsed." },
+      { id: 'C', text: "Amazon Aurora PostgreSQL with table partitioning by month." },
+      { id: 'D', text: "Amazon OpenSearch Service with index lifecycle management moving older indices to warm and cold tiers as the measurements age beyond the dashboard window." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Timestream is purpose-built for this shape: it ingests at very high rates, tiers data automatically from memory to magnetic storage by age, and its SQL includes interpolation and time-window functions that the workload needs. DynamoDB handles the write rate but offers no time-series functions, so interpolation moves into application code. Aurora with partitioning cannot sustain 2 million writes per second. OpenSearch tiers indices well and supports aggregations, but it is a search engine whose ingest cost at this rate is high and whose time-series functions are weaker.",
+    referenceUrl: "https://docs.aws.amazon.com/timestream/latest/developerguide/what-is-timestream.html",
+    tags: ["Timestream", "Time Series", "IoT", "Purpose-Built"]
+  },
+  {
+    id: "aws-sap-209",
+    difficulty: "medium",
+    certId: "aws-sap",
+    domainId: "d2",
+    domainName: "Design for New Solutions",
+    title: "Keeping a Build Pipeline's Credentials Short-Lived",
+    scenario: "A GitHub Actions workflow deploys to AWS. It currently uses an IAM user's access keys stored as repository secrets. Security wants no long-lived AWS credentials anywhere in the CI system.",
+    question: "Which authentication approach removes them?",
+    options: [
+      { id: 'A', text: "Configure GitHub as an OpenID Connect identity provider in IAM and have the workflow assume a role scoped to the repository and branch, so that no AWS credential is ever stored." },
+      { id: 'B', text: "Store the access keys in AWS Secrets Manager and have the workflow retrieve them at run time using a bootstrap credential held in the repository secrets." },
+      { id: 'C', text: "Rotate the IAM user's access keys automatically every seven days with a Lambda function that updates the repository secret through the version control provider's API." },
+      { id: 'D', text: "Run the workflow on a self-hosted runner on an EC2 instance so that the instance profile supplies credentials instead of the keys held in repository secrets." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "An OpenID Connect trust lets the workflow exchange a short-lived identity token for AWS credentials, with the trust policy restricting which repository and branch may assume the role, so no AWS credential is ever stored. Fetching keys from Secrets Manager still requires a long-lived bootstrap credential. Frequent rotation shortens the exposure window but the keys still exist in the CI system. A self-hosted runner does remove stored keys and is a legitimate option, but it introduces instances to operate and secure for what the identity federation solves directly.",
+    referenceUrl: "https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_create_oidc.html",
+    tags: ["OIDC", "IAM", "CI/CD", "Security"]
+  },
+  {
+    id: "aws-sap-210",
+    difficulty: "hard",
+    certId: "aws-sap",
+    domainId: "d2",
+    domainName: "Design for New Solutions",
+    title: "Serving Two Consistency Requirements From One Store",
+    scenario: "An account service must return a strongly consistent balance when a customer views their account, but a listing screen showing many accounts tolerates slightly stale data and is called far more often at much lower cost tolerance.",
+    question: "How should the two read paths be served from DynamoDB?",
+    options: [
+      { id: 'A', text: "Use a strongly consistent read for the balance view and an eventually consistent read for the listing." },
+      { id: 'B', text: "Use strongly consistent reads for both paths so the application never presents stale data to a customer regardless of which screen they are currently viewing." },
+      { id: 'C', text: "Use eventually consistent reads for both paths with a short client-side delay." },
+      { id: 'D', text: "Use a DynamoDB Accelerator cluster for both paths so that the reads are served from the cache and the table's read capacity is conserved for the writes." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "DynamoDB lets consistency be chosen per request, and an eventually consistent read costs half a read capacity unit against one for a strongly consistent read, so matching each path to its actual requirement halves the cost of the high-volume listing while the balance stays correct. Strong consistency everywhere doubles the cost of the path that does not need it. A client-side delay is a guess rather than a guarantee. DAX serves eventually consistent reads only, so routing the balance view through it would break the consistency requirement.",
+    referenceUrl: "https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ReadConsistency.html",
+    tags: ["DynamoDB", "Consistency", "Cost Optimization", "Design"]
+  },
+  {
+    id: "aws-sap-211",
+    difficulty: "medium",
+    certId: "aws-sap",
+    domainId: "d2",
+    domainName: "Design for New Solutions",
+    title: "Choosing Between Interface and Gateway Endpoints",
+    scenario: "A team is designing private connectivity for a VPC whose workloads call Amazon S3, Amazon DynamoDB, AWS Systems Manager, and Amazon SQS. They want to minimize cost while keeping every call off the public internet.",
+    question: "Which endpoint choice minimizes cost?",
+    options: [
+      { id: 'A', text: "Gateway endpoints for S3 and DynamoDB, and interface endpoints for Systems Manager and SQS." },
+      { id: 'B', text: "Interface endpoints for all four services, so that the security group model and endpoint policies are applied consistently across every service the workloads call." },
+      { id: 'C', text: "Gateway endpoints for all four services, since gateway endpoints carry no hourly charge and route the traffic through the VPC route tables to each service." },
+      { id: 'D', text: "A single NAT gateway carrying the traffic for all four services." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Gateway endpoints exist only for S3 and DynamoDB but carry no hourly or data processing charge, so they should always be used where available, while everything else needs an interface endpoint that is billed hourly per Availability Zone. Interface endpoints for all four would pay for two that could be free. Gateway endpoints are not available for Systems Manager or SQS, so that configuration cannot be built. A NAT gateway sends traffic over the public internet and charges for processing, failing both the privacy and the cost goals.",
+    referenceUrl: "https://docs.aws.amazon.com/vpc/latest/privatelink/concepts.html",
+    tags: ["VPC Endpoints", "PrivateLink", "Cost Optimization", "Networking"]
+  },
+  {
+    id: "aws-sap-212",
+    difficulty: "easy",
+    certId: "aws-sap",
+    domainId: "d2",
+    domainName: "Design for New Solutions",
+    title: "Protecting Against a Volumetric Network Attack",
+    scenario: "A public service must withstand large volumetric attacks. The team wants cost protection against scaling charges incurred during an attack and access to specialists during an incident, beyond what is included by default.",
+    question: "Which offering provides these?",
+    options: [
+      { id: 'A', text: "AWS Shield Advanced, which adds cost protection and access to the response team." },
+      { id: 'B', text: "AWS Shield Standard, which is included at no additional charge and automatically protects against the common network and transport layer attacks." },
+      { id: 'C', text: "AWS WAF with the AWS Managed Rules baseline rule groups attached to the distribution so that malicious requests are filtered before they reach the origin." },
+      { id: 'D', text: "Amazon CloudFront with origin shield enabled so that attack traffic is absorbed at the edge locations and the origin infrastructure is never directly exposed." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Shield Advanced is the subscription that adds cost protection for scaling charges attributable to an attack, access to the Shield Response Team, and enhanced detection and reporting. Shield Standard is automatic and free but includes neither cost protection nor specialist access. WAF filters application-layer requests and is complementary rather than an answer to volumetric attacks. Origin shield improves cache efficiency and origin offload but is not a DDoS subscription and carries no cost protection.",
+    referenceUrl: "https://docs.aws.amazon.com/waf/latest/developerguide/ddos-advanced-summary.html",
+    tags: ["Shield Advanced", "DDoS", "Security", "Availability"]
+  },
+  {
+    id: "aws-sap-213",
+    difficulty: "medium",
+    certId: "aws-sap",
+    domainId: "d2",
+    domainName: "Design for New Solutions",
+    title: "Handling Large Payloads Through a Queue",
+    scenario: "A workflow must pass documents of up to 200 MB between services. The team wants queue-based decoupling but the message size limit is 256 KB, and they do not want the consumer polling a database for the payload.",
+    question: "Which pattern handles the large payloads?",
+    options: [
+      { id: 'A', text: "Store the document in Amazon S3 and put a message containing its key on the queue for the consumer to fetch." },
+      { id: 'B', text: "Split each document into chunks and reassemble them in the consumer." },
+      { id: 'C', text: "Replace the queue with an Amazon Kinesis data stream, whose larger record size limit accommodates the documents without any change to the consuming service." },
+      { id: 'D', text: "Compress each document before publishing it so that the compressed payload fits within the message size limit that the queue service imposes on each message." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "The claim check pattern keeps the queue for coordination and S3 for the bytes: the producer writes the object and sends only its key, and the consumer fetches it, which the Amazon SQS Extended Client Library implements directly. Chunking and reassembly adds ordering, completeness, and failure handling the team must write and test. A Kinesis record is limited to 1 MB, far below 200 MB. Compression cannot reliably bring arbitrary 200 MB documents under 256 KB.",
+    referenceUrl: "https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/configure-sqs-large-messages.html",
+    tags: ["SQS", "Claim Check", "S3", "Integration"]
+  },
+  {
+    id: "aws-sap-214",
+    difficulty: "hard",
+    certId: "aws-sap",
+    domainId: "d3",
+    domainName: "Continuous Improvement for Existing Solutions",
+    title: "A Cache That Made Latency Worse",
+    scenario: "A team added a cache in front of a database. Median latency improved but p99 latency rose and the database now sees periodic load spikes. Investigation shows many keys share an identical expiry time set at deployment.",
+    question: "What explains the behaviour and what fixes it?",
+    options: [
+      { id: 'A', text: "Synchronized expiry causes a stampede, so the fix is randomized jitter on each entry's time to live." },
+      { id: 'B', text: "The cache is undersized for the working set, so the fix is to increase the node size until the eviction rate falls to zero during normal operation." },
+      { id: 'C', text: "The cache is returning stale entries, so the fix is to shorten the time to live so that the data served to callers more closely tracks the database." },
+      { id: 'D', text: "The client library opens a connection per request, so the fix is pooling." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Entries created together with the same time to live expire together, so a large set of keys misses at the same instant and every request behind them hits the database at once, which is precisely the periodic spike and tail latency described; spreading expiry with random jitter decorrelates the misses. Undersizing produces steady eviction pressure rather than synchronized spikes. Stale entries would be a correctness complaint, and shortening the time to live would make the stampede more frequent. Connection handling would raise latency uniformly rather than periodically.",
+    referenceUrl: "https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/BestPractices.html",
+    tags: ["ElastiCache", "Cache Stampede", "Performance", "Troubleshooting"]
+  },
+  {
+    id: "aws-sap-215",
+    difficulty: "medium",
+    certId: "aws-sap",
+    domainId: "d3",
+    domainName: "Continuous Improvement for Existing Solutions",
+    title: "Deciding Whether a Savings Plan Is Being Wasted",
+    scenario: "Finance asks whether the company's Compute Savings Plans commitment is fully used. Engineering has reduced its EC2 footprint after a modernization project and nobody has checked the commitment since it was bought.",
+    question: "Which report answers the question directly?",
+    options: [
+      { id: 'A', text: "The Savings Plans utilization and coverage reports in AWS Cost Explorer." },
+      { id: 'B', text: "The Cost and Usage Report filtered to the Savings Plans line items, with the committed and consumed amounts summed for each month of the commitment term." },
+      { id: 'C', text: "AWS Budgets with a budget configured for the Savings Plans commitment so that alerts are raised whenever the monthly spend falls short of the committed amount." },
+      { id: 'D', text: "AWS Compute Optimizer, whose recommendations identify the instances whose utilization has fallen since the modernization project reduced the EC2 footprint." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Cost Explorer publishes two purpose-built reports: utilization shows what proportion of the commitment was consumed, which is exactly the waste question, and coverage shows how much eligible spend the plan covers, which informs whether to buy more. The Cost and Usage Report contains the same underlying data but requires building the analysis. A budget can alert on the symptom without explaining utilization. Compute Optimizer reports right-sizing opportunities and knows nothing about the commitment.",
+    referenceUrl: "https://docs.aws.amazon.com/savingsplans/latest/userguide/sp-overview.html",
+    tags: ["Savings Plans", "Cost Explorer", "FinOps", "Utilization"]
+  },
+  {
+    id: "aws-sap-216",
+    difficulty: "medium",
+    certId: "aws-sap",
+    domainId: "d3",
+    domainName: "Continuous Improvement for Existing Solutions",
+    title: "Tightening a Policy Without Breaking a Workload",
+    scenario: "A role carries a broad policy granting full access to several services. The team wants to reduce it to least privilege but cannot risk breaking the production workload that uses it, and the workload's behaviour varies across a monthly cycle.",
+    question: "Which sequence reduces the risk of over-restricting?",
+    options: [
+      { id: 'A', text: "Review the role's last accessed data over a full monthly cycle, generate a candidate policy from CloudTrail activity, then apply it first in a pre-production account where a mistake is caught before customers see it." },
+      { id: 'B', text: "Apply a restrictive policy immediately in production and monitor CloudTrail for access denied errors, restoring the individual permissions that the workload turns out to need." },
+      { id: 'C', text: "Attach a permissions boundary expressing the intended least-privilege set while leaving the broad policy in place, so the effective permissions are reduced without editing it." },
+      { id: 'D', text: "Replace the broad policy with the AWS managed read-only policies for each service, then add the write actions that the application's documentation says it requires." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Evidence first, then a safe place to test: last accessed data over a full cycle reveals which services are genuinely unused including monthly jobs, Access Analyzer turns real CloudTrail activity into a candidate policy, and pre-production catches mistakes before customers do. Applying restrictions straight to production discovers gaps through outages. A permissions boundary does reduce effective permissions safely but leaves the broad policy attached, so the underlying grant is unchanged and the boundary has the same risk of being too tight. Relying on documentation misses the calls the SDK makes implicitly.",
+    referenceUrl: "https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html",
+    tags: ["IAM", "Least Privilege", "Access Analyzer", "Security"]
+  },
+  {
+    id: "aws-sap-217",
+    difficulty: "hard",
+    certId: "aws-sap",
+    domainId: "d3",
+    domainName: "Continuous Improvement for Existing Solutions",
+    title: "Throughput Limited by a Single Consumer",
+    scenario: "An SQS queue backs up during peak hours. The consumer is a Lambda function with reserved concurrency of 10 and a batch size of 1, and each invocation takes 200 ms of which most is waiting on a downstream HTTP call.",
+    question: "Which change increases throughput most for the same cost profile?",
+    options: [
+      { id: 'A', text: "Raise the batch size so each invocation processes several messages and issues the downstream calls concurrently within the function." },
+      { id: 'B', text: "Raise the reserved concurrency so more invocations run in parallel and the queue is drained faster during the peak hours of the day." },
+      { id: 'C', text: "Increase the function's memory allocation so that each invocation is allocated more CPU and the downstream HTTP call therefore completes more quickly." },
+      { id: 'D', text: "Switch the queue from standard to FIFO with high throughput mode enabled so that the consumer is able to process more messages per second than it does today." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "The work is dominated by waiting on I/O, so processing a batch and issuing those calls concurrently inside one invocation multiplies throughput without more concurrency or more invocations to pay for. Raising reserved concurrency does increase throughput but proportionally increases pressure on the downstream service and the invocation count. More memory buys CPU, which does not speed up a call spent waiting on a network response. FIFO queues have lower throughput than standard queues, so that change would reduce capacity.",
+    referenceUrl: "https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html",
+    tags: ["Lambda", "SQS", "Batching", "Throughput"]
+  },
+  {
+    id: "aws-sap-218",
+    difficulty: "medium",
+    certId: "aws-sap",
+    domainId: "d3",
+    domainName: "Continuous Improvement for Existing Solutions",
+    title: "Verifying That Backups Can Actually Be Restored",
+    scenario: "A company takes nightly backups of 60 databases and has never tested a restore. An auditor asks for evidence that recovery works and that the recovery time is known for each of the protected resources.",
+    question: "Which practice produces that evidence?",
+    options: [
+      { id: 'A', text: "Schedule AWS Backup restore testing plans that restore sampled recovery points automatically and record the outcome and elapsed duration for each protected resource." },
+      { id: 'B', text: "Review the AWS Backup jobs report each morning to confirm that every scheduled backup job completed successfully across all of the protected resources." },
+      { id: 'C', text: "Enable AWS Backup Vault Lock so that the recovery points cannot be deleted before their retention period expires and are therefore guaranteed to be available." },
+      { id: 'D', text: "Increase the backup frequency from nightly to hourly so that a more recent recovery point is always available if a restore becomes necessary." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Restore testing plans perform real restores on a schedule, validate them, and record the elapsed time, which is exactly the evidence an auditor wants and the only way to learn the actual recovery time. A successful backup job proves data was written, not that it can be read back into a working database. Vault lock protects recovery points from deletion without demonstrating they restore. More frequent backups improve the recovery point and say nothing about whether recovery succeeds.",
+    referenceUrl: "https://docs.aws.amazon.com/aws-backup/latest/devguide/restore-testing.html",
+    tags: ["AWS Backup", "Restore Testing", "Compliance", "Resilience"]
+  },
+  {
+    id: "aws-sap-219",
+    difficulty: "medium",
+    certId: "aws-sap",
+    domainId: "d3",
+    domainName: "Continuous Improvement for Existing Solutions",
+    title: "Identifying the Cause of a Cost Increase",
+    scenario: "The monthly bill rose by 30 percent with no planned change. Finance needs to know which service, account, and usage type drove the increase, and whether it is a price change, a usage change, or a lost discount.",
+    question: "Which analysis isolates the cause fastest?",
+    options: [
+      { id: 'A', text: "Group Cost Explorer by service, account, and usage type across the two months and compare unblended against amortized cost." },
+      { id: 'B', text: "Query the Cost and Usage Report in Amazon Athena, joining the line items from both months on the resource identifier to compare each resource's cost individually." },
+      { id: 'C', text: "Review AWS Cost Anomaly Detection findings for the month for reported anomalies." },
+      { id: 'D', text: "Review the AWS Trusted Advisor cost optimization checks to identify the idle and underutilized resources that could account for the additional monthly spend." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Cost Explorer's grouping narrows the increase to a service, account, and usage type in a few clicks, and comparing unblended with amortized cost distinguishes a genuine usage rise from a commitment expiring or a discount no longer applying. An Athena query over the Cost and Usage Report gives resource-level detail and is the right follow-up, but it takes far longer to reach the same first answer. Anomaly detection may have flagged nothing if the rise was gradual. Trusted Advisor lists waste that may predate the increase entirely.",
+    referenceUrl: "https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/ce-what-is.html",
+    tags: ["Cost Explorer", "FinOps", "Cost Analysis", "Troubleshooting"]
+  },
+  {
+    id: "aws-sap-220",
+    difficulty: "hard",
+    certId: "aws-sap",
+    domainId: "d3",
+    domainName: "Continuous Improvement for Existing Solutions",
+    title: "Making a Deployment Reversible",
+    scenario: "A team deploys a service whose release includes a database migration adding a non-nullable column. A recent rollback failed because the previous application version could not write to the changed schema, extending an outage.",
+    question: "Which practice makes such releases reversible?",
+    options: [
+      { id: 'A', text: "Use expand and contract migrations, deploying the schema change and the code that uses it in separate releases." },
+      { id: 'B', text: "Take a database snapshot immediately before each deployment." },
+      { id: 'C', text: "Run the schema migration inside the same transaction as the application deployment so that a failure of either one causes both of them to be reverted together." },
+      { id: 'D', text: "Deploy the application with a blue/green strategy so that the previous version remains running and traffic can be shifted back to it if the release misbehaves." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Expand and contract keeps the schema compatible with both the old and new code at every point: the column is added as nullable with a default first, the code that populates it ships next, and the constraint is tightened only once no running version depends on the old shape, so rollback is always safe. Restoring a snapshot discards every transaction since the deployment. A schema migration and an application rollout cannot share a transaction. Blue/green keeps the old code available but it still faces the incompatible schema, which is exactly the failure described.",
+    referenceUrl: "https://docs.aws.amazon.com/prescriptive-guidance/latest/modernization-data-persistence/schema-evolution.html",
+    tags: ["Database Migration", "Deployment", "Rollback", "Schema Evolution"]
+  },
+  {
+    id: "aws-sap-221",
+    difficulty: "medium",
+    certId: "aws-sap",
+    domainId: "d4",
+    domainName: "Accelerate Workload Migration and Modernization",
+    title: "Moving a Workload That Depends on Multicast",
+    scenario: "A market data distribution application relies on IP multicast between its nodes. The team plans to move it to AWS and has discovered that a standard VPC does not forward multicast traffic between instances.",
+    question: "Which option supports the application's networking requirement?",
+    options: [
+      { id: 'A', text: "Create a Transit Gateway multicast domain and associate the subnets holding the application's instances." },
+      { id: 'B', text: "Place the instances in a cluster placement group so that they share the same underlying network segment and multicast frames are forwarded between them." },
+      { id: 'C', text: "Enable enhanced networking with the Elastic Network Adapter on each instance so that the multicast frames are passed through by the underlying hypervisor." },
+      { id: 'D', text: "Configure a Gateway Load Balancer in front of the instances." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Transit Gateway supports multicast domains, which is the AWS-native way to carry multicast between subnets and instances, and members are added by associating subnets and registering sources and receivers. A cluster placement group affects physical proximity and network performance but does not change the fact that the VPC network does not forward multicast. Enhanced networking improves packet throughput and latency without adding multicast support. A Gateway Load Balancer inserts appliances into a traffic path and does not replicate packets to many receivers.",
+    referenceUrl: "https://docs.aws.amazon.com/vpc/latest/tgw/tgw-multicast-overview.html",
+    tags: ["Transit Gateway", "Multicast", "Migration", "Networking"]
+  },
+  {
+    id: "aws-sap-222",
+    difficulty: "hard",
+    certId: "aws-sap",
+    domainId: "d4",
+    domainName: "Accelerate Workload Migration and Modernization",
+    title: "Sequencing a Modernization With Limited Capacity",
+    scenario: "A portfolio has 60 applications. Leadership wants modernization value early, but the team can only work on three at a time and several applications are both low value and technically difficult to change.",
+    question: "Which sequencing approach delivers value soonest?",
+    options: [
+      { id: 'A', text: "Rank applications by business value against migration difficulty and start with high-value, low-difficulty candidates." },
+      { id: 'B', text: "Start with the most technically difficult applications while the team has the most budget and appetite, so the hardest work is completed before fatigue sets in." },
+      { id: 'C', text: "Migrate the applications in order of size, beginning with the largest, so that the greatest proportion of the estate is moved in the earliest waves of the programme." },
+      { id: 'D', text: "Migrate the applications in the order their owning teams volunteer." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "With constrained capacity, sequencing on value against difficulty puts the highest return per unit of effort first, which funds and sustains the programme, while low-value high-difficulty applications are candidates to retain or retire rather than modernize. Starting with the hardest work delays every benefit and risks the programme's credibility. Ordering by size optimizes for a metric that does not correlate with value. Volunteer order is useful for finding a pilot but leaves sequencing to enthusiasm rather than return.",
+    referenceUrl: "https://docs.aws.amazon.com/prescriptive-guidance/latest/migration-portfolio-discovery/portfolio-analysis.html",
+    tags: ["Portfolio Analysis", "Modernization", "Prioritization", "Migration"]
+  },
+  {
+    id: "aws-sap-223",
+    difficulty: "medium",
+    certId: "aws-sap",
+    domainId: "d4",
+    domainName: "Accelerate Workload Migration and Modernization",
+    title: "Migrating Object Storage Permissions Faithfully",
+    scenario: "A migration moves 50 million objects into Amazon S3 from an on-premises object store. Each object carries custom metadata the applications read, and the team needs the metadata preserved and the transfer resumable.",
+    question: "Which transfer method preserves the metadata?",
+    options: [
+      { id: 'A', text: "AWS DataSync, which transfers object metadata alongside the data and resumes from where it stopped." },
+      { id: 'B', text: "The AWS CLI s3 sync command run from an EC2 instance with the source mounted, which copies the objects and applies the metadata from a separate manifest file." },
+      { id: 'C', text: "S3 Batch Operations driven by a manifest of the source objects, invoking a Lambda function that copies each object and reapplies its metadata to the destination." },
+      { id: 'D', text: "AWS Snowball Edge, loading the objects onto the device and relying on the import process to reconstruct the custom metadata from the file attributes it carries." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "DataSync understands object metadata and tags, transfers them with the data, verifies integrity, and resumes an interrupted task rather than starting over, which matters across 50 million objects. The CLI sync command does not carry arbitrary source metadata and a separate manifest is bespoke work. S3 Batch Operations acts on objects already in S3, so it cannot pull from an external store. Snowball Edge moves bulk data but the import does not reconstruct custom object metadata from an external system's model.",
+    referenceUrl: "https://docs.aws.amazon.com/datasync/latest/userguide/create-object-location.html",
+    tags: ["DataSync", "S3", "Metadata", "Migration"]
+  },
+  {
+    id: "aws-sap-224",
+    difficulty: "medium",
+    certId: "aws-sap",
+    domainId: "d4",
+    domainName: "Accelerate Workload Migration and Modernization",
+    title: "Reducing Risk in a Big-Bang Cutover",
+    scenario: "A team plans a single cutover weekend for 60 interdependent applications. Leadership is concerned that a failure would be discovered with no time to react and the rollback plan has never been exercised.",
+    question: "Which change most reduces the risk?",
+    options: [
+      { id: 'A', text: "Split the cutover into smaller waves grouped by dependency, each with its own rehearsed rollback." },
+      { id: 'B', text: "Extend the cutover window from one weekend to two so the team has more time available to diagnose and fix any problems that arise during the migration." },
+      { id: 'C', text: "Add more engineers to the cutover weekend so that every application has a dedicated owner present to respond to problems as they are discovered." },
+      { id: 'D', text: "Document the rollback plan in more detail and walk through it as a tabletop exercise with the teams involved before the cutover weekend begins." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Smaller waves reduce the number of things that can fail at once, make each failure attributable, and let the rollback be exercised for real on the first wave before the rest follow, which addresses both concerns structurally. A longer window gives more time to fix a problem without reducing how many can occur simultaneously. More engineers help with response capacity but do not shrink the blast radius. A tabletop walkthrough is better than nothing but still leaves the rollback untested in practice.",
+    referenceUrl: "https://docs.aws.amazon.com/prescriptive-guidance/latest/large-migration-guide/migration-waves.html",
+    tags: ["Cutover", "Wave Planning", "Risk", "Migration"]
+  },
+  {
+    id: "aws-sap-225",
+    difficulty: "easy",
+    certId: "aws-sap",
+    domainId: "d4",
+    domainName: "Accelerate Workload Migration and Modernization",
+    title: "Choosing a Target for a Self-Managed Redis",
+    scenario: "A team runs Redis on EC2 instances it patches itself, handling failover manually. They want a managed equivalent keeping the same Redis API, with automatic failover, and are willing to accept eventual durability for cached data.",
+    question: "Which service should they move to?",
+    options: [
+      { id: 'A', text: "Amazon ElastiCache for Redis with Multi-AZ and automatic failover enabled." },
+      { id: 'B', text: "Amazon MemoryDB for Redis, which is Redis compatible and durable, persisting every write to a distributed transaction log across multiple Availability Zones." },
+      { id: 'C', text: "Amazon DynamoDB with DynamoDB Accelerator, which provides microsecond reads and a managed cache tier for the key-value access patterns the application uses." },
+      { id: 'D', text: "Amazon OpenSearch Service, which provides a managed cluster with automatic failover for the key-based lookups the application currently performs against Redis." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "ElastiCache for Redis is the managed equivalent of self-managed Redis: the same API and client libraries, with patching, replication, and automatic failover handled by AWS, which matches a cache that does not need strong durability. MemoryDB is also Redis compatible and would work, but its durability guarantee costs write latency the team does not need. DynamoDB with DAX is a different API requiring application changes. OpenSearch is a search engine rather than a Redis-compatible cache.",
+    referenceUrl: "https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/WhatIs.html",
+    tags: ["ElastiCache", "Redis", "Managed Services", "Replatform"]
+  }
+];
+
+export default AWS_SAP_QUESTIONS;

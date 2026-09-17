@@ -1,0 +1,530 @@
+export const AWS_SAP_QUESTIONS = [
+  {
+    id: "aws-sap-326",
+    difficulty: "medium",
+    certId: "aws-sap",
+    domainId: "d1",
+    domainName: "Design Solutions for Organizational Complexity",
+    title: "Choosing How to Distribute a Shared Library",
+    scenario: "Twelve teams in separate accounts consume an internal Python library. Copies have diverged, security fixes reach some teams and not others, and there is no record of which version each service is running in production.",
+    question: "Which distribution approach fixes this?",
+    options: [
+      { id: 'A', text: "Publish the library to a shared AWS CodeArtifact repository and grant the accounts read access to it." },
+      { id: 'B', text: "Publish the library as a versioned object in a shared Amazon S3 bucket and have each team's build download the version it requires during the build step." },
+      { id: 'C', text: "Publish the library as a Lambda layer shared with each account." },
+      { id: 'D', text: "Commit the library into each team's own repository as a subdirectory so that every service builds against a copy it controls and can patch itself." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "CodeArtifact is a managed package repository that speaks the native package manager protocol, so teams consume the library with ordinary dependency tooling, versions are immutable and resolvable, and the repository records which versions have been pulled. An S3 object works but bypasses dependency resolution and transitive requirements. A Lambda layer only helps Lambda consumers and is not a general package mechanism. Vendoring into each repository is the divergence that caused the problem.",
+    referenceUrl: "https://docs.aws.amazon.com/codeartifact/latest/ug/welcome.html",
+    tags: ["CodeArtifact", "Dependency Management", "Multi-Account", "Supply Chain"]
+  },
+  {
+    id: "aws-sap-327",
+    difficulty: "hard",
+    certId: "aws-sap",
+    domainId: "d1",
+    domainName: "Design Solutions for Organizational Complexity",
+    title: "Auditing Container Images Across the Estate",
+    scenario: "A vulnerability is announced in a base image. Security must know within hours which running workloads across 40 accounts use an affected image, and must prevent new deployments of images carrying the vulnerability.",
+    question: "Which combination provides both answers? (Choose TWO)",
+    options: [
+      { id: 'A', text: "Enable Amazon Inspector enhanced scanning on the registries so images are scanned continuously and findings aggregate into Security Hub." },
+      { id: 'B', text: "Apply an ECR repository policy and image scanning gate in the pipeline that blocks deployment of images with critical findings." },
+      { id: 'C', text: "Enable Amazon GuardDuty runtime monitoring on the clusters so that the workloads exhibiting the vulnerable behaviour are detected while they are running." },
+      { id: 'D', text: "Enable AWS Config with a rule reporting each container image that has not been rebuilt within the last thirty days across the accounts in the organization." },
+      { id: 'E', text: "Enable AWS Systems Manager Inventory on the container instances." }
+    ],
+    correctAnswers: ['A', 'B'],
+    type: "multiple",
+    explanation: "Inspector enhanced scanning continuously assesses images in the registries and pushes findings to Security Hub, which answers which workloads are affected across the organization, and a pipeline gate on those findings stops new deployments carrying the vulnerability. GuardDuty runtime monitoring detects suspicious behaviour rather than enumerating vulnerable images. A rule about image age is a weak proxy that flags safe images and misses recently built vulnerable ones. Systems Manager Inventory reports on hosts and does not see inside container images reliably.",
+    referenceUrl: "https://docs.aws.amazon.com/inspector/latest/user/scanning-ecr.html",
+    tags: ["Inspector", "ECR", "Vulnerability Management", "Supply Chain"]
+  },
+  {
+    id: "aws-sap-328",
+    difficulty: "medium",
+    certId: "aws-sap",
+    domainId: "d1",
+    domainName: "Design Solutions for Organizational Complexity",
+    title: "Segmenting a Network for Compliance",
+    scenario: "A regulator requires that systems handling cardholder data be network-isolated from the rest of the estate, with all traffic between the zones inspected and logged, and with the isolation demonstrable to an auditor.",
+    question: "Which network design demonstrates the segmentation?",
+    options: [
+      { id: 'A', text: "Place the regulated workload in its own VPC and account, connected only through an inspection VPC with Network Firewall logging every flow for the auditor." },
+      { id: 'B', text: "Place the regulated workload in a dedicated subnet of the shared VPC with network access control lists restricting which other subnets are able to reach it." },
+      { id: 'C', text: "Place the regulated workload in the shared VPC with security groups referencing only the groups of the systems permitted to communicate with it." },
+      { id: 'D', text: "Place the regulated workload in its own VPC peered with the shared VPC, using route tables to restrict which of the shared subnets can reach it." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "An auditor needs a boundary that is structural rather than configurational, and a separate account and VPC whose only path runs through an inspection VPC means every crossing is forced through a firewall that logs it, which is directly demonstrable. Subnets with network access control lists and security groups within a shared VPC are configuration an auditor must verify rule by rule and which any administrator can change. Peering creates a direct path that bypasses inspection entirely.",
+    referenceUrl: "https://docs.aws.amazon.com/network-firewall/latest/developerguide/what-is-aws-network-firewall.html",
+    tags: ["Network Firewall", "Segmentation", "Compliance", "Networking"]
+  },
+  {
+    id: "aws-sap-329",
+    difficulty: "medium",
+    certId: "aws-sap",
+    domainId: "d1",
+    domainName: "Design Solutions for Organizational Complexity",
+    title: "Handling a Quota That Cannot Be Raised",
+    scenario: "A workload needs more resources of a type whose quota AWS will not increase beyond a hard limit. The team has already reached that limit in its account and the workload must continue to grow.",
+    question: "Which approach allows the growth?",
+    options: [
+      { id: 'A', text: "Distribute the workload across additional accounts or Regions, since most quotas apply per account per Region." },
+      { id: 'B', text: "Open a support case requesting an exception to the hard limit, explaining the business need so AWS can raise it beyond the documented maximum value." },
+      { id: 'C', text: "Consolidate the resources onto fewer, larger instances so that the same capacity is delivered while consuming fewer of the constrained resource type." },
+      { id: 'D', text: "Purchase a Savings Plan covering the workload to raise the quota." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Quotas are generally scoped per account per Region, so spreading the workload across additional accounts or Regions is the architectural answer when a limit is genuinely hard, and it usually improves blast radius at the same time. A hard limit is by definition not adjustable, so a support case will not raise it. Consolidating onto larger resources sometimes helps and is worth checking, but it does not create headroom for continued growth once the limit is reached. A purchase commitment has no relationship to quotas.",
+    referenceUrl: "https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html",
+    tags: ["Service Quotas", "Scaling", "Multi-Account", "Architecture"]
+  },
+  {
+    id: "aws-sap-330",
+    difficulty: "hard",
+    certId: "aws-sap",
+    domainId: "d1",
+    domainName: "Design Solutions for Organizational Complexity",
+    title: "Providing Evidence of Control Effectiveness",
+    scenario: "An auditor asks not whether controls exist but whether they operated effectively throughout the year across 70 accounts, and wants evidence they can sample rather than screenshots taken during the audit.",
+    question: "Which approach produces that evidence?",
+    options: [
+      { id: 'A', text: "Use AWS Audit Manager with a framework mapped to the control set, collecting evidence continuously from Config, CloudTrail, and Security Hub throughout the year." },
+      { id: 'B', text: "Use AWS Config conformance packs across the organization and export the current compliance status of every rule at the point the auditor requests it." },
+      { id: 'C', text: "Use AWS Security Hub with the relevant security standard enabled so the auditor can review the current control findings across each of the accounts." },
+      { id: 'D', text: "Use AWS Artifact to download the AWS compliance reports so the auditor has evidence of the controls operating across the underlying infrastructure." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Operating effectiveness over a period requires evidence collected throughout it, and Audit Manager continuously gathers configuration snapshots, API activity, and findings against a control framework, producing an assessment report an auditor can sample. Conformance packs and Security Hub both report current state, which says nothing about the eleven months before the audit. AWS Artifact provides evidence about AWS's own controls rather than the customer's.",
+    referenceUrl: "https://docs.aws.amazon.com/audit-manager/latest/userguide/what-is.html",
+    tags: ["Audit Manager", "Compliance", "Evidence", "Governance"]
+  },
+  {
+    id: "aws-sap-331",
+    difficulty: "easy",
+    certId: "aws-sap",
+    domainId: "d1",
+    domainName: "Design Solutions for Organizational Complexity",
+    title: "Understanding Reserved Instance Scope",
+    scenario: "A team buys a Reserved Instance and later moves its workload to a different Availability Zone in the same Region, then to a smaller instance size in the same family. It asks whether the discount still applies.",
+    question: "Which purchase preserves the discount through both changes?",
+    options: [
+      { id: 'A', text: "A regional Reserved Instance, whose scope covers any Availability Zone in the Region and applies size flexibility within the same instance family." },
+      { id: 'B', text: "A zonal Reserved Instance, which reserves capacity in a named Availability Zone and applies the discount to instances of that size running in it." },
+      { id: 'C', text: "A Standard Reserved Instance purchased for a three-year term, whose longer commitment provides the deepest discount and the greatest flexibility available." },
+      { id: 'D', text: "A Convertible Reserved Instance, which can be exchanged for a different instance family and therefore covers any change the team chooses to make." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Regional scope removes the Availability Zone constraint and brings instance size flexibility within the same family and operating system, so both described changes remain covered automatically. A zonal reservation is tied to its zone and provides capacity reservation instead of size flexibility. Term length affects the discount rate rather than scope or flexibility. A Convertible Reserved Instance allows an exchange across families but the exchange is an explicit action rather than automatic coverage.",
+    referenceUrl: "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/reserved-instances-scope.html",
+    tags: ["Reserved Instances", "Cost Optimization", "Flexibility", "Pricing"]
+  },
+  {
+    id: "aws-sap-332",
+    difficulty: "hard",
+    certId: "aws-sap",
+    domainId: "d2",
+    domainName: "Design for New Solutions",
+    title: "Designing a Queue Consumer That Cannot Fall Behind",
+    scenario: "A consumer must keep queue depth near zero. Traffic varies twentyfold through the day, each message takes 400 ms of downstream work, and the downstream service can handle 200 concurrent calls but no more.",
+    question: "Which consumer configuration meets both constraints?",
+    options: [
+      { id: 'A', text: "A Lambda consumer with reserved concurrency of 200 and an event source mapping that scales within that ceiling." },
+      { id: 'B', text: "An Amazon ECS service scaled on queue depth with a target tracking policy so the task count follows the backlog as the traffic varies through the day." },
+      { id: 'C', text: "A Lambda consumer with no concurrency limit so the mapping scales freely." },
+      { id: 'D', text: "An Amazon ECS service with a fixed task count sized for the daily peak so capacity is always available when the traffic reaches its highest point." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Reserved concurrency gives a hard ceiling matching the downstream limit while the event source mapping scales up to it within seconds and back down when the queue empties, so the depth stays low without ever exceeding 200 concurrent calls. An ECS service scaled on queue depth works but reacts over minutes and needs its own ceiling to respect the downstream limit. Unlimited Lambda concurrency will overwhelm the downstream service. A fixed peak-sized task count wastes capacity for most of the day and still needs a concurrency bound.",
+    referenceUrl: "https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html",
+    tags: ["Lambda", "SQS", "Concurrency", "Scaling"]
+  },
+  {
+    id: "aws-sap-333",
+    difficulty: "medium",
+    certId: "aws-sap",
+    domainId: "d2",
+    domainName: "Design for New Solutions",
+    title: "Choosing Between Managed and Self-Managed Search",
+    scenario: "A team needs full-text search over 50 million documents with faceting and relevance tuning. They have no search expertise, want managed infrastructure, and need the index updated within seconds of a document changing.",
+    question: "Which service fits?",
+    options: [
+      { id: 'A', text: "Amazon OpenSearch Service, a managed search engine with near-real-time indexing and relevance tuning." },
+      { id: 'B', text: "Amazon Aurora PostgreSQL with its full-text search extensions, which keeps the documents and the search index in the same database the team already operates." },
+      { id: 'C', text: "Amazon DynamoDB with a global secondary index on the searchable attributes so that queries against those attributes are served with predictable latency." },
+      { id: 'D', text: "Amazon S3 with Amazon Athena over the documents, queried in SQL." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "OpenSearch Service is purpose-built for full-text search at this scale, providing inverted indexes, faceted aggregations, relevance scoring that can be tuned, and near-real-time indexing, all on managed infrastructure. Aurora's full-text extensions work for modest corpora but lack the faceting and relevance control this requirement names. DynamoDB indexes support exact and range queries on known attributes rather than free-text search. Athena scans object storage per query, which suits analytics rather than interactive search.",
+    referenceUrl: "https://docs.aws.amazon.com/opensearch-service/latest/developerguide/what-is.html",
+    tags: ["OpenSearch", "Search", "Purpose-Built", "Design"]
+  },
+  {
+    id: "aws-sap-334",
+    difficulty: "medium",
+    certId: "aws-sap",
+    domainId: "d2",
+    domainName: "Design for New Solutions",
+    title: "Serving a Tenant-Specific Domain Name",
+    scenario: "A SaaS platform must serve each of 400 enterprise tenants on its own custom domain over HTTPS, with certificates issued and renewed automatically and no per-tenant infrastructure to operate.",
+    question: "Which approach supports this at scale?",
+    options: [
+      { id: 'A', text: "Use CloudFront with SNI and request ACM certificates for each tenant domain after the tenant validates ownership through DNS." },
+      { id: 'B', text: "Use an Application Load Balancer with a certificate for each tenant domain attached to the HTTPS listener so that every tenant is served from the same balancer." },
+      { id: 'C', text: "Use a CloudFront distribution per tenant with its own domain and certificate." },
+      { id: 'D', text: "Use a wildcard certificate covering the platform's own domain and require every tenant to use a subdomain of it rather than a custom domain of their own." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "CloudFront supports many alternate domain names on one distribution with SNI, and ACM issues and renews certificates automatically once the tenant completes DNS validation, so onboarding a tenant is a configuration change rather than new infrastructure. An Application Load Balancer accepts multiple certificates but is limited to far fewer than 400 and lacks the edge caching. A distribution per tenant multiplies the resources to manage. A wildcard on the platform's own domain refuses tenants the custom domain the requirement specifies.",
+    referenceUrl: "https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cnames-and-https-requirements.html",
+    tags: ["CloudFront", "Certificate Manager", "SaaS", "Multi-Tenancy"]
+  },
+  {
+    id: "aws-sap-335",
+    difficulty: "hard",
+    certId: "aws-sap",
+    domainId: "d2",
+    domainName: "Design for New Solutions",
+    title: "Handling Clock Skew in a Distributed Ledger",
+    scenario: "A system orders financial events using timestamps taken from the servers that produce them. Occasional out-of-order records appear because server clocks differ by tens of milliseconds even with time synchronization.",
+    question: "Which change produces reliable ordering?",
+    options: [
+      { id: 'A', text: "Assign ordering from a single authority, such as a sequence from the store or a stream position, rather than from producer clocks." },
+      { id: 'B', text: "Configure every producer to synchronize with the Amazon Time Sync Service so the clock differences between the servers fall to well under a millisecond." },
+      { id: 'C', text: "Have producers record timestamps with higher precision so that events occurring within the same millisecond are distinguished by the additional digits." },
+      { id: 'D', text: "Buffer events briefly at the consumer and sort each buffer by timestamp." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Physical clocks on separate machines cannot be relied on for ordering however well synchronized, so correctness requires a single source of sequence such as a monotonic counter in the store or the stream's own record position. Time Sync narrows skew substantially and is worth enabling, but no synchronization removes it entirely. Higher precision records a more precise wrong value when the clocks themselves disagree. Buffering and sorting reduces visible reordering while still trusting the skewed timestamps.",
+    referenceUrl: "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/set-time.html",
+    tags: ["Ordering", "Clock Skew", "Distributed Systems", "Design"]
+  },
+  {
+    id: "aws-sap-336",
+    difficulty: "medium",
+    certId: "aws-sap",
+    domainId: "d2",
+    domainName: "Design for New Solutions",
+    title: "Choosing Where to Put a Read-Through Cache",
+    scenario: "An architect must cache responses for an API whose results depend on the caller's identity and permissions. Most callers request the same few resources but each sees a filtered view according to their own entitlements.",
+    question: "Where should caching be applied?",
+    options: [
+      { id: 'A', text: "Cache the underlying resources and apply the per-caller filtering after the cache read." },
+      { id: 'B', text: "Cache the final API responses keyed on the caller's identity so each caller's filtered view is served from the cache on subsequent requests." },
+      { id: 'C', text: "Cache the final API responses at CloudFront keyed on the authorization header so each distinct caller receives their own cached response from the edge." },
+      { id: 'D', text: "Avoid caching entirely, because a response that depends on the caller's entitlements cannot safely be served from any shared cache layer." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Caching the shared, expensive part and applying authorization afterwards gives a high hit rate because every caller benefits from the same cached resources, while entitlements are always evaluated fresh so a permission change takes effect immediately. Caching final per-caller responses fragments the cache by identity, so the hit rate collapses and a revoked entitlement is served from cache until it expires. Keying a CloudFront cache on the authorization header has the same problems at the edge. Abandoning caching forgoes the benefit unnecessarily.",
+    referenceUrl: "https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Strategies.html",
+    tags: ["Caching", "Authorization", "Design", "Performance"]
+  },
+  {
+    id: "aws-sap-337",
+    difficulty: "easy",
+    certId: "aws-sap",
+    domainId: "d2",
+    domainName: "Design for New Solutions",
+    title: "Selecting a Compute Option for a Long-Running Daemon",
+    scenario: "A process must run continuously, maintain a persistent connection to an external system, reconnect automatically, and consume modest CPU. The team wants no servers to patch and predictable cost.",
+    question: "Which compute option fits?",
+    options: [
+      { id: 'A', text: "An Amazon ECS service on AWS Fargate running one long-lived task that ECS restarts if it stops." },
+      { id: 'B', text: "An AWS Lambda function invoked every minute by an Amazon EventBridge rule so that the process reconnects and does its work on each of the invocations." },
+      { id: 'C', text: "An Amazon EC2 instance in an Auto Scaling group of one so that the daemon runs continuously and the instance is replaced if it fails a health check." },
+      { id: 'D', text: "An AWS Batch job submitted with a very long timeout so that the daemon runs for as long as the job is permitted to remain in the running state." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "A Fargate service runs a container indefinitely, restarts it if it exits, and leaves no host to patch, which matches a daemon holding a persistent connection at predictable cost. Lambda is invoked per event with a fifteen-minute ceiling, so a persistent connection cannot be maintained across invocations. An Auto Scaling group of one works but reintroduces instance patching, which the requirement excludes. AWS Batch is designed for jobs that finish rather than processes that run forever.",
+    referenceUrl: "https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs_services.html",
+    tags: ["ECS", "Fargate", "Long-Running", "Compute"]
+  },
+  {
+    id: "aws-sap-338",
+    difficulty: "medium",
+    certId: "aws-sap",
+    domainId: "d2",
+    domainName: "Design for New Solutions",
+    title: "Limiting the Reach of a Third-Party Agent",
+    scenario: "A monitoring vendor's agent must run on production instances. Security is concerned about what it could reach, and requires that its access be bounded and that any change in its behaviour be detectable.",
+    question: "Which combination bounds the agent's reach?",
+    options: [
+      { id: 'A', text: "Run the agent under its own minimal instance profile, restrict its egress to the vendor's endpoints, and monitor its API calls in CloudTrail for changes." },
+      { id: 'B', text: "Run the agent under the instance's existing profile and review the vendor's security documentation and certifications before approving the deployment." },
+      { id: 'C', text: "Run the agent in a container on the same instance so that it is isolated from the host's processes and cannot read the application's own memory." },
+      { id: 'D', text: "Run the agent only on a representative subset of the production instances so that the potential impact of the agent is limited to part of the fleet." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Bounding a third-party component means constraining what it can call, where it can connect, and making its activity observable, which a dedicated minimal role, restricted egress, and CloudTrail monitoring together provide. Using the instance's existing profile gives the agent whatever the application has, and vendor documentation is assurance rather than a control. Container isolation limits process visibility but leaves AWS credentials and network egress unbounded. Restricting the agent to a subset reduces coverage without bounding what it can do where it runs.",
+    referenceUrl: "https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2.html",
+    tags: ["Third-Party Risk", "IAM", "Egress Control", "Security"]
+  },
+  {
+    id: "aws-sap-339",
+    difficulty: "hard",
+    certId: "aws-sap",
+    domainId: "d3",
+    domainName: "Continuous Improvement for Existing Solutions",
+    title: "A Cache Hit Rate That Fell Without a Change",
+    scenario: "An ElastiCache hit rate dropped from 95 percent to 40 percent over a week with no deployment. Memory usage is near the maximum, evictions have risen sharply, and the number of distinct keys has grown steadily.",
+    question: "What is the most likely cause?",
+    options: [
+      { id: 'A', text: "The working set has outgrown the cache, so entries are evicted before they are read again." },
+      { id: 'B', text: "The cache's replication has fallen behind, so read requests served by the replicas are missing entries that the primary node currently holds." },
+      { id: 'C', text: "The application's time to live has been shortened, so entries are expiring before they are requested a second time by any of the callers." },
+      { id: 'D', text: "The client library has begun connecting to a single node, so the requests are no longer distributed across the shards that hold the cached entries." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Rising distinct keys, memory at the maximum, and increasing evictions together describe a working set that has outgrown the available memory, so entries are evicted before they can be reused and the hit rate falls; scaling the cache or reducing what is cached is the remedy. Replication lag would affect freshness rather than produce evictions. A shorter time to live would follow a deployment, which the scenario excludes, and would not raise evictions. A client connecting to one node would show uneven node metrics rather than fleet-wide eviction growth.",
+    referenceUrl: "https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheMetrics.html",
+    tags: ["ElastiCache", "Evictions", "Capacity", "Troubleshooting"]
+  },
+  {
+    id: "aws-sap-340",
+    difficulty: "medium",
+    certId: "aws-sap",
+    domainId: "d3",
+    domainName: "Continuous Improvement for Existing Solutions",
+    title: "Reducing the Cost of Cross-Account Log Delivery",
+    scenario: "Every account streams all CloudWatch Logs to a central account through subscription filters into Kinesis Data Streams, then into OpenSearch. The pipeline costs more than the workloads it monitors and most logs are never queried.",
+    question: "Which redesign reduces cost while keeping investigation possible?",
+    options: [
+      { id: 'A', text: "Send only the log groups that are actively queried to OpenSearch, and deliver all the rest to Amazon S3 for querying with Athena on demand." },
+      { id: 'B', text: "Reduce the OpenSearch domain's instance sizes and use index lifecycle management so that the older indices move to warm and cold storage tiers." },
+      { id: 'C', text: "Shorten the retention period on the OpenSearch indices so that the domain holds fewer days of logs and the storage it requires is correspondingly smaller." },
+      { id: 'D', text: "Replace Kinesis Data Streams with Amazon Data Firehose so that the delivery into the OpenSearch domain is buffered and the streaming cost is reduced." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "The cost comes from indexing everything into a search engine when most of it is never searched, so routing the small share that is queried into OpenSearch and everything else into object storage with on-demand querying matches spend to use while keeping all logs investigable. Smaller instances and tiering reduce the rate without changing the volume being indexed. Shorter retention discards logs that may be needed for an investigation. Firehose trims the transport cost while leaving the dominant indexing cost untouched.",
+    referenceUrl: "https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/Subscriptions.html",
+    tags: ["CloudWatch Logs", "OpenSearch", "Cost Optimization", "Observability"]
+  },
+  {
+    id: "aws-sap-341",
+    difficulty: "medium",
+    certId: "aws-sap",
+    domainId: "d3",
+    domainName: "Continuous Improvement for Existing Solutions",
+    title: "Identifying a Slow Serverless Cold Start",
+    scenario: "A Lambda function written in Java shows occasional multi-second invocations. The team needs to confirm whether initialization is responsible and how much of the duration it accounts for before choosing a remedy.",
+    question: "Which signal answers the question directly?",
+    options: [
+      { id: 'A', text: "The Init Duration field in the function's CloudWatch Logs report line, present only on cold invocations." },
+      { id: 'B', text: "The function's Duration metric in CloudWatch, examined at the p99 percentile so that the slowest invocations are distinguished from the typical ones." },
+      { id: 'C', text: "The function's ConcurrentExecutions metric, which shows when new execution environments are being created to serve the incoming invocation volume." },
+      { id: 'D', text: "The AWS X-Ray service map for the function, which shows the downstream services contributing to the latency of each traced invocation." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Lambda writes an Init Duration value on the report line of any invocation that ran in a fresh execution environment, so its presence confirms a cold start and its value quantifies exactly how much of the duration initialization consumed. The Duration metric at p99 shows that some invocations are slow without attributing the cause. ConcurrentExecutions indicates scaling activity, which correlates with cold starts but does not measure them. The X-Ray service map attributes time to downstream calls rather than to initialization.",
+    referenceUrl: "https://docs.aws.amazon.com/lambda/latest/dg/monitoring-metrics.html",
+    tags: ["Lambda", "Cold Start", "Observability", "Performance"]
+  },
+  {
+    id: "aws-sap-342",
+    difficulty: "hard",
+    certId: "aws-sap",
+    domainId: "d3",
+    domainName: "Continuous Improvement for Existing Solutions",
+    title: "Recovering From a Bad Infrastructure Change",
+    scenario: "A CloudFormation update to a production stack failed partway through and the stack is stuck in UPDATE_ROLLBACK_FAILED. Some resources are on the new configuration and some on the old, and the service is degraded.",
+    question: "What is the correct recovery action?",
+    options: [
+      { id: 'A', text: "Continue the rollback, skipping the resources that cannot roll back, then reconcile those resources and resume normal updates." },
+      { id: 'B', text: "Delete the stack so that every resource it manages is removed, then recreate the stack from the previous template version that was known to work." },
+      { id: 'C', text: "Apply the new template again so the update completes forward and every resource reaches the configuration the failed update intended to produce." },
+      { id: 'D', text: "Import the affected resources into a new stack and abandon the failed one." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Continuing the rollback with the resources that cannot roll back skipped is the documented path out of UPDATE_ROLLBACK_FAILED: the stack reaches a stable state and those resources are then reconciled manually or by a subsequent update. Deleting the stack destroys production resources. Re-applying the template is refused while the stack is in this state and would not address why the update failed. Importing into a new stack is a legitimate technique for other situations but is far more disruptive than continuing the rollback.",
+    referenceUrl: "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/troubleshooting.html",
+    tags: ["CloudFormation", "Rollback", "Recovery", "Troubleshooting"]
+  },
+  {
+    id: "aws-sap-343",
+    difficulty: "medium",
+    certId: "aws-sap",
+    domainId: "d3",
+    domainName: "Continuous Improvement for Existing Solutions",
+    title: "Reducing the Time to Restore a Large Volume",
+    scenario: "Restoring a 16 TB EBS volume from a snapshot leaves the volume usable immediately but reads are slow for hours as blocks are fetched from Amazon S3 on first access, which breaches the recovery objective.",
+    question: "Which feature removes the first-access penalty?",
+    options: [
+      { id: 'A', text: "EBS fast snapshot restore, which fully initializes the volume so every block delivers provisioned performance immediately." },
+      { id: 'B', text: "Reading every block on the restored volume with a sequential utility first." },
+      { id: 'C', text: "Restoring the snapshot onto an io2 Block Express volume so the higher provisioned performance of that volume type offsets the first-access latency." },
+      { id: 'D', text: "Enabling EBS multi-volume snapshots so that the volume group is captured consistently and the restore completes faster than a single-volume restore." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Fast snapshot restore pre-initializes volumes created from an enabled snapshot in a chosen Availability Zone, so there is no lazy loading and full performance is available from the first read, which is what a tight recovery objective needs. Pre-reading every block does work and was the traditional workaround, but it consumes hours of the recovery window rather than removing the delay. A faster volume type still fetches each block from S3 on first access. Multi-volume snapshots address crash consistency across volumes rather than initialization.",
+    referenceUrl: "https://docs.aws.amazon.com/ebs/latest/userguide/ebs-fast-snapshot-restore.html",
+    tags: ["EBS", "Fast Snapshot Restore", "RTO", "Recovery"]
+  },
+  {
+    id: "aws-sap-344",
+    difficulty: "medium",
+    certId: "aws-sap",
+    domainId: "d3",
+    domainName: "Continuous Improvement for Existing Solutions",
+    title: "Handling an Expensive Query Nobody Owns",
+    scenario: "A nightly Athena query scans 40 TB and costs more than the rest of the analytics platform. Nobody knows who created it or whether its output is used, and the workgroup has no controls configured.",
+    question: "Which combination addresses the cost and the ownership gap?",
+    options: [
+      { id: 'A', text: "Set a per-query data scanned limit on the workgroup and require a tag identifying the owner before any query is permitted to run against it." },
+      { id: 'B', text: "Move the underlying data to a colder storage class so the scan costs less while the query continues to run unchanged each night." },
+      { id: 'C', text: "Disable the query immediately and wait to see whether anyone reports a missing report, then reinstate it if a consumer of its output comes forward." },
+      { id: 'D', text: "Convert the query to a scheduled Amazon Redshift materialized view so that the aggregation runs on provisioned capacity rather than being billed per scan." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "A workgroup data scanned limit bounds the damage any single query can do, and requiring an owner tag makes attribution a precondition rather than an investigation, which addresses both the immediate cost and the reason nobody knew who to ask. Colder storage does not reduce the per-byte scan charge, which is what Athena bills. Disabling a query whose consumers are unknown risks breaking a reporting process silently. Moving to Redshift may well be the right long-term answer but it does not establish ownership or bound future runaway queries.",
+    referenceUrl: "https://docs.aws.amazon.com/athena/latest/ug/workgroups-setting-control-limits-cloudwatch.html",
+    tags: ["Athena", "Workgroups", "Cost Control", "Governance"]
+  },
+  {
+    id: "aws-sap-345",
+    difficulty: "hard",
+    certId: "aws-sap",
+    domainId: "d3",
+    domainName: "Continuous Improvement for Existing Solutions",
+    title: "A Dependency That Only Fails at Scale",
+    scenario: "A service works in testing but fails in production above a certain request rate. Investigation shows it opens a new TLS connection to a downstream service for every request and the downstream service's connection rate limit is reached.",
+    question: "Which change resolves the limit?",
+    options: [
+      { id: 'A', text: "Reuse connections through a connection pool with keep-alive so the same connections serve many requests." },
+      { id: 'B', text: "Increase the downstream service's connection rate limit so that it accepts the volume of new connections the calling service opens under production load." },
+      { id: 'C', text: "Add a retry with exponential backoff around the call." },
+      { id: 'D', text: "Scale the calling service horizontally so that the connections are opened from more instances and no single instance reaches the downstream limit." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "A connection per request wastes the TLS handshake and consumes the downstream service's connection budget, so pooling with keep-alive serves many requests over each connection and the connection rate falls by orders of magnitude. Raising the downstream limit accommodates wasteful behaviour and moves the ceiling rather than removing it. Retries add load to a service already rejecting connections. Horizontal scaling distributes the connection opening but the downstream limit is on total inbound connections, so the aggregate is unchanged.",
+    referenceUrl: "https://docs.aws.amazon.com/whitepapers/latest/best-practices-building-enterprise-grade-applications/connection-management.html",
+    tags: ["Connection Pooling", "Keep-Alive", "Scaling", "Performance"]
+  },
+  {
+    id: "aws-sap-346",
+    difficulty: "medium",
+    certId: "aws-sap",
+    domainId: "d4",
+    domainName: "Accelerate Workload Migration and Modernization",
+    title: "Migrating a Workload That Writes to Local Disk",
+    scenario: "An application writes uploaded files to a local directory on each server and a nightly job collects them. Moving to an Auto Scaling group means an instance can be replaced before the nightly job runs, losing the files.",
+    question: "Which change makes the workload safe to scale?",
+    options: [
+      { id: 'A', text: "Write the uploads to Amazon S3 instead of local disk, and have the nightly job read from the bucket." },
+      { id: 'B', text: "Mount an Amazon EFS file system on every instance at the same path so the uploads are written to shared storage rather than to each instance's own disk." },
+      { id: 'C', text: "Add an Auto Scaling lifecycle hook that copies the local directory to Amazon S3 before an instance is terminated by the group." },
+      { id: 'D', text: "Use a persistent EBS volume attached to each instance so that the uploaded files survive a replacement of the instance they were written to." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Object storage is the durable destination for uploaded files and removes instance-local state entirely, so replacement becomes a non-event and the nightly job reads from one place. EFS is a reasonable answer requiring almost no application change, but it keeps a file system in the path and costs more per gigabyte than object storage for write-once uploads. A lifecycle hook helps on graceful termination but loses data when an instance fails abruptly. A persistent EBS volume is tied to one Availability Zone and does not survive instance replacement without manual reattachment.",
+    referenceUrl: "https://docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.html",
+    tags: ["S3", "Stateless", "Auto Scaling", "Modernization"]
+  },
+  {
+    id: "aws-sap-347",
+    difficulty: "medium",
+    certId: "aws-sap",
+    domainId: "d4",
+    domainName: "Accelerate Workload Migration and Modernization",
+    title: "Choosing How to Move Container Workloads",
+    scenario: "A company runs 60 services on a self-managed Kubernetes cluster on premises, using standard Kubernetes manifests, Helm charts, and operators. It wants a managed control plane with the least change to its deployment tooling.",
+    question: "Which target requires the least change?",
+    options: [
+      { id: 'A', text: "Amazon EKS, which runs upstream Kubernetes so the existing manifests, charts, and operators apply unchanged." },
+      { id: 'B', text: "Amazon ECS on AWS Fargate, which removes the Kubernetes control plane entirely and runs the containers with a simpler managed orchestrator instead." },
+      { id: 'C', text: "AWS App Runner, which takes each service's container image and serves it over HTTPS with automatic scaling and no orchestration for the team to manage." },
+      { id: 'D', text: "Amazon EKS Anywhere, a supported distribution the company operates itself." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "EKS runs certified upstream Kubernetes, so manifests, Helm charts, and custom operators transfer without modification while AWS operates the control plane, which is precisely the least-change managed option. ECS uses a different orchestration model, so every manifest and chart would be rewritten as task definitions. App Runner suits individual web services and cannot express operators or complex workloads. EKS Anywhere keeps the company operating the cluster itself, which is the burden it wants to hand over.",
+    referenceUrl: "https://docs.aws.amazon.com/eks/latest/userguide/what-is-eks.html",
+    tags: ["EKS", "Kubernetes", "Migration", "Managed Services"]
+  },
+  {
+    id: "aws-sap-348",
+    difficulty: "hard",
+    certId: "aws-sap",
+    domainId: "d4",
+    domainName: "Accelerate Workload Migration and Modernization",
+    title: "Handling a Migration With No Test Environment",
+    scenario: "A critical application has no test environment because building one was never funded. The migration team must validate the move but cannot rehearse against production and cannot afford a failed cutover.",
+    question: "Which approach addresses the gap?",
+    options: [
+      { id: 'A', text: "Use the migration tooling's test launch capability to stand up an isolated copy from the replicated data and validate against that." },
+      { id: 'B', text: "Perform the cutover during the lowest-traffic window and keep the on-premises environment available so that traffic can be returned if the cutover fails." },
+      { id: 'C', text: "Request funding to build a permanent test environment before the migration proceeds, since validating a critical application without one is not defensible." },
+      { id: 'D', text: "Validate with the existing functional test suite after the cutover completes." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Continuous replication makes a test environment nearly free: a test launch creates instances from the replicated data in an isolated subnet without affecting the source or interrupting replication, so the team gets a realistic rehearsal environment as a by-product of the migration itself. Choosing a quiet window and keeping rollback available is prudent but is not validation. Funding a permanent environment may be worthwhile but delays a migration that has the capability available already. Testing after cutover discovers problems with customers present.",
+    referenceUrl: "https://docs.aws.amazon.com/mgn/latest/ug/launching-test-instances.html",
+    tags: ["Application Migration Service", "Testing", "Cutover", "Migration"]
+  },
+  {
+    id: "aws-sap-349",
+    difficulty: "medium",
+    certId: "aws-sap",
+    domainId: "d4",
+    domainName: "Accelerate Workload Migration and Modernization",
+    title: "Sequencing a Database and Application Move",
+    scenario: "An application and its database must both move. Keeping them apart during the transition would put a chatty query workload across the wide area link, and the team must decide what moves when.",
+    question: "Which sequencing minimizes risk and latency?",
+    options: [
+      { id: 'A', text: "Move the application and its database together in one cutover so the chatty traffic never crosses the link." },
+      { id: 'B', text: "Move the database first and repoint the on-premises application at it, so that the data is safely in AWS before the application tier is migrated." },
+      { id: 'C', text: "Move the application first and have it call the on-premises database." },
+      { id: 'D', text: "Move the application first and add a read replica in AWS so that the queries are served locally while the writes continue to reach the on-premises database." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "A chatty application and database should stay together, so migrating both in one cutover means the round trips remain on a local network throughout and the split-brain latency problem never occurs. Moving the database first puts every query across the link from the still on-premises application. Moving the application first does the same in the other direction. A read replica helps the reads but writes still cross the link, and the replication itself consumes the same constrained path.",
+    referenceUrl: "https://docs.aws.amazon.com/prescriptive-guidance/latest/large-migration-guide/migration-waves.html",
+    tags: ["Cutover", "Wave Planning", "Latency", "Migration"]
+  },
+  {
+    id: "aws-sap-350",
+    difficulty: "easy",
+    certId: "aws-sap",
+    domainId: "d4",
+    domainName: "Accelerate Workload Migration and Modernization",
+    title: "Reducing Cost After a Rehost",
+    scenario: "A rehosted estate runs on instance types chosen to match the old physical servers' specifications. Utilization data now covers three months and leadership wants the easiest cost reduction available.",
+    question: "Which action returns savings soonest?",
+    options: [
+      { id: 'A', text: "Right-size the instances using Compute Optimizer recommendations from the three months of utilization data." },
+      { id: 'B', text: "Purchase Compute Savings Plans covering the current footprint so the running instances are billed at a discounted rate for the committed term." },
+      { id: 'C', text: "Move the workloads onto Graviton instance types so that the better price performance of those instances reduces the cost of the estate." },
+      { id: 'D', text: "Containerize the workloads so that several of them share each instance and the overall instance count required by the estate falls." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Right-sizing comes first because committing to or migrating an oversized footprint locks in the waste, and three months of utilization data is exactly what Compute Optimizer needs to recommend accurately. Savings Plans should follow right-sizing so the commitment matches the real requirement. Graviton offers strong price performance but requires rebuilding for a different architecture. Containerization improves density but is a much larger change than resizing instances.",
+    referenceUrl: "https://docs.aws.amazon.com/compute-optimizer/latest/ug/what-is-compute-optimizer.html",
+    tags: ["Right-Sizing", "Compute Optimizer", "Cost Optimization", "Post-Migration"]
+  }
+];
+
+export default AWS_SAP_QUESTIONS;

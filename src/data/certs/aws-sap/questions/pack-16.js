@@ -1,0 +1,530 @@
+export const AWS_SAP_QUESTIONS = [
+  {
+    id: "aws-sap-376",
+    difficulty: "medium",
+    certId: "aws-sap",
+    domainId: "d1",
+    domainName: "Design Solutions for Organizational Complexity",
+    title: "Handling an Account That Needs Two Sets of Controls",
+    scenario: "A single account hosts both a regulated payments service and an internal tool. The regulated service needs strict controls that would obstruct the internal tool, and the team has been granting exceptions that weaken both.",
+    question: "What should the architect recommend?",
+    options: [
+      { id: 'A', text: "Split the two workloads into separate accounts so each sits under the controls appropriate to its own risk profile." },
+      { id: 'B', text: "Keep both in one account and express the controls as IAM policies scoped by resource tag so each workload is governed according to its own requirements." },
+      { id: 'C', text: "Keep both in one account and apply the strict controls to the whole account, accepting the friction the internal tool's team experiences as a result." },
+      { id: 'D', text: "Keep both in one account and separate them into different VPCs." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Service control policies and many guardrails apply at the account level, so two workloads with genuinely different risk profiles in one account force either exceptions or friction; separate accounts let each inherit the right controls with no exception at all. Tag-scoped IAM policies depend on perfect tagging and cannot express account-level guardrails. Applying strict controls to everything slows the internal tool without improving the regulated service. Separate VPCs address network reachability rather than the identity and API-level controls in question.",
+    referenceUrl: "https://docs.aws.amazon.com/whitepapers/latest/organizing-your-aws-environment/benefits-of-using-multiple-aws-accounts.html",
+    tags: ["Multi-Account", "Guardrails", "Compliance", "Governance"]
+  },
+  {
+    id: "aws-sap-377",
+    difficulty: "hard",
+    certId: "aws-sap",
+    domainId: "d1",
+    domainName: "Design Solutions for Organizational Complexity",
+    title: "Providing Break-Glass Access to a Locked Vault",
+    scenario: "Backups are held in a separate account with Vault Lock in compliance mode. During a disaster recovery exercise the team found nobody had a tested path to restore from that account under time pressure.",
+    question: "Which preparation addresses the gap?",
+    options: [
+      { id: 'A', text: "Define a restore role in the backup account trusted by named responders, and rehearse a cross-account restore on a schedule so the path is proven before it is needed." },
+      { id: 'B', text: "Change the vault lock from compliance mode to governance mode so that the responders are able to manage the vault directly during a recovery event." },
+      { id: 'C', text: "Copy the recovery points back into the production account on a schedule so that a restore can be performed without any cross-account access being needed." },
+      { id: 'D', text: "Grant the production account's administrators full access to the backup account so that whoever is responding can restore without waiting for approval." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "The gap is a missing, tested access path rather than the lock itself, so a narrowly scoped restore role trusted by named responders plus a rehearsed cross-account restore gives speed under pressure while the immutability that protects the backups stays intact. Weakening the lock to governance mode removes the protection the design exists to provide. Copying recovery points back into production puts them inside the blast radius being defended against. Granting production administrators full access to the backup account collapses the separation entirely.",
+    referenceUrl: "https://docs.aws.amazon.com/aws-backup/latest/devguide/restoring-a-backup.html",
+    tags: ["AWS Backup", "Vault Lock", "Disaster Recovery", "Break-Glass"]
+  },
+  {
+    id: "aws-sap-378",
+    difficulty: "medium",
+    certId: "aws-sap",
+    domainId: "d1",
+    domainName: "Design Solutions for Organizational Complexity",
+    title: "Choosing How to Distribute Configuration to Many Accounts",
+    scenario: "A platform team must push a changing list of approved AMI identifiers to 90 accounts so that each account's launch templates reference the current image without the platform team editing anything in those accounts.",
+    question: "Which distribution mechanism fits?",
+    options: [
+      { id: 'A', text: "Publish the identifiers as Systems Manager Parameter Store parameters shared with the organization and referenced by the launch templates at launch time." },
+      { id: 'B', text: "Publish the identifiers into an Amazon S3 object and have each account's pipeline read it at deployment time to populate the launch template it creates." },
+      { id: 'C', text: "Publish the identifiers through CloudFormation StackSets that create a parameter in each account whenever the approved image list changes centrally." },
+      { id: 'D', text: "Publish the identifiers to an Amazon SNS topic each account subscribes to, with a Lambda function updating the launch templates when a notification arrives." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Parameter Store supports sharing parameters across an organization and launch templates can resolve a parameter reference at launch, so the accounts read the current value directly and the platform team changes one parameter. An S3 object works but couples the value to pipeline execution rather than launch. StackSets would push an update to 90 accounts on every image change, which is heavy for a frequently changing value. An SNS fan-out with per-account functions builds a distribution system that the shared parameter already provides.",
+    referenceUrl: "https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-shared-parameters.html",
+    tags: ["Parameter Store", "Multi-Account", "AMI", "Automation"]
+  },
+  {
+    id: "aws-sap-379",
+    difficulty: "medium",
+    certId: "aws-sap",
+    domainId: "d1",
+    domainName: "Design Solutions for Organizational Complexity",
+    title: "Understanding Where Guardrails Cannot Reach",
+    scenario: "A security team relies on service control policies for its guardrails. An architect points out several categories of principal or action the policies will not constrain, and asks the team to plan compensating controls.",
+    question: "Which of these is outside a service control policy's reach?",
+    options: [
+      { id: 'A', text: "Service-linked roles, which AWS services use on your behalf and which service control policies do not restrict." },
+      { id: 'B', text: "The root user of a member account, which policies exempt from every deny." },
+      { id: 'C', text: "Resource policies such as bucket policies, which grant access independently and are evaluated without reference to service control policies." },
+      { id: 'D', text: "Principals in member accounts that hold the AdministratorAccess managed policy, whose permissions take precedence over the organization's policies." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Service-linked roles are the documented exception: they exist for an AWS service to act on your behalf and service control policies do not affect them, so a compensating control is needed where that matters. The root user of a member account is constrained, and the exemption applies to the management account rather than member roots. Resource policies are evaluated alongside the policy ceiling, so a bucket policy cannot grant what the ceiling denies. AdministratorAccess is still filtered by the ceiling.",
+    referenceUrl: "https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scps.html",
+    tags: ["SCP", "Service-Linked Roles", "Policy Evaluation", "Governance"]
+  },
+  {
+    id: "aws-sap-380",
+    difficulty: "hard",
+    certId: "aws-sap",
+    domainId: "d1",
+    domainName: "Design Solutions for Organizational Complexity",
+    title: "Designing Network Access for a Vendor's Managed Service",
+    scenario: "A vendor will operate a component inside the company's VPC and needs ongoing access to manage it. The company will not create IAM users for vendor staff and will not permit inbound connections from the vendor's network.",
+    question: "Which access design fits both constraints?",
+    options: [
+      { id: 'A', text: "Give the vendor a cross-account role with an external id, and have their staff reach instances through Systems Manager Session Manager with every session logged." },
+      { id: 'B', text: "Establish a Site-to-Site VPN from the vendor's network and allow their management subnet to reach the component's instances on the administrative ports." },
+      { id: 'C', text: "Deploy a bastion host in a public subnet with the vendor's source addresses allowed in its security group so their staff connect through it to the instances." },
+      { id: 'D', text: "Create IAM users for the vendor's named staff with multi-factor authentication enforced so that their access can be audited and revoked individually." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "A cross-account role with an external id gives the vendor temporary credentials without any IAM user, and Session Manager reaches instances through an outbound agent connection so no inbound path or open port is required, with every session logged. A VPN and a bastion both create the inbound connectivity the company has excluded. IAM users for vendor staff are exactly the long-lived principals the requirement forbids, whatever factors are enforced.",
+    referenceUrl: "https://docs.aws.amazon.com/systems-manager/latest/userguide/session-manager.html",
+    tags: ["Session Manager", "Cross-Account", "Vendor Access", "Security"]
+  },
+  {
+    id: "aws-sap-381",
+    difficulty: "easy",
+    certId: "aws-sap",
+    domainId: "d1",
+    domainName: "Design Solutions for Organizational Complexity",
+    title: "Choosing the Unit for Cost Allocation",
+    scenario: "A finance team wants to attribute every dollar of AWS spend to a product. Some resources cannot be tagged, some spend is shared support and enterprise discounts, and untagged resources appear each month.",
+    question: "Which approach produces complete attribution?",
+    options: [
+      { id: 'A', text: "Use accounts as the primary boundary with tags inside them, and apply a documented rule for the shared spend that cannot be attributed directly across the estate." },
+      { id: 'B', text: "Require every resource to be tagged and treat untagged spend as an error to be corrected each month before the cost report is produced for finance." },
+      { id: 'C', text: "Allocate all shared and untagged spend evenly across the products so that every dollar is attributed and the allocation method stays simple to explain." },
+      { id: 'D', text: "Use only cost allocation tags, since tags apply across accounts and therefore express product ownership more precisely than the account boundary does." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Accounts attribute everything in them including resources that cannot be tagged, so using accounts as the primary boundary and tags for finer detail gives complete coverage, and a documented rule for genuinely shared costs makes the remainder defensible rather than arbitrary. Treating untagged spend as an error to fix monthly never reaches complete attribution because some spend cannot be tagged at all. An even split is simple but misattributes costs that could be allocated properly. Tags alone leave untaggable spend unattributed.",
+    referenceUrl: "https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html",
+    tags: ["Cost Allocation", "FinOps", "Tagging", "Accounts"]
+  },
+  {
+    id: "aws-sap-382",
+    difficulty: "hard",
+    certId: "aws-sap",
+    domainId: "d2",
+    domainName: "Design for New Solutions",
+    title: "Choosing a Consistency Model for a Distributed Counter",
+    scenario: "A service counts views across millions of items. Exact counts are not required for display, writes are extremely frequent, and a hot item can receive tens of thousands of increments per second.",
+    question: "Which counting design scales?",
+    options: [
+      { id: 'A', text: "Aggregate increments in a stream and write periodic totals, accepting a short lag in the displayed count." },
+      { id: 'B', text: "Use a DynamoDB atomic counter with an update expression incrementing the item's count attribute on every view that the service records." },
+      { id: 'C', text: "Use a DynamoDB transaction per view so the counter and the view record are written atomically and the displayed count is always exactly correct." },
+      { id: 'D', text: "Use an ElastiCache for Redis counter incremented on every view." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Tens of thousands of increments per second to one key exceed the per-partition write limit, so the scalable pattern is to accept the increments as a stream, aggregate them in a window, and write a much smaller number of totals, which suits a count that need not be exact. An atomic counter serializes on one item and throttles immediately on a hot item. A transaction per view is more expensive again for no benefit when exactness is not required. A Redis counter absorbs the rate but concentrates on one key and risks losing increments between persists.",
+    referenceUrl: "https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/bp-partition-key-design.html",
+    tags: ["DynamoDB", "Hot Key", "Aggregation", "Scalability"]
+  },
+  {
+    id: "aws-sap-383",
+    difficulty: "medium",
+    certId: "aws-sap",
+    domainId: "d2",
+    domainName: "Design for New Solutions",
+    title: "Securing Traffic Between Containers",
+    scenario: "A compliance rule requires mutual authentication and encryption between every service in an Amazon EKS cluster. The team does not want to implement certificate handling in each of its 60 services.",
+    question: "Which approach meets the requirement with least application change?",
+    options: [
+      { id: 'A', text: "Adopt a service mesh that injects sidecar proxies terminating mutual TLS transparently for each pod." },
+      { id: 'B', text: "Issue certificates from AWS Private CA to each service and add mutual TLS handling to the shared HTTP client library every one of the services uses." },
+      { id: 'C', text: "Enable Kubernetes network policies restricting which pods may reach each other." },
+      { id: 'D', text: "Place an internal Application Load Balancer between every pair of services so that TLS is terminated and re-encrypted by the load balancer on each hop." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "A service mesh moves mutual TLS into an injected sidecar, so certificates are issued, rotated, and verified without any service handling them, which is exactly the requirement across 60 services. A shared client library is a reasonable alternative but requires every service to adopt and stay current with it, and it misses anything not using that library. Network policies control reachability rather than authenticating or encrypting traffic. A load balancer between every pair of services is an unworkable number of load balancers.",
+    referenceUrl: "https://docs.aws.amazon.com/eks/latest/userguide/service-mesh.html",
+    tags: ["Service Mesh", "mTLS", "EKS", "Security"]
+  },
+  {
+    id: "aws-sap-384",
+    difficulty: "medium",
+    certId: "aws-sap",
+    domainId: "d2",
+    domainName: "Design for New Solutions",
+    title: "Deciding Where to Terminate a Long Poll",
+    scenario: "A mobile client needs near-real-time updates. The team is considering long polling against an API, but expects 500,000 concurrent devices and is concerned about the cost and connection handling of holding that many open requests.",
+    question: "Which approach suits this scale?",
+    options: [
+      { id: 'A', text: "Use API Gateway WebSocket APIs so the managed service holds the connections and the backend pushes messages to them." },
+      { id: 'B', text: "Use long polling against an Application Load Balancer with a long idle timeout so that the connections are held open until an update is available to return." },
+      { id: 'C', text: "Use scheduled polling from the clients at a short interval so that no connection is held open and the backend serves ordinary short-lived requests." },
+      { id: 'D', text: "Use Amazon SNS mobile push notifications for each update." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "A WebSocket API lets the managed service own half a million persistent connections while the backend invokes a callback to push to specific connection identifiers, so the application never holds the sockets itself and is billed for messages and connection minutes. Long polling through a load balancer means the backend fleet holds every connection, which is the cost and handling concern raised. Short-interval polling multiplies request volume for mostly empty responses. Mobile push is a genuine option for notifications but is platform-mediated, best-effort, and unsuited to in-app real-time updates.",
+    referenceUrl: "https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api.html",
+    tags: ["API Gateway", "WebSockets", "Real-Time", "Scalability"]
+  },
+  {
+    id: "aws-sap-385",
+    difficulty: "hard",
+    certId: "aws-sap",
+    domainId: "d2",
+    domainName: "Design for New Solutions",
+    title: "Designing Data Retention That Satisfies Two Rules",
+    scenario: "One regulation requires customer records to be retained for seven years. Another gives customers the right to have their personal data erased on request. Both apply to the same records and the team must satisfy each.",
+    question: "Which design reconciles the two requirements?",
+    options: [
+      { id: 'A', text: "Separate the personal fields from the transactional record, encrypt them with a per-customer key, and destroy that key on an erasure request." },
+      { id: 'B', text: "Retain every record for the full seven years and refuse erasure requests on the basis that the retention regulation takes precedence over the erasure right." },
+      { id: 'C', text: "Delete the whole record on an erasure request and record the deletion in an audit log so the retention obligation is evidenced by the log entry instead." },
+      { id: 'D', text: "Move records to an immutable archive with Object Lock for the seven years, and action erasure requests once the retention period has elapsed." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Crypto-shredding reconciles the two obligations: the transactional record survives for the retention period while the personal data becomes permanently unrecoverable the moment its key is destroyed, which is widely accepted as erasure. Refusing erasure ignores one regulation. Deleting the whole record destroys data the other regulation requires be kept, and an audit entry is not the record. Deferring erasure for seven years does not honour a right that applies on request.",
+    referenceUrl: "https://docs.aws.amazon.com/kms/latest/developerguide/deleting-keys.html",
+    tags: ["KMS", "Data Retention", "Privacy", "Compliance"]
+  },
+  {
+    id: "aws-sap-386",
+    difficulty: "medium",
+    certId: "aws-sap",
+    domainId: "d2",
+    domainName: "Design for New Solutions",
+    title: "Choosing How to Run Scheduled Work Reliably",
+    scenario: "A scheduled task must run exactly once per hour across a fleet. Running it on every instance would duplicate the work, and running it on one designated instance creates a single point of failure the team wants to avoid.",
+    question: "Which approach runs the task once and survives failure?",
+    options: [
+      { id: 'A', text: "Trigger the task from EventBridge Scheduler to a single target such as a queue or a function, independent of the fleet." },
+      { id: 'B', text: "Run a cron entry on every instance and have each one acquire a distributed lock so that only whichever instance wins the lock performs the work." },
+      { id: 'C', text: "Run a cron entry on a designated leader instance and elect a new leader." },
+      { id: 'D', text: "Run a cron entry on every instance and have each one check a database flag before starting so that duplicate executions are prevented by the flag." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Moving the schedule out of the fleet removes both problems at once: the managed scheduler fires once and delivers to a single target, and no instance holds special responsibility so there is nothing to fail over. A distributed lock works but adds a coordination mechanism and its failure modes to every instance. Leader election is more machinery again for a problem the scheduler removes. A database flag checked before starting is a lock with a race condition unless implemented conditionally.",
+    referenceUrl: "https://docs.aws.amazon.com/scheduler/latest/UserGuide/what-is-scheduler.html",
+    tags: ["EventBridge Scheduler", "Scheduling", "Resilience", "Design"]
+  },
+  {
+    id: "aws-sap-387",
+    difficulty: "easy",
+    certId: "aws-sap",
+    domainId: "d2",
+    domainName: "Design for New Solutions",
+    title: "Selecting a Target for Streaming Analytics",
+    scenario: "A team must compute five-minute tumbling window aggregations over a Kinesis stream and write the results to a dashboard store, using SQL rather than writing and operating a stream processing application.",
+    question: "Which service fits?",
+    options: [
+      { id: 'A', text: "Amazon Managed Service for Apache Flink, which runs windowed SQL or Flink applications over streaming data." },
+      { id: 'B', text: "AWS Lambda triggered by the stream, accumulating the aggregations in an Amazon DynamoDB table and writing out a result at the end of each window." },
+      { id: 'C', text: "Amazon Athena querying the records once delivered to Amazon S3." },
+      { id: 'D', text: "Amazon EMR running a Spark Structured Streaming application that reads the stream and computes the window aggregations on the cluster it provisions." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Managed Service for Apache Flink provides windowing primitives including tumbling windows with SQL or Flink APIs, handles checkpointing and scaling, and writes to downstream sinks, so the team expresses the aggregation rather than operating a processor. A Lambda function accumulating state in DynamoDB reimplements windowing, including late arrival and restart handling. Athena over delivered objects gives batch analysis with minutes of delay rather than streaming windows. EMR with Spark works but is exactly the stream processing application the team wants to avoid running.",
+    referenceUrl: "https://docs.aws.amazon.com/managed-flink/latest/java/what-is.html",
+    tags: ["Managed Flink", "Streaming Analytics", "Windowing", "Kinesis"]
+  },
+  {
+    id: "aws-sap-388",
+    difficulty: "medium",
+    certId: "aws-sap",
+    domainId: "d2",
+    domainName: "Design for New Solutions",
+    title: "Designing Around a Provider Without an SLA",
+    scenario: "A critical checkout flow calls a third-party address validation service that offers no availability commitment and has failed twice this year, each time blocking checkout entirely for its duration.",
+    question: "Which change removes checkout's dependence on it?",
+    options: [
+      { id: 'A', text: "Make validation advisory, allowing checkout to proceed with an unvalidated address when the provider is unavailable." },
+      { id: 'B', text: "Add a second address validation provider and call it whenever the first provider fails so that validation continues through an outage of either one." },
+      { id: 'C', text: "Cache previous validation results so repeat customers are validated from the cache while the provider is unavailable during an outage of the service." },
+      { id: 'D', text: "Add a circuit breaker around the call so the checkout flow stops calling quickly." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "The real problem is that a non-critical check is on the critical path, so making it advisory and reconciling afterwards means the provider's availability stops determining whether customers can buy. A second provider improves availability but keeps checkout dependent on an external call succeeding. A cache helps only customers who have been validated before, which excludes new addresses. A circuit breaker prevents cascading failure and shortens the timeout but still leaves checkout unable to complete once the call is skipped, unless the flow can proceed without it.",
+    referenceUrl: "https://docs.aws.amazon.com/wellarchitected/latest/reliability-pillar/rel_mitigate_interaction_failure_graceful_degradation.html",
+    tags: ["Graceful Degradation", "Third-Party", "Resilience", "Design"]
+  },
+  {
+    id: "aws-sap-389",
+    difficulty: "hard",
+    certId: "aws-sap",
+    domainId: "d3",
+    domainName: "Continuous Improvement for Existing Solutions",
+    title: "Explaining Why Adding Capacity Made Things Worse",
+    scenario: "During an incident the team doubled the size of an application fleet. Latency got worse rather than better, and the shared database's connection count doubled while its CPU reached saturation.",
+    question: "What explains the outcome?",
+    options: [
+      { id: 'A', text: "The bottleneck was the shared database, so more application instances increased the load on the constrained component." },
+      { id: 'B', text: "The new instances had not completed their warm-up period, so they served requests more slowly than the existing instances until they were fully initialized." },
+      { id: 'C', text: "The load balancer distributed requests unevenly across the enlarged fleet." },
+      { id: 'D', text: "The larger fleet exhausted the subnet's available addresses, so some of the new instances failed to launch and the capacity increase was never fully applied." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Scaling a tier that is not the bottleneck adds pressure to whatever is, and the doubled connection count with a saturated database says the constraint was downstream, so the correct response is connection pooling, caching, or scaling the database rather than the application. A warm-up period would produce a temporary dip rather than sustained worsening alongside database saturation. Uneven distribution would show in per-target metrics rather than in the database. Address exhaustion would prevent instances launching and would not double the connection count.",
+    referenceUrl: "https://docs.aws.amazon.com/wellarchitected/latest/performance-efficiency-pillar/welcome.html",
+    tags: ["Bottleneck", "Scaling", "Troubleshooting", "Performance"]
+  },
+  {
+    id: "aws-sap-390",
+    difficulty: "medium",
+    certId: "aws-sap",
+    domainId: "d3",
+    domainName: "Continuous Improvement for Existing Solutions",
+    title: "Choosing What to Do About an Unused Reserved Instance",
+    scenario: "A Reserved Instance covering a workload that has been decommissioned has 14 months remaining. Finance asks what can be done to recover value rather than continuing to pay for capacity nobody uses.",
+    question: "Which options are available? (Choose TWO)",
+    options: [
+      { id: 'A', text: "Modify the reservation's scope or instance size within the same family so it applies to a workload that is still running." },
+      { id: 'B', text: "Sell the reservation on the Reserved Instance Marketplace if it is a Standard reservation that meets the eligibility rules." },
+      { id: 'C', text: "Cancel the reservation and receive a pro-rata refund for the fourteen months of the term that have not yet been consumed by any workload." },
+      { id: 'D', text: "Exchange the reservation for a Compute Savings Plan of equivalent value so the commitment applies across any instance family in the Region." },
+      { id: 'E', text: "Transfer the reservation to another AWS account outside the organization so that account can make use of the remaining term." }
+    ],
+    correctAnswers: ['A', 'B'],
+    type: "multiple",
+    explanation: "A reservation can be modified within its family, changing scope between regional and zonal or splitting across sizes, which often lets it cover a different running workload, and a Standard reservation can be listed on the Reserved Instance Marketplace to recover value from the remaining term. Reservations cannot be cancelled for a refund. Convertible reservations can be exchanged for other reservations but not converted into a Savings Plan. Reservations cannot be transferred to an unrelated account, although consolidated billing shares their benefit within an organization.",
+    referenceUrl: "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-market-general.html",
+    tags: ["Reserved Instances", "Marketplace", "Cost Optimization", "Commitment"]
+  },
+  {
+    id: "aws-sap-391",
+    difficulty: "medium",
+    certId: "aws-sap",
+    domainId: "d3",
+    domainName: "Continuous Improvement for Existing Solutions",
+    title: "Reducing the Cost of a Chatty Observability Agent",
+    scenario: "A metrics agent on 2,000 instances publishes 60 custom metrics each at one-minute resolution. The CloudWatch custom metric charge has become one of the largest lines on the bill and most metrics are never graphed or alarmed.",
+    question: "Which change reduces cost while keeping useful observability?",
+    options: [
+      { id: 'A', text: "Publish only the metrics that back an alarm or dashboard, and emit the rest as logs queried on demand." },
+      { id: 'B', text: "Reduce the resolution of every custom metric from one minute to five minutes so that fewer data points are published by each of the instances." },
+      { id: 'C', text: "Aggregate the metrics across the fleet before publishing so that one set of metrics is published rather than one set for each of the 2,000 instances." },
+      { id: 'D', text: "Move the metrics into Amazon Managed Service for Prometheus." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Custom metrics are billed per unique metric, so the saving comes from publishing far fewer of them, and metrics nobody graphs or alarms on belong in logs where they remain available for investigation at a fraction of the cost. Lower resolution reduces data points but the per-metric charge dominates. Fleet-wide aggregation cuts the count substantially and is worth doing, but it loses per-instance detail that matters for the metrics actually used. Moving to Prometheus shifts the cost rather than reducing what is collected.",
+    referenceUrl: "https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/publishingMetrics.html",
+    tags: ["CloudWatch", "Custom Metrics", "Cost Optimization", "Observability"]
+  },
+  {
+    id: "aws-sap-392",
+    difficulty: "hard",
+    certId: "aws-sap",
+    domainId: "d3",
+    domainName: "Continuous Improvement for Existing Solutions",
+    title: "Handling a Region That Is Degraded but Not Down",
+    scenario: "A workload's primary Region is experiencing elevated error rates on one service. The workload is partially working, failover would take 30 minutes and lose recent writes, and the error rate is oscillating.",
+    question: "Which response is most appropriate while the situation is unclear?",
+    options: [
+      { id: 'A', text: "Shed non-essential load and degrade optional features to protect the critical path while monitoring against the agreed failover criteria." },
+      { id: 'B', text: "Fail over immediately, since a partially working system is harder to reason about than a clean cutover to the secondary Region would be." },
+      { id: 'C', text: "Take no action until the error rate stabilizes, since acting on an oscillating signal risks making a change that worsens the customer experience." },
+      { id: 'D', text: "Scale out the workload in the primary Region so that the additional capacity absorbs the elevated error rate until the service recovers on its own." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Load shedding and feature degradation preserve the most valuable traffic without the cost of a failover, and they are reversible in seconds, which is the right trade while the situation is ambiguous and the agreed criteria have not been met. Failing over immediately accepts 30 minutes and data loss for a degradation that may resolve. Doing nothing lets customers absorb the full impact. Scaling out adds capacity when the constraint is a degraded dependency rather than insufficient capacity.",
+    referenceUrl: "https://docs.aws.amazon.com/wellarchitected/latest/reliability-pillar/rel_mitigate_interaction_failure_graceful_degradation.html",
+    tags: ["Load Shedding", "Graceful Degradation", "Incident Response", "Resilience"]
+  },
+  {
+    id: "aws-sap-393",
+    difficulty: "medium",
+    certId: "aws-sap",
+    domainId: "d3",
+    domainName: "Continuous Improvement for Existing Solutions",
+    title: "Reducing the Cost of Development Data",
+    scenario: "Development and test accounts hold full copies of production data, refreshed weekly. Storage cost is substantial, the refresh takes hours, and the presence of real customer data in development is a standing compliance concern.",
+    question: "Which change addresses cost and compliance together?",
+    options: [
+      { id: 'A', text: "Generate a smaller anonymized dataset that preserves the shape of production and refresh that instead." },
+      { id: 'B', text: "Keep the full copies but encrypt them with a separate key and restrict access so the compliance concern about real customer data is mitigated." },
+      { id: 'C', text: "Keep the full copies but move them to a colder storage class between refreshes so the storage cost falls while the data remains available for testing." },
+      { id: 'D', text: "Reduce the refresh frequency from weekly to monthly so the time spent copying falls and the storage cost of the intermediate copies is reduced." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "A representative anonymized subset removes the personal data entirely, which resolves the compliance concern, while being far smaller and faster to refresh, so both problems are solved by the same change and tests still exercise realistic shapes. Encryption and access restriction reduce risk but the real customer data remains in a lower-trust environment. Colder storage conflicts with data that must be queried by tests. Less frequent refreshes reduce effort while leaving the storage volume and the compliance exposure untouched.",
+    referenceUrl: "https://docs.aws.amazon.com/prescriptive-guidance/latest/patterns/anonymize-and-mask-sensitive-data.html",
+    tags: ["Test Data", "Anonymization", "Cost Optimization", "Compliance"]
+  },
+  {
+    id: "aws-sap-394",
+    difficulty: "medium",
+    certId: "aws-sap",
+    domainId: "d3",
+    domainName: "Continuous Improvement for Existing Solutions",
+    title: "Making a Multi-Account Deployment Auditable",
+    scenario: "Deployments to 40 accounts are performed by a pipeline holding a powerful cross-account role. Auditors ask how the company knows the pipeline deployed only what was reviewed and approved in version control.",
+    question: "Which practice provides that assurance?",
+    options: [
+      { id: 'A', text: "Require signed artefacts and deploy only from a specific pipeline identity, with CloudTrail recording each deployment against the commit that produced it." },
+      { id: 'B', text: "Restrict the cross-account role's permissions to the specific resource types the pipeline deploys so that it cannot create anything outside that set." },
+      { id: 'C', text: "Require a manual approval step before each deployment so that a reviewer confirms the change being deployed matches what was approved in version control." },
+      { id: 'D', text: "Enable AWS Config in every target account so the resources created by each deployment are recorded and can be compared against the templates afterwards." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Assurance requires linking what was deployed to what was reviewed, which signed artefacts plus a deployment identity that only accepts them provides, while CloudTrail ties each deployment to the commit it came from. Narrowing the role limits blast radius without proving provenance. Manual approval inserts a human check that cannot verify artefact integrity. AWS Config records the result after the fact and shows what exists rather than where it came from.",
+    referenceUrl: "https://docs.aws.amazon.com/signer/latest/developerguide/Welcome.html",
+    tags: ["Supply Chain", "Code Signing", "Audit", "CI/CD"]
+  },
+  {
+    id: "aws-sap-395",
+    difficulty: "hard",
+    certId: "aws-sap",
+    domainId: "d3",
+    domainName: "Continuous Improvement for Existing Solutions",
+    title: "Finding the Cause of Periodic Latency Spikes",
+    scenario: "An application shows latency spikes every four hours, lasting about 90 seconds. Deployments do not correlate, traffic is flat, and the spikes affect every instance simultaneously rather than one at a time.",
+    question: "Which cause fits the pattern best?",
+    options: [
+      { id: 'A', text: "A scheduled job such as a backup, batch process, or cache refresh contending for a shared resource on the same interval." },
+      { id: 'B', text: "Instances exhausting their burst credits, since the simultaneous onset across the fleet indicates the credits are depleted at the same rate everywhere." },
+      { id: 'C', text: "The Auto Scaling group replacing instances on a schedule." },
+      { id: 'D', text: "Garbage collection pauses in the application runtime, which accumulate until a major collection occurs and pauses the process for an extended period." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "A precise four-hourly interval affecting every instance at once points at something scheduled and shared, such as a backup window, a batch job, or a cache refresh contending for a database or storage the whole fleet depends on. Burst credit exhaustion is gradual and would not recover and recur on a clean schedule. Scheduled instance replacement would affect instances in sequence rather than simultaneously. Garbage collection pauses occur per process at times that do not align across a fleet.",
+    referenceUrl: "https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/working_with_metrics.html",
+    tags: ["Latency", "Troubleshooting", "Periodicity", "Performance"]
+  },
+  {
+    id: "aws-sap-396",
+    difficulty: "medium",
+    certId: "aws-sap",
+    domainId: "d4",
+    domainName: "Accelerate Workload Migration and Modernization",
+    title: "Choosing How to Move a Highly Available Pair",
+    scenario: "An application runs as an active-passive pair on premises with a shared virtual IP address that fails over between the two nodes. The migration team finds that a VPC does not support the gratuitous ARP the failover relies on.",
+    question: "Which approach preserves the failover behaviour?",
+    options: [
+      { id: 'A', text: "Replace the virtual address with a Network Load Balancer health checking both nodes and sending traffic to the healthy one with no address movement." },
+      { id: 'B', text: "Assign a secondary private address to the active node and move it to the passive node with an API call when a failover is required to occur." },
+      { id: 'C', text: "Place both nodes in the same subnet and cluster placement group so that the gratuitous ARP announcements are forwarded between them by the network." },
+      { id: 'D', text: "Assign an Elastic IP address to the active node and reassociate it with the passive node whenever a failover occurs between the two of them." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "A load balancer with health checks is the AWS-native replacement for a floating virtual address: it directs traffic to whichever node is healthy with no address movement and no reliance on link-layer behaviour the VPC does not support. Moving a secondary private address by API does work and is a documented pattern, but it needs custom failover automation and its propagation is slower than a health check. A placement group does not change the fact that the VPC network does not forward gratuitous ARP. An Elastic IP requires a public address on nodes that may need to stay private.",
+    referenceUrl: "https://docs.aws.amazon.com/elasticloadbalancing/latest/network/introduction.html",
+    tags: ["Network Load Balancer", "High Availability", "Migration", "Failover"]
+  },
+  {
+    id: "aws-sap-397",
+    difficulty: "medium",
+    certId: "aws-sap",
+    domainId: "d4",
+    domainName: "Accelerate Workload Migration and Modernization",
+    title: "Deciding How Much to Change During a Migration",
+    scenario: "A team plans to migrate, upgrade the operating system, change the database engine, adopt containers, and introduce a new CI pipeline in one project. Leadership asks whether this is wise given a fixed data centre deadline.",
+    question: "What should the architect advise?",
+    options: [
+      { id: 'A', text: "Sequence the changes, migrating first and modernizing afterwards, so a failure has one likely cause rather than five." },
+      { id: 'B', text: "Proceed with all five changes together, since doing them once avoids the cost of touching every workload repeatedly over the following years." },
+      { id: 'C', text: "Proceed with all five changes but add an extended testing phase before cutover so that any problem introduced by the combination is found beforehand." },
+      { id: 'D', text: "Abandon the data centre deadline and take the time needed to complete all five changes properly rather than compromising on the scope of the work." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Changing five things at once makes every failure ambiguous and every rollback complex, and with a fixed deadline the risk is concentrated exactly where there is least room to absorb it; migrating first and modernizing afterwards keeps each change diagnosable. Doing everything at once does avoid repeated handling but trades that convenience for compounded risk. More testing reduces the chance of a problem without making one easier to diagnose. Abandoning the deadline is rarely available and does not address the risk of bundling.",
+    referenceUrl: "https://docs.aws.amazon.com/prescriptive-guidance/latest/large-migration-guide/migration-strategies.html",
+    tags: ["Migration Strategy", "Risk", "Sequencing", "Modernization"]
+  },
+  {
+    id: "aws-sap-398",
+    difficulty: "hard",
+    certId: "aws-sap",
+    domainId: "d4",
+    domainName: "Accelerate Workload Migration and Modernization",
+    title: "Migrating a Workload With Licence-Bound Storage",
+    scenario: "A storage appliance vendor's software runs on premises and its licence permits deployment only on supported hardware. The company needs its NFS exports available in AWS with the same snapshot and replication tooling the team already uses.",
+    question: "Which AWS option preserves the vendor tooling?",
+    options: [
+      { id: 'A', text: "Amazon FSx for NetApp ONTAP, which runs the vendor's own storage software as a managed AWS service." },
+      { id: 'B', text: "Amazon EFS, which provides managed NFS exports and its own snapshot and replication capabilities for the migrated workload to use instead." },
+      { id: 'C', text: "The vendor's software installed on EC2 instances with EBS volumes, so the same tooling runs on infrastructure the company manages itself in AWS." },
+      { id: 'D', text: "AWS Storage Gateway in file mode, presenting NFS exports backed by Amazon S3 so the existing clients continue to mount the shares as they do today." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "FSx for NetApp ONTAP runs ONTAP itself as a managed service, so the snapshot, replication, and management tooling the team already uses continues to work without the licensing and hardware constraint. EFS provides NFS but with entirely different tooling and semantics. Running the vendor software on EC2 may breach the hardware-bound licence and reintroduces the operational burden. A file gateway presents NFS backed by object storage and offers none of the vendor's snapshot or replication features.",
+    referenceUrl: "https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/what-is-fsx-ontap.html",
+    tags: ["FSx for NetApp ONTAP", "Storage", "Licensing", "Migration"]
+  },
+  {
+    id: "aws-sap-399",
+    difficulty: "medium",
+    certId: "aws-sap",
+    domainId: "d4",
+    domainName: "Accelerate Workload Migration and Modernization",
+    title: "Handling Data Gravity in a Phased Migration",
+    scenario: "A 200 TB dataset stays on premises while the analytics jobs that read it move to AWS first. Each job reads most of the dataset, and the team is surprised by the egress charges and the elapsed time of every run.",
+    question: "What does this indicate about the sequencing?",
+    options: [
+      { id: 'A', text: "Compute should follow its data, so the dataset should move before or with the jobs that read it." },
+      { id: 'B', text: "The link between the environments is undersized, so provisioning a larger Direct Connect connection would resolve the elapsed time and the cost." },
+      { id: 'C', text: "The jobs should cache the dataset in AWS after the first read so that subsequent runs read locally and only the first run crosses the link." },
+      { id: 'D', text: "The jobs should be rewritten to read only the columns they require so that the volume crossing the link falls and the egress charges reduce accordingly." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Data gravity means large datasets attract the compute that uses them, so moving jobs away from their data guarantees repeated transfer cost and latency; the sequencing should keep them together, which usually means migrating the data first. A larger circuit reduces elapsed time while the egress charge scales with volume regardless. Caching in AWS is effectively moving the data, but doing it informally leaves two copies and an unclear source of truth. Reading fewer columns helps but the scenario says each job reads most of the dataset.",
+    referenceUrl: "https://docs.aws.amazon.com/prescriptive-guidance/latest/large-migration-guide/migration-waves.html",
+    tags: ["Data Gravity", "Migration Sequencing", "Egress", "Planning"]
+  },
+  {
+    id: "aws-sap-400",
+    difficulty: "easy",
+    certId: "aws-sap",
+    domainId: "d4",
+    domainName: "Accelerate Workload Migration and Modernization",
+    title: "Choosing a First Modernization After Migration",
+    scenario: "A rehosted estate is stable in AWS. The platform team wants to demonstrate value from modernization quickly and has a backlog of candidate improvements, but limited capacity for the first quarter of work.",
+    question: "Which candidate typically returns value fastest?",
+    options: [
+      { id: 'A', text: "Automating the manual deployment process, since it returns time on every release thereafter." },
+      { id: 'B', text: "Decomposing the largest monolithic application into microservices so that its components can be scaled and deployed independently of one another." },
+      { id: 'C', text: "Migrating the relational databases onto a different engine so that commercial licence costs are removed from the estate's ongoing running cost." },
+      { id: 'D', text: "Rewriting the batch processing tier as serverless functions so that the compute is billed per execution rather than by running instances continuously." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Deployment automation compounds: every release afterwards is faster and safer, it unblocks the other modernization work, and it can usually be delivered within a quarter. Decomposing a monolith is a multi-year effort whose benefit arrives late. A heterogeneous database migration removes licence cost but carries schema conversion and revalidation that rarely fits a quarter. Rewriting the batch tier may reduce cost but touches working code for a narrower return than automating how everything ships.",
+    referenceUrl: "https://docs.aws.amazon.com/prescriptive-guidance/latest/modernization-pathways/welcome.html",
+    tags: ["Modernization", "Automation", "Prioritization", "Post-Migration"]
+  }
+];
+
+export default AWS_SAP_QUESTIONS;

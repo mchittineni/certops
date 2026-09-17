@@ -1,0 +1,530 @@
+export const AWS_SAP_QUESTIONS = [
+  {
+    id: "aws-sap-1",
+    difficulty: "hard",
+    certId: "aws-sap",
+    domainId: "d1",
+    domainName: "Design Solutions for Organizational Complexity",
+    title: "Preventing Region Use Across an Organization",
+    scenario: "A company runs 180 accounts in AWS Organizations with all features enabled. Auditors require that no workload outside eu-west-1 and eu-central-1 ever be created, including by account root users, while the security tooling account continues to call global endpoints such as IAM and CloudFront.",
+    question: "Which approach enforces the regional restriction most reliably?",
+    options: [
+      { id: 'A', text: "Attach a service control policy at the organization root denying all actions when aws:RequestedRegion falls outside the approved list, exempting global services." },
+      { id: 'B', text: "Attach an IAM permissions boundary to every principal including the root user in each member account, denying actions outside the approved Regions." },
+      { id: 'C', text: "Disable the unapproved AWS Regions in each member account through the AWS Billing console, leaving the global service endpoints enabled." },
+      { id: 'D', text: "Create an AWS Config organization rule that flags any resource created outside the approved list of AWS Regions, and attach an AWS Systems Manager Automation runbook that deletes each flagged resource on detection." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "A service control policy is the only control that applies to every principal in a member account including the root user, and the aws:RequestedRegion condition key is the documented way to express a Region allow-list. Global services must be exempted by action because they are always signed against us-east-1. Permissions boundaries never constrain the root user and must be attached role by role. Disabling Regions is an account setting an administrator can re-enable, so it deters rather than enforces. AWS Config detects after the fact, meaning the non-compliant resource exists before remediation runs.",
+    referenceUrl: "https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scps_examples_general.html",
+    tags: ["Organizations", "SCP", "Governance", "Multi-Account"]
+  },
+  {
+    id: "aws-sap-2",
+    difficulty: "medium",
+    certId: "aws-sap",
+    domainId: "d1",
+    domainName: "Design Solutions for Organizational Complexity",
+    title: "Centralized Egress for a Multi-Account Network",
+    scenario: "An enterprise has 60 VPCs spread across 40 accounts in a single Region, each with its own NAT gateway. The network team wants one inspection and egress point to cut NAT gateway spend and satisfy a requirement that all outbound internet traffic pass through a firewall.",
+    question: "Which network design meets the requirement with the least ongoing administration?",
+    options: [
+      { id: 'A', text: "Attach every VPC to a shared AWS Transit Gateway and route 0.0.0.0/0 to an inspection VPC that holds the firewall appliances and the NAT gateways." },
+      { id: 'B', text: "Create a full mesh of VPC peering connections to a shared services VPC and point each default route at the peering connection to that VPC." },
+      { id: 'C', text: "Deploy AWS PrivateLink endpoint services in each of the 60 VPCs to publish the firewall fleet, then repoint all outbound application traffic at the generated endpoint DNS names." },
+      { id: 'D', text: "Configure AWS Direct Connect gateway with a public virtual interface so egress leaves through the on-premises inspection firewalls." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Transit Gateway gives a hub-and-spoke topology where each VPC attaches once and a centralized inspection VPC owns the NAT gateways and appliances, so adding the 61st VPC is one attachment rather than a topology change. VPC peering is non-transitive, so a peered VPC cannot use another VPC's NAT gateway or internet gateway at all. PrivateLink publishes a specific service endpoint and does not carry arbitrary internet-bound routing. A Direct Connect public virtual interface reaches AWS public endpoints, not the internet, and backhauling egress adds latency and circuit cost.",
+    referenceUrl: "https://docs.aws.amazon.com/vpc/latest/tgw/tgw-nat-igw.html",
+    tags: ["Transit Gateway", "NAT Gateway", "Networking", "Cost Optimization"]
+  },
+  {
+    id: "aws-sap-3",
+    difficulty: "medium",
+    certId: "aws-sap",
+    domainId: "d2",
+    domainName: "Design for New Solutions",
+    title: "Cross-Region Disaster Recovery With a 5-Minute RPO",
+    scenario: "A payments platform runs on Amazon Aurora PostgreSQL in us-east-1. The business requires a recovery point objective of 5 minutes and a recovery time objective of 15 minutes in us-west-2, and the secondary Region must serve read traffic for reporting in the meantime.",
+    question: "Which database design meets both objectives?",
+    options: [
+      { id: 'A', text: "Create an Aurora global database with a secondary cluster in us-west-2 and promote that cluster during a Regional failover event." },
+      { id: 'B', text: "Schedule automated Aurora snapshots every 5 minutes and copy each snapshot to us-west-2, restoring a cluster when failover is declared." },
+      { id: 'C', text: "Enable Aurora Backtrack on the primary cluster and replay the transaction window into a standby cluster running in us-west-2." },
+      { id: 'D', text: "Deploy an Aurora cross-Region read replica and rely on the reader endpoint to accept writes once the primary Region becomes unavailable." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "An Aurora global database replicates through the storage layer with typical cross-Region lag under a second and supports managed planned failover plus unplanned promotion, comfortably inside a 5-minute RPO and 15-minute RTO, while the secondary cluster serves reads throughout. Snapshot copy has an RPO bounded by the snapshot interval plus copy time, and restoring a cluster usually exceeds 15 minutes. Backtrack rewinds a cluster in place within one Region and is not a replication mechanism. A cross-Region read replica is a valid pattern but its reader endpoint never accepts writes without an explicit promotion step.",
+    referenceUrl: "https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database.html",
+    tags: ["Aurora", "Disaster Recovery", "Multi-Region", "RPO"]
+  },
+  {
+    id: "aws-sap-4",
+    difficulty: "hard",
+    certId: "aws-sap",
+    domainId: "d2",
+    domainName: "Design for New Solutions",
+    title: "Idempotent Order Processing at Variable Scale",
+    scenario: "A retailer is designing an order intake service. Bursts reach 20,000 messages per second during promotions and fall to near zero overnight. Orders for a given customer must be processed in submission order, and a duplicate submission must never create a second order.",
+    question: "Which design satisfies the ordering and deduplication requirements?",
+    options: [
+      { id: 'A', text: "Publish orders to an Amazon SQS FIFO queue using the customer id as the message group id and the order id as the deduplication id." },
+      { id: 'B', text: "Publish orders to an Amazon SQS standard queue and have the consumer sort each batch by timestamp and apply deduplication before writing to the order table." },
+      { id: 'C', text: "Publish orders to an Amazon SNS standard topic fanned out to a Lambda function that writes each order into Amazon DynamoDB." },
+      { id: 'D', text: "Publish orders to an Amazon Kinesis Data Firehose delivery stream buffered to Amazon S3 and process each delivered object in a batch job." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "SQS FIFO guarantees ordering within a message group and exactly-once processing within the deduplication window, so keying the group on customer id preserves per-customer order while letting different customers process in parallel, and the order id as deduplication id discards a resubmission. FIFO queues support high throughput mode well above the stated burst. A standard queue offers only best-effort ordering, and sorting a batch cannot reorder messages that arrived in different batches. An SNS standard topic provides neither ordering nor deduplication. Firehose is a buffered delivery service for analytics sinks and adds minutes of latency with no ordering guarantee.",
+    referenceUrl: "https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues.html",
+    tags: ["SQS", "FIFO", "Event-Driven", "Idempotency"]
+  },
+  {
+    id: "aws-sap-5",
+    difficulty: "medium",
+    certId: "aws-sap",
+    domainId: "d3",
+    domainName: "Continuous Improvement for Existing Solutions",
+    title: "Finding the Source of an Intermittent Latency Spike",
+    scenario: "A microservices application on Amazon ECS shows p99 latency spikes several times an hour. Each service emits CloudWatch metrics and structured logs, but the operations team cannot tell which downstream call is responsible because a single request touches nine services.",
+    question: "Which change will identify the contributing service fastest?",
+    options: [
+      { id: 'A', text: "Instrument the services with the AWS Distro for OpenTelemetry and read per-segment timings on the AWS X-Ray service map." },
+      { id: 'B', text: "Enable CloudWatch Container Insights on the ECS cluster and compare task-level CPU and memory utilization during the spike windows." },
+      { id: 'C', text: "Turn on Application Load Balancer access logs and query the target processing time field in Amazon Athena for the affected periods." },
+      { id: 'D', text: "Create a CloudWatch Logs metric filter on each service's error lines and alarm when the error rate rises above its weekly baseline." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Distributed tracing is the mechanism that attributes latency to a specific hop in a multi-service request, because each segment and subsegment carries its own timing under one trace id. Container Insights reports resource utilization per task, which shows saturation but not which downstream call a slow request waited on. ALB access logs report only the time from the load balancer to its immediate target, so an eight-hop chain behind that target is invisible. Metric filters on error lines measure failures, and the described spikes are slow successes rather than errors.",
+    referenceUrl: "https://docs.aws.amazon.com/xray/latest/devguide/xray-services-ecs.html",
+    tags: ["X-Ray", "Observability", "ECS", "Tracing"]
+  },
+  {
+    id: "aws-sap-6",
+    difficulty: "easy",
+    certId: "aws-sap",
+    domainId: "d4",
+    domainName: "Accelerate Workload Migration and Modernization",
+    title: "Choosing a Discovery Tool Before a Data Centre Exit",
+    scenario: "A company must migrate roughly 900 on-premises VMware virtual machines to AWS within a year. Before planning waves, the migration team needs an inventory with per-server CPU and memory utilization plus the network dependencies between servers.",
+    question: "Which service provides that inventory and dependency data?",
+    options: [
+      { id: 'A', text: "AWS Application Discovery Service, collecting utilization and network dependency data into AWS Migration Hub." },
+      { id: 'B', text: "AWS Application Migration Service, replicating each source server into a staging subnet in the target account." },
+      { id: 'C', text: "AWS Database Migration Service, running a full load and change data capture task against each source." },
+      { id: 'D', text: "AWS Systems Manager Inventory, collecting installed application metadata from managed nodes on a schedule." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Application Discovery Service is purpose-built for the assess phase: the agentless collector and the agent gather utilization and inbound and outbound network connections, and the results populate Migration Hub so servers can be grouped into applications and waves. Application Migration Service performs the lift-and-shift replication that happens after planning. Database Migration Service moves database content, not server inventory. Systems Manager Inventory reports installed software on nodes already managed by AWS and does not map server-to-server network dependencies.",
+    referenceUrl: "https://docs.aws.amazon.com/application-discovery/latest/userguide/what-is-appdiscovery.html",
+    tags: ["Migration", "Application Discovery Service", "Migration Hub", "Assessment"]
+  },
+  {
+    id: "aws-sap-7",
+    difficulty: "hard",
+    certId: "aws-sap",
+    domainId: "d1",
+    domainName: "Design Solutions for Organizational Complexity",
+    title: "Sharing Encrypted Snapshots With Another Account",
+    scenario: "A platform account must share encrypted Amazon EBS snapshots with a partner account in the same Region. The snapshots are encrypted with a customer managed AWS KMS key. The partner reports that the shared snapshot appears in their console but every copy attempt fails.",
+    question: "What must be configured for the partner account to copy the snapshot?",
+    options: [
+      { id: 'A', text: "Grant the partner account kms:Decrypt, kms:CreateGrant, and kms:DescribeKey on the customer managed key through the key policy." },
+      { id: 'B', text: "Re-encrypt the snapshot with the AWS managed key aws/ebs and share that snapshot with the partner account instead." },
+      { id: 'C', text: "Add the partner account as a principal on the snapshot's resource policy with the ec2:CopySnapshot action allowed." },
+      { id: 'D', text: "Enable EBS encryption by default in the partner account so copies inherit a key the partner account already controls." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Sharing an encrypted snapshot shares the snapshot only; the partner still needs permission on the KMS key that encrypted it, which the key policy must grant explicitly, and kms:CreateGrant is required because the copy operation creates a grant on the destination key. The AWS managed aws/ebs key cannot be shared across accounts at all, which is why AWS requires a customer managed key for this pattern. EBS snapshots have no resource policy of their own, only the create-volume-permission share list. Encryption by default in the partner account sets the key for new volumes and does not grant access to the source key.",
+    referenceUrl: "https://docs.aws.amazon.com/ebs/latest/userguide/ebs-modifying-snapshot-permissions.html",
+    tags: ["KMS", "EBS", "Cross-Account", "Encryption"]
+  },
+  {
+    id: "aws-sap-8",
+    difficulty: "medium",
+    certId: "aws-sap",
+    domainId: "d2",
+    domainName: "Design for New Solutions",
+    title: "Serving a Global Single-Page Application",
+    scenario: "A SaaS vendor serves a single-page application from an Amazon S3 bucket fronted by Amazon CloudFront. Users in Asia report slow first loads, and the security team requires that the bucket never be reachable directly over the internet.",
+    question: "Which configuration meets the performance and access requirements?",
+    options: [
+      { id: 'A', text: "Use CloudFront origin access control with a bucket policy that allows only the distribution, and block all public access on the bucket." },
+      { id: 'B', text: "Enable S3 Transfer Acceleration on the bucket and point application clients at the accelerated bucket endpoint directly." },
+      { id: 'C', text: "Enable S3 static website hosting with a bucket policy allowing anonymous reads only from CloudFront IP address ranges." },
+      { id: 'D', text: "Replicate the bucket into three Regions with S3 Cross-Region Replication and use latency-based Route 53 records for each bucket." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Origin access control lets the distribution sign requests to a fully private bucket, so edge caching delivers the low first-load latency while S3 Block Public Access stays on. Transfer Acceleration optimizes uploads over long distances and exposes a public endpoint, which violates the access requirement. The S3 static website endpoint only serves anonymous requests and does not support SigV4 origin access, and maintaining an allow-list of CloudFront IP ranges is fragile. Cross-Region replication with latency records adds storage cost and replication lag while still exposing buckets publicly and skipping the edge cache entirely.",
+    referenceUrl: "https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-s3.html",
+    tags: ["CloudFront", "S3", "Origin Access Control", "Content Delivery"]
+  },
+  {
+    id: "aws-sap-9",
+    difficulty: "medium",
+    certId: "aws-sap",
+    domainId: "d3",
+    domainName: "Continuous Improvement for Existing Solutions",
+    title: "Reducing Cost on a Steady Compute Baseline",
+    scenario: "A company runs 400 Amazon EC2 instances on demand across several families and sizes. Analysis shows a stable baseline of roughly 250 instances running continuously, while the remainder scale with daily traffic. Finance wants savings without committing to specific instance types.",
+    question: "Which purchasing decision fits the usage pattern?",
+    options: [
+      { id: 'A', text: "Purchase Compute Savings Plans sized to the steady baseline and leave the variable portion running on demand." },
+      { id: 'B', text: "Purchase Standard Reserved Instances for the full 400 instances in the families currently in use." },
+      { id: 'C', text: "Move the entire fleet to Spot Instances managed by an EC2 Fleet request with a capacity-optimized allocation strategy." },
+      { id: 'D', text: "Purchase EC2 Instance Savings Plans covering the full 400 instances across every family currently in use." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Compute Savings Plans discount a committed hourly spend regardless of instance family, size, Region, operating system, or tenancy, which is exactly the flexibility the company asked for, and sizing the commitment to the stable baseline avoids paying for capacity that scales away. Standard Reserved Instances for the full fleet over-commit the variable portion and lock to a family. EC2 Instance Savings Plans are cheaper but bind the commitment to one instance family per Region, which the requirement rules out. Spot cannot host a steady baseline that must not be interrupted.",
+    referenceUrl: "https://docs.aws.amazon.com/savingsplans/latest/userguide/what-is-savings-plans.html",
+    tags: ["Savings Plans", "EC2", "Cost Optimization", "Purchasing"]
+  },
+  {
+    id: "aws-sap-10",
+    difficulty: "hard",
+    certId: "aws-sap",
+    domainId: "d4",
+    domainName: "Accelerate Workload Migration and Modernization",
+    title: "Moving 600 TB With a Constrained Circuit",
+    scenario: "A media company must move 600 TB of archive footage into Amazon S3. The site has a 1 Gbps internet circuit that production work already uses to 70 percent capacity, and the archive must be in AWS within six weeks.",
+    question: "Which transfer approach meets the deadline?",
+    options: [
+      { id: 'A', text: "Order AWS Snowball Edge Storage Optimized devices, load the archive on site, and ship them back for import into Amazon S3." },
+      { id: 'B', text: "Run AWS DataSync over the existing internet circuit with a bandwidth limit that leaves production traffic unaffected." },
+      { id: 'C', text: "Use S3 Transfer Acceleration with multipart uploads from several parallel on-premises hosts to the destination bucket." },
+      { id: 'D', text: "Provision a 1 Gbps AWS Direct Connect dedicated connection and copy the archive with the AWS CLI over the private virtual interface." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "With 300 Mbps of spare bandwidth, 600 TB needs roughly 185 days of continuous transfer, so any network path fails the six-week deadline; physical transfer with Snowball Edge is the documented answer above roughly 100 TB on a constrained link. DataSync is efficient but is bounded by the same spare bandwidth. Transfer Acceleration improves throughput over long distances but cannot exceed the circuit capacity. A dedicated Direct Connect connection typically takes weeks to provision and at 1 Gbps would still need about 55 days at line rate.",
+    referenceUrl: "https://docs.aws.amazon.com/snowball/latest/developer-guide/whatisedge.html",
+    tags: ["Snowball Edge", "Migration", "S3", "Data Transfer"]
+  },
+  {
+    id: "aws-sap-11",
+    difficulty: "medium",
+    certId: "aws-sap",
+    domainId: "d1",
+    domainName: "Design Solutions for Organizational Complexity",
+    title: "Consistent Account Baselines at Scale",
+    scenario: "A company creates about 15 AWS accounts a month. Each needs a standard VPC layout, a logging configuration, guardrails, and an access baseline. The platform team currently runs scripts by hand and the results have drifted between accounts.",
+    question: "Which approach standardizes provisioning with the least custom code?",
+    options: [
+      { id: 'A', text: "Adopt AWS Control Tower with Account Factory and register the existing organizational units so guardrails and baselines apply automatically." },
+      { id: 'B', text: "Publish a CloudFormation StackSet carrying the guardrails from the management account and instruct each account owner to deploy it after their account is created." },
+      { id: 'C', text: "Build an AWS Step Functions workflow that calls the Organizations CreateAccount API and then applies resources with the AWS SDK." },
+      { id: 'D', text: "Store the baseline as a Terraform module in AWS CodeCommit and have engineers apply it locally with credentials from IAM Identity Center." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Control Tower is the managed landing zone: Account Factory provisions the account, the network baseline, centralized logging, and preventive and detective controls in one step, and drift against those controls is reported rather than silently accepted. A StackSet applied by each account owner reintroduces the manual step that caused the drift. A custom Step Functions workflow rebuilds what Control Tower already provides and becomes the platform team's code to maintain. A Terraform module applied from engineers' laptops has no enforcement and no drift reporting.",
+    referenceUrl: "https://docs.aws.amazon.com/controltower/latest/userguide/what-is-control-tower.html",
+    tags: ["Control Tower", "Landing Zone", "Governance", "Multi-Account"]
+  },
+  {
+    id: "aws-sap-12",
+    difficulty: "hard",
+    certId: "aws-sap",
+    domainId: "d2",
+    domainName: "Design for New Solutions",
+    title: "Hybrid DNS Resolution in Both Directions",
+    scenario: "A company connects its data centre to a Transit Gateway using AWS Site-to-Site VPN. Applications in VPCs must resolve records in the on-premises Active Directory zone corp.example.com, and on-premises servers must resolve Route 53 private hosted zone records.",
+    question: "Which DNS configuration satisfies both directions?",
+    options: [
+      { id: 'A', text: "Create a Route 53 Resolver outbound endpoint with a forwarding rule for corp.example.com and an inbound endpoint that on-premises servers target." },
+      { id: 'B', text: "Enable the DNS hostnames and DNS resolution attributes on every VPC, then add conditional forwarders for corp.example.com on the on-premises Active Directory DNS servers." },
+      { id: 'C', text: "Run Amazon EC2 instances as BIND forwarders in a shared services VPC and point both the VPCs and the data centre at those instances." },
+      { id: 'D', text: "Associate the Route 53 private hosted zone with the on-premises domain controllers and enable zone transfers over the VPN tunnel." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Route 53 Resolver endpoints are the managed answer to bidirectional hybrid DNS: an outbound endpoint plus a forwarding rule sends queries for corp.example.com to the on-premises resolvers, and an inbound endpoint gives on-premises servers an IP address in the VPC to forward private hosted zone queries to. VPC DNS attributes control whether the VPC resolver works at all and do not reach an external zone. EC2 BIND forwarders work but are self-managed instances that reintroduce patching and availability work the managed endpoints remove. A private hosted zone cannot be associated with a non-AWS DNS server and does not support zone transfers.",
+    referenceUrl: "https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/resolver.html",
+    tags: ["Route 53 Resolver", "Hybrid", "DNS", "Networking"]
+  },
+  {
+    id: "aws-sap-13",
+    difficulty: "medium",
+    certId: "aws-sap",
+    domainId: "d3",
+    domainName: "Continuous Improvement for Existing Solutions",
+    title: "Removing a Bottleneck From a Read-Heavy API",
+    scenario: "A product catalogue API on Amazon EC2 reads from Amazon RDS for PostgreSQL. Ninety percent of requests are identical reads of the same few thousand products, and the database CPU sits near 90 percent during business hours while writes remain infrequent.",
+    question: "Which change relieves the database most directly?",
+    options: [
+      { id: 'A', text: "Add an Amazon ElastiCache for Redis read-through cache with a short time to live." },
+      { id: 'B', text: "Enable RDS Performance Insights and Enhanced Monitoring to identify the queries that consume the most database load." },
+      { id: 'C', text: "Increase the RDS instance class by two sizes and raise the provisioned IOPS on the attached gp3 storage volume." },
+      { id: 'D', text: "Move the catalogue table to Amazon DynamoDB with on-demand capacity and rewrite the API access layer to match." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "A read-through cache absorbs repeated identical reads in memory, so with ninety percent of traffic hitting a small working set the database sees a fraction of its current query volume, and a short time to live bounds staleness given infrequent writes. Performance Insights is diagnostic and changes no load on its own. Scaling the instance class buys headroom at higher cost while the redundant query volume remains. Rewriting onto DynamoDB is a large change that solves the same problem the cache solves in a fraction of the effort.",
+    referenceUrl: "https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/WhatIs.html",
+    tags: ["ElastiCache", "RDS", "Caching", "Performance"]
+  },
+  {
+    id: "aws-sap-14",
+    difficulty: "easy",
+    certId: "aws-sap",
+    domainId: "d4",
+    domainName: "Accelerate Workload Migration and Modernization",
+    title: "Naming the Right Migration Strategy",
+    scenario: "A team plans to move a Java application from on-premises servers to AWS. The code stays as it is, but the self-managed Oracle database behind it will become Amazon RDS for Oracle and the servers will become EC2 instances in an Auto Scaling group.",
+    question: "Which of the 7 Rs migration strategies describes this move?",
+    options: [
+      { id: 'A', text: "Replatform, because one component adopts a managed service while the code is unchanged." },
+      { id: 'B', text: "Rehost, because the application code is unchanged and the servers move as they are to EC2 instances." },
+      { id: 'C', text: "Refactor, because the application is being redesigned to take advantage of cloud native architecture." },
+      { id: 'D', text: "Repurchase, because the existing licensed software is replaced with a different vendor product." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Replatform, sometimes called lift and reshape, keeps the core application intact while swapping a component for a managed equivalent, which is exactly what moving self-managed Oracle to RDS for Oracle does. Rehost would keep the database on an EC2 instance with no managed service adoption. Refactor means changing the application architecture itself, such as decomposing it into services, which is not described here. Repurchase means moving to a different product, typically SaaS, and no product change is taking place.",
+    referenceUrl: "https://docs.aws.amazon.com/prescriptive-guidance/latest/large-migration-guide/migration-strategies.html",
+    tags: ["Migration Strategies", "Replatform", "7 Rs", "Modernization"]
+  },
+  {
+    id: "aws-sap-15",
+    difficulty: "hard",
+    certId: "aws-sap",
+    domainId: "d1",
+    domainName: "Design Solutions for Organizational Complexity",
+    title: "Auditing API Activity Across Every Account",
+    scenario: "A security team must retain a tamper-evident record of management and data events for all current and future accounts in AWS Organizations. Member account administrators must not be able to stop logging, and the archive must survive compromise of the account that holds it.",
+    question: "Which logging design meets the requirements?",
+    options: [
+      { id: 'A', text: "Create an organization trail from the management account writing to an S3 bucket in a dedicated log archive account with Object Lock enabled." },
+      { id: 'B', text: "Create an individual CloudTrail trail in each member account writing to a local bucket and replicate those buckets to the log archive account." },
+      { id: 'C', text: "Enable AWS Config in all accounts with an organization aggregator and deliver configuration snapshots to the log archive account." },
+      { id: 'D', text: "Forward CloudWatch Logs from each account to an Amazon OpenSearch Service domain in the security account using subscription filters." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "An organization trail is created once in the management or a delegated administrator account, applies automatically to every existing and future member account, and cannot be modified or deleted from a member account. Writing to a separate log archive account isolates the archive from a compromise elsewhere, and S3 Object Lock in compliance mode makes the objects immutable for the retention period. Per-account trails can be disabled locally, which is the failure mode being designed against. AWS Config records resource configuration rather than API calls. Subscription filters to OpenSearch build a search tier but depend on each account keeping its logging enabled.",
+    referenceUrl: "https://docs.aws.amazon.com/awscloudtrail/latest/userguide/creating-trail-organization.html",
+    tags: ["CloudTrail", "Organizations", "Object Lock", "Audit"]
+  },
+  {
+    id: "aws-sap-16",
+    difficulty: "medium",
+    certId: "aws-sap",
+    domainId: "d2",
+    domainName: "Design for New Solutions",
+    title: "Long-Running Workflow With Human Approval",
+    scenario: "An insurance claim process runs a series of automated checks, then waits for an underwriter to approve or reject, which can take up to five business days, and finally issues a payment. The team wants managed state, visible execution history, and no polling code.",
+    question: "Which service composition fits the workflow?",
+    options: [
+      { id: 'A', text: "AWS Step Functions in standard workflow mode using a task token callback pattern for the underwriter approval step." },
+      { id: 'B', text: "AWS Step Functions in express workflow mode with a wait state configured for the maximum approval duration of five days." },
+      { id: 'C', text: "An AWS Lambda function chain where each function writes progress to Amazon DynamoDB and the underwriter is notified by the next stream trigger." },
+      { id: 'D', text: "An Amazon SQS queue per stage with a visibility timeout set to five days so the approval message remains hidden until acted upon." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Standard workflows run for up to a year, record every state transition in execution history, and the waitForTaskToken integration pattern pauses a task until an external actor calls SendTaskSuccess or SendTaskFailure, which is precisely a human approval gate. Express workflows are capped at five minutes. A chain of Lambda functions cannot hold a five-day pause because the function timeout is fifteen minutes, and the state machine becomes application code. SQS visibility timeout has a maximum of twelve hours and is a redelivery control rather than a workflow gate.",
+    referenceUrl: "https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html",
+    tags: ["Step Functions", "Orchestration", "Serverless", "Workflows"]
+  },
+  {
+    id: "aws-sap-17",
+    difficulty: "medium",
+    certId: "aws-sap",
+    domainId: "d3",
+    domainName: "Continuous Improvement for Existing Solutions",
+    title: "Storage Cost on an Unpredictable Access Pattern",
+    scenario: "A research group stores 90 TB of datasets in Amazon S3 Standard. Some files are read daily for months and then never again, others sit untouched for a year before a burst of access. Nobody can predict which is which, and retrieval must stay immediate.",
+    question: "Which storage configuration reduces cost without risking retrieval delays?",
+    options: [
+      { id: 'A', text: "Move the datasets to S3 Intelligent-Tiering and let the access-tier monitoring shift objects between the frequent and infrequent tiers." },
+      { id: 'B', text: "Apply a lifecycle rule transitioning objects to S3 Standard-IA after 30 days and to S3 Glacier Flexible Retrieval after 90 days." },
+      { id: 'C', text: "Apply a lifecycle rule transitioning objects to S3 One Zone-IA after 30 days and keep a replica in a second Region for durability." },
+      { id: 'D', text: "Enable S3 Storage Lens on the bucket and act on its recommendations to delete the objects with the lowest observed request counts." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Intelligent-Tiering exists for exactly this case: access is unpredictable, so the service moves each object between tiers based on its own observed access with no retrieval fee and millisecond access in the automatic tiers. A fixed lifecycle to Standard-IA and Glacier penalizes the object that is read after a year, because Glacier Flexible Retrieval takes minutes to hours. One Zone-IA reduces durability to a single Availability Zone and the cross-Region replica adds back the cost being saved. Storage Lens is analytics and deleting data on low request counts loses the datasets that later see a burst.",
+    referenceUrl: "https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage-class-intro.html",
+    tags: ["S3", "Intelligent-Tiering", "Cost Optimization", "Storage"]
+  },
+  {
+    id: "aws-sap-18",
+    difficulty: "hard",
+    certId: "aws-sap",
+    domainId: "d4",
+    domainName: "Accelerate Workload Migration and Modernization",
+    title: "Migrating Oracle to PostgreSQL With Minimal Downtime",
+    scenario: "A company must move a 4 TB Oracle database to Amazon Aurora PostgreSQL. The application can tolerate no more than 15 minutes of downtime at cutover, and the team has not yet assessed how much of the PL/SQL will convert cleanly.",
+    question: "Which combination of services supports the assessment and the cutover? (Choose TWO)",
+    options: [
+      { id: 'A', text: "Run the AWS Schema Conversion Tool to produce an assessment report and convert the schema and stored procedure code." },
+      { id: 'B', text: "Run an AWS Database Migration Service task with full load plus ongoing change data capture and cut over once replication lag is near zero." },
+      { id: 'C', text: "Export the Oracle database with Data Pump to Amazon S3 and import it into Aurora PostgreSQL during a scheduled maintenance window." },
+      { id: 'D', text: "Create an Aurora PostgreSQL read replica of the Oracle database once the assessment is complete and promote it at the cutover point." },
+      { id: 'E', text: "Enable Aurora Backtrack on the target cluster so a schema that failed to convert can be rewound if the cutover validation fails." }
+    ],
+    correctAnswers: ['A', 'B'],
+    type: "multiple",
+    explanation: "The Schema Conversion Tool produces the assessment report that quantifies how much PL/SQL converts automatically and what needs manual work, then performs the conversion; DMS then moves the data with full load followed by change data capture so the source stays live until lag approaches zero, which is what keeps the cutover inside 15 minutes. A Data Pump export and import is an offline move whose downtime scales with 4 TB of data. Aurora read replicas of an external Oracle source do not exist; that pattern applies to MySQL sources only. Backtrack is unavailable on Aurora PostgreSQL and rewinds within a cluster rather than validating a migration.",
+    referenceUrl: "https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Introduction.html",
+    tags: ["DMS", "Schema Conversion Tool", "Aurora", "Heterogeneous Migration"]
+  },
+  {
+    id: "aws-sap-19",
+    difficulty: "medium",
+    certId: "aws-sap",
+    domainId: "d1",
+    domainName: "Design Solutions for Organizational Complexity",
+    title: "Sharing Subnets Instead of Duplicating VPCs",
+    scenario: "A central network account owns the address space and the Transit Gateway attachments. Eight application teams each own an account and need to launch resources into the existing private subnets without being able to alter routing, peering, or the VPC itself.",
+    question: "Which approach gives the application accounts what they need?",
+    options: [
+      { id: 'A', text: "Share the private subnets with the application accounts through AWS Resource Access Manager so they launch resources into the shared VPC." },
+      { id: 'B', text: "Create a VPC with matching private subnets in each application account and peer each one with the central network account's VPC." },
+      { id: 'C', text: "Create a cross-account IAM role in the network account that the application teams assume to launch their resources." },
+      { id: 'D', text: "Create an AWS PrivateLink endpoint service in the central network account and have each of the eight application accounts create its own interface endpoints." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "VPC sharing through Resource Access Manager is designed for this split: the owner account keeps the VPC, route tables, gateways, and attachments, while participant accounts launch and manage only their own resources in the shared subnets and cannot modify the network. Peering a VPC per account multiplies address space and reintroduces the routing management the design is trying to centralize. A cross-account role would place the resources in the network account, so the application teams could not own or bill them. PrivateLink publishes an individual service endpoint, not a place to launch application resources.",
+    referenceUrl: "https://docs.aws.amazon.com/vpc/latest/userguide/vpc-sharing.html",
+    tags: ["VPC Sharing", "Resource Access Manager", "Multi-Account", "Networking"]
+  },
+  {
+    id: "aws-sap-20",
+    difficulty: "hard",
+    certId: "aws-sap",
+    domainId: "d2",
+    domainName: "Design for New Solutions",
+    title: "Active-Active Multi-Region Writes for a Session Store",
+    scenario: "A gaming company serves players from us-east-1 and ap-northeast-1. Session state must be writable in whichever Region the player connects to, readable in the other within a second, and survive the loss of an entire Region without a manual promotion step.",
+    question: "Which data store configuration meets the requirement?",
+    options: [
+      { id: 'A', text: "An Amazon DynamoDB global table with replicas in both Regions, with the application writing to its local Regional endpoint." },
+      { id: 'B', text: "An Amazon Aurora global database with the writer in us-east-1 and a secondary cluster serving ap-northeast-1 reads." },
+      { id: 'C', text: "An Amazon ElastiCache for Redis cluster in us-east-1 accessed from ap-northeast-1 across an inter-Region VPC peering connection." },
+      { id: 'D', text: "An Amazon RDS for MySQL Multi-AZ instance in us-east-1 with a cross-Region read replica running in ap-northeast-1." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "A DynamoDB global table is multi-active: every replica accepts writes, replication is typically under a second, and losing a Region requires no promotion because the surviving replica is already a writer. An Aurora global database has a single writer Region, so writes from Tokyo cross the Pacific and a Region loss needs an explicit promotion. A single Redis cluster reached over peering puts full round-trip latency on every Tokyo operation and is a single point of failure. A cross-Region read replica accepts no writes and must be promoted manually.",
+    referenceUrl: "https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GlobalTables.html",
+    tags: ["DynamoDB", "Global Tables", "Multi-Region", "Active-Active"]
+  },
+  {
+    id: "aws-sap-21",
+    difficulty: "easy",
+    certId: "aws-sap",
+    domainId: "d3",
+    domainName: "Continuous Improvement for Existing Solutions",
+    title: "Reviewing a Workload Against Best Practice",
+    scenario: "A leadership team wants a structured review of an existing production workload covering operational excellence, security, reliability, performance efficiency, cost optimization, and sustainability, with a list of identified risks they can track over time.",
+    question: "Which AWS service produces that review?",
+    options: [
+      { id: 'A', text: "AWS Well-Architected Tool, which reviews a workload against the pillars and tracks its risks." },
+      { id: 'B', text: "AWS Trusted Advisor, which checks an account against service limits and a fixed set of best practice checks." },
+      { id: 'C', text: "AWS Compute Optimizer, which recommends instance and volume right-sizing from observed CloudWatch utilization metrics." },
+      { id: 'D', text: "AWS Config, which records resource configuration history and evaluates resources against defined compliance rules." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "The Well-Architected Tool is the workload review instrument: it walks the pillar questions, records answers per workload, and produces a risk register with high and medium risk items and improvement plans that can be revisited. Trusted Advisor runs account-wide automated checks and has no workload review concept. Compute Optimizer is narrowly about right-sizing recommendations. AWS Config evaluates individual resource configurations against rules rather than reviewing a workload's architecture against the framework.",
+    referenceUrl: "https://docs.aws.amazon.com/wellarchitected/latest/userguide/intro.html",
+    tags: ["Well-Architected", "Governance", "Review", "Best Practices"]
+  },
+  {
+    id: "aws-sap-22",
+    difficulty: "medium",
+    certId: "aws-sap",
+    domainId: "d4",
+    domainName: "Accelerate Workload Migration and Modernization",
+    title: "Keeping On-Premises File Access During a Gradual Move",
+    scenario: "A design firm has 40 TB on an on-premises NFS share. During a year-long migration, staff must keep accessing files through the existing NFS mount with low latency for recently used files, while all data lands durably in Amazon S3 for new cloud analytics jobs.",
+    question: "Which service provides the hybrid access pattern?",
+    options: [
+      { id: 'A', text: "Deploy an AWS Storage Gateway File Gateway on site presenting an NFS mount backed by objects in Amazon S3." },
+      { id: 'B', text: "Deploy AWS DataSync agents on site to copy the NFS share into Amazon S3 on a nightly scheduled task." },
+      { id: 'C', text: "Deploy Amazon FSx for Windows File Server in the VPC and connect the office to it over the Site-to-Site VPN." },
+      { id: 'D', text: "Deploy an AWS Storage Gateway Tape Gateway on site and direct the backup software to write to virtual tapes." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "File Gateway presents an NFS or SMB mount locally, stores every file as an object in S3, and keeps a local cache so recently used files are served at LAN latency, which is exactly the gradual-migration pattern described. DataSync copies data on a schedule and does not serve the ongoing NFS mount, so it satisfies the S3 half only. FSx for Windows File Server speaks SMB rather than NFS and places the data in a file system rather than in S3 objects. Tape Gateway targets backup applications that write to virtual tape libraries, not interactive file access.",
+    referenceUrl: "https://docs.aws.amazon.com/filegateway/latest/files3/what-is-file-s3.html",
+    tags: ["Storage Gateway", "File Gateway", "Hybrid", "S3"]
+  },
+  {
+    id: "aws-sap-23",
+    difficulty: "medium",
+    certId: "aws-sap",
+    domainId: "d1",
+    domainName: "Design Solutions for Organizational Complexity",
+    title: "Federating Workforce Access to Many Accounts",
+    scenario: "A company with an existing Okta directory needs engineers to reach 90 AWS accounts with role-based permissions. Access must be removed centrally within minutes when someone leaves, and nobody should hold long-lived AWS access keys.",
+    question: "Which identity design meets the requirements?",
+    options: [
+      { id: 'A', text: "Use AWS IAM Identity Center with Okta as the identity source and assign permission sets to groups." },
+      { id: 'B', text: "Create an IAM SAML identity provider and a set of matching IAM roles in each of the 90 member accounts." },
+      { id: 'C', text: "Create IAM users in a central account with access keys and let engineers assume cross-account roles into the member accounts." },
+      { id: 'D', text: "Configure an Amazon Cognito user pool federated with Okta and exchange its tokens for temporary credentials through an identity pool." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "IAM Identity Center connects once to Okta, provisions users and groups through SCIM so a deprovisioned user loses access within minutes, and pushes permission sets into every account as roles, issuing only short-lived credentials. Creating a SAML provider and roles in each of 90 accounts works but multiplies the configuration by ninety and has no central assignment model. IAM users with access keys are the long-lived credential the requirement forbids. Cognito is built for application end users rather than workforce access to the AWS console and APIs.",
+    referenceUrl: "https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html",
+    tags: ["IAM Identity Center", "Federation", "SAML", "Multi-Account"]
+  },
+  {
+    id: "aws-sap-24",
+    difficulty: "hard",
+    certId: "aws-sap",
+    domainId: "d2",
+    domainName: "Design for New Solutions",
+    title: "Protecting a Public API From Credential Stuffing",
+    scenario: "A public login API behind Amazon API Gateway and AWS WAF is being hit by distributed credential stuffing from thousands of source addresses. Legitimate users must not be blocked, and the security team wants the control to adapt as attacker addresses rotate.",
+    question: "Which AWS WAF configuration addresses the attack?",
+    options: [
+      { id: 'A', text: "Add the AWS Managed Rules account takeover prevention rule group together with a rate-based rule scoped to the login path." },
+      { id: 'B', text: "Add an IP set match rule that blocks the source addresses observed in the sampled requests and update the set as new ones appear." },
+      { id: 'C', text: "Add a geographic match rule that blocks every country outside the regions where the company has paying customers." },
+      { id: 'D', text: "Add a size constraint rule that blocks requests whose body exceeds the length of a well-formed login payload." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "The account takeover prevention rule group inspects login attempts for stolen credential and impersonation signals rather than relying on source address, and a rate-based rule on the login path caps how often any one address can try, so the pair adapts as addresses rotate without penalising normal users. Maintaining an IP set by hand cannot keep pace with thousands of rotating addresses. Geographic blocking is a blunt instrument that blocks travelling legitimate users while attackers move to permitted countries. A size constraint does nothing against requests that are well-formed by construction.",
+    referenceUrl: "https://docs.aws.amazon.com/waf/latest/developerguide/waf-atp-rule-group.html",
+    tags: ["WAF", "API Gateway", "Security", "Bot Control"]
+  },
+  {
+    id: "aws-sap-25",
+    difficulty: "medium",
+    certId: "aws-sap",
+    domainId: "d3",
+    domainName: "Continuous Improvement for Existing Solutions",
+    title: "Safer Releases for a Customer-Facing Service",
+    scenario: "A team deploys a containerized service on Amazon ECS behind an Application Load Balancer roughly twice a week. Two recent releases caused elevated error rates that took 20 minutes to notice and another 20 to undo, and the team wants failures caught and reverted automatically.",
+    question: "Which deployment configuration reduces the blast radius of a bad release?",
+    options: [
+      { id: 'A', text: "Use an AWS CodeDeploy blue/green deployment for the ECS service with CloudWatch alarms configured to trigger an automatic rollback." },
+      { id: 'B', text: "Use the ECS rolling update deployment type with the minimum healthy percent raised to 100 and the maximum percent raised to 200." },
+      { id: 'C', text: "Register a second target group behind the load balancer and shift the listener rule manually after a smoke test passes." },
+      { id: 'D', text: "Add an Amazon CloudWatch Synthetics canary against the public endpoint that alerts the on-call engineer when the error rate rises." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "CodeDeploy blue/green for ECS stands up the new task set alongside the old one, shifts traffic in controlled increments, and rolls back automatically when an associated CloudWatch alarm enters ALARM during the bake period, which removes both the detection delay and the manual undo. A rolling update with tuned percentages still replaces tasks in place and offers no automatic revert on a health signal. Shifting a listener rule manually keeps a human in the critical path. A Synthetics canary shortens detection but still relies on a person to perform the rollback.",
+    referenceUrl: "https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-type-bluegreen.html",
+    tags: ["CodeDeploy", "ECS", "Blue/Green", "Deployment"]
+  }
+];
+
+export default AWS_SAP_QUESTIONS;
