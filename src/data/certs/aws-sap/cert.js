@@ -1,12 +1,12 @@
 /**
  * AWS Certified Solutions Architect - Professional (SAP-C02) — exam blueprint.
  *
- * SEEDED PLACEHOLDER. passingScore, defaultTimeMinutes, and domains are guesses.
- * Before flipping status to 'live':
- *   1. replace domains + weights from blueprintSource (they must sum to 100)
- *   2. correct passingScore / maxScore / defaultTimeMinutes
- *   3. set blueprintVerified: true
- *   4. add content: npm run new:pack -- --cert aws-sap --kind questions --count 50
+ * Everything about this certification lives in this folder: the blueprint here,
+ * question packs in ./questions/, flashcard packs in ./flashcards/. Nothing
+ * outside the folder needs editing — the content index is generated from it.
+ *
+ * blueprintVerified: flip to true only after checking domains and weights
+ * against blueprintSource. `npm run validate` warns while it is false.
  */
 export default {
   "id": "aws-sap",
@@ -15,32 +15,37 @@ export default {
   "title": "AWS Certified Solutions Architect - Professional",
   "category": "Cloud Engineering",
   "tier": "professional",
-  "status": "planned",
+  "status": "live",
   "priority": null,
   "badgeClass": "badge-aws",
   "icon": "aws",
   "color": "#ff9900",
-  "description": "TODO one-sentence description of what SAP-C02 validates.",
+  "description": "Validates advanced skills in designing, migrating, and continuously improving complex multi-account, multi-region solutions on AWS.",
   "passingScore": 750,
   "maxScore": 1000,
   "defaultTimeMinutes": 180,
-  "blueprintSource": "https://TODO-official-exam-guide",
-  "blueprintVerified": false,
+  "blueprintSource": "https://d1.awsstatic.com/training-and-certification/docs-sa-pro/AWS-Certified-Solutions-Architect-Professional_Exam-Guide.pdf",
+  "blueprintVerified": true,
   "domains": [
     {
       "id": "d1",
-      "name": "TODO Domain 1",
-      "weight": 34
+      "name": "Design Solutions for Organizational Complexity",
+      "weight": 26
     },
     {
       "id": "d2",
-      "name": "TODO Domain 2",
-      "weight": 33
+      "name": "Design for New Solutions",
+      "weight": 29
     },
     {
       "id": "d3",
-      "name": "TODO Domain 3",
-      "weight": 33
+      "name": "Continuous Improvement for Existing Solutions",
+      "weight": 25
+    },
+    {
+      "id": "d4",
+      "name": "Accelerate Workload Migration and Modernization",
+      "weight": 20
     }
   ]
 };
