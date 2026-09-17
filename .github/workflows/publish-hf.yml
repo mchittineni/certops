@@ -1,8 +1,5 @@
 name: Publish dataset to Hugging Face
 
-# Manual only. Publishing pushes content to a public third-party host, so it
-# never runs off a push or a schedule — someone has to ask for it, name the
-# dataset, and turn the dry run off.
 on:
   workflow_dispatch:
     inputs:
@@ -60,8 +57,6 @@ jobs:
       - name: Build content
         run: npm run build:content
 
-      # A bad export is far harder to withdraw than a bad deploy, so the content
-      # gates that guard the site guard the dataset too.
       - name: Validate content
         run: npm run validate
 
