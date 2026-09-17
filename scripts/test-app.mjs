@@ -180,8 +180,17 @@ await check('every role path names certifications that exist in the catalog', ()
 await check('planned certifications are on the roadmap but not launchable', () => {
   const html = dom.html();
   assert.ok(html.includes('roadmap-chip'), 'roadmap chips render');
-  assert.ok(html.includes('SAP-C02') || html.includes('AZ-305'), 'planned certifications are listed');
-  assert.ok(!html.includes('data-action="open-cert" data-cert-id="aws-sap"'), 'planned certs must not be launchable');
+  // Derived from the catalogue rather than naming a certification: any example
+  // hard-coded here becomes wrong the day that certification goes live.
+  const planned = CERTIFICATIONS.filter(c => c.status === 'planned');
+  assert.ok(planned.length > 0, 'the catalogue still lists planned certifications');
+  assert.ok(html.includes(planned[0].code), 'planned certifications are listed');
+  for (const cert of planned) {
+    assert.ok(
+      !html.includes(`data-action="open-cert" data-cert-id="${cert.id}"`),
+      `planned cert ${cert.id} must not be launchable`
+    );
+  }
 });
 
 await check('a chunk that fails to load shows an error view, and recovers on retry', async () => {
