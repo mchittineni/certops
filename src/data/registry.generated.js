@@ -251,8 +251,50 @@ export const CONTENT_REGISTRY = {
     ]
   },
   'aws-sap': {
-    questions: [],
-    flashcards: []
+    questions: [
+      pack('./certs/aws-sap/questions/pack-1.js', () => import('./certs/aws-sap/questions/pack-1.js')),
+      pack('./certs/aws-sap/questions/pack-2.js', () => import('./certs/aws-sap/questions/pack-2.js')),
+      pack('./certs/aws-sap/questions/pack-3.js', () => import('./certs/aws-sap/questions/pack-3.js')),
+      pack('./certs/aws-sap/questions/pack-4.js', () => import('./certs/aws-sap/questions/pack-4.js')),
+      pack('./certs/aws-sap/questions/pack-5.js', () => import('./certs/aws-sap/questions/pack-5.js')),
+      pack('./certs/aws-sap/questions/pack-6.js', () => import('./certs/aws-sap/questions/pack-6.js')),
+      pack('./certs/aws-sap/questions/pack-7.js', () => import('./certs/aws-sap/questions/pack-7.js')),
+      pack('./certs/aws-sap/questions/pack-8.js', () => import('./certs/aws-sap/questions/pack-8.js')),
+      pack('./certs/aws-sap/questions/pack-9.js', () => import('./certs/aws-sap/questions/pack-9.js')),
+      pack('./certs/aws-sap/questions/pack-10.js', () => import('./certs/aws-sap/questions/pack-10.js')),
+      pack('./certs/aws-sap/questions/pack-11.js', () => import('./certs/aws-sap/questions/pack-11.js')),
+      pack('./certs/aws-sap/questions/pack-12.js', () => import('./certs/aws-sap/questions/pack-12.js')),
+      pack('./certs/aws-sap/questions/pack-13.js', () => import('./certs/aws-sap/questions/pack-13.js')),
+      pack('./certs/aws-sap/questions/pack-14.js', () => import('./certs/aws-sap/questions/pack-14.js')),
+      pack('./certs/aws-sap/questions/pack-15.js', () => import('./certs/aws-sap/questions/pack-15.js')),
+      pack('./certs/aws-sap/questions/pack-16.js', () => import('./certs/aws-sap/questions/pack-16.js')),
+      pack('./certs/aws-sap/questions/pack-17.js', () => import('./certs/aws-sap/questions/pack-17.js')),
+      pack('./certs/aws-sap/questions/pack-18.js', () => import('./certs/aws-sap/questions/pack-18.js')),
+      pack('./certs/aws-sap/questions/pack-19.js', () => import('./certs/aws-sap/questions/pack-19.js')),
+      pack('./certs/aws-sap/questions/pack-20.js', () => import('./certs/aws-sap/questions/pack-20.js'))
+    ],
+    flashcards: [
+      pack('./certs/aws-sap/flashcards/pack-1.js', () => import('./certs/aws-sap/flashcards/pack-1.js')),
+      pack('./certs/aws-sap/flashcards/pack-2.js', () => import('./certs/aws-sap/flashcards/pack-2.js')),
+      pack('./certs/aws-sap/flashcards/pack-3.js', () => import('./certs/aws-sap/flashcards/pack-3.js')),
+      pack('./certs/aws-sap/flashcards/pack-4.js', () => import('./certs/aws-sap/flashcards/pack-4.js')),
+      pack('./certs/aws-sap/flashcards/pack-5.js', () => import('./certs/aws-sap/flashcards/pack-5.js')),
+      pack('./certs/aws-sap/flashcards/pack-6.js', () => import('./certs/aws-sap/flashcards/pack-6.js')),
+      pack('./certs/aws-sap/flashcards/pack-7.js', () => import('./certs/aws-sap/flashcards/pack-7.js')),
+      pack('./certs/aws-sap/flashcards/pack-8.js', () => import('./certs/aws-sap/flashcards/pack-8.js')),
+      pack('./certs/aws-sap/flashcards/pack-9.js', () => import('./certs/aws-sap/flashcards/pack-9.js')),
+      pack('./certs/aws-sap/flashcards/pack-10.js', () => import('./certs/aws-sap/flashcards/pack-10.js')),
+      pack('./certs/aws-sap/flashcards/pack-11.js', () => import('./certs/aws-sap/flashcards/pack-11.js')),
+      pack('./certs/aws-sap/flashcards/pack-12.js', () => import('./certs/aws-sap/flashcards/pack-12.js')),
+      pack('./certs/aws-sap/flashcards/pack-13.js', () => import('./certs/aws-sap/flashcards/pack-13.js')),
+      pack('./certs/aws-sap/flashcards/pack-14.js', () => import('./certs/aws-sap/flashcards/pack-14.js')),
+      pack('./certs/aws-sap/flashcards/pack-15.js', () => import('./certs/aws-sap/flashcards/pack-15.js')),
+      pack('./certs/aws-sap/flashcards/pack-16.js', () => import('./certs/aws-sap/flashcards/pack-16.js')),
+      pack('./certs/aws-sap/flashcards/pack-17.js', () => import('./certs/aws-sap/flashcards/pack-17.js')),
+      pack('./certs/aws-sap/flashcards/pack-18.js', () => import('./certs/aws-sap/flashcards/pack-18.js')),
+      pack('./certs/aws-sap/flashcards/pack-19.js', () => import('./certs/aws-sap/flashcards/pack-19.js')),
+      pack('./certs/aws-sap/flashcards/pack-20.js', () => import('./certs/aws-sap/flashcards/pack-20.js'))
+    ]
   },
   'aws-scs': {
     questions: [
