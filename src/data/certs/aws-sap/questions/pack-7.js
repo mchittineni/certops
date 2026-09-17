@@ -1,0 +1,530 @@
+export const AWS_SAP_QUESTIONS = [
+  {
+    id: "aws-sap-151",
+    difficulty: "hard",
+    certId: "aws-sap",
+    domainId: "d1",
+    domainName: "Design Solutions for Organizational Complexity",
+    title: "Blocking Public AMI Sharing Across an Estate",
+    scenario: "A compliance finding shows an engineer made a hardened Amazon Machine Image public. The image contained internal tooling. The company needs assurance that no account in the organization can repeat this, and wants existing public images found.",
+    question: "Which combination addresses prevention and discovery? (Choose TWO)",
+    options: [
+      { id: 'A', text: "Enable the block public access setting for AMIs in every account and Region." },
+      { id: 'B', text: "Attach a service control policy denying ec2:ModifyImageAttribute when the launch permission group is set to all." },
+      { id: 'C', text: "Enable Amazon Inspector across the organization to scan each image." },
+      { id: 'D', text: "Enable Amazon Macie on the accounts so that images holding internal material are classified and the sharing status of each one is reported centrally." },
+      { id: 'E', text: "Create an AWS Config remediation that deletes any image whose launch permission includes the all group, running on a schedule in each member account." }
+    ],
+    correctAnswers: ['A', 'B'],
+    type: "multiple",
+    explanation: "The AMI block public access setting is an account and Region level control that stops an image becoming public regardless of the attribute call, and a service control policy denying the modify call with the all group closes the same door at the organization boundary, so the two together give defence in depth plus a report of images already public when the setting is enabled. Inspector scans for vulnerabilities rather than sharing state. Macie classifies data in S3 and does not inspect AMIs. Deleting images automatically risks destroying an image other workloads depend on.",
+    referenceUrl: "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/sharingamis-intro.html",
+    tags: ["EC2", "AMI", "SCP", "Public Access"]
+  },
+  {
+    id: "aws-sap-152",
+    difficulty: "medium",
+    certId: "aws-sap",
+    domainId: "d1",
+    domainName: "Design Solutions for Organizational Complexity",
+    title: "Deploying Infrastructure Into Many Accounts at Once",
+    scenario: "A platform team must create the same monitoring role and log destination in 140 accounts across 3 Regions, and needs new accounts to receive it automatically as they join an organizational unit.",
+    question: "Which deployment mechanism fits?",
+    options: [
+      { id: 'A', text: "CloudFormation StackSets with service-managed permissions and automatic deployment to the organizational unit." },
+      { id: 'B', text: "A CodePipeline pipeline with a deployment stage for each of the 140 accounts, extended by the platform team whenever a new account joins the organizational unit." },
+      { id: 'C', text: "A Terraform configuration with a provider block per account and Region, applied from a central pipeline." },
+      { id: 'D', text: "An AWS Systems Manager Automation document run against each account through a delegated administrator, creating the role and the log destination in every Region." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "StackSets with service-managed permissions integrate with Organizations so no roles need creating in the targets, and automatic deployment means an account joining the organizational unit receives the stack without anyone acting. Pipeline stages per account is 420 stage and Region combinations maintained by hand. A Terraform provider per account and Region has the same scaling problem and no automatic enrolment. Automation documents can create resources but carry no drift detection or automatic enrolment for new accounts.",
+    referenceUrl: "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-enable-trusted-access.html",
+    tags: ["StackSets", "CloudFormation", "Organizations", "Automation"]
+  },
+  {
+    id: "aws-sap-153",
+    difficulty: "medium",
+    certId: "aws-sap",
+    domainId: "d1",
+    domainName: "Design Solutions for Organizational Complexity",
+    title: "Extending an Address Plan That Has Run Out",
+    scenario: "A VPC was created with a /24 CIDR block and every address is now allocated. The workload cannot be rebuilt, and the team needs more addresses for new subnets in the same VPC without disturbing running instances.",
+    question: "What can be done?",
+    options: [
+      { id: 'A', text: "Associate a secondary CIDR block with the VPC and create the new subnets inside it." },
+      { id: 'B', text: "Modify the primary CIDR block of the VPC to a larger prefix length so that the existing subnets are preserved and further address space becomes available." },
+      { id: 'C', text: "Create a second VPC with a larger CIDR block and peer it with the existing one." },
+      { id: 'D', text: "Enable IPv6 on the VPC and assign IPv6 ranges to the new subnets so the exhausted IPv4 range no longer constrains the addition of further capacity." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "A VPC supports secondary CIDR blocks, so associating another range and placing new subnets in it adds capacity with no disruption to anything already running. The primary CIDR block cannot be resized after creation, which is why the secondary association exists. A second VPC with peering works but adds a network boundary and routing to manage for what is an in-place capability. Adding IPv6 is valid only if every component supports it, and it does not help workloads that require IPv4 addresses.",
+    referenceUrl: "https://docs.aws.amazon.com/vpc/latest/userguide/configure-your-vpc.html",
+    tags: ["VPC", "CIDR", "Networking", "Capacity"]
+  },
+  {
+    id: "aws-sap-154",
+    difficulty: "hard",
+    certId: "aws-sap",
+    domainId: "d1",
+    domainName: "Design Solutions for Organizational Complexity",
+    title: "Keeping an Audit Trail of Data Access",
+    scenario: "Regulators require a record of every read of objects in a bucket holding customer statements, including reads by internal applications, retained for seven years and provably complete.",
+    question: "Which logging configuration produces this record?",
+    options: [
+      { id: 'A', text: "Enable CloudTrail data events for the bucket, delivered to a dedicated log archive bucket with log file validation enabled." },
+      { id: 'B', text: "Enable S3 server access logging on the bucket, delivering the log files to a second bucket in the same account for the retention period required." },
+      { id: 'C', text: "Enable AWS Config recording for S3 resources so that the configuration history of the bucket and its objects is retained for the seven-year period." },
+      { id: 'D', text: "Enable Amazon Macie on the bucket so access to the statements is classified and reported." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "CloudTrail data events record every object-level API call including reads with the calling identity, and log file validation produces a digest chain that lets the completeness and integrity of the record be proven, which is what a regulator asks for. Server access logging is best-effort, may be delivered late or incompletely, and carries no integrity proof. AWS Config records configuration state rather than access. Macie discovers and classifies sensitive data but does not produce an access audit trail.",
+    referenceUrl: "https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html",
+    tags: ["CloudTrail", "Data Events", "S3", "Compliance"]
+  },
+  {
+    id: "aws-sap-155",
+    difficulty: "medium",
+    certId: "aws-sap",
+    domainId: "d1",
+    domainName: "Design Solutions for Organizational Complexity",
+    title: "Handling an Account That Must Leave the Organization",
+    scenario: "A business unit is being divested and its AWS account must move to the buyer's organization. The account runs production workloads that cannot be interrupted, and its data must remain intact through the transfer.",
+    question: "What does the transfer require?",
+    options: [
+      { id: 'A', text: "Remove the account from the current organization once it has standalone billing information, then accept an invitation from the buyer's organization." },
+      { id: 'B', text: "Create a new account in the buyer's organization and migrate every workload into it, since an existing account cannot change its organization membership." },
+      { id: 'C', text: "Ask AWS Support to move the account directly between the two organizations so that no period outside an organization occurs during the transfer." },
+      { id: 'D', text: "Attach a service control policy permitting the transfer, then invite the account from the buyer's organization while it remains a member of the current one." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "An account belongs to exactly one organization, so the transfer is a removal followed by an invitation, and removal requires the account to carry its own payment method and support details because it becomes standalone in between. Workloads keep running throughout, since organization membership affects billing and policy rather than the data plane. Rebuilding into a new account is unnecessary. AWS Support does not perform direct transfers between organizations. A service control policy grants no ability to belong to two organizations at once.",
+    referenceUrl: "https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_remove.html",
+    tags: ["Organizations", "Account Transfer", "Divestiture", "Billing"]
+  },
+  {
+    id: "aws-sap-156",
+    difficulty: "easy",
+    certId: "aws-sap",
+    domainId: "d1",
+    domainName: "Design Solutions for Organizational Complexity",
+    title: "Picking the Right Support Tier for a Production Estate",
+    scenario: "A company runs regulated production workloads and wants a named technical contact, a 15-minute response objective for business-critical outages, and proactive architectural guidance ahead of a major launch.",
+    question: "Which AWS Support plan provides these?",
+    options: [
+      { id: 'A', text: "Enterprise Support, which includes a designated technical account manager, a 15-minute response objective for business-critical system down cases, and proactive reviews before major events." },
+      { id: 'B', text: "Business Support, which provides 24 by 7 access to cloud support engineers and a one-hour response objective for production system down cases." },
+      { id: 'C', text: "Enterprise On-Ramp, which includes a pool of technical account managers and a 30-minute response objective for business-critical system down cases." },
+      { id: 'D', text: "Developer Support, which provides business-hours access to cloud support associates and general architectural guidance for non-production workloads." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Enterprise Support is the only plan offering a designated technical account manager and the 15-minute response objective for business-critical system down cases, together with proactive reviews ahead of major events. Business Support has no technical account manager and a one-hour objective. Enterprise On-Ramp provides a pool rather than a named contact and a 30-minute objective, which misses both requirements. Developer Support is intended for experimentation and offers neither the response objective nor production coverage.",
+    referenceUrl: "https://docs.aws.amazon.com/awssupport/latest/user/aws-support-plans.html",
+    tags: ["AWS Support", "Operations", "SLA", "Enterprise"]
+  },
+  {
+    id: "aws-sap-157",
+    difficulty: "hard",
+    certId: "aws-sap",
+    domainId: "d2",
+    domainName: "Design for New Solutions",
+    title: "Preventing a Retry Storm From Amplifying an Outage",
+    scenario: "When a downstream service slows, every caller retries three times immediately, tripling load on an already struggling dependency and turning a partial degradation into a full outage that persists after the original cause clears.",
+    question: "Which client-side pattern prevents the amplification?",
+    options: [
+      { id: 'A', text: "Apply exponential backoff with jitter and a circuit breaker that stops calls to a failing dependency." },
+      { id: 'B', text: "Increase the client timeout so that a slow response is awaited rather than abandoned, which removes the retry that is causing the additional load downstream." },
+      { id: 'C', text: "Raise the number of retries while spacing them at a fixed interval so that each caller's attempts are spread more evenly across the recovery period." },
+      { id: 'D', text: "Add a queue in front of the dependency so callers write to it instead." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Backoff spaces retries so load falls rather than rises, jitter prevents every client retrying in the same instant, and a circuit breaker stops calls entirely once failures cross a threshold so the dependency gets room to recover. Longer timeouts hold connections open and exhaust caller resources while the dependency stays saturated. More retries at a fixed interval increases total load and synchronizes callers. A queue is a sound architectural change but converts a synchronous interaction into an asynchronous one, which is not always possible and does not address caller retry behaviour.",
+    referenceUrl: "https://docs.aws.amazon.com/prescriptive-guidance/latest/cloud-design-patterns/retry-backoff.html",
+    tags: ["Retries", "Circuit Breaker", "Resilience", "Patterns"]
+  },
+  {
+    id: "aws-sap-158",
+    difficulty: "medium",
+    certId: "aws-sap",
+    domainId: "d2",
+    domainName: "Design for New Solutions",
+    title: "Choosing Between Provisioned and Serverless Analytics",
+    scenario: "A team needs ad hoc SQL over 5 TB in Amazon S3. Queries run in unpredictable bursts a few days a month, joins are complex, and the team wants no cluster to size or pause but needs consistent performance during a burst.",
+    question: "Which service fits the pattern?",
+    options: [
+      { id: 'A', text: "Amazon Redshift Serverless, which scales capacity automatically and bills per second of use." },
+      { id: 'B', text: "A provisioned Amazon Redshift cluster with concurrency scaling enabled and a pause schedule applied outside the days on which the bursts are expected." },
+      { id: 'C', text: "Amazon EMR Serverless running Spark SQL applications against the data in Amazon S3 whenever the team submits an ad hoc analytical query." },
+      { id: 'D', text: "Amazon Athena, which is serverless and charges per byte scanned across the data held in Amazon S3 for each of the submitted queries." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Redshift Serverless provides the mature SQL optimizer and materialized views needed for complex joins while removing cluster sizing, scaling within a burst and billing only for the seconds it runs. A provisioned cluster with a pause schedule works but requires predicting the burst days and sizing the cluster. EMR Serverless suits Spark pipelines rather than interactive ad hoc SQL. Athena is genuinely serverless and a strong choice for many cases, but its per-query model gives less consistent performance on complex joins during a sustained burst than a scaling warehouse.",
+    referenceUrl: "https://docs.aws.amazon.com/redshift/latest/mgmt/serverless-considerations.html",
+    tags: ["Redshift Serverless", "Athena", "Analytics", "Cost"]
+  },
+  {
+    id: "aws-sap-159",
+    difficulty: "medium",
+    certId: "aws-sap",
+    domainId: "d2",
+    domainName: "Design for New Solutions",
+    title: "Securing Traffic Between a VPC and a SaaS Provider",
+    scenario: "A company must consume a SaaS vendor's API from its VPC. Security requires that the traffic never traverse the public internet, that no inbound path into the VPC is created, and that the vendor cannot initiate connections.",
+    question: "Which connectivity option satisfies these constraints?",
+    options: [
+      { id: 'A', text: "Create an interface VPC endpoint to the vendor's PrivateLink endpoint service." },
+      { id: 'B', text: "Create a Site-to-Site VPN between the VPC and the vendor's network so that the API traffic is encrypted end to end across the public internet path." },
+      { id: 'C', text: "Create a VPC peering connection with the vendor's VPC and restrict the traffic with security groups so only the API port is reachable from the company side." },
+      { id: 'D', text: "Route the API traffic through a NAT gateway and restrict the outbound rules to the vendor's published public address ranges for the service." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "PrivateLink is unidirectional by design: the consumer creates an interface endpoint that initiates connections to the provider's endpoint service over the AWS network, so no internet path exists, no inbound route into the consumer VPC is created, and the vendor cannot call back. A VPN encrypts traffic but the described tunnel still crosses the internet and creates a bidirectional path. Peering joins two VPC address spaces and allows the vendor to initiate connections. A NAT gateway sends the traffic over the public internet, which the requirement forbids.",
+    referenceUrl: "https://docs.aws.amazon.com/vpc/latest/privatelink/privatelink-share-your-services.html",
+    tags: ["PrivateLink", "SaaS", "Security", "Networking"]
+  },
+  {
+    id: "aws-sap-160",
+    difficulty: "hard",
+    certId: "aws-sap",
+    domainId: "d2",
+    domainName: "Design for New Solutions",
+    title: "Designing Around a Non-Idempotent Legacy API",
+    scenario: "A workflow calls a legacy billing API that charges on every call and offers no idempotency key. Network timeouts leave the caller unsure whether the charge was applied, and duplicate charges have reached customers.",
+    question: "Which design makes the interaction safe despite the API's limits?",
+    options: [
+      { id: 'A', text: "Record an attempt with a unique token in a durable store before calling, and reconcile against the billing system's query API before any retry." },
+      { id: 'B', text: "Wrap the call in a Step Functions task configured with a retry policy that uses exponential backoff so that a timed-out call is reissued only after a delay." },
+      { id: 'C', text: "Increase the client timeout well beyond the billing API's slowest observed response so that a timeout no longer occurs and ambiguity is eliminated." },
+      { id: 'D', text: "Place the charge requests on a FIFO queue with content-based deduplication so that the same charge request cannot be enqueued more than once." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "When the remote system offers no idempotency, safety must come from the caller recording its intent durably before the call and resolving the ambiguous outcome by querying the billing system rather than blindly retrying. A retry policy with backoff still reissues a call that may already have succeeded. A longer timeout reduces how often ambiguity occurs but cannot eliminate it, because the connection can still fail after the charge is applied. FIFO deduplication prevents duplicate enqueues within the deduplication window but does not tell the consumer whether a timed-out call actually charged.",
+    referenceUrl: "https://docs.aws.amazon.com/prescriptive-guidance/latest/cloud-design-patterns/transactional-outbox.html",
+    tags: ["Idempotency", "Integration", "Resilience", "Patterns"]
+  },
+  {
+    id: "aws-sap-161",
+    difficulty: "medium",
+    certId: "aws-sap",
+    domainId: "d2",
+    domainName: "Design for New Solutions",
+    title: "Encrypting Data With Keys the Customer Controls",
+    scenario: "An enterprise customer of a SaaS platform requires that it can revoke the provider's ability to read its data at any moment, without the provider deleting anything, and that revocation takes effect immediately for new and existing data.",
+    question: "Which key management design meets the requirement?",
+    options: [
+      { id: 'A', text: "Encrypt the tenant's data with a customer managed KMS key held in the customer's own account, granted to the provider through a key policy the customer can revoke at any moment." },
+      { id: 'B', text: "Encrypt the tenant's data with a customer managed KMS key in the provider's account, with automatic annual rotation and the customer named in the key policy." },
+      { id: 'C', text: "Encrypt the tenant's data with KMS key material imported by the customer into the provider's account, re-imported by the customer each time it expires." },
+      { id: 'D', text: "Encrypt the tenant's data with an AWS managed key so that the provider's access follows the service's own permissions rather than an explicit grant." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "A key in the customer's own account leaves control with the customer, who can revoke the grant or disable the key at any time, after which decryption fails immediately for all data without the provider deleting anything. A key in the provider's account is ultimately under the provider's control, so revocation is not the customer's to exercise. Imported key material is a genuine control point but expiry and re-import is operationally fragile and the key still lives in the provider's account. An AWS managed key cannot carry a customer-authored policy at all.",
+    referenceUrl: "https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-modifying-external-accounts.html",
+    tags: ["KMS", "Bring Your Own Key", "Multi-Tenancy", "Security"]
+  },
+  {
+    id: "aws-sap-162",
+    difficulty: "easy",
+    certId: "aws-sap",
+    domainId: "d2",
+    domainName: "Design for New Solutions",
+    title: "Choosing a Deployment Unit for a Scheduled Task",
+    scenario: "A nightly job reconciles two datasets. It runs for about 25 minutes, needs 8 GB of memory, runs once a day, and the team does not want to manage servers or pay for idle capacity between runs.",
+    question: "Which compute option suits the job?",
+    options: [
+      { id: 'A', text: "An Amazon ECS task on Fargate started by an EventBridge schedule." },
+      { id: 'B', text: "An AWS Lambda function with 8 GB of memory, invoked by an Amazon EventBridge scheduled rule once each night to perform the reconciliation." },
+      { id: 'C', text: "An Amazon EC2 instance in an Auto Scaling group whose desired capacity is raised by a scheduled action each night and lowered again once the job finishes." },
+      { id: 'D', text: "An AWS Glue Python shell job scheduled nightly, running the reconciliation against the two datasets using the allocated data processing units." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "A Fargate task runs for as long as needed with the memory requested, costs nothing between runs, and needs no servers, which matches a 25-minute nightly job precisely. Lambda cannot run for 25 minutes because its maximum timeout is 15 minutes. An Auto Scaling group with scheduled actions works but reintroduces instance management and pays for boot time. A Glue Python shell job is a reasonable fit for data work but is tuned for ETL on Glue's own data processing units and is a heavier abstraction than the plain container this job needs.",
+    referenceUrl: "https://docs.aws.amazon.com/AmazonECS/latest/developerguide/scheduled_tasks.html",
+    tags: ["ECS", "Fargate", "EventBridge Scheduler", "Batch"]
+  },
+  {
+    id: "aws-sap-163",
+    difficulty: "medium",
+    certId: "aws-sap",
+    domainId: "d2",
+    domainName: "Design for New Solutions",
+    title: "Serving Personalized Content Near the User",
+    scenario: "A website serves mostly cacheable pages through CloudFront, but each response needs a small personalization step such as setting a country-specific banner and rewriting a URL, and the team wants to avoid a round trip to the origin for that.",
+    question: "Which edge compute option fits this lightweight transformation?",
+    options: [
+      { id: 'A', text: "CloudFront Functions, which run at edge locations for lightweight header and URL manipulation." },
+      { id: 'B', text: "Lambda@Edge functions associated with the origin request event, which run in regional edge caches and support a full runtime with network access." },
+      { id: 'C', text: "An AWS Lambda function invoked through a function URL from the origin so that the personalization runs close to the application rather than at the edge." },
+      { id: 'D', text: "AWS App Runner hosting the personalization service so it scales automatically and is called by CloudFront on each request that needs a banner applied." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "CloudFront Functions run in the edge locations themselves with sub-millisecond startup and are designed for exactly this class of work: header manipulation, URL rewrites, and simple request or response modification at very low cost. Lambda@Edge is more capable and would work, but it runs in regional edge caches with higher latency and cost than is warranted for a header and a rewrite. A regional function or an App Runner service both reintroduce the round trip away from the edge that the requirement is avoiding.",
+    referenceUrl: "https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-functions.html",
+    tags: ["CloudFront Functions", "Edge Computing", "Lambda@Edge", "Performance"]
+  },
+  {
+    id: "aws-sap-164",
+    difficulty: "hard",
+    certId: "aws-sap",
+    domainId: "d3",
+    domainName: "Continuous Improvement for Existing Solutions",
+    title: "Reducing Recovery Time for a Large Database",
+    scenario: "A 12 TB Amazon RDS for PostgreSQL instance takes six hours to restore from a snapshot, which breaches the two-hour recovery time objective. The team cannot move to Aurora this quarter and needs a faster path back to service.",
+    question: "Which change brings recovery inside the objective?",
+    options: [
+      { id: 'A', text: "Maintain a Multi-AZ deployment so that a failure is handled by an automatic failover to the synchronous standby rather than by a restore of the full 12 TB." },
+      { id: 'B', text: "Increase the frequency of automated snapshots so that a restore begins from a more recent point and therefore completes more quickly than it does today." },
+      { id: 'C', text: "Enable storage auto scaling on the instance so that the restored volume is provisioned faster and the restore completes within the recovery objective." },
+      { id: 'D', text: "Copy each automated snapshot to a second Region so a restore can be started there in parallel with the restore running in the primary Region." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Restore time scales with data volume, so the way inside a two-hour objective is to avoid restoring at all; a Multi-AZ deployment keeps a synchronous standby that is promoted in a minute or two. More frequent snapshots improve the recovery point rather than the recovery time, because the restore still rehydrates 12 TB. Storage auto scaling grows a volume as it fills and has no effect on restore speed. Cross-Region copies help with a regional event but each restore is still a six-hour operation.",
+    referenceUrl: "https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.MultiAZ.html",
+    tags: ["RDS", "Multi-AZ", "RTO", "Disaster Recovery"]
+  },
+  {
+    id: "aws-sap-165",
+    difficulty: "medium",
+    certId: "aws-sap",
+    domainId: "d3",
+    domainName: "Continuous Improvement for Existing Solutions",
+    title: "Making Sense of Cost Across Shared Kubernetes Clusters",
+    scenario: "Several teams share Amazon EKS clusters. The account bill shows EC2 and EBS totals but nobody can tell which namespace or workload drove them, and teams will not accept a headcount-based split.",
+    question: "Which approach attributes cluster cost to workloads?",
+    options: [
+      { id: 'A', text: "Enable split cost allocation data for EKS in the Cost and Usage Report so that pod-level CPU and memory usage is allocated to each namespace and workload that consumed it." },
+      { id: 'B', text: "Apply cost allocation tags to the EC2 instances in each managed node group so the resulting node cost is attributed to whichever team requested that node group." },
+      { id: 'C', text: "Create a separate EKS cluster per team so the account bill naturally separates each team's compute and storage cost without any further allocation work." },
+      { id: 'D', text: "Enable Container Insights on the clusters so that per-namespace CPU and memory metrics are available for the teams to reconcile against the monthly bill." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Split cost allocation data breaks EC2 instance cost down to individual pods based on their requested and used CPU and memory, and surfaces it in the Cost and Usage Report with namespace and workload dimensions, which is attribution on measured consumption. Tagging node groups attributes whole nodes rather than the workloads sharing them. A cluster per team gives clean separation but sacrifices the bin-packing efficiency that shared clusters exist for. Container Insights supplies utilization metrics but no cost, leaving the teams to build the allocation themselves.",
+    referenceUrl: "https://docs.aws.amazon.com/cur/latest/userguide/split-cost-allocation-data.html",
+    tags: ["EKS", "Cost Allocation", "FinOps", "Containers"]
+  },
+  {
+    id: "aws-sap-166",
+    difficulty: "medium",
+    certId: "aws-sap",
+    domainId: "d3",
+    domainName: "Continuous Improvement for Existing Solutions",
+    title: "Cleaning Up Storage Nobody Owns",
+    scenario: "An S3 bucket has grown to 400 TB. Investigation shows a large share is incomplete multipart uploads from a failed migration tool and old versions left by an application that overwrites objects frequently.",
+    question: "Which configuration reclaims the space and prevents recurrence?",
+    options: [
+      { id: 'A', text: "Add lifecycle rules that abort incomplete multipart uploads after seven days and expire noncurrent versions after a defined retention period." },
+      { id: 'B', text: "Run S3 Batch Operations against an inventory report to delete the objects that the analysis has identified as incomplete uploads or superseded versions." },
+      { id: 'C', text: "Turn off versioning on the bucket so that overwrites no longer retain a previous copy and the storage consumed by old versions stops growing." },
+      { id: 'D', text: "Enable S3 Intelligent-Tiering so the incomplete uploads and old versions move to cheaper access tiers as they age without being read." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Lifecycle rules address both causes permanently: the abort rule reclaims parts from uploads that never completed, which are otherwise invisible in the object listing while still being billed, and noncurrent version expiration bounds the version history. Batch Operations cleans up the current mess but nothing stops it recurring. Disabling versioning removes a data protection control and does not delete versions already stored. Intelligent-Tiering reduces the rate of the charge without removing data nobody wants.",
+    referenceUrl: "https://docs.aws.amazon.com/AmazonS3/latest/userguide/lifecycle-expire-general-considerations.html",
+    tags: ["S3", "Lifecycle", "Multipart Upload", "Cost Optimization"]
+  },
+  {
+    id: "aws-sap-167",
+    difficulty: "hard",
+    certId: "aws-sap",
+    domainId: "d3",
+    domainName: "Continuous Improvement for Existing Solutions",
+    title: "Diagnosing Packet Loss on a Hybrid Path",
+    scenario: "Users report intermittent failures reaching an application in a VPC from the corporate network over Direct Connect. The application logs show no errors for the failed requests, suggesting they never arrive at the instances.",
+    question: "Which investigation identifies where the traffic is being dropped?",
+    options: [
+      { id: 'A', text: "Run VPC Reachability Analyzer between the gateway and the instance, then check VPC flow logs for rejected records." },
+      { id: 'B', text: "Enable AWS X-Ray on the application so the traces reveal which requests fail." },
+      { id: 'C', text: "Review the Direct Connect connection's CloudWatch metrics for the connection state and the bits per second on the virtual interface over the affected period." },
+      { id: 'D', text: "Enable CloudWatch Logs on the Application Load Balancer so the requests that are dropped before reaching the instances appear in the access logs." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Reachability Analyzer evaluates the configured path through route tables, security groups, and network ACLs and names the component that blocks it, while flow logs show whether packets arrived and were rejected, so together they locate the drop. X-Ray cannot trace a request that never reaches instrumented code. Direct Connect metrics confirm the circuit is up and carrying traffic but say nothing about VPC-level filtering. Access logs only record requests the load balancer received, and the evidence suggests traffic is lost before that point.",
+    referenceUrl: "https://docs.aws.amazon.com/vpc/latest/reachability/what-is-reachability-analyzer.html",
+    tags: ["Reachability Analyzer", "VPC Flow Logs", "Troubleshooting", "Hybrid"]
+  },
+  {
+    id: "aws-sap-168",
+    difficulty: "medium",
+    certId: "aws-sap",
+    domainId: "d3",
+    domainName: "Continuous Improvement for Existing Solutions",
+    title: "Upgrading a Cluster Without a Maintenance Window",
+    scenario: "An Amazon EKS cluster running a customer-facing service must move to a newer Kubernetes version. The business will not accept a maintenance window, and the team wants the ability to revert quickly if workloads misbehave on the new version.",
+    question: "Which upgrade approach provides that safety?",
+    options: [
+      { id: 'A', text: "Stand up a second cluster on the new version and shift traffic gradually with weighted DNS records." },
+      { id: 'B', text: "Upgrade the control plane in place and then replace the managed node groups one at a time so that capacity is maintained throughout the upgrade process." },
+      { id: 'C', text: "Upgrade the control plane in place and rely on pod disruption budgets." },
+      { id: 'D', text: "Create a new managed node group on the new version alongside the existing one and cordon the old nodes once the new group has registered with the cluster." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "A blue/green cluster is the only option that provides a fast revert, because an in-place control plane upgrade cannot be rolled back and the old cluster remains available until traffic has fully shifted. Replacing node groups one at a time and using pod disruption budgets both preserve availability during the change and are good practice, but they follow a control plane upgrade that is already irreversible. Adding a node group on the new version has the same limitation and addresses only the data plane.",
+    referenceUrl: "https://docs.aws.amazon.com/eks/latest/userguide/update-cluster.html",
+    tags: ["EKS", "Blue/Green", "Upgrades", "Availability"]
+  },
+  {
+    id: "aws-sap-169",
+    difficulty: "medium",
+    certId: "aws-sap",
+    domainId: "d3",
+    domainName: "Continuous Improvement for Existing Solutions",
+    title: "Spot Interruptions Disrupting a Long Job",
+    scenario: "A team moved a six-hour rendering job onto Spot Instances and now loses roughly a third of runs to interruptions, restarting each from the beginning. They want the cost saving without repeatedly losing hours of work.",
+    question: "Which change makes the workload tolerate interruption?",
+    options: [
+      { id: 'A', text: "Checkpoint progress to Amazon S3 periodically and resume from the last checkpoint after an interruption." },
+      { id: 'B', text: "Use a capacity-optimized allocation strategy across many instance types so interruptions become rare enough that a full restart is acceptable when one occurs." },
+      { id: 'C', text: "Subscribe to the Spot instance interruption notice and use the two-minute warning to complete the remaining work before the instance is reclaimed by AWS." },
+      { id: 'D', text: "Move the job to On-Demand Instances covered by a Compute Savings Plan." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Spot is suitable for work that can stop and resume, so the structural fix is making the job checkpoint its state so an interruption costs minutes rather than hours. A capacity-optimized strategy across a broad pool genuinely lowers the interruption rate and is worth doing, but it reduces frequency rather than making a restart cheap. Two minutes is nowhere near enough to finish a six-hour render. Moving to On-Demand with a Savings Plan removes interruptions but forfeits most of the saving the team moved to Spot for.",
+    referenceUrl: "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-interruptions.html",
+    tags: ["Spot Instances", "Checkpointing", "Resilience", "Cost Optimization"]
+  },
+  {
+    id: "aws-sap-170",
+    difficulty: "hard",
+    certId: "aws-sap",
+    domainId: "d3",
+    domainName: "Continuous Improvement for Existing Solutions",
+    title: "Quantifying the Risk in a Single-Region Design",
+    scenario: "Leadership asks what would actually happen to a revenue-critical workload if its Region became unavailable. The team has a documented multi-Region plan but has never measured whether the plan's steps fit inside the stated objectives.",
+    question: "Which activity produces a defensible answer?",
+    options: [
+      { id: 'A', text: "Run a game day that executes the documented failover procedure in a non-production environment and measure the elapsed time against the stated recovery objectives." },
+      { id: 'B', text: "Assess the workload in AWS Resilience Hub against a resiliency policy expressing the objectives, and review the recommendations it produces for each component." },
+      { id: 'C', text: "Review the design against the reliability pillar of the AWS Well-Architected Framework and record the identified risks in the Well-Architected Tool." },
+      { id: 'D', text: "Model the outage in the AWS Pricing Calculator to quantify the revenue at risk and the cost of maintaining a warm standby in a second Region." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Only an exercise measures the plan, because it surfaces the missing runbook step, the stale credential, and the dependency nobody documented, and it produces an elapsed time that can be compared with the objective. Resilience Hub assesses configuration against a policy and is a valuable complement, but it reasons about the design rather than proving the procedure works. A Well-Architected review identifies risks without testing recovery. The Pricing Calculator quantifies cost and has nothing to say about whether the failover succeeds.",
+    referenceUrl: "https://docs.aws.amazon.com/wellarchitected/latest/reliability-pillar/testing-disaster-recovery.html",
+    tags: ["Game Day", "Disaster Recovery", "Testing", "Resilience"]
+  },
+  {
+    id: "aws-sap-171",
+    difficulty: "medium",
+    certId: "aws-sap",
+    domainId: "d4",
+    domainName: "Accelerate Workload Migration and Modernization",
+    title: "Moving Active Directory Dependencies to AWS",
+    scenario: "A migration includes Windows applications that authenticate against on-premises Active Directory and need group policy applied. The company wants to reduce dependence on the data centre link but keep one identity source overall.",
+    question: "Which directory design supports this?",
+    options: [
+      { id: 'A', text: "Deploy AWS Managed Microsoft AD in the VPC and establish a forest trust with the on-premises directory." },
+      { id: 'B', text: "Deploy AD Connector in the VPC to proxy authentication to the on-premises controllers." },
+      { id: 'C', text: "Deploy Simple AD in the VPC as a lightweight directory for the migrated applications and synchronize the user accounts from the on-premises directory." },
+      { id: 'D', text: "Use IAM Identity Center with the on-premises directory as the identity source so that the migrated Windows applications authenticate through it." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "AWS Managed Microsoft AD is a real directory running in the VPC, so authentication and group policy are served locally and survive a link interruption, while a forest trust keeps the on-premises directory authoritative for identities. AD Connector proxies every authentication to the data centre, which is the dependency being reduced. Simple AD is a Samba-based directory that does not support trusts or full group policy and is unsuitable for applications expecting real Active Directory. IAM Identity Center governs access to AWS rather than Windows application authentication.",
+    referenceUrl: "https://docs.aws.amazon.com/directoryservice/latest/admin-guide/directory_microsoft_ad.html",
+    tags: ["Directory Service", "Active Directory", "Migration", "Hybrid"]
+  },
+  {
+    id: "aws-sap-172",
+    difficulty: "hard",
+    certId: "aws-sap",
+    domainId: "d4",
+    domainName: "Accelerate Workload Migration and Modernization",
+    title: "Cutting Over DNS With a Short Rollback Window",
+    scenario: "A public service is moving to AWS. The team wants the ability to send traffic back to the on-premises system within about a minute if errors appear after cutover, and the record is currently published with a 24-hour time to live.",
+    question: "What must be done before the cutover?",
+    options: [
+      { id: 'A', text: "Reduce the record's time to live well in advance so resolvers hold the old answer only briefly." },
+      { id: 'B', text: "Create a Route 53 failover record pair with a health check on the AWS endpoint so traffic returns to the on-premises system automatically if it fails." },
+      { id: 'C', text: "Move the domain's registration to Amazon Route 53 so that record changes propagate through the Route 53 name servers as quickly as possible at cutover." },
+      { id: 'D', text: "Put AWS Global Accelerator in front of both environments and switch the endpoint." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "A resolver caches an answer for the time to live it was given, so a 24-hour value means a rollback would take up to a day to take effect no matter how quickly the record is changed; lowering it to about 60 seconds well before the cutover is the prerequisite that makes fast rollback possible. A failover pair is a good addition but is equally bound by the cached time to live. Moving the registration changes who serves the zone, not how long existing answers are cached. Global Accelerator does avoid DNS at switch time and is a legitimate alternative design, but it is a larger change than preparing the record the team already publishes.",
+    referenceUrl: "https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/resource-record-sets-values.html",
+    tags: ["Route 53", "TTL", "Cutover", "Migration"]
+  },
+  {
+    id: "aws-sap-173",
+    difficulty: "medium",
+    certId: "aws-sap",
+    domainId: "d4",
+    domainName: "Accelerate Workload Migration and Modernization",
+    title: "Replacing a Licensed Message Broker",
+    scenario: "An application uses a commercial JMS message broker on premises. The team wants to remove the licence cost during migration but will not modify the application code, which uses standard JMS APIs and relies on durable subscriptions.",
+    question: "Which target service allows the move without code change?",
+    options: [
+      { id: 'A', text: "Amazon MQ with the ActiveMQ engine, which supports JMS and durable subscriptions." },
+      { id: 'B', text: "Amazon SQS with an SNS topic in front of it so that the publish and subscribe behaviour the application relies on is reproduced by the two services together." },
+      { id: 'C', text: "Amazon Managed Streaming for Apache Kafka, whose consumer groups and retention provide equivalent durability for the application's existing subscriptions." },
+      { id: 'D', text: "Amazon EventBridge with a custom bus and one rule per subscriber, reproducing the routing the message broker performs for the application today." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Amazon MQ runs ActiveMQ, which implements JMS including durable subscriptions, so the application keeps its existing client libraries and code while the commercial licence disappears. SQS and SNS are excellent AWS-native services but expose their own APIs, so the application would need rewriting. MSK speaks the Kafka protocol, which is again a different API and a different consumption model. EventBridge is a routing service without JMS semantics, so every integration point would change.",
+    referenceUrl: "https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/welcome.html",
+    tags: ["Amazon MQ", "ActiveMQ", "JMS", "Migration"]
+  },
+  {
+    id: "aws-sap-174",
+    difficulty: "medium",
+    certId: "aws-sap",
+    domainId: "d4",
+    domainName: "Accelerate Workload Migration and Modernization",
+    title: "Validating an Application After It Moves",
+    scenario: "A rehosted application behaves correctly in functional testing but the team is unsure it will hold up under production traffic patterns, and the cutover window allows no time to discover a capacity problem afterwards.",
+    question: "Which pre-cutover activity gives the most confidence?",
+    options: [
+      { id: 'A', text: "Replay recorded production traffic against the migrated environment at peak volume and compare the resulting latency and error rates with the source environment." },
+      { id: 'B', text: "Run the existing functional regression suite against the migrated environment several times to confirm that the results remain consistent across repeated executions." },
+      { id: 'C', text: "Compare the instance types chosen in AWS against the specifications of the source servers to confirm that CPU and memory are equivalent or greater." },
+      { id: 'D', text: "Enable detailed CloudWatch monitoring on the migrated environment so that any capacity problem is detected quickly once production traffic arrives." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Capacity problems appear under realistic concurrency and mix, so replaying recorded production traffic at peak volume and comparing against the source is the only activity that exercises the behaviour in question before the cutover. Repeating a functional suite confirms correctness, which already passed, and generates nothing like production concurrency. Matching specifications ignores differences in storage latency, network behaviour, and noisy neighbours between environments. Detailed monitoring shortens detection after the event, which is exactly what the cutover window cannot absorb.",
+    referenceUrl: "https://docs.aws.amazon.com/prescriptive-guidance/latest/migration-testing/welcome.html",
+    tags: ["Migration Testing", "Performance", "Cutover", "Validation"]
+  },
+  {
+    id: "aws-sap-175",
+    difficulty: "easy",
+    certId: "aws-sap",
+    domainId: "d4",
+    domainName: "Accelerate Workload Migration and Modernization",
+    title: "Reducing Licence Cost by Changing Product",
+    scenario: "During migration planning a team finds an on-premises commercial content management product with high annual licence fees. An equivalent software as a service offering exists that meets the requirement and the content can be exported.",
+    question: "Which of the 7 Rs describes moving to the SaaS product?",
+    options: [
+      { id: 'A', text: "Repurchase, because the existing product is replaced by a different one." },
+      { id: 'B', text: "Replatform, because the workload moves largely unchanged while one component of the stack is exchanged for a managed equivalent during the migration." },
+      { id: 'C', text: "Refactor, because the application's architecture is being redesigned to take advantage of cloud native capabilities as part of moving it to the new provider." },
+      { id: 'D', text: "Relocate, because the workload moves to a new hosting environment without changes to the application, its operations, or the way that users consume it." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Repurchase means moving to a different product, most often a software as a service offering, which is exactly what replacing the licensed content management system with an equivalent service is. Replatform keeps the same application while swapping a component for a managed equivalent. Refactor changes the application's own architecture, which does not apply when the application is being replaced outright. Relocate refers to moving infrastructure such as a VMware estate to AWS without changing the workload at all.",
+    referenceUrl: "https://docs.aws.amazon.com/prescriptive-guidance/latest/large-migration-guide/migration-strategies.html",
+    tags: ["Migration Strategies", "Repurchase", "7 Rs", "SaaS"]
+  }
+];
+
+export default AWS_SAP_QUESTIONS;

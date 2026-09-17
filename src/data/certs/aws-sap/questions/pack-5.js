@@ -1,0 +1,530 @@
+export const AWS_SAP_QUESTIONS = [
+  {
+    id: "aws-sap-101",
+    difficulty: "hard",
+    certId: "aws-sap",
+    domainId: "d1",
+    domainName: "Design Solutions for Organizational Complexity",
+    title: "Sharing a KMS Key Across Accounts for Replication",
+    scenario: "A logging account receives S3 replicas from 40 workload accounts. Source objects are encrypted with each workload account's own customer managed key, and the destination bucket encrypts with the logging account's key. Replication fails for every source.",
+    question: "Which permission change makes replication succeed?",
+    options: [
+      { id: 'A', text: "Allow the replication role named in the replication configuration kms:Decrypt on each source key and kms:Encrypt on the destination key." },
+      { id: 'B', text: "Allow the logging account's root principal kms:Decrypt on every source key through each workload account's key policy." },
+      { id: 'C', text: "Replace the workload account keys with the AWS managed aws/s3 key so replication uses a key that both accounts already trust." },
+      { id: 'D', text: "Enable S3 Bucket Keys on both buckets so the replication traffic uses a single bucket-level key rather than per-object keys." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Replication runs as the IAM role named in the replication configuration, so that role is the principal that must be able to decrypt with the source key and encrypt with the destination key; granting it both is what unblocks every source. Granting the logging account's root principal permission addresses the wrong identity, because the replication role is what makes the calls. The AWS managed aws/s3 key cannot be shared across accounts, so it removes the ability entirely. Bucket Keys reduce KMS request cost and change nothing about cross-account authorization.",
+    referenceUrl: "https://docs.aws.amazon.com/AmazonS3/latest/userguide/replication-config-for-kms-objects.html",
+    tags: ["KMS", "S3 Replication", "Cross-Account", "Encryption"]
+  },
+  {
+    id: "aws-sap-102",
+    difficulty: "medium",
+    certId: "aws-sap",
+    domainId: "d1",
+    domainName: "Design Solutions for Organizational Complexity",
+    title: "Standardizing Network Controls Across Accounts",
+    scenario: "A security team must guarantee that a baseline set of firewall rules and a common web access control list apply to every VPC and Application Load Balancer created in any of 80 accounts, including accounts onboarded next quarter.",
+    question: "Which service applies and maintains those controls centrally?",
+    options: [
+      { id: 'A', text: "AWS Firewall Manager, applying security group, Network Firewall, and AWS WAF policies from a delegated administrator account to every in-scope account." },
+      { id: 'B', text: "AWS Config conformance packs deployed across the organization, reporting any load balancer or VPC whose protection does not match the defined baseline." },
+      { id: 'C', text: "CloudFormation StackSets with automatic deployment to the organizational unit, creating the firewall rules and the web access control list in every account." },
+      { id: 'D', text: "A service control policy denying the create actions for load balancers and VPCs unless the request already references the approved web access control list." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Firewall Manager exists for exactly this: policies defined once in a delegated administrator account are applied continuously to in-scope resources, new accounts are enrolled automatically, and drift is remediated rather than merely reported. Conformance packs detect non-compliance without fixing it. StackSets create resources at deployment time but do not reattach a protection that someone detaches later. A service control policy cannot express association with a specific web access control list at create time and would block legitimate work.",
+    referenceUrl: "https://docs.aws.amazon.com/waf/latest/developerguide/fms-chapter.html",
+    tags: ["Firewall Manager", "WAF", "Network Firewall", "Organizations"]
+  },
+  {
+    id: "aws-sap-103",
+    difficulty: "medium",
+    certId: "aws-sap",
+    domainId: "d1",
+    domainName: "Design Solutions for Organizational Complexity",
+    title: "Failing Over a Hybrid Link Without Manual Steps",
+    scenario: "A company connects to AWS with a single 10 Gbps Direct Connect dedicated connection. A recent maintenance event severed it for four hours and all hybrid traffic stopped. The company wants automatic fallback at lower cost than a second circuit.",
+    question: "Which design provides automatic backup connectivity?",
+    options: [
+      { id: 'A', text: "Add a Site-to-Site VPN attachment to the same Transit Gateway over the internet, and let BGP prefer the Direct Connect path while it remains available." },
+      { id: 'B', text: "Add a second dedicated Direct Connect connection at a different location and configure both with equal BGP local preference values." },
+      { id: 'C', text: "Configure a Direct Connect gateway with two private virtual interfaces on the existing connection so a failure of one interface leaves the other." },
+      { id: 'D', text: "Enable link aggregation on the existing connection so the physical ports are bundled and traffic continues if one of the ports goes down." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "A VPN attachment on the same Transit Gateway is a genuinely independent path over the internet, and because Direct Connect is preferred by BGP while it is up, failover and failback happen automatically at a fraction of the cost of a second circuit. A second dedicated connection is the most resilient answer but is exactly the cost the company is avoiding. Two virtual interfaces on one connection share the same physical path, so the maintenance event takes both. Link aggregation bundles ports within one location and does not survive a severed connection.",
+    referenceUrl: "https://docs.aws.amazon.com/whitepapers/latest/aws-vpc-connectivity-options/aws-direct-connect-vpn.html",
+    tags: ["Direct Connect", "Site-to-Site VPN", "Resilience", "Hybrid"]
+  },
+  {
+    id: "aws-sap-104",
+    difficulty: "hard",
+    certId: "aws-sap",
+    domainId: "d1",
+    domainName: "Design Solutions for Organizational Complexity",
+    title: "Running Workloads That Must Stay in One Country",
+    scenario: "A public sector customer requires that a workload's data and compute remain within one country that has a single AWS Region, and that operations staff located elsewhere cannot access the production data even accidentally.",
+    question: "Which combination addresses both the residency and the access constraint?",
+    options: [
+      { id: 'A', text: "Restrict the Region with a service control policy and restrict data access with IAM conditions on the calling principal's identity." },
+      { id: 'B', text: "Deploy the workload to a single Region and rely on the shared responsibility model, since AWS does not move customer data between Regions." },
+      { id: 'C', text: "Deploy the workload to a Local Zone inside the country and grant operations staff read-only permissions on the production data for support purposes." },
+      { id: 'D', text: "Encrypt the data with a customer managed key and store the key material in an external hardware module outside of any AWS Region." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Residency and access are two separate controls: a Region deny expressed with aws:RequestedRegion keeps resources in the approved Region, and IAM conditions on the principal, such as identity attributes or a permitted network path, keep staff elsewhere from reading the data. Relying on AWS not moving data satisfies residency but places no restriction on who reads it. A Local Zone is a Region extension rather than a residency boundary and granting read-only access is exactly the access the customer forbids. External key material protects confidentiality but does not stop an authorized operator reading decrypted data.",
+    referenceUrl: "https://docs.aws.amazon.com/controltower/latest/userguide/data-residency-controls.html",
+    tags: ["Data Residency", "SCP", "IAM Conditions", "Compliance"]
+  },
+  {
+    id: "aws-sap-105",
+    difficulty: "easy",
+    certId: "aws-sap",
+    domainId: "d1",
+    domainName: "Design Solutions for Organizational Complexity",
+    title: "Choosing the Scope for a Permissions Boundary",
+    scenario: "A platform team lets application teams create their own IAM roles so they can move quickly, but must ensure a created role can never grant more than a defined maximum set of permissions, no matter what policy the team attaches.",
+    question: "Which mechanism caps what a newly created role can do?",
+    options: [
+      { id: 'A', text: "Require a permissions boundary on every role created, by conditioning iam:CreateRole on iam:PermissionsBoundary in the creating principal's policy." },
+      { id: 'B', text: "Attach a managed policy listing the maximum permitted actions to each role at the point where the application team creates it." },
+      { id: 'C', text: "Apply a service control policy that denies the iam:CreateRole action unless the request comes from the platform team's own pipeline role." },
+      { id: 'D', text: "Enable IAM Access Analyzer on the account so that any newly created role granting external access is flagged for the platform team to review." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "A permissions boundary sets the maximum effective permissions of a principal, and conditioning iam:CreateRole on iam:PermissionsBoundary means a team can only create roles that already carry the cap, so any policy they later attach is intersected with it. Attaching a managed policy grants permissions rather than limiting them, and another policy can be added alongside. Denying role creation entirely removes the autonomy the platform team wants to preserve. Access Analyzer reports external access after the fact and enforces nothing.",
+    referenceUrl: "https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html",
+    tags: ["IAM", "Permissions Boundary", "Delegation", "Least Privilege"]
+  },
+  {
+    id: "aws-sap-106",
+    difficulty: "medium",
+    certId: "aws-sap",
+    domainId: "d1",
+    domainName: "Design Solutions for Organizational Complexity",
+    title: "Aggregating Findings Without Losing Account Context",
+    scenario: "A security operations centre must triage findings from GuardDuty, Inspector, and Macie across 200 accounts in four Regions from one place, with severity normalized so analysts can rank work consistently across the different sources.",
+    question: "Which service provides the consolidated view?",
+    options: [
+      { id: 'A', text: "AWS Security Hub with cross-Region aggregation and the organization integration enabled." },
+      { id: 'B', text: "Amazon EventBridge rules in each account forwarding every finding to a central event bus that a triage application reads and ranks for the analysts." },
+      { id: 'C', text: "Amazon Detective, which builds a linked behaviour graph from the findings and log data so analysts can investigate each one in a single console." },
+      { id: 'D', text: "Amazon OpenSearch Service, ingesting the findings from every account through Kinesis Data Firehose and presenting them on dashboards for the analysts." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Security Hub ingests findings from the AWS security services in the normalized finding format, which gives comparable severity across sources, and its organization integration plus cross-Region aggregation collapses 200 accounts and four Regions into one view with no pipeline to build. An EventBridge fan-in plus a custom triage application is that pipeline. Detective is for deep investigation of a finding rather than consolidated triage across the estate. An OpenSearch pipeline can display findings but the team must build and operate the normalization itself.",
+    referenceUrl: "https://docs.aws.amazon.com/securityhub/latest/userguide/what-is-securityhub.html",
+    tags: ["Security Hub", "GuardDuty", "Organizations", "Security Operations"]
+  },
+  {
+    id: "aws-sap-107",
+    difficulty: "hard",
+    certId: "aws-sap",
+    domainId: "d2",
+    domainName: "Design for New Solutions",
+    title: "Serving Reads From the Closest Region",
+    scenario: "A content platform serves an API from us-east-1. Users in Europe and Asia see 200 ms of added latency on reads. Writes are rare and can stay in one Region, and the read data may be a second or two behind.",
+    question: "Which design reduces read latency for distant users?",
+    options: [
+      { id: 'A', text: "Deploy read-only API stacks in eu-west-1 and ap-southeast-1 backed by DynamoDB global table replicas, fronted by Route 53 latency records." },
+      { id: 'B', text: "Put Amazon CloudFront in front of the existing API with a long cache time to live so that repeated read requests are served from the nearest edge location." },
+      { id: 'C', text: "Enable AWS Global Accelerator in front of the existing load balancer so traffic enters the AWS backbone at the nearest edge and crosses it to us-east-1." },
+      { id: 'D', text: "Increase the API's instance sizes and add read replicas within us-east-1 so that responses are generated faster once the request arrives." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "The 200 ms is propagation delay, so the only structural fix is to answer the read near the user, which regional read stacks over global table replicas do while latency-based records send each user to the closest healthy Region. CloudFront helps genuinely cacheable responses but a personalized API read mostly misses the cache and still crosses the ocean. Global Accelerator improves the network path and typically recovers tens of milliseconds, not the full round trip to a distant Region. Faster compute in us-east-1 does nothing about distance.",
+    referenceUrl: "https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GlobalTables.html",
+    tags: ["Multi-Region", "DynamoDB Global Tables", "Route 53", "Latency"]
+  },
+  {
+    id: "aws-sap-108",
+    difficulty: "medium",
+    certId: "aws-sap",
+    domainId: "d2",
+    domainName: "Design for New Solutions",
+    title: "Choosing Between Step Functions and EventBridge",
+    scenario: "An architect must decide how to connect six services. The business process has a defined order, needs per-step retries, must report where a failed instance stopped, and occasionally runs compensating steps when a later stage fails.",
+    question: "Which integration style fits the requirement?",
+    options: [
+      { id: 'A', text: "A Step Functions state machine that owns the sequence, retries, and compensation explicitly." },
+      { id: 'B', text: "An EventBridge choreography where each service publishes a completion event and the next service subscribes to it and begins its own part of the work." },
+      { id: 'C', text: "An Amazon SNS topic per stage with each service subscribing to the previous stage's topic so the sequence emerges from the subscription graph." },
+      { id: 'D', text: "A single Lambda function calling each service in turn and handling retries in code." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "When a process has a defined order, per-step error handling, and compensation, orchestration is the right shape, and a state machine makes the sequence and the failure paths explicit while recording exactly which state an execution stopped in. Event choreography scales well and decouples teams but distributes the process across six codebases, so nothing knows the overall state or can compensate. Chained SNS topics have the same problem with less visibility. One Lambda function holds the logic but hits the fifteen-minute limit and loses all progress when it fails mid-way.",
+    referenceUrl: "https://docs.aws.amazon.com/step-functions/latest/dg/welcome.html",
+    tags: ["Step Functions", "EventBridge", "Orchestration", "Integration"]
+  },
+  {
+    id: "aws-sap-109",
+    difficulty: "hard",
+    certId: "aws-sap",
+    domainId: "d2",
+    domainName: "Design for New Solutions",
+    title: "Blast Radius of a Shared Control Plane",
+    scenario: "An architect reviews a design where 300 tenants share one Amazon EKS cluster, one RDS instance, and one Route 53 hosted zone. Leadership asks what happens to every other tenant when one component fails or one tenant misbehaves.",
+    question: "Which change most reduces the shared blast radius?",
+    options: [
+      { id: 'A', text: "Partition the tenants into several independent cells, each with its own cluster and database, and route tenants to a cell." },
+      { id: 'B', text: "Add Kubernetes resource quotas and network policies per namespace so that no single tenant can exhaust the cluster's compute or reach another tenant's pods." },
+      { id: 'C', text: "Move the database onto Aurora Serverless v2 so capacity scales with a heavy tenant's queries." },
+      { id: 'D', text: "Deploy the cluster across three Availability Zones with a node group in each so the loss of one zone leaves the remaining capacity serving every tenant." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Cell-based architecture is the structural answer to blast radius: a failure or a noisy tenant is contained within one cell, so the fraction of tenants affected falls to the cell's share rather than the whole estate. Quotas and network policies are worthwhile and limit one tenant's resource consumption, but a control plane or database failure still takes every tenant down. Aurora Serverless v2 absorbs load without bounding a failure. Multi-zone deployment addresses infrastructure failure only, leaving software and tenant-driven failures shared by all 300.",
+    referenceUrl: "https://docs.aws.amazon.com/wellarchitected/latest/reducing-scope-of-impact-with-cell-based-architecture/reducing-scope-of-impact-with-cell-based-architecture.html",
+    tags: ["Cell-Based Architecture", "Blast Radius", "Multi-Tenancy", "Resilience"]
+  },
+  {
+    id: "aws-sap-110",
+    difficulty: "medium",
+    certId: "aws-sap",
+    domainId: "d2",
+    domainName: "Design for New Solutions",
+    title: "Rotating a Database Credential Without Downtime",
+    scenario: "A team must rotate an Amazon RDS password every 30 days. Applications read the credential at start-up and hold the connection pool open for days. Previous rotations caused authentication failures for whichever instances had cached the old value.",
+    question: "Which rotation approach avoids the failures?",
+    options: [
+      { id: 'A', text: "Use Secrets Manager rotation in the alternating users strategy and have applications fetch the secret with caching on each connection attempt." },
+      { id: 'B', text: "Use Secrets Manager rotation in the single user strategy and restart every application instance immediately after each scheduled rotation completes." },
+      { id: 'C', text: "Store the credential in Systems Manager Parameter Store as a SecureString and have a scheduled Lambda function update the parameter and the database together." },
+      { id: 'D', text: "Switch the applications to IAM database authentication and generate a fresh authentication token for each new connection that the pool opens." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "The alternating users strategy keeps two database users and rotates them in turn, so the previous credential stays valid through the rotation and an application holding a cached value continues to authenticate until it refreshes. Single user rotation invalidates the old password immediately, and restarting every instance to compensate is the outage being avoided. A Parameter Store rotation built by hand has the same single-credential problem plus bespoke code. IAM database authentication genuinely solves this class of problem and is a strong answer, but it is a change to how the applications connect rather than a rotation strategy, and its tokens expire in 15 minutes which long-lived pools must handle.",
+    referenceUrl: "https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotating-secrets.html",
+    tags: ["Secrets Manager", "Rotation", "RDS", "Security"]
+  },
+  {
+    id: "aws-sap-111",
+    difficulty: "medium",
+    certId: "aws-sap",
+    domainId: "d2",
+    domainName: "Design for New Solutions",
+    title: "Picking a Compute Model for Bursty Batch Jobs",
+    scenario: "A genomics team submits thousands of independent jobs a few times a week. Each runs for 20 to 90 minutes, jobs can be restarted safely if interrupted, and the team wants the lowest cost without managing a scheduler themselves.",
+    question: "Which compute approach fits the workload?",
+    options: [
+      { id: 'A', text: "AWS Batch with a managed compute environment using Spot Instances and a job queue." },
+      { id: 'B', text: "AWS Lambda functions invoked in parallel from a Step Functions map state so that each independent job runs in its own short-lived function invocation." },
+      { id: 'C', text: "An Amazon EC2 Auto Scaling group of On-Demand Instances scaled on queue depth, with a scheduler the team runs on a dedicated coordination instance." },
+      { id: 'D', text: "Amazon ECS on Fargate with one task per job, launched by an EventBridge rule whenever a new batch of work is submitted by the genomics team." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "AWS Batch is a managed scheduler that handles queuing, dependencies, and retries, and a Spot-backed managed compute environment gives the lowest cost for interruption-tolerant work while provisioning and scaling the instances automatically. Lambda cannot run a 90-minute job because of its fifteen-minute limit. An Auto Scaling group with a self-run scheduler is exactly the scheduler management the team wants to avoid, and On-Demand pricing forgoes the Spot saving. Fargate tasks work but cost more than Spot for this profile and still leave job dependency and retry logic to be built.",
+    referenceUrl: "https://docs.aws.amazon.com/batch/latest/userguide/what-is-batch.html",
+    tags: ["AWS Batch", "Spot Instances", "HPC", "Cost Optimization"]
+  },
+  {
+    id: "aws-sap-112",
+    difficulty: "hard",
+    certId: "aws-sap",
+    domainId: "d2",
+    domainName: "Design for New Solutions",
+    title: "Enforcing Least Privilege on a New Service Role",
+    scenario: "A new microservice needs an IAM role. The team knows roughly which services it calls but not the exact actions, and security will not approve a wildcard policy. The service is already running in a staging account under a broad role.",
+    question: "Which approach produces a tight policy grounded in evidence?",
+    options: [
+      { id: 'A', text: "Generate a policy from the role's CloudTrail access activity using IAM Access Analyzer policy generation." },
+      { id: 'B', text: "Start from the AWS managed read-only policy for each service the team believes the microservice calls and add write actions as failures appear in staging." },
+      { id: 'C', text: "Attach the broad staging role in production and review the last accessed information on the IAM console page for that role after a full business cycle." },
+      { id: 'D', text: "Write the policy from the source code by listing every SDK call it makes." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Access Analyzer reads the role's actual CloudTrail history and emits a policy containing the actions that were really used, which is evidence-based and far faster than inference. Starting from read-only and adding actions as failures surface works but discovers permissions through production errors. Running the broad role in production is the risk security is refusing, and last accessed data reports services rather than individual actions. Reading the source code misses the actions the SDK makes implicitly and anything on an untested path.",
+    referenceUrl: "https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-policy-generation.html",
+    tags: ["IAM Access Analyzer", "Least Privilege", "CloudTrail", "Security"]
+  },
+  {
+    id: "aws-sap-113",
+    difficulty: "easy",
+    certId: "aws-sap",
+    domainId: "d2",
+    domainName: "Design for New Solutions",
+    title: "Choosing a Queue for Fan-Out to Several Consumers",
+    scenario: "One producer emits order events. Three independent teams each need every event, want to process at their own pace, and must not affect each other if one team's consumer is down for a day.",
+    question: "Which messaging topology meets the requirement?",
+    options: [
+      { id: 'A', text: "An SNS topic with one SQS queue subscribed per consuming team." },
+      { id: 'B', text: "A single SQS queue that all three of the consuming teams poll, with each team filtering the messages that are relevant to its own processing." },
+      { id: 'C', text: "Three separate SQS queues that the producer writes to in turn, so each consuming team receives its own independent copy of every order event." },
+      { id: 'D', text: "An EventBridge bus with one rule per team whose target is that team's Lambda function, invoked directly as each order event arrives on the bus." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Fan-out with a topic and a queue per subscriber gives each team its own copy and its own buffer, so a consumer that is down for a day simply accumulates a backlog without affecting the others. A single shared queue means each message is delivered once to whichever consumer polls first, so the teams compete rather than each receiving everything. Having the producer write to three queues couples it to the consumer list. An EventBridge bus targeting functions directly is close but without a queue per team a prolonged outage risks exhausting retries and losing events.",
+    referenceUrl: "https://docs.aws.amazon.com/sns/latest/dg/sns-sqs-as-subscriber.html",
+    tags: ["SNS", "SQS", "Fan-Out", "Decoupling"]
+  },
+  {
+    id: "aws-sap-114",
+    difficulty: "medium",
+    certId: "aws-sap",
+    domainId: "d2",
+    domainName: "Design for New Solutions",
+    title: "Protecting an Origin From Traffic That Bypasses the Edge",
+    scenario: "A web application sits behind CloudFront with AWS WAF attached at the distribution. Security testing shows the Application Load Balancer origin is reachable directly by its DNS name, so an attacker can send traffic that never passes the edge rules.",
+    question: "Which control ensures the origin only accepts edge traffic?",
+    options: [
+      { id: 'A', text: "Add a security group rule allowing only the CloudFront origin-facing managed prefix list and require a shared secret header at the load balancer." },
+      { id: 'B', text: "Move the load balancer into private subnets and publish it through an AWS PrivateLink endpoint service that the distribution consumes as its origin." },
+      { id: 'C', text: "Attach the same AWS WAF web access control list to the load balancer so requests arriving directly are filtered by the identical rule set." },
+      { id: 'D', text: "Enable CloudFront field-level encryption so that any request which did not pass through the distribution cannot produce a readable payload at the origin." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "The documented pattern is defence in depth at two layers: the managed prefix list restricts the origin's security group to CloudFront's own address ranges and is maintained by AWS, while a secret header added by the distribution and verified at the load balancer distinguishes this distribution from anyone else's. A PrivateLink endpoint service cannot be used as a CloudFront origin in this way. Duplicating the web access control list filters direct traffic but still accepts it and doubles the inspection cost. Field-level encryption protects specific form fields and does not restrict who may reach the origin.",
+    referenceUrl: "https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/restrict-access-to-load-balancer.html",
+    tags: ["CloudFront", "WAF", "Origin Protection", "Security"]
+  },
+  {
+    id: "aws-sap-115",
+    difficulty: "hard",
+    certId: "aws-sap",
+    domainId: "d3",
+    domainName: "Continuous Improvement for Existing Solutions",
+    title: "Finding Why a Deployment Doubled Database Load",
+    scenario: "After a release, Aurora CPU doubled with no change in request volume. The team suspects a query pattern change but the application emits no query metrics, and the release touched an object-relational mapping layer used across many endpoints.",
+    question: "Which investigation identifies the responsible statements fastest?",
+    options: [
+      { id: 'A', text: "Open Performance Insights and compare the top SQL statements by database load before and after the release." },
+      { id: 'B', text: "Enable the Aurora slow query log with a low threshold and analyse what it captures." },
+      { id: 'C', text: "Enable Enhanced Monitoring at one-second granularity and correlate the operating system process metrics against the deployment timestamp of the release." },
+      { id: 'D', text: "Restore a snapshot taken before the release into a second cluster and replay production traffic against it to compare the resulting resource consumption." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Performance Insights retains database load broken down by SQL statement, wait event, and host over time, so comparing the window either side of the release names the statements whose load grew without any new instrumentation or waiting. The slow query log only captures statements above a duration threshold, which misses a cheap query suddenly being run a hundred times more often. Enhanced Monitoring reports operating system metrics and cannot attribute load to a statement. Restoring and replaying is accurate but takes far longer than reading data already collected.",
+    referenceUrl: "https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_PerfInsights.html",
+    tags: ["Performance Insights", "Aurora", "Troubleshooting", "Databases"]
+  },
+  {
+    id: "aws-sap-116",
+    difficulty: "medium",
+    certId: "aws-sap",
+    domainId: "d3",
+    domainName: "Continuous Improvement for Existing Solutions",
+    title: "Reducing Log Ingestion Cost Without Losing Evidence",
+    scenario: "CloudWatch Logs ingestion is the third largest line on the bill. Most volume is debug output from one service, but compliance requires that request and audit lines be retained for two years and remain searchable within a few minutes.",
+    question: "Which change reduces cost while meeting retention and search needs?",
+    options: [
+      { id: 'A', text: "Lower the service's log level, set a short CloudWatch retention, and export the audit lines to S3 with a subscription filter for long-term queries." },
+      { id: 'B', text: "Set the log group retention to two years for every log group in the account so nothing is deleted early and the ingestion volume is unchanged." },
+      { id: 'C', text: "Replace CloudWatch Logs with an Amazon OpenSearch Service domain sized for two years of the current log volume and index every line the services emit." },
+      { id: 'D', text: "Compress the log lines in the application before they are written so that the ingestion charge falls in proportion to the reduction in payload size." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Ingestion is charged on the volume sent, so the only way to cut it materially is to stop sending the debug output, while a subscription filter routes the audit lines to S3 where two-year retention is inexpensive and Athena keeps them queryable. Extending retention everywhere raises storage cost and leaves ingestion untouched. An OpenSearch domain sized for two years is more expensive than what it replaces. CloudWatch Logs bills on uncompressed ingested bytes, so compressing in the application does not reduce the charge and makes the lines unsearchable.",
+    referenceUrl: "https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/Subscriptions.html",
+    tags: ["CloudWatch Logs", "Cost Optimization", "Retention", "Compliance"]
+  },
+  {
+    id: "aws-sap-117",
+    difficulty: "medium",
+    certId: "aws-sap",
+    domainId: "d3",
+    domainName: "Continuous Improvement for Existing Solutions",
+    title: "Recovering a Deleted Object After a Bad Script",
+    scenario: "A script deleted several thousand objects from a versioned production bucket. The objects are recoverable but the team took nine hours to notice, and leadership wants both a faster recovery path and protection against a repeat.",
+    question: "Which combination addresses recovery and prevention? (Choose TWO)",
+    options: [
+      { id: 'A', text: "Remove the delete markers to restore the current version of each affected object." },
+      { id: 'B', text: "Enable MFA delete on the bucket so that permanently deleting a version requires an additional authentication factor." },
+      { id: 'C', text: "Restore the objects from the most recent daily backup copy held in the organization's central backup account." },
+      { id: 'D', text: "Enable S3 Versioning on the bucket so that future deletions create a delete marker rather than removing the object data itself." },
+      { id: 'E', text: "Reduce the noncurrent version expiration in the lifecycle rule so old versions are cleaned up more aggressively than they are today." }
+    ],
+    correctAnswers: ['A', 'B'],
+    type: "multiple",
+    explanation: "Because the bucket is versioned, a delete created a delete marker rather than destroying data, so removing those markers restores the current version immediately, and MFA delete then raises the bar on permanent version deletion for the future. Restoring from a daily backup is slower and loses up to a day of changes when the versions are already present. Versioning is described as already enabled, so enabling it is not an available action. Expiring noncurrent versions sooner shortens the recovery window and makes this failure worse.",
+    referenceUrl: "https://docs.aws.amazon.com/AmazonS3/latest/userguide/DeletingObjectVersions.html",
+    tags: ["S3", "Versioning", "MFA Delete", "Recovery"]
+  },
+  {
+    id: "aws-sap-118",
+    difficulty: "hard",
+    certId: "aws-sap",
+    domainId: "d3",
+    domainName: "Continuous Improvement for Existing Solutions",
+    title: "Tail Latency Caused by a Noisy Neighbour Volume",
+    scenario: "A database on EC2 with gp3 storage shows p99 read latency spikes that correlate with burst activity on other volumes. Average throughput is well within the provisioned figure and the instance's network and CPU are lightly loaded.",
+    question: "Which change most directly addresses the latency variability?",
+    options: [
+      { id: 'A', text: "Move the volume to io2 Block Express, which provides consistent sub-millisecond latency at the provisioned IOPS." },
+      { id: 'B', text: "Increase the provisioned throughput and IOPS on the existing gp3 volume so that there is more headroom above the workload's observed average demand." },
+      { id: 'C', text: "Move the database onto an instance type with local NVMe instance store volumes." },
+      { id: 'D', text: "Enable an EBS-optimized instance setting so that storage traffic no longer contends with general network traffic on the instance's shared interface." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "gp3 offers consistent baseline performance but its latency is not guaranteed, whereas io2 Block Express is designed for sub-millisecond latency at the provisioned rate and is the option to reach for when tail latency rather than average throughput is the problem. Raising gp3 provisioning adds headroom the workload is not short of, since the average is already within limits. Instance store gives excellent latency but is ephemeral, so a database would lose its data on stop or failure. Modern instance types are EBS-optimized by default, so there is nothing to enable.",
+    referenceUrl: "https://docs.aws.amazon.com/ebs/latest/userguide/ebs-volume-types.html",
+    tags: ["EBS", "io2 Block Express", "Latency", "Performance"]
+  },
+  {
+    id: "aws-sap-119",
+    difficulty: "medium",
+    certId: "aws-sap",
+    domainId: "d3",
+    domainName: "Continuous Improvement for Existing Solutions",
+    title: "Making a Runbook Executable",
+    scenario: "An on-call team follows a wiki page of 14 manual steps to recover a stuck processing pipeline. Execution takes 40 minutes, steps are occasionally skipped under pressure, and there is no record of what was actually done during an incident.",
+    question: "Which change makes recovery faster and auditable?",
+    options: [
+      { id: 'A', text: "Convert the runbook into a Systems Manager Automation document invoked from a CloudWatch alarm." },
+      { id: 'B', text: "Convert the runbook into an AWS Systems Manager Incident Manager response plan that pages the on-call engineer and presents the steps in a timeline to follow." },
+      { id: 'C', text: "Convert the runbook into a Lambda function that the on-call engineer invokes manually from the console once they have confirmed the pipeline is genuinely stuck." },
+      { id: 'D', text: "Convert the runbook into a Step Functions state machine an engineer starts." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "An Automation document encodes the steps as executable actions with built-in approval, branching, and a full execution history, and invoking it from the alarm removes both the delay and the risk of a skipped step. Incident Manager coordinates the human response well and can invoke automation, but on its own it still presents steps for a person to perform. A Lambda function can do the work but has no step-level history, approvals, or timeout handling. A Step Functions state machine is a reasonable alternative yet adds orchestration machinery for what Automation already expresses natively for operational tasks.",
+    referenceUrl: "https://docs.aws.amazon.com/systems-manager/latest/userguide/automation-documents.html",
+    tags: ["Systems Manager", "Automation", "Runbooks", "Operations"]
+  },
+  {
+    id: "aws-sap-120",
+    difficulty: "medium",
+    certId: "aws-sap",
+    domainId: "d3",
+    domainName: "Continuous Improvement for Existing Solutions",
+    title: "Cutting Cost on an Over-Provisioned Kubernetes Cluster",
+    scenario: "An Amazon EKS cluster runs a fixed set of large managed node groups. Utilization averages 25 percent, pods are frequently unschedulable during short peaks, and the team maintains node group sizes by hand each sprint.",
+    question: "Which change improves both utilization and scheduling?",
+    options: [
+      { id: 'A', text: "Adopt Karpenter so nodes are provisioned just in time from the instance types that fit the pending pods." },
+      { id: 'B', text: "Increase the size of each managed node group so the short peaks are absorbed." },
+      { id: 'C', text: "Enable the Kubernetes Cluster Autoscaler against the existing managed node groups so each group scales within the bounds the team has configured for it." },
+      { id: 'D', text: "Enable the Horizontal Pod Autoscaler on each workload so replica counts track observed CPU utilization and the cluster's capacity is used more evenly." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Karpenter watches unschedulable pods and launches right-sized nodes from a broad set of instance types within seconds, then consolidates them as demand falls, which raises utilization and removes the manual sizing. Larger node groups fix scheduling by making the 25 percent utilization worse. Cluster Autoscaler is a genuine improvement but scales predefined groups of fixed instance types, so it reacts more slowly and cannot pick a better-fitting shape. The Horizontal Pod Autoscaler scales pods, which without more nodes increases the number of unschedulable pods.",
+    referenceUrl: "https://docs.aws.amazon.com/eks/latest/userguide/autoscaling.html",
+    tags: ["EKS", "Karpenter", "Autoscaling", "Cost Optimization"]
+  },
+  {
+    id: "aws-sap-121",
+    difficulty: "hard",
+    certId: "aws-sap",
+    domainId: "d4",
+    domainName: "Accelerate Workload Migration and Modernization",
+    title: "Handling an Application With a Hardware Dongle",
+    scenario: "During migration discovery, one application is found to require a USB licence dongle attached to its physical server. The vendor is defunct, the application is business critical, and the data centre closes in eight months.",
+    question: "Which migration strategy is appropriate for this application?",
+    options: [
+      { id: 'A', text: "Retain the application on its existing hardware in a colocation facility and connect it back to AWS over the network while a long-term replacement is procured." },
+      { id: 'B', text: "Rehost the server on an EC2 instance and attach the dongle through a USB-over-network appliance placed in the colocation facility for the licence check." },
+      { id: 'C', text: "Refactor the licence checking module out of the application so that the dongle is no longer required and the workload can be rehosted onto EC2 instances." },
+      { id: 'D', text: "Repurchase an equivalent product from another vendor and migrate the application's data into it before the data centre closes in eight months." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Retain is a legitimate outcome of the 7 Rs, and a physical licence dependency with no vendor support is the textbook case: moving the hardware to a colocation facility meets the data centre deadline while buying time for a proper replacement. USB-over-network for a licence dongle is fragile, often violates the licence terms, and introduces a network dependency into a critical path. Modifying licence enforcement in a third-party application is usually a licence breach and may be legally actionable. Repurchasing may well be the right end state but is unlikely to complete in eight months for a business-critical system.",
+    referenceUrl: "https://docs.aws.amazon.com/prescriptive-guidance/latest/large-migration-guide/migration-strategies.html",
+    tags: ["Migration Strategies", "Retain", "7 Rs", "Discovery"]
+  },
+  {
+    id: "aws-sap-122",
+    difficulty: "medium",
+    certId: "aws-sap",
+    domainId: "d4",
+    domainName: "Accelerate Workload Migration and Modernization",
+    title: "Moving an Application That Hardcodes IP Addresses",
+    scenario: "A legacy application's configuration files reference on-premises servers by IP address in dozens of places. The migration team wants to move it without editing every file, and the source addresses cannot be reused inside the target VPC.",
+    question: "Which approach lets the application move with minimal change?",
+    options: [
+      { id: 'A', text: "Introduce Route 53 private hosted zone records for each referenced address and update the configuration files to use those names instead of literals." },
+      { id: 'B', text: "Choose a VPC CIDR that does not overlap and configure static NAT so the original addresses continue to resolve to the migrated servers." },
+      { id: 'C', text: "Assign the original addresses as secondary private addresses on the migrated instances' network interfaces in the target VPC." },
+      { id: 'D', text: "Deploy the application into an AWS Outposts rack so the original on-premises address range is extended into the AWS environment unchanged." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "The durable fix is to remove the address coupling, and a private hosted zone lets names resolve to whatever addresses the target uses, after which the same configuration works in any environment. The edit is real but bounded, and it is the change that prevents the problem recurring. Static NAT preserves the literals but adds a translation layer to maintain forever. Secondary private addresses only work if the chosen VPC CIDR contains those addresses, which the scenario rules out. An Outposts rack is a large investment to avoid a configuration change and still requires the addresses to be unique.",
+    referenceUrl: "https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/hosted-zones-private.html",
+    tags: ["Route 53", "Private Hosted Zone", "Migration", "Legacy"]
+  },
+  {
+    id: "aws-sap-123",
+    difficulty: "medium",
+    certId: "aws-sap",
+    domainId: "d4",
+    domainName: "Accelerate Workload Migration and Modernization",
+    title: "Choosing a Container Registry Strategy Across Regions",
+    scenario: "A company deploys the same container images into four Regions. Pulls from distant Regions are slow and occasionally time out during large scaling events, and the team wants one place to publish an image.",
+    question: "Which registry configuration addresses the pull latency?",
+    options: [
+      { id: 'A', text: "Enable Amazon ECR cross-Region replication from the publishing Region to the other three." },
+      { id: 'B', text: "Enable ECR pull through cache rules in each Region so images are fetched from the publishing Region on first use and served locally afterwards." },
+      { id: 'C', text: "Publish the image to a single ECR repository and configure an Amazon CloudFront distribution in front of the registry endpoint to cache the layers." },
+      { id: 'D', text: "Publish the image into a separate ECR repository in each Region from the build pipeline, running four pushes at the end of every successful build." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "ECR replication is configured once at the registry level and copies images to the destination Regions automatically after a single push, so every Region pulls locally and the publish step stays one action. Pull through cache rules are designed for caching upstream public or private registries rather than replicating your own images, and the first pull in each Region still crosses the distance. CloudFront is not a supported way to front the registry API. Pushing four times works but couples the pipeline to the Region list and multiplies build time and failure modes.",
+    referenceUrl: "https://docs.aws.amazon.com/AmazonECR/latest/userguide/replication.html",
+    tags: ["ECR", "Replication", "Containers", "Multi-Region"]
+  },
+  {
+    id: "aws-sap-124",
+    difficulty: "hard",
+    certId: "aws-sap",
+    domainId: "d4",
+    domainName: "Accelerate Workload Migration and Modernization",
+    title: "Decomposing a Shared Database During Modernization",
+    scenario: "Three new services were extracted from a monolith but all still read and write the same Amazon RDS schema. A change to one service's tables repeatedly breaks the others, and teams cannot deploy independently.",
+    question: "Which step most directly restores independent deployability?",
+    options: [
+      { id: 'A', text: "Give each service its own schema and have it reach the others only through their APIs." },
+      { id: 'B', text: "Introduce a shared data access library that all three services depend on so that schema changes are made in one place and released to each service together." },
+      { id: 'C', text: "Add database views for each service so every service reads through its own view and is insulated from changes made to the underlying physical tables." },
+      { id: 'D', text: "Move the schema to Amazon Aurora with several reader instances so that each service connects to its own reader and contention between them is reduced." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "A shared database is the coupling, so independent deployability comes from giving each service exclusive ownership of its data and forcing cross-service access through published interfaces, after which a schema change affects only its owner. A shared library makes the coupling explicit but every schema change still requires a coordinated release across all three. Views help with read compatibility but writes still collide and the physical schema remains shared. Extra readers address contention, which is a performance concern rather than the deployment coupling described.",
+    referenceUrl: "https://docs.aws.amazon.com/prescriptive-guidance/latest/modernization-data-persistence/database-per-service.html",
+    tags: ["Microservices", "Database per Service", "Modernization", "Decoupling"]
+  },
+  {
+    id: "aws-sap-125",
+    difficulty: "easy",
+    certId: "aws-sap",
+    domainId: "d4",
+    domainName: "Accelerate Workload Migration and Modernization",
+    title: "Tracking Progress of a Large Migration Programme",
+    scenario: "A programme manager coordinates 15 migration waves run by four delivery teams using different tools. They need one view of which servers and applications have moved, which are in progress, and which have not started.",
+    question: "Which service provides that consolidated status?",
+    options: [
+      { id: 'A', text: "AWS Migration Hub, which tracks migration status per application and per wave across the AWS and partner migration tools that the four delivery teams use." },
+      { id: 'B', text: "AWS Systems Manager OpsCenter, which aggregates operational items so the programme manager can track each migration task as a work item to closure." },
+      { id: 'C', text: "AWS CloudFormation StackSets, whose deployment status per account and Region shows which of the migration waves have completed successfully so far." },
+      { id: 'D', text: "Amazon CloudWatch dashboards, built from the metrics that each of the four delivery teams publishes from its own chosen migration tooling." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Migration Hub is the programme-level tracker: it receives status from Application Migration Service, Database Migration Service, and supported partner tools, and presents progress grouped by application and wave in one place regardless of which team used which tool. OpsCenter manages operational work items rather than migration state. StackSets report infrastructure deployment, which is not the same as a server or application having migrated. Custom CloudWatch dashboards require each team to publish comparable metrics, which is the inconsistency being solved.",
+    referenceUrl: "https://docs.aws.amazon.com/migrationhub/latest/ug/whatishub.html",
+    tags: ["Migration Hub", "Programme Management", "Tracking", "Migration"]
+  }
+];
+
+export default AWS_SAP_QUESTIONS;

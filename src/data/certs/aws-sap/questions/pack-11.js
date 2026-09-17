@@ -1,0 +1,530 @@
+export const AWS_SAP_QUESTIONS = [
+  {
+    id: "aws-sap-251",
+    difficulty: "medium",
+    certId: "aws-sap",
+    domainId: "d1",
+    domainName: "Design Solutions for Organizational Complexity",
+    title: "Rolling Out a Policy Without Breaking Workloads",
+    scenario: "A platform team wants to introduce a restrictive service control policy across 80 accounts. A previous rollout broke several production workloads because nobody knew which API calls the policy would deny.",
+    question: "How should the policy be introduced safely?",
+    options: [
+      { id: 'A', text: "Apply the policy to a test organizational unit first, analyse CloudTrail for denials, then widen the scope in stages." },
+      { id: 'B', text: "Apply the policy at the organization root during a maintenance window so that any workload it breaks is discovered while the teams are available to respond." },
+      { id: 'C', text: "Apply the policy in audit mode at the organization root so that denied calls are recorded but permitted, then switch it to enforcing once the record is clean." },
+      { id: 'D', text: "Apply the policy to every account simultaneously and report affected resources with AWS Config." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Staged rollout with evidence between stages is the safe path: a small organizational unit limits the blast radius, CloudTrail shows exactly which calls the policy would have denied, and each widening step is informed by the previous one. Applying at the root in a window still breaks production, only at a more convenient hour. Service control policies have no audit or dry-run mode, so that option describes a capability that does not exist. Simultaneous application maximizes the blast radius and AWS Config reports resource state rather than denied API calls.",
+    referenceUrl: "https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scps.html",
+    tags: ["SCP", "Rollout", "Organizations", "Governance"]
+  },
+  {
+    id: "aws-sap-252",
+    difficulty: "hard",
+    certId: "aws-sap",
+    domainId: "d1",
+    domainName: "Design Solutions for Organizational Complexity",
+    title: "Serving Private APIs to a Partner Organization",
+    scenario: "A company must let a partner's on-premises systems call an internal API hosted in its VPC. The partner has no AWS presence, the traffic must not cross the internet, and the company will not extend its network into the partner's.",
+    question: "Which connectivity design fits?",
+    options: [
+      { id: 'A', text: "Terminate a Direct Connect hosted connection from the partner on a Direct Connect gateway, reaching the API through a private virtual interface." },
+      { id: 'B', text: "Publish the API through a PrivateLink endpoint service so the partner creates an interface endpoint in a VPC and reaches it from their own data centre." },
+      { id: 'C', text: "Establish a Site-to-Site VPN between the partner's data centre and the company's VPC so that the API is reachable across the encrypted tunnel." },
+      { id: 'D', text: "Publish the API through a public Amazon API Gateway endpoint protected by mutual TLS so that only the partner's client certificates are accepted." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "With no AWS presence on the partner side, a dedicated circuit is what keeps traffic off the internet, and terminating it on a Direct Connect gateway with a private virtual interface reaches the VPC without joining the two corporate networks. PrivateLink is the right answer when the consumer has AWS accounts, which this partner does not. A Site-to-Site VPN traverses the internet, which the requirement forbids. A public API Gateway endpoint with mutual TLS authenticates well but still sends traffic over the internet.",
+    referenceUrl: "https://docs.aws.amazon.com/directconnect/latest/UserGuide/direct-connect-gateways-intro.html",
+    tags: ["Direct Connect", "Partner Connectivity", "Networking", "Hybrid"]
+  },
+  {
+    id: "aws-sap-253",
+    difficulty: "medium",
+    certId: "aws-sap",
+    domainId: "d1",
+    domainName: "Design Solutions for Organizational Complexity",
+    title: "Auditing Who Can Reach a Sensitive Role",
+    scenario: "A security review must establish every principal, inside and outside the organization, that could assume a highly privileged role in the production account, accounting for trust policies, conditions, and nested assumptions.",
+    question: "Which capability answers this reliably?",
+    options: [
+      { id: 'A', text: "IAM Access Analyzer findings for the role, which use automated reasoning over its trust policy to report who could assume it rather than who already has." },
+      { id: 'B', text: "A CloudTrail query over the last 90 days listing every principal that has successfully called sts:AssumeRole against the privileged role in production." },
+      { id: 'C', text: "The IAM policy simulator, evaluated for each principal in the organization against the sts:AssumeRole action on the privileged role's Amazon Resource Name." },
+      { id: 'D', text: "The IAM credential report for the production account, which lists every principal along with the roles that each of them is currently entitled to assume." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Access Analyzer applies automated reasoning to the trust policy and reports access that is possible rather than access that happened, which is what a review of who could assume the role requires. CloudTrail shows who did assume it, missing anyone who has the ability but has not used it. The policy simulator evaluates one principal at a time, so covering an organization by hand is impractical and error-prone. The credential report lists users and their credential state and does not enumerate role assumption paths.",
+    referenceUrl: "https://docs.aws.amazon.com/IAM/latest/UserGuide/what-is-access-analyzer.html",
+    tags: ["IAM Access Analyzer", "Audit", "Trust Policy", "Security"]
+  },
+  {
+    id: "aws-sap-254",
+    difficulty: "medium",
+    certId: "aws-sap",
+    domainId: "d1",
+    domainName: "Design Solutions for Organizational Complexity",
+    title: "Choosing a Model for Shared Container Platforms",
+    scenario: "A platform team offers Kubernetes to 20 product teams. Teams need isolation from each other's failures and their own access control, while the platform team wants to limit how many clusters it operates.",
+    question: "Which tenancy model balances these concerns?",
+    options: [
+      { id: 'A', text: "A small number of clusters shared by teams with namespaces, quotas, network policies, and role bindings per team." },
+      { id: 'B', text: "One cluster per product team so each team is completely isolated from the others." },
+      { id: 'C', text: "One cluster per environment shared by every team, with each team granted cluster administrator rights so that it can manage its own workloads independently." },
+      { id: 'D', text: "One cluster for the whole organization with every team deploying into the default namespace and coordinating through the platform team's change process." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Soft multi-tenancy on a handful of clusters gives each team a namespace with resource quotas bounding noisy neighbours, network policies restricting traffic, and role bindings scoping access, while the platform team operates far fewer clusters than one per team. A cluster per team is the strongest isolation but multiplies upgrade and operational load by twenty. Granting every team cluster administrator rights removes the isolation entirely. A single default namespace provides no separation and turns every deployment into a coordination problem.",
+    referenceUrl: "https://docs.aws.amazon.com/eks/latest/userguide/multi-tenancy.html",
+    tags: ["EKS", "Multi-Tenancy", "Platform", "Kubernetes"]
+  },
+  {
+    id: "aws-sap-255",
+    difficulty: "hard",
+    certId: "aws-sap",
+    domainId: "d1",
+    domainName: "Design Solutions for Organizational Complexity",
+    title: "Recovering Control of an Organization",
+    scenario: "The only person with management account access has left and the credentials are unavailable. The organization has 60 member accounts running production workloads and the company must regain administrative control.",
+    question: "What is the correct path to recovery?",
+    options: [
+      { id: 'A', text: "Perform root password recovery on the management account using its registered email address and phone number, then enable proper access afterwards." },
+      { id: 'B', text: "Ask AWS Support to transfer the organization's management to one of the member accounts so that control is restored without the original credentials." },
+      { id: 'C', text: "Promote a member account to become the new management account through the Organizations console using an existing member account administrator." },
+      { id: 'D', text: "Create a new organization and invite the 60 member accounts into it, leaving the original organization dormant once the accounts have been moved across." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Root recovery through the registered email and phone is the supported path back into an account whose credentials are lost, which is why keeping those contact details current and monitored is a landing zone requirement; afterwards the company should establish federated administrative access and hardware factors on root. AWS Support does not transfer organization management as a recovery mechanism. There is no promotion path from member to management account. Rebuilding into a new organization would require removing each account from the existing one, which itself needs management account access.",
+    referenceUrl: "https://docs.aws.amazon.com/accounts/latest/reference/root-user-password-recovery.html",
+    tags: ["Root User", "Organizations", "Recovery", "Governance"]
+  },
+  {
+    id: "aws-sap-256",
+    difficulty: "easy",
+    certId: "aws-sap",
+    domainId: "d1",
+    domainName: "Design Solutions for Organizational Complexity",
+    title: "Applying Controls to the Management Account",
+    scenario: "A security team drafts a service control policy denying risky actions and asks whether attaching it at the organization root will also constrain principals acting in the management account itself.",
+    question: "What is the correct answer?",
+    options: [
+      { id: 'A', text: "No, service control policies never restrict principals in the management account, which is why it should run no workloads or hold standing privilege." },
+      { id: 'B', text: "Yes, a policy attached at the organization root applies to every account beneath it, and the management account sits beneath the root like any other." },
+      { id: 'C', text: "Yes, but only for principals other than the root user, so the account's own root user retains the ability to perform the actions being denied." },
+      { id: 'D', text: "No, unless all features are enabled in the organization, in which case policies attached at the root do apply to the management account as well." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "The management account is never affected by service control policies regardless of where they are attached or which features are enabled, and that exemption is the reason the recommended design keeps workloads and standing privilege out of it. The policy does apply to every member account beneath the root, but the management account is exempt rather than treated like the others. The exemption covers all principals in that account, not just non-root ones, and enabling all features does not change it.",
+    referenceUrl: "https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scps.html",
+    tags: ["SCP", "Management Account", "Organizations", "Governance"]
+  },
+  {
+    id: "aws-sap-257",
+    difficulty: "hard",
+    certId: "aws-sap",
+    domainId: "d2",
+    domainName: "Design for New Solutions",
+    title: "Choosing a Write Path for Very High Ingest",
+    scenario: "A new platform must accept 1 million small events per second from mobile clients, durably, with consumers reading them minutes later for batch analytics. Cost per event matters more than latency.",
+    question: "Which ingest path suits the requirement?",
+    options: [
+      { id: 'A', text: "Amazon Data Firehose buffering the events and delivering them to Amazon S3 in batches." },
+      { id: 'B', text: "Amazon Kinesis Data Streams with enough shards for the volume, read by a consumer application that writes the events to Amazon S3 for the batch analytics." },
+      { id: 'C', text: "Amazon SQS with a consumer fleet writing the events into Amazon S3, scaled to keep pace with the incoming volume from the mobile clients throughout the day." },
+      { id: 'D', text: "Amazon DynamoDB with on-demand capacity accepting each event as an item, with DynamoDB Streams feeding the batch analytics process that runs later." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Firehose is fully managed, scales without shard management, buffers and compresses before delivery, and is the cheapest path when consumers read minutes later rather than in real time. Kinesis Data Streams would work but requires shard capacity planning and a consumer application to operate, for a real-time capability the workload does not need. An SQS fan-in plus a consumer fleet costs more per message at this volume and adds compute to run. DynamoDB priced per write request is far more expensive than object storage for events that are only read in batch.",
+    referenceUrl: "https://docs.aws.amazon.com/firehose/latest/dev/what-is-this-service.html",
+    tags: ["Data Firehose", "Ingest", "S3", "Cost Optimization"]
+  },
+  {
+    id: "aws-sap-258",
+    difficulty: "medium",
+    certId: "aws-sap",
+    domainId: "d2",
+    domainName: "Design for New Solutions",
+    title: "Making a Stateless Service Truly Stateless",
+    scenario: "A service is described as stateless but instances cache computed pricing locally and results differ depending on which instance answers. The team wants consistent answers and the ability to replace instances freely.",
+    question: "Which change achieves consistency?",
+    options: [
+      { id: 'A', text: "Move the computed pricing into a shared cache with a defined invalidation path, so every instance reads the same value." },
+      { id: 'B', text: "Enable sticky sessions on the load balancer so that each client consistently reaches the same instance and therefore sees the same cached pricing values." },
+      { id: 'C', text: "Shorten the local cache's time to live so that the values held by different instances diverge for a smaller period before they are refreshed from the source." },
+      { id: 'D', text: "Increase the number of instances so the load is spread more evenly." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Divergent answers come from per-instance state, so moving the cache to a shared store with an explicit invalidation path makes every instance read the same value and lets instances be replaced without affecting correctness. Sticky sessions make one client's experience consistent while different clients still see different prices, and they undermine the ability to replace instances. A shorter time to live narrows the divergence window without removing it and increases load on the source. More instances increase the number of independent caches and make divergence more likely.",
+    referenceUrl: "https://docs.aws.amazon.com/whitepapers/latest/running-containerized-microservices/stateless-and-stateful-containers.html",
+    tags: ["Stateless", "Caching", "Consistency", "Design"]
+  },
+  {
+    id: "aws-sap-259",
+    difficulty: "medium",
+    certId: "aws-sap",
+    domainId: "d2",
+    domainName: "Design for New Solutions",
+    title: "Protecting a Database Behind a Public API",
+    scenario: "An architect must place an Aurora cluster so that a public API can reach it but nothing on the internet can, and so that an engineer's compromised laptop credentials cannot connect to it directly from outside the network.",
+    question: "Which placement and access design meets this?",
+    options: [
+      { id: 'A', text: "Put the cluster in private subnets with a security group allowing only the application tier, and use IAM authentication for engineer access through a bastion." },
+      { id: 'B', text: "Put the cluster in private subnets and allow connections from the corporate address range so engineers can connect directly when they need to investigate a problem." },
+      { id: 'C', text: "Put the cluster in public subnets with publicly accessible disabled, relying on that setting to prevent any connection originating from outside the VPC." },
+      { id: 'D', text: "Put the cluster in private subnets and publish it through an RDS Proxy endpoint so connections are pooled and the cluster itself is never reached directly." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Private subnets remove any route from the internet, a security group referencing the application tier's group restricts who may connect inside the VPC, and requiring engineers to come through a controlled path with IAM authentication means stolen static credentials are not enough. Allowing the corporate range widens access to anyone on that network and does not help against a compromised laptop inside it. Public subnets with the flag disabled relies on one setting rather than network placement. RDS Proxy pools connections but does not itself constrain who may reach it.",
+    referenceUrl: "https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.IAMDBAuth.html",
+    tags: ["Aurora", "Network Isolation", "IAM Authentication", "Security"]
+  },
+  {
+    id: "aws-sap-260",
+    difficulty: "hard",
+    certId: "aws-sap",
+    domainId: "d2",
+    domainName: "Design for New Solutions",
+    title: "Choosing Consistency for a Cross-Service Workflow",
+    scenario: "An architect designs a booking flow spanning payment, inventory, and notification services, each with its own database. A failure after payment but before inventory must not leave the customer charged for an unreserved item.",
+    question: "Which approach maintains correctness across the services?",
+    options: [
+      { id: 'A', text: "A saga that issues a compensating refund when the inventory step fails after payment has completed." },
+      { id: 'B', text: "A two-phase commit coordinated across the three services' databases so that the whole booking either commits everywhere or is rolled back everywhere." },
+      { id: 'C', text: "A single shared database used by all three services so that the booking is written inside one transaction spanning payment, inventory, and notification." },
+      { id: 'D', text: "An eventually consistent design in which the reconciliation job detects and corrects any booking whose payment and inventory records disagree overnight." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Distributed transactions are impractical across independent services, so the saga pattern sequences local transactions and defines a compensating action for each, meaning a failed inventory step triggers a refund and the customer is never charged for nothing. Two-phase commit requires a coordinator and locks held across services, which does not scale and couples their availability. A shared database removes service independence and reintroduces the coupling microservices exist to avoid. Overnight reconciliation leaves the customer incorrectly charged for hours, which the requirement forbids.",
+    referenceUrl: "https://docs.aws.amazon.com/prescriptive-guidance/latest/cloud-design-patterns/saga.html",
+    tags: ["Saga", "Distributed Transactions", "Microservices", "Consistency"]
+  },
+  {
+    id: "aws-sap-261",
+    difficulty: "medium",
+    certId: "aws-sap",
+    domainId: "d2",
+    domainName: "Design for New Solutions",
+    title: "Deciding How to Expose an Internal Service Externally",
+    scenario: "An internal gRPC service must be reachable by external clients over the internet, with TLS termination, request authorization, and protection from abusive callers, without rewriting the service's protocol.",
+    question: "Which entry point supports gRPC with these capabilities?",
+    options: [
+      { id: 'A', text: "An Application Load Balancer with a gRPC target group, AWS WAF attached, and TLS terminated at the listener." },
+      { id: 'B', text: "An Amazon API Gateway REST API with a private integration to the service, translating each external request into the gRPC call that the service expects." },
+      { id: 'C', text: "An Amazon API Gateway HTTP API with a VPC link to the service so that the external clients reach it through the managed endpoint over the internet." },
+      { id: 'D', text: "A Network Load Balancer with a TLS listener forwarding to the service." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "An Application Load Balancer supports gRPC target groups natively, including HTTP/2 end to end and gRPC health checks, and it accepts an AWS WAF web access control list for abuse protection while terminating TLS at the listener. API Gateway REST and HTTP APIs do not proxy gRPC, so both would require protocol translation or a rewrite. A Network Load Balancer carries the traffic and terminates TLS but offers no request-level authorization or WAF integration.",
+    referenceUrl: "https://docs.aws.amazon.com/elasticloadbalancing/latest/application/create-target-group.html",
+    tags: ["Application Load Balancer", "gRPC", "WAF", "Networking"]
+  },
+  {
+    id: "aws-sap-262",
+    difficulty: "easy",
+    certId: "aws-sap",
+    domainId: "d2",
+    domainName: "Design for New Solutions",
+    title: "Selecting a Pattern for Scheduled Data Export",
+    scenario: "A nightly job must export 200 GB from Amazon RDS into Amazon S3 as Parquet for the analytics team, with schema discovery and no servers to manage, and the team has no Spark experience.",
+    question: "Which service fits the job?",
+    options: [
+      { id: 'A', text: "AWS Glue with a crawler for schema discovery and an ETL job writing Parquet to S3." },
+      { id: 'B', text: "Amazon EMR with a Spark step scheduled nightly to read from the database and write the Parquet output into the analytics bucket for the team to query." },
+      { id: 'C', text: "An AWS Lambda function scheduled nightly that reads the tables in pages and writes the resulting Parquet objects into the analytics bucket in Amazon S3." },
+      { id: 'D', text: "AWS Database Migration Service with a full load task targeting Amazon S3, run each night to produce the export the analytics team requires." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Glue is serverless, crawlers discover and register the schema in the Data Catalog, and its visual and generated jobs write Parquet without the team writing Spark themselves, which matches both the requirement and the skills available. EMR delivers the same result but exposes cluster management and Spark expertise the team lacks. A Lambda function cannot reliably move 200 GB within its runtime limit. DMS can target S3 in Parquet and is a reasonable alternative, but it is built for migration and replication rather than a nightly analytics export with schema discovery.",
+    referenceUrl: "https://docs.aws.amazon.com/glue/latest/dg/what-is-glue.html",
+    tags: ["AWS Glue", "ETL", "Parquet", "Analytics"]
+  },
+  {
+    id: "aws-sap-263",
+    difficulty: "medium",
+    certId: "aws-sap",
+    domainId: "d2",
+    domainName: "Design for New Solutions",
+    title: "Limiting What a Compromised Function Can Reach",
+    scenario: "A Lambda function processes untrusted input from the internet. The security team wants to bound what an exploited function could do, including which AWS APIs it can call and which network destinations it can reach.",
+    question: "Which combination bounds the blast radius?",
+    options: [
+      { id: 'A', text: "Give the function a minimal execution role, attach it to private subnets with restrictive security group egress, and use endpoint policies on what it can reach." },
+      { id: 'B', text: "Give the function a minimal execution role and enable AWS X-Ray tracing so that any unexpected calls the function makes are visible to the security team." },
+      { id: 'C', text: "Run the function outside a VPC so it has no path into the company's private network, and rely on its execution role to bound what AWS APIs it can call." },
+      { id: 'D', text: "Increase the function's reserved concurrency limit so that an exploited invocation cannot consume the account's entire concurrency pool during an attack." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Bounding blast radius needs both identity and network controls: a minimal execution role limits which AWS APIs are callable, VPC attachment with restrictive egress limits which destinations are reachable, and endpoint policies limit what can be done through the endpoints it does reach. Tracing gives visibility after the fact rather than restriction. Running outside a VPC does remove private network reach but leaves unrestricted internet egress for exfiltration. Concurrency is a throughput control and says nothing about what an exploited invocation can reach.",
+    referenceUrl: "https://docs.aws.amazon.com/lambda/latest/dg/security-best-practices.html",
+    tags: ["Lambda", "Blast Radius", "Network Security", "Least Privilege"]
+  },
+  {
+    id: "aws-sap-264",
+    difficulty: "hard",
+    certId: "aws-sap",
+    domainId: "d3",
+    domainName: "Continuous Improvement for Existing Solutions",
+    title: "Reducing the Cost of an Over-Replicated Dataset",
+    scenario: "A dataset is stored in S3 Standard, replicated to two other Regions, backed up nightly to a vault, and snapshotted from a database that also holds it. A review finds the same data protected four times at significant cost.",
+    question: "Which approach reduces cost responsibly?",
+    options: [
+      { id: 'A', text: "Define the recovery point and time objectives, then keep only the copies those objectives require and remove the rest." },
+      { id: 'B', text: "Move every copy to a colder storage class so the total cost falls." },
+      { id: 'C', text: "Remove the cross-Region replicas, since the nightly backup and the database snapshots together already provide protection against the loss of a Region." },
+      { id: 'D', text: "Remove the nightly backups, since S3 versioning and the cross-Region replicas together already provide recovery from both deletion and regional failure." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Which copies are needed follows from the objectives, and the objectives have not been stated, so deciding what to remove before defining them is guesswork against an unknown requirement; once the recovery point and time targets and the threats to protect against are written down, the redundant copies are obvious. Moving everything to colder storage reduces the rate while preserving redundancy nobody has justified. Removing the replicas or the backups each assumes a particular objective and threat model that has not been established, and either could leave a genuine gap.",
+    referenceUrl: "https://docs.aws.amazon.com/wellarchitected/latest/reliability-pillar/plan-for-disaster-recovery-dr.html",
+    tags: ["Disaster Recovery", "Cost Optimization", "RPO", "Data Protection"]
+  },
+  {
+    id: "aws-sap-265",
+    difficulty: "medium",
+    certId: "aws-sap",
+    domainId: "d3",
+    domainName: "Continuous Improvement for Existing Solutions",
+    title: "Speeding Up a Pipeline That Waits on Approvals",
+    scenario: "A deployment pipeline takes four days from commit to production, of which three and a half are spent waiting for a change advisory board that has never rejected a low-risk change in two years.",
+    question: "Which change reduces lead time without increasing risk?",
+    options: [
+      { id: 'A', text: "Classify changes by risk and let low-risk changes deploy automatically behind tests, progressive delivery and automatic rollback, reserving human review for the rest." },
+      { id: 'B', text: "Schedule the change advisory board to meet daily rather than weekly so that the waiting time before each low-risk change is approved is substantially reduced." },
+      { id: 'C', text: "Batch the low-risk changes into a single weekly release so that the advisory board reviews one larger change instead of reviewing many smaller ones." },
+      { id: 'D', text: "Delegate approval authority for low-risk changes to the team's engineering manager so that the review still happens but without waiting for the board to convene." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "The board has demonstrably added no risk reduction for low-risk changes over two years, so replacing that gate with automated tests plus progressive delivery and automatic rollback substitutes a control that actually catches problems, while genuinely risky changes still receive human review. Meeting daily shortens the queue without questioning whether the gate helps. Batching creates larger, riskier releases, which is the opposite of what safe delivery needs. Delegating to one manager keeps a manual gate and creates a single bottleneck.",
+    referenceUrl: "https://docs.aws.amazon.com/wellarchitected/latest/operational-excellence-pillar/oe_dev_integ_deploy_freq.html",
+    tags: ["CI/CD", "Lead Time", "Progressive Delivery", "Operational Excellence"]
+  },
+  {
+    id: "aws-sap-266",
+    difficulty: "medium",
+    certId: "aws-sap",
+    domainId: "d3",
+    domainName: "Continuous Improvement for Existing Solutions",
+    title: "Handling a Noisy Neighbour in a Shared Cluster",
+    scenario: "One team's batch job on a shared Amazon EKS cluster periodically consumes most of the node capacity, causing other teams' pods to be evicted and their services to degrade during the batch window.",
+    question: "Which controls prevent one workload starving the others? (Choose TWO)",
+    options: [
+      { id: 'A', text: "Set resource requests and limits on every workload so the scheduler reserves capacity." },
+      { id: 'B', text: "Apply a ResourceQuota to each namespace capping the total CPU and memory its pods may consume." },
+      { id: 'C', text: "Increase the cluster's node count so that there is enough spare capacity for the batch job and the other teams' services to run at the same time." },
+      { id: 'D', text: "Move the batch job to a dedicated node group so that it runs on separate nodes from the other teams' services during the batch window each day." },
+      { id: 'E', text: "Set a pod disruption budget on each of the affected services so that Kubernetes avoids evicting too many of their pods at the same time." }
+    ],
+    correctAnswers: ['A', 'B'],
+    type: "multiple",
+    explanation: "Requests make the scheduler reserve capacity so a pod is not placed where it cannot get what it needs, and limits plus a namespace quota cap what any one team can consume, which together stop the batch job crowding others out. Adding nodes raises cost and the unbounded job simply grows to fill them. A dedicated node group with taints is a legitimate additional measure but isolates only this known job rather than bounding every workload. Pod disruption budgets influence voluntary evictions and do not prevent resource starvation.",
+    referenceUrl: "https://docs.aws.amazon.com/eks/latest/userguide/multi-tenancy.html",
+    tags: ["EKS", "Resource Quotas", "Multi-Tenancy", "Reliability"]
+  },
+  {
+    id: "aws-sap-267",
+    difficulty: "hard",
+    certId: "aws-sap",
+    domainId: "d3",
+    domainName: "Continuous Improvement for Existing Solutions",
+    title: "An Outage Caused by a Certificate Expiry",
+    scenario: "A production outage was traced to an expired TLS certificate on an internal service. The certificate was issued manually 12 months earlier and nobody was tracking it. Several similar certificates exist across the estate.",
+    question: "Which change prevents a recurrence across the estate?",
+    options: [
+      { id: 'A', text: "Issue certificates from AWS Private CA through ACM so renewal is managed, and alarm on the days to expiry metric for anything still issued manually." },
+      { id: 'B', text: "Create a calendar reminder 30 days before each of the known certificates expires so that an engineer renews it before the expiry date is reached." },
+      { id: 'C', text: "Extend the validity period of each certificate to five years so that renewals are required far less often and the risk of another expiry is substantially reduced." },
+      { id: 'D', text: "Add a CloudWatch Synthetics canary against each internal service so that a certificate expiry is detected quickly once it has begun causing connection failures." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Managed issuance and renewal removes the human step that failed, and alarming on the days to expiry metric covers anything not yet migrated, so the fix addresses both the cause and the remaining exposure. Calendar reminders depend on the same human vigilance that already failed and only cover certificates someone remembered to record. Longer validity reduces frequency while making the eventual expiry more surprising, and public trust stores are moving toward shorter lifetimes. A canary detects the outage after customers are already affected.",
+    referenceUrl: "https://docs.aws.amazon.com/acm/latest/userguide/acm-bestpractices.html",
+    tags: ["Certificate Manager", "Private CA", "Expiry", "Reliability"]
+  },
+  {
+    id: "aws-sap-268",
+    difficulty: "medium",
+    certId: "aws-sap",
+    domainId: "d3",
+    domainName: "Continuous Improvement for Existing Solutions",
+    title: "Reducing Data Transfer Cost for a Media Workload",
+    scenario: "A video platform serves large files directly from Amazon S3 to viewers worldwide. Data transfer out to the internet dominates the bill and viewers far from the bucket's Region report slow starts.",
+    question: "Which change addresses both cost and performance?",
+    options: [
+      { id: 'A', text: "Serve the files through Amazon CloudFront, which caches close to the viewer at the edge and carries lower data transfer pricing than S3 transfer to the internet." },
+      { id: 'B', text: "Replicate the bucket into several Regions and use latency-based Route 53 records so that viewers download from whichever bucket is nearest to them." },
+      { id: 'C', text: "Enable S3 Transfer Acceleration on the bucket so viewers download over the optimized AWS network path rather than across the public internet to the bucket's Region." },
+      { id: 'D', text: "Move the files into S3 Intelligent-Tiering so that the storage cost falls and the saving offsets the data transfer charges the platform is currently paying." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "CloudFront addresses both problems at once: cached objects are served from an edge location near the viewer, which fixes the slow start, and data transfer out from CloudFront is priced below S3 to the internet while origin fetches become a small fraction of requests. Regional replicas improve latency but multiply storage cost and still pay S3 internet transfer rates. Transfer Acceleration is optimized for uploads over long distances and costs extra. Intelligent-Tiering changes storage cost and leaves the dominant transfer charge untouched.",
+    referenceUrl: "https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Introduction.html",
+    tags: ["CloudFront", "Data Transfer", "Cost Optimization", "Media"]
+  },
+  {
+    id: "aws-sap-269",
+    difficulty: "medium",
+    certId: "aws-sap",
+    domainId: "d3",
+    domainName: "Continuous Improvement for Existing Solutions",
+    title: "Understanding a Sudden Rise in Lambda Cost",
+    scenario: "A Lambda function's cost tripled overnight with no code change and no increase in invocation count. The team needs to understand what changed before deciding how to respond.",
+    question: "Which explanation should be investigated first?",
+    options: [
+      { id: 'A', text: "Duration rose because a downstream dependency slowed, so the function bills for longer while waiting on it." },
+      { id: 'B', text: "The function's memory allocation was increased, which raises the price charged for each gigabyte-second the function consumes during its executions." },
+      { id: 'C', text: "Provisioned concurrency was enabled on the function, which adds a charge for keeping the execution environments initialized and ready to serve requests." },
+      { id: 'D', text: "The function began returning errors, and the resulting automatic retries tripled the number of billed executions without changing the invocation count." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Lambda charges gigabyte-seconds, so with invocations flat the cost can only rise if duration or allocated memory rose, and a downstream dependency slowing down is the common cause that requires no change on the team's side, which matches an overnight jump with no deployment. A memory increase is a configuration change, which the scenario says did not happen. Provisioned concurrency would likewise be a deliberate change. Retries do increase billed executions, but asynchronous retries would also raise the invocation count the team says is unchanged.",
+    referenceUrl: "https://docs.aws.amazon.com/lambda/latest/operatorguide/computing-power.html",
+    tags: ["Lambda", "Cost Analysis", "Duration", "Troubleshooting"]
+  },
+  {
+    id: "aws-sap-270",
+    difficulty: "hard",
+    certId: "aws-sap",
+    domainId: "d3",
+    domainName: "Continuous Improvement for Existing Solutions",
+    title: "Removing a Single Point of Failure in a Pipeline",
+    scenario: "A data pipeline runs on one EC2 instance with a cron scheduler. When the instance fails, jobs silently stop and the gap is noticed days later when reports are missing. The team wants resilience and visible failure.",
+    question: "Which redesign addresses both problems?",
+    options: [
+      { id: 'A', text: "Move the schedule to EventBridge Scheduler invoking Step Functions, and alarm on failed and missing executions." },
+      { id: 'B', text: "Place the instance in an Auto Scaling group of one so that a failed instance is replaced automatically and the cron schedule resumes on the new instance." },
+      { id: 'C', text: "Run the same cron schedule on two instances in different Availability Zones." },
+      { id: 'D', text: "Add a CloudWatch agent to the instance publishing a custom metric on each successful job, with an alarm raised when the metric stops being reported." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Managed scheduling and orchestration removes the instance from the critical path entirely, and alarming on both failed executions and the absence of an expected execution makes silent stoppage impossible. An Auto Scaling group of one restores the instance but a replacement takes minutes and cron state and in-flight work are lost. Two instances running the same cron duplicates every job, which is usually incorrect. A custom metric with a missing-data alarm fixes the visibility half while leaving the single point of failure in place.",
+    referenceUrl: "https://docs.aws.amazon.com/scheduler/latest/UserGuide/what-is-scheduler.html",
+    tags: ["EventBridge Scheduler", "Step Functions", "Resilience", "Observability"]
+  },
+  {
+    id: "aws-sap-271",
+    difficulty: "medium",
+    certId: "aws-sap",
+    domainId: "d4",
+    domainName: "Accelerate Workload Migration and Modernization",
+    title: "Migrating a Workload With Hard-Coded Hostnames",
+    scenario: "An application's configuration references on-premises servers by hostname in a naming scheme that will not exist in AWS. The team wants to move without editing dozens of configuration files across many servers.",
+    question: "Which approach minimizes configuration change?",
+    options: [
+      { id: 'A', text: "Recreate the on-premises naming scheme in a Route 53 private hosted zone pointing at the migrated resources." },
+      { id: 'B', text: "Add entries to the hosts file on each migrated server so the existing hostnames resolve to the addresses that the migrated resources have been given." },
+      { id: 'C', text: "Edit the configuration files during the migration so that each reference points at the new AWS resource names rather than the on-premises naming scheme." },
+      { id: 'D', text: "Configure a Route 53 Resolver outbound endpoint forwarding the on-premises zone." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "A private hosted zone can serve the old names inside the VPC pointing at the new resources, so every configuration file keeps working with no edits and the migration is decoupled from a later renaming exercise. Hosts file entries achieve the same locally but must be maintained per server and drift silently. Editing the configuration is the work being avoided and risks missing a reference. An outbound forwarding rule sends queries to the on-premises resolvers, which after migration no longer hold the right answers.",
+    referenceUrl: "https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/hosted-zones-private.html",
+    tags: ["Route 53", "Private Hosted Zone", "Migration", "Legacy"]
+  },
+  {
+    id: "aws-sap-272",
+    difficulty: "hard",
+    certId: "aws-sap",
+    domainId: "d4",
+    domainName: "Accelerate Workload Migration and Modernization",
+    title: "Deciding Between Aurora and RDS for a Migration Target",
+    scenario: "A PostgreSQL database is being migrated. It needs high read throughput, fast failover, and storage that grows automatically, and the team wants to avoid managing replica lag and storage provisioning themselves.",
+    question: "Which target suits these requirements?",
+    options: [
+      { id: 'A', text: "Amazon Aurora PostgreSQL, whose shared storage layer gives low replica lag, fast failover, and automatic growth." },
+      { id: 'B', text: "Amazon RDS for PostgreSQL with Multi-AZ, read replicas, and storage auto scaling." },
+      { id: 'C', text: "Amazon RDS for PostgreSQL Multi-AZ DB cluster deployment, which provides two readable standby instances and faster failover than a single standby deployment." },
+      { id: 'D', text: "PostgreSQL on EC2 instances with streaming replication configured so the team retains full control of the replication topology and the storage layout." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Aurora separates compute from a distributed storage layer shared by all instances, so replicas read the same storage and lag is typically milliseconds, failover promotes a replica in seconds, and storage grows automatically without provisioning. RDS with read replicas uses asynchronous replication with meaningfully higher lag and separate storage per instance. The Multi-AZ DB cluster deployment does improve failover and adds readable standbys, making it a credible alternative, but it still does not provide Aurora's shared storage or its read scaling. Self-managing on EC2 adds all the work the requirement wants removed.",
+    referenceUrl: "https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Overview.html",
+    tags: ["Aurora", "RDS", "Migration", "Databases"]
+  },
+  {
+    id: "aws-sap-273",
+    difficulty: "medium",
+    certId: "aws-sap",
+    domainId: "d4",
+    domainName: "Accelerate Workload Migration and Modernization",
+    title: "Handling Applications That Fail Their Assessment",
+    scenario: "During assessment, six applications are found to depend on an unsupported operating system that cannot run on current EC2 instance types, and the vendor no longer provides updates for it.",
+    question: "How should the migration programme treat these applications?",
+    options: [
+      { id: 'A', text: "Treat each as a separate decision, choosing to retire, repurchase, or refactor based on its business value." },
+      { id: 'B', text: "Rehost them on the oldest EC2 instance types that still support the operating system so the data centre deadline is met without any application change." },
+      { id: 'C', text: "Retain all six in the data centre until the operating system dependency is resolved, since none of them can be migrated in their current state." },
+      { id: 'D', text: "Replatform all six onto a supported operating system during the migration so they can run on current instance types once they reach AWS." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "An unsupported operating system is a business decision rather than a technical one, and the right answer differs per application: a low-value one is retired, one with a modern equivalent is repurchased, and a critical one justifies the cost of refactoring, so treating them individually is what the assessment exists to enable. Running unsupported software on old instance types carries security risk and defers the problem. Retaining all six assumes none can be resolved. Replatforming all six assumes every one is worth the effort, which the assessment has not established.",
+    referenceUrl: "https://docs.aws.amazon.com/prescriptive-guidance/latest/migration-portfolio-discovery/portfolio-analysis.html",
+    tags: ["Assessment", "Migration Strategies", "Legacy", "Portfolio"]
+  },
+  {
+    id: "aws-sap-274",
+    difficulty: "medium",
+    certId: "aws-sap",
+    domainId: "d4",
+    domainName: "Accelerate Workload Migration and Modernization",
+    title: "Replicating Servers Across a Constrained Link",
+    scenario: "Application Migration Service replication for 80 servers saturates the company's internet circuit during business hours, affecting staff. The migration must continue but the disruption cannot.",
+    question: "Which change resolves the contention?",
+    options: [
+      { id: 'A', text: "Apply bandwidth throttling to the replication settings and stage the servers so that the heaviest initial sync happens outside business hours." },
+      { id: 'B', text: "Move the replication traffic onto a new AWS Direct Connect connection so that it no longer shares capacity with the staff internet traffic at any time of day." },
+      { id: 'C', text: "Pause replication during business hours and resume it each evening so that the circuit carries only staff traffic while people are working." },
+      { id: 'D', text: "Reduce the number of servers replicating concurrently to ten so the aggregate bandwidth consumed by the replication falls below the available capacity." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Throttling caps what replication consumes so staff traffic is protected at all times, and staging the servers concentrates the heavy initial sync outside business hours, which keeps the migration moving without disruption. A Direct Connect connection is the strongest answer but typically takes weeks to provision, which a migration already under way cannot wait for. Pausing replication during the day stops continuous data protection and lengthens each cutover's catch-up. Reducing concurrency helps but without a throttle the ten still consume whatever is available.",
+    referenceUrl: "https://docs.aws.amazon.com/mgn/latest/ug/replication-settings.html",
+    tags: ["Application Migration Service", "Bandwidth", "Replication", "Migration"]
+  },
+  {
+    id: "aws-sap-275",
+    difficulty: "easy",
+    certId: "aws-sap",
+    domainId: "d4",
+    domainName: "Accelerate Workload Migration and Modernization",
+    title: "Choosing What to Modernize After a Lift and Shift",
+    scenario: "A company has rehosted 300 servers onto EC2. Costs are higher than expected and leadership asks where modernization effort should go first now that everything is running in AWS.",
+    question: "Which modernization step usually returns the most soonest?",
+    options: [
+      { id: 'A', text: "Move self-managed databases and middleware onto managed services, which removes the largest operational burden." },
+      { id: 'B', text: "Rewrite the largest applications as microservices so that each component can be scaled and deployed independently of the rest of the application." },
+      { id: 'C', text: "Move every workload onto containers so that instance density improves and the same applications run on fewer EC2 instances than they do today." },
+      { id: 'D', text: "Move every workload onto serverless functions and pay per request." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "After a rehost the self-managed data and middleware tier usually carries the most operational cost and the most avoidable risk, and moving it to managed services returns effort quickly without changing application code. A microservices rewrite is the largest and slowest change with benefits that take years to appear. Containerizing everything improves density but is a broad change whose return varies by workload. Moving every workload to functions assumes a request-driven shape that most rehosted applications do not have.",
+    referenceUrl: "https://docs.aws.amazon.com/prescriptive-guidance/latest/modernization-pathways/welcome.html",
+    tags: ["Modernization", "Managed Services", "Prioritization", "Post-Migration"]
+  }
+];
+
+export default AWS_SAP_QUESTIONS;

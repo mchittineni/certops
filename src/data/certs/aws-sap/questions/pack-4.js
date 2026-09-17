@@ -1,0 +1,530 @@
+export const AWS_SAP_QUESTIONS = [
+  {
+    id: "aws-sap-76",
+    difficulty: "medium",
+    certId: "aws-sap",
+    domainId: "d1",
+    domainName: "Design Solutions for Organizational Complexity",
+    title: "Tag Enforcement Before Resources Exist",
+    scenario: "A company requires a CostCentre tag on every resource that supports tagging. Today an untagged resource is found by a nightly report and corrected days later, by which time the untagged spend is already unattributable in the billing data.",
+    question: "Which control stops the untagged resource being created at all?",
+    options: [
+      { id: 'A', text: "A tag policy defining the permitted values for the tag, combined with a service control policy that denies any create call when aws:RequestTag/CostCentre is absent." },
+      { id: 'B', text: "An AWS Config rule named required-tags that evaluates each resource after creation and marks any resource missing the CostCentre tag as non-compliant." },
+      { id: 'C', text: "An Amazon EventBridge rule on resource creation events that invokes a Lambda function to apply the CostCentre tag inherited from the account." },
+      { id: 'D', text: "An AWS Service Catalog launch constraint that applies the CostCentre tag to every resource created by products launched from the shared portfolio." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Only a service control policy evaluates the request before the resource exists, and the aws:RequestTag condition key lets the deny fire when the tag is missing from the create call, so unattributable spend never begins; the tag policy alongside it defines the permitted values and reports non-conformance. An AWS Config rule evaluates after creation, which is the delay being removed. An EventBridge remediation also runs after the fact and guesses the value. A Service Catalog launch constraint tags only what is launched through the catalogue, leaving everything else untagged.",
+    referenceUrl: "https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_tag-policies.html",
+    tags: ["Tag Policies", "SCP", "Governance", "Cost Allocation"]
+  },
+  {
+    id: "aws-sap-77",
+    difficulty: "hard",
+    certId: "aws-sap",
+    domainId: "d1",
+    domainName: "Design Solutions for Organizational Complexity",
+    title: "Inspecting Traffic Between Spoke VPCs",
+    scenario: "A security policy states that traffic between any two application VPCs must pass through a stateful firewall. The estate uses a Transit Gateway with 25 spoke VPC attachments and one inspection VPC running AWS Network Firewall endpoints.",
+    question: "Which Transit Gateway route table design forces the inspection?",
+    options: [
+      { id: 'A', text: "Give the spokes a route table whose only route sends all traffic to the inspection attachment, and give the inspection VPC a separate table holding the spoke routes." },
+      { id: 'B', text: "Place every attachment in one route table and add more specific routes for each spoke pair so that traffic between them is directed at the inspection attachment first." },
+      { id: 'C', text: "Enable appliance mode on each of the spoke VPC attachments so that flow symmetry is maintained and traffic is steered through the firewall endpoints." },
+      { id: 'D', text: "Associate every spoke with the default route table and propagate the inspection VPC's routes into it so the firewall becomes the preferred next hop." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Separating the route tables is what removes any direct spoke-to-spoke path: the spoke table knows only the default route to the inspection attachment, and the inspection table holds the routes back out to the spokes, so every flow traverses the firewall twice by construction. Adding pair-specific routes in a shared table scales quadratically and any missing entry silently bypasses inspection. Appliance mode is required for flow symmetry once traffic reaches the inspection VPC, but by itself it steers nothing. Propagating routes into a shared default table leaves direct spoke-to-spoke routes in place.",
+    referenceUrl: "https://docs.aws.amazon.com/vpc/latest/tgw/tgw-route-tables.html",
+    tags: ["Transit Gateway", "Network Firewall", "Inspection", "Routing"]
+  },
+  {
+    id: "aws-sap-78",
+    difficulty: "medium",
+    certId: "aws-sap",
+    domainId: "d1",
+    domainName: "Design Solutions for Organizational Complexity",
+    title: "Giving Auditors Read Access Without Standing Privilege",
+    scenario: "External auditors need to review configuration in 50 accounts for two weeks each year. The security team will not create long-lived principals for them and wants every action the auditors take to be attributable and time-bounded.",
+    question: "Which access pattern fits?",
+    options: [
+      { id: 'A', text: "Assign the auditors a time-bound IAM Identity Center permission set granting the ViewOnlyAccess and SecurityAudit policies." },
+      { id: 'B', text: "Create an IAM group in each account carrying the SecurityAudit policy and add an IAM user for each auditor, deleting the users when the review concludes." },
+      { id: 'C', text: "Share a break-glass role with the audit firm and have the firm record which staff used it." },
+      { id: 'D', text: "Export the configuration data from AWS Config to an S3 bucket each night and grant the audit firm's account read access to that bucket for the period." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "A permission set assigned through IAM Identity Center issues short-lived credentials per auditor, carries the identity into the CloudTrail role session name so every action is attributable, and is revoked by removing the assignment when the window closes. Per-account IAM users are exactly the long-lived principals the team rejected and must be created and deleted fifty times over. A shared role destroys attribution and relies on the firm's own record keeping. Exporting configuration to a bucket answers a different question, since the auditors need to review the accounts rather than a nightly extract.",
+    referenceUrl: "https://docs.aws.amazon.com/singlesignon/latest/userguide/permissionsetsconcept.html",
+    tags: ["IAM Identity Center", "Permission Sets", "Audit", "Least Privilege"]
+  },
+  {
+    id: "aws-sap-79",
+    difficulty: "hard",
+    certId: "aws-sap",
+    domainId: "d1",
+    domainName: "Design Solutions for Organizational Complexity",
+    title: "Recovering From a Deleted Production Account",
+    scenario: "An engineer removed a member account from AWS Organizations and it was subsequently closed. The company must understand what protects it from a repeat and what recovery is possible within the 90-day post-closure window.",
+    question: "Which statement about account closure is correct?",
+    options: [
+      { id: 'A', text: "A service control policy cannot block account closure, so the control is restricting who holds organizations and account permissions in the management account." },
+      { id: 'B', text: "A service control policy denying the CloseAccount action can be attached to the root, which prevents any principal in the organization from closing a member account." },
+      { id: 'C', text: "AWS Backup vault lock retains the account's resources independently of closure, so the workload can be restored into a new account at any point afterwards." },
+      { id: 'D', text: "Enabling termination protection on the account in the Organizations console prevents removal until an administrator explicitly disables the setting first." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Account closure is initiated from the management account or by the member account's root user, and service control policies do not apply to the management account, so the real safeguard is tightly restricting who holds those permissions and using delegated administration rather than broad access. A root-attached deny therefore does not stop a management account principal. Vault lock protects recovery points but closure suspends the account's resources, so cross-account copies held elsewhere are what survive. There is no account-level termination protection setting in Organizations.",
+    referenceUrl: "https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_close.html",
+    tags: ["Organizations", "Account Closure", "SCP", "Governance"]
+  },
+  {
+    id: "aws-sap-80",
+    difficulty: "medium",
+    certId: "aws-sap",
+    domainId: "d1",
+    domainName: "Design Solutions for Organizational Complexity",
+    title: "Resolving Private Endpoints From On Premises",
+    scenario: "An on-premises application must call an Amazon API Gateway private API. The API is reachable through an interface VPC endpoint. On-premises resolvers return the public API Gateway addresses, so calls fail even though the network path over Direct Connect is healthy.",
+    question: "What resolves the failure?",
+    options: [
+      { id: 'A', text: "Forward the execute-api endpoint's DNS zone to a Route 53 Resolver inbound endpoint in the VPC." },
+      { id: 'B', text: "Disable the private DNS option on the interface endpoint and have the on-premises application call the endpoint-specific DNS name that it generates." },
+      { id: 'C', text: "Add a Route 53 private hosted zone for the API's custom domain in the VPC." },
+      { id: 'D', text: "Attach a resource policy to the private API allowing the on-premises network's public address range so the requests are authorized when they arrive." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Private DNS for an interface endpoint is answered only by the VPC resolver, so on-premises clients must be pointed at it; a Route 53 Resolver inbound endpoint gives them an address in the VPC to forward the execute-api zone to, after which the name resolves to the endpoint's private addresses. Disabling private DNS and calling the endpoint-specific name works for some services but API Gateway private APIs require the host header to match, making this fragile. A private hosted zone changes resolution inside the VPC but on-premises resolvers still never consult it. A resource policy governs authorization, not name resolution, so the call still never reaches the endpoint.",
+    referenceUrl: "https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/resolver-forwarding-inbound-queries.html",
+    tags: ["Route 53 Resolver", "PrivateLink", "API Gateway", "Hybrid DNS"]
+  },
+  {
+    id: "aws-sap-81",
+    difficulty: "easy",
+    certId: "aws-sap",
+    domainId: "d1",
+    domainName: "Design Solutions for Organizational Complexity",
+    title: "Choosing Where a Guardrail Should Live",
+    scenario: "A platform team debates where to place a rule that no Amazon S3 bucket in the organization may be made public. They want the rule to apply everywhere, resist local override, and need no agent or scheduled job.",
+    question: "Where should the rule be implemented?",
+    options: [
+      { id: 'A', text: "As an S3 Block Public Access setting enabled at the account level for every current and future bucket, together with a service control policy denying any attempt to disable it." },
+      { id: 'B', text: "As an AWS Config rule deployed by a conformance pack to every account in the organization, reporting each bucket that permits public access." },
+      { id: 'C', text: "As a bucket policy applied to every existing bucket that denies the public-read and public-read-write canned access control lists explicitly." },
+      { id: 'D', text: "As a nightly Lambda function in each account that lists the buckets and removes any public access block exception that it finds on them." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Account-level Block Public Access overrides any bucket or object setting for every current and future bucket, and a service control policy denying the call that turns it off means no local administrator can override it, with no agent or job involved. A conformance pack reports rather than prevents. Per-bucket policies must be applied to every new bucket and can be edited locally. A nightly function leaves a window of exposure and is itself a job the team must operate.",
+    referenceUrl: "https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-control-block-public-access.html",
+    tags: ["S3", "Block Public Access", "SCP", "Guardrails"]
+  },
+  {
+    id: "aws-sap-82",
+    difficulty: "medium",
+    certId: "aws-sap",
+    domainId: "d2",
+    domainName: "Design for New Solutions",
+    title: "Picking a Purpose-Built Database for a Graph Workload",
+    scenario: "A fraud team needs to answer questions such as which accounts are within four hops of a known bad actor through shared devices, addresses, and payment instruments. Relationships matter more than the records themselves and queries traverse deeply.",
+    question: "Which database service suits the access pattern?",
+    options: [
+      { id: 'A', text: "Amazon Neptune, queried with openCypher or Gremlin over the relationship graph." },
+      { id: 'B', text: "Amazon DynamoDB with an adjacency list design, storing each relationship as an item and resolving hops with repeated queries on a global secondary index." },
+      { id: 'C', text: "Amazon Aurora PostgreSQL with recursive common table expressions joining the account, device, and payment instrument tables to follow each relationship." },
+      { id: 'D', text: "Amazon OpenSearch Service with nested documents, using aggregations to summarize the relationships that connect each account to the known bad actor." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Neptune is a purpose-built graph database whose storage and query engine are designed for multi-hop traversal, so a four-hop question is a single expressive query rather than an application loop. An adjacency list in DynamoDB can model the edges but each hop costs another round trip and the application reimplements traversal. Recursive queries in Aurora work correctly but degrade sharply as depth and fan-out grow, which is exactly the fraud pattern. OpenSearch excels at search and aggregation but has no traversal primitive for following arbitrary-depth relationships.",
+    referenceUrl: "https://docs.aws.amazon.com/neptune/latest/userguide/intro.html",
+    tags: ["Neptune", "Graph Database", "Purpose-Built", "Fraud"]
+  },
+  {
+    id: "aws-sap-83",
+    difficulty: "hard",
+    certId: "aws-sap",
+    domainId: "d2",
+    domainName: "Design for New Solutions",
+    title: "Keeping a Cache Warm Across a Failover",
+    scenario: "An application depends on an Amazon ElastiCache for Redis cluster. During a recent node replacement the cache emptied and the resulting flood of requests overwhelmed the database behind it. The team wants the cache to survive a node failure with its data.",
+    question: "Which configuration protects against the empty-cache stampede?",
+    options: [
+      { id: 'A', text: "Enable Multi-AZ with automatic failover on a cluster that has at least one replica per shard." },
+      { id: 'B', text: "Enable daily backups and restore the latest snapshot into each replacement node." },
+      { id: 'C', text: "Increase the node size so that the working set fits comfortably in memory and the eviction policy no longer removes entries during normal operation." },
+      { id: 'D', text: "Switch the cluster to the noeviction maxmemory policy so that cached entries are retained rather than discarded when memory pressure builds up." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "A replica holds a copy of the shard's data, so automatic failover promotes it with the working set intact and the database never sees the stampede. Daily backups restore data that is up to a day stale and the restore itself takes time during which the cache is cold. A larger node reduces eviction but does nothing when the node is replaced. The noeviction policy causes writes to fail once memory fills rather than preserving anything across a node loss.",
+    referenceUrl: "https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/AutoFailover.html",
+    tags: ["ElastiCache", "Multi-AZ", "Failover", "Resilience"]
+  },
+  {
+    id: "aws-sap-84",
+    difficulty: "medium",
+    certId: "aws-sap",
+    domainId: "d2",
+    domainName: "Design for New Solutions",
+    title: "Signing Requests Between Internal Services",
+    scenario: "An architect must secure calls between internal services behind a private Application Load Balancer. Each caller must prove its identity, credentials must rotate automatically, and adding a new caller must not require redeploying the callee.",
+    question: "Which authentication approach fits these requirements?",
+    options: [
+      { id: 'A', text: "Have callers sign requests with SigV4 using their task role credentials and authorize them in the callee with IAM." },
+      { id: 'B', text: "Issue each caller a long-lived API key from AWS Secrets Manager for the callee to compare." },
+      { id: 'C', text: "Terminate mutual TLS on the load balancer using certificates issued from a private certificate authority, with the callee reading the client certificate subject." },
+      { id: 'D', text: "Issue each caller a JSON Web Token from an Amazon Cognito user pool and have the callee validate the token signature against the pool's public keys." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "SigV4 with task role credentials means the identity is the IAM role, the credentials rotate automatically because they are temporary, and authorization is expressed in IAM policy so a new caller is granted by policy change rather than a callee deployment. API keys are long-lived shared secrets and the callee's key list changes whenever a caller is added. Mutual TLS is a sound alternative but requires certificate lifecycle management and the callee must still map subjects to permissions. A Cognito user pool is designed for application end users rather than service identities that already have IAM roles.",
+    referenceUrl: "https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_sigv.html",
+    tags: ["IAM", "SigV4", "Service Authentication", "Security"]
+  },
+  {
+    id: "aws-sap-85",
+    difficulty: "hard",
+    certId: "aws-sap",
+    domainId: "d2",
+    domainName: "Design for New Solutions",
+    title: "Handling Poison Messages in a Queue Consumer",
+    scenario: "A Lambda consumer reads from an Amazon SQS queue. One malformed message causes the function to throw, the batch is returned to the queue, and the same batch is retried indefinitely, blocking every other message behind it and driving up invocation cost.",
+    question: "Which combination resolves the blockage? (Choose TWO)",
+    options: [
+      { id: 'A', text: "Configure a dead-letter queue on the source queue with a maxReceiveCount so a repeatedly failing message is moved aside." },
+      { id: 'B', text: "Enable partial batch response by reporting the failed message identifiers so only those records return to the queue." },
+      { id: 'C', text: "Increase the queue's visibility timeout to six times the function timeout so that a slow batch is not redelivered before processing finishes." },
+      { id: 'D', text: "Increase the function's memory allocation so the malformed message is processed faster and the batch clears before the visibility timeout expires." },
+      { id: 'E', text: "Switch the queue from standard to FIFO so the malformed message is delivered only once." }
+    ],
+    correctAnswers: ['A', 'B'],
+    type: "multiple",
+    explanation: "A dead-letter queue with a receive count threshold gives the poison message somewhere to go after a bounded number of attempts, and partial batch responses stop the whole batch being retried because the function reports only the identifiers that failed. A longer visibility timeout is good practice but changes only the redelivery interval, so the loop continues more slowly. More memory does not make a malformed message parse. A FIFO queue still redelivers a message whose processing fails, and it would additionally block the message group behind it.",
+    referenceUrl: "https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html",
+    tags: ["SQS", "Lambda", "Dead-Letter Queue", "Error Handling"]
+  },
+  {
+    id: "aws-sap-86",
+    difficulty: "medium",
+    certId: "aws-sap",
+    domainId: "d2",
+    domainName: "Design for New Solutions",
+    title: "Streaming Change Data Out of a Transactional Store",
+    scenario: "A team must publish every change made to an Amazon DynamoDB table to downstream consumers for search indexing and analytics, in order per item, without the application writing to two systems and risking divergence.",
+    question: "Which mechanism delivers the changes reliably?",
+    options: [
+      { id: 'A', text: "Enable DynamoDB Streams and attach consumers through an event source mapping." },
+      { id: 'B', text: "Have the application publish an event to Amazon EventBridge inside the same code path that writes the item, so both systems receive the change together." },
+      { id: 'C', text: "Run a scheduled AWS Glue job that scans the table every five minutes and forwards any item whose last-modified attribute has changed since the previous run." },
+      { id: 'D', text: "Enable point-in-time recovery and export the table to Amazon S3 each hour so downstream consumers can compare successive exports for changes." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "DynamoDB Streams captures every item-level change in order per item, is written by the database itself so it cannot diverge from the table, and an event source mapping delivers those records to consumers with retries and checkpointing. Publishing from application code is a dual write, which is precisely the divergence risk the requirement rules out, because the write and the publish can fail independently. A five-minute scan is expensive, misses intermediate states, and cannot see deletes. Hourly exports give neither ordering nor timeliness.",
+    referenceUrl: "https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Streams.html",
+    tags: ["DynamoDB Streams", "Change Data Capture", "Event-Driven", "Integration"]
+  },
+  {
+    id: "aws-sap-87",
+    difficulty: "hard",
+    certId: "aws-sap",
+    domainId: "d2",
+    domainName: "Design for New Solutions",
+    title: "Choosing a Load Balancer for a Protocol Without HTTP",
+    scenario: "A new service accepts long-lived TCP connections from industrial devices using a proprietary binary protocol. It needs source address preservation, extremely high connection rates, and static addresses for the devices to be configured against.",
+    question: "Which load balancing option fits the protocol and requirements?",
+    options: [
+      { id: 'A', text: "A Network Load Balancer with target group client IP preservation enabled." },
+      { id: 'B', text: "An Application Load Balancer with a TCP listener and the X-Forwarded-For header enabled so the target can read the original client address from the request." },
+      { id: 'C', text: "A Gateway Load Balancer fronting the fleet so the binary traffic is passed transparently to the targets while the original addresses are preserved end to end." },
+      { id: 'D', text: "Amazon CloudFront with a custom origin so device connections terminate at the edge and are forwarded to the service over the AWS backbone network." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "A Network Load Balancer operates at layer four, so it carries any TCP protocol, sustains millions of connections per second, supports an Elastic IP per subnet for static addressing, and preserves the client address to the target. An Application Load Balancer is layer seven and has no TCP listener type; X-Forwarded-For is an HTTP header and cannot apply to a binary protocol. A Gateway Load Balancer inserts virtual appliances into a traffic path rather than serving as an application entry point. CloudFront accelerates HTTP and a small set of related protocols, not arbitrary binary TCP.",
+    referenceUrl: "https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html",
+    tags: ["Network Load Balancer", "TCP", "Client IP", "Networking"]
+  },
+  {
+    id: "aws-sap-88",
+    difficulty: "medium",
+    certId: "aws-sap",
+    domainId: "d2",
+    domainName: "Design for New Solutions",
+    title: "Isolating Tenants in a Shared Data Plane",
+    scenario: "A SaaS product stores all tenants' records in one Amazon DynamoDB table keyed by tenant id. A review requires that a bug in the application cannot return one tenant's items to another, without moving each tenant into its own table.",
+    question: "Which approach enforces the boundary below the application?",
+    options: [
+      { id: 'A', text: "Assume a per-tenant IAM role whose policy restricts dynamodb:LeadingKeys to that tenant's partition key." },
+      { id: 'B', text: "Filter every query in the data access layer on the tenant id and cover it with tests." },
+      { id: 'C', text: "Encrypt each tenant's items with a distinct AWS KMS key so that an item returned for the wrong tenant cannot be decrypted by the requesting session." },
+      { id: 'D', text: "Create a global secondary index partitioned by tenant id and require the application to read exclusively through that index rather than the base table." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "The dynamodb:LeadingKeys condition key constrains which partition key values a set of credentials may touch, so the boundary is enforced by IAM at request time and an application bug simply receives an access denied response. Filtering in the data access layer keeps the boundary inside the code that the review assumes may be buggy. Per-tenant KMS keys limit the damage of a leak but the wrong items are still returned, and DynamoDB decrypts transparently for whoever can read the table. A global secondary index changes access patterns without restricting what the credentials may read.",
+    referenceUrl: "https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/specifying-conditions.html",
+    tags: ["DynamoDB", "Multi-Tenancy", "IAM Conditions", "Isolation"]
+  },
+  {
+    id: "aws-sap-89",
+    difficulty: "easy",
+    certId: "aws-sap",
+    domainId: "d2",
+    domainName: "Design for New Solutions",
+    title: "Selecting Storage for a Write-Heavy Transaction Log",
+    scenario: "A new service appends small records to a transaction log at a sustained 40,000 IOPS with sub-millisecond latency required, from a single EC2 instance. Durability of the log matters and the volume must survive an instance replacement.",
+    question: "Which storage option meets the performance and durability needs?",
+    options: [
+      { id: 'A', text: "An Amazon EBS io2 Block Express volume provisioned at the required IOPS." },
+      { id: 'B', text: "An EC2 instance store volume on an instance type backed by NVMe solid state disks, which offers the lowest latency available to a single instance." },
+      { id: 'C', text: "An Amazon EBS gp3 volume provisioned with the maximum throughput and IOPS settings that the gp3 volume type supports for a single attachment." },
+      { id: 'D', text: "An Amazon EFS file system in General Purpose performance mode mounted by the instance so the log survives replacement of the instance itself." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "io2 Block Express supports up to 256,000 IOPS with sub-millisecond latency and 99.999 percent durability, and being an EBS volume it detaches and reattaches across an instance replacement. Instance store is fast but ephemeral, so the log is lost when the instance stops or fails, which the durability requirement forbids. A gp3 volume tops out at 16,000 IOPS, below the stated need. EFS is a shared network file system whose latency is far higher than sub-millisecond and is not suited to a high-rate append log.",
+    referenceUrl: "https://docs.aws.amazon.com/ebs/latest/userguide/provisioned-iops.html",
+    tags: ["EBS", "io2 Block Express", "IOPS", "Storage"]
+  },
+  {
+    id: "aws-sap-90",
+    difficulty: "medium",
+    certId: "aws-sap",
+    domainId: "d2",
+    domainName: "Design for New Solutions",
+    title: "Delivering Large Files to Untrusted Clients",
+    scenario: "A publisher distributes large paid video files from Amazon S3. Only subscribers may download, links must expire, and the application servers must not proxy the bytes because doing so saturates their network capacity during peak hours.",
+    question: "Which delivery mechanism satisfies these constraints?",
+    options: [
+      { id: 'A', text: "Serve the files through CloudFront using signed URLs issued by the application after it checks the subscription." },
+      { id: 'B', text: "Grant each subscriber's session temporary credentials through Amazon Cognito identity pools so the client reads the object from the bucket directly using the AWS SDK." },
+      { id: 'C', text: "Make the bucket publicly readable but give every object a long random key so that only subscribers who receive the link can locate and download the file." },
+      { id: 'D', text: "Have the application stream the object from S3 to the client on every request." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "CloudFront signed URLs let the application make the authorization decision once and then hand the client a time-limited link, so the bytes flow from the edge rather than through the application servers, and the cache also cuts origin cost. Cognito-issued credentials can work but put AWS credentials in an untrusted client and make expiry and revocation harder to reason about. An unguessable key is security through obscurity: once a link is shared it works forever for anyone. Streaming through the application is exactly the proxying that saturates the servers.",
+    referenceUrl: "https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html",
+    tags: ["CloudFront", "Signed URLs", "S3", "Content Delivery"]
+  },
+  {
+    id: "aws-sap-91",
+    difficulty: "hard",
+    certId: "aws-sap",
+    domainId: "d3",
+    domainName: "Continuous Improvement for Existing Solutions",
+    title: "Throttling Discovered Only Under Peak Load",
+    scenario: "During peak hours an application receives intermittent 400-series responses from an AWS service and retries succeed a moment later. The team needs to know which API calls are being throttled and from which principal before tuning anything.",
+    question: "Which investigation gives that answer directly?",
+    options: [
+      { id: 'A', text: "Query CloudTrail for events whose errorCode is ThrottlingException, grouped by event name and user identity." },
+      { id: 'B', text: "Enable AWS X-Ray tracing across the application and inspect the subsegments representing AWS SDK calls for those that report a fault during the peak windows." },
+      { id: 'C', text: "Review the service quotas for the account in the Service Quotas console and compare the applied quota values against the utilization metrics it publishes." },
+      { id: 'D', text: "Enable VPC flow logs on the application subnets and review the rejected flows." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "CloudTrail records the API name, the calling principal, and the error code for management events, so filtering on ThrottlingException and grouping answers both halves of the question at once. X-Ray shows that an SDK call failed and is useful for latency attribution, but it does not attribute the call to an IAM principal or name the quota. The Service Quotas console shows limits and some utilization but not which principal consumed them. VPC flow logs record network-level accepts and rejects and never see an application-layer throttling response.",
+    referenceUrl: "https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-concepts.html",
+    tags: ["CloudTrail", "Throttling", "Service Quotas", "Troubleshooting"]
+  },
+  {
+    id: "aws-sap-92",
+    difficulty: "medium",
+    certId: "aws-sap",
+    domainId: "d3",
+    domainName: "Continuous Improvement for Existing Solutions",
+    title: "Shrinking a Long Container Image Build",
+    scenario: "A CI pipeline on AWS CodeBuild rebuilds a container image on every commit. Each build reinstalls the same operating system and language dependencies from the internet, taking 11 minutes even when only application source changed.",
+    question: "Which change reduces build time most for a source-only commit?",
+    options: [
+      { id: 'A', text: "Order the Dockerfile so dependency installation sits in a layer beneath the source copy, and enable local Docker layer caching on the CodeBuild project." },
+      { id: 'B', text: "Increase the CodeBuild compute type to a larger instance class so that the dependency installation and image build steps complete faster on each commit." },
+      { id: 'C', text: "Mirror the operating system and language package repositories into Amazon S3 so that each build downloads its dependencies from inside the AWS network." },
+      { id: 'D', text: "Split the pipeline so that dependency installation runs in a nightly scheduled build and the per-commit build only compiles the application source." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Docker layer caching only helps when the layers that rarely change sit below the layers that change often, so moving dependency installation above the source copy means a source-only commit reuses the cached dependency layer and rebuilds almost nothing. A larger compute type shortens the same work rather than skipping it. A local package mirror speeds the download but the install still runs every build. Splitting into a nightly build creates an artefact the per-commit build must still fetch and does not by itself avoid the reinstall.",
+    referenceUrl: "https://docs.aws.amazon.com/codebuild/latest/userguide/build-caching.html",
+    tags: ["CodeBuild", "Docker", "Caching", "CI/CD"]
+  },
+  {
+    id: "aws-sap-93",
+    difficulty: "hard",
+    certId: "aws-sap",
+    domainId: "d3",
+    domainName: "Continuous Improvement for Existing Solutions",
+    title: "A Scaling Policy That Reacts Too Late",
+    scenario: "An Auto Scaling group behind an Application Load Balancer uses a target tracking policy on average CPU. Traffic arrives in sharp steps and users see errors for several minutes after each step while new instances boot and pass health checks.",
+    question: "Which change shortens the window during which capacity is short?",
+    options: [
+      { id: 'A', text: "Add a warm pool of pre-initialized stopped instances and scale on request count per target." },
+      { id: 'B', text: "Lower the target tracking CPU value so that scaling begins earlier and the group therefore has more headroom when the next step in traffic arrives." },
+      { id: 'C', text: "Shorten the health check grace period on the Auto Scaling group so that newly launched instances are placed into service sooner after they finish booting." },
+      { id: 'D', text: "Replace target tracking with a set of simple scaling policies keyed to CloudWatch alarms at several CPU thresholds so the group steps up in stages." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Two things cause the gap: the signal lags the load and the instance takes time to become useful. Request count per target responds immediately to a step in traffic rather than waiting for CPU to rise, and a warm pool keeps instances initialized so they enter service in seconds. Lowering the CPU target buys headroom by running more instances continuously, which costs money and still reacts late. Shortening the grace period risks putting instances into service before they are ready. Simple scaling policies react no faster and reintroduce cooldown handling that target tracking manages.",
+    referenceUrl: "https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-warm-pools.html",
+    tags: ["Auto Scaling", "Warm Pools", "Target Tracking", "Performance"]
+  },
+  {
+    id: "aws-sap-94",
+    difficulty: "medium",
+    certId: "aws-sap",
+    domainId: "d3",
+    domainName: "Continuous Improvement for Existing Solutions",
+    title: "Finding Unused Spend Across Many Accounts",
+    scenario: "A cost review must find unattached EBS volumes, idle load balancers, unassociated Elastic IP addresses, and old snapshots across 70 accounts, and produce a prioritized list rather than a wall of individual findings.",
+    question: "Which approach produces that list with the least bespoke work?",
+    options: [
+      { id: 'A', text: "Review the AWS Trusted Advisor cost optimization checks through the organization view in the management account." },
+      { id: 'B', text: "Write a Lambda function that assumes a role in each account, calls the describe APIs for each resource type, and writes the results into a central DynamoDB table for ranking." },
+      { id: 'C', text: "Use AWS Config advanced queries with an organization aggregator to select the resources whose configuration indicates that they are currently unattached or idle." },
+      { id: 'D', text: "Enable AWS Cost Anomaly Detection across the organization and review each anomaly." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Trusted Advisor already implements exactly these idle-resource checks, and with Organizations enabled the management account sees them across every member account with estimated savings attached, so the prioritized list is available without building anything. A custom Lambda collector reimplements those checks and becomes code to maintain. AWS Config advanced queries can find unattached resources and are a reasonable second choice, but they return configuration items without savings estimates or ranking. Anomaly detection finds unexpected changes in spend, not steadily wasted resources.",
+    referenceUrl: "https://docs.aws.amazon.com/awssupport/latest/user/organizational-view.html",
+    tags: ["Trusted Advisor", "Cost Optimization", "Organizations", "Waste"]
+  },
+  {
+    id: "aws-sap-95",
+    difficulty: "medium",
+    certId: "aws-sap",
+    domainId: "d3",
+    domainName: "Continuous Improvement for Existing Solutions",
+    title: "Retiring a Legacy TLS Configuration Safely",
+    scenario: "Security requires disabling TLS 1.0 and 1.1 on a public Application Load Balancer. The team does not know which clients still negotiate those versions and cannot afford to cut off a partner integration without warning.",
+    question: "What should the team do before changing the security policy?",
+    options: [
+      { id: 'A', text: "Analyse the load balancer access logs, which record the negotiated TLS protocol and cipher for each request." },
+      { id: 'B', text: "Enable AWS WAF logging on the web access control list associated with the load balancer and inspect the logged request headers for indications of old clients." },
+      { id: 'C', text: "Switch the listener to the most restrictive predefined security policy and watch for errors." },
+      { id: 'D', text: "Enable VPC flow logs on the load balancer subnets and review the rejected connection records to identify the clients that failed to complete a handshake." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "ALB access logs include the ssl_protocol and ssl_cipher fields for each TLS request along with the client address and user agent, so a query over recent logs shows precisely who is still negotiating the old versions before anything changes. WAF logs capture request details after the handshake has already succeeded and do not report the negotiated protocol. Changing the policy first and watching for errors is the outage the team is trying to avoid. Flow logs operate at the network layer and cannot see TLS version negotiation.",
+    referenceUrl: "https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-access-logs.html",
+    tags: ["Application Load Balancer", "TLS", "Access Logs", "Security"]
+  },
+  {
+    id: "aws-sap-96",
+    difficulty: "hard",
+    certId: "aws-sap",
+    domainId: "d3",
+    domainName: "Continuous Improvement for Existing Solutions",
+    title: "Hot Partition in a Time-Series Table",
+    scenario: "A DynamoDB table stores sensor events with the current date as the partition key and the timestamp as the sort key. Writes throttle heavily even though consumed capacity across the table stays well below the provisioned amount.",
+    question: "Which redesign resolves the throttling?",
+    options: [
+      { id: 'A', text: "Change the partition key to combine the sensor id with the date so writes spread across many partitions." },
+      { id: 'B', text: "Switch the table to on-demand capacity mode so that the additional throughput available on demand absorbs the concentrated writes onto the current date." },
+      { id: 'C', text: "Enable DynamoDB Accelerator in front of the table so that the cluster absorbs the incoming write traffic and flushes it to the table at a steadier rate." },
+      { id: 'D', text: "Add a local secondary index on the timestamp attribute to spread the write activity." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "A date as the partition key means every write on a given day targets one partition, which is capped regardless of table-level provisioning, and that is why the table looks under-utilized while throttling; adding a high-cardinality component such as the sensor id spreads the load across partitions. On-demand mode adapts to traffic but a single partition still has its own ceiling. DAX is a read-through cache and does not buffer writes. A local secondary index shares the base table's partition key, so it concentrates writes on the same hot partition and adds cost.",
+    referenceUrl: "https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/bp-partition-key-design.html",
+    tags: ["DynamoDB", "Partition Key", "Hot Partition", "Performance"]
+  },
+  {
+    id: "aws-sap-97",
+    difficulty: "hard",
+    certId: "aws-sap",
+    domainId: "d4",
+    domainName: "Accelerate Workload Migration and Modernization",
+    title: "Migrating a Mainframe Batch Workload",
+    scenario: "A bank runs COBOL batch jobs on a mainframe. Leadership wants to leave the platform within two years. The team has no appetite to rewrite the business logic, which is well understood and rarely changes, but the operating cost must fall.",
+    question: "Which approach fits the constraint?",
+    options: [
+      { id: 'A', text: "Refactor with AWS Mainframe Modernization automated refactoring, converting the COBOL to Java and running the generated source on managed AWS infrastructure." },
+      { id: 'B', text: "Replatform onto the AWS Mainframe Modernization managed runtime so the existing COBOL and job control run largely unchanged." },
+      { id: 'C', text: "Rewrite the batch jobs as containerized microservices on Amazon ECS, taking the opportunity to modernize the business logic during the migration." },
+      { id: 'D', text: "Keep the mainframe and connect it to AWS with AWS Direct Connect so that reporting and analytics workloads can be offloaded to cheaper cloud storage." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "Because the logic must not be rewritten, the replatform path through the Mainframe Modernization runtime is the fit: the COBOL is recompiled and runs on a managed runtime with its job control translated, so behaviour is preserved while the mainframe cost disappears. Automated refactoring does produce modern source but it changes the code the bank said it did not want to touch and creates a large revalidation burden. A microservices rewrite is the largest possible change and directly contradicts the constraint. Offloading reporting leaves the mainframe and its cost in place, so the two-year exit is not met.",
+    referenceUrl: "https://docs.aws.amazon.com/m2/latest/userguide/what-is-m2.html",
+    tags: ["Mainframe Modernization", "Replatform", "COBOL", "Migration"]
+  },
+  {
+    id: "aws-sap-98",
+    difficulty: "medium",
+    certId: "aws-sap",
+    domainId: "d4",
+    domainName: "Accelerate Workload Migration and Modernization",
+    title: "Keeping Two Databases in Step During a Phased Cutover",
+    scenario: "An application is being moved to AWS in phases. For six weeks some components will read and write the on-premises database while others use the migrated Amazon RDS instance, and both copies must reflect changes made on either side.",
+    question: "Which replication configuration supports the phase?",
+    options: [
+      { id: 'A', text: "Two AWS Database Migration Service tasks configured for bidirectional replication between the source and the target." },
+      { id: 'B', text: "A single AWS Database Migration Service task with full load and change data capture from the on-premises database to the RDS instance." },
+      { id: 'C', text: "An RDS read replica of the on-premises database promoted at the start of the phase so that both sides accept writes independently of each other." },
+      { id: 'D', text: "A nightly AWS DataSync transfer of the database files into the RDS instance." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "A phase in which both copies accept writes requires replication in both directions, which DMS supports with a pair of tasks, together with a conflict strategy such as partitioning which rows each side owns. A single one-way task keeps the target current but silently loses anything written on the AWS side. Promoting a replica gives two independent databases that immediately diverge with no replication at all. DataSync copies files and cannot be used to synchronize a live managed database whose storage is not directly accessible.",
+    referenceUrl: "https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Task.BidirectionalReplication.html",
+    tags: ["DMS", "Bidirectional Replication", "Migration", "Cutover"]
+  },
+  {
+    id: "aws-sap-99",
+    difficulty: "medium",
+    certId: "aws-sap",
+    domainId: "d4",
+    domainName: "Accelerate Workload Migration and Modernization",
+    title: "Estimating the Cost of a Migration Before Committing",
+    scenario: "A migration sponsor wants a defensible cost estimate for running 400 discovered on-premises servers in AWS, based on the utilization data already collected, before approving the programme budget.",
+    question: "Which capability produces the estimate from the collected data?",
+    options: [
+      { id: 'A', text: "Migration Hub Strategy Recommendations together with the Migration Evaluator business case." },
+      { id: 'B', text: "The AWS Pricing Calculator, with an architect entering the instance types and storage volumes that each of the 400 discovered servers is expected to require." },
+      { id: 'C', text: "AWS Compute Optimizer, which analyses utilization metrics and recommends the instance types that match each workload's observed resource consumption." },
+      { id: 'D', text: "AWS Cost Explorer's forecast feature, projecting the expected cost of the migrated estate from the account's existing spending trend over recent months." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Migration Evaluator consumes the discovery utilization data to produce a directional business case with right-sized instance recommendations and projected run cost, and Strategy Recommendations adds the modernization path per application, which together is what a sponsor needs to approve a budget. The Pricing Calculator produces a good estimate but requires an architect to size all 400 servers by hand. Compute Optimizer only works on resources already running in AWS. Cost Explorer forecasts from existing AWS spend and knows nothing about servers that have not yet moved.",
+    referenceUrl: "https://docs.aws.amazon.com/migrationhub-strategy/latest/userguide/what-is-mhub-strategy.html",
+    tags: ["Migration Evaluator", "Migration Hub", "Business Case", "Assessment"]
+  },
+  {
+    id: "aws-sap-100",
+    difficulty: "easy",
+    certId: "aws-sap",
+    domainId: "d4",
+    domainName: "Accelerate Workload Migration and Modernization",
+    title: "Moving a Large Object Store From Another Cloud",
+    scenario: "A company must copy 30 TB of objects from another cloud provider's object storage into Amazon S3, preserving the key structure, with scheduled incremental transfers as the source continues to change during the project.",
+    question: "Which service performs this transfer?",
+    options: [
+      { id: 'A', text: "AWS DataSync, which supports other cloud object stores as a source and runs scheduled incremental tasks." },
+      { id: 'B', text: "Amazon S3 Batch Operations, driven by an inventory manifest listing every object that needs to be copied from the source into the destination bucket." },
+      { id: 'C', text: "AWS Snowball Edge, loading the objects at a colocation facility and shipping the device to AWS." },
+      { id: 'D', text: "S3 Cross-Region Replication, configured with the other cloud provider's bucket as the replication source and the S3 bucket as the destination." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "DataSync natively supports other cloud providers' object storage as a source, preserves the object key structure, and scheduled task runs transfer only what has changed since the previous execution, which matches an ongoing project. S3 Batch Operations acts on objects already in S3 and cannot pull from an external provider. Snowball Edge is for moving data out of a site you control and is impractical against another provider's managed service. Cross-Region Replication works only between S3 buckets.",
+    referenceUrl: "https://docs.aws.amazon.com/datasync/latest/userguide/what-is-datasync.html",
+    tags: ["DataSync", "S3", "Migration", "Data Transfer"]
+  }
+];
+
+export default AWS_SAP_QUESTIONS;
