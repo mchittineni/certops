@@ -249,26 +249,36 @@ export const CONTENT_MANIFEST = {
   },
   "aws-sap": {
     "questions": {
-      "total": 0,
+      "total": 500,
       "byDifficulty": {
-        "easy": 0,
-        "medium": 0,
-        "hard": 0
+        "easy": 114,
+        "medium": 245,
+        "hard": 141
       },
-      "byDomain": {},
-      "packs": 0,
-      "loadedPacks": 0
+      "byDomain": {
+        "d1": 130,
+        "d2": 145,
+        "d3": 125,
+        "d4": 100
+      },
+      "packs": 20,
+      "loadedPacks": 20
     },
     "flashcards": {
-      "total": 0,
+      "total": 500,
       "byDifficulty": {
-        "easy": 0,
-        "medium": 0,
-        "hard": 0
+        "easy": 87,
+        "medium": 339,
+        "hard": 74
       },
-      "byDomain": {},
-      "packs": 0,
-      "loadedPacks": 0
+      "byDomain": {
+        "d1": 130,
+        "d2": 145,
+        "d3": 125,
+        "d4": 100
+      },
+      "packs": 20,
+      "loadedPacks": 20
     }
   },
   "aws-scs": {
@@ -1990,7 +2000,7 @@ export const CONTENT_MANIFEST = {
 };
 
 export const CONTENT_TOTALS = {
-  "questions": 16000,
-  "flashcards": 16000,
+  "questions": 16500,
+  "flashcards": 16500,
   "certifications": 68
 };
