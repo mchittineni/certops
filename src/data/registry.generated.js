@@ -489,8 +489,15 @@ export const CONTENT_REGISTRY = {
     ]
   },
   'azure-az305': {
-    questions: [],
-    flashcards: []
+    questions: [
+      pack('./certs/azure-az305/questions/pack-1.js', () => import('./certs/azure-az305/questions/pack-1.js')),
+      pack('./certs/azure-az305/questions/pack-3.js', () => import('./certs/azure-az305/questions/pack-3.js')),
+      pack('./certs/azure-az305/questions/pack-7.js', () => import('./certs/azure-az305/questions/pack-7.js'))
+    ],
+    flashcards: [
+      pack('./certs/azure-az305/flashcards/pack-1.js', () => import('./certs/azure-az305/flashcards/pack-1.js')),
+      pack('./certs/azure-az305/flashcards/pack-5.js', () => import('./certs/azure-az305/flashcards/pack-5.js'))
+    ]
   },
   'azure-az400': {
     questions: [
