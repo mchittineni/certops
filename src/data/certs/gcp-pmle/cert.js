@@ -1,5 +1,9 @@
 /**
  * Google Cloud Professional Machine Learning Engineer (GCP-PMLE) — exam blueprint.
+ *
+ * BLUEPRINT NOT VERIFIED. The published exam guide (June 1, 2026) has Architecting low-code AI solutions ~13, Collaborating within and across teams to manage data and models ~16, Scaling prototypes into ML models ~21, Serving and scaling models ~20, Automating and orchestrating ML pipelines ~18, Monitoring AI solutions ~13; the four below were seeded, not taken from it.
+ * Correcting the domains means re-authoring the bank, because every question
+ * carries its domainName. See docs/EXAM-READINESS.md.
  */
 export default {
   "id": "gcp-pmle",
@@ -18,7 +22,7 @@ export default {
   "maxScore": 100,
   "defaultTimeMinutes": 120,
   "blueprintSource": "https://cloud.google.com/learn/certification/machine-learning-engineer",
-  "blueprintVerified": true,
+  "blueprintVerified": false,
   "domains": [
     {
       "id": "d1",

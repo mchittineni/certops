@@ -1,5 +1,9 @@
 /**
  * GitOps Certified Associate (CGOA) — exam blueprint.
+ *
+ * BLUEPRINT NOT VERIFIED. The published curriculum has five domains (GitOps Terminology 20, GitOps Principles 30, Related Practices 16, GitOps Patterns 20, Tooling 14); the four below were seeded, not taken from it.
+ * Correcting the domains means re-authoring the bank, because every question
+ * carries its domainName. See docs/EXAM-READINESS.md.
  */
 export default {
   "id": "cncf-cgoa",
@@ -18,7 +22,7 @@ export default {
   "maxScore": 100,
   "defaultTimeMinutes": 90,
   "blueprintSource": "https://www.cncf.io/certification/cgoa/",
-  "blueprintVerified": true,
+  "blueprintVerified": false,
   "domains": [
     {
       "id": "d1",

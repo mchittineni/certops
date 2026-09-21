@@ -1,5 +1,9 @@
 /**
  * Certified Backstage Associate (CBA) — exam blueprint.
+ *
+ * BLUEPRINT NOT VERIFIED. The published curriculum has Backstage Development Workflow 24, Backstage Infrastructure 22, Backstage Catalog 22, Customizing Backstage 32; the four below were seeded, not taken from it.
+ * Correcting the domains means re-authoring the bank, because every question
+ * carries its domainName. See docs/EXAM-READINESS.md.
  */
 export default {
   "id": "cncf-cba",
@@ -18,7 +22,7 @@ export default {
   "maxScore": 100,
   "defaultTimeMinutes": 90,
   "blueprintSource": "https://www.cncf.io/certification/cba/",
-  "blueprintVerified": true,
+  "blueprintVerified": false,
   "domains": [
     {
       "id": "d1",

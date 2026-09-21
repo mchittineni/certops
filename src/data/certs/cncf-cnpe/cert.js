@@ -1,5 +1,9 @@
 /**
  * Certified Cloud Native Platform Engineer (CNPE) — exam blueprint.
+ *
+ * BLUEPRINT NOT VERIFIED. The published curriculum has Platform Architecture and Infrastructure 15, GitOps and Continuous Delivery 25, Platform APIs and Self-Service Capabilities 25, Observability and Operations 20, Security and Policy Enforcement 15, and the real exam is performance-based; the four below were seeded, not taken from it.
+ * Correcting the domains means re-authoring the bank, because every question
+ * carries its domainName. See docs/EXAM-READINESS.md.
  */
 export default {
   "id": "cncf-cnpe",
@@ -18,7 +22,7 @@ export default {
   "maxScore": 100,
   "defaultTimeMinutes": 120,
   "blueprintSource": "https://www.cncf.io/certification/cnpe/",
-  "blueprintVerified": true,
+  "blueprintVerified": false,
   "domains": [
     {
       "id": "d1",
