@@ -25,15 +25,26 @@ npm run stats           # progress toward 500 questions per certification
 
 Regenerate these numbers any time with `npm run stats`.
 
-**Authored vs. generated.** All 32 live certifications feature complete 500-question banks
-and 500-card flashcard decks (16,000 questions and 16,000 flashcards, totaling 32,000 items repo-wide) adhering to official domain
-weights, comprehensive explanations, and zero option-letter references. `npm run audit:filler` reports the current inventory.
+**Authored vs. generated.** All 32 live certifications hold 500 questions and 500 flashcards
+(32,000 items repo-wide) with comprehensive explanations and zero option-letter references.
+How many of those items are *exam-ready* is a separate question with a measured answer:
+2,000 questions and 2,000 flashcards across 8 banks are templated placeholders, 32 of the 33
+banks reissue the same item under several framings, and 8 live blueprints do not match the
+published exam guide. See [EXAM-READINESS.md](EXAM-READINESS.md) for the numbers and the
+nine banks that need re-authoring.
 
-**A live certification needs a verified blueprint.** The 36 remaining `planned` entries carry
+**A live certification needs a verified blueprint.** The `planned` entries carry
 *placeholder* domains and weights with `blueprintVerified: false`. Fixing that against the
 official exam guide is step 1 of
 [taking one live](#taking-one-certification-from-planned-to-live), and it is a genuinely
-useful contribution on its own — no question authoring required.
+useful contribution on its own — no question authoring required. `azure-az305` is the one
+planned entry that already has its blueprint verified, so it needs only content, and the
+first 125 items of it are written.
+
+Seven **live** certifications now also read `blueprintVerified: false`, because their
+domains were checked against the published exam guide and found not to match it. Their
+blueprints cannot be corrected on their own — see
+[EXAM-READINESS.md](EXAM-READINESS.md#blueprints).
 
 ## Priority order
 
