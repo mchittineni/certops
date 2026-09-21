@@ -1,12 +1,9 @@
 /**
  * Microsoft Certified: Azure Solutions Architect Expert (AZ-305) — exam blueprint.
  *
- * SEEDED PLACEHOLDER. passingScore, defaultTimeMinutes, and domains are guesses.
- * Before flipping status to 'live':
- *   1. replace domains + weights from blueprintSource (they must sum to 100)
- *   2. correct passingScore / maxScore / defaultTimeMinutes
- *   3. set blueprintVerified: true
- *   4. add content: npm run new:pack -- --cert azure-az305 --kind questions --count 50
+ * Domains and weights from the official study guide (skills measured as of
+ * April 17, 2026). Microsoft publishes the weights as ranges; the midpoints
+ * below sum to 100.
  */
 export default {
   "id": "azure-az305",
@@ -20,27 +17,16 @@ export default {
   "badgeClass": "badge-azure",
   "icon": "azure",
   "color": "#0078D4",
-  "description": "TODO one-sentence description of what AZ-305 validates.",
+  "description": "Validates expert-level ability to design Azure identity, governance, monitoring, data storage, business continuity, and infrastructure solutions that translate business requirements into Well-Architected designs.",
   "passingScore": 700,
   "maxScore": 1000,
   "defaultTimeMinutes": 120,
-  "blueprintSource": "https://TODO-official-exam-guide",
-  "blueprintVerified": false,
+  "blueprintSource": "https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-305",
+  "blueprintVerified": true,
   "domains": [
-    {
-      "id": "d1",
-      "name": "TODO Domain 1",
-      "weight": 34
-    },
-    {
-      "id": "d2",
-      "name": "TODO Domain 2",
-      "weight": 33
-    },
-    {
-      "id": "d3",
-      "name": "TODO Domain 3",
-      "weight": 33
-    }
+    { "id": "d1", "name": "Design identity, governance, and monitoring solutions", "weight": 27 },
+    { "id": "d2", "name": "Design data storage solutions", "weight": 22 },
+    { "id": "d3", "name": "Design business continuity solutions", "weight": 18 },
+    { "id": "d4", "name": "Design infrastructure solutions", "weight": 33 }
   ]
 };
