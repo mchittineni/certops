@@ -1,5 +1,9 @@
 /**
  * Certified Cloud Native Platform Engineering Associate (CNPA) — exam blueprint.
+ *
+ * BLUEPRINT NOT VERIFIED. The published curriculum has six domains (Platform Engineering Core Fundamentals 36, Platform Observability Security and Conformance 20, Continuous Delivery & Platform Engineering 16, Platform APIs and Provisioning Infrastructure 12, IDPs and Developer Experience 8, Measuring your Platform 8); the four below were seeded, not taken from it.
+ * Correcting the domains means re-authoring the bank, because every question
+ * carries its domainName. See docs/EXAM-READINESS.md.
  */
 export default {
   "id": "cncf-cnpa",
@@ -18,7 +22,7 @@ export default {
   "maxScore": 100,
   "defaultTimeMinutes": 90,
   "blueprintSource": "https://www.cncf.io/certification/cnpa/",
-  "blueprintVerified": true,
+  "blueprintVerified": false,
   "domains": [
     {
       "id": "d1",

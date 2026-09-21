@@ -1,5 +1,9 @@
 /**
  * OpenTelemetry Certified Associate (OTCA) — exam blueprint.
+ *
+ * BLUEPRINT NOT VERIFIED. The published curriculum has Fundamentals of Observability 18, The OpenTelemetry API and SDK 46, The OpenTelemetry Collector 26, Maintaining and Debugging Observability Pipelines 10; the four below were seeded, not taken from it.
+ * Correcting the domains means re-authoring the bank, because every question
+ * carries its domainName. See docs/EXAM-READINESS.md.
  */
 export default {
   "id": "cncf-otca",
@@ -18,7 +22,7 @@ export default {
   "maxScore": 100,
   "defaultTimeMinutes": 90,
   "blueprintSource": "https://www.cncf.io/certification/otca/",
-  "blueprintVerified": true,
+  "blueprintVerified": false,
   "domains": [
     {
       "id": "d1",

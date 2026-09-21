@@ -1,5 +1,9 @@
 /**
  * Google Cloud Professional Cloud DevOps Engineer (GCP-PCDE) — exam blueprint.
+ *
+ * BLUEPRINT NOT VERIFIED. The published exam guide has five sections (Bootstrapping and maintaining a Google Cloud organization ~20, Building and implementing CI/CD pipelines including continuous testing ~25, Applying site reliability engineering practices ~18, Implementing observability practices and troubleshooting issues ~25, Optimizing performance and cost ~12); the five below do not match it.
+ * Correcting the domains means re-authoring the bank, because every question
+ * carries its domainName. See docs/EXAM-READINESS.md.
  */
 export default {
   "id": "gcp-pcdoe",
@@ -18,7 +22,7 @@ export default {
   "maxScore": 100,
   "defaultTimeMinutes": 120,
   "blueprintSource": "https://cloud.google.com/learn/certification/cloud-devops-engineer",
-  "blueprintVerified": true,
+  "blueprintVerified": false,
   "domains": [
     {
       "id": "d1",
