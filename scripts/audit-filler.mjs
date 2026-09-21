@@ -12,27 +12,12 @@
  * Run: npm run audit:filler
  */
 import { loadAllContent, flatten } from './lib/content-io.mjs';
+import { BOILERPLATE, CARD_TEMPLATE } from './lib/generator-signals.mjs';
 
-const QUESTION_SIGNALS = [
-  [/best addresses requirement #\d+/i, 'templated question stem'],
-  [/Comprehensive .*explanation for .*topic #\d+/i, 'templated explanation'],
-  [/Optimal recommended solution/i, 'answer is self-labelled as correct'],
-  [/^Option [A-F]:/m, 'option text hard-codes a letter'],
-  [/requirement #\d+/i, 'templated scenario'],
-  // A second template family, which the signals above miss entirely. The key is
-  // boilerplate with the topic name interpolated into it, so the item asserts
-  // nothing a candidate could know or verify, and every instance shares one pool
-  // of three distractors. Rewriting the distractors cannot rescue these: the
-  // question itself has no content.
-  [/^Deploy native automation for /im, 'key is boilerplate with the topic interpolated'],
-  [/^Implementing declarative automation and native policy guardrails/im, 'templated explanation'],
-  [/Operational Strategy \(Part \d+\)/i, 'templated title'],
-  [/is evaluating .+ practices specifically regarding/i, 'templated scenario']
-];
-const CARD_SIGNALS = [
-  [/(?:Topic|Concept|card) #\d+/i, 'templated card'],
-  [/^(?:Detailed explanation|Mastery definition) for /i, 'templated card back']
-];
+// Both generator families are fingerprinted in lib/generator-signals.mjs so this
+// audit, lint-pack.mjs and audit-repeats.mjs cannot disagree about what counts.
+const QUESTION_SIGNALS = BOILERPLATE.map(re => [re, 'generator boilerplate']);
+const CARD_SIGNALS = CARD_TEMPLATE.map(re => [re, 'templated card']);
 
 const content = await loadAllContent();
 const rows = [];
