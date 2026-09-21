@@ -20,7 +20,9 @@ every answer moves your difficulty band toward your actual level.
 
 ## Project status
 
-**Live track fully scaled. All 32 live certifications feature complete 500-question banks.**
+**All 32 live certifications hold 500 questions and 500 flashcards. Bank size is not the
+same as exam readiness, and the gap between them is measured rather than asserted — see
+[docs/EXAM-READINESS.md](docs/EXAM-READINESS.md).**
 
 | | |
 | --- | --- |
@@ -30,6 +32,15 @@ every answer moves your difficulty band toward your actual level.
 | Flashcards authored / live | **16,000** |
 
 Run `npm run stats` for detailed domain and difficulty distributions across the bank.
+
+Three audits qualify that count, and each is printed into every CI run's job summary.
+`npm run audit:distractors`: 25 of 33 banks give nothing away through the form of their
+options. `npm run audit:filler`: 2,000 questions and 2,000 flashcards across 8 banks are
+templated placeholders whose answers cannot be verified. `npm run audit:repeats`: 32 of
+the 33 banks serve the same item or card more than once — `hashicorp-vault` draws its 500
+questions from 21 distinct option sets — and only `aws-sap` does not. Nine certifications
+therefore need a bank authored from scratch. The first 75 questions and 50 flashcards of
+`azure-az305` are written to the standard `npm run lint:pack` enforces and pass it.
 
 The 36 remaining certifications exist as folders with **placeholder blueprints** — they
 appear on the roadmap panel but cannot be launched. That is the honest state of things,
@@ -130,7 +141,11 @@ npm run backup        # snapshot all authored content to .content-backups/
 
 npm run audit:explanations  # fail if any explanation names an option letter (part of validate)
 npm run audit:answers       # flag questions whose explanation argues against its own keyed answer
-npm run audit:filler        # inventory generated placeholder content (reports, never fails)
+npm run audit:filler        # inventory templated placeholder content (reports, never fails)
+npm run audit:repeats       # count items reissued under another framing, and duplicated cards
+                            # (--min-clean 1 is the CI gate; --cert <id> scores one)
+npm run lint:pack           # score one pack against the authoring rules before it is registered
+                            # (--file <pack> --cert <id> --start <n> --end <m> --quota 7/12/6)
 npm run audit:distractors   # score how much each bank gives its answer away by form
                             # (--min-passing 24 is the CI gate; --cert <id> scores one)
 npm run audit:length        # worklist of option sets whose key is longer than every distractor
@@ -251,7 +266,7 @@ once on boot and then removed ([src/lib/storage.js](src/lib/storage.js)).
 
 ## Contributing
 
-The 32 live certifications are fully scaled with complete 500-question banks (16,000 questions and 16,000 flashcards repo-wide). Contributions are welcomed to expand the 36 planned roadmap certifications or refine existing questions — and a **wrong answer is the highest-priority bug**, because it teaches someone the wrong thing before an exam they paid for. Start with [CONTRIBUTING.md](CONTRIBUTING.md).
+The 32 live certifications hold 500 questions and 500 flashcards each (16,000 and 16,000 repo-wide). The most valuable contribution is not a new certification but a re-authored pack in one of the nine banks that need one, and `npm run lint:pack` scores a single pack before anything else runs. A **wrong answer is the highest-priority bug**, because it teaches someone the wrong thing before an exam they paid for. Start with [CONTRIBUTING.md](CONTRIBUTING.md) and [docs/EXAM-READINESS.md](docs/EXAM-READINESS.md).
 
 ```bash
 npm run new:pack -- --cert <id> --kind questions --count 25
