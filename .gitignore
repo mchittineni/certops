@@ -77,3 +77,6 @@ tmp/
 
 # Hugging Face dataset export (built by npm run dataset:export)
 dist-dataset/
+
+# Self-eval score history, written by the self-eval skill. Local, not shared.
+.self-eval-scores.jsonl
