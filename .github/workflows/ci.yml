@@ -55,6 +55,26 @@ jobs:
             echo '```'
           } >> "$GITHUB_STEP_SUMMARY"
 
+      - name: Repeated-content ratchet
+        run: |
+          {
+            echo '## Repeated content'
+            echo
+            echo '```'
+            npm run audit:repeats --silent -- --min-clean 1
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Templated placeholder inventory
+        run: |
+          {
+            echo '## Templated placeholder content'
+            echo
+            echo '```'
+            npm run audit:filler --silent
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+
       - name: Content stats
         run: npm run stats
 
