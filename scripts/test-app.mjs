@@ -125,12 +125,19 @@ await check('choosing a role renders an ordered path with a reason per step', ()
 });
 
 await check('a path shows roadmap steps without offering to start them', () => {
-  dom.click('set-role', { roleId: 'solutions-architect' });
+  // Derived from the catalogue rather than naming certifications: a role whose path
+  // mixes a live step and a planned step. Any example hard-coded here becomes wrong
+  // the day that certification goes live.
+  const statusOf = id => CERTIFICATIONS.find(c => c.id === id)?.status;
+  const role = ROLES.find(r => r.path.some(s => statusOf(s.certId) === 'live') && r.path.some(s => statusOf(s.certId) === 'planned'));
+  assert.ok(role, 'at least one role path should still mix live and planned certifications');
+  const live = role.path.find(s => statusOf(s.certId) === 'live');
+  dom.click('set-role', { roleId: role.id });
   const html = dom.html();
-  // SAA is live; AZ-305 and SAP are still on the roadmap, and the path shows both kinds.
-  assert.ok(html.includes('data-cert-id="aws-saa"'), 'the ready step is launchable');
+  assert.ok(html.includes(`data-cert-id="${live.certId}"`), 'the ready step is launchable');
   assert.ok(html.includes('role-step planned'), 'roadmap steps are marked');
   assert.ok(html.includes('roadmap-pill'), 'roadmap steps say so instead of offering a button');
+  dom.click('clear-role');
 });
 
 await check('the role filter narrows the catalogue and is cleared with the role', () => {
