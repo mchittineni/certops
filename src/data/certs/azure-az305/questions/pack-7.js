@@ -1,0 +1,532 @@
+export const AZURE_AZ305_QUESTIONS_7 = [
+  {
+    id: "azure-az305-151",
+    difficulty: "easy",
+    certId: "azure-az305",
+    domainId: "d2",
+    domainName: "Design data storage solutions",
+    title: "Hosting 300 tenant databases with uneven load",
+    scenario: "A SaaS vendor runs 300 single-tenant Azure SQL databases, one per customer, each sized for its own peak. Utilisation analysis shows any individual database is busy less than 5% of the day and peaks rarely coincide, yet the bill reflects 300 separately provisioned peaks. The vendor wants to cut spend without abandoning the one-database-per-tenant model, and the first query after a quiet period must still answer in under 100 ms.",
+    question: "Which change should the architect recommend?",
+    options: [
+      { id: 'A', text: "Consolidate the tenants into one multi-tenant database with a TenantId column and row-level security to keep each tenant's rows separated." },
+      { id: 'B', text: "Place the databases in an Azure SQL elastic pool sized for the aggregate peak and let each database draw on the shared resources when it is busy." },
+      { id: 'C', text: "Convert each database to the serverless compute tier so that compute is billed per second and paused automatically between tenant activity." },
+      { id: 'D', text: "Move the databases onto SQL Managed Instance and rely on instance-level resource governance to share compute across the tenant databases." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "An elastic pool is built for many databases whose individual peaks are short and rarely coincide: the vendor pays for the pool's aggregate capacity rather than 300 separate peaks, each database keeps its own identity, and no auto-pause stands between a tenant and its first query. Consolidating into one multi-tenant database changes the isolation model the vendor wants to keep and means an application rewrite. Serverless compute with auto-pause cuts idle cost, but resuming a paused database takes far longer than the 100 ms first-query target. Managed Instance shares resources within an instance, yet its per-instance database limits and minimum compute mean several instances and a platform migration for a saving the pool delivers directly.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-sql/database/elastic-pool-overview",
+    tags: ["Azure SQL Database", "Elastic pools", "Cost optimisation"]
+  },
+  {
+    id: "azure-az305-152",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d2",
+    domainName: "Design data storage solutions",
+    title: "Offloading reporting from a Business Critical database",
+    scenario: "An insurer runs its policy administration system on an Azure SQL Database in the Business Critical tier with 16 vCores. Nightly actuarial reports run for four hours and compete with the OLTP workload, pushing transaction latency above the 50 ms target. The reports tolerate data that is a few seconds behind, and the insurer refuses to pay for any additional database compute.",
+    question: "What should the architect recommend?",
+    options: [
+      { id: 'A', text: "Create an active geo-replication secondary in the same region and point the reporting jobs at the secondary's connection string." },
+      { id: 'B', text: "Scale the database to 32 vCores for the reporting window with a scheduled Azure Automation runbook and scale it back afterwards." },
+      { id: 'C', text: "Add ApplicationIntent=ReadOnly to the reporting connection string so the tier's included readable replica serves the queries." },
+      { id: 'D', text: "Move the reporting queries to a Hyperscale named replica so they run on isolated compute with no impact on the primary." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "Business Critical databases already run high-availability replicas, and read scale-out lets connections tagged ApplicationIntent=ReadOnly be routed to one of them at no additional charge, so the reports leave the primary's compute while seeing data that lags by seconds. An active geo-replication secondary is a separately billed database, which breaks the no-extra-compute constraint. Scaling up for the reporting window bills the larger compute size for those hours and still leaves the reports competing with OLTP on the same replica. A named replica exists only in the Hyperscale tier, so it would require a tier migration and is itself billed as separate compute.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-sql/database/read-scale-out",
+    tags: ["Azure SQL Database", "Read scale-out", "Business Critical"]
+  },
+  {
+    id: "azure-az305-153",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d2",
+    domainName: "Design data storage solutions",
+    title: "Isolated analytics compute on a Hyperscale database",
+    scenario: "A retailer's 40 TB order history lives in an Azure SQL Database Hyperscale database with two high-availability replicas that already serve read-only storefront traffic. A data science team wants to run heavy ad hoc queries on compute sized differently from the primary, behind a separate security boundary, without slowing the storefront reads. The data must stay current to within seconds.",
+    question: "Which solution meets the requirements at the LOWEST cost?",
+    options: [
+      { id: 'A', text: "Create a named replica of the database, size its compute independently, and grant the team access through the replica's own database name." },
+      { id: 'B', text: "Raise the number of high-availability replicas to four and direct the team's connections to them with ApplicationIntent=ReadOnly." },
+      { id: 'C', text: "Create a geo-replica of the database on a second logical server in the same region and grant the team access to that copy." },
+      { id: 'D', text: "Load the order tables into a dedicated SQL pool with Azure Synapse Link and grant the team access to the pool instead." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "A Hyperscale named replica shares the primary's page servers and log service, so no second copy of the 40 TB is stored; it can be sized differently from the primary, appears as its own database with its own access, and stays within seconds of the primary. Adding high-availability replicas keeps them at the primary's compute size, gives no separate security boundary, and read-only routing would spread the heavy queries across the same replicas the storefront uses. A geo-replica is a full second copy of the data on separate storage, so it costs far more than a replica that shares storage. Synapse Link into a dedicated SQL pool adds a warehouse to run and pay for, with replication latency that is not needed here.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-sql/database/service-tier-hyperscale-replicas",
+    tags: ["Hyperscale", "Named replicas", "Azure SQL Database"]
+  },
+  {
+    id: "azure-az305-154",
+    difficulty: "hard",
+    certId: "azure-az305",
+    domainId: "d2",
+    domainName: "Design data storage solutions",
+    title: "Scaling a multi-tenant dataset past a single database",
+    scenario: "A fintech SaaS holds 260 TB of ledger data for 4,000 tenants on Azure SQL Database and projects 40% annual growth. Each tenant's data is under 200 GB and is always queried with a tenant key. Some tenants are contractually pinned to specific regions. Tenants must be movable between databases as they grow, and the application team wants a supported library rather than home-grown routing code.",
+    question: "What should the architect recommend?",
+    options: [
+      { id: 'A', text: "Migrate the data into a single Hyperscale database and rely on its distributed page servers to absorb the projected growth." },
+      { id: 'B', text: "Create one database per tenant in a regional elastic pool and use the pool's aggregate storage limit to govern growth." },
+      { id: 'C', text: "Deploy SQL Server on Azure Virtual Machines with a partitioned ledger table and an availability group per region." },
+      { id: 'D', text: "Shard tenants across databases with the Elastic Database client library, routing by tenant key through a shard map." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Elastic Database tools are Microsoft's supported sharding kit for Azure SQL Database: the shard map manager maps each tenant key to the database that holds it, the client library routes connections without custom code, tenants can live in databases in different regions, and the split-merge tool moves a tenant between shards as it grows. A single Hyperscale database tops out at 128 TB, well below the 260 TB already held. One database per tenant in elastic pools is a form of sharding, but the pool offers no routing layer or tenant-move tooling, so the team would still write the routing code it wants to avoid. Partitioning a table on SQL Server virtual machines keeps everything in one database and leaves the team operating the cluster itself.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-sql/database/elastic-scale-introduction",
+    tags: ["Sharding", "Elastic Database tools", "Azure SQL Database"]
+  },
+  {
+    id: "azure-az305-155",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d2",
+    domainName: "Design data storage solutions",
+    title: "Serving cross-region analysts from a PostgreSQL server",
+    scenario: "A media company runs Azure Database for PostgreSQL flexible server in East US with zone-redundant high availability. An analytics team in the Netherlands runs long read-only queries that cross the Atlantic and slow the primary. The team accepts data up to a minute stale. The existing high-availability configuration must stay, and writes must continue to land only in East US.",
+    question: "Which solution should the architect recommend?",
+    options: [
+      { id: 'A', text: "Enable high availability with the standby placed in West Europe and route the analytics connections to the standby server." },
+      { id: 'B', text: "Create a read replica of the server in West Europe and point the analytics connections at the replica's endpoint." },
+      { id: 'C', text: "Enable geo-redundant backup and restore a copy of the server in West Europe each night for the analysts to query." },
+      { id: 'D', text: "Copy the analytics tables to a second flexible server in West Europe every hour with an Azure Data Factory pipeline." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "Flexible server read replicas are asynchronous copies that can be placed in another region and accept read-only connections, so the analysts query a nearby replica that lags by seconds while the primary keeps handling writes in East US and its zone-redundant high availability remains untouched. The high-availability standby is a same-region, non-readable server that exists only for failover, so it cannot serve analysts and cannot be placed in another region. A nightly restore from geo-redundant backup delivers data a day old against a one-minute tolerance. An hourly Data Factory copy is also outside the staleness limit and adds a pipeline to operate.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/concepts-read-replicas",
+    tags: ["PostgreSQL flexible server", "Read replicas", "Cross-region reads"]
+  },
+  {
+    id: "azure-az305-156",
+    difficulty: "easy",
+    certId: "azure-az305",
+    domainId: "d2",
+    domainName: "Design data storage solutions",
+    title: "Cosmos DB capacity for a low-traffic internal tool",
+    scenario: "A university IT department is building an internal room-booking API on Azure Cosmos DB for NoSQL. Traffic arrives in short bursts around term start, most days see under 1,000 requests in total, and the service is idle for weeks over holidays. The department wants to pay only for the requests it actually serves and has no need for multi-region distribution.",
+    question: "Which throughput model should the architect recommend?",
+    options: [
+      { id: 'A', text: "Manual provisioned throughput set to the minimum of 400 RU/s on the container." },
+      { id: 'B', text: "Autoscale provisioned throughput with a maximum of 1,000 RU/s on the container." },
+      { id: 'C', text: "Serverless capacity mode on the account, billed for request units consumed." },
+      { id: 'D', text: "Shared provisioned throughput of 400 RU/s at the database level across containers." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "Serverless accounts bill only for the request units each operation consumes plus storage, with no hourly minimum, which is exactly the pay-per-request profile of a bursty, mostly idle internal tool that runs in one region. Manual provisioned throughput bills the 400 RU/s every hour whether or not any request arrives, so weeks of holiday idleness are still charged. Autoscale bills at least 10% of its maximum each hour, so a 1,000 RU/s ceiling still costs 100 RU/s around the clock. Shared database throughput spreads a provisioned amount across containers but is still provisioned and billed continuously.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/cosmos-db/throughput-serverless",
+    tags: ["Cosmos DB", "Serverless", "Throughput"]
+  },
+  {
+    id: "azure-az305-157",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d2",
+    domainName: "Design data storage solutions",
+    title: "Cosmos DB throughput for a daily traffic curve",
+    scenario: "A food-delivery platform stores orders in Azure Cosmos DB for NoSQL. Consumption sits near 4,000 RU/s through the morning and climbs to a predictable 38,000 RU/s for a three-hour dinner window every evening. The container is provisioned at a flat 40,000 RU/s to avoid 429 responses. Finance wants a lower bill, and engineering will not accept throttling or take on scheduling code.",
+    question: "Which change meets both teams' requirements?",
+    options: [
+      { id: 'A', text: "Switch the container to autoscale with a maximum of 40,000 RU/s so it scales down toward 4,000 RU/s outside the dinner peak." },
+      { id: 'B', text: "Move the data to a serverless account so the platform pays per request unit consumed rather than per provisioned hour." },
+      { id: 'C', text: "Lower the manual throughput to 20,000 RU/s and rely on burst capacity to absorb the dinner peak each evening." },
+      { id: 'D', text: "Run an Azure Function on a timer to raise the provisioned throughput before dinner and lower it again afterwards." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Autoscale scales instantly between 10% and 100% of the configured maximum and bills each hour at the highest throughput actually reached, so the container serves the 38,000 RU/s dinner window without 429s and drops toward 4,000 RU/s for the rest of the day with no code to maintain. Serverless is designed for intermittent traffic, imposes a per-container throughput ceiling well below 38,000 RU/s, and would require a migration to a new account. Burst capacity covers only brief spikes from accumulated idle capacity and cannot sustain a three-hour peak nearly double the provisioned amount. A timer-driven function works but is precisely the scheduling code engineering refused to own.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/cosmos-db/provision-throughput-autoscale",
+    tags: ["Cosmos DB", "Autoscale", "Request units"]
+  },
+  {
+    id: "azure-az305-158",
+    difficulty: "hard",
+    certId: "azure-az305",
+    domainId: "d2",
+    domainName: "Design data storage solutions",
+    title: "Throttling below the provisioned throughput",
+    scenario: "A telemetry platform stores device readings in an Azure Cosmos DB container provisioned with 60,000 RU/s of manual throughput and partitioned by customer identifier. The container has grown to 12 physical partitions. Metrics show total consumption never exceeds 30,000 RU/s, yet writers for one large customer receive frequent 429 responses while other customers are unaffected. Item size and indexing policy have not changed.",
+    question: "What is the MOST likely cause?",
+    options: [
+      { id: 'A', text: "The customer's logical partition has reached its storage limit, so the service rejects further writes into it." },
+      { id: 'B', text: "Throughput is divided evenly across physical partitions, so the customer's partition is exceeding its 5,000 RU/s share." },
+      { id: 'C', text: "The account uses strong consistency, so each write waits for quorum acknowledgement and times out under load." },
+      { id: 'D', text: "Manual throughput is allocated per region, so the customer's writes land in a region with a smaller allocation." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "Provisioned throughput is spread equally across a container's physical partitions, so 60,000 RU/s over 12 partitions gives each one 5,000 RU/s. A single customer whose writes all land on one partition is throttled as soon as that partition's 5,000 RU/s is exhausted, even though the container as a whole is at half its budget; the aggregate metric hides the hot partition. A logical partition that hits its storage cap returns a storage error, not a throughput 429, and would affect reads and writes alike. Strong consistency changes write latency and read cost but is not reported as rate limiting. Throughput is provisioned in full in every region of an account rather than split among them.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/cosmos-db/partitioning-overview",
+    tags: ["Cosmos DB", "Request units", "Physical partitions"]
+  },
+  {
+    id: "azure-az305-159",
+    difficulty: "easy",
+    certId: "azure-az305",
+    domainId: "d2",
+    domainName: "Design data storage solutions",
+    title: "Reporting on a Managed Instance without extra compute",
+    scenario: "A manufacturer's ERP runs on Azure SQL Managed Instance in the Business Critical tier. A plant-floor dashboard refreshes every 30 seconds with read-only queries and has begun to slow order-entry transactions. The finance controller has refused any increase in vCores or additional instances, and the dashboard can tolerate data that is a few seconds old.",
+    question: "Which solution should the architect recommend?",
+    options: [
+      { id: 'A', text: "Create a second Managed Instance in an instance failover group and connect the dashboard to the group's read-only listener." },
+      { id: 'B', text: "Enable the SQL Insights monitoring solution and have the dashboard read its figures from the Log Analytics workspace." },
+      { id: 'C', text: "Publish the ERP tables with transactional replication to a General Purpose instance and point the dashboard at that subscriber." },
+      { id: 'D', text: "Connect the dashboard with ApplicationIntent=ReadOnly so the queries use the readable secondary included in the tier." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Business Critical Managed Instance includes a built-in readable secondary replica at no extra charge; connections that specify ApplicationIntent=ReadOnly are routed to it, so the dashboard's queries stop competing with order entry while reading data that lags by seconds. A second instance in a failover group would add an entire billed instance, which the controller has refused. SQL Insights collects performance telemetry about the instance rather than the ERP's business data, so a dashboard cannot be sourced from it. Transactional replication to a General Purpose instance again requires a second instance and adds replication to operate.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-sql/managed-instance/service-tiers-managed-instance-vcore",
+    tags: ["SQL Managed Instance", "Business Critical", "Read scale-out"]
+  },
+  {
+    id: "azure-az305-160",
+    difficulty: "hard",
+    certId: "azure-az305",
+    domainId: "d2",
+    domainName: "Design data storage solutions",
+    title: "Read offload options for a General Purpose database",
+    scenario: "A logistics company runs a 2 TB Azure SQL Database in the General Purpose tier with 8 vCores. Parcel-tracking queries now consume 60% of compute, and the company wants those reads served by a copy that stays within seconds of the primary. Engineering can change connection strings and will consider a tier change, but rejects any design that copies data on a schedule.",
+    question: "Which two solutions should the architect consider? (Choose two.)",
+    options: [
+      { id: 'A', text: "Create an active geo-replication secondary and direct the tracking queries to the secondary database." },
+      { id: 'B', text: "Add ApplicationIntent=ReadOnly to the tracking connections so the tier's readable replica serves them." },
+      { id: 'C', text: "Move the database into an elastic pool so the tracking queries can draw on the pool's shared compute." },
+      { id: 'D', text: "Migrate the database to Hyperscale with a high-availability replica and route tracking reads to it." },
+      { id: 'E', text: "Configure SQL Data Sync to a second database and route the tracking queries to the sync member." }
+    ],
+    correctAnswers: ['A', 'D'],
+    type: "multiple",
+    explanation: "An active geo-replication secondary is a continuously replicated, readable copy that can sit in the same or another region, so tracking reads move off the primary with lag measured in seconds. Migrating to Hyperscale adds high-availability replicas that serve read-only connections through read scale-out, which the company is willing to fund as a tier change. General Purpose has no readable replica, so setting ApplicationIntent=ReadOnly there simply connects to the primary. An elastic pool shares compute among several databases but adds no second copy of this one database to serve reads. SQL Data Sync replicates on a schedule measured in minutes, which is the copying approach engineering rejected.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-sql/database/active-geo-replication-overview",
+    tags: ["Azure SQL Database", "Active geo-replication", "Hyperscale", "Read scale-out"]
+  },
+  {
+    id: "azure-az305-161",
+    difficulty: "easy",
+    certId: "azure-az305",
+    domainId: "d2",
+    domainName: "Design data storage solutions",
+    title: "Hiding card numbers from a support desk",
+    scenario: "A payments company's support agents query a customer table in Azure SQL Database through a ticketing application to verify callers. Compliance requires agents to see only the last four digits of a stored card number while the fraud team continues to see the full value. The change must not alter the stored data and must not require any code change in the ticketing application.",
+    question: "Which feature meets the requirements?",
+    options: [
+      { id: 'A', text: "Dynamic Data Masking with a partial mask on the column and the UNMASK permission granted to the fraud team." },
+      { id: 'B', text: "Always Encrypted with deterministic encryption on the column and the column keys held by the fraud team." },
+      { id: 'C', text: "Row-level security with a filter predicate that returns rows containing card numbers only to fraud team members." },
+      { id: 'D', text: "Transparent data encryption with a customer-managed key that only the fraud team's identities can unwrap." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Dynamic Data Masking rewrites query results for users without the UNMASK permission, so a partial mask exposing the last four digits gives agents what they need while the fraud team, granted UNMASK, sees full values; the stored data and the application are untouched. Always Encrypted encrypts the data client-side, requires an enabled driver and key access in the application, and would show agents ciphertext rather than a partial value. Row-level security filters whole rows, so agents would see no customer record at all instead of a masked one. Transparent data encryption protects files at rest and decrypts for every authenticated user, so agents would still see the full number.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-sql/database/dynamic-data-masking-overview",
+    tags: ["Dynamic Data Masking", "Azure SQL Database", "Data protection"]
+  },
+  {
+    id: "azure-az305-162",
+    difficulty: "easy",
+    certId: "azure-az305",
+    domainId: "d2",
+    domainName: "Design data storage solutions",
+    title: "Tenant isolation inside a shared database",
+    scenario: "A property-management SaaS stores 600 tenants' records in one Azure SQL Database with a TenantId column on every table, and each tenant's users authenticate individually with Microsoft Entra ID. An audit found a query path that returned another tenant's rows. The vendor wants isolation enforced by the database for every query, without rewriting its hundreds of stored procedures.",
+    question: "What should the architect recommend?",
+    options: [
+      { id: 'A', text: "Split the schema so each tenant owns a separate schema and grant each tenant's users rights only on their own schema." },
+      { id: 'B', text: "Apply Dynamic Data Masking to every column so that rows belonging to other tenants are returned with masked values." },
+      { id: 'C', text: "Create a security policy with a filter predicate that compares TenantId with the caller's identity on every table." },
+      { id: 'D', text: "Enable ledger on the tables so that any cross-tenant read is captured in the tamper-evident history for review." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "Row-level security applies a filter predicate through a security policy, so every query against a protected table, whatever code issued it, returns only rows whose TenantId matches the authenticated caller; the stored procedures stay as they are. Splitting into per-tenant schemas means rewriting every procedure and object reference for 600 tenants. Dynamic Data Masking obscures column values for unprivileged users but cannot decide per row whether the caller owns it, and the rows would still be returned. Ledger provides tamper evidence for data history; it records changes rather than restricting which rows a caller can read.",
+    referenceUrl: "https://learn.microsoft.com/en-us/sql/relational-databases/security/row-level-security",
+    tags: ["Row-level security", "Multi-tenant", "Azure SQL Database"]
+  },
+  {
+    id: "azure-az305-163",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d2",
+    domainName: "Design data storage solutions",
+    title: "Encryption at rest under customer key control",
+    scenario: "A European bank is moving a core banking database to Azure SQL Database. Its regulator requires that the bank alone control the lifecycle of the key protecting data at rest, be able to revoke the platform's access to that key, and rotate it on its own schedule. The application must not change, and query performance must not degrade.",
+    question: "What should the architect include in the design?",
+    options: [
+      { id: 'A', text: "Keep the default transparent data encryption and export the service-managed key into the bank's own HSM for escrow." },
+      { id: 'B', text: "Configure transparent data encryption with a customer-managed key in Azure Key Vault with soft delete and purge protection." },
+      { id: 'C', text: "Encrypt the sensitive columns with Always Encrypted using a column master key stored in the bank's Azure Key Vault." },
+      { id: 'D', text: "Enable infrastructure encryption with a customer-managed key on the storage account that holds the database files." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "Transparent data encryption with a customer-managed key uses a key the bank owns in Key Vault as the protector: the bank rotates it on its own schedule and can revoke the server's access, which makes the database inaccessible; soft delete and purge protection are required so the key cannot be lost. Encryption remains transparent to the application and performance is unchanged. The service-managed key is never exportable, so escrowing it is not possible. Always Encrypted protects specific columns and requires an enabled client driver, so the application would change and only selected columns would be covered. Azure SQL Database does not expose a storage account whose encryption the customer could configure.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-sql/database/transparent-data-encryption-byok-overview",
+    tags: ["Transparent data encryption", "Customer-managed keys", "Key Vault"]
+  },
+  {
+    id: "azure-az305-164",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d2",
+    domainName: "Design data storage solutions",
+    title: "Range queries over encrypted salary data",
+    scenario: "A payroll provider stores salaries in Azure SQL Database. Policy states that database administrators and platform operators must never be able to read salary values in plaintext, yet HR analysts must run queries such as salaries between two bounds and sorted results directly in the database. The provider will update its client driver and can accept a specific compute configuration if needed.",
+    question: "Which solution meets the requirements?",
+    options: [
+      { id: 'A', text: "Always Encrypted with randomized encryption and the comparisons performed by the client after it retrieves all rows." },
+      { id: 'B', text: "Transparent data encryption with a customer-managed key so that comparisons run over plaintext pages inside the engine." },
+      { id: 'C', text: "Dynamic Data Masking on the salary column with the UNMASK permission granted only to the HR analyst role." },
+      { id: 'D', text: "Always Encrypted with secure enclaves so that range and ordering operations execute on plaintext inside the enclave." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Always Encrypted with secure enclaves keeps salaries encrypted for the engine and its administrators, but the client driver passes the column encryption key into a hardware-protected enclave where range comparisons, pattern matching and sorting run on plaintext that nobody outside the enclave can observe. Without an enclave, randomized encryption supports no server-side comparison at all, so the client would pull every row and filter locally, contradicting the requirement to compute in the database. Transparent data encryption decrypts pages for the engine, so administrators with query access read salaries in the clear. Dynamic Data Masking is presentation-level, is bypassed by privileged users, and is not encryption.",
+    referenceUrl: "https://learn.microsoft.com/en-us/sql/relational-databases/security/encryption/always-encrypted-enclaves",
+    tags: ["Always Encrypted", "Secure enclaves", "Azure SQL Database"]
+  },
+  {
+    id: "azure-az305-165",
+    difficulty: "hard",
+    certId: "azure-az305",
+    domainId: "d2",
+    domainName: "Design data storage solutions",
+    title: "Protecting national identifiers from privileged users",
+    scenario: "A hospital network stores national health identifiers in Azure SQL Database. Regulators require that neither the hospital's database administrators nor the cloud provider can ever observe the identifiers in plaintext, including in memory dumps or query results. The application's only operation on the column is an exact-match lookup, and the development team is willing to change the data access layer.",
+    question: "Which solution meets the requirement with the LEAST additional infrastructure?",
+    options: [
+      { id: 'A', text: "Transparent data encryption with a customer-managed key, together with auditing of every query that touches the column." },
+      { id: 'B', text: "Always Encrypted with randomized encryption and lookups performed by scanning the decrypted rows in the application." },
+      { id: 'C', text: "Always Encrypted with deterministic encryption and a column master key in Key Vault accessible only to the application." },
+      { id: 'D', text: "Dynamic Data Masking with a full mask on the column and the UNMASK permission withheld from every administrator role." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "Always Encrypted encrypts the identifier in the client driver, so the engine, its administrators and the platform hold only ciphertext, including in memory; deterministic encryption produces the same ciphertext for the same value, which is exactly what an equality lookup needs, so no enclave or special compute is required. Transparent data encryption is decrypted by the engine for every query, so administrators read plaintext. Randomized encryption without an enclave supports no server-side comparison, forcing the application to download and decrypt rows to find a match. Dynamic Data Masking is a presentation control that members of high-privilege roles bypass and it never removes plaintext from the engine's memory.",
+    referenceUrl: "https://learn.microsoft.com/en-us/sql/relational-databases/security/encryption/always-encrypted-database-engine",
+    tags: ["Always Encrypted", "Deterministic encryption", "Data protection"]
+  },
+  {
+    id: "azure-az305-166",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d2",
+    domainName: "Design data storage solutions",
+    title: "Tamper evidence for regulated transaction records",
+    scenario: "A brokerage must prove to auditors that trade records in an Azure SQL Database have not been altered after the fact by anyone, including database administrators. Records are occasionally corrected, so rows must remain updatable while every previous version stays verifiable. Auditors must be able to verify the proof independently of the database, and the trading application must not be rewritten.",
+    question: "Which solution meets the requirements?",
+    options: [
+      { id: 'A', text: "Convert the trade tables to updatable ledger tables and have database digests stored automatically in Azure Confidential Ledger." },
+      { id: 'B', text: "Enable system-versioned temporal tables so that every change is preserved in a history table the auditors can query." },
+      { id: 'C', text: "Turn on Azure SQL auditing to an immutable storage account and have the auditors reconcile the audit log against the tables." },
+      { id: 'D', text: "Convert the trade tables to append-only ledger tables and record each correction as a compensating insert instead of an update." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Updatable ledger tables keep a history table of every prior row version and chain the blocks cryptographically; database digests written automatically to Azure Confidential Ledger let auditors verify the chain against a store administrators cannot alter, and UPDATE statements keep working so the application is unchanged. Temporal tables retain history, but an administrator can modify the history table and there is no cryptographic proof. Auditing records who ran which statement, yet it does not prove the current table contents match that record, and reconciliation is manual work. Append-only ledger tables forbid updates, so the correction workflow and the application would have to change.",
+    referenceUrl: "https://learn.microsoft.com/en-us/sql/relational-databases/security/ledger/ledger-overview",
+    tags: ["Ledger", "Azure Confidential Ledger", "Tamper evidence"]
+  },
+  {
+    id: "azure-az305-167",
+    difficulty: "easy",
+    certId: "azure-az305",
+    domainId: "d2",
+    domainName: "Design data storage solutions",
+    title: "Queryable database access records",
+    scenario: "A public-sector agency must record every login and data-modification statement against 25 Azure SQL databases on one logical server. Security analysts want to search the records with a query language, raise alerts on suspicious patterns within minutes, and keep 90 days of history. Databases added to the server later must be covered without extra configuration.",
+    question: "What should the architect recommend?",
+    options: [
+      { id: 'A', text: "Enable database-level auditing on each database to a storage account and query the files with sys.fn_get_audit_file." },
+      { id: 'B', text: "Enable server-level auditing with a Log Analytics workspace destination and build alert rules on the audit table." },
+      { id: 'C', text: "Enable Microsoft Defender for SQL on the server so its threat detection alerts capture logins and data changes." },
+      { id: 'D', text: "Enable diagnostic settings on each database and send the QueryStoreRuntimeStatistics category to Log Analytics." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "A server-level auditing policy applies to every database on the logical server, including ones created later, and a Log Analytics destination makes the events searchable with KQL, retained for the configured period and available to log alert rules that fire within minutes. Database-level auditing must be repeated for each new database and audit files in storage are queried through a function rather than a workspace, with no native alerting. Defender for SQL raises alerts on anomalous activity but does not record every login and statement. Query Store runtime statistics describe query performance, not who logged in or changed data.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-sql/database/auditing-overview",
+    tags: ["SQL auditing", "Log Analytics", "Azure SQL Database"]
+  },
+  {
+    id: "azure-az305-168",
+    difficulty: "easy",
+    certId: "azure-az305",
+    domainId: "d2",
+    domainName: "Design data storage solutions",
+    title: "Detecting injection attempts and weak configuration",
+    scenario: "A gaming studio exposes a player-profile API backed by Azure SQL Database. After a penetration test, the studio must be alerted when SQL injection patterns or logins from unusual locations occur, and must receive recurring reports of misconfigurations such as excessive permissions, with a baseline it can accept. The team wants one managed capability rather than custom detection queries.",
+    question: "Which service should the architect recommend?",
+    options: [
+      { id: 'A', text: "Azure SQL auditing to a Log Analytics workspace with KQL alert rules written for injection signatures." },
+      { id: 'B', text: "Azure Web Application Firewall on Application Gateway with the managed OWASP rule set in prevention mode." },
+      { id: 'C', text: "Microsoft Sentinel with the Azure SQL data connector and its built-in analytics rule templates enabled." },
+      { id: 'D', text: "Microsoft Defender for SQL with Advanced Threat Protection alerts and recurring vulnerability assessment scans." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Defender for SQL bundles the two capabilities asked for: Advanced Threat Protection raises alerts for SQL injection attempts, access from unusual locations and other anomalies, while vulnerability assessment scans the database on a schedule, reports misconfigurations such as excessive permissions and lets the team accept a baseline. Auditing with hand-written KQL rules is the custom detection work the team wants to avoid and offers no configuration assessment. A web application firewall blocks injection at the HTTP edge but knows nothing about database permissions or logins from unusual locations. Sentinel correlates signals across sources and needs rules and a data feed; it does not assess the database's configuration.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/defender-for-cloud/defender-for-sql-introduction",
+    tags: ["Defender for SQL", "Vulnerability assessment", "Threat protection"]
+  },
+  {
+    id: "azure-az305-169",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d2",
+    domainName: "Design data storage solutions",
+    title: "Ten-year backup retention for regulated data",
+    scenario: "An insurer must keep a restorable yearly copy of its claims database in Azure SQL Database for 10 years and a monthly copy for 12 months to satisfy its regulator. Operations must not run scripts to copy backups, restores must be possible through the Azure portal, and point-in-time recovery for the past 14 days must remain available.",
+    question: "What should the architect recommend?",
+    options: [
+      { id: 'A', text: "Extend the point-in-time backup retention on the database to its maximum and select geo-redundant backup storage." },
+      { id: 'B', text: "Schedule an Azure Automation runbook that exports a BACPAC to Blob storage yearly and monthly under lifecycle rules." },
+      { id: 'C', text: "Configure a long-term retention policy with yearly backups kept for 10 years and monthly backups kept for 12 months." },
+      { id: 'D', text: "Enable Azure Backup for the logical server and assign a vault policy that defines yearly and monthly retention rules." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "Long-term retention policies on Azure SQL Database keep weekly, monthly and yearly full backups for up to 10 years, managed by the service and restorable from the portal, while the separate short-term retention keeps point-in-time recovery for the configured 14 days. Point-in-time retention can be extended only to 35 days, so it cannot provide yearly copies, and backup storage redundancy changes where backups are stored rather than how long. A runbook exporting BACPACs is precisely the scripted copying operations must not run, and a BACPAC is not a transactionally consistent backup. Azure Backup protects SQL Server on virtual machines and other resources; it does not back up Azure SQL Database.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-sql/database/long-term-retention-overview",
+    tags: ["Long-term retention", "Backups", "Azure SQL Database"]
+  },
+  {
+    id: "azure-az305-170",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d2",
+    domainName: "Design data storage solutions",
+    title: "Recovering a table dropped this afternoon",
+    scenario: "At 14:07 a developer dropped the Orders table in a production Azure SQL Database in the General Purpose tier. The database has the default seven-day backup retention and no long-term retention policy. The business wants the lost rows back within the hour while the rest of the database keeps serving traffic, so the current database must not be taken offline or replaced wholesale.",
+    question: "What should the operations team do?",
+    options: [
+      { id: 'A', text: "Restore the database to 14:06 as a new database on the same server, then copy the Orders table back into production." },
+      { id: 'B', text: "Perform a geo-restore of the database into the paired region and copy the Orders table back across regions." },
+      { id: 'C', text: "Use the restore deleted database option on the server to bring the database back as it was before the drop." },
+      { id: 'D', text: "Fail the database over to a secondary in an auto-failover group and read the Orders table from the former primary." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Point-in-time restore always produces a new database from the automated backups, so restoring to 14:06 on the same server yields a copy with the Orders table intact while production keeps running; the table is then copied back and the restored copy dropped. Geo-restore uses the most recent geo-replicated backup, which may be up to an hour old or already past the drop, and targets regional outages rather than a chosen moment. The restore deleted database option applies to a database that was deleted, and this database still exists. The scenario has no failover group, and a replicated secondary would have received the DROP TABLE anyway.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-sql/database/recovery-using-backups",
+    tags: ["Point-in-time restore", "Backups", "Azure SQL Database"]
+  },
+  {
+    id: "azure-az305-171",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d2",
+    domainName: "Design data storage solutions",
+    title: "Backups that must not leave the country",
+    scenario: "A Dutch public agency is deploying Azure SQL Database in the West Europe region. Its data-protection rules state that no copy of the data, including automated backups, may be stored outside the Netherlands. The agency still wants backups to survive the loss of a single datacenter, and it accepts that cross-region recovery from backups will not be available.",
+    question: "How should the database's backup storage be configured?",
+    options: [
+      { id: 'A', text: "Keep the default geo-redundant backup storage and assign an Azure Policy definition that denies geo-restore operations." },
+      { id: 'B', text: "Select locally redundant backup storage and add a long-term retention policy so that copies persist within the region." },
+      { id: 'C', text: "Select geo-zone-redundant backup storage so that the secondary copy is held in the region's paired location." },
+      { id: 'D', text: "Select zone-redundant backup storage so that copies are spread across the availability zones of West Europe." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Zone-redundant backup storage keeps the backups in three availability zones of the same region, so they survive the loss of a datacenter while never leaving West Europe, which is in the Netherlands. Geo-redundant storage replicates backups to the paired region, North Europe, which is in Ireland, and a policy blocking geo-restore does not stop the copy being made. Locally redundant storage keeps backups in one datacenter, so a datacenter loss would destroy them, and long-term retention changes retention rather than placement. Geo-zone-redundant storage also copies to the Irish paired region, violating the residency rule.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-sql/database/automated-backups-overview",
+    tags: ["Backup storage redundancy", "Data residency", "Azure SQL Database"]
+  },
+  {
+    id: "azure-az305-172",
+    difficulty: "hard",
+    certId: "azure-az305",
+    domainId: "d2",
+    domainName: "Design data storage solutions",
+    title: "Row filtering behind a pooled application identity",
+    scenario: "A telecom's customer portal connects to Azure SQL Database through a connection pool that uses one managed identity for every portal user. The team enabled row-level security with a filter predicate based on USER_NAME(), but each portal user now sees every customer's rows. Per-user database logins are ruled out because they would fragment the pool, and enforcement must stay inside the database.",
+    question: "Which change resolves the issue?",
+    options: [
+      { id: 'A', text: "Replace the filter predicate with a block predicate so that rows outside the caller's scope are rejected on every read." },
+      { id: 'B', text: "Have the application store the customer identifier in SESSION_CONTEXT when it acquires a pooled session and base the predicate on it." },
+      { id: 'C', text: "Wrap each request in EXECUTE AS USER for the portal user so that USER_NAME() inside the predicate returns that user's name." },
+      { id: 'D', text: "Enable Microsoft Entra authentication for portal users and pass each user's token through the pool to the database." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "When every request arrives under one database identity, USER_NAME() is the same for all callers, so a predicate built on it cannot distinguish them. The documented pattern is for the application to set the user's identifier with sp_set_session_context after taking a connection from the pool and for the predicate function to read SESSION_CONTEXT, keeping enforcement in the database with a single shared login. Block predicates govern writes, not reads. EXECUTE AS USER requires a database user for each portal user, which the team has ruled out. Passing per-user tokens means a distinct connection per user, which destroys the pooling the team needs to keep.",
+    referenceUrl: "https://learn.microsoft.com/en-us/sql/relational-databases/security/row-level-security",
+    tags: ["Row-level security", "SESSION_CONTEXT", "Connection pooling"]
+  },
+  {
+    id: "azure-az305-173",
+    difficulty: "hard",
+    certId: "azure-az305",
+    domainId: "d2",
+    domainName: "Design data storage solutions",
+    title: "Shielding patient identifiers from administrators",
+    scenario: "A hospital network must ensure its own database administrators cannot read patient identifiers held in an Azure SQL Database, and that a record of every statement executed against the database is retained for one year somewhere those administrators cannot modify. The application team can change the data access layer, and the security team owns a separate subscription.",
+    question: "Which two measures should the architect recommend? (Choose two.)",
+    options: [
+      { id: 'A', text: "Transparent data encryption with a customer-managed key kept in a Key Vault owned by the security team." },
+      { id: 'B', text: "Always Encrypted on the identifier columns with the column master key in a Key Vault only the application identity can use." },
+      { id: 'C', text: "Dynamic Data Masking with a default mask on the identifier columns and UNMASK granted only to the application role." },
+      { id: 'D', text: "Microsoft Defender for SQL vulnerability assessment with scan results exported to the security team's storage account." },
+      { id: 'E', text: "Server-level auditing to a storage account in the security team's subscription protected by a time-based immutability policy." }
+    ],
+    correctAnswers: ['B', 'E'],
+    type: "multiple",
+    explanation: "Always Encrypted keeps the identifiers as ciphertext everywhere inside the database engine, and if only the application identity can use the column master key in Key Vault, administrators who can query the table still cannot decrypt what they read. Auditing at server level records every statement, and writing it to a storage account in another subscription under a time-based immutability policy places the log beyond the administrators' reach and retains it for the required year. Transparent data encryption protects files at rest but decrypts for any user with query rights, including administrators. Dynamic Data Masking is bypassed by members of high-privilege roles and is not encryption. Vulnerability assessment reports configuration weaknesses; it is not a record of statements executed.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-sql/database/security-overview",
+    tags: ["Always Encrypted", "SQL auditing", "Immutable storage", "Data protection"]
+  },
+  {
+    id: "azure-az305-174",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d2",
+    domainName: "Design data storage solutions",
+    title: "Reducing request unit consumption in a hot container",
+    scenario: "An airline's booking service runs on Azure Cosmos DB for NoSQL. Cost analysis shows most request units are consumed by queries that filter on the item id and partition key to fetch one booking, and by writes to items with 40 properties of which only three are ever filtered. Provisioned throughput has been raised twice this quarter. The team wants to lower consumption without changing the data model.",
+    question: "Which two changes should the architect recommend? (Choose two.)",
+    options: [
+      { id: 'A', text: "Replace the single-booking queries with point reads that supply the item id and partition key directly." },
+      { id: 'B', text: "Change the account's default consistency level from session to strong so reads are served by fewer replicas." },
+      { id: 'C', text: "Set a time-to-live on the container so expired bookings are purged and no longer consume request units." },
+      { id: 'D', text: "Enable the analytical store so that booking queries are served from the column store at a lower request unit cost." },
+      { id: 'E', text: "Exclude the properties that are never filtered from the indexing policy so each write indexes only three paths." }
+    ],
+    correctAnswers: ['A', 'E'],
+    type: "multiple",
+    explanation: "A point read of a 1 KB item costs 1 RU, whereas a query returning the same item through the query engine costs more, so fetching bookings by id and partition key directly is the cheapest read path. Write cost rises with the number of indexed paths, so an indexing policy that includes only the three filtered properties and excludes the rest cuts the RU charge of every write. Strong consistency roughly doubles read cost compared with session consistency rather than lowering it. Time-to-live reclaims storage for expired items but does nothing for the cost of the live reads and writes described. The analytical store feeds Azure Synapse Link for analytics and is not queried by the application's operational reads.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/cosmos-db/optimize-cost-reads-writes",
+    tags: ["Cosmos DB", "Request units", "Indexing policy", "Point reads"]
+  },
+  {
+    id: "azure-az305-175",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d2",
+    domainName: "Design data storage solutions",
+    title: "Recovering a database after a regional outage",
+    scenario: "A regional outage has taken the East US logical server hosting a non-profit's donor database offline. The Azure SQL Database used geo-redundant backup storage but had no failover group, no geo-replica and no long-term retention policy. Leadership accepts losing up to an hour of recent donations and wants the database running in another region as soon as possible rather than waiting for the outage to end.",
+    question: "What should the operations team do?",
+    options: [
+      { id: 'A', text: "Perform a point-in-time restore of the database onto a logical server in West US using the most recent backup available." },
+      { id: 'B', text: "Create an auto-failover group for the database now and force a failover to a newly created secondary in West US." },
+      { id: 'C', text: "Perform a geo-restore from the geo-replicated backup onto a logical server in West US." },
+      { id: 'D', text: "Restore the newest long-term retention backup of the database onto a logical server in West US." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "Geo-restore is the recovery path for exactly this situation: the geo-redundant backup storage holds a copy of the backups in the paired region, and a geo-restore can create the database on any server in another region while the source region is down, with a recovery point that can be up to an hour behind, which leadership has accepted. Point-in-time restore reads backups through the source server in the same region, so it is unavailable while East US is offline. A failover group needs a reachable primary to seed its secondary, so it cannot be created during the outage. There is no long-term retention policy, so no such backup exists to restore.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-sql/database/recovery-using-backups",
+    tags: ["Geo-restore", "Regional outage", "Azure SQL Database"]
+  }
+];
+
+export default AZURE_AZ305_QUESTIONS_7;
