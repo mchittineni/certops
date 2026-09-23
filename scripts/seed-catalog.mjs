@@ -61,8 +61,8 @@ const ROADMAP = [
 
   // ── DevOps & SRE ─────────────────────────────────────────────────────────
   ['azure-az400', 'Microsoft Azure', 'AZ-400', 'Microsoft Certified: DevOps Engineer Expert', 'devops', 'professional', 700, 1000, 150, 6],
-  ['hashicorp-tfa', 'HashiCorp', 'TA-003', 'HashiCorp Certified: Terraform Associate', 'devops', 'associate', 70, 100, 60, null],
-  ['hashicorp-tfp', 'HashiCorp', 'TF-PRO', 'HashiCorp Certified: Terraform Authoring & Operations Professional', 'devops', 'professional', 70, 100, 180, 4],
+  ['hashicorp-tfa', 'HashiCorp', 'TA-004', 'HashiCorp Certified: Terraform Associate (004)', 'devops', 'associate', 70, 100, 60, null],
+  ['hashicorp-tfp', 'HashiCorp', 'TF-ADV', 'HashiCorp Certified: Terraform Authoring and Operations Advanced', 'devops', 'professional', 70, 100, 240, 4],
   ['github-actions', 'GitHub', 'GH-200', 'GitHub Actions Certification', 'devops', 'associate', 70, 100, 120, null],
   ['github-ghas', 'GitHub', 'GH-500', 'GitHub Advanced Security Certification', 'security', 'associate', 70, 100, 120, null],
   ['docker-dca', 'Docker', 'DCA', 'Docker Certified Associate', 'devops', 'associate', 65, 100, 90, null],
@@ -102,7 +102,8 @@ const ROADMAP = [
   ['doi-devsecops-practitioner', 'DevOps Institute', 'DSOP', 'DevSecOps Practitioner', 'security', 'professional', 65, 100, 90, null],
   ['isc2-cissp', 'ISC2', 'CISSP', 'Certified Information Systems Security Professional', 'security', 'professional', 700, 1000, 240, null],
   ['isc2-ccsp', 'ISC2', 'CCSP', 'Certified Cloud Security Professional', 'security', 'professional', 700, 1000, 180, 12],
-  ['offsec-oscp', 'OffSec', 'OSCP', 'Offensive Security Certified Professional', 'security', 'professional', 70, 100, 1440, null]
+  ['offsec-oscp', 'OffSec', 'OSCP', 'Offensive Security Certified Professional', 'security', 'professional', 70, 100, 1440, null],
+  ['hashicorp-vault-ops', 'HashiCorp', 'VAULT-ADV', 'HashiCorp Certified: Vault Operations Advanced', 'security', 'professional', 70, 100, 240, null]
 ];
 
 const CERTS_DIR = 'src/data/certs';
