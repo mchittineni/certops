@@ -20,31 +20,32 @@ every answer moves your difficulty band toward your actual level.
 
 ## Project status
 
-**All 32 live certifications hold 500 questions and 500 flashcards. Bank size is not the
+**All 30 live certifications hold 500 questions and 500 flashcards. Bank size is not the
 same as exam readiness, and the gap between them is measured rather than asserted — see
 [docs/EXAM-READINESS.md](docs/EXAM-READINESS.md).**
 
 | | |
 | --- | --- |
-| Certifications scaffolded | **78** across six disciplines |
-| Live (launchable, with content) | **32** — including all Top 20 roadmap priorities plus AWS, Azure, GCP, GitHub, Kubernetes, CNCF, FinOps, and HashiCorp tracks |
-| Questions authored / live | **16,598** — 16,000 in live banks plus 598 in planned certifications (500 in the withdrawn `cncf-opa`, 98 in starter packs), of a 39,000 target (500 × 78) |
-| Flashcards authored / live | **16,573** — 16,000 in live banks plus 573 in planned certifications |
+| Certifications scaffolded | **95** across six disciplines (30 live, 62 planned, 3 retired) |
+| Live (launchable, with content) | **30** — including 18 of the Top 20 roadmap priorities plus AWS, Azure, GCP, GitHub, Kubernetes, CNCF, FinOps, and HashiCorp tracks |
+| Questions authored / live | **16,598** — 15,000 in live banks, 1,004 in the three retired Azure certifications, and 594 in planned certifications (500 in the withdrawn `cncf-opa`, 94 in starter packs), of a 46,000 target (500 × 92 live and planned) |
+| Flashcards authored / live | **16,573** — 15,000 in live banks, 1,004 in retired certifications, and 569 in planned certifications |
 
 Run `npm run stats` for detailed domain and difficulty distributions across the bank.
 
 Three audits qualify that count, and each is printed into every CI run's job summary.
 `npm run audit:distractors`: 25 of 39 banks give nothing away through the form of their
 options. `npm run audit:filler`: 2,000 questions and 2,000 flashcards across 8 banks are
-templated placeholders whose answers cannot be verified. `npm run audit:repeats`: 31 of
-the 32 live banks serve the same item or card more than once — `hashicorp-vault` draws its 500
+templated placeholders whose answers cannot be verified. `npm run audit:repeats`: 29 of
+the 30 live banks serve the same item or card more than once — `hashicorp-vault` draws its 500
 questions from 21 distinct option sets — and only `aws-sap` does not. Nine certifications
 therefore need a bank authored from scratch. The first 75 questions and 50 flashcards of
-`azure-az305` and starter packs for `aws-aif`, `aws-dea`, `azure-az500`, `gcp-cdl`, and `linux-lfcs`
+`azure-az305` and starter packs for `aws-aif`, `aws-dea`, `gcp-cdl`, and `linux-lfcs`
 are written to the standard `npm run lint:pack` enforces and pass it.
 
-The 46 planned certifications appear on the roadmap panel but cannot be launched; 14 of
-them still carry **placeholder blueprints**. That is the honest state of things,
+The 62 planned certifications appear on the roadmap panel but cannot be launched; 13 of
+them still carry **placeholder blueprints**. Microsoft retired AZ-204, AI-102, and AZ-500 in
+2026; those three are marked `retired` and hidden from the catalogue, and their banks are kept. That is the honest state of things,
 and it is exactly where contributions land: see [CONTRIBUTING.md](CONTRIBUTING.md).
 
 Everything that makes 500 questions per certification *tractable* is built:
@@ -73,13 +74,9 @@ CertOps features official digital certification badge tracks with comprehensive 
 
 #### ☁️ Hyperscaler Associate Tracks (AWS, Azure & Google Cloud)
 
-| [<img src="docs/badges/aws-saa.png" width="96" height="96" alt="AWS Certified Solutions Architect – Associate"/>](src/data/certs/aws-saa/cert.js) | [<img src="docs/badges/aws-dva.png" width="96" height="96" alt="AWS Certified Developer – Associate"/>](src/data/certs/aws-dva/cert.js) | [<img src="docs/badges/aws-dea.png" width="96" height="96" alt="AWS Certified Data Engineer – Associate"/>](src/data/certs/aws-dea/cert.js) | [<img src="docs/badges/aws-mla.png" width="96" height="96" alt="AWS Certified Machine Learning Engineer – Associate"/>](src/data/certs/aws-mla/cert.js) | [<img src="docs/badges/gcp-ace.png" width="96" height="96" alt="Google Cloud Associate Cloud Engineer"/>](src/data/certs/gcp-ace/cert.js) |
-| :---: | :---: | :---: | :---: | :---: |
-| **AWS Solutions Architect**<br>`SAA-C03` | **AWS Developer**<br>`DVA-C02` | **AWS Data Engineer**<br>`DEA-C01` | **AWS ML Engineer**<br>`MLA-C02` | **GCP Associate Engineer**<br>`GCP-ACE` |
-
-| [<img src="docs/badges/azure-az104.png" width="96" height="96" alt="Microsoft Certified: Azure Administrator Associate"/>](src/data/certs/azure-az104/cert.js) | [<img src="docs/badges/azure-az204.png" width="96" height="96" alt="Microsoft Certified: Azure Developer Associate"/>](src/data/certs/azure-az204/cert.js) | [<img src="docs/badges/azure-ai102.png" width="96" height="96" alt="Microsoft Certified: Azure AI Engineer Associate"/>](src/data/certs/azure-ai102/cert.js) | [<img src="docs/badges/azure-az500.png" width="96" height="96" alt="Microsoft Certified: Azure Security Engineer Associate"/>](src/data/certs/azure-az500/cert.js) |
-| :---: | :---: | :---: | :---: |
-| **Azure Administrator**<br>`AZ-104` | **Azure Developer**<br>`AZ-204` | **Azure AI Engineer**<br>`AI-102` | **Azure Security Engineer**<br>`AZ-500` |
+| [<img src="docs/badges/aws-saa.png" width="96" height="96" alt="AWS Certified Solutions Architect – Associate"/>](src/data/certs/aws-saa/cert.js) | [<img src="docs/badges/aws-dva.png" width="96" height="96" alt="AWS Certified Developer – Associate"/>](src/data/certs/aws-dva/cert.js) | [<img src="docs/badges/aws-dea.png" width="96" height="96" alt="AWS Certified Data Engineer – Associate"/>](src/data/certs/aws-dea/cert.js) | [<img src="docs/badges/aws-mla.png" width="96" height="96" alt="AWS Certified Machine Learning Engineer – Associate"/>](src/data/certs/aws-mla/cert.js) | [<img src="docs/badges/gcp-ace.png" width="96" height="96" alt="Google Cloud Associate Cloud Engineer"/>](src/data/certs/gcp-ace/cert.js) | [<img src="docs/badges/azure-az104.png" width="96" height="96" alt="Microsoft Certified: Azure Administrator Associate"/>](src/data/certs/azure-az104/cert.js) |
+| :---: | :---: | :---: | :---: | :---: | :---: |
+| **AWS Solutions Architect**<br>`SAA-C03` | **AWS Developer**<br>`DVA-C02` | **AWS Data Engineer**<br>`DEA-C01` | **AWS ML Engineer**<br>`MLA-C02` | **GCP Associate Engineer**<br>`GCP-ACE` | **Azure Administrator**<br>`AZ-104` |
 
 #### ☸️ Cloud Native, Linux & Tooling Associates
 
@@ -173,7 +170,7 @@ One selector governs every mode:
 ☁️ Cloud Engineering · 🚀 DevOps & SRE · ☸️ Kubernetes & Cloud Native ·
 🏗️ Platform Engineering · 💰 FinOps · 🔐 DevSecOps & Security
 
-All 78 certifications and the priority order:
+All 95 certifications and the priority order:
 **[docs/CERTIFICATION-ROADMAP.md](docs/CERTIFICATION-ROADMAP.md)**.
 
 ---
@@ -184,7 +181,7 @@ All 78 certifications and the priority order:
 | --- | --- |
 | [CONTRIBUTING.md](CONTRIBUTING.md) | Setup, the one command that matters, and the ground rules for content |
 | [docs/CONTENT-ARCHITECTURE.md](docs/CONTENT-ARCHITECTURE.md) | Authoring reference: schemas, difficulty conventions, how to get a bank to 500 |
-| [docs/CERTIFICATION-ROADMAP.md](docs/CERTIFICATION-ROADMAP.md) | All 78 certifications, priority order, and the `planned` → `live` walkthrough |
+| [docs/CERTIFICATION-ROADMAP.md](docs/CERTIFICATION-ROADMAP.md) | All 95 certifications, priority order, and the `planned` → `live` walkthrough |
 | [docs/EXAM-READINESS.md](docs/EXAM-READINESS.md) | What separates a 500-item bank from an exam-ready one, and which blueprints are verified against their official guides |
 | [docs/CI-AND-SECURITY.md](docs/CI-AND-SECURITY.md) | Pipelines, SHA-pinned actions, CSP, coverage thresholds, and where the tests live |
 | [docs/adr/0001-content-architecture.md](docs/adr/0001-content-architecture.md) | Why the content layout is what it is, with measurements and rejected alternatives |
@@ -216,7 +213,7 @@ npm run audit:repeats       # count items reissued under another framing, and du
 npm run lint:pack           # score one pack against the authoring rules before it is registered
                             # (--file <pack> --cert <id> --start <n> --end <m> --quota 7/12/6)
 npm run audit:distractors   # score how much each bank gives its answer away by form
-                            # (--min-passing 24 is the CI gate; --cert <id> scores one)
+                            # (--min-passing 25 is the CI gate; --cert <id> scores one)
 npm run audit:length        # worklist of option sets whose key is longer than every distractor
 npm run fix:explanations    # strip parenthesised option-letter references in bulk
 npm run fix:options         # apply authored option rewrites from a JSON patch, keyed by hash
@@ -335,7 +332,7 @@ once on boot and then removed ([src/lib/storage.js](src/lib/storage.js)).
 
 ## Contributing
 
-The 32 live certifications hold 500 questions and 500 flashcards each (16,000 and 16,000 repo-wide). The most valuable contribution is not a new certification but a re-authored pack in one of the nine banks that need one, and `npm run lint:pack` scores a single pack before anything else runs. A **wrong answer is the highest-priority bug**, because it teaches someone the wrong thing before an exam they paid for. Start with [CONTRIBUTING.md](CONTRIBUTING.md) and [docs/EXAM-READINESS.md](docs/EXAM-READINESS.md).
+The 30 live certifications hold 500 questions and 500 flashcards each (15,000 and 15,000 repo-wide). The most valuable contribution is not a new certification but a re-authored pack in one of the nine banks that need one, and `npm run lint:pack` scores a single pack before anything else runs. A **wrong answer is the highest-priority bug**, because it teaches someone the wrong thing before an exam they paid for. Start with [CONTRIBUTING.md](CONTRIBUTING.md) and [docs/EXAM-READINESS.md](docs/EXAM-READINESS.md).
 
 ```bash
 npm run new:pack -- --cert <id> --kind questions --count 25
