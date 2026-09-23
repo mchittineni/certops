@@ -4,8 +4,8 @@ import assert from 'assert';
 import {
   buildSession, filterByDifficulty, nextAdaptiveLevel, drawAdaptive,
   isCorrect, sampleWeightedByDomain, makeRng, recommendedCount
-} from '../src/lib/select.js';
-import { loadAllContent, flatten } from './lib/content-io.mjs';
+} from '../../src/lib/select.js';
+import { loadAllContent, flatten } from '../lib/content-io.mjs';
 
 const content = await loadAllContent();
 const saa = content['aws-saa'];

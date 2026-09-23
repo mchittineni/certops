@@ -1,13 +1,13 @@
 #!/usr/bin/env node
 /** Headless end-to-end smoke test of the app's views and actions. */
 import assert from 'assert';
-import { installDomShim } from './lib/dom-shim.mjs';
+import { installDomShim } from '../lib/dom-shim.mjs';
 
 const dom = installDomShim();
-const { state } = await import('../src/state.js');
-const { ROLES, ROLE_BY_ID, roleCertIds } = await import('../src/data/roles.js');
-const { CERTIFICATIONS } = await import('../src/data/catalog.generated.js');
-await import('../src/app.js');
+const { state } = await import('../../src/state.js');
+const { ROLES, ROLE_BY_ID, roleCertIds } = await import('../../src/data/roles.js');
+const { CERTIFICATIONS } = await import('../../src/data/catalog.generated.js');
+await import('../../src/app.js');
 
 const tick = () => new Promise(r => setTimeout(r, 30));
 let passed = 0;
@@ -203,7 +203,7 @@ await check('planned certifications are on the roadmap but not launchable', () =
 await check('a chunk that fails to load shows an error view, and recovers on retry', async () => {
   // Packs are separate chunks, so a flaky network is a real failure mode: the
   // module page must say so instead of rendering an empty quiz.
-  const { CONTENT_REGISTRY } = await import('../src/data/registry.generated.js');
+  const { CONTENT_REGISTRY } = await import('../../src/data/registry.generated.js');
   const real = CONTENT_REGISTRY['aws-clf'];
   CONTENT_REGISTRY['aws-clf'] = {
     questions: [{ path: 'broken', load: async () => { throw new Error('Failed to fetch dynamically imported module'); } }],

@@ -39,7 +39,12 @@ const tier = args.tier || 'associate';
 if (!TIERS.includes(tier)) { console.error(`--tier must be one of ${TIERS.join(', ')}`); process.exit(1); }
 if (!/^[a-z0-9-]+$/.test(args.id)) { console.error('--id must be lowercase kebab-case (it becomes the folder name)'); process.exit(1); }
 
-const BADGE = { AWS: ['badge-aws', 'aws', '#ff9900'], 'Google Cloud': ['badge-gcp', 'googlecloud', '#4285F4'], 'Microsoft Azure': ['badge-azure', 'azure', '#0078D4'] };
+const BADGE = {
+  AWS: ['badge-aws', 'aws', '#ff9900'],
+  'Google Cloud': ['badge-gcp', 'googlecloud', '#4285F4'],
+  'Microsoft Azure': ['badge-azure', 'azure', '#0078D4'],
+  'Linux Foundation': ['badge-linux', 'linuxfoundation', '#003366']
+};
 const [badgeClass, icon, color] = BADGE[args.provider] || ['badge-k8s', 'kubernetes', '#326CE5'];
 
 const dir = path.join('src/data/certs', args.id);

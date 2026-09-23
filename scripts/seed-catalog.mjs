@@ -37,6 +37,7 @@ const PROVIDER_STYLE = {
   'FinOps Foundation': ['badge-finops', 'finops', '#10b981'],
   'ISC2': ['badge-security', 'shield', '#ef4444'],
   'OffSec': ['badge-security', 'shield', '#dc2626'],
+  'Linux Foundation': ['badge-linux', 'linuxfoundation', '#003366'],
   'Vendor Neutral': ['badge-neutral', 'cloud', '#64748b']
 };
 
@@ -58,6 +59,9 @@ const ROADMAP = [
   ['gcp-pcdoe', 'Google Cloud', 'GCP-PCDE', 'Google Cloud Professional Cloud DevOps Engineer', 'devops', 'professional', 70, 100, 120, 5],
   ['gcp-pcse', 'Google Cloud', 'GCP-PCSE', 'Google Cloud Professional Cloud Security Engineer', 'security', 'professional', 70, 100, 120, null],
   ['gcp-pmle', 'Google Cloud', 'GCP-PMLE', 'Google Cloud Professional Machine Learning Engineer', 'cloud', 'professional', 70, 100, 120, 15],
+  ['aws-aif', 'AWS', 'AIF-C01', 'AWS Certified AI Practitioner', 'cloud', 'foundational', 700, 1000, 90, null],
+  ['aws-dea', 'AWS', 'DEA-C01', 'AWS Certified Data Engineer – Associate', 'cloud', 'associate', 720, 1000, 130, null],
+  ['gcp-cdl', 'Google Cloud', 'GCP-CDL', 'Google Cloud Digital Leader', 'cloud', 'foundational', 700, 1000, 90, null],
 
   // ── DevOps & SRE ─────────────────────────────────────────────────────────
   ['azure-az400', 'Microsoft Azure', 'AZ-400', 'Microsoft Certified: DevOps Engineer Expert', 'devops', 'professional', 700, 1000, 150, 6],
@@ -74,6 +78,7 @@ const ROADMAP = [
   ['doi-devops-leader', 'DevOps Institute', 'DOL', 'DevOps Institute DevOps Leader', 'devops', 'professional', 65, 100, 60, null],
   ['doi-sre-foundation', 'DevOps Institute', 'SREF', 'DevOps Institute SRE Foundation', 'devops', 'foundational', 65, 100, 60, null],
   ['doi-sre-practitioner', 'DevOps Institute', 'SREP', 'DevOps Institute SRE Practitioner', 'devops', 'professional', 65, 100, 90, null],
+  ['linux-lfcs', 'Linux Foundation', 'LFCS', 'Linux Foundation Certified System Administrator', 'devops', 'associate', 700, 1000, 120, null],
 
   // ── Kubernetes & Cloud Native ────────────────────────────────────────────
   ['k8s-cka', 'Cloud Native (CNCF)', 'CKA', 'Certified Kubernetes Administrator', 'k8s', 'professional', 66, 100, 120, 2],
@@ -102,6 +107,7 @@ const ROADMAP = [
   ['cloud-economics', 'Vendor Neutral', 'CLOUD-ECON', 'Cloud Financial Management / Cloud Economics', 'finops', 'foundational', 70, 100, 60, null],
 
   // ── DevSecOps & Security ─────────────────────────────────────────────────
+  ['azure-az500', 'Microsoft Azure', 'AZ-500', 'Microsoft Certified: Azure Security Engineer Associate', 'security', 'associate', 700, 1000, 100, null],
   ['doi-devsecops-foundation', 'DevOps Institute', 'DSOF', 'DevSecOps Foundation', 'security', 'foundational', 65, 100, 60, null],
   ['doi-devsecops-practitioner', 'DevOps Institute', 'DSOP', 'DevSecOps Practitioner', 'security', 'professional', 65, 100, 90, null],
   ['isc2-cissp', 'ISC2', 'CISSP', 'Certified Information Systems Security Professional', 'security', 'professional', 700, 1000, 240, null],
