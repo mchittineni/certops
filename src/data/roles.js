@@ -19,6 +19,7 @@ export const ROLES = [
     blurb: 'Build, operate, and automate infrastructure across modern public clouds.',
     path: [
       { certId: 'aws-clf', why: 'Shared responsibility model, core computing primitives, and cloud pricing vocabulary before touching production resources.' },
+      { certId: 'gcp-cdl', why: 'Digital transformation concepts, Google Cloud organizational hierarchy, and foundational enterprise cloud economics.' },
       { certId: 'aws-saa', why: 'Architectural trade-offs you must defend in engineering review: multi-AZ resilience, tiered S3 storage, and decoupled message queues.' },
       { certId: 'azure-az104', why: 'Enterprise identity with Microsoft Entra ID, virtual networks, and hybrid cloud management to avoid single-vendor assumptions.' },
       { certId: 'gcp-ace', why: 'Google Cloud resource hierarchy, IAM bindings, Cloud Run serverless deployments, and GKE operational administration.' },
@@ -30,6 +31,7 @@ export const ROLES = [
     title: 'DevOps Engineer',
     blurb: 'Own the automated path from developer commit to resilient production release.',
     path: [
+      { certId: 'linux-lfcs', why: 'Core Linux systems administration, systemd service management, storage configuration, and kernel troubleshooting underpinning all containers.' },
       { certId: 'github-actions', why: 'Automated workflow pipelines, custom action authoring, self-hosted runners, and secret governance where code is written.' },
       { certId: 'hashicorp-tfp', why: 'Infrastructure as code with an explicit state engine, preventing configuration drift across staging and production environments.' },
       { certId: 'k8s-cka', why: 'The standard deployment target: pod scheduling, service discovery, ingress routing, and debugging broken runtime workloads.' },
@@ -55,6 +57,7 @@ export const ROLES = [
     title: 'Site Reliability Engineer',
     blurb: 'Guarantee service reliability, eliminate toil, and master incident response.',
     path: [
+      { certId: 'linux-lfcs', why: 'Deep operating system inspection, process signals, networking sockets, and kernel debugging under live production pressure.' },
       { certId: 'k8s-cka', why: 'Live cluster troubleshooting under pressure: triaging crash looping pods, broken DNS, node resource exhaustion, and failing health probes.' },
       { certId: 'cncf-otca', why: 'Full-stack distributed observability: instrumenting traces, metrics, and logs into a unified telemetry pipeline to spot anomalies before users do.' },
       { certId: 'gcp-pcdoe', why: 'Production SRE discipline from Google: defining meaningful SLIs and SLOs, managing error budgets, automated canaries, and blameless postmortems.' },
@@ -68,6 +71,7 @@ export const ROLES = [
     blurb: 'Shift security left into code, harden runtime platforms, and defend cloud perimeters.',
     path: [
       { certId: 'github-ghas', why: 'Application security at the source: semantic code analysis with CodeQL, secret push protection, and supply chain vulnerability scanning.' },
+      { certId: 'azure-az500', why: 'Microsoft cloud defense: Entra ID privileged identity, network security groups, Azure Key Vault, and Defender for Cloud workload protection.' },
       { certId: 'aws-scs', why: 'Cloud perimeter defense: KMS envelope encryption, restrictive IAM permission boundaries, VPC flow monitoring, and automated threat detection.' },
       { certId: 'k8s-cks', why: 'Container and cluster hardening: admission control policies, AppArmor and seccomp syscall profiles, container image sandboxing, and runtime threat detection.' },
       { certId: 'hashicorp-vault', why: 'Centralized secrets lifecycle orchestration: dynamic database credentials, PKI certificate automation, and transit data encryption across multi-cloud environments.' },
@@ -104,6 +108,7 @@ export const ROLES = [
     title: 'AI / Machine Learning Engineer',
     blurb: 'Build, deploy, and operationalize machine learning models and generative AI systems.',
     path: [
+      { certId: 'aws-aif', why: 'Foundational AI vocabulary, generative AI architectures, prompt engineering, Amazon Bedrock, and Responsible AI governance principles.' },
       { certId: 'aws-mla', why: 'Machine learning engineering fundamentals: data preparation, feature engineering pipelines, model training workflows, and containerized deployment.' },
       { certId: 'azure-ai-apps-agents', why: 'Generative AI applications: prompt orchestration, Retrieval-Augmented Generation (RAG) architectures, and autonomous AI agent workflows.' },
       { certId: 'gcp-pmle', why: 'Production MLOps at scale: Vertex AI continuous training pipelines, data drift detection, feature stores, and low-latency inference serving.' },
@@ -117,6 +122,7 @@ export const ROLES = [
     blurb: 'Design high-throughput data pipelines, analytical warehouses, and managed cloud databases.',
     path: [
       { certId: 'aws-clf', why: 'Foundational data storage concepts: object storage classes, managed relational engines, and core cloud networking for data movement.' },
+      { certId: 'aws-dea', why: 'Modern data engineering pipelines: serverless Glue ETL, Athena querying, Redshift warehousing, and Lake Formation data governance.' },
       { certId: 'aws-dbs', why: 'Specialized database architecture: choosing between relational, document, graph, and key-value datastores for specific query workloads.' },
       { certId: 'gcp-pde', why: 'Scalable data pipeline engineering: streaming with Pub/Sub and Apache Beam on Dataflow, plus petabyte-scale analytics in BigQuery.' },
       { certId: 'gcp-pcdbe', why: 'Enterprise database operations: global high availability with Cloud Spanner, automated failover in Cloud SQL, and zero-downtime migrations.' },
