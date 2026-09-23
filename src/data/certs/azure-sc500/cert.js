@@ -1,5 +1,10 @@
 /**
  * Microsoft Certified: Cloud and AI Security Engineer Associate (SC-500) — exam blueprint.
+ *
+ * Domains from the Microsoft Learn study guide, verified 2026-09-23.
+ * SC-500 replaced AZ-500 (retired August 31, 2026). Scored 700 of 1000.
+ *
+ * Microsoft publishes the weights as ranges (20-25/25-30/20-25/20-25); the midpoints below are normalised to sum to 100.
  */
 export default {
   "id": "azure-sc500",
@@ -13,32 +18,16 @@ export default {
   "badgeClass": "badge-azure",
   "icon": "azure",
   "color": "#0078D4",
-  "description": "Validates expertise in securing cloud infrastructure, generative AI pipelines, prompt injection defense, Defender for Cloud, and Entra ID governance.",
+  "description": "Validates implementing end-to-end security controls for cloud and AI workloads: identity and governance, storage, database and network security, compute security, and security posture management.",
   "passingScore": 700,
   "maxScore": 1000,
-  "defaultTimeMinutes": 120,
-  "blueprintSource": "https://learn.microsoft.com/en-us/credentials/certifications/",
-  "blueprintVerified": false,
+  "defaultTimeMinutes": 100,
+  "blueprintSource": "https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/sc-500",
+  "blueprintVerified": true,
   "domains": [
-    {
-      "id": "d1",
-      "name": "Implement identity, access, and Entra ID governance",
-      "weight": 25
-    },
-    {
-      "id": "d2",
-      "name": "Secure cloud infrastructure, networking, and compute",
-      "weight": 30
-    },
-    {
-      "id": "d3",
-      "name": "Secure AI workloads, models, data pipelines, and prompt boundaries",
-      "weight": 25
-    },
-    {
-      "id": "d4",
-      "name": "Manage security posture, compliance, and threat detection with Defender",
-      "weight": 20
-    }
+    { "id": "d1", "name": "Manage identity, access, and governance", "weight": 24 },
+    { "id": "d2", "name": "Secure storage, databases, and networking", "weight": 28 },
+    { "id": "d3", "name": "Secure compute", "weight": 24 },
+    { "id": "d4", "name": "Manage and monitor security posture", "weight": 24 }
   ]
 };
