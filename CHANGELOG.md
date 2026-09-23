@@ -35,6 +35,25 @@ progress is tracked by `npm run stats` and in
   - Connected `aws-aif` to AI/ML Engineer role path, `aws-dea` to Data Engineer role path, `azure-az500` to Security Engineer role path, `linux-lfcs` to DevOps and SRE role paths, and `gcp-cdl` to Cloud Engineer role path in `src/data/roles.js`.
 
 ### Fixed
+- **Every Azure and Google Cloud certification checked against its official exam guide** (2026-09-23). Sources are the Microsoft Learn study guides, with the catalog API used for the list of certifications, and the cloud.google.com exam guides. The scope is platform exams only; Microsoft 365, Power Platform, Dynamics and Google Workspace are left out. The catalogue grows from 78 to 95 certifications.
+  - **Microsoft retired three exams** that the catalogue carried. They get a new `retired` status: hidden everywhere, banks kept, excluded from coverage checks and from `LIVE_CERTIFICATIONS`. `azure-az204` retired on 31 July 2026 (replaced by AI-200), `azure-ai102` on 30 June (replaced by AI-103) and `azure-az500` on 31 August (replaced by SC-500). The live catalogue drops from 32 to 30.
+  - **Successors corrected:** `azure-ai-apps-agents` carried the code AI-200 and invented domains; it is now AI-103 with the published five and takes AI-102's roadmap priority. `azure-sc500` had invented domains. `azure-ai200` was added. The Security Engineer role path now points at SC-500.
+  - **Live Azure blueprints:** `azure-az900`, `azure-az104` and `azure-az400` had weights that did not match Microsoft's ranges, and their domain names drifted from the published wording. Items were relabelled one-to-one.
+  - **Live Google Cloud blueprints:** `gcp-pcdoe` and `gcp-pmle` carried `blueprintVerified: false`. Both were rewritten from the current guides, with PMLE on its Gemini Enterprise Agent Platform version, and all 2,000 items were reclassified one by one. `gcp-ace` now has four sections, because planning and deploying were merged, so items were remapped by domain. Three `gcp-pca` sections were renamed and its weights corrected. Every item was checked against its mapping afterwards, and the template filler in PCDOE and PMLE no longer names the old domains.
+  - **Planned blueprints:** `gcp-cdl` moved to the six-section exam that went live on 12 August 2026. `gcp-pcdbe`, `gcp-pcne`, `gcp-pde` and `gcp-pcse` had invented or TODO domains.
+  - **Added as `planned` with verified blueprints:**
+    - Azure: AI-901, DP-900, AZ-700, AZ-140, AZ-120, DP-300, DP-420, DP-750, DP-800, AI-300 and AI-500. DP-420 follows its 6 October 2026 rename to Azure Cosmos DB AI Developer Associate.
+    - Google Cloud: Professional Cloud Developer, Associate Data Practitioner, Generative AI Leader, Professional Security Operations Engineer and Professional Agentic Architect (in beta).
+  - **Explanations corrected:**
+    - `gcp-pcdoe-496..500`: Admin Activity logs are kept 400 days, not permanently.
+    - `gcp-pcdoe-376..380`: uptime checks run every 1, 5, 10 or 15 minutes.
+    - `gcp-pcdoe-311..315`: Cloud Source Repositories is closed to new customers.
+    - `gcp-pcdoe-321..335`: Anthos Service Mesh is now Cloud Service Mesh, and Anthos targets are now GKE attached clusters.
+    - `gcp-pmle-481..485`: the BigQuery ML export formats were wrong, and models can be registered without an export.
+    - PMLE filler said MirroredStrategy covers PyTorch.
+  - **Docs:** counts updated, the three retired badges removed, and the distractor gate is documented as `--min-passing 25`, which is what CI runs; the docs still said 24.
+  - **Still to author:** PCDOE has little on organization bootstrapping (8% of items against a 20% weight) or cost optimisation (3% against 12%). PMLE is thin on pipelines and monitoring. Both classifiers found a number of topics no longer on the guide, such as incident command, postmortems, federated learning and Dataprep. The PMLE bank still uses Vertex AI product names throughout.
+
 - **Every Cloud Native certification checked against its Linux Foundation exam page** (2026-09-23). CNCF offers 15 exams, listed identically on cncf.io and in the cncf/curriculum repository. The Linux Foundation adds **CKNE**, a new Kubernetes networking exam in beta. The READMEs in cncf/curriculum are not reliable: OTCA's claims five domains at 20%, while the official page gives 18/46/26/10.
   - **Six live banks reclassified item by item** onto the published domains: `cncf-cgoa` (5 domains), `cncf-cba`, `cncf-cnpa` (6), `cncf-cnpe` (5), `cncf-otca` and `k8s-cks`. Each of these 6,000 items was checked against its mapping afterwards. The five CNCF banks had carried `blueprintVerified: false` since 2026-09-21 and are now verified. Their template filler is unchanged.
   - `k8s-cka` was set to 60 minutes instead of 120, and one domain name was abbreviated. `cncf-cnpa` is 120 minutes, not 90. `k8s-ckad` already matched.
