@@ -1,6 +1,6 @@
 # Certification roadmap — 2026 Top 50
 
-All 68 certifications are **scaffolded** in `src/data/certs/`, so each one already has a
+All 78 certifications are **scaffolded** in `src/data/certs/`, so each one already has a
 folder, a blueprint stub, and a place to drop content. `status` controls visibility:
 
 - `live` — appears in the catalogue and can be launched. Requires real content.
@@ -14,6 +14,7 @@ npm run stats           # progress toward 500 questions per certification
 ## Status
 
 | | Certifications | Live | Questions |
+| --- | --- | --- | --- |
 | ☁️ Cloud Engineering | 25 | 12 | 6,088 |
 | 🚀 DevOps & SRE | 16 | 6 | 3,006 |
 | ☸️ Kubernetes & Cloud Native | 8 | 4 | 2,000 |
@@ -24,8 +25,8 @@ npm run stats           # progress toward 500 questions per certification
 
 Regenerate these numbers any time with `npm run stats`.
 
-**Authored vs. generated.** All 32 live certifications hold 500 questions and 500 flashcards
-(32,000 items repo-wide) with comprehensive explanations and zero option-letter references.
+**Authored vs. generated.** All 33 live certifications hold 500 questions and 500 flashcards
+(33,000 items repo-wide) with comprehensive explanations and zero option-letter references.
 How many of those items are *exam-ready* is a separate question with a measured answer:
 2,000 questions and 2,000 flashcards across 8 banks are templated placeholders, 32 of the 33
 banks reissue the same item under several framings, and 8 live blueprints do not match the
@@ -61,7 +62,7 @@ The Top-20 priority certifications from the 2026 roadmap are all **live and avai
 | 8 | Certified Cloud Native Platform Engineer (CNPE) | `cncf-cnpe` | Platform Engineering | ✅ live |
 | 9 | GitOps Certified Associate (CGOA) | `cncf-cgoa` | Kubernetes & Cloud Native | ✅ live |
 | 10 | FinOps Certified Practitioner (FOCP) | `finops-focp` | FinOps | ✅ live |
-| 11 | AWS Security – Specialty (SCS-C02) | `aws-scs` | DevSecOps & Security | ✅ live |
+| 11 | AWS Security – Specialty (SCS-C03) | `aws-scs` | DevSecOps & Security | ✅ live |
 | 12 | Certified Cloud Security Professional (CCSP) | `isc2-ccsp` | DevSecOps & Security | ✅ live |
 | 13 | OpenTelemetry Certified Associate (OTCA) | `cncf-otca` | Kubernetes & Cloud Native | ✅ live |
 | 14 | Certified Backstage Associate (CBA) | `cncf-cba` | Platform Engineering | ✅ live |
@@ -69,16 +70,16 @@ The Top-20 priority certifications from the 2026 roadmap are all **live and avai
 | 16 | HashiCorp Certified: Vault Associate (VAULT-003) | `hashicorp-vault` | DevSecOps & Security | ✅ live |
 | 17 | Certified Open Policy Agent Associate (COPAA) | `cncf-opa` | DevSecOps & Security | ✅ live |
 | 18 | Microsoft Certified: Azure AI Engineer Associate (AI-102) | `azure-ai102` | Cloud Engineering | ✅ live |
-| 19 | AWS Certified Machine Learning Engineer – Associate (MLA-C01) | `aws-mla` | Cloud Engineering | ✅ live |
+| 19 | AWS Certified Machine Learning Engineer – Associate (MLA-C02) | `aws-mla` | Cloud Engineering | ✅ live |
 | 20 | FinOps Certified FOCUS Analyst (FOCUS) | `finops-focus` | FinOps | ✅ live |
 
 ## Full catalogue
 
 ### ☁️ Cloud Engineering
 `aws-saa` SAA-C03 ✅ · `aws-dva` DVA-C02 ✅ · `aws-clf` CLF-C02 ✅ · `azure-az104` AZ-104 ✅ ·
-`azure-az204` AZ-204 ✅ · `azure-az900` AZ-900 ✅ · `azure-ai102` AI-102 ✅ · `aws-mla` MLA-C01 ✅ ·
+`azure-az204` AZ-204 ✅ · `azure-az900` AZ-900 ✅ · `azure-ai102` AI-102 ✅ · `aws-mla` MLA-C02 ✅ ·
 `gcp-ace` GCP-ACE ✅ · `gcp-pca` GCP-PCA ✅ · `gcp-pmle` GCP-PMLE ✅ · `aws-sap` SAP-C02 ·
-`aws-soa` SOA-C02 · `aws-ans` ANS-C01 · `azure-az305` AZ-305 · `aws-mls` MLS-C01 · `aws-dbs` DBS-C01 ·
+`aws-soa` SOA-C03 · `aws-ans` ANS-C01 · `azure-az305` AZ-305 · `aws-aip` AIP-C01 · `aws-aib` AIB-C01 ·
 `gcp-pde` GCP-PDE · `gcp-pcne` GCP-PCNE · `gcp-pcdbe` GCP-PCDBE · `azure-ai-apps-agents` AI-Apps · `databricks-genai` Databricks-GenAI ·
 `aws-aif` AIF-C01 · `aws-dea` DEA-C01 · `gcp-cdl` GCP-CDL
 
@@ -102,7 +103,7 @@ The Top-20 priority certifications from the 2026 roadmap are all **live and avai
 `finops-csp` FOC-CSP · `cloud-economics` CLOUD-ECON · `finops-ai-value` AIAV · `finops-tech-value` TV
 
 ### 🔐 DevSecOps & Security
-`aws-scs` SCS-C02 ✅ · `github-ghas` GH-500 ✅ · `k8s-cks` CKS ✅ · `isc2-ccsp` CCSP ✅ ·
+`aws-scs` SCS-C03 ✅ · `github-ghas` GH-500 ✅ · `k8s-cks` CKS ✅ · `isc2-ccsp` CCSP ✅ ·
 `hashicorp-vault` VAULT-003 ✅ · `cncf-opa` COPAA ✅ · `gcp-pcse` GCP-PCSE · `cncf-kcsa` KCSA ·
 `doi-devsecops-foundation` DSOF · `doi-devsecops-practitioner` DSOP · `isc2-cissp` CISSP ·
 `offsec-oscp` OSCP · `azure-sc500` SC-500 · `hashicorp-vault-ops` VAULT-ADV · `azure-az500` AZ-500
