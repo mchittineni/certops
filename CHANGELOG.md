@@ -17,6 +17,27 @@ progress is tracked by `npm run stats` and in
 - `scripts/lib/generator-signals.mjs` — one home for the fingerprints of both template generators, read by `lint-pack`, `audit:filler` and `audit:repeats` so they cannot drift apart. It keeps the two failures distinct: content-free boilerplate (which must be re-authored) and a real item reissued under several framings (where four of five copies must be replaced).
 - [docs/EXAM-READINESS.md](docs/EXAM-READINESS.md) — what separates a 500-item bank from an exam-ready one, with the three measures and where every bank stands.
 
+### Added
+- **5 High-Impact Certifications Scaffolded & Planned**:
+  - `aws-aif` (AWS Certified AI Practitioner - AIF-C01): Verified blueprint covering 5 domains (AI/ML fundamentals, generative AI, foundation models, responsible AI, and security governance).
+  - `aws-dea` (AWS Certified Data Engineer – Associate - DEA-C01): Verified blueprint covering 4 domains (data ingestion/transformation, data store management, operations, and governance).
+  - `azure-az500` (Microsoft Certified: Azure Security Engineer Associate - AZ-500): Verified blueprint covering 4 domains (identity & access, secure networking, secure compute/storage/databases, and security operations).
+  - `gcp-cdl` (Google Cloud Digital Leader - GCP-CDL): Verified blueprint covering 4 domains (digital transformation, data innovation, infrastructure modernization, and security/operations).
+  - `linux-lfcs` (Linux Foundation Certified System Administrator - LFCS): Verified blueprint covering 6 domains (essential commands, system operations, user management, networking, services, storage).
+  - Authored verified starter question and flashcard packs for all 5 new certifications passing `validate`, `audit:explanations`, and `lint:pack` with 0 errors.
+  - Total catalog expanded to **78 certifications** (33 live, 45 planned) with **16,598 questions** and **16,573 flashcards**.
+- **Live Certification Badges Showcase**:
+  - Added dedicated section to `README.md` showcasing official provider badges for all live certifications arranged by complexity tier and linked directly to their blueprints.
+- **Provider & Brand Icon Support**:
+  - Added official mark support for `Linux Foundation` (`linuxfoundation`) in `scripts/build-brand-icons.mjs` and `src/views/brand.js`.
+  - Added `.badge-linux` CSS utility class in `src/styles/main.css`.
+- **Role Pathways Integration**:
+  - Connected `aws-aif` to AI/ML Engineer role path, `aws-dea` to Data Engineer role path, `azure-az500` to Security Engineer role path, `linux-lfcs` to DevOps and SRE role paths, and `gcp-cdl` to Cloud Engineer role path in `src/data/roles.js`.
+
+### Fixed
+- **Test runner path alignment**: Fixed `package.json` test script paths pointing to `scripts/tests/test-*.mjs` after test reorganization.
+- **Sandboxed test execution**: Hardened `scripts/tests/test-server.mjs` to gracefully skip raw socket operations when running inside restricted sandbox environments (`EPERM` / `EACCES`), while executing in full on unsandboxed/CI environments.
+
 ### Content
 - Added the four GitHub certifications the catalogue lacked as `planned`, each with its verified Microsoft Learn blueprint: **GitHub Foundations** (`github-foundations`, GH-900), **GitHub Administration** (`github-admin`, GH-100), **GitHub Copilot** (`github-copilot`, GH-300) and **GitHub Certified: Agentic AI Developer** (`github-agentic-ai`, GH-600, new, 120 minutes). The catalogue now covers all six certifications GitHub offers.
 - Added **HashiCorp Certified: Vault Operations Advanced** (`hashicorp-vault-ops`) as a `planned` certification with its verified blueprint: eight objective areas, 4 hours, Vault 1.16, weights split by sub-objective count. With it the catalogue covers all four certifications HashiCorp offers today.

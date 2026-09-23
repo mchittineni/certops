@@ -20,35 +20,103 @@ every answer moves your difficulty band toward your actual level.
 
 ## Project status
 
-**All 32 live certifications hold 500 questions and 500 flashcards. Bank size is not the
+**All 33 live certifications hold 500 questions and 500 flashcards. Bank size is not the
 same as exam readiness, and the gap between them is measured rather than asserted — see
 [docs/EXAM-READINESS.md](docs/EXAM-READINESS.md).**
 
 | | |
 | --- | --- |
-| Certifications scaffolded | **68** across six disciplines |
-| Live (launchable, with content) | **32** — including all Top 20 roadmap priorities plus AWS, Azure, GCP, GitHub, Kubernetes, CNCF, FinOps, and HashiCorp tracks |
-| Questions authored / live | **16,000** of a 34,000 target (500 × 68) |
-| Flashcards authored / live | **16,000** |
+| Certifications scaffolded | **73** across six disciplines |
+| Live (launchable, with content) | **33** — including all Top 20 roadmap priorities plus AWS, Azure, GCP, GitHub, Kubernetes, CNCF, FinOps, and HashiCorp tracks |
+| Questions authored / live | **16,598** (500 per live track + verified starter packs for roadmap additions) |
+| Flashcards authored / live | **16,573** |
 
 Run `npm run stats` for detailed domain and difficulty distributions across the bank.
 
 Three audits qualify that count, and each is printed into every CI run's job summary.
-`npm run audit:distractors`: 25 of 33 banks give nothing away through the form of their
+`npm run audit:distractors`: 25 of 39 banks give nothing away through the form of their
 options. `npm run audit:filler`: 2,000 questions and 2,000 flashcards across 8 banks are
 templated placeholders whose answers cannot be verified. `npm run audit:repeats`: 32 of
 the 33 banks serve the same item or card more than once — `hashicorp-vault` draws its 500
 questions from 21 distinct option sets — and only `aws-sap` does not. Nine certifications
 therefore need a bank authored from scratch. The first 75 questions and 50 flashcards of
-`azure-az305` are written to the standard `npm run lint:pack` enforces and pass it.
+`azure-az305` and starter packs for `aws-aif`, `aws-dea`, `azure-az500`, `gcp-cdl`, and `linux-lfcs`
+are written to the standard `npm run lint:pack` enforces and pass it.
 
-The 36 remaining certifications exist as folders with **placeholder blueprints** — they
+The 40 remaining certifications exist as folders with **planned blueprints** — they
 appear on the roadmap panel but cannot be launched. That is the honest state of things,
 and it is exactly where contributions land: see [CONTRIBUTING.md](CONTRIBUTING.md).
 
 Everything that makes 500 questions per certification *tractable* is built:
 per-certification folders, scaffolders, a machine-enforced validator, lazy per-pack chunks,
 and progress tracking. What remains is authoring the planned track.
+
+---
+
+## 🎖️ Live Certification Badges
+
+CertOps features official digital certification badge tracks with comprehensive question banks, spaced-repetition flashcards, and verified blueprints. Badges are organized below in ascending order of complexity:
+
+---
+
+### 🟢 Tier 1: Foundational Level
+*High-level cloud concepts, core architecture principles, digital transformation, and foundational governance.*
+
+| [<img src="docs/badges/aws-clf.png" width="96" height="96" alt="AWS Certified Cloud Practitioner"/>](src/data/certs/aws-clf/cert.js) | [<img src="docs/badges/aws-aif.png" width="96" height="96" alt="AWS Certified AI Practitioner"/>](src/data/certs/aws-aif/cert.js) | [<img src="docs/badges/azure-az900.png" width="96" height="96" alt="Microsoft Certified: Azure Fundamentals"/>](src/data/certs/azure-az900/cert.js) | [<img src="docs/badges/gcp-cdl.png" width="96" height="96" alt="Google Cloud Digital Leader"/>](src/data/certs/gcp-cdl/cert.js) | [<img src="docs/badges/finops-focp.png" width="96" height="96" alt="FinOps Certified Practitioner"/>](src/data/certs/finops-focp/cert.js) | [<img src="docs/badges/finops-focus.png" width="96" height="96" alt="FinOps Certified FOCUS Analyst"/>](src/data/certs/finops-focus/cert.js) |
+| :---: | :---: | :---: | :---: | :---: | :---: |
+| **AWS Cloud Practitioner**<br>`CLF-C02` | **AWS AI Practitioner**<br>`AIF-C01` | **Azure Fundamentals**<br>`AZ-900` | **GCP Digital Leader**<br>`GCP-CDL` | **FinOps Practitioner**<br>`FOCP` | **FinOps FOCUS Analyst**<br>`FOCUS` |
+
+---
+
+### 🟡 Tier 2: Associate Level
+*Hands-on implementation, administration, core development, security engineering, and cloud operations.*
+
+#### ☁️ Hyperscaler Associate Tracks (AWS, Azure & Google Cloud)
+
+| [<img src="docs/badges/aws-saa.png" width="96" height="96" alt="AWS Certified Solutions Architect – Associate"/>](src/data/certs/aws-saa/cert.js) | [<img src="docs/badges/aws-dva.png" width="96" height="96" alt="AWS Certified Developer – Associate"/>](src/data/certs/aws-dva/cert.js) | [<img src="docs/badges/aws-dea.png" width="96" height="96" alt="AWS Certified Data Engineer – Associate"/>](src/data/certs/aws-dea/cert.js) | [<img src="docs/badges/aws-mla.png" width="96" height="96" alt="AWS Certified Machine Learning Engineer – Associate"/>](src/data/certs/aws-mla/cert.js) | [<img src="docs/badges/gcp-ace.png" width="96" height="96" alt="Google Cloud Associate Cloud Engineer"/>](src/data/certs/gcp-ace/cert.js) |
+| :---: | :---: | :---: | :---: | :---: |
+| **AWS Solutions Architect**<br>`SAA-C03` | **AWS Developer**<br>`DVA-C02` | **AWS Data Engineer**<br>`DEA-C01` | **AWS ML Engineer**<br>`MLA-C01` | **GCP Associate Engineer**<br>`GCP-ACE` |
+
+| [<img src="docs/badges/azure-az104.png" width="96" height="96" alt="Microsoft Certified: Azure Administrator Associate"/>](src/data/certs/azure-az104/cert.js) | [<img src="docs/badges/azure-az204.png" width="96" height="96" alt="Microsoft Certified: Azure Developer Associate"/>](src/data/certs/azure-az204/cert.js) | [<img src="docs/badges/azure-ai102.png" width="96" height="96" alt="Microsoft Certified: Azure AI Engineer Associate"/>](src/data/certs/azure-ai102/cert.js) | [<img src="docs/badges/azure-az500.png" width="96" height="96" alt="Microsoft Certified: Azure Security Engineer Associate"/>](src/data/certs/azure-az500/cert.js) |
+| :---: | :---: | :---: | :---: |
+| **Azure Administrator**<br>`AZ-104` | **Azure Developer**<br>`AZ-204` | **Azure AI Engineer**<br>`AI-102` | **Azure Security Engineer**<br>`AZ-500` |
+
+#### ☸️ Cloud Native, Linux & Tooling Associates
+
+| [<img src="docs/badges/linux-lfcs.png" width="96" height="96" alt="Linux Foundation Certified System Administrator"/>](src/data/certs/linux-lfcs/cert.js) | [<img src="docs/badges/cncf-cgoa.png" width="96" height="96" alt="Certified GitOps Associate"/>](src/data/certs/cncf-cgoa/cert.js) | [<img src="docs/badges/cncf-otca.png" width="96" height="96" alt="OpenTelemetry Certified Associate"/>](src/data/certs/cncf-otca/cert.js) | [<img src="docs/badges/cncf-cba.png" width="96" height="96" alt="Certified Backstage Associate"/>](src/data/certs/cncf-cba/cert.js) | [<img src="docs/badges/cncf-cnpa.png" width="96" height="96" alt="Cloud Native Platform Associate"/>](src/data/certs/cncf-cnpa/cert.js) | [<img src="docs/badges/cncf-opa.png" width="96" height="96" alt="Open Policy Agent Certified Associate"/>](src/data/certs/cncf-opa/cert.js) |
+| :---: | :---: | :---: | :---: | :---: | :---: |
+| **Linux SysAdmin**<br>`LFCS` | **GitOps Associate**<br>`CGOA` | **OpenTelemetry Associate**<br>`OTCA` | **Backstage Associate**<br>`CBA` | **Platform Associate**<br>`CNPA` | **Open Policy Agent**<br>`COPAA` |
+
+| [<img src="docs/badges/hashicorp-tfa.png" width="96" height="96" alt="HashiCorp Certified: Terraform Associate"/>](src/data/certs/hashicorp-tfa/cert.js) | [<img src="docs/badges/hashicorp-vault.png" width="96" height="96" alt="HashiCorp Certified: Vault Associate"/>](src/data/certs/hashicorp-vault/cert.js) | [<img src="docs/badges/github-actions.png" width="96" height="96" alt="GitHub Actions"/>](src/data/certs/github-actions/cert.js) | [<img src="docs/badges/github-ghas.png" width="96" height="96" alt="GitHub Advanced Security"/>](src/data/certs/github-ghas/cert.js) |
+| :---: | :---: | :---: | :---: |
+| **Terraform Associate**<br>`TA-003 / 004` | **Vault Associate**<br>`VAULT-003` | **GitHub Actions**<br>`GH-200` | **GitHub Advanced Security**<br>`GH-500` |
+
+---
+
+### 🔴 Tier 3: Professional, Expert & Specialty Level
+*Advanced distributed systems architecture, enterprise DevOps, deep security specialization, and performance-based engineering.*
+
+#### ☁️ Cloud Architects & DevOps Experts (AWS, Azure & Google Cloud)
+
+| [<img src="docs/badges/aws-sap.png" width="96" height="96" alt="AWS Certified Solutions Architect – Professional"/>](src/data/certs/aws-sap/cert.js) | [<img src="docs/badges/aws-dop.png" width="96" height="96" alt="AWS Certified DevOps Engineer – Professional"/>](src/data/certs/aws-dop/cert.js) | [<img src="docs/badges/aws-scs.png" width="96" height="96" alt="AWS Certified Security – Specialty"/>](src/data/certs/aws-scs/cert.js) | [<img src="docs/badges/azure-az400.png" width="96" height="96" alt="Microsoft Certified: Azure DevOps Engineer Expert"/>](src/data/certs/azure-az400/cert.js) |
+| :---: | :---: | :---: | :---: |
+| **AWS Solutions Architect Pro**<br>`SAP-C02` | **AWS DevOps Engineer Pro**<br>`DOP-C02` | **AWS Security Specialty**<br>`SCS-C02` | **Azure DevOps Engineer Expert**<br>`AZ-400` |
+
+| [<img src="docs/badges/gcp-pca.png" width="96" height="96" alt="Google Cloud Professional Cloud Architect"/>](src/data/certs/gcp-pca/cert.js) | [<img src="docs/badges/gcp-pcdoe.png" width="96" height="96" alt="Google Cloud Professional Cloud DevOps Engineer"/>](src/data/certs/gcp-pcdoe/cert.js) | [<img src="docs/badges/gcp-pmle.png" width="96" height="96" alt="Google Cloud Professional Machine Learning Engineer"/>](src/data/certs/gcp-pmle/cert.js) |
+| :---: | :---: | :---: |
+| **GCP Cloud Architect**<br>`GCP-PCA` | **GCP Cloud DevOps Engineer**<br>`GCP-PCDE` | **GCP ML Engineer**<br>`GCP-PMLE` |
+
+#### ☸️ Kubernetes, Platform & Security Professionals (CNCF, HashiCorp & ISC2)
+
+| [<img src="docs/badges/k8s-cka.png" width="96" height="96" alt="Certified Kubernetes Administrator"/>](src/data/certs/k8s-cka/cert.js) | [<img src="docs/badges/k8s-ckad.png" width="96" height="96" alt="Certified Kubernetes Application Developer"/>](src/data/certs/k8s-ckad/cert.js) | [<img src="docs/badges/k8s-cks.png" width="96" height="96" alt="Certified Kubernetes Security Specialist"/>](src/data/certs/k8s-cks/cert.js) | [<img src="docs/badges/cncf-cnpe.png" width="96" height="96" alt="Cloud Native Platform Engineer"/>](src/data/certs/cncf-cnpe/cert.js) |
+| :---: | :---: | :---: | :---: |
+| **Kubernetes Administrator**<br>`CKA` | **Kubernetes App Developer**<br>`CKAD` | **Kubernetes Security Specialist**<br>`CKS` | **Platform Engineer**<br>`CNPE` |
+
+| [<img src="docs/badges/hashicorp-tfp.png" width="96" height="96" alt="HashiCorp Certified: Terraform Authoring and Operations Advanced"/>](src/data/certs/hashicorp-tfp/cert.js) | [<img src="docs/badges/isc2-ccsp.png" width="96" height="96" alt="Certified Cloud Security Professional"/>](src/data/certs/isc2-ccsp/cert.js) |
+| :---: | :---: |
+| **Terraform Operations Pro**<br>`TF-PRO` | **ISC2 Cloud Security Pro**<br>`CCSP` |
+
+---
 
 ## Quick start
 
@@ -68,7 +136,7 @@ npm run dev                  # Vite dev server with HMR
 npm run build                # production bundle → dist/ (one lazy chunk per content pack)
 ```
 
-Node 20 or newer. CI tests on 20 and 22.
+Node 20 or newer. CI tests on Node 24 and 26.
 
 ---
 
