@@ -1,5 +1,9 @@
 /**
  * Google Cloud Professional Data Engineer (GCP-PDE) — exam blueprint.
+ *
+ * Domains and weights from the official Google Cloud exam guide, verified 2026-09-23.
+ * 2 hours, 40-50 questions.
+ * Google does not publish a passing score; the 70 of 100 below is the project default.
  */
 export default {
   "id": "gcp-pde",
@@ -18,22 +22,12 @@ export default {
   "maxScore": 100,
   "defaultTimeMinutes": 120,
   "blueprintSource": "https://cloud.google.com/learn/certification/data-engineer",
-  "blueprintVerified": false,
+  "blueprintVerified": true,
   "domains": [
-    {
-      "id": "d1",
-      "name": "Designing data processing systems and storage architectures",
-      "weight": 35
-    },
-    {
-      "id": "d2",
-      "name": "Ingesting and processing batch and streaming data (Dataflow, BigQuery, Pub/Sub)",
-      "weight": 35
-    },
-    {
-      "id": "d3",
-      "name": "Securing, monitoring, and scaling data solutions",
-      "weight": 30
-    }
+    { "id": "d1", "name": "Designing data processing systems", "weight": 22 },
+    { "id": "d2", "name": "Ingesting and processing the data", "weight": 25 },
+    { "id": "d3", "name": "Storing the data", "weight": 20 },
+    { "id": "d4", "name": "Preparing and using data for analysis", "weight": 15 },
+    { "id": "d5", "name": "Maintaining and automating data workloads", "weight": 18 }
   ]
 };
