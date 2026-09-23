@@ -13,18 +13,34 @@ import CERT_AWS_SAP from './certs/aws-sap/cert.js';
 import CERT_AWS_ANS from './certs/aws-ans/cert.js';
 import CERT_DATABRICKS_GENAI from './certs/databricks-genai/cert.js';
 import CERT_GCP_CDL from './certs/gcp-cdl/cert.js';
+import CERT_GCP_GAIL from './certs/gcp-gail/cert.js';
 import CERT_GCP_ACE from './certs/gcp-ace/cert.js';
+import CERT_GCP_ADP from './certs/gcp-adp/cert.js';
+import CERT_GCP_PAA from './certs/gcp-paa/cert.js';
 import CERT_GCP_PCA from './certs/gcp-pca/cert.js';
+import CERT_GCP_PCD from './certs/gcp-pcd/cert.js';
 import CERT_GCP_PCDBE from './certs/gcp-pcdbe/cert.js';
 import CERT_GCP_PCNE from './certs/gcp-pcne/cert.js';
 import CERT_GCP_PDE from './certs/gcp-pde/cert.js';
 import CERT_GCP_PMLE from './certs/gcp-pmle/cert.js';
+import CERT_AZURE_AI901 from './certs/azure-ai901/cert.js';
 import CERT_AZURE_AZ900 from './certs/azure-az900/cert.js';
+import CERT_AZURE_DP900 from './certs/azure-dp900/cert.js';
 import CERT_AZURE_AI102 from './certs/azure-ai102/cert.js';
 import CERT_AZURE_AI_APPS_AGENTS from './certs/azure-ai-apps-agents/cert.js';
+import CERT_AZURE_AI200 from './certs/azure-ai200/cert.js';
+import CERT_AZURE_AI300 from './certs/azure-ai300/cert.js';
 import CERT_AZURE_AZ104 from './certs/azure-az104/cert.js';
 import CERT_AZURE_AZ204 from './certs/azure-az204/cert.js';
+import CERT_AZURE_AZ700 from './certs/azure-az700/cert.js';
+import CERT_AZURE_DP300 from './certs/azure-dp300/cert.js';
+import CERT_AZURE_DP420 from './certs/azure-dp420/cert.js';
+import CERT_AZURE_DP750 from './certs/azure-dp750/cert.js';
+import CERT_AZURE_DP800 from './certs/azure-dp800/cert.js';
+import CERT_AZURE_AI500 from './certs/azure-ai500/cert.js';
 import CERT_AZURE_AZ305 from './certs/azure-az305/cert.js';
+import CERT_AZURE_AZ120 from './certs/azure-az120/cert.js';
+import CERT_AZURE_AZ140 from './certs/azure-az140/cert.js';
 import CERT_AWS_DOP from './certs/aws-dop/cert.js';
 import CERT_DOI_DEVOPS_FOUNDATION from './certs/doi-devops-foundation/cert.js';
 import CERT_DOI_SRE_FOUNDATION from './certs/doi-sre-foundation/cert.js';
@@ -71,6 +87,7 @@ import CERT_DOI_DEVSECOPS_FOUNDATION from './certs/doi-devsecops-foundation/cert
 import CERT_DOI_DEVSECOPS_PRACTITIONER from './certs/doi-devsecops-practitioner/cert.js';
 import CERT_GITHUB_GHAS from './certs/github-ghas/cert.js';
 import CERT_GCP_PCSE from './certs/gcp-pcse/cert.js';
+import CERT_GCP_PSOE from './certs/gcp-psoe/cert.js';
 import CERT_HASHICORP_VAULT from './certs/hashicorp-vault/cert.js';
 import CERT_HASHICORP_VAULT_OPS from './certs/hashicorp-vault-ops/cert.js';
 import CERT_ISC2_CCSP from './certs/isc2-ccsp/cert.js';
@@ -94,18 +111,34 @@ export const CERTIFICATIONS = [
   CERT_AWS_ANS,
   CERT_DATABRICKS_GENAI,
   CERT_GCP_CDL,
+  CERT_GCP_GAIL,
   CERT_GCP_ACE,
+  CERT_GCP_ADP,
+  CERT_GCP_PAA,
   CERT_GCP_PCA,
+  CERT_GCP_PCD,
   CERT_GCP_PCDBE,
   CERT_GCP_PCNE,
   CERT_GCP_PDE,
   CERT_GCP_PMLE,
+  CERT_AZURE_AI901,
   CERT_AZURE_AZ900,
+  CERT_AZURE_DP900,
   CERT_AZURE_AI102,
   CERT_AZURE_AI_APPS_AGENTS,
+  CERT_AZURE_AI200,
+  CERT_AZURE_AI300,
   CERT_AZURE_AZ104,
   CERT_AZURE_AZ204,
+  CERT_AZURE_AZ700,
+  CERT_AZURE_DP300,
+  CERT_AZURE_DP420,
+  CERT_AZURE_DP750,
+  CERT_AZURE_DP800,
+  CERT_AZURE_AI500,
   CERT_AZURE_AZ305,
+  CERT_AZURE_AZ120,
+  CERT_AZURE_AZ140,
   CERT_AWS_DOP,
   CERT_DOI_DEVOPS_FOUNDATION,
   CERT_DOI_SRE_FOUNDATION,
@@ -152,6 +185,7 @@ export const CERTIFICATIONS = [
   CERT_DOI_DEVSECOPS_PRACTITIONER,
   CERT_GITHUB_GHAS,
   CERT_GCP_PCSE,
+  CERT_GCP_PSOE,
   CERT_HASHICORP_VAULT,
   CERT_HASHICORP_VAULT_OPS,
   CERT_ISC2_CCSP,
@@ -161,7 +195,7 @@ export const CERTIFICATIONS = [
   CERT_OFFSEC_OSCP
 ];
 
-export const LIVE_CERTIFICATIONS = CERTIFICATIONS.filter(c => c.status !== 'planned');
+export const LIVE_CERTIFICATIONS = CERTIFICATIONS.filter(c => c.status === 'live');
 
 export const CATEGORIES = [
   "Cloud Engineering",

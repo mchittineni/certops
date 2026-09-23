@@ -412,6 +412,22 @@ export const CONTENT_REGISTRY = {
       pack('./certs/azure-ai102/flashcards/pack-20.js', () => import('./certs/azure-ai102/flashcards/pack-20.js'))
     ]
   },
+  'azure-ai200': {
+    questions: [],
+    flashcards: []
+  },
+  'azure-ai300': {
+    questions: [],
+    flashcards: []
+  },
+  'azure-ai500': {
+    questions: [],
+    flashcards: []
+  },
+  'azure-ai901': {
+    questions: [],
+    flashcards: []
+  },
   'azure-az104': {
     questions: [
       pack('./certs/azure-az104/questions/pack-1.js', () => import('./certs/azure-az104/questions/pack-1.js')),
@@ -457,6 +473,14 @@ export const CONTENT_REGISTRY = {
       pack('./certs/azure-az104/flashcards/pack-19.js', () => import('./certs/azure-az104/flashcards/pack-19.js')),
       pack('./certs/azure-az104/flashcards/pack-20.js', () => import('./certs/azure-az104/flashcards/pack-20.js'))
     ]
+  },
+  'azure-az120': {
+    questions: [],
+    flashcards: []
+  },
+  'azure-az140': {
+    questions: [],
+    flashcards: []
   },
   'azure-az204': {
     questions: [
@@ -569,6 +593,10 @@ export const CONTENT_REGISTRY = {
       pack('./certs/azure-az500/flashcards/pack-1.js', () => import('./certs/azure-az500/flashcards/pack-1.js'))
     ]
   },
+  'azure-az700': {
+    questions: [],
+    flashcards: []
+  },
   'azure-az900': {
     questions: [
       pack('./certs/azure-az900/questions/pack-1.js', () => import('./certs/azure-az900/questions/pack-1.js')),
@@ -614,6 +642,26 @@ export const CONTENT_REGISTRY = {
       pack('./certs/azure-az900/flashcards/pack-19.js', () => import('./certs/azure-az900/flashcards/pack-19.js')),
       pack('./certs/azure-az900/flashcards/pack-20.js', () => import('./certs/azure-az900/flashcards/pack-20.js'))
     ]
+  },
+  'azure-dp300': {
+    questions: [],
+    flashcards: []
+  },
+  'azure-dp420': {
+    questions: [],
+    flashcards: []
+  },
+  'azure-dp750': {
+    questions: [],
+    flashcards: []
+  },
+  'azure-dp800': {
+    questions: [],
+    flashcards: []
+  },
+  'azure-dp900': {
+    questions: [],
+    flashcards: []
   },
   'azure-sc500': {
     questions: [],
@@ -1121,6 +1169,10 @@ export const CONTENT_REGISTRY = {
       pack('./certs/gcp-ace/flashcards/pack-20.js', () => import('./certs/gcp-ace/flashcards/pack-20.js'))
     ]
   },
+  'gcp-adp': {
+    questions: [],
+    flashcards: []
+  },
   'gcp-cdl': {
     questions: [
       pack('./certs/gcp-cdl/questions/pack-1.js', () => import('./certs/gcp-cdl/questions/pack-1.js'))
@@ -1128,6 +1180,14 @@ export const CONTENT_REGISTRY = {
     flashcards: [
       pack('./certs/gcp-cdl/flashcards/pack-1.js', () => import('./certs/gcp-cdl/flashcards/pack-1.js'))
     ]
+  },
+  'gcp-gail': {
+    questions: [],
+    flashcards: []
+  },
+  'gcp-paa': {
+    questions: [],
+    flashcards: []
   },
   'gcp-pca': {
     questions: [
@@ -1174,6 +1234,10 @@ export const CONTENT_REGISTRY = {
       pack('./certs/gcp-pca/flashcards/pack-19.js', () => import('./certs/gcp-pca/flashcards/pack-19.js')),
       pack('./certs/gcp-pca/flashcards/pack-20.js', () => import('./certs/gcp-pca/flashcards/pack-20.js'))
     ]
+  },
+  'gcp-pcd': {
+    questions: [],
+    flashcards: []
   },
   'gcp-pcdbe': {
     questions: [],
@@ -1282,6 +1346,10 @@ export const CONTENT_REGISTRY = {
       pack('./certs/gcp-pmle/flashcards/pack-19.js', () => import('./certs/gcp-pmle/flashcards/pack-19.js')),
       pack('./certs/gcp-pmle/flashcards/pack-20.js', () => import('./certs/gcp-pmle/flashcards/pack-20.js'))
     ]
+  },
+  'gcp-psoe': {
+    questions: [],
+    flashcards: []
   },
   'github-actions': {
     questions: [
