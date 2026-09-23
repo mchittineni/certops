@@ -35,6 +35,25 @@ progress is tracked by `npm run stats` and in
   - Connected `aws-aif` to AI/ML Engineer role path, `aws-dea` to Data Engineer role path, `azure-az500` to Security Engineer role path, `linux-lfcs` to DevOps and SRE role paths, and `gcp-cdl` to Cloud Engineer role path in `src/data/roles.js`.
 
 ### Fixed
+- **Every Cloud Native certification checked against its Linux Foundation exam page** (2026-09-23). CNCF offers 15 exams, listed identically on cncf.io and in the cncf/curriculum repository. The Linux Foundation adds **CKNE**, a new Kubernetes networking exam in beta. The READMEs in cncf/curriculum are not reliable: OTCA's claims five domains at 20%, while the official page gives 18/46/26/10.
+  - **Six live banks reclassified item by item** onto the published domains: `cncf-cgoa` (5 domains), `cncf-cba`, `cncf-cnpa` (6), `cncf-cnpe` (5), `cncf-otca` and `k8s-cks`. Each of these 6,000 items was checked against its mapping afterwards. The five CNCF banks had carried `blueprintVerified: false` since 2026-09-21 and are now verified. Their template filler is unchanged.
+  - `k8s-cka` was set to 60 minutes instead of 120, and one domain name was abbreviated. `cncf-cnpa` is 120 minutes, not 90. `k8s-ckad` already matched.
+  - **Planned blueprints written:** `cncf-kcna`, `cncf-kcsa`, `cncf-capa`, `cncf-cca`, `cncf-ica`, `cncf-kca` and `cncf-pca` had TODO placeholder domains marked `blueprintVerified: true`. They now carry the published domains and real descriptions. `cncf-ckne` had invented domains.
+  - **`cncf-opa` withdrawn.** The "Certified Open Policy Agent Associate" it modelled does not exist: it is absent from CNCF's list, cncf/curriculum and the Linux Foundation catalog, and its source URL returns 404. It is now `planned` and unverified, with its 1,000 items kept for reuse. It also leaves the README's live-badge table; that image was the OPA project logo, not a certification badge.
+  - **Answer keys fixed** (each checked against official docs first):
+    - `k8s-cks-451..455` keyed `crictl diff`, which does not exist.
+    - `k8s-cks-196` keyed Falco's legacy eBPF probe, which was dropped in 0.44.0; the answer is now `modern_ebpf`.
+    - `k8s-cks-89` taught that swap must be off; NodeSwap has been stable since 1.34.
+    - `k8s-cks-232` keyed Falco for an active cluster hunt.
+    - `cncf-cba-276..280` taught the TokenManager, removed in Backstage 1.31.
+    - `cncf-cba-486..490` named the nonexistent `@backstage/plugin-rbac`.
+    - `cncf-cba-341..345` had two correct answers.
+    - `cncf-cnpe-386..390` used v1 Composition readiness checks that Crossplane v2 removed.
+    - `cncf-cnpa-446..450` listed four DORA metrics; there are now five, and MTTR became failed deployment recovery time.
+    - `cncf-cnpa-281..285` called Linkerd "Envoy-based".
+    - `cncf-otca-326..330` taught the memory ballast extension, which was removed in Collector v0.109.0.
+  - **Badge table codes corrected:** MLA-C02, TA-004, SCS-C03 and TF-ADV.
+  - **Still to author:** the five CNCF banks hold only about 50-70 distinct questions each beneath their filler. Heavy gaps include CGOA's Principles domain (30% weight, 6 distinct items), CBA's Development Workflow (24%, 3), CNPE's GitOps and CD (25%, 5), and OTCA's schema management and context propagation (none). The classifiers flagged more claims for verification in each bank's notes.
 - **Test runner path alignment**: Fixed `package.json` test script paths pointing to `scripts/tests/test-*.mjs` after test reorganization.
 - **Sandboxed test execution**: Hardened `scripts/tests/test-server.mjs` to gracefully skip raw socket operations when running inside restricted sandbox environments (`EPERM` / `EACCES`), while executing in full on unsandboxed/CI environments.
 
