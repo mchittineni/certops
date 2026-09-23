@@ -8,6 +8,10 @@
 const pack = (path, load) => ({ path, load });
 
 export const CONTENT_REGISTRY = {
+  'aws-aib': {
+    questions: [],
+    flashcards: []
+  },
   'aws-aif': {
     questions: [
       pack('./certs/aws-aif/questions/pack-1.js', () => import('./certs/aws-aif/questions/pack-1.js'))
@@ -15,6 +19,10 @@ export const CONTENT_REGISTRY = {
     flashcards: [
       pack('./certs/aws-aif/flashcards/pack-1.js', () => import('./certs/aws-aif/flashcards/pack-1.js'))
     ]
+  },
+  'aws-aip': {
+    questions: [],
+    flashcards: []
   },
   'aws-ans': {
     questions: [],
@@ -65,10 +73,6 @@ export const CONTENT_REGISTRY = {
       pack('./certs/aws-clf/flashcards/pack-19.js', () => import('./certs/aws-clf/flashcards/pack-19.js')),
       pack('./certs/aws-clf/flashcards/pack-20.js', () => import('./certs/aws-clf/flashcards/pack-20.js'))
     ]
-  },
-  'aws-dbs': {
-    questions: [],
-    flashcards: []
   },
   'aws-dea': {
     questions: [
@@ -215,10 +219,6 @@ export const CONTENT_REGISTRY = {
       pack('./certs/aws-mla/flashcards/pack-19.js', () => import('./certs/aws-mla/flashcards/pack-19.js')),
       pack('./certs/aws-mla/flashcards/pack-20.js', () => import('./certs/aws-mla/flashcards/pack-20.js'))
     ]
-  },
-  'aws-mls': {
-    questions: [],
-    flashcards: []
   },
   'aws-saa': {
     questions: [
