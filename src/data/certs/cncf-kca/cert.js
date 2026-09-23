@@ -1,12 +1,7 @@
 /**
  * Kyverno Certified Associate (KCA) — exam blueprint.
  *
- * SEEDED PLACEHOLDER. passingScore, defaultTimeMinutes, and domains are guesses.
- * Before flipping status to 'live':
- *   1. replace domains + weights from blueprintSource (they must sum to 100)
- *   2. correct passingScore / maxScore / defaultTimeMinutes
- *   3. set blueprintVerified: true
- *   4. add content: npm run new:pack -- --cert cncf-kca --kind questions --count 50
+ * Domains and weights from the Linux Foundation exam page, verified 2026-09-23.
  */
 export default {
   "id": "cncf-kca",
@@ -20,27 +15,18 @@ export default {
   "badgeClass": "badge-k8s",
   "icon": "kubernetes",
   "color": "#326CE5",
-  "description": "TODO one-sentence description of what KCA validates.",
+  "description": "Validates Kyverno skills: fundamentals, installation and upgrades, the Kyverno CLI, applying, writing and managing policies for Kubernetes.",
   "passingScore": 75,
   "maxScore": 100,
   "defaultTimeMinutes": 90,
-  "blueprintSource": "https://TODO-official-exam-guide",
-  "blueprintVerified": false,
+  "blueprintSource": "https://training.linuxfoundation.org/certification/kyverno-certified-associate-kca/",
+  "blueprintVerified": true,
   "domains": [
-    {
-      "id": "d1",
-      "name": "TODO Domain 1",
-      "weight": 34
-    },
-    {
-      "id": "d2",
-      "name": "TODO Domain 2",
-      "weight": 33
-    },
-    {
-      "id": "d3",
-      "name": "TODO Domain 3",
-      "weight": 33
-    }
+    { "id": "d1", "name": "Fundamentals of Kyverno", "weight": 18 },
+    { "id": "d2", "name": "Installation, Configuration, and Upgrades", "weight": 18 },
+    { "id": "d3", "name": "Kyverno CLI", "weight": 12 },
+    { "id": "d4", "name": "Applying Policies", "weight": 10 },
+    { "id": "d5", "name": "Writing Policies", "weight": 32 },
+    { "id": "d6", "name": "Policy Management", "weight": 10 }
   ]
 };
