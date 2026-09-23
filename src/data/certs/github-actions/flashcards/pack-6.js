@@ -75,8 +75,8 @@ export const GITHUB_ACTIONS_FLASHCARDS_6 = [
     certId: "github-actions",
     domainId: "d3",
     front: "JavaScript Actions: Node.js Runtime",
-    hint: "High-speed execution running on Node 20 runtime directly on host VM.",
-    back: "JavaScript actions execute directly on the runner VM using Node.js, specified as <strong><code>runs.using: 'node20'</code></strong> in <code>action.yml</code> with an entrypoint file (e.g. <code>main: 'dist/index.js'</code>).",
+    hint: "High-speed execution running on the Node 24 runtime directly on the host VM.",
+    back: "JavaScript actions execute directly on the runner VM using Node.js, specified as <strong><code>runs.using: 'node24'</code></strong> in <code>action.yml</code> with an entrypoint file (e.g. <code>main: 'dist/index.js'</code>). Runners default to Node 24, and Node 20 was removed from runners on 23 September 2026.",
     tags: ["JavaScript Actions", "Node.js", "Runtime"]
   },
   {
