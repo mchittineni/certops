@@ -1,9 +1,10 @@
 /**
  * Google Cloud Professional Cloud DevOps Engineer (GCP-PCDE) — exam blueprint.
  *
- * BLUEPRINT NOT VERIFIED. The published exam guide has five sections (Bootstrapping and maintaining a Google Cloud organization ~20, Building and implementing CI/CD pipelines including continuous testing ~25, Applying site reliability engineering practices ~18, Implementing observability practices and troubleshooting issues ~25, Optimizing performance and cost ~12); the five below do not match it.
- * Correcting the domains means re-authoring the bank, because every question
- * carries its domainName. See docs/EXAM-READINESS.md.
+ * Domains and weights from the official Google Cloud exam guide, verified 2026-09-23.
+ * 2 hours, 50-60 questions. Every item was reclassified onto these sections when the
+ * blueprint was corrected.
+ * Google does not publish a passing score; the 70 of 100 below is the project default.
  */
 export default {
   "id": "gcp-pcdoe",
@@ -22,32 +23,12 @@ export default {
   "maxScore": 100,
   "defaultTimeMinutes": 120,
   "blueprintSource": "https://cloud.google.com/learn/certification/cloud-devops-engineer",
-  "blueprintVerified": false,
+  "blueprintVerified": true,
   "domains": [
-    {
-      "id": "d1",
-      "name": "Applying site reliability engineering principles to a service",
-      "weight": 22
-    },
-    {
-      "id": "d2",
-      "name": "Building and implementing CI/CD pipelines for a service",
-      "weight": 25
-    },
-    {
-      "id": "d3",
-      "name": "Implementing service monitoring and alerting strategies",
-      "weight": 23
-    },
-    {
-      "id": "d4",
-      "name": "Managing service incidents and postmortems",
-      "weight": 15
-    },
-    {
-      "id": "d5",
-      "name": "Ensuring continuous security and compliance",
-      "weight": 15
-    }
+    { "id": "d1", "name": "Bootstrapping and maintaining a Google Cloud organization", "weight": 20 },
+    { "id": "d2", "name": "Building and implementing CI/CD pipelines, including continuous testing, for application, infrastructure, and machine learning workloads", "weight": 25 },
+    { "id": "d3", "name": "Applying site reliability engineering practices", "weight": 18 },
+    { "id": "d4", "name": "Implementing observability practices and troubleshooting issues", "weight": 25 },
+    { "id": "d5", "name": "Optimizing performance and cost", "weight": 12 }
   ]
 };
