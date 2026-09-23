@@ -1707,12 +1707,14 @@ export const CONTENT_MANIFEST = {
         "hard": 112
       },
       "byDomain": {
-        "d1": 50,
-        "d2": 78,
-        "d3": 100,
-        "d4": 77,
-        "d5": 100,
-        "d6": 95
+        "d1": 36,
+        "d6": 104,
+        "d8": 23,
+        "d3": 50,
+        "d2": 39,
+        "d4": 156,
+        "d7": 49,
+        "d5": 43
       },
       "packs": 20,
       "loadedPacks": 20
@@ -1725,12 +1727,14 @@ export const CONTENT_MANIFEST = {
         "hard": 112
       },
       "byDomain": {
-        "d1": 50,
-        "d2": 78,
-        "d3": 100,
-        "d4": 77,
-        "d5": 100,
-        "d6": 95
+        "d1": 36,
+        "d6": 104,
+        "d8": 23,
+        "d3": 50,
+        "d2": 39,
+        "d4": 156,
+        "d7": 49,
+        "d5": 43
       },
       "packs": 20,
       "loadedPacks": 20
@@ -1745,12 +1749,12 @@ export const CONTENT_MANIFEST = {
         "hard": 117
       },
       "byDomain": {
-        "d1": 111,
-        "d3": 96,
-        "d4": 80,
-        "d2": 93,
-        "d5": 65,
-        "d6": 55
+        "d2": 133,
+        "d1": 80,
+        "d3": 88,
+        "d5": 50,
+        "d6": 68,
+        "d4": 81
       },
       "packs": 20,
       "loadedPacks": 20
@@ -1763,12 +1767,12 @@ export const CONTENT_MANIFEST = {
         "hard": 113
       },
       "byDomain": {
-        "d1": 111,
-        "d3": 97,
-        "d4": 80,
-        "d2": 92,
-        "d5": 63,
-        "d6": 57
+        "d2": 131,
+        "d1": 80,
+        "d3": 91,
+        "d5": 49,
+        "d6": 68,
+        "d4": 81
       },
       "packs": 20,
       "loadedPacks": 20
@@ -1783,9 +1787,15 @@ export const CONTENT_MANIFEST = {
         "hard": 100
       },
       "byDomain": {
-        "d1": 175,
-        "d2": 175,
-        "d3": 150
+        "d1": 50,
+        "d2": 50,
+        "d5": 175,
+        "d3": 71,
+        "d6": 25,
+        "d8": 64,
+        "d7": 22,
+        "d4": 22,
+        "d9": 21
       },
       "packs": 20,
       "loadedPacks": 20
@@ -1798,12 +1808,42 @@ export const CONTENT_MANIFEST = {
         "hard": 100
       },
       "byDomain": {
-        "d1": 175,
-        "d2": 175,
-        "d3": 150
+        "d1": 50,
+        "d2": 50,
+        "d5": 175,
+        "d3": 71,
+        "d6": 25,
+        "d8": 64,
+        "d7": 22,
+        "d4": 22,
+        "d9": 21
       },
       "packs": 20,
       "loadedPacks": 20
+    }
+  },
+  "hashicorp-vault-ops": {
+    "questions": {
+      "total": 0,
+      "byDifficulty": {
+        "easy": 0,
+        "medium": 0,
+        "hard": 0
+      },
+      "byDomain": {},
+      "packs": 0,
+      "loadedPacks": 0
+    },
+    "flashcards": {
+      "total": 0,
+      "byDifficulty": {
+        "easy": 0,
+        "medium": 0,
+        "hard": 0
+      },
+      "byDomain": {},
+      "packs": 0,
+      "loadedPacks": 0
     }
   },
   "isc2-ccsp": {
@@ -2007,5 +2047,5 @@ export const CONTENT_MANIFEST = {
 export const CONTENT_TOTALS = {
   "questions": 16575,
   "flashcards": 16550,
-  "certifications": 68
+  "certifications": 69
 };

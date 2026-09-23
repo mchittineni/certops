@@ -64,6 +64,7 @@ import CERT_DOI_DEVSECOPS_PRACTITIONER from './certs/doi-devsecops-practitioner/
 import CERT_GITHUB_GHAS from './certs/github-ghas/cert.js';
 import CERT_GCP_PCSE from './certs/gcp-pcse/cert.js';
 import CERT_HASHICORP_VAULT from './certs/hashicorp-vault/cert.js';
+import CERT_HASHICORP_VAULT_OPS from './certs/hashicorp-vault-ops/cert.js';
 import CERT_ISC2_CCSP from './certs/isc2-ccsp/cert.js';
 import CERT_ISC2_CISSP from './certs/isc2-cissp/cert.js';
 import CERT_AZURE_SC500 from './certs/azure-sc500/cert.js';
@@ -135,6 +136,7 @@ export const CERTIFICATIONS = [
   CERT_GITHUB_GHAS,
   CERT_GCP_PCSE,
   CERT_HASHICORP_VAULT,
+  CERT_HASHICORP_VAULT_OPS,
   CERT_ISC2_CCSP,
   CERT_ISC2_CISSP,
   CERT_AZURE_SC500,
