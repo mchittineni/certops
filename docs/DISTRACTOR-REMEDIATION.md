@@ -29,7 +29,7 @@ distractor work. Every one of the 24 hand-authored banks now passes all five.
 into the opposite tell if left unwatched — `finops-focp` reached 64.5% `shortest%` mid-
 rewrite, exactly as exploitable as the problem it replaced.
 
-8 of 32 live certifications still breach at least one target, and all 8 are filler
+8 of 30 live certifications still breach at least one target, and all 8 are filler
 banks blocked on authoring rather than on distractor repair.
 
 ### What measuring honestly required
@@ -125,13 +125,14 @@ the one built for CIDR-bound machine identity. That is the bar for every rewritt
 
 Run `npm run audit:distractors` for live numbers. Two groups remain:
 
-### Passing (24)
+### Passing (25)
 
 `hashicorp-vault`, `aws-mla`, `finops-focus`, `azure-ai102`, `cncf-opa` (the generator
 banks), plus `azure-az900`, `aws-clf`, `gcp-pca`, `azure-az204`, `aws-dva`, `gcp-ace`,
-`azure-az104`, `aws-saa`, `finops-focp`, and the ten repaired by this plan:
+`azure-az104`, `aws-saa`, `aws-sap`, `finops-focp`, and the ten repaired by this plan:
 `k8s-ckad`, `azure-az400`, `k8s-cka`, `k8s-cks`, `hashicorp-tfa`, `hashicorp-tfp`,
-`github-actions`, `github-ghas`, `aws-dop`, `aws-scs`.
+`github-actions`, `github-ghas`, `aws-dop`, `aws-scs`. `azure-ai102` and `azure-az204` are now
+retired and `cncf-opa` is withdrawn; the audit still scores their banks.
 
 The generators for the first five **have since been deleted** at the maintainer's
 request, so the JS packs under `src/data/certs/<cert>/questions/` are the only source of
@@ -224,10 +225,10 @@ CI runs the ratchet on every push and pull request, in the `content` job of
 `.github/workflows/ci.yml`:
 
 ```bash
-npm run audit:distractors -- --min-passing 24
+npm run audit:distractors -- --min-passing 25
 ```
 
-It fails when fewer than 24 banks pass every target, so the repaired banks cannot
+It fails when fewer than 25 banks pass every target, so the repaired banks cannot
 regress, and prints the table into the job summary either way. `--strict` is the
 end state — it fails on any breach at all — and becomes the right setting once the
 8 filler banks have real questions. Raise the `--min-passing` number as each one

@@ -16,12 +16,12 @@ npm run lint:pack -- --file <pack> --cert <id> --start <n> --end <m> --quota 7/1
 
 | Measure | Corpus | Banks clean |
 | --- | --- | --- |
-| Answer given away by option form | 24 of 32 live banks pass every threshold | 24 |
-| Content-free templated items | 2,000 questions and 2,000 flashcards across 8 banks | 24 |
+| Answer given away by option form | 22 of 30 live banks pass every threshold | 22 |
+| Content-free templated items | 2,000 questions and 2,000 flashcards across 8 banks | 22 |
 | Repeated content (shared option set or card back) | 70% of questions, 68% of cards | **1** |
 
 Run the commands for live numbers. The third row is the one that reframes the other two:
-**31 of the 32 live banks repeat themselves, and only `aws-sap` does not.**
+**29 of the 30 live banks repeat themselves, and only `aws-sap` does not.**
 
 ## The three defects, and why they need separate names
 
@@ -44,7 +44,8 @@ reissued it four more times behind different framing sentences, labelling each c
 title — *"Startup Probes for Slow-Starting Legacy Workloads: Dr Failover"*, *"… : High Load
 Scale"*, *"… : Security Compliance"*. Each copy is individually sound and passes every other
 check. The defect only appears when you count: `hashicorp-vault` draws its 500 questions
-from **21 distinct option sets**, `aws-mla` and `azure-ai102` from 16 each, and 24 further
+from **21 distinct option sets**, `aws-mla` from 16 (as did the now-retired `azure-ai102`),
+and 22 further
 banks reuse every option set at least twice. A learner meets the same fact five times and a
 spaced-repetition deck schedules five copies of it, which is precisely what spacing is meant
 to prevent. Measured by `audit:repeats`. Remedy: keep one copy, author the rest.
@@ -55,12 +56,13 @@ linter and both audits read them from there rather than keeping private copies t
 
 ## Blueprints
 
-Two live certifications still carry blueprints that do not match the published exam guide:
-`gcp-pcdoe` and `gcp-pmle`. Each says `blueprintVerified: false` and names its published
-domains in a header comment. The five CNCF banks that were in the same state (`cncf-cgoa`,
-`cncf-otca`, `cncf-cba`, `cncf-cnpa`, `cncf-cnpe`) were corrected on 23 September 2026:
-blueprint rewritten from the Linux Foundation exam page and every item reclassified in the
-same change. Their filler half is unchanged, so they still fail the distractor targets.
+Every live certification now carries a blueprint that matches its published exam guide.
+The last seven that did not were corrected on 23 September 2026, each with the blueprint
+rewritten from its official source and every item reclassified in the same change: the five
+CNCF banks (`cncf-cgoa`, `cncf-otca`, `cncf-cba`, `cncf-cnpa`, `cncf-cnpe`), whose sources
+are the Linux Foundation exam pages, and `gcp-pcdoe` and `gcp-pmle`, whose sources are the
+Google Cloud exam guides. Their filler half is unchanged, so they still fail the distractor
+targets.
 `cncf-opa` was withdrawn: the "Certified Open Policy Agent Associate" exam it modelled does
 not exist.
 
@@ -77,8 +79,16 @@ Each blueprint was checked against its official source in September 2026:
 | `cncf-cgoa` | Linux Foundation exam page, 23 September 2026 | five published, four declared; blueprint and bank rewritten together |
 | `cncf-cnpa` | Linux Foundation exam page, 23 September 2026 | six published, four declared; rewritten, time corrected to 120 minutes |
 | `cncf-otca`, `cncf-cba`, `cncf-cnpe` | Linux Foundation exam pages, 23 September 2026 | declared domains had different subjects and weights; rewritten |
-| `gcp-pcdoe` | exam guide PDF linked from cloud.google.com | five sections published, five declared, none matching |
-| `gcp-pmle` | exam guide PDF dated 1 June 2026 | six sections published, four declared |
+| `gcp-pcdoe` | cloud.google.com exam guide, 23 September 2026 | five sections published, five declared, none matching; blueprint and bank rewritten together |
+| `gcp-pmle` | cloud.google.com exam guide (Gemini Enterprise Agent Platform version), 23 September 2026 | six published, four declared; blueprint and bank rewritten together |
+| `gcp-ace` | cloud.google.com exam guide | four published, five declared; planning and deploying merged, items remapped by domain |
+| `gcp-pca` | cloud.google.com exam guide | three sections renamed, weights corrected |
+| `gcp-cdl`, `gcp-pcdbe`, `gcp-pcne`, `gcp-pcse`, `gcp-pde` | cloud.google.com exam guides | `planned`: CDL moved to its six-section version (live since 12 August 2026); the others' invented or TODO domains replaced |
+| `gcp-pcd`, `gcp-adp`, `gcp-gail`, `gcp-psoe`, `gcp-paa` | cloud.google.com exam guides | added as `planned` with verified blueprints; the Agentic Architect exam is in beta |
+| `azure-az900`, `azure-az104`, `azure-az400` | learn.microsoft.com study guides, skills as of July 2026, April 2026, July 2026 | weights corrected from Microsoft's ranges; domains renamed to the published wording |
+| `azure-az204`, `azure-ai102`, `azure-az500` | learn.microsoft.com study guides | exams retired on 31 July, 30 June and 31 August 2026; set to `retired` and hidden, banks kept |
+| `azure-ai-apps-agents`, `azure-ai200`, `azure-sc500` | learn.microsoft.com AI-103 / AI-200 / SC-500 study guides | the successors, `planned`: AI-103 had the wrong code (AI-200) and invented domains, SC-500 had invented domains, AI-200 added |
+| `azure-ai901`, `azure-dp900`, `azure-az700`, `azure-az140`, `azure-az120`, `azure-dp300`, `azure-dp420`, `azure-dp750`, `azure-dp800`, `azure-ai300`, `azure-ai500` | learn.microsoft.com study guides | added as `planned` with verified blueprints; DP-420 follows its 6 October 2026 rename to Azure Cosmos DB AI Developer Associate |
 | `isc2-ccsp` | not re-checked | unknown |
 | `hashicorp-tfa` | developer.hashicorp.com, Terraform Associate (004) content list, 23 September 2026 | eight published, six declared (TA-003); blueprint and bank rewritten together |
 | `hashicorp-tfp` | developer.hashicorp.com, Terraform Authoring and Operations Advanced | exam renamed from Professional; six official objectives replaced a reconstructed split |
@@ -157,7 +167,7 @@ is meant to give a candidate a situation and its constraints.
 Both ratchets are wired into the CI `content` job so repaired work cannot regress:
 
 ```bash
-npm run audit:distractors -- --min-passing 24   # fails if fewer than 24 banks pass
+npm run audit:distractors -- --min-passing 25   # fails if fewer than 25 banks pass
 npm run audit:repeats -- --min-clean 1          # fails if fewer than 1 bank is repeat-free
 ```
 
