@@ -20,16 +20,16 @@ npm run stats           # progress toward 500 questions per certification
 | ☸️ Kubernetes & Cloud Native | 8 | 4 | 2,000 |
 | 🏗️ Platform Engineering | 6 | 3 | 1,500 |
 | 💰 FinOps | 8 | 2 | 1,000 |
-| 🔐 DevSecOps & Security | 15 | 6 | 3,004 |
-| **Total** | **78** | **33** | **16,598** |
+| 🔐 DevSecOps & Security | 15 | 5 | 3,004 |
+| **Total** | **78** | **32** | **16,598** |
 
 Regenerate these numbers any time with `npm run stats`.
 
-**Authored vs. generated.** All 33 live certifications hold 500 questions and 500 flashcards
-(33,000 items repo-wide) with comprehensive explanations and zero option-letter references.
+**Authored vs. generated.** All 32 live certifications hold 500 questions and 500 flashcards
+(32,000 items repo-wide) with comprehensive explanations and zero option-letter references.
 How many of those items are *exam-ready* is a separate question with a measured answer:
-2,000 questions and 2,000 flashcards across 8 banks are templated placeholders, 32 of the 33
-banks reissue the same item under several framings, and 8 live blueprints do not match the
+2,000 questions and 2,000 flashcards across 8 banks are templated placeholders, 31 of the 32
+banks reissue the same item under several framings, and 2 live blueprints do not match the
 published exam guide. See [EXAM-READINESS.md](EXAM-READINESS.md) for the numbers and the
 nine banks that need re-authoring.
 
@@ -60,7 +60,7 @@ The Top-20 priority certifications from the 2026 roadmap are all **live and avai
 | 6 | Azure DevOps Engineer Expert (AZ-400) | `azure-az400` | DevOps & SRE | ✅ live |
 | 7 | Certified Cloud Native Platform Engineering Associate (CNPA) | `cncf-cnpa` | Platform Engineering | ✅ live |
 | 8 | Certified Cloud Native Platform Engineer (CNPE) | `cncf-cnpe` | Platform Engineering | ✅ live |
-| 9 | GitOps Certified Associate (CGOA) | `cncf-cgoa` | Kubernetes & Cloud Native | ✅ live |
+| 9 | Certified GitOps Associate (CGOA) | `cncf-cgoa` | Kubernetes & Cloud Native | ✅ live |
 | 10 | FinOps Certified Practitioner (FOCP) | `finops-focp` | FinOps | ✅ live |
 | 11 | AWS Security – Specialty (SCS-C03) | `aws-scs` | DevSecOps & Security | ✅ live |
 | 12 | Certified Cloud Security Professional (CCSP) | `isc2-ccsp` | DevSecOps & Security | ✅ live |
@@ -68,7 +68,7 @@ The Top-20 priority certifications from the 2026 roadmap are all **live and avai
 | 14 | Certified Backstage Associate (CBA) | `cncf-cba` | Platform Engineering | ✅ live |
 | 15 | Google Professional Machine Learning Engineer | `gcp-pmle` | Cloud Engineering | ✅ live |
 | 16 | HashiCorp Certified: Vault Associate (VAULT-003) | `hashicorp-vault` | DevSecOps & Security | ✅ live |
-| 17 | Certified Open Policy Agent Associate (COPAA) | `cncf-opa` | DevSecOps & Security | ✅ live |
+| 17 | ~~Certified Open Policy Agent Associate (COPAA)~~ — no such exam exists; unpublished | `cncf-opa` | DevSecOps & Security | withdrawn |
 | 18 | Microsoft Certified: Azure AI Engineer Associate (AI-102) | `azure-ai102` | Cloud Engineering | ✅ live |
 | 19 | AWS Certified Machine Learning Engineer – Associate (MLA-C02) | `aws-mla` | Cloud Engineering | ✅ live |
 | 20 | FinOps Certified FOCUS Analyst (FOCUS) | `finops-focus` | FinOps | ✅ live |
@@ -104,7 +104,7 @@ The Top-20 priority certifications from the 2026 roadmap are all **live and avai
 
 ### 🔐 DevSecOps & Security
 `aws-scs` SCS-C03 ✅ · `github-ghas` GH-500 ✅ · `k8s-cks` CKS ✅ · `isc2-ccsp` CCSP ✅ ·
-`hashicorp-vault` VAULT-003 ✅ · `cncf-opa` COPAA ✅ · `gcp-pcse` GCP-PCSE · `cncf-kcsa` KCSA ·
+`hashicorp-vault` VAULT-003 ✅ · `gcp-pcse` GCP-PCSE · `cncf-kcsa` KCSA ·
 `doi-devsecops-foundation` DSOF · `doi-devsecops-practitioner` DSOP · `isc2-cissp` CISSP ·
 `offsec-oscp` OSCP · `azure-sc500` SC-500 · `hashicorp-vault-ops` VAULT-ADV · `azure-az500` AZ-500
 

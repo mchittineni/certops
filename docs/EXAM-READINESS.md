@@ -16,12 +16,12 @@ npm run lint:pack -- --file <pack> --cert <id> --start <n> --end <m> --quota 7/1
 
 | Measure | Corpus | Banks clean |
 | --- | --- | --- |
-| Answer given away by option form | 25 of 33 pass every threshold | 25 |
-| Content-free templated items | 2,000 questions and 2,000 flashcards across 8 banks | 25 |
+| Answer given away by option form | 24 of 32 live banks pass every threshold | 24 |
+| Content-free templated items | 2,000 questions and 2,000 flashcards across 8 banks | 24 |
 | Repeated content (shared option set or card back) | 70% of questions, 68% of cards | **1** |
 
 Run the commands for live numbers. The third row is the one that reframes the other two:
-**32 of the 33 live banks repeat themselves, and only `aws-sap` does not.**
+**31 of the 32 live banks repeat themselves, and only `aws-sap` does not.**
 
 ## The three defects, and why they need separate names
 
@@ -55,11 +55,14 @@ linter and both audits read them from there rather than keeping private copies t
 
 ## Blueprints
 
-Eight live certifications also carry blueprints that do not match the published exam guide:
-`cncf-cgoa`, `cncf-otca`, `cncf-cba`, `cncf-cnpa`, `cncf-cnpe`, `gcp-pcdoe`, `gcp-pmle`
-(verified against their official sources and found wrong), plus whatever a check of
-`isc2-ccsp` turns up. Each now says `blueprintVerified: false` and names its published
-domains in a header comment.
+Two live certifications still carry blueprints that do not match the published exam guide:
+`gcp-pcdoe` and `gcp-pmle`. Each says `blueprintVerified: false` and names its published
+domains in a header comment. The five CNCF banks that were in the same state (`cncf-cgoa`,
+`cncf-otca`, `cncf-cba`, `cncf-cnpa`, `cncf-cnpe`) were corrected on 23 September 2026:
+blueprint rewritten from the Linux Foundation exam page and every item reclassified in the
+same change. Their filler half is unchanged, so they still fail the distractor targets.
+`cncf-opa` was withdrawn: the "Certified Open Policy Agent Associate" exam it modelled does
+not exist.
 
 The correction cannot land on its own. Every question stores its `domainName` as a string
 the validator matches against the blueprint, so changing the domains fails `npm run validate`
@@ -71,9 +74,9 @@ Each blueprint was checked against its official source in September 2026:
 | Certification | Source | Verdict |
 | --- | --- | --- |
 | `azure-az305` | learn.microsoft.com study guide, skills measured as of 17 April 2026 | corrected in place; it is `planned` with no content, so nothing broke |
-| `cncf-cgoa` | training.linuxfoundation.org curriculum | five domains published, four declared |
-| `cncf-cnpa` | training.linuxfoundation.org curriculum | six published, four declared |
-| `cncf-otca`, `cncf-cba`, `cncf-cnpe` | training.linuxfoundation.org curriculum | four published, four declared, different subjects and weights |
+| `cncf-cgoa` | Linux Foundation exam page, 23 September 2026 | five published, four declared; blueprint and bank rewritten together |
+| `cncf-cnpa` | Linux Foundation exam page, 23 September 2026 | six published, four declared; rewritten, time corrected to 120 minutes |
+| `cncf-otca`, `cncf-cba`, `cncf-cnpe` | Linux Foundation exam pages, 23 September 2026 | declared domains had different subjects and weights; rewritten |
 | `gcp-pcdoe` | exam guide PDF linked from cloud.google.com | five sections published, five declared, none matching |
 | `gcp-pmle` | exam guide PDF dated 1 June 2026 | six sections published, four declared |
 | `isc2-ccsp` | not re-checked | unknown |
@@ -89,6 +92,11 @@ Each blueprint was checked against its official source in September 2026:
 | `aws-mla` | docs.aws.amazon.com MLA-C02 exam guide | moved to MLA-C02 (MLA-C01's last English sitting is 28 September 2026); four domains renamed one-to-one |
 | `aws-scs` | docs.aws.amazon.com SCS-C03 exam guide | moved from SCS-C02 to SCS-C03; blueprint and bank rewritten together |
 | `aws-soa`, `aws-ans`, `aws-aip`, `aws-aib` | docs.aws.amazon.com exam guides | `planned`: SOA-C03 (now CloudOps Engineer) and ANS-C01 (retires 31 December 2026) corrected; AIP-C01 and AIB-C01 added |
+| `k8s-cka`, `k8s-ckad` | Linux Foundation exam pages (Kubernetes v1.35) | match; CKA time corrected from 60 to 120 minutes and one domain name completed |
+| `k8s-cks` | Linux Foundation exam page (Kubernetes v1.35) | six published, six declared but only two matching; bank reclassified |
+| `cncf-kcna`, `cncf-kcsa`, `cncf-capa`, `cncf-cca`, `cncf-ica`, `cncf-kca`, `cncf-pca` | Linux Foundation exam pages | `planned` with TODO placeholders marked verified; real blueprints written |
+| `cncf-ckne` | Linux Foundation exam page (new exam, beta) | `planned`; declared domains replaced with the published five |
+| `cncf-opa` | CNCF certification list, cncf/curriculum, LF catalog; source URL returns 404 | no such exam; withdrawn to `planned` with content kept |
 
 Google's exam guides need a text-extraction proxy; the PDFs do not return readable text
 from a direct fetch.
