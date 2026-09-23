@@ -71,7 +71,7 @@ export const ROLES = [
     blurb: 'Shift security left into code, harden runtime platforms, and defend cloud perimeters.',
     path: [
       { certId: 'github-ghas', why: 'Application security at the source: semantic code analysis with CodeQL, secret push protection, and supply chain vulnerability scanning.' },
-      { certId: 'azure-az500', why: 'Microsoft cloud defense: Entra ID privileged identity, network security groups, Azure Key Vault, and Defender for Cloud workload protection.' },
+      { certId: 'azure-sc500', why: 'Microsoft cloud and AI defense: Entra ID identity governance, storage, database and network security, compute hardening, and Defender for Cloud security posture.' },
       { certId: 'aws-scs', why: 'Cloud perimeter defense: KMS envelope encryption, restrictive IAM permission boundaries, VPC flow monitoring, and automated threat detection.' },
       { certId: 'k8s-cks', why: 'Container and cluster hardening: admission control policies, AppArmor and seccomp syscall profiles, container image sandboxing, and runtime threat detection.' },
       { certId: 'hashicorp-vault', why: 'Centralized secrets lifecycle orchestration: dynamic database credentials, PKI certificate automation, and transit data encryption across multi-cloud environments.' },
@@ -111,7 +111,7 @@ export const ROLES = [
       { certId: 'aws-aif', why: 'Foundational AI vocabulary, generative AI architectures, prompt engineering, Amazon Bedrock, and Responsible AI governance principles.' },
       { certId: 'aws-mla', why: 'Machine learning engineering fundamentals: data preparation, feature engineering pipelines, model training workflows, and containerized deployment.' },
       { certId: 'azure-ai-apps-agents', why: 'Generative AI applications: prompt orchestration, Retrieval-Augmented Generation (RAG) architectures, and autonomous AI agent workflows.' },
-      { certId: 'gcp-pmle', why: 'Production MLOps at scale: Vertex AI continuous training pipelines, data drift detection, feature stores, and low-latency inference serving.' },
+      { certId: 'gcp-pmle', why: 'Production ML on Google Cloud: low-code AI, scaling prototypes into models, serving and scaling inference, automated ML pipelines, and monitoring.' },
       { certId: 'databricks-genai', why: 'Enterprise LLM lifecycle: fine-tuning foundation models, vector search indexing, model evaluation with MLflow, and governance guardrails.' },
       { certId: 'aws-aip', why: 'Production generative AI on AWS: foundation model integration, retrieval and agent implementation, safety guardrails, and cost and performance tuning.' }
     ]
