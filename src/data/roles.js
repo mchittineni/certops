@@ -113,7 +113,7 @@ export const ROLES = [
       { certId: 'azure-ai-apps-agents', why: 'Generative AI applications: prompt orchestration, Retrieval-Augmented Generation (RAG) architectures, and autonomous AI agent workflows.' },
       { certId: 'gcp-pmle', why: 'Production MLOps at scale: Vertex AI continuous training pipelines, data drift detection, feature stores, and low-latency inference serving.' },
       { certId: 'databricks-genai', why: 'Enterprise LLM lifecycle: fine-tuning foundation models, vector search indexing, model evaluation with MLflow, and governance guardrails.' },
-      { certId: 'aws-mls', why: 'Advanced ML architecture: distributed model training, custom loss optimization, inference cost optimization, and secure model governance.' }
+      { certId: 'aws-aip', why: 'Production generative AI on AWS: foundation model integration, retrieval and agent implementation, safety guardrails, and cost and performance tuning.' }
     ]
   },
   {
@@ -123,7 +123,6 @@ export const ROLES = [
     path: [
       { certId: 'aws-clf', why: 'Foundational data storage concepts: object storage classes, managed relational engines, and core cloud networking for data movement.' },
       { certId: 'aws-dea', why: 'Modern data engineering pipelines: serverless Glue ETL, Athena querying, Redshift warehousing, and Lake Formation data governance.' },
-      { certId: 'aws-dbs', why: 'Specialized database architecture: choosing between relational, document, graph, and key-value datastores for specific query workloads.' },
       { certId: 'gcp-pde', why: 'Scalable data pipeline engineering: streaming with Pub/Sub and Apache Beam on Dataflow, plus petabyte-scale analytics in BigQuery.' },
       { certId: 'gcp-pcdbe', why: 'Enterprise database operations: global high availability with Cloud Spanner, automated failover in Cloud SQL, and zero-downtime migrations.' },
       { certId: 'databricks-genai', why: 'Modern data lakehouse architectures: unified batch and streaming tables, vector embedding generation, and data preparation for AI workloads.' }
