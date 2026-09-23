@@ -1,5 +1,11 @@
 /**
- * Certified Open Policy Agent Associate (COPAA) — exam blueprint.
+ * "Certified Open Policy Agent Associate" (COPAA) — NOT A REAL EXAM.
+ *
+ * Checked 2026-09-23: no such certification appears on CNCF's certification
+ * page, in the cncf/curriculum repository or in the Linux Foundation catalog,
+ * and the blueprintSource URL returns 404. The certification was unpublished
+ * (status planned, blueprintVerified false) rather than deleted, because its
+ * OPA, Rego and Gatekeeper items can be reused in CNPE or KCA packs.
  */
 export default {
   "id": "cncf-opa",
@@ -8,8 +14,8 @@ export default {
   "title": "Certified Open Policy Agent Associate",
   "category": "DevSecOps & Security",
   "tier": "associate",
-  "status": "live",
-  "priority": 17,
+  "status": "planned",
+  "priority": null,
   "badgeClass": "badge-k8s",
   "icon": "cncf",
   "color": "#231F20",
@@ -18,7 +24,7 @@ export default {
   "maxScore": 100,
   "defaultTimeMinutes": 90,
   "blueprintSource": "https://www.cncf.io/certification/copaa/",
-  "blueprintVerified": true,
+  "blueprintVerified": false,
   "domains": [
     {
       "id": "d1",
