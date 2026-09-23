@@ -29,7 +29,7 @@ distractor work. Every one of the 24 hand-authored banks now passes all five.
 into the opposite tell if left unwatched — `finops-focp` reached 64.5% `shortest%` mid-
 rewrite, exactly as exploitable as the problem it replaced.
 
-8 of 33 live certifications still breach at least one target, and all 8 are filler
+8 of 32 live certifications still breach at least one target, and all 8 are filler
 banks blocked on authoring rather than on distractor repair.
 
 ### What measuring honestly required
