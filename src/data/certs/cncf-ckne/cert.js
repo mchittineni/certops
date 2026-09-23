@@ -1,5 +1,8 @@
 /**
  * Certified Kubernetes Network Engineer (CKNE) — exam blueprint.
+ *
+ * Domains and weights from the Linux Foundation exam page, verified 2026-09-23.
+ * New Linux Foundation exam, in beta as of September 2026; performance-based, 2 hours.
  */
 export default {
   "id": "cncf-ckne",
@@ -13,27 +16,17 @@ export default {
   "badgeClass": "badge-k8s",
   "icon": "kubernetes",
   "color": "#326CE5",
-  "description": "Demonstrates advanced competency in Kubernetes networking, CNI plugins, Service Mesh routing, Ingress, NetworkPolicies, and DNS troubleshooting.",
+  "description": "Validates hands-on Kubernetes networking: core infrastructure and CNI, service networking and DNS, advanced traffic management, network security and policy, and network observability.",
   "passingScore": 75,
   "maxScore": 100,
   "defaultTimeMinutes": 120,
-  "blueprintSource": "https://www.cncf.io/certification/ckne/",
-  "blueprintVerified": false,
+  "blueprintSource": "https://training.linuxfoundation.org/certification/certified-kubernetes-network-engineer-ckne/",
+  "blueprintVerified": true,
   "domains": [
-    {
-      "id": "d1",
-      "name": "Kubernetes Pod & Service Networking and CNI Architecture",
-      "weight": 35
-    },
-    {
-      "id": "d2",
-      "name": "Ingress Controllers, Gateway API, and Service Mesh",
-      "weight": 35
-    },
-    {
-      "id": "d3",
-      "name": "NetworkPolicy Enforcement, Multi-cluster, and Packet Diagnostics",
-      "weight": 30
-    }
+    { "id": "d1", "name": "Core Infrastructure and CNI", "weight": 15 },
+    { "id": "d2", "name": "Service Networking and DNS", "weight": 25 },
+    { "id": "d3", "name": "Advanced Traffic Management", "weight": 20 },
+    { "id": "d4", "name": "Network Security and Policy", "weight": 25 },
+    { "id": "d5", "name": "Observability", "weight": 15 }
   ]
 };
