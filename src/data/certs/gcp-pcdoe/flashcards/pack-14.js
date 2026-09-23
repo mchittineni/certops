@@ -56,7 +56,7 @@ export const GCP_PCDOE_FLASHCARDS_14 = [
     domainId: "d2",
     front: "Canary Deployments with Service Mesh (Dr Failover)",
     hint: "Precise percentage-based Layer 7 traffic splitting.",
-    back: "<strong>Anthos Service Mesh / Istio</strong> enables canary deployments by applying weighted Layer 7 traffic splits (e.g. 95% v1, 5% v2) without modifying pod replica counts.",
+    back: "<strong>Cloud Service Mesh / Istio</strong> enables canary deployments by applying weighted Layer 7 traffic splits (e.g. 95% v1, 5% v2) without modifying pod replica counts.",
     tags: ["Deployment Strategies", "Service Mesh", "Dr Failover"]
   },
   {
@@ -66,7 +66,7 @@ export const GCP_PCDOE_FLASHCARDS_14 = [
     domainId: "d2",
     front: "Canary Deployments with Service Mesh (High Load Scale)",
     hint: "Precise percentage-based Layer 7 traffic splitting.",
-    back: "<strong>Anthos Service Mesh / Istio</strong> enables canary deployments by applying weighted Layer 7 traffic splits (e.g. 95% v1, 5% v2) without modifying pod replica counts.",
+    back: "<strong>Cloud Service Mesh / Istio</strong> enables canary deployments by applying weighted Layer 7 traffic splits (e.g. 95% v1, 5% v2) without modifying pod replica counts.",
     tags: ["Deployment Strategies", "Service Mesh", "High Load Scale"]
   },
   {
@@ -76,7 +76,7 @@ export const GCP_PCDOE_FLASHCARDS_14 = [
     domainId: "d2",
     front: "Canary Deployments with Service Mesh (Security Compliance)",
     hint: "Precise percentage-based Layer 7 traffic splitting.",
-    back: "<strong>Anthos Service Mesh / Istio</strong> enables canary deployments by applying weighted Layer 7 traffic splits (e.g. 95% v1, 5% v2) without modifying pod replica counts.",
+    back: "<strong>Cloud Service Mesh / Istio</strong> enables canary deployments by applying weighted Layer 7 traffic splits (e.g. 95% v1, 5% v2) without modifying pod replica counts.",
     tags: ["Deployment Strategies", "Service Mesh", "Security Compliance"]
   },
   {
@@ -86,7 +86,7 @@ export const GCP_PCDOE_FLASHCARDS_14 = [
     domainId: "d2",
     front: "Canary Deployments with Service Mesh (Hybrid Migration)",
     hint: "Precise percentage-based Layer 7 traffic splitting.",
-    back: "<strong>Anthos Service Mesh / Istio</strong> enables canary deployments by applying weighted Layer 7 traffic splits (e.g. 95% v1, 5% v2) without modifying pod replica counts.",
+    back: "<strong>Cloud Service Mesh / Istio</strong> enables canary deployments by applying weighted Layer 7 traffic splits (e.g. 95% v1, 5% v2) without modifying pod replica counts.",
     tags: ["Deployment Strategies", "Service Mesh", "Hybrid Migration"]
   },
   {
@@ -96,7 +96,7 @@ export const GCP_PCDOE_FLASHCARDS_14 = [
     domainId: "d2",
     front: "Canary Deployments with Service Mesh (Resilience Failure)",
     hint: "Precise percentage-based Layer 7 traffic splitting.",
-    back: "<strong>Anthos Service Mesh / Istio</strong> enables canary deployments by applying weighted Layer 7 traffic splits (e.g. 95% v1, 5% v2) without modifying pod replica counts.",
+    back: "<strong>Cloud Service Mesh / Istio</strong> enables canary deployments by applying weighted Layer 7 traffic splits (e.g. 95% v1, 5% v2) without modifying pod replica counts.",
     tags: ["Deployment Strategies", "Service Mesh", "Resilience Failure"]
   },
   {
