@@ -472,7 +472,7 @@ export const AWS_SCS_QUESTIONS_7 = [
     question: "What must be included in the KMS key policy to allow IAM policies to delegate permissions on the key?",
     options: [
       { id: 'A', text: "The application role must be made an administrator in the AWS Organizations management account" },
-      { id: 'B', text: "The key policy must grant the other account's root principal the cryptographic actions" },
+      { id: 'B', text: "The key policy must grant this account's root principal the cryptographic actions" },
       { id: 'C', text: "The key must be shared with the AWS service principal kms.amazonaws.com" },
       { id: 'D', text: "The KMS key must be converted from a symmetric key to an asymmetric key" }
     ],

@@ -3,8 +3,8 @@ export const AWS_SCS_QUESTIONS_14 = [
     id: "aws-scs-326",
     difficulty: "hard",
     certId: "aws-scs",
-    domainId: "d2",
-    domainName: "Security Logging and Monitoring",
+    domainId: "d6",
+    domainName: "Security Foundations and Governance",
     title: "AWS Config Continuous Compliance and Configuration Recorders: Enterprise Governance",
     scenario: "An enterprise cloud security architect is establishing multi-account security baselines, identity perimeters, and regulatory compliance guardrails across an AWS Organization. The security engineer needs to detect and automatically remediate security group rules that open SSH port 22 to 0.0.0.0/0 across all enterprise accounts.",
     question: "Which architectural approach or AWS security configuration satisfies these enterprise security objectives?",
@@ -24,8 +24,8 @@ export const AWS_SCS_QUESTIONS_14 = [
     id: "aws-scs-327",
     difficulty: "medium",
     certId: "aws-scs",
-    domainId: "d2",
-    domainName: "Security Logging and Monitoring",
+    domainId: "d6",
+    domainName: "Security Foundations and Governance",
     title: "AWS Config Continuous Compliance and Configuration Recorders: Incident Containment",
     scenario: "A security operations center (SOC) detects an active security anomaly and potential credential compromise across production AWS workloads. The security engineer needs to detect and automatically remediate security group rules that open SSH port 22 to 0.0.0.0/0 across all enterprise accounts.",
     question: "Which incident response workflow or AWS service configuration contains the threat effectively while preserving forensic evidence?",
@@ -45,8 +45,8 @@ export const AWS_SCS_QUESTIONS_14 = [
     id: "aws-scs-328",
     difficulty: "medium",
     certId: "aws-scs",
-    domainId: "d2",
-    domainName: "Security Logging and Monitoring",
+    domainId: "d6",
+    domainName: "Security Foundations and Governance",
     title: "AWS Config Continuous Compliance and Configuration Recorders: Zero Trust Iam",
     scenario: "A security compliance auditor requires strict least-privilege access, cryptographic key separation of duties, and continuous audit verification across all IAM principals. The security engineer needs to detect and automatically remediate security group rules that open SSH port 22 to 0.0.0.0/0 across all enterprise accounts.",
     question: "Which IAM design pattern or encryption policy satisfies these mandatory access controls?",
@@ -66,8 +66,8 @@ export const AWS_SCS_QUESTIONS_14 = [
     id: "aws-scs-329",
     difficulty: "easy",
     certId: "aws-scs",
-    domainId: "d2",
-    domainName: "Security Logging and Monitoring",
+    domainId: "d6",
+    domainName: "Security Foundations and Governance",
     title: "AWS Config Continuous Compliance and Configuration Recorders: Data Protection",
     scenario: "A financial data privacy team is implementing defense-in-depth protection, automated secret rotation, and immutable audit logging for sensitive customer records. The security engineer needs to detect and automatically remediate security group rules that open SSH port 22 to 0.0.0.0/0 across all enterprise accounts.",
     question: "Which AWS data protection mechanism or encryption strategy guarantees confidentiality and integrity?",
@@ -87,8 +87,8 @@ export const AWS_SCS_QUESTIONS_14 = [
     id: "aws-scs-330",
     difficulty: "medium",
     certId: "aws-scs",
-    domainId: "d2",
-    domainName: "Security Logging and Monitoring",
+    domainId: "d6",
+    domainName: "Security Foundations and Governance",
     title: "AWS Config Continuous Compliance and Configuration Recorders: Infrastructure Defense",
     scenario: "A cloud platform reliability team is hardening network perimeters, isolating hybrid VPCs, and automating vulnerability remediation across elastic EC2 and EKS clusters. The security engineer needs to detect and automatically remediate security group rules that open SSH port 22 to 0.0.0.0/0 across all enterprise accounts.",
     question: "Which network design or AWS infrastructure security configuration guarantees high availability and perimeter defense?",
@@ -325,13 +325,13 @@ export const AWS_SCS_QUESTIONS_14 = [
     question: "Which architectural approach or AWS security configuration satisfies these enterprise security objectives?",
     options: [
       { id: 'A', text: "Manually add individual attacker IP addresses to VPC Network ACLs during the DDoS event." },
-      { id: 'B', text: "Subscribe to AWS Shield Advanced, enable automatic layer 7 DDoS mitigation, and authorize the AWS DDoS Response Team (DRT)." },
+      { id: 'B', text: "Subscribe to AWS Shield Advanced, enable automatic layer 7 DDoS mitigation, and authorize the AWS Shield Response Team (SRT)." },
       { id: 'C', text: "Shut down all public web servers whenever a DDoS attack begins to save bandwidth costs." },
       { id: 'D', text: "Rely on default AWS Shield Standard which only provides basic layer 3/4 SYN flood protection without financial guarantees." }
     ],
     correctAnswers: ['B'],
     type: "single",
-    explanation: "Subscribe to AWS Shield Advanced, enable automatic layer 7 DDoS mitigation, and authorize the AWS DDoS Response Team (DRT). AWS Shield Advanced provides enterprise protection against complex DDoS attacks. It includes automated layer 7 mitigation, 24/7 engagement with the AWS DDoS Response Team (DRT), and DDoS cost protection that credits charges incurred from scaling during an attack.",
+    explanation: "Subscribe to AWS Shield Advanced, enable automatic layer 7 DDoS mitigation, and authorize the AWS Shield Response Team (SRT). AWS Shield Advanced provides enterprise protection against complex DDoS attacks. It includes automated layer 7 mitigation, 24/7 engagement with the AWS Shield Response Team (SRT), and DDoS cost protection that credits charges incurred from scaling during an attack.",
     referenceUrl: "https://docs.aws.amazon.com/waf/latest/developerguide/ddos-advanced.html",
     tags: ["AWS Shield Advanced","Shield Advanced","Enterprise Governance"]
   },
@@ -348,11 +348,11 @@ export const AWS_SCS_QUESTIONS_14 = [
       { id: 'A', text: "Shut down all public web servers whenever a DDoS attack begins to save bandwidth costs." },
       { id: 'B', text: "Rely on default AWS Shield Standard which only provides basic layer 3/4 SYN flood protection without financial guarantees." },
       { id: 'C', text: "Manually add individual attacker IP addresses to VPC Network ACLs during the DDoS event." },
-      { id: 'D', text: "Subscribe to AWS Shield Advanced, enable automatic layer 7 DDoS mitigation, and authorize the AWS DDoS Response Team (DRT)." }
+      { id: 'D', text: "Subscribe to AWS Shield Advanced, enable automatic layer 7 DDoS mitigation, and authorize the AWS Shield Response Team (SRT)." }
     ],
     correctAnswers: ['D'],
     type: "single",
-    explanation: "Subscribe to AWS Shield Advanced, enable automatic layer 7 DDoS mitigation, and authorize the AWS DDoS Response Team (DRT). AWS Shield Advanced provides enterprise protection against complex DDoS attacks. It includes automated layer 7 mitigation, 24/7 engagement with the AWS DDoS Response Team (DRT), and DDoS cost protection that credits charges incurred from scaling during an attack.",
+    explanation: "Subscribe to AWS Shield Advanced, enable automatic layer 7 DDoS mitigation, and authorize the AWS Shield Response Team (SRT). AWS Shield Advanced provides enterprise protection against complex DDoS attacks. It includes automated layer 7 mitigation, 24/7 engagement with the AWS Shield Response Team (SRT), and DDoS cost protection that credits charges incurred from scaling during an attack.",
     referenceUrl: "https://docs.aws.amazon.com/waf/latest/developerguide/ddos-advanced.html",
     tags: ["AWS Shield Advanced","Shield Advanced","Incident Containment"]
   },
@@ -369,11 +369,11 @@ export const AWS_SCS_QUESTIONS_14 = [
       { id: 'A', text: "Manually add individual attacker IP addresses to VPC Network ACLs during the DDoS event." },
       { id: 'B', text: "Shut down all public web servers whenever a DDoS attack begins to save bandwidth costs." },
       { id: 'C', text: "Rely on default AWS Shield Standard which only provides basic layer 3/4 SYN flood protection without financial guarantees." },
-      { id: 'D', text: "Subscribe to AWS Shield Advanced, enable automatic layer 7 DDoS mitigation, and authorize the AWS DDoS Response Team (DRT)." }
+      { id: 'D', text: "Subscribe to AWS Shield Advanced, enable automatic layer 7 DDoS mitigation, and authorize the AWS Shield Response Team (SRT)." }
     ],
     correctAnswers: ['D'],
     type: "single",
-    explanation: "Subscribe to AWS Shield Advanced, enable automatic layer 7 DDoS mitigation, and authorize the AWS DDoS Response Team (DRT). AWS Shield Advanced provides enterprise protection against complex DDoS attacks. It includes automated layer 7 mitigation, 24/7 engagement with the AWS DDoS Response Team (DRT), and DDoS cost protection that credits charges incurred from scaling during an attack.",
+    explanation: "Subscribe to AWS Shield Advanced, enable automatic layer 7 DDoS mitigation, and authorize the AWS Shield Response Team (SRT). AWS Shield Advanced provides enterprise protection against complex DDoS attacks. It includes automated layer 7 mitigation, 24/7 engagement with the AWS Shield Response Team (SRT), and DDoS cost protection that credits charges incurred from scaling during an attack.",
     referenceUrl: "https://docs.aws.amazon.com/waf/latest/developerguide/ddos-advanced.html",
     tags: ["AWS Shield Advanced","Shield Advanced","Zero Trust Iam"]
   },
@@ -389,12 +389,12 @@ export const AWS_SCS_QUESTIONS_14 = [
     options: [
       { id: 'A', text: "Manually add individual attacker IP addresses to VPC Network ACLs during the DDoS event." },
       { id: 'B', text: "Rely on default AWS Shield Standard which only provides basic layer 3/4 SYN flood protection without financial guarantees." },
-      { id: 'C', text: "Subscribe to AWS Shield Advanced, enable automatic layer 7 DDoS mitigation, and authorize the AWS DDoS Response Team (DRT)." },
+      { id: 'C', text: "Subscribe to AWS Shield Advanced, enable automatic layer 7 DDoS mitigation, and authorize the AWS Shield Response Team (SRT)." },
       { id: 'D', text: "Shut down all public web servers whenever a DDoS attack begins to save bandwidth costs." }
     ],
     correctAnswers: ['C'],
     type: "single",
-    explanation: "Subscribe to AWS Shield Advanced, enable automatic layer 7 DDoS mitigation, and authorize the AWS DDoS Response Team (DRT). AWS Shield Advanced provides enterprise protection against complex DDoS attacks. It includes automated layer 7 mitigation, 24/7 engagement with the AWS DDoS Response Team (DRT), and DDoS cost protection that credits charges incurred from scaling during an attack.",
+    explanation: "Subscribe to AWS Shield Advanced, enable automatic layer 7 DDoS mitigation, and authorize the AWS Shield Response Team (SRT). AWS Shield Advanced provides enterprise protection against complex DDoS attacks. It includes automated layer 7 mitigation, 24/7 engagement with the AWS Shield Response Team (SRT), and DDoS cost protection that credits charges incurred from scaling during an attack.",
     referenceUrl: "https://docs.aws.amazon.com/waf/latest/developerguide/ddos-advanced.html",
     tags: ["AWS Shield Advanced","Shield Advanced","Data Protection"]
   },
@@ -410,12 +410,12 @@ export const AWS_SCS_QUESTIONS_14 = [
     options: [
       { id: 'A', text: "Rely on default AWS Shield Standard which only provides basic layer 3/4 SYN flood protection without financial guarantees." },
       { id: 'B', text: "Shut down all public web servers whenever a DDoS attack begins to save bandwidth costs." },
-      { id: 'C', text: "Subscribe to AWS Shield Advanced, enable automatic layer 7 DDoS mitigation, and authorize the AWS DDoS Response Team (DRT)." },
+      { id: 'C', text: "Subscribe to AWS Shield Advanced, enable automatic layer 7 DDoS mitigation, and authorize the AWS Shield Response Team (SRT)." },
       { id: 'D', text: "Manually add individual attacker IP addresses to VPC Network ACLs during the DDoS event." }
     ],
     correctAnswers: ['C'],
     type: "single",
-    explanation: "Subscribe to AWS Shield Advanced, enable automatic layer 7 DDoS mitigation, and authorize the AWS DDoS Response Team (DRT). AWS Shield Advanced provides enterprise protection against complex DDoS attacks. It includes automated layer 7 mitigation, 24/7 engagement with the AWS DDoS Response Team (DRT), and DDoS cost protection that credits charges incurred from scaling during an attack.",
+    explanation: "Subscribe to AWS Shield Advanced, enable automatic layer 7 DDoS mitigation, and authorize the AWS Shield Response Team (SRT). AWS Shield Advanced provides enterprise protection against complex DDoS attacks. It includes automated layer 7 mitigation, 24/7 engagement with the AWS Shield Response Team (SRT), and DDoS cost protection that credits charges incurred from scaling during an attack.",
     referenceUrl: "https://docs.aws.amazon.com/waf/latest/developerguide/ddos-advanced.html",
     tags: ["AWS Shield Advanced","Shield Advanced","Infrastructure Defense"]
   },

@@ -3,7 +3,7 @@ export const AWS_SCS_FLASHCARDS_14 = [
     id: "aws-scs-fc-326",
     difficulty: "hard",
     certId: "aws-scs",
-    domainId: "d2",
+    domainId: "d6",
     front: "Continuous Compliance via AWS Config and Auto-Remediation (Enterprise Governance)",
     hint: "Tracking resource configuration drift and triggering automated SSM remediation on violations.",
     back: "<strong>AWS Config</strong> continuously records resource state changes, evaluating compliance rules and triggering <strong>automated SSM remediation</strong> for security violations like open SSH.",
@@ -13,7 +13,7 @@ export const AWS_SCS_FLASHCARDS_14 = [
     id: "aws-scs-fc-327",
     difficulty: "medium",
     certId: "aws-scs",
-    domainId: "d2",
+    domainId: "d6",
     front: "Continuous Compliance via AWS Config and Auto-Remediation (Incident Containment)",
     hint: "Tracking resource configuration drift and triggering automated SSM remediation on violations.",
     back: "<strong>AWS Config</strong> continuously records resource state changes, evaluating compliance rules and triggering <strong>automated SSM remediation</strong> for security violations like open SSH.",
@@ -23,7 +23,7 @@ export const AWS_SCS_FLASHCARDS_14 = [
     id: "aws-scs-fc-328",
     difficulty: "medium",
     certId: "aws-scs",
-    domainId: "d2",
+    domainId: "d6",
     front: "Continuous Compliance via AWS Config and Auto-Remediation (Zero Trust Iam)",
     hint: "Tracking resource configuration drift and triggering automated SSM remediation on violations.",
     back: "<strong>AWS Config</strong> continuously records resource state changes, evaluating compliance rules and triggering <strong>automated SSM remediation</strong> for security violations like open SSH.",
@@ -33,7 +33,7 @@ export const AWS_SCS_FLASHCARDS_14 = [
     id: "aws-scs-fc-329",
     difficulty: "easy",
     certId: "aws-scs",
-    domainId: "d2",
+    domainId: "d6",
     front: "Continuous Compliance via AWS Config and Auto-Remediation (Data Protection)",
     hint: "Tracking resource configuration drift and triggering automated SSM remediation on violations.",
     back: "<strong>AWS Config</strong> continuously records resource state changes, evaluating compliance rules and triggering <strong>automated SSM remediation</strong> for security violations like open SSH.",
@@ -43,7 +43,7 @@ export const AWS_SCS_FLASHCARDS_14 = [
     id: "aws-scs-fc-330",
     difficulty: "medium",
     certId: "aws-scs",
-    domainId: "d2",
+    domainId: "d6",
     front: "Continuous Compliance via AWS Config and Auto-Remediation (Infrastructure Defense)",
     hint: "Tracking resource configuration drift and triggering automated SSM remediation on violations.",
     back: "<strong>AWS Config</strong> continuously records resource state changes, evaluating compliance rules and triggering <strong>automated SSM remediation</strong> for security violations like open SSH.",
@@ -155,8 +155,8 @@ export const AWS_SCS_FLASHCARDS_14 = [
     certId: "aws-scs",
     domainId: "d3",
     front: "AWS Shield Advanced Enterprise DDoS Defense (Enterprise Governance)",
-    hint: "Comprehensive L3/4/7 DDoS mitigation, DRT proactive engagement, and scaling cost protection.",
-    back: "<strong>AWS Shield Advanced</strong> delivers automated L7 mitigation, <strong>24/7 DDoS Response Team (DRT) support</strong>, and <strong>DDoS cost protection</strong> against scaling charges during attacks.",
+    hint: "Comprehensive L3/4/7 DDoS mitigation, SRT proactive engagement, and scaling cost protection.",
+    back: "<strong>AWS Shield Advanced</strong> delivers automated L7 mitigation, <strong>24/7 Shield Response Team (SRT) support</strong>, and <strong>DDoS cost protection</strong> against scaling charges during attacks.",
     tags: ["AWS Shield Advanced", "Shield Advanced", "Enterprise Governance"]
   },
   {
@@ -165,8 +165,8 @@ export const AWS_SCS_FLASHCARDS_14 = [
     certId: "aws-scs",
     domainId: "d3",
     front: "AWS Shield Advanced Enterprise DDoS Defense (Incident Containment)",
-    hint: "Comprehensive L3/4/7 DDoS mitigation, DRT proactive engagement, and scaling cost protection.",
-    back: "<strong>AWS Shield Advanced</strong> delivers automated L7 mitigation, <strong>24/7 DDoS Response Team (DRT) support</strong>, and <strong>DDoS cost protection</strong> against scaling charges during attacks.",
+    hint: "Comprehensive L3/4/7 DDoS mitigation, SRT proactive engagement, and scaling cost protection.",
+    back: "<strong>AWS Shield Advanced</strong> delivers automated L7 mitigation, <strong>24/7 Shield Response Team (SRT) support</strong>, and <strong>DDoS cost protection</strong> against scaling charges during attacks.",
     tags: ["AWS Shield Advanced", "Shield Advanced", "Incident Containment"]
   },
   {
@@ -175,8 +175,8 @@ export const AWS_SCS_FLASHCARDS_14 = [
     certId: "aws-scs",
     domainId: "d3",
     front: "AWS Shield Advanced Enterprise DDoS Defense (Zero Trust Iam)",
-    hint: "Comprehensive L3/4/7 DDoS mitigation, DRT proactive engagement, and scaling cost protection.",
-    back: "<strong>AWS Shield Advanced</strong> delivers automated L7 mitigation, <strong>24/7 DDoS Response Team (DRT) support</strong>, and <strong>DDoS cost protection</strong> against scaling charges during attacks.",
+    hint: "Comprehensive L3/4/7 DDoS mitigation, SRT proactive engagement, and scaling cost protection.",
+    back: "<strong>AWS Shield Advanced</strong> delivers automated L7 mitigation, <strong>24/7 Shield Response Team (SRT) support</strong>, and <strong>DDoS cost protection</strong> against scaling charges during attacks.",
     tags: ["AWS Shield Advanced", "Shield Advanced", "Zero Trust Iam"]
   },
   {
@@ -185,8 +185,8 @@ export const AWS_SCS_FLASHCARDS_14 = [
     certId: "aws-scs",
     domainId: "d3",
     front: "AWS Shield Advanced Enterprise DDoS Defense (Data Protection)",
-    hint: "Comprehensive L3/4/7 DDoS mitigation, DRT proactive engagement, and scaling cost protection.",
-    back: "<strong>AWS Shield Advanced</strong> delivers automated L7 mitigation, <strong>24/7 DDoS Response Team (DRT) support</strong>, and <strong>DDoS cost protection</strong> against scaling charges during attacks.",
+    hint: "Comprehensive L3/4/7 DDoS mitigation, SRT proactive engagement, and scaling cost protection.",
+    back: "<strong>AWS Shield Advanced</strong> delivers automated L7 mitigation, <strong>24/7 Shield Response Team (SRT) support</strong>, and <strong>DDoS cost protection</strong> against scaling charges during attacks.",
     tags: ["AWS Shield Advanced", "Shield Advanced", "Data Protection"]
   },
   {
@@ -195,8 +195,8 @@ export const AWS_SCS_FLASHCARDS_14 = [
     certId: "aws-scs",
     domainId: "d3",
     front: "AWS Shield Advanced Enterprise DDoS Defense (Infrastructure Defense)",
-    hint: "Comprehensive L3/4/7 DDoS mitigation, DRT proactive engagement, and scaling cost protection.",
-    back: "<strong>AWS Shield Advanced</strong> delivers automated L7 mitigation, <strong>24/7 DDoS Response Team (DRT) support</strong>, and <strong>DDoS cost protection</strong> against scaling charges during attacks.",
+    hint: "Comprehensive L3/4/7 DDoS mitigation, SRT proactive engagement, and scaling cost protection.",
+    back: "<strong>AWS Shield Advanced</strong> delivers automated L7 mitigation, <strong>24/7 Shield Response Team (SRT) support</strong>, and <strong>DDoS cost protection</strong> against scaling charges during attacks.",
     tags: ["AWS Shield Advanced", "Shield Advanced", "Infrastructure Defense"]
   },
   {
