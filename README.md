@@ -20,30 +20,30 @@ every answer moves your difficulty band toward your actual level.
 
 ## Project status
 
-**All 33 live certifications hold 500 questions and 500 flashcards. Bank size is not the
+**All 32 live certifications hold 500 questions and 500 flashcards. Bank size is not the
 same as exam readiness, and the gap between them is measured rather than asserted — see
 [docs/EXAM-READINESS.md](docs/EXAM-READINESS.md).**
 
 | | |
 | --- | --- |
 | Certifications scaffolded | **78** across six disciplines |
-| Live (launchable, with content) | **33** — including all Top 20 roadmap priorities plus AWS, Azure, GCP, GitHub, Kubernetes, CNCF, FinOps, and HashiCorp tracks |
-| Questions authored / live | **16,598** — 16,500 in live banks plus 98 in verified starter packs for planned certifications, of a 39,000 target (500 × 78) |
-| Flashcards authored / live | **16,573** — 16,500 in live banks plus 73 in starter packs |
+| Live (launchable, with content) | **32** — including all Top 20 roadmap priorities plus AWS, Azure, GCP, GitHub, Kubernetes, CNCF, FinOps, and HashiCorp tracks |
+| Questions authored / live | **16,598** — 16,000 in live banks plus 598 in planned certifications (500 in the withdrawn `cncf-opa`, 98 in starter packs), of a 39,000 target (500 × 78) |
+| Flashcards authored / live | **16,573** — 16,000 in live banks plus 573 in planned certifications |
 
 Run `npm run stats` for detailed domain and difficulty distributions across the bank.
 
 Three audits qualify that count, and each is printed into every CI run's job summary.
 `npm run audit:distractors`: 25 of 39 banks give nothing away through the form of their
 options. `npm run audit:filler`: 2,000 questions and 2,000 flashcards across 8 banks are
-templated placeholders whose answers cannot be verified. `npm run audit:repeats`: 32 of
-the 33 banks serve the same item or card more than once — `hashicorp-vault` draws its 500
+templated placeholders whose answers cannot be verified. `npm run audit:repeats`: 31 of
+the 32 live banks serve the same item or card more than once — `hashicorp-vault` draws its 500
 questions from 21 distinct option sets — and only `aws-sap` does not. Nine certifications
 therefore need a bank authored from scratch. The first 75 questions and 50 flashcards of
 `azure-az305` and starter packs for `aws-aif`, `aws-dea`, `azure-az500`, `gcp-cdl`, and `linux-lfcs`
 are written to the standard `npm run lint:pack` enforces and pass it.
 
-The 45 planned certifications appear on the roadmap panel but cannot be launched; 21 of
+The 46 planned certifications appear on the roadmap panel but cannot be launched; 14 of
 them still carry **placeholder blueprints**. That is the honest state of things,
 and it is exactly where contributions land: see [CONTRIBUTING.md](CONTRIBUTING.md).
 
@@ -75,7 +75,7 @@ CertOps features official digital certification badge tracks with comprehensive 
 
 | [<img src="docs/badges/aws-saa.png" width="96" height="96" alt="AWS Certified Solutions Architect – Associate"/>](src/data/certs/aws-saa/cert.js) | [<img src="docs/badges/aws-dva.png" width="96" height="96" alt="AWS Certified Developer – Associate"/>](src/data/certs/aws-dva/cert.js) | [<img src="docs/badges/aws-dea.png" width="96" height="96" alt="AWS Certified Data Engineer – Associate"/>](src/data/certs/aws-dea/cert.js) | [<img src="docs/badges/aws-mla.png" width="96" height="96" alt="AWS Certified Machine Learning Engineer – Associate"/>](src/data/certs/aws-mla/cert.js) | [<img src="docs/badges/gcp-ace.png" width="96" height="96" alt="Google Cloud Associate Cloud Engineer"/>](src/data/certs/gcp-ace/cert.js) |
 | :---: | :---: | :---: | :---: | :---: |
-| **AWS Solutions Architect**<br>`SAA-C03` | **AWS Developer**<br>`DVA-C02` | **AWS Data Engineer**<br>`DEA-C01` | **AWS ML Engineer**<br>`MLA-C01` | **GCP Associate Engineer**<br>`GCP-ACE` |
+| **AWS Solutions Architect**<br>`SAA-C03` | **AWS Developer**<br>`DVA-C02` | **AWS Data Engineer**<br>`DEA-C01` | **AWS ML Engineer**<br>`MLA-C02` | **GCP Associate Engineer**<br>`GCP-ACE` |
 
 | [<img src="docs/badges/azure-az104.png" width="96" height="96" alt="Microsoft Certified: Azure Administrator Associate"/>](src/data/certs/azure-az104/cert.js) | [<img src="docs/badges/azure-az204.png" width="96" height="96" alt="Microsoft Certified: Azure Developer Associate"/>](src/data/certs/azure-az204/cert.js) | [<img src="docs/badges/azure-ai102.png" width="96" height="96" alt="Microsoft Certified: Azure AI Engineer Associate"/>](src/data/certs/azure-ai102/cert.js) | [<img src="docs/badges/azure-az500.png" width="96" height="96" alt="Microsoft Certified: Azure Security Engineer Associate"/>](src/data/certs/azure-az500/cert.js) |
 | :---: | :---: | :---: | :---: |
@@ -83,13 +83,13 @@ CertOps features official digital certification badge tracks with comprehensive 
 
 #### ☸️ Cloud Native, Linux & Tooling Associates
 
-| [<img src="docs/badges/linux-lfcs.png" width="96" height="96" alt="Linux Foundation Certified System Administrator"/>](src/data/certs/linux-lfcs/cert.js) | [<img src="docs/badges/cncf-cgoa.png" width="96" height="96" alt="Certified GitOps Associate"/>](src/data/certs/cncf-cgoa/cert.js) | [<img src="docs/badges/cncf-otca.png" width="96" height="96" alt="OpenTelemetry Certified Associate"/>](src/data/certs/cncf-otca/cert.js) | [<img src="docs/badges/cncf-cba.png" width="96" height="96" alt="Certified Backstage Associate"/>](src/data/certs/cncf-cba/cert.js) | [<img src="docs/badges/cncf-cnpa.png" width="96" height="96" alt="Cloud Native Platform Associate"/>](src/data/certs/cncf-cnpa/cert.js) | [<img src="docs/badges/cncf-opa.png" width="96" height="96" alt="Open Policy Agent Certified Associate"/>](src/data/certs/cncf-opa/cert.js) |
-| :---: | :---: | :---: | :---: | :---: | :---: |
-| **Linux SysAdmin**<br>`LFCS` | **GitOps Associate**<br>`CGOA` | **OpenTelemetry Associate**<br>`OTCA` | **Backstage Associate**<br>`CBA` | **Platform Associate**<br>`CNPA` | **Open Policy Agent**<br>`COPAA` |
+| [<img src="docs/badges/linux-lfcs.png" width="96" height="96" alt="Linux Foundation Certified System Administrator"/>](src/data/certs/linux-lfcs/cert.js) | [<img src="docs/badges/cncf-cgoa.png" width="96" height="96" alt="Certified GitOps Associate"/>](src/data/certs/cncf-cgoa/cert.js) | [<img src="docs/badges/cncf-otca.png" width="96" height="96" alt="OpenTelemetry Certified Associate"/>](src/data/certs/cncf-otca/cert.js) | [<img src="docs/badges/cncf-cba.png" width="96" height="96" alt="Certified Backstage Associate"/>](src/data/certs/cncf-cba/cert.js) | [<img src="docs/badges/cncf-cnpa.png" width="96" height="96" alt="Cloud Native Platform Associate"/>](src/data/certs/cncf-cnpa/cert.js) |
+| :---: | :---: | :---: | :---: | :---: |
+| **Linux SysAdmin**<br>`LFCS` | **GitOps Associate**<br>`CGOA` | **OpenTelemetry Associate**<br>`OTCA` | **Backstage Associate**<br>`CBA` | **Platform Associate**<br>`CNPA` |
 
 | [<img src="docs/badges/hashicorp-tfa.png" width="96" height="96" alt="HashiCorp Certified: Terraform Associate"/>](src/data/certs/hashicorp-tfa/cert.js) | [<img src="docs/badges/hashicorp-vault.png" width="96" height="96" alt="HashiCorp Certified: Vault Associate"/>](src/data/certs/hashicorp-vault/cert.js) | [<img src="docs/badges/github-actions.png" width="96" height="96" alt="GitHub Actions"/>](src/data/certs/github-actions/cert.js) | [<img src="docs/badges/github-ghas.png" width="96" height="96" alt="GitHub Advanced Security"/>](src/data/certs/github-ghas/cert.js) |
 | :---: | :---: | :---: | :---: |
-| **Terraform Associate**<br>`TA-003 / 004` | **Vault Associate**<br>`VAULT-003` | **GitHub Actions**<br>`GH-200` | **GitHub Advanced Security**<br>`GH-500` |
+| **Terraform Associate**<br>`TA-004` | **Vault Associate**<br>`VAULT-003` | **GitHub Actions**<br>`GH-200` | **GitHub Advanced Security**<br>`GH-500` |
 
 ---
 
@@ -100,7 +100,7 @@ CertOps features official digital certification badge tracks with comprehensive 
 
 | [<img src="docs/badges/aws-sap.png" width="96" height="96" alt="AWS Certified Solutions Architect – Professional"/>](src/data/certs/aws-sap/cert.js) | [<img src="docs/badges/aws-dop.png" width="96" height="96" alt="AWS Certified DevOps Engineer – Professional"/>](src/data/certs/aws-dop/cert.js) | [<img src="docs/badges/aws-scs.png" width="96" height="96" alt="AWS Certified Security – Specialty"/>](src/data/certs/aws-scs/cert.js) | [<img src="docs/badges/azure-az400.png" width="96" height="96" alt="Microsoft Certified: Azure DevOps Engineer Expert"/>](src/data/certs/azure-az400/cert.js) |
 | :---: | :---: | :---: | :---: |
-| **AWS Solutions Architect Pro**<br>`SAP-C02` | **AWS DevOps Engineer Pro**<br>`DOP-C02` | **AWS Security Specialty**<br>`SCS-C02` | **Azure DevOps Engineer Expert**<br>`AZ-400` |
+| **AWS Solutions Architect Pro**<br>`SAP-C02` | **AWS DevOps Engineer Pro**<br>`DOP-C02` | **AWS Security Specialty**<br>`SCS-C03` | **Azure DevOps Engineer Expert**<br>`AZ-400` |
 
 | [<img src="docs/badges/gcp-pca.png" width="96" height="96" alt="Google Cloud Professional Cloud Architect"/>](src/data/certs/gcp-pca/cert.js) | [<img src="docs/badges/gcp-pcdoe.png" width="96" height="96" alt="Google Cloud Professional Cloud DevOps Engineer"/>](src/data/certs/gcp-pcdoe/cert.js) | [<img src="docs/badges/gcp-pmle.png" width="96" height="96" alt="Google Cloud Professional Machine Learning Engineer"/>](src/data/certs/gcp-pmle/cert.js) |
 | :---: | :---: | :---: |
@@ -114,7 +114,7 @@ CertOps features official digital certification badge tracks with comprehensive 
 
 | [<img src="docs/badges/hashicorp-tfp.png" width="96" height="96" alt="HashiCorp Certified: Terraform Authoring and Operations Advanced"/>](src/data/certs/hashicorp-tfp/cert.js) | [<img src="docs/badges/isc2-ccsp.png" width="96" height="96" alt="Certified Cloud Security Professional"/>](src/data/certs/isc2-ccsp/cert.js) |
 | :---: | :---: |
-| **Terraform Operations Pro**<br>`TF-PRO` | **ISC2 Cloud Security Pro**<br>`CCSP` |
+| **Terraform Advanced**<br>`TF-ADV` | **ISC2 Cloud Security Pro**<br>`CCSP` |
 
 ---
 
@@ -335,7 +335,7 @@ once on boot and then removed ([src/lib/storage.js](src/lib/storage.js)).
 
 ## Contributing
 
-The 33 live certifications hold 500 questions and 500 flashcards each (16,500 and 16,500 repo-wide). The most valuable contribution is not a new certification but a re-authored pack in one of the nine banks that need one, and `npm run lint:pack` scores a single pack before anything else runs. A **wrong answer is the highest-priority bug**, because it teaches someone the wrong thing before an exam they paid for. Start with [CONTRIBUTING.md](CONTRIBUTING.md) and [docs/EXAM-READINESS.md](docs/EXAM-READINESS.md).
+The 32 live certifications hold 500 questions and 500 flashcards each (16,000 and 16,000 repo-wide). The most valuable contribution is not a new certification but a re-authored pack in one of the nine banks that need one, and `npm run lint:pack` scores a single pack before anything else runs. A **wrong answer is the highest-priority bug**, because it teaches someone the wrong thing before an exam they paid for. Start with [CONTRIBUTING.md](CONTRIBUTING.md) and [docs/EXAM-READINESS.md](docs/EXAM-READINESS.md).
 
 ```bash
 npm run new:pack -- --cert <id> --kind questions --count 25
