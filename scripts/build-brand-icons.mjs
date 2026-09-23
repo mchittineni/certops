@@ -24,7 +24,8 @@ const PROVIDER_SLUGS = {
   'GitHub': 'github',
   'Docker': 'docker',
   'ISC2': 'isc2',
-  'Databricks': 'databricks'
+  'Databricks': 'databricks',
+  'Linux Foundation': 'linuxfoundation'
 };
 
 /** extra marks used for certification-specific badges and the discipline grid */

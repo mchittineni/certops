@@ -395,6 +395,7 @@ button {
 .badge-docker,
 .badge-finops,
 .badge-security,
+.badge-linux,
 .badge-neutral {
   background: var(--tint-neutral);
   color: var(--text-muted);
