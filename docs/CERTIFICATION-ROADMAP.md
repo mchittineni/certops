@@ -14,14 +14,13 @@ npm run stats           # progress toward 500 questions per certification
 ## Status
 
 | | Certifications | Live | Questions |
-| --- | --- | --- | --- |
-| ☁️ Cloud Engineering | 22 | 11 | 5,500 |
-| 🚀 DevOps & SRE | 15 | 6 | 3,000 |
+| ☁️ Cloud Engineering | 25 | 12 | 6,088 |
+| 🚀 DevOps & SRE | 16 | 6 | 3,006 |
 | ☸️ Kubernetes & Cloud Native | 8 | 4 | 2,000 |
 | 🏗️ Platform Engineering | 6 | 3 | 1,500 |
 | 💰 FinOps | 8 | 2 | 1,000 |
-| 🔐 DevSecOps & Security | 14 | 6 | 3,000 |
-| **Total** | **73** | **32** | **16,000** |
+| 🔐 DevSecOps & Security | 15 | 6 | 3,004 |
+| **Total** | **78** | **33** | **16,598** |
 
 Regenerate these numbers any time with `npm run stats`.
 
@@ -80,14 +79,15 @@ The Top-20 priority certifications from the 2026 roadmap are all **live and avai
 `azure-az204` AZ-204 ✅ · `azure-az900` AZ-900 ✅ · `azure-ai102` AI-102 ✅ · `aws-mla` MLA-C01 ✅ ·
 `gcp-ace` GCP-ACE ✅ · `gcp-pca` GCP-PCA ✅ · `gcp-pmle` GCP-PMLE ✅ · `aws-sap` SAP-C02 ·
 `aws-soa` SOA-C02 · `aws-ans` ANS-C01 · `azure-az305` AZ-305 · `aws-mls` MLS-C01 · `aws-dbs` DBS-C01 ·
-`gcp-pde` GCP-PDE · `gcp-pcne` GCP-PCNE · `gcp-pcdbe` GCP-PCDBE · `azure-ai-apps-agents` AI-Apps · `databricks-genai` Databricks-GenAI
+`gcp-pde` GCP-PDE · `gcp-pcne` GCP-PCNE · `gcp-pcdbe` GCP-PCDBE · `azure-ai-apps-agents` AI-Apps · `databricks-genai` Databricks-GenAI ·
+`aws-aif` AIF-C01 · `aws-dea` DEA-C01 · `gcp-cdl` GCP-CDL
 
 ### 🚀 DevOps & SRE
 `aws-dop` DOP-C02 ✅ · `azure-az400` AZ-400 ✅ · `gcp-pcdoe` GCP-PCDE ✅ · `hashicorp-tfa` TA-004 ✅ ·
 `hashicorp-tfp` TF-ADV ✅ · `github-actions` GH-200 ✅ · `docker-dca` DCA ·
 `doi-devops-foundation` DOF · `doi-devops-leader` DOL · `doi-sre-foundation` SREF ·
 `doi-sre-practitioner` SREP · `github-foundations` GH-900 · `github-admin` GH-100 ·
-`github-copilot` GH-300 · `github-agentic-ai` GH-600
+`github-copilot` GH-300 · `github-agentic-ai` GH-600 · `linux-lfcs` LFCS
 
 ### ☸️ Kubernetes & Cloud Native
 `k8s-cka` CKA ✅ · `k8s-ckad` CKAD ✅ · `cncf-cgoa` CGOA ✅ · `cncf-otca` OTCA ✅ ·
@@ -105,7 +105,7 @@ The Top-20 priority certifications from the 2026 roadmap are all **live and avai
 `aws-scs` SCS-C02 ✅ · `github-ghas` GH-500 ✅ · `k8s-cks` CKS ✅ · `isc2-ccsp` CCSP ✅ ·
 `hashicorp-vault` VAULT-003 ✅ · `cncf-opa` COPAA ✅ · `gcp-pcse` GCP-PCSE · `cncf-kcsa` KCSA ·
 `doi-devsecops-foundation` DSOF · `doi-devsecops-practitioner` DSOP · `isc2-cissp` CISSP ·
-`offsec-oscp` OSCP · `azure-sc500` SC-500 · `hashicorp-vault-ops` VAULT-ADV
+`offsec-oscp` OSCP · `azure-sc500` SC-500 · `hashicorp-vault-ops` VAULT-ADV · `azure-az500` AZ-500
 
 ## Taking one certification from planned to live
 
