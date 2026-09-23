@@ -1,12 +1,10 @@
 /**
  * AWS Certified Solutions Architect - Associate (SAA-C03) — exam blueprint.
  *
- * Everything about this certification lives in this folder: the blueprint here,
- * question packs in ./questions/, flashcard packs in ./flashcards/. Nothing
- * outside the folder needs editing — the content index is generated from it.
- *
- * blueprintVerified: flip to true only after checking domains and weights
- * against blueprintSource. `npm run validate` warns while it is false.
+ * Domains and weights from the official exam guide, verified 2026-09-23. The guide orders
+ * them Secure 30 / Resilient 26 / High-Performing 24 / Cost-Optimized 20; the ids
+ * below keep this bank's original order. 130 minutes, 65 questions, passing
+ * score 720 of 1000.
  */
 export default {
   "id": "aws-saa",
@@ -23,29 +21,13 @@ export default {
   "description": "Validates knowledge of designing resilient, high-performing, secure, and cost-optimized architectures on Amazon Web Services.",
   "passingScore": 720,
   "maxScore": 1000,
-  "defaultTimeMinutes": 65,
-  "blueprintSource": "https://d1.awsstatic.com/training-and-certification/docs-sa-assoc/AWS-Certified-Solutions-Architect-Associate_Exam-Guide.pdf",
+  "defaultTimeMinutes": 130,
+  "blueprintSource": "https://docs.aws.amazon.com/aws-certification/latest/solutions-architect-associate-03.html",
   "blueprintVerified": true,
   "domains": [
-    {
-      "id": "d1",
-      "name": "Design Resilient Architectures",
-      "weight": 26
-    },
-    {
-      "id": "d2",
-      "name": "Design High-Performing Architectures",
-      "weight": 24
-    },
-    {
-      "id": "d3",
-      "name": "Design Secure Applications and Architectures",
-      "weight": 30
-    },
-    {
-      "id": "d4",
-      "name": "Design Cost-Optimized Architectures",
-      "weight": 20
-    }
+    { "id": "d1", "name": "Design Resilient Architectures", "weight": 26 },
+    { "id": "d2", "name": "Design High-Performing Architectures", "weight": 24 },
+    { "id": "d3", "name": "Design Secure Architectures", "weight": 30 },
+    { "id": "d4", "name": "Design Cost-Optimized Architectures", "weight": 20 }
   ]
 };
