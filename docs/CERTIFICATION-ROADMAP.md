@@ -16,12 +16,12 @@ npm run stats           # progress toward 500 questions per certification
 | | Certifications | Live | Questions |
 | --- | --- | --- | --- |
 | ☁️ Cloud Engineering | 22 | 11 | 5,500 |
-| 🚀 DevOps & SRE | 11 | 6 | 3,000 |
+| 🚀 DevOps & SRE | 15 | 6 | 3,000 |
 | ☸️ Kubernetes & Cloud Native | 8 | 4 | 2,000 |
 | 🏗️ Platform Engineering | 6 | 3 | 1,500 |
 | 💰 FinOps | 8 | 2 | 1,000 |
 | 🔐 DevSecOps & Security | 14 | 6 | 3,000 |
-| **Total** | **69** | **32** | **16,000** |
+| **Total** | **73** | **32** | **16,000** |
 
 Regenerate these numbers any time with `npm run stats`.
 
@@ -86,7 +86,8 @@ The Top-20 priority certifications from the 2026 roadmap are all **live and avai
 `aws-dop` DOP-C02 ✅ · `azure-az400` AZ-400 ✅ · `gcp-pcdoe` GCP-PCDE ✅ · `hashicorp-tfa` TA-004 ✅ ·
 `hashicorp-tfp` TF-ADV ✅ · `github-actions` GH-200 ✅ · `docker-dca` DCA ·
 `doi-devops-foundation` DOF · `doi-devops-leader` DOL · `doi-sre-foundation` SREF ·
-`doi-sre-practitioner` SREP
+`doi-sre-practitioner` SREP · `github-foundations` GH-900 · `github-admin` GH-100 ·
+`github-copilot` GH-300 · `github-agentic-ai` GH-600
 
 ### ☸️ Kubernetes & Cloud Native
 `k8s-cka` CKA ✅ · `k8s-ckad` CKAD ✅ · `cncf-cgoa` CGOA ✅ · `cncf-otca` OTCA ✅ ·
