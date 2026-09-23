@@ -755,10 +755,10 @@ export const CONTENT_MANIFEST = {
         "hard": 100
       },
       "byDomain": {
-        "d1": 138,
-        "d2": 123,
-        "d3": 122,
-        "d4": 117
+        "d2": 161,
+        "d3": 128,
+        "d4": 196,
+        "d1": 15
       },
       "packs": 20,
       "loadedPacks": 20
@@ -771,10 +771,10 @@ export const CONTENT_MANIFEST = {
         "hard": 100
       },
       "byDomain": {
-        "d1": 138,
-        "d2": 123,
-        "d3": 122,
-        "d4": 117
+        "d2": 161,
+        "d3": 128,
+        "d4": 196,
+        "d1": 15
       },
       "packs": 20,
       "loadedPacks": 20
@@ -813,10 +813,11 @@ export const CONTENT_MANIFEST = {
         "hard": 100
       },
       "byDomain": {
-        "d1": 113,
-        "d2": 138,
-        "d3": 137,
-        "d4": 112
+        "d2": 38,
+        "d4": 109,
+        "d5": 181,
+        "d3": 110,
+        "d1": 62
       },
       "packs": 20,
       "loadedPacks": 20
@@ -829,10 +830,11 @@ export const CONTENT_MANIFEST = {
         "hard": 100
       },
       "byDomain": {
-        "d1": 113,
-        "d2": 138,
-        "d3": 137,
-        "d4": 112
+        "d2": 38,
+        "d4": 109,
+        "d5": 181,
+        "d3": 110,
+        "d1": 62
       },
       "packs": 20,
       "loadedPacks": 20
@@ -871,10 +873,12 @@ export const CONTENT_MANIFEST = {
         "hard": 100
       },
       "byDomain": {
-        "d1": 123,
-        "d2": 138,
-        "d3": 122,
-        "d4": 117
+        "d4": 59,
+        "d1": 192,
+        "d6": 50,
+        "d5": 48,
+        "d3": 50,
+        "d2": 101
       },
       "packs": 20,
       "loadedPacks": 20
@@ -887,10 +891,12 @@ export const CONTENT_MANIFEST = {
         "hard": 100
       },
       "byDomain": {
-        "d1": 123,
-        "d2": 138,
-        "d3": 122,
-        "d4": 117
+        "d4": 59,
+        "d1": 192,
+        "d6": 50,
+        "d5": 48,
+        "d3": 50,
+        "d2": 101
       },
       "packs": 20,
       "loadedPacks": 20
@@ -905,10 +911,11 @@ export const CONTENT_MANIFEST = {
         "hard": 100
       },
       "byDomain": {
-        "d1": 123,
-        "d2": 138,
-        "d3": 122,
-        "d4": 117
+        "d3": 187,
+        "d1": 112,
+        "d5": 97,
+        "d4": 79,
+        "d2": 25
       },
       "packs": 20,
       "loadedPacks": 20
@@ -921,10 +928,11 @@ export const CONTENT_MANIFEST = {
         "hard": 100
       },
       "byDomain": {
-        "d1": 123,
-        "d2": 138,
-        "d3": 122,
-        "d4": 117
+        "d3": 187,
+        "d1": 112,
+        "d5": 97,
+        "d4": 79,
+        "d2": 25
       },
       "packs": 20,
       "loadedPacks": 20
@@ -1067,10 +1075,10 @@ export const CONTENT_MANIFEST = {
         "hard": 100
       },
       "byDomain": {
-        "d1": 123,
-        "d2": 138,
-        "d3": 122,
-        "d4": 117
+        "d1": 68,
+        "d3": 188,
+        "d2": 195,
+        "d4": 49
       },
       "packs": 20,
       "loadedPacks": 20
@@ -1083,10 +1091,10 @@ export const CONTENT_MANIFEST = {
         "hard": 100
       },
       "byDomain": {
-        "d1": 123,
-        "d2": 138,
-        "d3": 122,
-        "d4": 117
+        "d1": 68,
+        "d3": 188,
+        "d2": 195,
+        "d4": 49
       },
       "packs": 20,
       "loadedPacks": 20
@@ -2229,12 +2237,12 @@ export const CONTENT_MANIFEST = {
         "hard": 92
       },
       "byDomain": {
-        "d1": 78,
-        "d2": 77,
-        "d3": 100,
-        "d4": 100,
-        "d5": 100,
-        "d6": 45
+        "d1": 72,
+        "d4": 104,
+        "d2": 53,
+        "d3": 47,
+        "d6": 107,
+        "d5": 117
       },
       "packs": 20,
       "loadedPacks": 20
@@ -2247,12 +2255,12 @@ export const CONTENT_MANIFEST = {
         "hard": 92
       },
       "byDomain": {
-        "d1": 78,
-        "d2": 77,
-        "d3": 100,
-        "d4": 100,
-        "d5": 100,
-        "d6": 45
+        "d1": 72,
+        "d4": 103,
+        "d2": 54,
+        "d3": 47,
+        "d6": 107,
+        "d5": 117
       },
       "packs": 20,
       "loadedPacks": 20
