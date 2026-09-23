@@ -12,7 +12,7 @@
  * the "regressions" block below is the set of inputs that defeated it.
  */
 import assert from 'assert';
-import { sanitizeHtml, escapeHtml } from '../src/views/ui.js';
+import { sanitizeHtml, escapeHtml } from '../../src/views/ui.js';
 
 let passed = 0;
 const check = (name, fn) => {

@@ -39,10 +39,10 @@ function throwingStore() {
 const use = store => { globalThis.localStorage = store; };
 use(memoryStore());
 
-const { KEYS, migrateLegacyStorage } = await import('../src/lib/storage.js');
-const srs = await import('../src/lib/srs.js');
-const daily = await import('../src/lib/daily.js');
-const progress = await import('../src/lib/progress.js');
+const { KEYS, migrateLegacyStorage } = await import('../../src/lib/storage.js');
+const srs = await import('../../src/lib/srs.js');
+const daily = await import('../../src/lib/daily.js');
+const progress = await import('../../src/lib/progress.js');
 
 const cards = [{ id: 'c1' }, { id: 'c2' }, { id: 'c3' }];
 const DAY = 24 * 60 * 60 * 1000;

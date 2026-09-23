@@ -15,8 +15,8 @@ const check = async (name, fn) => {
   passed++;
 };
 
-const { CONTENT_REGISTRY } = await import('../src/data/registry.generated.js');
-const { loadCertContent, getCachedCertContent } = await import('../src/data/loader.js');
+const { CONTENT_REGISTRY } = await import('../../src/data/registry.generated.js');
+const { loadCertContent, getCachedCertContent } = await import('../../src/data/loader.js');
 
 // Registry entries are plain objects, so a test can stand in its own packs.
 let loadCount = 0;

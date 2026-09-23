@@ -23,7 +23,7 @@ store.converge_flashcard_srs = JSON.stringify(legacySrs);
 store.converge_daily = JSON.stringify(legacyDaily);
 store.converge_role = 'sre';
 
-const { KEYS, migrateLegacyStorage } = await import('../src/lib/storage.js');
+const { KEYS, migrateLegacyStorage } = await import('../../src/lib/storage.js');
 const moved = migrateLegacyStorage();
 
 let passed = 0;
@@ -45,9 +45,9 @@ await check('the legacy keys are cleaned up', () => {
 });
 
 await check('the modules read the migrated data', async () => {
-  const progress = await import('../src/lib/progress.js');
-  const srs = await import('../src/lib/srs.js');
-  const daily = await import('../src/lib/daily.js');
+  const progress = await import('../../src/lib/progress.js');
+  const srs = await import('../../src/lib/srs.js');
+  const daily = await import('../../src/lib/daily.js');
   assert.strictEqual(progress.getAttempts('aws-saa').length, 1);
   assert.strictEqual(progress.getCertSummary('aws-saa').best.percentage, 82);
   assert.strictEqual(srs.getCardState('aws-saa-fc-1').box, 3);
