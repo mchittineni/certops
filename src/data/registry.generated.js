@@ -1481,6 +1481,10 @@ export const CONTENT_REGISTRY = {
       pack('./certs/hashicorp-vault/flashcards/pack-20.js', () => import('./certs/hashicorp-vault/flashcards/pack-20.js'))
     ]
   },
+  'hashicorp-vault-ops': {
+    questions: [],
+    flashcards: []
+  },
   'isc2-ccsp': {
     questions: [
       pack('./certs/isc2-ccsp/questions/pack-1.js', () => import('./certs/isc2-ccsp/questions/pack-1.js')),
