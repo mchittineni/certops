@@ -26,10 +26,10 @@ same as exam readiness, and the gap between them is measured rather than asserte
 
 | | |
 | --- | --- |
-| Certifications scaffolded | **73** across six disciplines |
+| Certifications scaffolded | **78** across six disciplines |
 | Live (launchable, with content) | **33** — including all Top 20 roadmap priorities plus AWS, Azure, GCP, GitHub, Kubernetes, CNCF, FinOps, and HashiCorp tracks |
-| Questions authored / live | **16,598** (500 per live track + verified starter packs for roadmap additions) |
-| Flashcards authored / live | **16,573** |
+| Questions authored / live | **16,598** — 16,500 in live banks plus 98 in verified starter packs for planned certifications, of a 39,000 target (500 × 78) |
+| Flashcards authored / live | **16,573** — 16,500 in live banks plus 73 in starter packs |
 
 Run `npm run stats` for detailed domain and difficulty distributions across the bank.
 
@@ -43,8 +43,8 @@ therefore need a bank authored from scratch. The first 75 questions and 50 flash
 `azure-az305` and starter packs for `aws-aif`, `aws-dea`, `azure-az500`, `gcp-cdl`, and `linux-lfcs`
 are written to the standard `npm run lint:pack` enforces and pass it.
 
-The 40 remaining certifications exist as folders with **planned blueprints** — they
-appear on the roadmap panel but cannot be launched. That is the honest state of things,
+The 45 planned certifications appear on the roadmap panel but cannot be launched; 21 of
+them still carry **placeholder blueprints**. That is the honest state of things,
 and it is exactly where contributions land: see [CONTRIBUTING.md](CONTRIBUTING.md).
 
 Everything that makes 500 questions per certification *tractable* is built:
@@ -173,7 +173,7 @@ One selector governs every mode:
 ☁️ Cloud Engineering · 🚀 DevOps & SRE · ☸️ Kubernetes & Cloud Native ·
 🏗️ Platform Engineering · 💰 FinOps · 🔐 DevSecOps & Security
 
-All 52 certifications and the priority order:
+All 78 certifications and the priority order:
 **[docs/CERTIFICATION-ROADMAP.md](docs/CERTIFICATION-ROADMAP.md)**.
 
 ---
@@ -184,7 +184,8 @@ All 52 certifications and the priority order:
 | --- | --- |
 | [CONTRIBUTING.md](CONTRIBUTING.md) | Setup, the one command that matters, and the ground rules for content |
 | [docs/CONTENT-ARCHITECTURE.md](docs/CONTENT-ARCHITECTURE.md) | Authoring reference: schemas, difficulty conventions, how to get a bank to 500 |
-| [docs/CERTIFICATION-ROADMAP.md](docs/CERTIFICATION-ROADMAP.md) | All 52 certifications, priority order, and the `planned` → `live` walkthrough |
+| [docs/CERTIFICATION-ROADMAP.md](docs/CERTIFICATION-ROADMAP.md) | All 78 certifications, priority order, and the `planned` → `live` walkthrough |
+| [docs/EXAM-READINESS.md](docs/EXAM-READINESS.md) | What separates a 500-item bank from an exam-ready one, and which blueprints are verified against their official guides |
 | [docs/CI-AND-SECURITY.md](docs/CI-AND-SECURITY.md) | Pipelines, SHA-pinned actions, CSP, coverage thresholds, and where the tests live |
 | [docs/adr/0001-content-architecture.md](docs/adr/0001-content-architecture.md) | Why the content layout is what it is, with measurements and rejected alternatives |
 | [docs/adr/0002-licensing.md](docs/adr/0002-licensing.md) | Why the code and the questions carry different licenses |
@@ -334,7 +335,7 @@ once on boot and then removed ([src/lib/storage.js](src/lib/storage.js)).
 
 ## Contributing
 
-The 32 live certifications hold 500 questions and 500 flashcards each (16,000 and 16,000 repo-wide). The most valuable contribution is not a new certification but a re-authored pack in one of the nine banks that need one, and `npm run lint:pack` scores a single pack before anything else runs. A **wrong answer is the highest-priority bug**, because it teaches someone the wrong thing before an exam they paid for. Start with [CONTRIBUTING.md](CONTRIBUTING.md) and [docs/EXAM-READINESS.md](docs/EXAM-READINESS.md).
+The 33 live certifications hold 500 questions and 500 flashcards each (16,500 and 16,500 repo-wide). The most valuable contribution is not a new certification but a re-authored pack in one of the nine banks that need one, and `npm run lint:pack` scores a single pack before anything else runs. A **wrong answer is the highest-priority bug**, because it teaches someone the wrong thing before an exam they paid for. Start with [CONTRIBUTING.md](CONTRIBUTING.md) and [docs/EXAM-READINESS.md](docs/EXAM-READINESS.md).
 
 ```bash
 npm run new:pack -- --cert <id> --kind questions --count 25
