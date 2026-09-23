@@ -20,8 +20,8 @@ npm run stats           # progress toward 500 questions per certification
 | ☸️ Kubernetes & Cloud Native | 8 | 4 | 2,000 |
 | 🏗️ Platform Engineering | 6 | 3 | 1,500 |
 | 💰 FinOps | 8 | 2 | 1,000 |
-| 🔐 DevSecOps & Security | 13 | 6 | 3,000 |
-| **Total** | **68** | **32** | **16,000** |
+| 🔐 DevSecOps & Security | 14 | 6 | 3,000 |
+| **Total** | **69** | **32** | **16,000** |
 
 Regenerate these numbers any time with `npm run stats`.
 
@@ -55,7 +55,7 @@ The Top-20 priority certifications from the 2026 roadmap are all **live and avai
 | 1 | AWS DevOps Engineer – Professional (DOP-C02) | `aws-dop` | DevOps & SRE | ✅ live |
 | 2 | Certified Kubernetes Administrator (CKA) | `k8s-cka` | Kubernetes & Cloud Native | ✅ live |
 | 3 | Certified Kubernetes Security Specialist (CKS) | `k8s-cks` | DevSecOps & Security | ✅ live |
-| 4 | HashiCorp Terraform Authoring & Operations Professional | `hashicorp-tfp` | DevOps & SRE | ✅ live |
+| 4 | HashiCorp Terraform Authoring and Operations Advanced | `hashicorp-tfp` | DevOps & SRE | ✅ live |
 | 5 | Google Professional Cloud DevOps Engineer | `gcp-pcdoe` | DevOps & SRE | ✅ live |
 | 6 | Azure DevOps Engineer Expert (AZ-400) | `azure-az400` | DevOps & SRE | ✅ live |
 | 7 | Certified Cloud Native Platform Engineering Associate (CNPA) | `cncf-cnpa` | Platform Engineering | ✅ live |
@@ -83,8 +83,8 @@ The Top-20 priority certifications from the 2026 roadmap are all **live and avai
 `gcp-pde` GCP-PDE · `gcp-pcne` GCP-PCNE · `gcp-pcdbe` GCP-PCDBE · `azure-ai-apps-agents` AI-Apps · `databricks-genai` Databricks-GenAI
 
 ### 🚀 DevOps & SRE
-`aws-dop` DOP-C02 ✅ · `azure-az400` AZ-400 ✅ · `gcp-pcdoe` GCP-PCDE ✅ · `hashicorp-tfa` TA-003 ✅ ·
-`hashicorp-tfp` TF-PRO ✅ · `github-actions` GH-200 ✅ · `docker-dca` DCA ·
+`aws-dop` DOP-C02 ✅ · `azure-az400` AZ-400 ✅ · `gcp-pcdoe` GCP-PCDE ✅ · `hashicorp-tfa` TA-004 ✅ ·
+`hashicorp-tfp` TF-ADV ✅ · `github-actions` GH-200 ✅ · `docker-dca` DCA ·
 `doi-devops-foundation` DOF · `doi-devops-leader` DOL · `doi-sre-foundation` SREF ·
 `doi-sre-practitioner` SREP
 
@@ -104,7 +104,7 @@ The Top-20 priority certifications from the 2026 roadmap are all **live and avai
 `aws-scs` SCS-C02 ✅ · `github-ghas` GH-500 ✅ · `k8s-cks` CKS ✅ · `isc2-ccsp` CCSP ✅ ·
 `hashicorp-vault` VAULT-003 ✅ · `cncf-opa` COPAA ✅ · `gcp-pcse` GCP-PCSE · `cncf-kcsa` KCSA ·
 `doi-devsecops-foundation` DSOF · `doi-devsecops-practitioner` DSOP · `isc2-cissp` CISSP ·
-`offsec-oscp` OSCP · `azure-sc500` SC-500
+`offsec-oscp` OSCP · `azure-sc500` SC-500 · `hashicorp-vault-ops` VAULT-ADV
 
 ## Taking one certification from planned to live
 
