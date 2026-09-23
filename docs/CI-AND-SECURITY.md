@@ -26,11 +26,12 @@ the app would keep working, just with less content, which is the worst kind of b
 CI also fails when a question bank starts giving its own answers away again:
 
 ```bash
-npm run audit:distractors -- --min-passing 24
+npm run audit:distractors -- --min-passing 25
 ```
 
-24 of the 32 live banks pass every target in `docs/DISTRACTOR-REMEDIATION.md`. The
-other 8 are filler awaiting real questions, so `--strict` — which fails on any breach —
+25 of the 39 banks with questions pass every target in `docs/DISTRACTOR-REMEDIATION.md`:
+22 of the 30 live banks, plus the retired `azure-az204` and `azure-ai102` and the withdrawn
+`cncf-opa`, which the audit still scores. The other 8 live banks are filler awaiting real questions, so `--strict` — which fails on any breach —
 would fail every run and gate nothing. Ratcheting on the passing count blocks a
 regression in the banks already repaired while leaving the known-bad ones visible in
 the job summary. Raise the number as each filler bank is authored.

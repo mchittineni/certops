@@ -5,7 +5,7 @@
 > [CERTIFICATION-ROADMAP.md](CERTIFICATION-ROADMAP.md).** This document is the authoring
 > reference: schemas, difficulty conventions, and how to get a bank to 500.
 
-Target state: **78 certifications × 500 questions ≈ 39,000 questions** plus flashcards.
+Target state: **92 live and planned certifications × 500 questions ≈ 46,000 questions** plus flashcards.
 The sizing below was measured at 52 certifications (≈ 26,000 questions): roughly 39 MB raw, ~13 MB gzipped, of which a user ever downloads one certification's worth
 (~244 KB gzipped). Current state: `npm run stats`. The two things that break at that size
 are *load time* (if it all ships in one bundle) and *review quality* (if correctness depends
@@ -111,7 +111,7 @@ pointing at.
 `npm run audit:distractors` scores how often each bank gives its answer away through the
 *form* of the options rather than their content: the key being the longest option (or the
 shortest), distractors nobody would pick, and stems that name a distinctive term only the
-key uses. CI runs it as `--min-passing 24`, which fails when a bank that used to meet
+key uses. CI runs it as `--min-passing 25`, which fails when a bank that used to meet
 every target no longer does. `npm run audit:length` is its worklist companion — it groups
 items by option set so one authored rewrite can be aimed at the largest number of
 questions, and `npm run fix:options` applies those rewrites from a JSON patch keyed by
