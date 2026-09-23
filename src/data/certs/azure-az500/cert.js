@@ -1,7 +1,12 @@
 /**
  * Microsoft Certified: Azure Security Engineer Associate (AZ-500) — exam blueprint.
  *
- * Domains and weights from the official Microsoft study guide.
+ * RETIRED. Microsoft retired AZ-500 and the Azure Security Engineer Associate
+ * certification on August 31, 2026. Its successor is SC-500 (azure-sc500).
+ *
+ * The domains below do not match the final study guide (January 22, 2026: identity
+ * 15-20, networking 20-25, compute/storage/databases 20-25, Defender for Cloud and
+ * Sentinel 30-35), so the blueprint is marked unverified.
  */
 export default {
   "id": "azure-az500",
@@ -10,7 +15,7 @@ export default {
   "title": "Microsoft Certified: Azure Security Engineer Associate",
   "category": "DevSecOps & Security",
   "tier": "associate",
-  "status": "planned",
+  "status": "retired",
   "priority": null,
   "badgeClass": "badge-azure",
   "icon": "azure",
@@ -20,7 +25,7 @@ export default {
   "maxScore": 1000,
   "defaultTimeMinutes": 100,
   "blueprintSource": "https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-500",
-  "blueprintVerified": true,
+  "blueprintVerified": false,
   "domains": [
     { "id": "d1", "name": "Manage Identity and Access", "weight": 28 },
     { "id": "d2", "name": "Secure Networking", "weight": 22 },
