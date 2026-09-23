@@ -526,7 +526,7 @@ await check('the exam clock ticks down, turns urgent in the last minute, and aut
 
   dom.advanceSeconds(1);
   assert.strictEqual(quiz.elapsedSeconds, 1);
-  assert.match(dom.timerBox.textContent, /^\d\d:\d\d$/, 'the clock renders as mm:ss');
+  assert.match(dom.timerBox.textContent, /^\d{2,3}:\d\d$/, 'the clock renders as mm:ss (three-digit minutes on exams of 100 minutes or more)');
   assert.ok(!dom.timerBox.parentElement.classes.has('urgent'), 'not urgent with minutes left');
 
   // Run down to 45 seconds remaining: the last minute must read as urgent.
