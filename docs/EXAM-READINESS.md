@@ -77,6 +77,18 @@ Each blueprint was checked against its official source in September 2026:
 | `gcp-pcdoe` | exam guide PDF linked from cloud.google.com | five sections published, five declared, none matching |
 | `gcp-pmle` | exam guide PDF dated 1 June 2026 | six sections published, four declared |
 | `isc2-ccsp` | not re-checked | unknown |
+| `hashicorp-tfa` | developer.hashicorp.com, Terraform Associate (004) content list, 23 September 2026 | eight published, six declared (TA-003); blueprint and bank rewritten together |
+| `hashicorp-tfp` | developer.hashicorp.com, Terraform Authoring and Operations Advanced | exam renamed from Professional; six official objectives replaced a reconstructed split |
+| `hashicorp-vault` | developer.hashicorp.com, Vault Associate (003) | nine published, three declared; rewritten |
+| `hashicorp-vault-ops` | developer.hashicorp.com, Vault Operations Advanced | added as `planned` with the verified blueprint |
+| `github-actions` | learn.microsoft.com GH-200 study guide, skills as of January 2026 | five published, four declared; rewritten |
+| `github-ghas` | learn.microsoft.com GH-500 study guide, skills as of July 2026 | six published, four declared; rewritten |
+| `github-foundations`, `github-admin`, `github-copilot`, `github-agentic-ai` | learn.microsoft.com GH-900 / GH-100 / GH-300 / GH-600 study guides | added as `planned` with verified blueprints |
+| `aws-clf`, `aws-dva`, `aws-sap`, `aws-dop` | docs.aws.amazon.com exam guides, 23 September 2026 | match; CLF time corrected to 90 minutes, one DOP domain name shortened. DVA-C03 and SAP-C03 open for registration on 27 October 2026 |
+| `aws-saa` | docs.aws.amazon.com SAA-C03 exam guide | one domain carried its SAA-C02 name, and the time read 65 minutes instead of 130; corrected |
+| `aws-mla` | docs.aws.amazon.com MLA-C02 exam guide | moved to MLA-C02 (MLA-C01's last English sitting is 28 September 2026); four domains renamed one-to-one |
+| `aws-scs` | docs.aws.amazon.com SCS-C03 exam guide | moved from SCS-C02 to SCS-C03; blueprint and bank rewritten together |
+| `aws-soa`, `aws-ans`, `aws-aip`, `aws-aib` | docs.aws.amazon.com exam guides | `planned`: SOA-C03 (now CloudOps Engineer) and ANS-C01 (retires 31 December 2026) corrected; AIP-C01 and AIB-C01 added |
 
 Google's exam guides need a text-extraction proxy; the PDFs do not return readable text
 from a direct fetch.

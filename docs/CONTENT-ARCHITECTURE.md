@@ -5,8 +5,8 @@
 > [CERTIFICATION-ROADMAP.md](CERTIFICATION-ROADMAP.md).** This document is the authoring
 > reference: schemas, difficulty conventions, and how to get a bank to 500.
 
-Target state: **52 certifications × 500 questions ≈ 26,000 questions** plus flashcards —
-roughly 39 MB raw, ~13 MB gzipped, of which a user ever downloads one certification's worth
+Target state: **73 certifications × 500 questions ≈ 36,500 questions** plus flashcards.
+The sizing below was measured at 52 certifications (≈ 26,000 questions): roughly 39 MB raw, ~13 MB gzipped, of which a user ever downloads one certification's worth
 (~244 KB gzipped). Current state: `npm run stats`. The two things that break at that size
 are *load time* (if it all ships in one bundle) and *review quality* (if correctness depends
 on humans noticing a broken question in a PR).

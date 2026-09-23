@@ -29,7 +29,7 @@ CI also fails when a question bank starts giving its own answers away again:
 npm run audit:distractors -- --min-passing 24
 ```
 
-24 of the 32 live banks pass every target in `docs/DISTRACTOR-REMEDIATION.md`. The
+25 of the 33 live banks pass every target in `docs/DISTRACTOR-REMEDIATION.md`. The
 other 8 are filler awaiting real questions, so `--strict` — which fails on any breach —
 would fail every run and gate nothing. Ratcheting on the passing count blocks a
 regression in the banks already repaired while leaving the known-bad ones visible in
