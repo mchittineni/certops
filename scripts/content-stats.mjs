@@ -16,12 +16,12 @@ for (const [certId, bundle] of Object.entries(content)) {
   const qs = flatten(bundle.questionPacks).map(q => q.item);
   const fcs = flatten(bundle.flashcardPacks).map(c => c.item);
   const d = countByDifficulty(qs);
-  const planned = bundle.cert.status === 'planned';
+  const planned = bundle.cert.status !== 'live';
   if (!planned) { grand += qs.length; live++; }
   console.log(`${certId.padEnd(16)} ${bar(qs.length, TARGET)} ${String(qs.length).padStart(4)}/${TARGET}  ` +
     DIFFICULTIES.map(k => `${k[0].toUpperCase()}:${String(d[k]).padStart(3)}`).join(' ') +
     `  cards:${String(fcs.length).padStart(3)}  packs:${bundle.questionPacks.length}` +
-    `  ${planned ? '(planned)' : bundle.cert.tier}`);
+    `  ${planned ? `(${bundle.cert.status})` : bundle.cert.tier}`);
 }
 const target = TARGET * Math.max(1, live);
 console.log(`\nTOTAL          ${bar(grand, target)} ${grand}/${target} questions (${Math.round((grand / target) * 100)}%)\n`);

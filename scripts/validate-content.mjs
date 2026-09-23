@@ -181,6 +181,7 @@ for (const [certId, bundle] of Object.entries(content)) {
     if (qItems.length) warn(certId, `status is "planned" but it has ${qItems.length} questions — flip status to "live" so it appears in the catalogue`);
     continue;   // planned certifications are exempt from coverage checks
   }
+  if (cert.status === 'retired') continue;   // retired banks are kept, not grown
   if (!qItems.length) err(certId, 'status is "live" but it has no questions — scaffold content or set status to "planned"');
   if (qItems.length < TARGET_PER_CERT) {
     warn(certId, `${qItems.length}/${TARGET_PER_CERT} questions toward the target bank size`);

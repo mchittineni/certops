@@ -80,7 +80,7 @@ export const CERTIFICATIONS = [
 ${blueprints.map(c => `  ${varName(c.id)}`).join(',\n')}
 ];
 
-export const LIVE_CERTIFICATIONS = CERTIFICATIONS.filter(c => c.status !== 'planned');
+export const LIVE_CERTIFICATIONS = CERTIFICATIONS.filter(c => c.status === 'live');
 
 export const CATEGORIES = ${JSON.stringify(CATEGORY_ORDER.filter(c => blueprints.some(b => b.category === c)), null, 2)};
 
@@ -181,7 +181,8 @@ const registeredPacks = certIds.reduce((s, id) => s + nonEmpty.questions.get(id)
 const emptyPacks = certIds.reduce((s, id) => s + listPacks(id, 'questions').length + listPacks(id, 'flashcards').length, 0) - registeredPacks;
 console.log(`  registry.generated.js ${registeredPacks} packs${emptyPacks ? ` (${emptyPacks} empty pack file(s) skipped)` : ''}`);
 const live = blueprints.filter(c => c.status === 'live');
-console.log(`  ${live.length} live · ${blueprints.length - live.length} planned`);
+const retired = blueprints.filter(c => c.status === 'retired').length;
+console.log(`  ${live.length} live · ${blueprints.length - live.length - retired} planned${retired ? ` · ${retired} retired` : ''}`);
 for (const category of CATEGORY_ORDER) {
   const inCat = blueprints.filter(c => c.category === category);
   if (!inCat.length) continue;
