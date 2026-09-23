@@ -8,6 +8,14 @@
 const pack = (path, load) => ({ path, load });
 
 export const CONTENT_REGISTRY = {
+  'aws-aif': {
+    questions: [
+      pack('./certs/aws-aif/questions/pack-1.js', () => import('./certs/aws-aif/questions/pack-1.js'))
+    ],
+    flashcards: [
+      pack('./certs/aws-aif/flashcards/pack-1.js', () => import('./certs/aws-aif/flashcards/pack-1.js'))
+    ]
+  },
   'aws-ans': {
     questions: [],
     flashcards: []
@@ -61,6 +69,14 @@ export const CONTENT_REGISTRY = {
   'aws-dbs': {
     questions: [],
     flashcards: []
+  },
+  'aws-dea': {
+    questions: [
+      pack('./certs/aws-dea/questions/pack-1.js', () => import('./certs/aws-dea/questions/pack-1.js'))
+    ],
+    flashcards: [
+      pack('./certs/aws-dea/flashcards/pack-1.js', () => import('./certs/aws-dea/flashcards/pack-1.js'))
+    ]
   },
   'aws-dop': {
     questions: [
@@ -543,6 +559,14 @@ export const CONTENT_REGISTRY = {
       pack('./certs/azure-az400/flashcards/pack-18.js', () => import('./certs/azure-az400/flashcards/pack-18.js')),
       pack('./certs/azure-az400/flashcards/pack-19.js', () => import('./certs/azure-az400/flashcards/pack-19.js')),
       pack('./certs/azure-az400/flashcards/pack-20.js', () => import('./certs/azure-az400/flashcards/pack-20.js'))
+    ]
+  },
+  'azure-az500': {
+    questions: [
+      pack('./certs/azure-az500/questions/pack-1.js', () => import('./certs/azure-az500/questions/pack-1.js'))
+    ],
+    flashcards: [
+      pack('./certs/azure-az500/flashcards/pack-1.js', () => import('./certs/azure-az500/flashcards/pack-1.js'))
     ]
   },
   'azure-az900': {
@@ -1095,6 +1119,14 @@ export const CONTENT_REGISTRY = {
       pack('./certs/gcp-ace/flashcards/pack-18.js', () => import('./certs/gcp-ace/flashcards/pack-18.js')),
       pack('./certs/gcp-ace/flashcards/pack-19.js', () => import('./certs/gcp-ace/flashcards/pack-19.js')),
       pack('./certs/gcp-ace/flashcards/pack-20.js', () => import('./certs/gcp-ace/flashcards/pack-20.js'))
+    ]
+  },
+  'gcp-cdl': {
+    questions: [
+      pack('./certs/gcp-cdl/questions/pack-1.js', () => import('./certs/gcp-cdl/questions/pack-1.js'))
+    ],
+    flashcards: [
+      pack('./certs/gcp-cdl/flashcards/pack-1.js', () => import('./certs/gcp-cdl/flashcards/pack-1.js'))
     ]
   },
   'gcp-pca': {
@@ -1689,6 +1721,14 @@ export const CONTENT_REGISTRY = {
       pack('./certs/k8s-cks/flashcards/pack-18.js', () => import('./certs/k8s-cks/flashcards/pack-18.js')),
       pack('./certs/k8s-cks/flashcards/pack-19.js', () => import('./certs/k8s-cks/flashcards/pack-19.js')),
       pack('./certs/k8s-cks/flashcards/pack-20.js', () => import('./certs/k8s-cks/flashcards/pack-20.js'))
+    ]
+  },
+  'linux-lfcs': {
+    questions: [
+      pack('./certs/linux-lfcs/questions/pack-1.js', () => import('./certs/linux-lfcs/questions/pack-1.js'))
+    ],
+    flashcards: [
+      pack('./certs/linux-lfcs/flashcards/pack-1.js', () => import('./certs/linux-lfcs/flashcards/pack-1.js'))
     ]
   },
   'offsec-oscp': {
