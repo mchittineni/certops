@@ -1,18 +1,20 @@
 /**
- * GitHub Advanced Security Certification (GH-500) — exam blueprint.
+ * GitHub Advanced Security (GH-500) — exam blueprint.
  *
- * SEEDED PLACEHOLDER. passingScore, defaultTimeMinutes, and domains are guesses.
- * Before flipping status to 'live':
- *   1. replace domains + weights from blueprintSource (they must sum to 100)
- *   2. correct passingScore / maxScore / defaultTimeMinutes
- *   3. set blueprintVerified: true
- *   4. add content: npm run new:pack -- --cert github-ghas --kind questions --count 50
+ * Domains from the Microsoft Learn study guide (skills measured as of July
+ * 2026), verified 2026-09-23. 100 minutes, delivered through Pearson VUE, scored
+ * 700 of 1000. The guide uses GitHub's current product names: Secret Protection
+ * (formerly secret scanning), supply chain security (formerly Dependabot and
+ * dependency review) and Code Security (formerly code scanning with CodeQL).
+ *
+ * Microsoft publishes the weights as ranges (15-20/15-20/15-20/10-15/15-20/10-15);
+ * the midpoints below are normalised to sum to 100.
  */
 export default {
   "id": "github-ghas",
   "provider": "GitHub",
   "code": "GH-500",
-  "title": "GitHub Advanced Security Certification",
+  "title": "GitHub Advanced Security",
   "category": "DevSecOps & Security",
   "tier": "associate",
   "status": "live",
@@ -20,32 +22,18 @@ export default {
   "badgeClass": "badge-github",
   "icon": "github",
   "color": "#8b5cf6",
-  "description": "Validates expertise in secret scanning, Dependabot supply chain security, CodeQL static code analysis, and enterprise security governance on GitHub.",
-  "passingScore": 70,
-  "maxScore": 100,
-  "defaultTimeMinutes": 120,
-  "blueprintSource": "https://resources.github.com/learn/certifications/advanced-security/",
+  "description": "Validates securing code, secrets and dependencies with GitHub Secret Protection, supply chain security and Code Security, triaging and remediating alerts, and administering GitHub's security suites.",
+  "passingScore": 700,
+  "maxScore": 1000,
+  "defaultTimeMinutes": 100,
+  "blueprintSource": "https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/gh-500",
   "blueprintVerified": true,
   "domains": [
-    {
-      "id": "d1",
-      "name": "Secret Scanning & Push Protection",
-      "weight": 25
-    },
-    {
-      "id": "d2",
-      "name": "Dependabot & Supply Chain Security",
-      "weight": 25
-    },
-    {
-      "id": "d3",
-      "name": "Code Scanning & CodeQL Analysis",
-      "weight": 35
-    },
-    {
-      "id": "d4",
-      "name": "Security Policies, Compliance & Governance",
-      "weight": 15
-    }
+    { "id": "d1", "name": "Describe GitHub Security suites, features, and ecosystem", "weight": 19 },
+    { "id": "d2", "name": "Configure and use Secret Protection", "weight": 19 },
+    { "id": "d3", "name": "Configure and use supply chain security", "weight": 18 },
+    { "id": "d4", "name": "Configure and use Code Security", "weight": 13 },
+    { "id": "d5", "name": "Security operations: best practices, prioritization, and remediation", "weight": 18 },
+    { "id": "d6", "name": "GitHub Security suites administration", "weight": 13 }
   ]
 };
