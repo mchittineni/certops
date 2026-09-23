@@ -1,9 +1,10 @@
 /**
  * Certified Cloud Native Platform Engineer (CNPE) — exam blueprint.
  *
- * BLUEPRINT NOT VERIFIED. The published curriculum has Platform Architecture and Infrastructure 15, GitOps and Continuous Delivery 25, Platform APIs and Self-Service Capabilities 25, Observability and Operations 20, Security and Policy Enforcement 15, and the real exam is performance-based; the four below were seeded, not taken from it.
- * Correcting the domains means re-authoring the bank, because every question
- * carries its domainName. See docs/EXAM-READINESS.md.
+ * Domains and weights from the Linux Foundation exam page, verified 2026-09-23.
+ * Performance-based, 2 hours.
+ * The earlier domains in this file were not the published ones; the bank was
+ * reclassified onto these in the same change.
  */
 export default {
   "id": "cncf-cnpe",
@@ -17,32 +18,17 @@ export default {
   "badgeClass": "badge-k8s",
   "icon": "cncf",
   "color": "#231F20",
-  "description": "Demonstrates professional competence in designing, constructing, securing, and scaling advanced cloud native internal developer platforms.",
+  "description": "Validates hands-on platform engineering: platform architecture and infrastructure, GitOps and continuous delivery, platform APIs and self-service, observability and operations, and security and policy enforcement.",
   "passingScore": 75,
   "maxScore": 100,
   "defaultTimeMinutes": 120,
-  "blueprintSource": "https://www.cncf.io/certification/cnpe/",
-  "blueprintVerified": false,
+  "blueprintSource": "https://training.linuxfoundation.org/certification/certified-cloud-native-platform-engineer-cnpe/",
+  "blueprintVerified": true,
   "domains": [
-    {
-      "id": "d1",
-      "name": "Platform Architecture and API Design",
-      "weight": 25
-    },
-    {
-      "id": "d2",
-      "name": "Self-Service Portals and Workload Automation",
-      "weight": 30
-    },
-    {
-      "id": "d3",
-      "name": "Infrastructure Composition and Multi-Tenancy",
-      "weight": 25
-    },
-    {
-      "id": "d4",
-      "name": "Reliability, Platform Security and Evolution",
-      "weight": 20
-    }
+    { "id": "d1", "name": "Platform Architecture and Infrastructure", "weight": 15 },
+    { "id": "d2", "name": "GitOps and Continuous Delivery", "weight": 25 },
+    { "id": "d3", "name": "Platform APIs and Self-Service Capabilities", "weight": 25 },
+    { "id": "d4", "name": "Observability and Operations", "weight": 20 },
+    { "id": "d5", "name": "Security and Policy Enforcement", "weight": 15 }
   ]
 };

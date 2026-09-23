@@ -53,7 +53,7 @@ export const CNCF_CNPE_FLASHCARDS_16 = [
     id: "cncf-cnpe-fc-381",
     difficulty: "hard",
     certId: "cncf-cnpe",
-    domainId: "d2",
+    domainId: "d3",
     front: "Container-Native Workflow Orchestration (Argo Workflows) (Enterprise Platform)",
     hint: "Executing complex multi-step pipelines and DAGs natively on Kubernetes.",
     back: "<strong>Argo Workflows</strong> coordinates complex data and deployment pipelines using <strong>containerized Directed Acyclic Graphs (DAGs)</strong> with automated retries and artifact tracking.",
@@ -63,7 +63,7 @@ export const CNCF_CNPE_FLASHCARDS_16 = [
     id: "cncf-cnpe-fc-382",
     difficulty: "medium",
     certId: "cncf-cnpe",
-    domainId: "d2",
+    domainId: "d3",
     front: "Container-Native Workflow Orchestration (Argo Workflows) (High Scale Orchestration)",
     hint: "Executing complex multi-step pipelines and DAGs natively on Kubernetes.",
     back: "<strong>Argo Workflows</strong> coordinates complex data and deployment pipelines using <strong>containerized Directed Acyclic Graphs (DAGs)</strong> with automated retries and artifact tracking.",
@@ -73,7 +73,7 @@ export const CNCF_CNPE_FLASHCARDS_16 = [
     id: "cncf-cnpe-fc-383",
     difficulty: "medium",
     certId: "cncf-cnpe",
-    domainId: "d2",
+    domainId: "d3",
     front: "Container-Native Workflow Orchestration (Argo Workflows) (Zero Trust Governance)",
     hint: "Executing complex multi-step pipelines and DAGs natively on Kubernetes.",
     back: "<strong>Argo Workflows</strong> coordinates complex data and deployment pipelines using <strong>containerized Directed Acyclic Graphs (DAGs)</strong> with automated retries and artifact tracking.",
@@ -83,7 +83,7 @@ export const CNCF_CNPE_FLASHCARDS_16 = [
     id: "cncf-cnpe-fc-384",
     difficulty: "easy",
     certId: "cncf-cnpe",
-    domainId: "d2",
+    domainId: "d3",
     front: "Container-Native Workflow Orchestration (Argo Workflows) (Workload Automation)",
     hint: "Executing complex multi-step pipelines and DAGs natively on Kubernetes.",
     back: "<strong>Argo Workflows</strong> coordinates complex data and deployment pipelines using <strong>containerized Directed Acyclic Graphs (DAGs)</strong> with automated retries and artifact tracking.",
@@ -93,7 +93,7 @@ export const CNCF_CNPE_FLASHCARDS_16 = [
     id: "cncf-cnpe-fc-385",
     difficulty: "medium",
     certId: "cncf-cnpe",
-    domainId: "d2",
+    domainId: "d3",
     front: "Container-Native Workflow Orchestration (Argo Workflows) (Resilience And Sre)",
     hint: "Executing complex multi-step pipelines and DAGs natively on Kubernetes.",
     back: "<strong>Argo Workflows</strong> coordinates complex data and deployment pipelines using <strong>containerized Directed Acyclic Graphs (DAGs)</strong> with automated retries and artifact tracking.",
@@ -105,8 +105,8 @@ export const CNCF_CNPE_FLASHCARDS_16 = [
     certId: "cncf-cnpe",
     domainId: "d3",
     front: "Crossplane Composition Readiness Checks (Enterprise Platform)",
-    hint: "Configuring custom readiness checks to verify underlying cloud resource provisioning before claim readiness.",
-    back: "Crossplane Compositions use <strong>custom readiness checks</strong> (MatchString, MatchCondition) to ensure composite claims only report <strong>Ready</strong> when underlying resources are functional.",
+    hint: "Configuring custom readiness checks to verify underlying cloud resource provisioning before composite readiness.",
+    back: "Crossplane v2 Compositions are function pipelines: declare <strong>readinessChecks</strong> (MatchCondition, MatchString) in a function-patch-and-transform step or use <strong>function-auto-ready</strong>, so the composite resource only reports <strong>Ready</strong> when its composed resources are functional.",
     tags: ["Crossplane Readiness", "Crossplane Readiness", "Enterprise Platform"]
   },
   {
@@ -115,8 +115,8 @@ export const CNCF_CNPE_FLASHCARDS_16 = [
     certId: "cncf-cnpe",
     domainId: "d3",
     front: "Crossplane Composition Readiness Checks (High Scale Orchestration)",
-    hint: "Configuring custom readiness checks to verify underlying cloud resource provisioning before claim readiness.",
-    back: "Crossplane Compositions use <strong>custom readiness checks</strong> (MatchString, MatchCondition) to ensure composite claims only report <strong>Ready</strong> when underlying resources are functional.",
+    hint: "Configuring custom readiness checks to verify underlying cloud resource provisioning before composite readiness.",
+    back: "Crossplane v2 Compositions are function pipelines: declare <strong>readinessChecks</strong> (MatchCondition, MatchString) in a function-patch-and-transform step or use <strong>function-auto-ready</strong>, so the composite resource only reports <strong>Ready</strong> when its composed resources are functional.",
     tags: ["Crossplane Readiness", "Crossplane Readiness", "High Scale Orchestration"]
   },
   {
@@ -125,8 +125,8 @@ export const CNCF_CNPE_FLASHCARDS_16 = [
     certId: "cncf-cnpe",
     domainId: "d3",
     front: "Crossplane Composition Readiness Checks (Zero Trust Governance)",
-    hint: "Configuring custom readiness checks to verify underlying cloud resource provisioning before claim readiness.",
-    back: "Crossplane Compositions use <strong>custom readiness checks</strong> (MatchString, MatchCondition) to ensure composite claims only report <strong>Ready</strong> when underlying resources are functional.",
+    hint: "Configuring custom readiness checks to verify underlying cloud resource provisioning before composite readiness.",
+    back: "Crossplane v2 Compositions are function pipelines: declare <strong>readinessChecks</strong> (MatchCondition, MatchString) in a function-patch-and-transform step or use <strong>function-auto-ready</strong>, so the composite resource only reports <strong>Ready</strong> when its composed resources are functional.",
     tags: ["Crossplane Readiness", "Crossplane Readiness", "Zero Trust Governance"]
   },
   {
@@ -135,8 +135,8 @@ export const CNCF_CNPE_FLASHCARDS_16 = [
     certId: "cncf-cnpe",
     domainId: "d3",
     front: "Crossplane Composition Readiness Checks (Workload Automation)",
-    hint: "Configuring custom readiness checks to verify underlying cloud resource provisioning before claim readiness.",
-    back: "Crossplane Compositions use <strong>custom readiness checks</strong> (MatchString, MatchCondition) to ensure composite claims only report <strong>Ready</strong> when underlying resources are functional.",
+    hint: "Configuring custom readiness checks to verify underlying cloud resource provisioning before composite readiness.",
+    back: "Crossplane v2 Compositions are function pipelines: declare <strong>readinessChecks</strong> (MatchCondition, MatchString) in a function-patch-and-transform step or use <strong>function-auto-ready</strong>, so the composite resource only reports <strong>Ready</strong> when its composed resources are functional.",
     tags: ["Crossplane Readiness", "Crossplane Readiness", "Workload Automation"]
   },
   {
@@ -145,8 +145,8 @@ export const CNCF_CNPE_FLASHCARDS_16 = [
     certId: "cncf-cnpe",
     domainId: "d3",
     front: "Crossplane Composition Readiness Checks (Resilience And Sre)",
-    hint: "Configuring custom readiness checks to verify underlying cloud resource provisioning before claim readiness.",
-    back: "Crossplane Compositions use <strong>custom readiness checks</strong> (MatchString, MatchCondition) to ensure composite claims only report <strong>Ready</strong> when underlying resources are functional.",
+    hint: "Configuring custom readiness checks to verify underlying cloud resource provisioning before composite readiness.",
+    back: "Crossplane v2 Compositions are function pipelines: declare <strong>readinessChecks</strong> (MatchCondition, MatchString) in a function-patch-and-transform step or use <strong>function-auto-ready</strong>, so the composite resource only reports <strong>Ready</strong> when its composed resources are functional.",
     tags: ["Crossplane Readiness", "Crossplane Readiness", "Resilience And Sre"]
   },
   {
