@@ -1,18 +1,16 @@
 /**
- * Microsoft Azure Fundamentals (AZ-900) — exam blueprint.
+ * Microsoft Certified: Azure Fundamentals (AZ-900) — exam blueprint.
  *
- * Everything about this certification lives in this folder: the blueprint here,
- * question packs in ./questions/, flashcard packs in ./flashcards/. Nothing
- * outside the folder needs editing — the content index is generated from it.
+ * Domains from the Microsoft Learn study guide (skills measured as of July 20, 2026), verified 2026-09-23.
+ * 45 minutes, scored 700 of 1000.
  *
- * blueprintVerified: flip to true only after checking domains and weights
- * against blueprintSource. `npm run validate` warns while it is false.
+ * Microsoft publishes the weights as ranges (25-30/35-40/30-35); the midpoints below are normalised to sum to 100.
  */
 export default {
   "id": "azure-az900",
   "provider": "Microsoft Azure",
   "code": "AZ-900",
-  "title": "Microsoft Azure Fundamentals",
+  "title": "Microsoft Certified: Azure Fundamentals",
   "category": "Cloud Engineering",
   "tier": "foundational",
   "status": "live",
@@ -27,20 +25,8 @@ export default {
   "blueprintSource": "https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-900",
   "blueprintVerified": true,
   "domains": [
-    {
-      "id": "d1",
-      "name": "Describe Cloud Concepts",
-      "weight": 30
-    },
-    {
-      "id": "d2",
-      "name": "Describe Azure Architecture and Services",
-      "weight": 40
-    },
-    {
-      "id": "d3",
-      "name": "Describe Azure Management and Governance",
-      "weight": 30
-    }
+    { "id": "d1", "name": "Describe cloud concepts", "weight": 28 },
+    { "id": "d2", "name": "Describe Azure architecture and services", "weight": 39 },
+    { "id": "d3", "name": "Describe Azure management and governance", "weight": 33 }
   ]
 };
