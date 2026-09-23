@@ -1,5 +1,9 @@
 /**
  * Google Cloud Professional Cloud Database Engineer (GCP-PCDBE) — exam blueprint.
+ *
+ * Domains and weights from the official Google Cloud exam guide, verified 2026-09-23.
+ * 2 hours, 50-60 questions.
+ * Google does not publish a passing score; the 70 of 100 below is the project default.
  */
 export default {
   "id": "gcp-pcdbe",
@@ -13,27 +17,16 @@ export default {
   "badgeClass": "badge-gcp",
   "icon": "googlecloud",
   "color": "#4285F4",
-  "description": "Validates capabilities to design, build, administer, migrate, and optimize Google Cloud databases including Cloud SQL, Spanner, Bigtable, and Firestore.",
+  "description": "Validates designing, managing, migrating, and deploying scalable, highly available database solutions across Cloud SQL, AlloyDB, Spanner, Bigtable, and Firestore.",
   "passingScore": 70,
   "maxScore": 100,
   "defaultTimeMinutes": 120,
   "blueprintSource": "https://cloud.google.com/learn/certification/cloud-database-engineer",
-  "blueprintVerified": false,
+  "blueprintVerified": true,
   "domains": [
-    {
-      "id": "d1",
-      "name": "Designing scalable enterprise database solutions on Google Cloud",
-      "weight": 30
-    },
-    {
-      "id": "d2",
-      "name": "Managing and migrating relational and NoSQL databases",
-      "weight": 40
-    },
-    {
-      "id": "d3",
-      "name": "Deploying high availability, disaster recovery, and security",
-      "weight": 30
-    }
+    { "id": "d1", "name": "Design innovative, scalable, and highly available cloud database solutions", "weight": 32 },
+    { "id": "d2", "name": "Manage a solution that can span multiple database technologies", "weight": 25 },
+    { "id": "d3", "name": "Migrate data solutions", "weight": 23 },
+    { "id": "d4", "name": "Deploy scalable and highly available databases in Google Cloud", "weight": 20 }
   ]
 };
