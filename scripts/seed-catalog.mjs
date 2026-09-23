@@ -89,16 +89,16 @@ const ROADMAP = [
   ['cncf-kcna', 'Cloud Native (CNCF)', 'KCNA', 'Kubernetes and Cloud Native Associate', 'k8s', 'associate', 75, 100, 90, null],
   ['cncf-kcsa', 'Cloud Native (CNCF)', 'KCSA', 'Kubernetes and Cloud Native Security Associate', 'security', 'associate', 75, 100, 90, null],
   ['cncf-capa', 'Cloud Native (CNCF)', 'CAPA', 'Certified Argo Project Associate', 'k8s', 'associate', 75, 100, 90, null],
-  ['cncf-cgoa', 'Cloud Native (CNCF)', 'CGOA', 'GitOps Certified Associate', 'k8s', 'associate', 75, 100, 90, 9],
+  ['cncf-cgoa', 'Cloud Native (CNCF)', 'CGOA', 'Certified GitOps Associate', 'k8s', 'associate', 75, 100, 90, 9],
   ['cncf-cba', 'Cloud Native (CNCF)', 'CBA', 'Certified Backstage Associate', 'platform', 'associate', 75, 100, 90, 14],
   ['cncf-otca', 'Cloud Native (CNCF)', 'OTCA', 'OpenTelemetry Certified Associate', 'k8s', 'associate', 75, 100, 90, 13],
   ['cncf-pca', 'Cloud Native (CNCF)', 'PCA', 'Prometheus Certified Associate', 'k8s', 'associate', 75, 100, 90, null],
 
   // ── Platform Engineering ─────────────────────────────────────────────────
-  ['cncf-cnpa', 'Cloud Native (CNCF)', 'CNPA', 'Certified Cloud Native Platform Engineering Associate', 'platform', 'associate', 75, 100, 90, 7],
+  ['cncf-cnpa', 'Cloud Native (CNCF)', 'CNPA', 'Certified Cloud Native Platform Engineering Associate', 'platform', 'associate', 75, 100, 120, 7],
   ['cncf-cnpe', 'Cloud Native (CNCF)', 'CNPE', 'Certified Cloud Native Platform Engineer', 'platform', 'professional', 67, 100, 120, 8],
   ['cncf-cca', 'Cloud Native (CNCF)', 'CCA', 'Cilium Certified Associate', 'platform', 'associate', 75, 100, 90, null],
-  ['cncf-ica', 'Cloud Native (CNCF)', 'ICA', 'Istio Certified Associate', 'platform', 'associate', 75, 100, 90, null],
+  ['cncf-ica', 'Cloud Native (CNCF)', 'ICA', 'Istio Certified Associate', 'platform', 'associate', 75, 100, 120, null],
   ['cncf-kca', 'Cloud Native (CNCF)', 'KCA', 'Kyverno Certified Associate', 'platform', 'associate', 75, 100, 90, null],
 
   // ── FinOps ───────────────────────────────────────────────────────────────
