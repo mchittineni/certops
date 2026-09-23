@@ -1,6 +1,6 @@
 export const HASHICORP_TFP_FLASHCARDS_3 = [
   {
-    id: 'hashicorp-tfp-fc-51', difficulty: 'medium', certId: 'hashicorp-tfp', domainId: 'd1',
+    id: 'hashicorp-tfp-fc-51', difficulty: 'medium', certId: 'hashicorp-tfp', domainId: 'd2',
     front: 'Conditional creation of a single resource.',
     hint: 'The zero-or-one idiom.',
     back: '<code>count = var.enabled ? 1 : 0</code>, then reference it as <code>resource.name[0]</code> or, more safely, <code>one(resource.name)</code> — which returns <code>null</code> for an empty collection instead of erroring. HCL has no <code>if</code> block for resources.',
@@ -14,21 +14,21 @@ export const HASHICORP_TFP_FLASHCARDS_3 = [
     tags: ['Locking', 'Recovery']
   },
   {
-    id: 'hashicorp-tfp-fc-53', difficulty: 'easy', certId: 'hashicorp-tfp', domainId: 'd2',
+    id: 'hashicorp-tfp-fc-53', difficulty: 'easy', certId: 'hashicorp-tfp', domainId: 'd4',
     front: 'Reference a module output.',
     hint: 'No intermediate keyword.',
     back: '<code>module.&lt;name&gt;.&lt;output&gt;</code> — for example <code>module.network.vpc_id</code>. With <code>for_each</code> on the module: <code>module.network["prod"].vpc_id</code>. There is no <code>.output.</code> segment, and a resource inside a child module is <strong>not</strong> addressable from the root — only its outputs are.',
     tags: ['Modules', 'Outputs']
   },
   {
-    id: 'hashicorp-tfp-fc-54', difficulty: 'medium', certId: 'hashicorp-tfp', domainId: 'd4',
+    id: 'hashicorp-tfp-fc-54', difficulty: 'medium', certId: 'hashicorp-tfp', domainId: 'd3',
     front: 'Constraint says ~> 5.0, lock file says 5.31.0, and 5.40.0 exists. What does init install?',
     hint: 'The lock wins.',
     back: '<strong>5.31.0.</strong> init honours the lock file whenever the recorded version still satisfies the constraints. Only <code>terraform init -upgrade</code> re-resolves and rewrites the lock — which you then commit. That determinism is the whole point of committing the file.',
     tags: ['Lock File', 'Providers']
   },
   {
-    id: 'hashicorp-tfp-fc-55', difficulty: 'hard', certId: 'hashicorp-tfp', domainId: 'd1',
+    id: 'hashicorp-tfp-fc-55', difficulty: 'hard', certId: 'hashicorp-tfp', domainId: 'd2',
     front: 'optional() inside an object type.',
     hint: 'Per-element defaults.',
     back: '<code>object({ name = string, tags = optional(map(string), {}), enabled = optional(bool, true) })</code>. Each element of a collection gets the default filled in when the attribute is omitted — which a variable-level <code>default</code> cannot do, since that only applies when the <em>whole</em> variable is missing.',
@@ -42,7 +42,7 @@ export const HASHICORP_TFP_FLASHCARDS_3 = [
     tags: ['Agents', 'HCP Terraform']
   },
   {
-    id: 'hashicorp-tfp-fc-57', difficulty: 'easy', certId: 'hashicorp-tfp', domainId: 'd5',
+    id: 'hashicorp-tfp-fc-57', difficulty: 'easy', certId: 'hashicorp-tfp', domainId: 'd1',
     front: 'Terraform wants to create something that already exists.',
     hint: 'One word.',
     back: '<strong>Import.</strong> The object is absent from state — created by hand, or removed by <code>state rm</code> — so Terraform plans a create, and apply then fails with an already-exists error from the provider. Adopt it with an <code>import</code> block (reviewable) or <code>terraform import</code>.',
@@ -56,21 +56,21 @@ export const HASHICORP_TFP_FLASHCARDS_3 = [
     tags: ['Backends', 'Collaboration']
   },
   {
-    id: 'hashicorp-tfp-fc-59', difficulty: 'hard', certId: 'hashicorp-tfp', domainId: 'd2',
+    id: 'hashicorp-tfp-fc-59', difficulty: 'hard', certId: 'hashicorp-tfp', domainId: 'd4',
     front: 'Requirements for publishing to a module registry.',
     hint: 'Name, layout, tags.',
     back: 'Repository named <code>terraform-&lt;PROVIDER&gt;-&lt;NAME&gt;</code>, standard structure (<code>main.tf</code>, <code>variables.tf</code>, <code>outputs.tf</code>, README, optional <code>examples/</code> and <code>modules/</code>), and <strong>semver git tags</strong> like <code>v1.2.0</code> which become the version list. No backend block, no exact provider pins.',
     tags: ['Registry', 'Publishing']
   },
   {
-    id: 'hashicorp-tfp-fc-60', difficulty: 'medium', certId: 'hashicorp-tfp', domainId: 'd1',
+    id: 'hashicorp-tfp-fc-60', difficulty: 'medium', certId: 'hashicorp-tfp', domainId: 'd2',
     front: 'Read something you do not manage.',
     hint: 'Read-only, refreshed each plan.',
     back: 'A <strong>data source</strong>: <code>data "aws_vpc" "shared" { filter … }</code>, referenced as <code>data.aws_vpc.shared.id</code>. It never creates, updates, or destroys. A singular data source <em>errors</em> if the query matches more than one object — so filter precisely or use the plural form.',
     tags: ['Data Sources', 'Composition']
   },
   {
-    id: 'hashicorp-tfp-fc-61', difficulty: 'easy', certId: 'hashicorp-tfp', domainId: 'd4',
+    id: 'hashicorp-tfp-fc-61', difficulty: 'easy', certId: 'hashicorp-tfp', domainId: 'd3',
     front: 'terraform plan -detailed-exitcode — the three codes.',
     hint: '2 is the interesting one.',
     back: '<strong>0</strong> — succeeded, no changes. <strong>1</strong> — error. <strong>2</strong> — succeeded, changes present. Lets a pipeline skip the approval stage entirely when nothing would change, and makes scheduled <em>drift detection</em> a one-line check.',
@@ -84,7 +84,7 @@ export const HASHICORP_TFP_FLASHCARDS_3 = [
     tags: ['Permissions', 'Troubleshooting']
   },
   {
-    id: 'hashicorp-tfp-fc-63', difficulty: 'hard', certId: 'hashicorp-tfp', domainId: 'd3',
+    id: 'hashicorp-tfp-fc-63', difficulty: 'hard', certId: 'hashicorp-tfp', domainId: 'd1',
     front: 'Someone deleted the remote state. Infrastructure is untouched.',
     hint: 'Terraform now sees greenfield.',
     back: 'Terraform knows about <strong>nothing</strong> and would plan to create everything again. Recover from backend object <strong>versioning</strong> or a backup; failing that, re-import every resource. There is no automatic rediscovery — refresh only updates entries that already exist.',
@@ -105,14 +105,14 @@ export const HASHICORP_TFP_FLASHCARDS_3 = [
     tags: ['depends_on', 'Modules']
   },
   {
-    id: 'hashicorp-tfp-fc-66', difficulty: 'hard', certId: 'hashicorp-tfp', domainId: 'd1',
+    id: 'hashicorp-tfp-fc-66', difficulty: 'hard', certId: 'hashicorp-tfp', domainId: 'd2',
     front: 'Why are provisioners "a last resort"?',
     hint: 'Outside the model.',
     back: 'They are not represented in the plan, cannot be reliably retried, depend on network reachability and credentials Terraform does not manage, and leave no drift detection. Prefer <strong>baked images</strong> or <strong>cloud-init / user_data</strong>. If you must, understand that a failed provisioner marks the resource <em>tainted</em>.',
     tags: ['Provisioners', 'Best Practices']
   },
   {
-    id: 'hashicorp-tfp-fc-67', difficulty: 'easy', certId: 'hashicorp-tfp', domainId: 'd4',
+    id: 'hashicorp-tfp-fc-67', difficulty: 'easy', certId: 'hashicorp-tfp', domainId: 'd1',
     front: 'Migrating from local to a remote backend.',
     hint: 'init asks you.',
     back: 'Add the backend (or <code>cloud</code>) block and run <code>terraform init</code> — Terraform detects the change and offers to <strong>copy existing state</strong> to the new backend; <code>-migrate-state</code> confirms it non-interactively. Never destroy and recreate, and never hand-upload the file.',
@@ -126,7 +126,7 @@ export const HASHICORP_TFP_FLASHCARDS_3 = [
     tags: ['Providers', 'Bugs']
   },
   {
-    id: 'hashicorp-tfp-fc-69', difficulty: 'medium', certId: 'hashicorp-tfp', domainId: 'd3',
+    id: 'hashicorp-tfp-fc-69', difficulty: 'medium', certId: 'hashicorp-tfp', domainId: 'd1',
     front: 'Accept a manual change instead of reverting it.',
     hint: 'One flag.',
     back: '<code>terraform apply -refresh-only</code> — updates state to match reality and <strong>changes no infrastructure</strong>. A normal apply would revert the manual change. Useful when someone fixed something by hand during an incident and the fix should stand.',
@@ -140,28 +140,28 @@ export const HASHICORP_TFP_FLASHCARDS_3 = [
     tags: ['Policy', 'Governance']
   },
   {
-    id: 'hashicorp-tfp-fc-71', difficulty: 'easy', certId: 'hashicorp-tfp', domainId: 'd2',
+    id: 'hashicorp-tfp-fc-71', difficulty: 'easy', certId: 'hashicorp-tfp', domainId: 'd4',
     front: 'What belongs in outputs.tf?',
     hint: 'A contract, not a dump.',
     back: 'Exactly what consumers need to reference — ids, ARNs, endpoints, subnet lists — each with a <code>description</code> and, where useful, <code>sensitive = true</code>. Every extra output is a <strong>compatibility commitment</strong>: renaming or removing one later is a breaking change.',
     tags: ['Outputs', 'Interface']
   },
   {
-    id: 'hashicorp-tfp-fc-72', difficulty: 'medium', certId: 'hashicorp-tfp', domainId: 'd1',
+    id: 'hashicorp-tfp-fc-72', difficulty: 'medium', certId: 'hashicorp-tfp', domainId: 'd2',
     front: 'Render a template file.',
     hint: 'One function, not a provider.',
     back: '<code>templatefile("${path.module}/cloud-init.tftpl", { name = var.name })</code>. It replaced the old <code>template_file</code> data source from the deprecated template provider. Plain <code>file()</code> returns literal contents with <strong>no</strong> interpolation.',
     tags: ['templatefile', 'Functions']
   },
   {
-    id: 'hashicorp-tfp-fc-73', difficulty: 'medium', certId: 'hashicorp-tfp', domainId: 'd4',
+    id: 'hashicorp-tfp-fc-73', difficulty: 'medium', certId: 'hashicorp-tfp', domainId: 'd5',
     front: 'Speed up provider downloads across CI jobs.',
     hint: 'Cache or mirror.',
     back: '<code>TF_PLUGIN_CACHE_DIR</code> persisted between jobs, or a <strong>provider mirror</strong> (filesystem or network) configured in the CLI configuration file. Do not commit <code>.terraform</code> — it is large and platform-specific — and do not drop version constraints to "help" caching.',
     tags: ['Performance', 'Providers']
   },
   {
-    id: 'hashicorp-tfp-fc-74', difficulty: 'hard', certId: 'hashicorp-tfp', domainId: 'd5',
+    id: 'hashicorp-tfp-fc-74', difficulty: 'hard', certId: 'hashicorp-tfp', domainId: 'd3',
     front: 'Plans take twenty minutes. What actually helps?',
     hint: 'Fewer objects, fewer reads.',
     back: '<strong>Split the state</strong> along ownership and rate-of-change lines, and <strong>remove unnecessary data sources</strong> or expensive collection reads. Plan time scales with managed objects and provider round trips. Lowering <code>-parallelism</code> makes it slower, not faster.',
