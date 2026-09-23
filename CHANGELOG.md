@@ -18,10 +18,29 @@ progress is tracked by `npm run stats` and in
 - [docs/EXAM-READINESS.md](docs/EXAM-READINESS.md) — what separates a 500-item bank from an exam-ready one, with the three measures and where every bank stands.
 
 ### Content
+- Added the four GitHub certifications the catalogue lacked as `planned`, each with its verified Microsoft Learn blueprint: **GitHub Foundations** (`github-foundations`, GH-900), **GitHub Administration** (`github-admin`, GH-100), **GitHub Copilot** (`github-copilot`, GH-300) and **GitHub Certified: Agentic AI Developer** (`github-agentic-ai`, GH-600, new, 120 minutes). The catalogue now covers all six certifications GitHub offers.
 - Added **HashiCorp Certified: Vault Operations Advanced** (`hashicorp-vault-ops`) as a `planned` certification with its verified blueprint: eight objective areas, 4 hours, Vault 1.16, weights split by sub-objective count. With it the catalogue covers all four certifications HashiCorp offers today.
 - `azure-az305` (Microsoft Certified: Azure Solutions Architect Expert) now has its first **75 questions and 50 flashcards** — question packs 1, 3 and 7 and flashcard packs 1 and 5 — authored against the verified blueprint and passing `npm run lint:pack` with no errors. Items are design recommendations in the exam's own idiom, with distractors that are real Azure services failing for a reason the scenario states. The certification stays `planned` until its bank is complete, so a partial bank never reaches the catalogue. The remaining 15 question packs and 18 flashcard packs are still to author.
 
 ### Fixed
+- **Both live GitHub certifications now follow their current Microsoft Learn study guides** (checked 2026-09-23). `github-actions` (GH-200, skills as of January 2026) goes from four domains to five, adding "Secure and optimize automation". `github-ghas` (GH-500, skills as of July 2026) goes from four to six, using GitHub's current Secret Protection, supply chain security and Code Security names. Both now use the real exam format: 100 minutes, scored 700 out of 1000. All 2,000 items were reclassified one by one.
+  - **Corrected against docs.github.com** (every fact below was checked with a source before any item changed):
+    - Reusable workflows nest 10 levels deep and `workflow_dispatch` takes 25 inputs; both keys taught the old limits.
+    - `runs-on` can target a runner group.
+    - Enterprise Actions policy is not scoped by repository visibility.
+    - `INPUT_` names keep hyphens.
+    - JavaScript actions use `node24`.
+    - The 10 GB cache is a default that can be raised and billed.
+    - `download-artifact` v4 works across runs.
+    - The push protection bypass event is `secret_scanning_push_protection.bypass`.
+    - Dependabot's value is `version-update:semver-major`.
+    - `codeql-action` defaults to its recommended bundle.
+    - Partner revocation applies only to public sources.
+    - Validity states are active, inactive and unknown.
+    - CVEs are requested on the draft advisory.
+    - Copilot Autofix output is a suggestion to review.
+    - GitHub Advanced Security is sold as GitHub Secret Protection and GitHub Code Security.
+  - **Still to fix or author:** the classifiers flagged some claims the fact-check did not cover, and those items were left alone rather than changed from memory. On GH-200 they include concurrency limits, cancel signals, ARC scaling, runner specs and retention ranges. On GH-500 they include SARIF limits, legacy QL APIs, `rule.severity` filters, SLSA levels and several audit-log and webhook names. Items 251-500 in both banks are five-copy template groups. Coverage gaps include YAML anchors, immutable actions and runner image migrations on GH-200, and security campaigns, secure-SDLC strategy and public-vs-private availability on GH-500. GH-500's "Describe" domain holds 22 questions against a 19% weight.
 - **Both Terraform certifications now follow HashiCorp's current exams** (objectives checked against developer.hashicorp.com on 2026-09-23). `hashicorp-tfa` moves from the retired TA-003 to **Terraform Associate (004)**: eight domains instead of six, testing Terraform 1.12. `hashicorp-tfp` becomes **Terraform Authoring and Operations Advanced**, HashiCorp's new name for the Professional exam: its six official objective areas replace the reconstructed split, and the time is 240 minutes. The certIds are unchanged, so saved progress still works. HashiCorp publishes neither weights nor a passing score for either exam, so the weights split 100 by each domain's sub-objective count, as the `cert.js` headers say.
   - All 2,000 items were reclassified one by one onto the new domains. Blueprint and bank change together, so `validate` stays clean.
   - The product is called HCP Terraform throughout; 126 references still used the old "Terraform Cloud" name.
