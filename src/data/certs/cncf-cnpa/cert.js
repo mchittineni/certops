@@ -1,9 +1,9 @@
 /**
  * Certified Cloud Native Platform Engineering Associate (CNPA) — exam blueprint.
  *
- * BLUEPRINT NOT VERIFIED. The published curriculum has six domains (Platform Engineering Core Fundamentals 36, Platform Observability Security and Conformance 20, Continuous Delivery & Platform Engineering 16, Platform APIs and Provisioning Infrastructure 12, IDPs and Developer Experience 8, Measuring your Platform 8); the four below were seeded, not taken from it.
- * Correcting the domains means re-authoring the bank, because every question
- * carries its domainName. See docs/EXAM-READINESS.md.
+ * Domains and weights from the Linux Foundation exam page, verified 2026-09-23.
+ * The earlier domains in this file were not the published ones; the bank was
+ * reclassified onto these in the same change.
  */
 export default {
   "id": "cncf-cnpa",
@@ -17,32 +17,18 @@ export default {
   "badgeClass": "badge-k8s",
   "icon": "cncf",
   "color": "#231F20",
-  "description": "Validates foundational knowledge of cloud native platform engineering principles, internal developer platforms (IDPs), and developer experience tooling.",
+  "description": "Validates foundational platform engineering knowledge: core fundamentals, platform observability, security and conformance, continuous delivery, platform APIs and provisioning, IDPs and developer experience, and measuring a platform.",
   "passingScore": 75,
   "maxScore": 100,
-  "defaultTimeMinutes": 90,
-  "blueprintSource": "https://www.cncf.io/certification/cnpa/",
-  "blueprintVerified": false,
+  "defaultTimeMinutes": 120,
+  "blueprintSource": "https://training.linuxfoundation.org/certification/certified-cloud-native-platform-engineering-associate-cnpa/",
+  "blueprintVerified": true,
   "domains": [
-    {
-      "id": "d1",
-      "name": "Cloud Native Architecture and Substrates",
-      "weight": 25
-    },
-    {
-      "id": "d2",
-      "name": "Internal Developer Platforms and Portals",
-      "weight": 30
-    },
-    {
-      "id": "d3",
-      "name": "Golden Paths and Workflows",
-      "weight": 25
-    },
-    {
-      "id": "d4",
-      "name": "Platform Observability and Governance",
-      "weight": 20
-    }
+    { "id": "d1", "name": "Platform Engineering Core Fundamentals", "weight": 36 },
+    { "id": "d2", "name": "Platform Observability, Security, and Conformance", "weight": 20 },
+    { "id": "d3", "name": "Continuous Delivery & Platform Engineering", "weight": 16 },
+    { "id": "d4", "name": "Platform APIs and Provisioning Infrastructure", "weight": 12 },
+    { "id": "d5", "name": "IDPs and Developer Experience", "weight": 8 },
+    { "id": "d6", "name": "Measuring your Platform", "weight": 8 }
   ]
 };
