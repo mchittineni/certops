@@ -53,7 +53,7 @@ const ROADMAP = [
   ['aws-scs', 'AWS', 'SCS-C03', 'AWS Certified Security - Specialty', 'security', 'specialty', 750, 1000, 170, 11],
   ['aws-aip', 'AWS', 'AIP-C01', 'AWS Certified Generative AI Developer - Professional', 'cloud', 'professional', 750, 1000, 180, null],
   ['aws-aib', 'AWS', 'AIB-C01', 'AWS Certified AI Business Strategist', 'cloud', 'foundational', 700, 1000, 170, null],
-  ['azure-az104', 'Microsoft Azure', 'AZ-104', 'Microsoft Certified: Azure Administrator Associate', 'cloud', 'associate', 700, 1000, 120, null],
+  ['azure-az104', 'Microsoft Azure', 'AZ-104', 'Microsoft Certified: Azure Administrator Associate', 'cloud', 'associate', 700, 1000, 100, null],
   ['azure-az204', 'Microsoft Azure', 'AZ-204', 'Microsoft Certified: Azure Developer Associate', 'cloud', 'associate', 700, 1000, 120, null],
   ['azure-az305', 'Microsoft Azure', 'AZ-305', 'Microsoft Certified: Azure Solutions Architect Expert', 'cloud', 'professional', 700, 1000, 120, null],
   ['gcp-ace', 'Google Cloud', 'GCP-ACE', 'Associate Cloud Engineer', 'cloud', 'associate', 70, 100, 120, null],
