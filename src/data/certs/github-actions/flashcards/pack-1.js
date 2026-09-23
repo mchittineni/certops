@@ -23,7 +23,7 @@ export const GITHUB_ACTIONS_FLASHCARDS_1 = [
     id: "github-actions-fc-3",
     difficulty: "hard",
     certId: "github-actions",
-    domainId: "d1",
+    domainId: "d5",
     front: "Security Risk: pull_request vs. pull_request_target",
     hint: "Isolated fork execution vs. privileged base repository execution.",
     back: "<strong><code>pull_request</code></strong> runs untrusted fork code with read-only tokens and no repository secrets. <strong><code>pull_request_target</code></strong> runs in the base branch context with full secret access; never checkout untrusted fork code in it.",
