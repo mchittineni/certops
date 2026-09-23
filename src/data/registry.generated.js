@@ -1297,6 +1297,22 @@ export const CONTENT_REGISTRY = {
       pack('./certs/github-actions/flashcards/pack-20.js', () => import('./certs/github-actions/flashcards/pack-20.js'))
     ]
   },
+  'github-admin': {
+    questions: [],
+    flashcards: []
+  },
+  'github-agentic-ai': {
+    questions: [],
+    flashcards: []
+  },
+  'github-copilot': {
+    questions: [],
+    flashcards: []
+  },
+  'github-foundations': {
+    questions: [],
+    flashcards: []
+  },
   'github-ghas': {
     questions: [
       pack('./certs/github-ghas/questions/pack-1.js', () => import('./certs/github-ghas/questions/pack-1.js')),

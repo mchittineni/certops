@@ -1639,10 +1639,11 @@ export const CONTENT_MANIFEST = {
         "hard": 108
       },
       "byDomain": {
-        "d1": 200,
-        "d2": 123,
+        "d1": 186,
+        "d5": 90,
+        "d2": 42,
         "d3": 77,
-        "d4": 100
+        "d4": 105
       },
       "packs": 20,
       "loadedPacks": 20
@@ -1656,12 +1657,109 @@ export const CONTENT_MANIFEST = {
       },
       "byDomain": {
         "d1": 179,
-        "d2": 113,
-        "d3": 71,
-        "d4": 137
+        "d5": 94,
+        "d4": 127,
+        "d2": 29,
+        "d3": 71
       },
       "packs": 20,
       "loadedPacks": 20
+    }
+  },
+  "github-admin": {
+    "questions": {
+      "total": 0,
+      "byDifficulty": {
+        "easy": 0,
+        "medium": 0,
+        "hard": 0
+      },
+      "byDomain": {},
+      "packs": 0,
+      "loadedPacks": 0
+    },
+    "flashcards": {
+      "total": 0,
+      "byDifficulty": {
+        "easy": 0,
+        "medium": 0,
+        "hard": 0
+      },
+      "byDomain": {},
+      "packs": 0,
+      "loadedPacks": 0
+    }
+  },
+  "github-agentic-ai": {
+    "questions": {
+      "total": 0,
+      "byDifficulty": {
+        "easy": 0,
+        "medium": 0,
+        "hard": 0
+      },
+      "byDomain": {},
+      "packs": 0,
+      "loadedPacks": 0
+    },
+    "flashcards": {
+      "total": 0,
+      "byDifficulty": {
+        "easy": 0,
+        "medium": 0,
+        "hard": 0
+      },
+      "byDomain": {},
+      "packs": 0,
+      "loadedPacks": 0
+    }
+  },
+  "github-copilot": {
+    "questions": {
+      "total": 0,
+      "byDifficulty": {
+        "easy": 0,
+        "medium": 0,
+        "hard": 0
+      },
+      "byDomain": {},
+      "packs": 0,
+      "loadedPacks": 0
+    },
+    "flashcards": {
+      "total": 0,
+      "byDifficulty": {
+        "easy": 0,
+        "medium": 0,
+        "hard": 0
+      },
+      "byDomain": {},
+      "packs": 0,
+      "loadedPacks": 0
+    }
+  },
+  "github-foundations": {
+    "questions": {
+      "total": 0,
+      "byDifficulty": {
+        "easy": 0,
+        "medium": 0,
+        "hard": 0
+      },
+      "byDomain": {},
+      "packs": 0,
+      "loadedPacks": 0
+    },
+    "flashcards": {
+      "total": 0,
+      "byDifficulty": {
+        "easy": 0,
+        "medium": 0,
+        "hard": 0
+      },
+      "byDomain": {},
+      "packs": 0,
+      "loadedPacks": 0
     }
   },
   "github-ghas": {
@@ -1673,10 +1771,12 @@ export const CONTENT_MANIFEST = {
         "hard": 103
       },
       "byDomain": {
-        "d1": 115,
-        "d2": 115,
-        "d3": 185,
-        "d4": 85
+        "d2": 106,
+        "d3": 108,
+        "d4": 124,
+        "d5": 80,
+        "d6": 60,
+        "d1": 22
       },
       "packs": 20,
       "loadedPacks": 20
@@ -1689,10 +1789,12 @@ export const CONTENT_MANIFEST = {
         "hard": 72
       },
       "byDomain": {
-        "d1": 112,
-        "d2": 117,
-        "d3": 182,
-        "d4": 89
+        "d2": 103,
+        "d1": 21,
+        "d6": 61,
+        "d3": 114,
+        "d5": 75,
+        "d4": 126
       },
       "packs": 20,
       "loadedPacks": 20
@@ -2047,5 +2149,5 @@ export const CONTENT_MANIFEST = {
 export const CONTENT_TOTALS = {
   "questions": 16575,
   "flashcards": 16550,
-  "certifications": 69
+  "certifications": 73
 };

@@ -28,7 +28,11 @@ import CERT_DOI_SRE_FOUNDATION from './certs/doi-sre-foundation/cert.js';
 import CERT_DOI_DEVOPS_LEADER from './certs/doi-devops-leader/cert.js';
 import CERT_DOI_SRE_PRACTITIONER from './certs/doi-sre-practitioner/cert.js';
 import CERT_DOCKER_DCA from './certs/docker-dca/cert.js';
+import CERT_GITHUB_FOUNDATIONS from './certs/github-foundations/cert.js';
+import CERT_GITHUB_ADMIN from './certs/github-admin/cert.js';
 import CERT_GITHUB_ACTIONS from './certs/github-actions/cert.js';
+import CERT_GITHUB_COPILOT from './certs/github-copilot/cert.js';
+import CERT_GITHUB_AGENTIC_AI from './certs/github-agentic-ai/cert.js';
 import CERT_GCP_PCDOE from './certs/gcp-pcdoe/cert.js';
 import CERT_HASHICORP_TFA from './certs/hashicorp-tfa/cert.js';
 import CERT_HASHICORP_TFP from './certs/hashicorp-tfp/cert.js';
@@ -100,7 +104,11 @@ export const CERTIFICATIONS = [
   CERT_DOI_DEVOPS_LEADER,
   CERT_DOI_SRE_PRACTITIONER,
   CERT_DOCKER_DCA,
+  CERT_GITHUB_FOUNDATIONS,
+  CERT_GITHUB_ADMIN,
   CERT_GITHUB_ACTIONS,
+  CERT_GITHUB_COPILOT,
+  CERT_GITHUB_AGENTIC_AI,
   CERT_GCP_PCDOE,
   CERT_HASHICORP_TFA,
   CERT_HASHICORP_TFP,
