@@ -443,7 +443,7 @@ await check('bank filters by certification, difficulty, domain, and search', asy
   dom.click('set-bank-difficulty', { difficulty: 'mixed' });
   dom.click('set-bank-domain', { domainId: 'd1' });
   assert.strictEqual(state.bank.domainId, 'd1');
-  assert.ok(dom.html().includes('Describe Cloud Concepts'));
+  assert.ok(dom.html().includes('Describe cloud concepts'));
 
   dom.click('set-bank-domain', { domainId: '' });
   html = dom.html();
