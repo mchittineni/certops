@@ -12,7 +12,7 @@ export default {
   "title": "AWS Certified CloudOps Engineer - Associate",
   "category": "Cloud Engineering",
   "tier": "associate",
-  "status": "planned",
+  "status": "live",
   "priority": null,
   "badgeClass": "badge-aws",
   "icon": "aws",
