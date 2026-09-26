@@ -1,0 +1,532 @@
+export const AWS_AIF_QUESTIONS_2 = [
+  {
+    id: "aws-aif-26",
+    difficulty: "easy",
+    certId: "aws-aif",
+    domainId: "d1",
+    domainName: "Fundamentals of AI and ML",
+    title: "Default history with known outcomes",
+    scenario: "A car-finance company has records of 400,000 past loans. Each record holds the applicant's income, credit history and loan terms, together with whether the borrower eventually defaulted. The company wants a model that predicts the same outcome for new applicants.",
+    question: "Which learning paradigm fits this problem?",
+    options: [
+      { id: 'A', text: "Reinforcement learning, which learns a policy from rewards over many trials" },
+      { id: 'B', text: "Unsupervised learning, which finds natural groupings among the borrowers" },
+      { id: 'C', text: "Self-supervised pre-training, which predicts masked parts of the records" },
+      { id: 'D', text: "Supervised learning, which learns from inputs paired with known outcomes" }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Each historical record pairs input features with the correct answer, default or no default, so a model can learn the mapping from inputs to outcome: that is supervised learning, here a classification task. Unsupervised learning ignores known outcomes and would group borrowers without telling the company who is likely to default. Reinforcement learning needs an agent acting in an environment and receiving rewards, not a fixed table of labeled examples. Self-supervised pre-training creates its own targets from unlabeled data, typically to build foundation models, and is unnecessary when real labels already exist.",
+    referenceUrl: "https://aws.amazon.com/compare/the-difference-between-machine-learning-supervised-and-unsupervised/",
+    tags: ["Supervised learning", "Classification", "Learning paradigms"]
+  },
+  {
+    id: "aws-aif-27",
+    difficulty: "easy",
+    certId: "aws-aif",
+    domainId: "d1",
+    domainName: "Fundamentals of AI and ML",
+    title: "Which products end up in the same basket",
+    scenario: "A grocery chain has two years of till receipts listing the items in each basket, with no other information attached. The category managers want to discover which products tend to be bought together so they can plan shelf placement and bundle offers. Nobody has defined in advance which combinations matter.",
+    question: "Which type of machine learning suits this goal?",
+    options: [
+      { id: 'A', text: "Supervised classification that labels baskets as bundle or not" },
+      { id: 'B', text: "Supervised regression that predicts each basket's total spend" },
+      { id: 'C', text: "Reinforcement learning that rewards the shelf layouts that sell" },
+      { id: 'D', text: "Unsupervised learning that surfaces patterns with no labels" }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "The receipts carry no target labels and the goal is to discover structure, co-occurring products, that nobody has specified, which is the job of unsupervised learning such as association rule mining or clustering. Regression predicts a numeric target such as spend, which answers a different question. Reinforcement learning would require an agent to try layouts and receive feedback over time, not an analysis of historical receipts. Classifying baskets as bundle or not presumes labels that do not exist.",
+    referenceUrl: "https://aws.amazon.com/compare/the-difference-between-machine-learning-supervised-and-unsupervised/",
+    tags: ["Unsupervised learning", "Association", "Retail"]
+  },
+  {
+    id: "aws-aif-28",
+    difficulty: "easy",
+    certId: "aws-aif",
+    domainId: "d1",
+    domainName: "Fundamentals of AI and ML",
+    title: "A building controller that learns by trying",
+    scenario: "A property firm wants software that adjusts heating and cooling set points in an office tower every 15 minutes. The software should learn over time which adjustments cut energy use while keeping temperatures comfortable, receiving a score after each adjustment. There is no historical dataset of correct settings to learn from.",
+    question: "Which learning approach matches this design?",
+    options: [
+      { id: 'A', text: "Unsupervised clustering of the tower's past sensor readings by floor" },
+      { id: 'B', text: "Supervised learning on a table of the ideal settings for each hour" },
+      { id: 'C', text: "Regression that estimates the building's total energy use per month" },
+      { id: 'D', text: "Reinforcement learning, where actions earn rewards or penalties" }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Reinforcement learning trains an agent that takes actions in an environment and receives rewards or penalties, here energy saved minus a penalty for discomfort, and learns by trial and error which actions maximise cumulative reward. Supervised learning needs a labeled table of correct settings, which the scenario says does not exist. Clustering past readings may describe usage patterns but does not decide which adjustment to make. Regression can estimate energy use but does not choose actions or learn from feedback.",
+    referenceUrl: "https://aws.amazon.com/what-is/reinforcement-learning/",
+    tags: ["Reinforcement learning", "Learning paradigms", "Rewards"]
+  },
+  {
+    id: "aws-aif-29",
+    difficulty: "medium",
+    certId: "aws-aif",
+    domainId: "d1",
+    domainName: "Fundamentals of AI and ML",
+    title: "Naming the parts of a pricing agent",
+    scenario: "An airline is testing an agent that changes the fare on a route several times a day. After each change it observes how many seats were sold and the revenue earned over the next few hours, and it gradually shifts toward price moves that increase long-term revenue. A product owner asks what the revenue figure represents in the agent's design.",
+    question: "In reinforcement learning terms, what is the revenue figure?",
+    options: [
+      { id: 'A', text: "The label that the agent is trained to reproduce for every fare" },
+      { id: 'B', text: "A hyperparameter that engineers set before training begins" },
+      { id: 'C', text: "The reward signal that the agent tries to maximize in total" },
+      { id: 'D', text: "The environment that the agent's fare changes act upon" }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "In reinforcement learning an agent observes the state, takes an action, here a fare change, and receives a reward that tells it how good the outcome was; the revenue after each move is that reward, and the agent learns a policy that maximises cumulative reward. A label is a correct answer supplied in advance for supervised learning, whereas the right fare is never given to the agent. A hyperparameter, such as the learning rate or exploration rate, is chosen by engineers and does not change with each sale. The environment is the market the agent acts in; revenue is the feedback the environment returns, not the environment itself.",
+    referenceUrl: "https://aws.amazon.com/what-is/reinforcement-learning/",
+    tags: ["Reinforcement learning", "Reward", "Terminology"]
+  },
+  {
+    id: "aws-aif-30",
+    difficulty: "medium",
+    certId: "aws-aif",
+    domainId: "d1",
+    domainName: "Fundamentals of AI and ML",
+    title: "Which projects need a labeling budget",
+    scenario: "A logistics firm is budgeting for five ML projects and must decide which ones need money for labeled training data. Projects that learn from unlabeled data or from interaction feedback will not get a labeling budget.",
+    question: "Which projects require labeled training data? (Choose two.)",
+    options: [
+      { id: 'A', text: "Grouping depots by their shipment patterns with no categories defined" },
+      { id: 'B', text: "Estimating delivery minutes from past trips with their actual durations" },
+      { id: 'C', text: "Flagging odd fuel readings when no past fault has ever been recorded" },
+      { id: 'D', text: "Routing inbound emails into the six existing customer-service queues" },
+      { id: 'E', text: "Teaching a sorting robot to grip parcels through trial and error" }
+    ],
+    correctAnswers: ['B', 'D'],
+    type: "multiple",
+    explanation: "Supervised learning needs examples paired with correct answers. Estimating delivery time from trips with recorded durations is supervised regression, and routing emails to known queues is supervised classification that needs emails tagged with the right queue. Grouping depots with no predefined categories is clustering, an unsupervised task. Flagging unusual fuel readings with no recorded faults is unsupervised anomaly detection. A robot learning grips by trial and error is reinforcement learning, which learns from rewards rather than labels.",
+    referenceUrl: "https://aws.amazon.com/compare/the-difference-between-machine-learning-supervised-and-unsupervised/",
+    tags: ["Supervised learning", "Labeled data", "Learning paradigms"]
+  },
+  {
+    id: "aws-aif-31",
+    difficulty: "easy",
+    certId: "aws-aif",
+    domainId: "d1",
+    domainName: "Fundamentals of AI and ML",
+    title: "How many umbrellas to stock next week",
+    scenario: "A convenience-store chain wants to estimate how many units of each product every store will sell next week, using past sales, local weather forecasts and upcoming holidays. The output feeds an automated reordering system that needs a quantity for each product.",
+    question: "Which ML technique fits this prediction?",
+    options: [
+      { id: 'A', text: "Regression, which predicts a continuous numeric value per item" },
+      { id: 'B', text: "Clustering, which groups stores that have similar sales patterns" },
+      { id: 'C', text: "Classification, which assigns each product a category label" },
+      { id: 'D', text: "Dimensionality reduction, which compresses the input features" }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "The target is a number, units sold, so this is a regression problem, and because the inputs are ordered in time it is also a forecasting task. Classification outputs a discrete category, such as high or low demand, which would not give the reordering system a quantity. Clustering groups similar stores but predicts nothing about next week. Dimensionality reduction can simplify inputs as a preprocessing step, yet it does not produce the forecast itself.",
+    referenceUrl: "https://docs.aws.amazon.com/machine-learning/latest/dg/regression-model-insights.html",
+    tags: ["Regression", "Forecasting", "ML techniques"]
+  },
+  {
+    id: "aws-aif-32",
+    difficulty: "easy",
+    certId: "aws-aif",
+    domainId: "d1",
+    domainName: "Fundamentals of AI and ML",
+    title: "Will this subscriber cancel next month?",
+    scenario: "A music streaming service wants each subscriber flagged as likely or unlikely to cancel within the next 30 days so that the retention team can call the likely ones. It has a year of history showing which subscribers cancelled and which stayed.",
+    question: "Which ML technique should the team use?",
+    options: [
+      { id: 'A', text: "Binary classification that predicts one of two outcomes" },
+      { id: 'B', text: "Regression that predicts the subscriber's monthly bill" },
+      { id: 'C', text: "Clustering that splits subscribers into listening groups" },
+      { id: 'D', text: "Reinforcement learning that rewards retention phone calls" }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "The output has exactly two possible values, cancel or stay, and labeled history exists, so this is supervised binary classification. Predicting the monthly bill is regression on a different target and does not identify who will leave. Clustering by listening behavior produces groups without saying which ones will cancel. Reinforcement learning would learn a calling strategy through trial and error, which is not needed to flag subscribers from historical outcomes.",
+    referenceUrl: "https://docs.aws.amazon.com/machine-learning/latest/dg/binary-classification.html",
+    tags: ["Classification", "Churn", "ML techniques"]
+  },
+  {
+    id: "aws-aif-33",
+    difficulty: "easy",
+    certId: "aws-aif",
+    domainId: "d1",
+    domainName: "Fundamentals of AI and ML",
+    title: "Customer segments nobody has defined yet",
+    scenario: "An online bookshop wants to divide its 2 million customers into groups with similar buying habits, such as genre mix, order frequency and basket size, so marketing can design a campaign for each group. The team has no predefined segments and wants the data to suggest them.",
+    question: "Which ML technique fits this requirement?",
+    options: [
+      { id: 'A', text: "Linear regression that predicts next year's spend per person" },
+      { id: 'B', text: "Clustering with an algorithm like k-means on purchase features" },
+      { id: 'C', text: "Multi-class classification into the store's existing genres" },
+      { id: 'D', text: "Binary classification of each customer as loyal or not loyal" }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "Grouping records by similarity when no categories exist in advance is clustering, an unsupervised technique; k-means is a common algorithm for customer segmentation. Multi-class classification needs predefined labels, and genres describe books rather than customer segments. Regression predicts a number for each customer instead of grouping them. Binary classification requires a loyalty label and yields only two groups, whereas the team wants the data to reveal how many segments exist.",
+    referenceUrl: "https://docs.aws.amazon.com/sagemaker/latest/dg/k-means.html",
+    tags: ["Clustering", "Segmentation", "ML techniques"]
+  },
+  {
+    id: "aws-aif-34",
+    difficulty: "medium",
+    certId: "aws-aif",
+    domainId: "d1",
+    domainName: "Fundamentals of AI and ML",
+    title: "Routing email to one of twelve departments",
+    scenario: "A city council receives 3,000 emails a day, and staff have manually forwarded each one to one of twelve departments for years, so every archived email is tagged with the department that handled it. The council wants a model that picks the right department automatically.",
+    question: "Which technique describes this model?",
+    options: [
+      { id: 'A', text: "Clustering into twelve groups, because the council has twelve departments" },
+      { id: 'B', text: "Binary classification, trained separately on each email's two halves" },
+      { id: 'C', text: "Regression, since the departments can be numbered from 1 through 12" },
+      { id: 'D', text: "Multi-class classification, since each email maps to one of 12 labels" }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Assigning each input to exactly one of more than two known categories, using historically tagged examples, is supervised multi-class classification. Binary classification handles only two outcomes, and splitting an email into halves has no bearing on the task. Clustering into twelve groups ignores the existing tags and would not guarantee that its groups line up with the actual departments. Numbering departments does not make the problem regression, because the numbers have no order or magnitude; predicting 6.4 would be meaningless.",
+    referenceUrl: "https://docs.aws.amazon.com/machine-learning/latest/dg/multiclass-classification.html",
+    tags: ["Multi-class classification", "NLP", "ML techniques"]
+  },
+  {
+    id: "aws-aif-35",
+    difficulty: "medium",
+    certId: "aws-aif",
+    domainId: "d1",
+    domainName: "Fundamentals of AI and ML",
+    title: "Minutes of delay rather than late or on time",
+    scenario: "An airline's first model flagged flights as late or on time, but gate agents say that is not useful. They want the model to estimate how many minutes each departure will be delayed so they can decide whether to rebook connecting passengers.",
+    question: "How should the team reframe the ML problem?",
+    options: [
+      { id: 'A', text: "As multi-class classification into early, on time and late" },
+      { id: 'B', text: "As clustering of flights into groups with similar delay minutes" },
+      { id: 'C', text: "As binary classification with a stricter late threshold" },
+      { id: 'D', text: "As a regression problem that predicts minutes of delay" }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "The agents need a continuous numeric estimate, minutes of delay, so the problem becomes regression. Adding more classes still produces a category rather than the number of minutes agents need for rebooking decisions. Clustering groups similar flights after the fact and does not predict a specific flight's delay. Changing the threshold of the binary classifier keeps the same late or on-time output that agents already rejected.",
+    referenceUrl: "https://docs.aws.amazon.com/machine-learning/latest/dg/regression-model-insights.html",
+    tags: ["Regression", "Problem framing", "ML techniques"]
+  },
+  {
+    id: "aws-aif-36",
+    difficulty: "hard",
+    certId: "aws-aif",
+    domainId: "d1",
+    domainName: "Fundamentals of AI and ML",
+    title: "Spotting strange readings with no fault history",
+    scenario: "A water utility streams pressure readings from 8,000 pipe sensors into AWS. It wants to flag unusual readings that might indicate leaks, but the maintenance system has never recorded which past readings corresponded to real leaks, so no labeled examples exist. The team is using SageMaker built-in algorithms.",
+    question: "Which approach should the team take?",
+    options: [
+      { id: 'A', text: "Train Linear Learner as a regressor that predicts each sensor's pressure" },
+      { id: 'B', text: "Train Random Cut Forest to score how anomalous each reading appears" },
+      { id: 'C', text: "Train an XGBoost binary classifier to separate leak from normal readings" },
+      { id: 'D', text: "Train a k-nearest neighbors classifier on readings tagged as leaks" }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "Random Cut Forest is SageMaker's unsupervised anomaly detection algorithm: it learns what normal data looks like and assigns each point an anomaly score, so it works without any labeled leaks. An XGBoost classifier and a k-nearest neighbors classifier are supervised and need readings tagged as leak or normal, which the utility does not have. A regressor that predicts pressure could, with extra work, compare prediction errors, but on its own it outputs pressure values rather than an anomaly score, and it is not the direct unlabeled approach the scenario calls for.",
+    referenceUrl: "https://docs.aws.amazon.com/sagemaker/latest/dg/randomcutforest.html",
+    tags: ["Anomaly detection", "Unsupervised learning", "Random Cut Forest"]
+  },
+  {
+    id: "aws-aif-37",
+    difficulty: "medium",
+    certId: "aws-aif",
+    domainId: "d1",
+    domainName: "Fundamentals of AI and ML",
+    title: "A second pair of eyes for radiologists",
+    scenario: "A hospital network's radiologists each review about 150 chest X-rays a day, and waiting times are growing. Leadership proposes a model that marks scans with suspected abnormalities and moves them to the top of each radiologist's queue, while radiologists still read every scan and sign every report.",
+    question: "What is the main value of this design?",
+    options: [
+      { id: 'A', text: "It lets the hospital stop employing radiologists for routine scans" },
+      { id: 'B', text: "It guarantees a correct diagnosis because the model never tires" },
+      { id: 'C', text: "It assists expert decisions by prioritizing likely urgent cases" },
+      { id: 'D', text: "It removes the need to validate the model against clinical outcomes" }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "The model provides decision support: it helps radiologists find urgent scans sooner, which shortens time to treatment, while qualified people keep responsibility for every diagnosis. The design explicitly keeps radiologists reading every scan, so it does not replace them. Any clinical model still needs validation against real outcomes before and after deployment. ML models output probabilities and make errors, so a model's consistency does not guarantee correct diagnoses, which is exactly why a human signs every report.",
+    referenceUrl: "https://aws.amazon.com/what-is/artificial-intelligence/",
+    tags: ["Decision support", "AI value", "Healthcare"]
+  },
+  {
+    id: "aws-aif-38",
+    difficulty: "medium",
+    certId: "aws-aif",
+    domainId: "d1",
+    domainName: "Fundamentals of AI and ML",
+    title: "Four million listings in nine languages",
+    scenario: "An online marketplace wants to open in nine new countries. It has 4 million product listings in English, sellers add about 50,000 more every day, and each listing must be readable in every market within hours of being posted. Hiring enough professional translators would take years.",
+    question: "Which benefit of AI is the marketplace mainly relying on?",
+    options: [
+      { id: 'A', text: "Explainability, because each translation can be traced to a rule" },
+      { id: 'B', text: "Perfect accuracy, since machine output never needs any review" },
+      { id: 'C', text: "Scalability, handling volume that human effort alone cannot" },
+      { id: 'D', text: "Determinism, since the same listing always yields one translation" }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "The marketplace's problem is volume and speed: millions of existing listings and tens of thousands of new ones per day across nine languages. Machine translation, for example Amazon Translate, scales to that throughput at a fraction of the cost of human translation, which is the value of AI for solution scalability. Neural translation is not rule-traceable, and consistency is not the business driver here. No ML system is perfectly accurate; high-visibility content often still gets sampled human review.",
+    referenceUrl: "https://docs.aws.amazon.com/translate/latest/dg/what-is.html",
+    tags: ["Scalability", "AI value", "Amazon Translate"]
+  },
+  {
+    id: "aws-aif-39",
+    difficulty: "easy",
+    certId: "aws-aif",
+    domainId: "d1",
+    domainName: "Fundamentals of AI and ML",
+    title: "Keying in supplier invoices by hand",
+    scenario: "A manufacturer's accounts-payable team of six spends most of its week typing supplier names, invoice numbers, dates and totals from PDF invoices into the ERP system. The invoices come from 900 suppliers in many different layouts, and the finance director wants staff to focus on resolving disputes instead.",
+    question: "What value would an AI solution mainly provide here?",
+    options: [
+      { id: 'A', text: "Forecasting of how many invoices each supplier will send" },
+      { id: 'B', text: "Clustering of suppliers into groups by their invoice layouts" },
+      { id: 'C', text: "Creativity, since the model writes new invoices for suppliers" },
+      { id: 'D', text: "Automation of repetitive extraction work across many formats" }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Reading fields from documents with varied layouts is a repetitive, high-volume task that intelligent document processing, for example Amazon Textract, can automate, freeing staff for judgment work such as disputes. Writing new invoices is not what the business needs. Grouping suppliers by layout might be a side analysis, but it does not remove the data entry. Forecasting invoice counts may help staffing, yet it leaves the typing untouched.",
+    referenceUrl: "https://docs.aws.amazon.com/textract/latest/dg/what-is.html",
+    tags: ["Automation", "AI value", "Document processing"]
+  },
+  {
+    id: "aws-aif-40",
+    difficulty: "medium",
+    certId: "aws-aif",
+    domainId: "d1",
+    domainName: "Fundamentals of AI and ML",
+    title: "Payroll tax that must match the statute",
+    scenario: "A payroll software company is asked by its sales team to add AI to calculate each employee's income tax withholding. The withholding is fully defined by published tax tables and formulas, and any deviation of even one cent from the statutory amount is a compliance failure.",
+    question: "What should the product team conclude?",
+    options: [
+      { id: 'A', text: "Use a large language model that reads the statute and writes the amount" },
+      { id: 'B', text: "Use a regression model trained on past payslips to predict each amount" },
+      { id: 'C', text: "Use deterministic code that computes each amount by rule, every single time" },
+      { id: 'D', text: "Use a classification model that picks the matching tax bracket per person" }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "ML produces probabilistic predictions and is appropriate when patterns must be learned from data. When the exact outcome is defined by known rules and must be correct every time, deterministic code is cheaper, exact and auditable, so ML is not appropriate. A regression model would approximate the amount and inevitably miss by cents on some payslips. An LLM is nondeterministic and can make arithmetic or interpretation errors. Choosing the bracket with a classifier adds error to a lookup that the tables already answer with certainty.",
+    referenceUrl: "https://aws.amazon.com/what-is/machine-learning/",
+    tags: ["When not to use ML", "Deterministic outcomes", "Compliance"]
+  },
+  {
+    id: "aws-aif-41",
+    difficulty: "medium",
+    certId: "aws-aif",
+    domainId: "d1",
+    domainName: "Fundamentals of AI and ML",
+    title: "A bakery weighing a forecasting project",
+    scenario: "A single-location bakery sells about 40 loaves a day, and its owner orders flour weekly using the average of the past four weeks plus a margin, which leaves little waste. A consultant quotes $30,000 to build and $500 a month to run an ML demand-forecasting system that might cut waste by a few loaves a week.",
+    question: "What is the best recommendation?",
+    options: [
+      { id: 'A', text: "Replace the forecast with reinforcement learning that orders flour" },
+      { id: 'B', text: "Build the system, because ML forecasts always outperform simple averages" },
+      { id: 'C', text: "Keep the simple method, since the cost exceeds the benefit it offers" },
+      { id: 'D', text: "Build the system, but retrain it every day to maximize its accuracy" }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "A cost-benefit analysis decides whether ML is appropriate. Saving a few loaves a week cannot repay $30,000 plus $500 a month, and the existing rule already performs well, so the simple method wins. ML forecasts are not automatically better than simple baselines, especially on small, stable data. Retraining daily only raises running costs. Reinforcement learning would add cost and experimentation risk to the same small problem.",
+    referenceUrl: "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/business-goal-identification.html",
+    tags: ["Cost-benefit", "When not to use ML", "Business value"]
+  },
+  {
+    id: "aws-aif-42",
+    difficulty: "hard",
+    certId: "aws-aif",
+    domainId: "d1",
+    domainName: "Fundamentals of AI and ML",
+    title: "Screening a bank's AI wish list",
+    scenario: "A bank's innovation committee reviews five proposals to use machine learning. The chief risk officer wants to reject proposals where the correct result is already fully determined by fixed rules, because a probabilistic model adds risk without adding value there.",
+    question: "Which proposals should be rejected? (Choose two.)",
+    options: [
+      { id: 'A', text: "Reading handwritten amounts on scanned cheques for the clearing system" },
+      { id: 'B', text: "Checking that an applicant is at least 18 years old from a verified birth date" },
+      { id: 'C', text: "Spotting new card-fraud patterns that shift from one week to the next" },
+      { id: 'D', text: "Computing monthly interest on fixed-rate loans from the contract formula" },
+      { id: 'E', text: "Predicting which small-business customers are likely to need a loan soon" }
+    ],
+    correctAnswers: ['B', 'D'],
+    type: "multiple",
+    explanation: "Interest on a fixed-rate loan is a formula in the contract, and an age check against a verified birth date is a single comparison; both have exact, known answers that code computes perfectly, so ML adds cost, error and audit burden with no benefit. Evolving fraud patterns cannot be captured by fixed rules and are a classic ML use case. Reading handwriting varies endlessly and needs computer vision. Predicting which customers will need a loan is a probabilistic question about future behavior, which is exactly what ML models are for.",
+    referenceUrl: "https://aws.amazon.com/what-is/machine-learning/",
+    tags: ["When not to use ML", "Use cases", "Financial services"]
+  },
+  {
+    id: "aws-aif-43",
+    difficulty: "medium",
+    certId: "aws-aif",
+    domainId: "d1",
+    domainName: "Fundamentals of AI and ML",
+    title: "Five hundred sensor columns before training",
+    scenario: "An aircraft-engine maker has flight data with 500 highly correlated sensor columns per record. Training is slow, and the data scientists want to compress the columns into a few dozen features that still capture most of the variation before they train a supervised model. No labels are needed for the compression step.",
+    question: "Which technique fits the compression step?",
+    options: [
+      { id: 'A', text: "Principal component analysis, an unsupervised technique" },
+      { id: 'B', text: "Reinforcement learning that rewards the most useful columns" },
+      { id: 'C', text: "Logistic regression, a supervised classification technique" },
+      { id: 'D', text: "K-means clustering that keeps only one row from each cluster" }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Principal component analysis is an unsupervised dimensionality-reduction technique that combines correlated columns into a smaller set of components capturing most of the variance, and SageMaker offers it as a built-in algorithm. Logistic regression is a supervised classifier and needs labels, which the compression step does not use. K-means groups rows, and keeping one row per cluster reduces the number of records rather than the number of columns. Reinforcement learning is not a feature-compression method.",
+    referenceUrl: "https://docs.aws.amazon.com/sagemaker/latest/dg/pca.html",
+    tags: ["Dimensionality reduction", "Unsupervised learning", "PCA"]
+  },
+  {
+    id: "aws-aif-44",
+    difficulty: "hard",
+    certId: "aws-aif",
+    domainId: "d1",
+    domainName: "Fundamentals of AI and ML",
+    title: "A model that outputs a probability of default",
+    scenario: "A lender's model outputs a number between 0 and 1 for each applicant, which the credit team reads as the probability of default, and applications above 0.3 are declined. A new analyst argues that because the output is a continuous number, the team is solving a regression problem.",
+    question: "How should the task be described?",
+    options: [
+      { id: 'A', text: "As regression, because any model with a numeric output is regression" },
+      { id: 'B', text: "As regression, because the 0.3 threshold turns the score into a number" },
+      { id: 'C', text: "As clustering, because applicants fall on either side of the threshold" },
+      { id: 'D', text: "As binary classification, since the target has two possible classes" }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "The target being learned is a two-valued outcome, default or not, so this is binary classification; models such as logistic regression output a probability for the positive class, and a threshold converts it into a decision. A numeric output alone does not make a task regression; what matters is whether the target is a category or a continuous quantity. Clustering is unsupervised and does not use known default outcomes. The threshold turns the probability into a class decision, which is the opposite of what the regression argument claims.",
+    referenceUrl: "https://docs.aws.amazon.com/machine-learning/latest/dg/binary-classification.html",
+    tags: ["Classification", "Probability", "Problem framing"]
+  },
+  {
+    id: "aws-aif-45",
+    difficulty: "hard",
+    certId: "aws-aif",
+    domainId: "d1",
+    domainName: "Fundamentals of AI and ML",
+    title: "Warehouse robot that learned to rush",
+    scenario: "A warehouse trained a picking robot with reinforcement learning, giving it a reward that grows the faster it completes each pick. In simulation, the robot now finishes picks very quickly but frequently clips shelves and drops fragile items, which would be unacceptable on the real floor.",
+    question: "What is the most appropriate fix?",
+    options: [
+      { id: 'A', text: "Redesign the reward so that collisions and breakages also cost it" },
+      { id: 'B', text: "Deploy to the warehouse floor so real collisions shape its reward" },
+      { id: 'C', text: "Switch to unsupervised learning so the robot groups its own movements" },
+      { id: 'D', text: "Train for more episodes so the robot eventually stops hitting shelves" }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "A reinforcement learning agent optimises exactly what its reward measures. Rewarding only speed teaches it that collisions cost nothing, so the reward must include penalties for collisions and dropped items to reflect the real objective. Unsupervised learning cannot teach a control policy. More training would make the robot better at maximising the flawed reward, not safer. Learning from real collisions on the warehouse floor risks damage and injury; simulation exists precisely so that trial-and-error mistakes are cheap.",
+    referenceUrl: "https://aws.amazon.com/what-is/reinforcement-learning/",
+    tags: ["Reinforcement learning", "Reward design", "Robotics"]
+  },
+  {
+    id: "aws-aif-46",
+    difficulty: "medium",
+    certId: "aws-aif",
+    domainId: "d1",
+    domainName: "Fundamentals of AI and ML",
+    title: "Price tiers instead of an exact price",
+    scenario: "A used-car marketplace wants to show buyers whether each listing is a great deal, a fair price or overpriced compared with similar cars. It has thousands of past listings that pricing experts have already tagged with one of these three ratings, and it does not need an exact dollar valuation.",
+    question: "Which technique fits this requirement?",
+    options: [
+      { id: 'A', text: "Regression that estimates each car's fair market value in dollars" },
+      { id: 'B', text: "Binary classification that separates great deals from the others" },
+      { id: 'C', text: "Multi-class classification into the experts' existing rating categories" },
+      { id: 'D', text: "Clustering that groups similar cars without the experts' ratings" }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "The output is one of three discrete categories, and experts have already labeled past listings with them, so supervised multi-class classification fits directly. Regression predicts a dollar value, which the marketplace says it does not need and which would require extra rules to convert into ratings. Clustering throws away the expert labels and may not produce groups that match the three ratings. Binary classification collapses fair price and overpriced into one class, losing information buyers want.",
+    referenceUrl: "https://docs.aws.amazon.com/machine-learning/latest/dg/multiclass-classification.html",
+    tags: ["Multi-class classification", "Problem framing", "ML techniques"]
+  },
+  {
+    id: "aws-aif-47",
+    difficulty: "easy",
+    certId: "aws-aif",
+    domainId: "d1",
+    domainName: "Fundamentals of AI and ML",
+    title: "Fraud rules that cannot keep up",
+    scenario: "A payments startup maintains 1,200 hand-written fraud rules. Fraudsters change tactics every few weeks, analysts spend most of their time writing new rules after losses occur, and legitimate customers are increasingly blocked by rules that no longer fit their behavior.",
+    question: "Why is ML a good fit for this problem?",
+    options: [
+      { id: 'A', text: "ML needs no historical data, because it discovers fraud on first use" },
+      { id: 'B', text: "ML follows rules exactly as written, so blocking decisions are fixed" },
+      { id: 'C', text: "ML learns patterns from data and can be retrained as the fraud evolves" },
+      { id: 'D', text: "ML removes the need for analysts, since models never need monitoring" }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "When patterns are complex and change often, ML can learn them from historical transactions and be retrained on fresh data, rather than relying on people to anticipate every tactic with a new rule. Following hand-written rules exactly describes the current system and its problem. Supervised fraud models learn from historical labeled transactions, so data is essential. Models drift as behavior changes and need monitoring, retraining and analyst review of edge cases.",
+    referenceUrl: "https://aws.amazon.com/what-is/machine-learning/",
+    tags: ["AI value", "Fraud detection", "Adaptability"]
+  },
+  {
+    id: "aws-aif-48",
+    difficulty: "medium",
+    certId: "aws-aif",
+    domainId: "d1",
+    domainName: "Fundamentals of AI and ML",
+    title: "Making the case for AI claims triage",
+    scenario: "A home insurer receives about 2,000 claims a week, but after major storms that jumps to 40,000 within days and adjusters fall weeks behind. The insurer proposes a model that sorts incoming claims by likely complexity so simple ones are fast-tracked and complex ones go to senior adjusters, who still approve every payout.",
+    question: "Which benefits justify this proposal? (Choose two.)",
+    options: [
+      { id: 'A', text: "It removes the need for senior adjusters to approve any payout" },
+      { id: 'B', text: "It replaces the rate tables that set each policy's fixed premium" },
+      { id: 'C', text: "It scales to surges in claim volume without hiring extra adjusters" },
+      { id: 'D', text: "It guarantees that every claim is categorized without mistakes" },
+      { id: 'E', text: "It helps adjusters decide faster through a consistent first sort" }
+    ],
+    correctAnswers: ['C', 'E'],
+    type: "multiple",
+    explanation: "The model handles a twentyfold surge in volume that staff alone cannot, which is the scalability benefit, and gives adjusters a consistent first-pass sort so that human expertise goes where it matters, which is decision support. ML predictions are probabilistic, so some claims will be mis-sorted, which is why humans still approve payouts. The proposal keeps senior approval in place. Premium rate tables are a deterministic pricing mechanism unrelated to claims triage.",
+    referenceUrl: "https://aws.amazon.com/what-is/artificial-intelligence/",
+    tags: ["AI value", "Scalability", "Decision support"]
+  },
+  {
+    id: "aws-aif-49",
+    difficulty: "medium",
+    certId: "aws-aif",
+    domainId: "d1",
+    domainName: "Fundamentals of AI and ML",
+    title: "Imitating expert players from recorded games",
+    scenario: "A board-game studio has five million recorded positions from tournament games, each stored with the move the expert player actually made. It wants a bot that, given a position, predicts the move a strong human would play, and it has no plans to let the bot play games against itself.",
+    question: "Which learning approach does this plan describe?",
+    options: [
+      { id: 'A', text: "Supervised learning on inputs paired with known answers" },
+      { id: 'B', text: "Regression, since the model outputs a board coordinate" },
+      { id: 'C', text: "Reinforcement learning, because the bot is playing a game" },
+      { id: 'D', text: "Unsupervised learning, since positions are grouped by style" }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Each training example pairs an input, the position, with a known correct output, the expert's move, so the bot learns by supervised learning, effectively classification over possible moves. Reinforcement learning would have the bot learn from wins and losses through self-play or interaction, which the studio explicitly rules out; a game setting alone does not make it reinforcement learning. Nothing in the plan groups positions without labels. Moves are discrete choices, so treating them as a continuous coordinate to regress would be the wrong framing.",
+    referenceUrl: "https://aws.amazon.com/compare/the-difference-between-machine-learning-supervised-and-unsupervised/",
+    tags: ["Supervised learning", "Reinforcement learning", "Learning paradigms"]
+  },
+  {
+    id: "aws-aif-50",
+    difficulty: "easy",
+    certId: "aws-aif",
+    domainId: "d1",
+    domainName: "Fundamentals of AI and ML",
+    title: "Related stories for a news app",
+    scenario: "A news app publishes 3,000 articles a day and wants to show a related stories panel under each one. Editors do not tag articles with topics, and new topics appear constantly, so there is no fixed list of categories to train against.",
+    question: "Which technique fits this need?",
+    options: [
+      { id: 'A', text: "Reinforcement learning that rewards editors' picks" },
+      { id: 'B', text: "Regression that predicts each article's views" },
+      { id: 'C', text: "Clustering by the similarity of each item's text" },
+      { id: 'D', text: "Classification into a fixed set of editorial topics" }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "With no labels and no fixed categories, grouping articles by content similarity is an unsupervised clustering problem, often done on text embeddings, and articles in the same cluster make natural related stories. Predicting page views is regression and says nothing about which articles are related. Classification needs a predefined label set, which does not exist and would go stale as topics change. Rewarding editors' picks would require editors to choose related stories, which is the manual work the app is trying to avoid.",
+    referenceUrl: "https://docs.aws.amazon.com/sagemaker/latest/dg/k-means.html",
+    tags: ["Clustering", "Unsupervised learning", "Text"]
+  }
+];
+
+export default AWS_AIF_QUESTIONS_2;

@@ -1,0 +1,532 @@
+export const AWS_AIF_QUESTIONS_14 = [
+  {
+    id: "aws-aif-326",
+    difficulty: "easy",
+    certId: "aws-aif",
+    domainId: "d3",
+    domainName: "Applications of Foundation Models",
+    title: "Bedtime stories judged by teachers",
+    scenario: "A children's reading app generates bedtime stories for ages four to seven. Before launch, the company must decide whether stories are age-appropriate, gently paced, and engaging for young listeners. There are no reference stories to compare against, and the qualities involved are subjective.",
+    question: "Which evaluation approach fits best?",
+    options: [
+      { id: 'A', text: "Run a public benchmark of general reasoning questions and pick whichever model scores the highest." },
+      { id: 'B', text: "Compute BLEU scores for each story against a set of classic fairy tales used as the reference texts." },
+      { id: 'C', text: "Have early-years educators rate a sample of outputs against a rubric for age fit, pacing, and appeal." },
+      { id: 'D', text: "Measure the average story length in tokens and choose the model that writes the longest bedtime story." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "Human evaluation by qualified reviewers using a clear rubric is the right approach for subjective qualities such as age-appropriateness and engagement, particularly when no reference outputs exist. BLEU measures n-gram overlap with references; overlap with classic tales says nothing about suitability and would penalize original stories. General reasoning benchmarks do not measure storytelling for young children. Story length is not a proxy for quality and could favor stories too long for bedtime.",
+    referenceUrl: "https://docs.aws.amazon.com/bedrock/latest/userguide/evaluation-human.html",
+    tags: ["Human evaluation", "Model evaluation"]
+  },
+  {
+    id: "aws-aif-327",
+    difficulty: "easy",
+    certId: "aws-aif",
+    domainId: "d3",
+    domainName: "Applications of Foundation Models",
+    title: "A first cut from twelve candidate models",
+    scenario: "A startup wants to narrow twelve foundation models down to three for deeper testing. It has not yet built any evaluation data of its own and wants a quick, low-cost signal of each model's general knowledge and reasoning ability that is comparable across models.",
+    question: "What should the startup use for this first cut?",
+    options: [
+      { id: 'A', text: "Results on standard benchmark datasets, which score models on the same published tasks and questions." },
+      { id: 'B', text: "The model with the largest parameter count, since model size alone determines reasoning quality." },
+      { id: 'C', text: "A full human evaluation of every model by subject experts on thousands of the startup's own prompts." },
+      { id: 'D', text: "A production A/B test that exposes paying customers to all twelve models for several weeks at once." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Benchmark datasets are standardized collections of tasks, such as knowledge, reasoning, or coding questions, that many models are scored on, so they give a fast, low-cost, comparable first signal before investing in custom evaluation. A full expert evaluation of twelve models is the slowest and costliest option and needs data the startup does not have. Exposing customers to twelve untested models is risky and slow. Parameter count is one factor, but smaller models often outperform larger ones on specific tasks.",
+    referenceUrl: "https://docs.aws.amazon.com/bedrock/latest/userguide/evaluation.html",
+    tags: ["Benchmark datasets", "Model selection"]
+  },
+  {
+    id: "aws-aif-328",
+    difficulty: "medium",
+    certId: "aws-aif",
+    domainId: "d3",
+    domainName: "Applications of Foundation Models",
+    title: "Oncologists as the reviewers",
+    scenario: "A cancer center wants to compare two foundation models on how well they explain treatment options to patients. Only its own oncologists are qualified to judge clinical accuracy, and the center wants a managed AWS workflow that distributes prompts and responses to them and collects their ratings.",
+    question: "Which approach meets these requirements?",
+    options: [
+      { id: 'A', text: "A human-based evaluation job in Amazon Bedrock with the oncologists set up as a private work team." },
+      { id: 'B', text: "A human-based evaluation job in Amazon Bedrock that uses an AWS managed team of general reviewers." },
+      { id: 'C', text: "An automatic evaluation job in Amazon Bedrock that scores accuracy in place of the oncologists." },
+      { id: 'D', text: "An Amazon SageMaker Model Monitor schedule that compares both models' outputs against a baseline." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Amazon Bedrock model evaluation supports human-based jobs in which you bring your own work team, so the center's oncologists receive the prompts and both models' responses and rate them on the metrics the center defines. An automatic job computes metrics against datasets and cannot stand in for the oncologists' judgment of clinical accuracy. An AWS managed team provides reviewers, but they would not be the center's oncologists, whom the scenario says are the only qualified judges. Model Monitor tracks deployed endpoints for data and quality drift, not expert comparisons of generated explanations.",
+    referenceUrl: "https://docs.aws.amazon.com/bedrock/latest/userguide/evaluation-human.html",
+    tags: ["Amazon Bedrock Evaluations", "Human evaluation"]
+  },
+  {
+    id: "aws-aif-329",
+    difficulty: "medium",
+    certId: "aws-aif",
+    domainId: "d3",
+    domainName: "Applications of Foundation Models",
+    title: "Grading 20,000 answers for helpfulness",
+    scenario: "An insurance company wants to score 20,000 chatbot responses on correctness, completeness, and helpfulness every time it changes the prompt. Human reviewers would take weeks and cost too much for every iteration, while n-gram metrics miss whether an answer is actually helpful.",
+    question: "Which Amazon Bedrock evaluation option fits best?",
+    options: [
+      { id: 'A', text: "An automatic evaluation job that reports only BLEU scores against one reference answer per prompt." },
+      { id: 'B', text: "A model evaluation job that uses an LLM as a judge to grade each answer on those qualities at scale." },
+      { id: 'C', text: "A guardrail with a contextual grounding check that blocks any response scored below a set threshold." },
+      { id: 'D', text: "A human-based evaluation job with an AWS managed team, repeated in full for every prompt change." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "Amazon Bedrock evaluations can use a separate foundation model as an evaluator, an approach called LLM-as-a-judge, to score responses on metrics such as correctness, completeness, and helpfulness, giving human-like quality judgments at a fraction of the time and cost, which suits frequent iterations over 20,000 responses. Repeating a full human evaluation for each change is the slow, costly path the company wants to avoid. BLEU measures word overlap and does not capture helpfulness. A contextual grounding check is a runtime filter for grounding and relevance, not an evaluation of helpfulness across a test set.",
+    referenceUrl: "https://docs.aws.amazon.com/bedrock/latest/userguide/evaluation-judge.html",
+    tags: ["LLM-as-a-judge", "Amazon Bedrock Evaluations"]
+  },
+  {
+    id: "aws-aif-330",
+    difficulty: "medium",
+    certId: "aws-aif",
+    domainId: "d3",
+    domainName: "Applications of Foundation Models",
+    title: "Is it retrieval or generation that fails?",
+    scenario: "A university's RAG assistant built on Amazon Bedrock Knowledge Bases gives incomplete answers about course prerequisites. The team cannot tell whether the knowledge base is retrieving the wrong passages or the model is ignoring good passages, and it wants measurements for both stages.",
+    question: "What should the team use?",
+    options: [
+      { id: 'A', text: "A BLEU comparison of each answer against the course catalog text to see how much wording overlaps." },
+      { id: 'B', text: "Amazon CloudWatch metrics for the knowledge base, which report the relevance of retrieved passages." },
+      { id: 'C', text: "A public reading-comprehension benchmark run against the model to measure how well it uses passages." },
+      { id: 'D', text: "A knowledge base evaluation in Amazon Bedrock that scores retrieval relevance and generated answers." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Amazon Bedrock evaluations can assess RAG applications built on knowledge bases: a retrieval-only job scores metrics such as context relevance and coverage for what was retrieved, and a retrieve-and-generate job scores the final answers for qualities such as correctness, completeness, and faithfulness, so the team can see which stage is failing. BLEU against catalog text measures wording overlap and cannot separate the two stages. CloudWatch reports operational metrics such as invocations and latency, not passage relevance. A public benchmark measures the model in general, not this knowledge base's retrieval.",
+    referenceUrl: "https://docs.aws.amazon.com/bedrock/latest/userguide/evaluation-kb.html",
+    tags: ["RAG evaluation", "Knowledge Bases", "Amazon Bedrock Evaluations"]
+  },
+  {
+    id: "aws-aif-331",
+    difficulty: "hard",
+    certId: "aws-aif",
+    domainId: "d3",
+    domainName: "Applications of Foundation Models",
+    title: "Using an in-house test set in an automatic job",
+    scenario: "A logistics firm has 800 of its own customer questions, each with an answer approved by its operations team. It wants an automatic model evaluation job in Amazon Bedrock to score candidate models against these approved answers instead of against a built-in dataset.",
+    question: "How should the firm supply its test set?",
+    options: [
+      { id: 'A', text: "Store the questions in Prompt Management as variants, and the job scores whichever variant runs last." },
+      { id: 'B', text: "Paste the questions into the console playground and export the chat history as an evaluation report." },
+      { id: 'C', text: "Upload a JSON Lines file to Amazon S3 with each prompt and its reference response, then select it." },
+      { id: 'D', text: "Index the 800 questions in a knowledge base and select that knowledge base as the job's test dataset." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "Automatic model evaluation jobs in Amazon Bedrock accept a custom prompt dataset: a JSON Lines file in Amazon S3 in which each record contains a prompt and, where the metric needs it, a reference response, optionally with a category for grouped results. The job runs each prompt through the model and scores the output against the reference. A knowledge base is a retrieval data source for RAG, not a way to provide test prompts with reference answers. Playground chat history is not an evaluation job and produces no metric scores. Prompt Management stores prompts for applications and does not act as a scored test set.",
+    referenceUrl: "https://docs.aws.amazon.com/bedrock/latest/userguide/model-evaluation-prompt-datasets.html",
+    tags: ["Amazon Bedrock Evaluations", "Custom prompt dataset"]
+  },
+  {
+    id: "aws-aif-332",
+    difficulty: "medium",
+    certId: "aws-aif",
+    domainId: "d3",
+    domainName: "Applications of Foundation Models",
+    title: "Top benchmark score, weak on insurance forms",
+    scenario: "A claims-processing company chose the model that led a well-known general benchmark. In pilot use, it misreads policy terms and exclusions far more often than a lower-ranked model that the team tried informally. Leadership asks why the benchmark did not predict this.",
+    question: "What is the best explanation and next step?",
+    options: [
+      { id: 'A', text: "Benchmarks are always contaminated, so the scores should be ignored and a model picked by its price." },
+      { id: 'B', text: "The lower-ranked model is overfitted to insurance text, so it will fail on the company's other tasks." },
+      { id: 'C', text: "The pilot is too small to matter, so the company should keep the benchmark leader and add more users." },
+      { id: 'D', text: "Broad benchmarks may not reflect domain tasks, so evaluate candidates on an insurance-specific set." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Public benchmarks measure general capabilities on their own tasks; they are a useful starting signal, but performance on a specialized domain such as policy terms and exclusions can differ, so the decision should rest on an evaluation set built from the company's own representative tasks. Benchmark contamination is a real concern, but claiming benchmarks are always contaminated and choosing by price ignores quality entirely. There is no evidence the other model is overfitted; doing well on the target domain is the goal. Adding users to a model that already fails the core task spreads the problem.",
+    referenceUrl: "https://docs.aws.amazon.com/bedrock/latest/userguide/evaluation.html",
+    tags: ["Benchmark datasets", "Domain-specific evaluation"]
+  },
+  {
+    id: "aws-aif-333",
+    difficulty: "hard",
+    certId: "aws-aif",
+    domainId: "d3",
+    domainName: "Applications of Foundation Models",
+    title: "Budgeting a mixed evaluation plan",
+    scenario: "A bank is designing its evaluation plan for a customer-facing assistant. It wants to combine automated metrics with human review and needs the trade-offs stated correctly in the plan so budget and schedule can be set.",
+    question: "Which two statements about these approaches are accurate? (Choose two.)",
+    options: [
+      { id: 'A', text: "Human evaluation captures subjective qualities such as tone and helpfulness but costs more and runs slower." },
+      { id: 'B', text: "Automated metrics are cheap and repeatable, which suits regression checks after every model change." },
+      { id: 'C', text: "Human evaluation is fully objective, because trained reviewers always agree on the rating of a reply." },
+      { id: 'D', text: "Automated evaluation needs no test data, because the metrics are computed from the model's weights." },
+      { id: 'E', text: "Automated metrics such as ROUGE fully capture factual accuracy, so human review adds no further value." }
+    ],
+    correctAnswers: ['A', 'B'],
+    type: "multiple",
+    explanation: "Human reviewers can judge tone, empathy, helpfulness, and nuanced correctness that automated metrics miss, but they are slower and more expensive, so they are best used on samples and for high-stakes judgments. Automated metrics are fast, cheap, and repeatable, which makes them ideal for regression testing after every prompt or model change. Overlap metrics such as ROUGE measure wording similarity and can score a factually wrong answer highly. Reviewers disagree, which is why rubrics and multiple raters are used. Automated evaluation runs the model on a test dataset and scores the outputs; it cannot be computed from weights.",
+    referenceUrl: "https://docs.aws.amazon.com/bedrock/latest/userguide/evaluation.html",
+    tags: ["Human evaluation", "Automated metrics", "Evaluation strategy"]
+  },
+  {
+    id: "aws-aif-334",
+    difficulty: "easy",
+    certId: "aws-aif",
+    domainId: "d3",
+    domainName: "Applications of Foundation Models",
+    title: "Scoring meeting summaries against analyst versions",
+    scenario: "An investment research firm has 1,000 earnings-call transcripts, each with a summary written by an analyst. It wants an automatic metric that measures how much of the content in the analyst summaries is captured by the model's summaries.",
+    question: "Which metric is designed for this?",
+    options: [
+      { id: 'A', text: "Latency, which measures how long the model takes to return each summary after receiving the prompt." },
+      { id: 'B', text: "BLEU, which measures n-gram precision and was designed to score translations rather than summaries." },
+      { id: 'C', text: "ROUGE, which measures recall-oriented overlap between a generated summary and reference summaries." },
+      { id: 'D', text: "Perplexity, which measures how surprised a language model is by the tokens of a given summary." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "ROUGE, Recall-Oriented Understudy for Gisting Evaluation, was designed for summarization: it measures how many n-grams or sequences from the reference summary appear in the generated summary, which directly reflects how much reference content was captured. BLEU is precision-oriented and was built for machine translation. Perplexity measures how well a model predicts text, not how well a summary matches a reference. Latency is an operational metric unrelated to content.",
+    referenceUrl: "https://docs.aws.amazon.com/sagemaker/latest/dg/clarify-foundation-model-evaluate-overview.html",
+    tags: ["ROUGE", "Summarization", "Metrics"]
+  },
+  {
+    id: "aws-aif-335",
+    difficulty: "easy",
+    certId: "aws-aif",
+    domainId: "d3",
+    domainName: "Applications of Foundation Models",
+    title: "Comparing two engines for German manuals",
+    scenario: "A machinery maker is choosing between two models to translate its operating manuals from English to German. Professional translators have produced reference German versions of 500 sample paragraphs, and the team wants a standard automatic metric for translation quality.",
+    question: "Which metric should the team use?",
+    options: [
+      { id: 'A', text: "ROUGE-L, which was designed to score summaries by the longest sequence shared with the reference." },
+      { id: 'B', text: "Toxicity, which estimates how likely each translated paragraph is to contain harmful language." },
+      { id: 'C', text: "BLEU, which scores candidate translations by n-gram precision against human reference translations." },
+      { id: 'D', text: "Accuracy, which counts how many translated paragraphs exactly match their reference character by character." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "BLEU, Bilingual Evaluation Understudy, is the long-standing standard automatic metric for machine translation: it measures how many n-grams in the candidate translation appear in reference translations, with a penalty for translations that are too short. ROUGE-L is primarily a summarization metric. Toxicity checks for harmful content, not translation fidelity. Exact-match accuracy is far too strict for translation, where many correct renderings differ from the reference.",
+    referenceUrl: "https://docs.aws.amazon.com/sagemaker/latest/dg/clarify-foundation-model-evaluate-overview.html",
+    tags: ["BLEU", "Translation", "Metrics"]
+  },
+  {
+    id: "aws-aif-336",
+    difficulty: "medium",
+    certId: "aws-aif",
+    domainId: "d3",
+    domainName: "Applications of Foundation Models",
+    title: "Good paraphrases getting low overlap scores",
+    scenario: "A publisher evaluates a model that rewrites news briefs in plain language. Editors judge many rewrites excellent, yet ROUGE scores are low because the model uses different words from the reference rewrites, for example physician where the reference says doctor. The team wants an automatic metric that credits meaning rather than exact wording.",
+    question: "Which metric should the team add?",
+    options: [
+      { id: 'A', text: "BLEU, which rewards the model when its n-grams match the reference rewrite as precisely as possible." },
+      { id: 'B', text: "Exact match, which scores a rewrite as correct only when it is identical to the reference rewrite." },
+      { id: 'C', text: "BERTScore, which compares contextual embeddings of the tokens to measure how close the meanings are." },
+      { id: 'D', text: "Word error rate, which counts the insertions, deletions, and substitutions needed to match reference." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "BERTScore represents the tokens of the candidate and reference with contextual embeddings from a BERT-style model and matches them by cosine similarity, so synonyms and paraphrases such as physician and doctor receive credit. BLEU is also an n-gram overlap metric and would penalize the same paraphrases. Word error rate counts edits needed to reach the reference wording, so it too punishes valid rewording. Exact match is the strictest possible wording test.",
+    referenceUrl: "https://docs.aws.amazon.com/sagemaker/latest/dg/clarify-foundation-model-evaluate-overview.html",
+    tags: ["BERTScore", "Metrics", "Semantic similarity"]
+  },
+  {
+    id: "aws-aif-337",
+    difficulty: "medium",
+    certId: "aws-aif",
+    domainId: "d3",
+    domainName: "Applications of Foundation Models",
+    title: "Word order in generated incident timelines",
+    scenario: "An SRE team scores model-written incident timelines against engineer-written references. ROUGE-1 is high even for timelines whose events appear in the wrong order, because the same words appear. The team wants a ROUGE variant that rewards matching the reference's sequence of words.",
+    question: "Which variant should the team use?",
+    options: [
+      { id: 'A', text: "BERTScore, which rewards semantic similarity of each token even when event order has been changed." },
+      { id: 'B', text: "BLEU-1, which measures single-word precision of the timeline without regard to its sentence order." },
+      { id: 'C', text: "ROUGE-1, which counts overlapping single words between the model timeline and the reference text." },
+      { id: 'D', text: "ROUGE-L, which is based on the longest common subsequence shared with the reference timeline text." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "ROUGE-L uses the longest common subsequence between candidate and reference, which requires words to appear in the same relative order, so timelines with events out of sequence score lower. ROUGE-1 counts unigram overlap and ignores order, which is the current problem. BLEU-1 is likewise a unigram measure that ignores order. BERTScore matches tokens by embedding similarity and does not enforce the reference's order.",
+    referenceUrl: "https://docs.aws.amazon.com/sagemaker/latest/dg/clarify-foundation-model-evaluate-overview.html",
+    tags: ["ROUGE", "Metrics"]
+  },
+  {
+    id: "aws-aif-338",
+    difficulty: "medium",
+    certId: "aws-aif",
+    domainId: "d3",
+    domainName: "Applications of Foundation Models",
+    title: "Suspiciously short translations",
+    scenario: "A developer notices that one translation model often returns only the first few words of each sentence. He argues it should still score well on BLEU because nearly every word it outputs appears in the reference, so its n-gram precision is very high.",
+    question: "Why is his argument wrong?",
+    options: [
+      { id: 'A', text: "BLEU compares embeddings instead of words, so a short output has too few vectors to be scored." },
+      { id: 'B', text: "BLEU applies a brevity penalty, so translations far shorter than the references lose points." },
+      { id: 'C', text: "BLEU measures toxicity in the output, so truncated sentences are flagged as incomplete content." },
+      { id: 'D', text: "BLEU ignores precision and scores only recall, so the omitted words dominate the whole result." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "BLEU is based on n-gram precision, which on its own would reward very short outputs, so it includes a brevity penalty that reduces the score when the candidate is shorter than the reference. Truncated translations therefore score poorly despite high precision. BLEU is precision-based, not recall-only; recall orientation is ROUGE's design. It compares n-grams, not embeddings, which is BERTScore's approach. It has nothing to do with toxicity.",
+    referenceUrl: "https://docs.aws.amazon.com/sagemaker/latest/dg/clarify-foundation-model-evaluate-overview.html",
+    tags: ["BLEU", "Metrics"]
+  },
+  {
+    id: "aws-aif-339",
+    difficulty: "medium",
+    certId: "aws-aif",
+    domainId: "d3",
+    domainName: "Applications of Foundation Models",
+    title: "Answers that change when users make typos",
+    scenario: "A retail chatbot answers correctly when questions are typed cleanly, but gives different or wrong answers when customers include typos, extra spaces, or odd capitalization. The team wants an automatic evaluation metric that quantifies how much output quality degrades under such small input changes.",
+    question: "Which metric should the team measure?",
+    options: [
+      { id: 'A', text: "BLEU, which measures n-gram precision of an answer against a single cleanly typed reference." },
+      { id: 'B', text: "Latency, which measures the time the chatbot takes to answer each of the misspelled questions." },
+      { id: 'C', text: "Toxicity, which scores how likely each answer is to contain offensive or harmful language." },
+      { id: 'D', text: "Robustness, which tracks how far answers drift when inputs are slightly perturbed or noisy." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Robustness evaluates how model outputs change when inputs are perturbed in semantically meaningless ways, such as typos, whitespace, and capitalization changes; Amazon Bedrock automatic evaluations and SageMaker Clarify foundation model evaluations both report it. Toxicity measures harmful content. BLEU against a single reference does not isolate the effect of perturbations. Latency measures speed, not answer stability.",
+    referenceUrl: "https://docs.aws.amazon.com/bedrock/latest/userguide/model-evaluation-tasks.html",
+    tags: ["Robustness", "Amazon Bedrock Evaluations"]
+  },
+  {
+    id: "aws-aif-340",
+    difficulty: "easy",
+    certId: "aws-aif",
+    domainId: "d3",
+    domainName: "Applications of Foundation Models",
+    title: "Metrics that count shared words",
+    scenario: "An ML lead is writing onboarding notes for new analysts. One section explains which evaluation metrics work by counting n-grams that a generated text shares with a human-written reference, as opposed to metrics based on embeddings, classifiers, or timing.",
+    question: "Which two metrics belong in that section? (Choose two.)",
+    options: [
+      { id: 'A', text: "ROUGE, which counts n-grams from the reference that also appear in the generated text." },
+      { id: 'B', text: "Time to first token, which measures how quickly the model starts streaming its answer." },
+      { id: 'C', text: "BLEU, which counts n-grams from the generated text that also appear in the reference." },
+      { id: 'D', text: "BERTScore, which compares contextual embeddings rather than n-grams of the two pieces of text." },
+      { id: 'E', text: "Toxicity, which uses a classifier to estimate the harmfulness of each generated answer." }
+    ],
+    correctAnswers: ['A', 'C'],
+    type: "multiple",
+    explanation: "ROUGE and BLEU are both n-gram overlap metrics: ROUGE is recall-oriented, asking how much of the reference appears in the output, and BLEU is precision-oriented, asking how much of the output appears in the reference. BERTScore uses embeddings rather than exact n-gram matches. Toxicity is scored by a classifier. Time to first token is a latency measure.",
+    referenceUrl: "https://docs.aws.amazon.com/sagemaker/latest/dg/clarify-foundation-model-evaluate-overview.html",
+    tags: ["ROUGE", "BLEU", "Metrics"]
+  },
+  {
+    id: "aws-aif-341",
+    difficulty: "easy",
+    certId: "aws-aif",
+    domainId: "d3",
+    domainName: "Applications of Foundation Models",
+    title: "Screening a public chatbot for harmful replies",
+    scenario: "A city government is evaluating two models for a public-facing chatbot that answers questions about services. Beyond accuracy, officials want the evaluation to report how often each model produces offensive, hateful, or otherwise harmful language across a large set of test prompts.",
+    question: "Which metric should the evaluation include?",
+    options: [
+      { id: 'A', text: "Robustness, which rates how stable each answer is when the prompt has small typos." },
+      { id: 'B', text: "BERTScore, which rates how semantically close each answer is to a reference answer." },
+      { id: 'C', text: "Toxicity, which rates how likely each answer is to contain hate, insults, or threats." },
+      { id: 'D', text: "ROUGE, which rates how much of the reference answer's wording each reply contains." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "Toxicity metrics use a classifier to score generated text for hateful, insulting, threatening, or otherwise harmful content, and Amazon Bedrock automatic evaluations report toxicity for supported task types. BERTScore and ROUGE measure similarity to references and say nothing about harm. Robustness measures stability under input perturbations.",
+    referenceUrl: "https://docs.aws.amazon.com/bedrock/latest/userguide/model-evaluation-tasks.html",
+    tags: ["Toxicity", "Amazon Bedrock Evaluations"]
+  },
+  {
+    id: "aws-aif-342",
+    difficulty: "easy",
+    certId: "aws-aif",
+    domainId: "d3",
+    domainName: "Applications of Foundation Models",
+    title: "Did the drafting assistant save agents time?",
+    scenario: "A utility rolled out a generative AI tool that drafts replies to billing complaints for its contact-center agents. The COO wants evidence that the tool improves agent productivity, which is the objective the project was funded to achieve.",
+    question: "Which measurement best demonstrates this?",
+    options: [
+      { id: 'A', text: "The average ROUGE score of the drafts against replies agents wrote before the tool was deployed." },
+      { id: 'B', text: "The model's score on a public reasoning benchmark compared with the scores of competing models." },
+      { id: 'C', text: "The number of tokens the model generated in a month, showing how heavily the tool is being used." },
+      { id: 'D', text: "Average handling time per complaint before and after rollout, with reply quality held constant." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Productivity is a business outcome, so it should be measured in business terms: the time agents spend per complaint before and after the tool, checked alongside quality so speed does not come at the cost of worse replies. ROUGE measures similarity to old replies, not time saved. Token volume shows usage and cost, not whether agents are faster. A benchmark score says nothing about this contact center's productivity.",
+    referenceUrl: "https://docs.aws.amazon.com/wellarchitected/latest/generative-ai-lens/generative-ai-lens.html",
+    tags: ["Business objectives", "Productivity"]
+  },
+  {
+    id: "aws-aif-343",
+    difficulty: "medium",
+    certId: "aws-aif",
+    domainId: "d3",
+    domainName: "Applications of Foundation Models",
+    title: "Is the language tutor keeping learners?",
+    scenario: "A language-learning app added a generative AI conversation partner. The product goal is user engagement: learners should practice more often and stay with the app longer. The data team must choose which signals to report to show whether the feature meets that goal.",
+    question: "Which signals should the team report?",
+    options: [
+      { id: 'A', text: "The BLEU score of the tutor's corrections against textbook answers in each practice language." },
+      { id: 'B', text: "The number of languages the model supports and the size of the context window it offers users." },
+      { id: 'C', text: "Weekly practice sessions, session length, and 30-day retention among people who use it." },
+      { id: 'D', text: "The model's average latency per reply and its monthly inference cost for every active learner." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "User engagement is measured by user behavior: how often learners practice, how long sessions last, and whether they keep returning, ideally compared with learners who do not use the feature. BLEU on corrections measures one aspect of output quality, not engagement. Latency and cost matter for operations and budget, but they do not show whether learners practice more. Language count and context window are model capabilities, not outcomes.",
+    referenceUrl: "https://docs.aws.amazon.com/wellarchitected/latest/generative-ai-lens/generative-ai-lens.html",
+    tags: ["Business objectives", "User engagement"]
+  },
+  {
+    id: "aws-aif-344",
+    difficulty: "medium",
+    certId: "aws-aif",
+    domainId: "d3",
+    domainName: "Applications of Foundation Models",
+    title: "Defining success for invoice extraction",
+    scenario: "A procurement team wants a model to pull data from supplier invoices, but stakeholders disagree about whether the pilot worked because nobody agreed on what success meant. For the next pilot, the manager wants the task and its success criteria defined before any model is tested.",
+    question: "What should the team do?",
+    options: [
+      { id: 'A', text: "Let each stakeholder judge the outputs informally and adopt the model if most of them approve." },
+      { id: 'B', text: "Pick the most capable model available, then decide on success criteria after seeing its outputs." },
+      { id: 'C', text: "Use ROUGE as the success measure, since it applies to any generative task without further setup." },
+      { id: 'D', text: "Define the task precisely, such as 14 named fields, and set measurable targets tied to the goal." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Deciding whether a foundation model meets business objectives starts with task engineering: specifying exactly what the model must do, such as which fields to extract in what format, and setting measurable targets, such as field-level accuracy and the share of invoices processed without human correction, that map to the business goal. Choosing criteria after seeing outputs invites moving the goalposts. ROUGE measures text overlap and is a poor fit for structured field extraction. Informal majority approval repeats the disagreement that sank the first pilot.",
+    referenceUrl: "https://docs.aws.amazon.com/wellarchitected/latest/generative-ai-lens/generative-ai-lens.html",
+    tags: ["Task engineering", "Business objectives", "Success criteria"]
+  },
+  {
+    id: "aws-aif-345",
+    difficulty: "hard",
+    certId: "aws-aif",
+    domainId: "d3",
+    domainName: "Applications of Foundation Models",
+    title: "Better offline scores, flat sales",
+    scenario: "An e-commerce company replaced its product-description model with one that scores 15 percent higher on BERTScore and wins most LLM-as-a-judge comparisons. Three months later, conversion rate and average order value are unchanged, and leadership questions the value of the project.",
+    question: "What should the team conclude and do next?",
+    options: [
+      { id: 'A', text: "Offline gains do not guarantee business impact, so the team should test variants against business KPIs." },
+      { id: 'B', text: "The evaluation metrics must be miscalculated, so the team should recompute BERTScore on a new sample set." },
+      { id: 'C', text: "Conversion takes longer than three months to change, so the team should wait at least another full year." },
+      { id: 'D', text: "The new model is failing, so the team should revert immediately and stop investing in the descriptions." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Offline metrics such as BERTScore and LLM-as-a-judge ratings measure output quality, but better text does not automatically move business outcomes. The right step is to tie evaluation to business KPIs, for example A/B testing description variants on conversion and order value, and to invest where measurable impact appears. Nothing suggests the metrics were miscalculated. Reverting ignores that the new model may be neither better nor worse for sales. Waiting a year without an experiment produces no evidence either way.",
+    referenceUrl: "https://docs.aws.amazon.com/wellarchitected/latest/generative-ai-lens/generative-ai-lens.html",
+    tags: ["Business objectives", "A/B testing", "Evaluation strategy"]
+  },
+  {
+    id: "aws-aif-346",
+    difficulty: "medium",
+    certId: "aws-aif",
+    domainId: "d3",
+    domainName: "Applications of Foundation Models",
+    title: "Small quality gain at five times the price",
+    scenario: "A travel site's review-summarization feature must reach at least 90 percent on its human-rated quality rubric. Model X scores 93 percent at a projected 4,000 dollars a month; Model Y scores 95 percent at 20,000 dollars a month. Latency is acceptable for both, and users have not asked for better summaries.",
+    question: "Which model better meets the business objective?",
+    options: [
+      { id: 'A', text: "Model Y, because the highest-scoring model should always be selected whatever it costs to run." },
+      { id: 'B', text: "Both models together, routing each request at random so that users receive the average quality." },
+      { id: 'C', text: "Model X, because it clears the quality bar at a fifth of the cost, and the extra points add little." },
+      { id: 'D', text: "Neither model, because only a model that scores 100 percent on the rubric can be put in production." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "Meeting business objectives means satisfying the defined quality threshold at acceptable cost and latency. Model X exceeds the 90 percent bar for a fifth of the price, and nothing indicates the extra two points would change user behavior or revenue. Always choosing the top scorer ignores cost, a core selection criterion. Demanding a perfect score sets an unrealistic bar that no generative model meets. Random routing raises complexity and cost without a clear benefit.",
+    referenceUrl: "https://docs.aws.amazon.com/wellarchitected/latest/generative-ai-lens/generative-ai-lens.html",
+    tags: ["Business objectives", "Cost", "Model selection"]
+  },
+  {
+    id: "aws-aif-347",
+    difficulty: "easy",
+    certId: "aws-aif",
+    domainId: "d3",
+    domainName: "Applications of Foundation Models",
+    title: "Listening to users after launch",
+    scenario: "A software vendor launched an in-product help assistant. Offline evaluation looked good, but the product manager wants a continuous, low-effort signal from real users about whether individual answers were useful, so problem areas can be found and fed back into improvement.",
+    question: "What should the vendor add?",
+    options: [
+      { id: 'A', text: "A thumbs-up and thumbs-down control on each answer, with downvotes logged for review." },
+      { id: 'B', text: "A nightly job that recomputes ROUGE on the original offline test set and emails results." },
+      { id: 'C', text: "A benchmark run each quarter to check whether the model's general rank has changed at all." },
+      { id: 'D', text: "A higher temperature setting so the assistant tries new phrasings users might prefer more." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Explicit in-product feedback such as thumbs up and thumbs down is a cheap, continuous signal of answer usefulness from real users, and logging downvoted answers shows where to improve prompts, retrieval, or data. Rerunning ROUGE on the same offline set says nothing about live user experience. Raising temperature changes output randomly without measuring anything. A quarterly benchmark reflects general capability, not this product's users.",
+    referenceUrl: "https://docs.aws.amazon.com/wellarchitected/latest/generative-ai-lens/generative-ai-lens.html",
+    tags: ["User feedback", "User engagement"]
+  },
+  {
+    id: "aws-aif-348",
+    difficulty: "hard",
+    certId: "aws-aif",
+    domainId: "d3",
+    domainName: "Applications of Foundation Models",
+    title: "Proving a coding assistant raises productivity",
+    scenario: "An engineering director rolled out Amazon Q Developer to 300 developers to raise productivity. Finance asks for evidence based on how developers actually use the tool and how their work changed, rather than on the underlying model's characteristics.",
+    question: "Which two measures best provide that evidence? (Choose two.)",
+    options: [
+      { id: 'A', text: "The parameter count and context window of the model, which indicate how capable the assistant is." },
+      { id: 'B', text: "Cycle time for comparable tasks, such as time from ticket start to merged pull request, over time." },
+      { id: 'C', text: "The total number of tokens the assistant generated each month, which reflects how much code it wrote." },
+      { id: 'D', text: "The BLEU score of generated code against the code that developers eventually committed to the repo." },
+      { id: 'E', text: "The acceptance rate of inline code suggestions, showing how often developers keep generated code." }
+    ],
+    correctAnswers: ['B', 'E'],
+    type: "multiple",
+    explanation: "Suggestion acceptance rate shows whether developers find the generated code useful enough to keep, and cycle time for comparable work shows whether that usage translates into faster delivery, together linking tool usage to the productivity objective. BLEU against committed code is a text-overlap score that does not measure time saved and penalizes valid alternative code. Parameter count and context window describe the model, which Finance explicitly excluded. Token volume reflects activity and cost, not whether developers delivered faster.",
+    referenceUrl: "https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/dashboard.html",
+    tags: ["Productivity", "Amazon Q Developer", "Business objectives"]
+  },
+  {
+    id: "aws-aif-349",
+    difficulty: "medium",
+    certId: "aws-aif",
+    domainId: "d3",
+    domainName: "Applications of Foundation Models",
+    title: "New model version, same old surprises",
+    scenario: "Each time a model provider releases a new version, a pharmacy benefits company switches over and then discovers a few answers that got worse only after members complain. The compliance lead wants regressions caught before any version change reaches members.",
+    question: "What should the company put in place?",
+    options: [
+      { id: 'A', text: "A golden set of expert-verified prompts and answers, scored on every version prior to release." },
+      { id: 'B', text: "A policy of never updating the model version, so members always receive the same behavior." },
+      { id: 'C', text: "A higher temperature setting on each new version so answers vary and problems surface faster." },
+      { id: 'D', text: "A switch to whichever version ranks highest on a public leaderboard each time one is released." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "A curated golden dataset of representative prompts with expert-verified reference answers, run through automatic metrics or LLM-as-a-judge evaluation for every candidate version, works as a regression test that catches degradations before release. Never updating forgoes improvements and eventually strands the company on a deprecated version. A public leaderboard does not reflect this company's regulated domain. Higher temperature adds randomness to production answers without any structured detection.",
+    referenceUrl: "https://docs.aws.amazon.com/bedrock/latest/userguide/evaluation.html",
+    tags: ["Golden dataset", "Regression testing", "Model evaluation"]
+  },
+  {
+    id: "aws-aif-350",
+    difficulty: "easy",
+    certId: "aws-aif",
+    domainId: "d3",
+    domainName: "Applications of Foundation Models",
+    title: "Asking reviewers to pick the better reply",
+    scenario: "A hotel chain is running a human-based evaluation in Amazon Bedrock to decide between two models for guest messaging. It wants reviewers to see both models' replies to the same guest message and indicate which one they prefer, rather than scoring each reply in isolation.",
+    question: "Which rating method should the chain configure?",
+    options: [
+      { id: 'A', text: "A side-by-side comparison, such as a comparative Likert scale or ranking." },
+      { id: 'B', text: "A free-text comment box on each individual reply with no rating at all." },
+      { id: 'C', text: "Thumbs up or down on each individual reply, reviewed one model at a time." },
+      { id: 'D', text: "An automatic toxicity score on each reply calculated for both of the models." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Human-based evaluation jobs in Amazon Bedrock offer comparison rating methods, including a comparative Likert scale and ordinal ranking, in which reviewers see responses from multiple models side by side and indicate a preference, which is exactly what the chain wants. Thumbs up or down rates responses individually. Free-text comments without a rating cannot be aggregated into a preference. Toxicity is an automatic metric, not a reviewer rating, and it does not capture overall preference.",
+    referenceUrl: "https://docs.aws.amazon.com/bedrock/latest/userguide/evaluation-human.html",
+    tags: ["Human evaluation", "Amazon Bedrock Evaluations"]
+  }
+];
+
+export default AWS_AIF_QUESTIONS_14;

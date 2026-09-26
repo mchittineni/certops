@@ -1,0 +1,532 @@
+export const AWS_AIF_QUESTIONS_16 = [
+  {
+    id: "aws-aif-376",
+    difficulty: "easy",
+    certId: "aws-aif",
+    domainId: "d4",
+    domainName: "Guidelines for Responsible AI",
+    title: "Urban-heavy history in a loan approval dataset",
+    scenario: "A credit union is training a loan approval model on ten years of past applications. An analyst finds that 88 percent of the records come from applicants in three large cities, even though a third of current members live in rural counties. The credit union wants the model to treat rural applicants as reliably as urban ones.",
+    question: "Which dataset characteristic should the team improve before training?",
+    options: [
+      { id: 'A', text: "Dimensionality, by adding more columns about each urban applicant so that the model learns finer patterns from the existing rows." },
+      { id: 'B', text: "Recency, by dropping every application older than two years so that the training data reflects only current members and conditions." },
+      { id: 'C', text: "Balance, so that each applicant population is represented in proportion to the members the model will score in production." },
+      { id: 'D', text: "Volume, by adding more years of applications from the same three cities so the model sees a larger total number of examples." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "A balanced, representative dataset gives the model enough rural examples to learn how rural applicants actually behave; with 88 percent urban records the model is likely to be less accurate for the underrepresented group. Adding more years from the same cities grows the dataset but deepens the imbalance. Keeping only recent records shrinks the data and does nothing to fix who is represented. Extra columns about urban applicants add detail about the group that is already overrepresented rather than the group that is missing.",
+    referenceUrl: "https://aws.amazon.com/ai/responsible-ai/",
+    tags: ["Balanced datasets", "Representation", "Fairness"]
+  },
+  {
+    id: "aws-aif-377",
+    difficulty: "easy",
+    certId: "aws-aif",
+    domainId: "d4",
+    domainName: "Guidelines for Responsible AI",
+    title: "Choosing text sources for a pediatric health assistant",
+    scenario: "A children's hospital is building a generative AI assistant that answers parents' questions about common childhood illnesses. The first prototype was customized on text scraped from open parenting forums, and reviewers found confident but outdated dosing advice in its answers. The hospital wants future training and grounding data to be trustworthy.",
+    question: "What should the hospital do with its data sources?",
+    options: [
+      { id: 'A', text: "Keep the forum sources but raise the temperature setting so that the assistant produces more varied phrasing for each answer it generates." },
+      { id: 'B', text: "Add scraped text from additional forum sources so that incorrect posts are outnumbered by the larger volume of correct posts." },
+      { id: 'C', text: "Keep the forum text and append a disclaimer to each answer telling parents that the assistant can sometimes make mistakes about dosing." },
+      { id: 'D', text: "Use curated sources such as clinician-reviewed guidelines and the hospital's approved patient leaflets, with a named owner for each source." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Curated data sources are vetted for accuracy and ownership, which is what prevents outdated or unsafe medical content from shaping the assistant's answers; clinician-reviewed guidelines and approved leaflets meet that bar. Temperature changes output randomness, not the correctness of what the model learned. Scraping more forums adds more unvetted content and does not guarantee that errors are outnumbered. A disclaimer is useful transparency, but it leaves the unsafe advice in place.",
+    referenceUrl: "https://aws.amazon.com/ai/responsible-ai/resources/",
+    tags: ["Curated data", "Data quality", "Healthcare"]
+  },
+  {
+    id: "aws-aif-378",
+    difficulty: "medium",
+    certId: "aws-aif",
+    domainId: "d4",
+    domainName: "Guidelines for Responsible AI",
+    title: "Voice ordering that fails on regional accents",
+    scenario: "A fast-food chain piloted a speech-driven drive-through ordering system trained mostly on recordings of staff from its head office region. In other regions, error rates for customers with strong regional accents and for older customers are several times higher than the pilot average. The chain wants to fix the root cause rather than add workarounds.",
+    question: "What change to the training data best addresses the problem?",
+    options: [
+      { id: 'A', text: "Filter the head office recordings to remove background noise so the model hears each speaker's words and accent more clearly." },
+      { id: 'B', text: "Collect and label additional recordings from speakers across the regions, age groups, and accents the system will actually serve." },
+      { id: 'C', text: "Lower the confidence threshold so that the system accepts more of its own transcriptions instead of asking customers to repeat orders." },
+      { id: 'D', text: "Duplicate the existing recordings with small pitch changes so the model has more examples to use in every region it serves." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "The failure comes from a dataset that lacks inclusivity and diversity: the model has rarely heard the accents and age groups that now use it, so the fix is to add representative, labeled recordings from those speakers. Cleaning background noise improves the audio the model already has but not who is represented. Augmenting the same recordings with pitch changes multiplies one region's speech patterns without adding the missing accents. Lowering the confidence threshold hides errors by accepting more wrong transcriptions.",
+    referenceUrl: "https://aws.amazon.com/ai/responsible-ai/",
+    tags: ["Inclusive data", "Diversity", "Speech"]
+  },
+  {
+    id: "aws-aif-379",
+    difficulty: "medium",
+    certId: "aws-aif",
+    domainId: "d4",
+    domainName: "Guidelines for Responsible AI",
+    title: "Preparing a dataset for a résumé screening model",
+    scenario: "A staffing agency plans to train a model that ranks résumés for warehouse supervisor roles. Its legal team insists that the training data must not teach the model to favor any gender or age group, and that the model must work equally well for candidates of every background. The data team is drafting acceptance criteria for the training set.",
+    question: "Which two characteristics should the acceptance criteria require of the dataset? (Choose two.)",
+    options: [
+      { id: 'A', text: "Only résumés submitted in the last six months, because recent documents follow the formatting that current applicants use most often." },
+      { id: 'B', text: "Outcome labels checked for historical bias, so past hiring decisions that disadvantaged a group are not copied as ground truth." },
+      { id: 'C', text: "Only résumés of candidates who were hired in the past, because those records show which applicants the agency considered successful." },
+      { id: 'D', text: "Diverse coverage of candidates across genders, ages, and backgrounds, with enough examples of each group for the model to learn from." },
+      { id: 'E', text: "As many engineered features as possible from each résumé, including hobbies and graduation year, to maximize the model's predictive power." }
+    ],
+    correctAnswers: ['B', 'D'],
+    type: "multiple",
+    explanation: "A fair training set needs diverse, sufficient representation of each group, and its labels must be examined for historical bias, because a model trained on biased past decisions reproduces them. Using only past hires encodes whatever preferences drove those hires and removes the negative examples the model needs. Restricting to six months shrinks coverage without addressing fairness. Features such as graduation year and hobbies act as proxies for age and gender, so adding them increases the risk of discrimination.",
+    referenceUrl: "https://docs.aws.amazon.com/sagemaker/latest/dg/clarify-detect-data-bias.html",
+    tags: ["Dataset characteristics", "Bias", "Hiring"]
+  },
+  {
+    id: "aws-aif-380",
+    difficulty: "medium",
+    certId: "aws-aif",
+    domainId: "d4",
+    domainName: "Guidelines for Responsible AI",
+    title: "Measuring imbalance before any model exists",
+    scenario: "An insurer has assembled a tabular dataset for a claims triage model, with policyholder age band recorded as a facet. Before spending money on training, the data science lead wants numeric evidence of whether some age bands are underrepresented or receive favorable labels at very different rates. The team already uses SageMaker for experimentation.",
+    question: "Which approach produces that evidence?",
+    options: [
+      { id: 'A', text: "Run Amazon Macie against the S3 bucket holding the dataset to find records where the age band field contains personal data." },
+      { id: 'B', text: "Use SageMaker Debugger during a training job to capture tensors and flag vanishing gradients that could point to biased data." },
+      { id: 'C', text: "Run a SageMaker Clarify processing job that computes pre-training bias metrics, such as class imbalance, for the age band facet." },
+      { id: 'D', text: "Enable SageMaker Model Monitor on a deployed endpoint and wait for the bias drift report to be generated for the age band facet." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "SageMaker Clarify computes pre-training bias metrics directly on the dataset, including class imbalance and the difference in proportions of labels between facet values, so the insurer gets evidence before any training cost. Model Monitor bias drift requires a deployed model and measures post-training behavior, which is too late here. Debugger inspects training internals such as gradients and says nothing about dataset balance. Macie finds sensitive data in S3 but does not measure representation or label rates.",
+    referenceUrl: "https://docs.aws.amazon.com/sagemaker/latest/dg/clarify-measure-data-bias.html",
+    tags: ["SageMaker Clarify", "Pre-training bias", "Class imbalance"]
+  },
+  {
+    id: "aws-aif-381",
+    difficulty: "hard",
+    certId: "aws-aif",
+    domainId: "d4",
+    domainName: "Guidelines for Responsible AI",
+    title: "Dropping the protected column did not remove the bias",
+    scenario: "A mortgage lender removed the ethnicity column from its training data and retrained its approval model, expecting the fairness gap between groups to disappear. A post-training report still shows a large difference in approval rates between ethnic groups. The remaining features include postal code, first language, and years at current address.",
+    question: "What is the most likely explanation, and what should the lender do next?",
+    options: [
+      { id: 'A', text: "Other features act as proxies for ethnicity; the lender should keep ethnicity for bias measurement and assess or remove the proxy features." },
+      { id: 'B', text: "The model is underfitting; the lender should add hidden layers and train for more epochs until accuracy for every group improves." },
+      { id: 'C', text: "The gap is caused by the test set being too small; the lender should retest on a larger random sample and expect the difference to vanish." },
+      { id: 'D', text: "The report is measuring the removed column; the lender should delete ethnicity from the evaluation data so the bias metric reads zero." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Removing a protected attribute rarely removes bias, because correlated features such as postal code and first language let the model reconstruct it. The lender needs the attribute retained, with access controls, as a facet for measuring bias, and should evaluate which features act as proxies and rebalance or remove them. Underfitting affects accuracy in general and is not indicated by a group gap. A larger test set can refine the estimate, but there is no reason to expect a systematic gap to vanish. Deleting the facet from evaluation data only stops the lender from seeing the bias.",
+    referenceUrl: "https://docs.aws.amazon.com/sagemaker/latest/dg/clarify-detect-post-training-bias.html",
+    tags: ["Proxy variables", "Bias", "Fairness"]
+  },
+  {
+    id: "aws-aif-382",
+    difficulty: "easy",
+    certId: "aws-aif",
+    domainId: "d4",
+    domainName: "Guidelines for Responsible AI",
+    title: "Near-perfect training score, weak validation score",
+    scenario: "A startup trained a gradient boosted model to predict which trial users will convert to paid plans. The model scores 99 percent accuracy on the training data but only 71 percent on a held-out validation set drawn from the same period. The founders want to understand what the gap indicates.",
+    question: "What does this result most likely indicate?",
+    options: [
+      { id: 'A', text: "The validation set is mislabeled, because a model that fits training data this well should score equally well on new data." },
+      { id: 'B', text: "The model is underfitting: it has high bias and is too simple to capture the relationships present in the training data." },
+      { id: 'C', text: "The model has converged correctly, because validation accuracy is always about thirty points lower than training accuracy." },
+      { id: 'D', text: "The model is overfitting: it has high variance and has memorized noise in the training data instead of general patterns." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "A large gap between excellent training performance and much weaker validation performance is the signature of overfitting, a high-variance model that learned the training data's noise. Underfitting shows poor performance on training data too, which is not the case here. Nothing suggests mislabeled validation data, and a model fitting training data well does not guarantee generalization. There is no rule that validation accuracy trails training accuracy by a fixed amount; a well-fit model shows a small gap.",
+    referenceUrl: "https://docs.aws.amazon.com/machine-learning/latest/dg/model-fit-underfitting-vs-overfitting.html",
+    tags: ["Overfitting", "Variance", "Model evaluation"]
+  },
+  {
+    id: "aws-aif-383",
+    difficulty: "easy",
+    certId: "aws-aif",
+    domainId: "d4",
+    domainName: "Guidelines for Responsible AI",
+    title: "Poor accuracy everywhere for a demand forecast",
+    scenario: "A grocery chain built a straight-line regression model to forecast daily produce demand across 200 stores. The model's error is high on the training data and similarly high on the test data, and it misses obvious weekend and holiday peaks. The analytics team wants to name the problem before choosing a fix.",
+    question: "Which term describes this model's behavior?",
+    options: [
+      { id: 'A', text: "Data drift, because production data has moved away from the training distribution, causing high error after deployment." },
+      { id: 'B', text: "Label leakage, because a feature derived from the target has given the model information it would not have at prediction time." },
+      { id: 'C', text: "Underfitting, because the model is too simple to capture the seasonal patterns and has high bias on all of the data." },
+      { id: 'D', text: "Overfitting, because the model has learned the training data so closely that it cannot generalize to the test data." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "High error on both training and test data, with clear patterns the model misses, indicates underfitting: a high-bias model that is too simple for the problem. Overfitting would show low training error and high test error. Data drift concerns production data changing after deployment, not poor fit on the original data. Label leakage usually makes training and test scores look unrealistically good, the opposite of what is observed.",
+    referenceUrl: "https://docs.aws.amazon.com/machine-learning/latest/dg/model-fit-underfitting-vs-overfitting.html",
+    tags: ["Underfitting", "Bias", "Model evaluation"]
+  },
+  {
+    id: "aws-aif-384",
+    difficulty: "medium",
+    certId: "aws-aif",
+    domainId: "d4",
+    domainName: "Guidelines for Responsible AI",
+    title: "Fixing a churn model that memorized its training set",
+    scenario: "A telecom's churn model reaches almost perfect training accuracy but drops sharply on each month's new customers. The team has only eight months of labeled history, and the model uses several hundred sparse features, many of which appear in only a handful of records.",
+    question: "Which change is most likely to improve how the model generalizes?",
+    options: [
+      { id: 'A', text: "Increase the number of training epochs so that the model continues to reduce its training loss on the existing eight months of data." },
+      { id: 'B', text: "Add more of the sparse features so that the model has additional signals from which to distinguish customers who churn from those who stay." },
+      { id: 'C', text: "Switch to a deeper model with more parameters so that it has greater capacity to represent the relationships in the training data." },
+      { id: 'D', text: "Apply regularization and prune rarely populated features so that the model is discouraged from fitting noise in the small dataset." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "The model is overfitting a small dataset with many sparse features. Regularization penalizes overly complex fits and removing rarely populated features reduces the noise available to memorize, both of which lower variance. More epochs push the model further into memorization. Adding more sparse features increases complexity and overfitting risk. A deeper model adds capacity, which also raises variance when data is limited.",
+    referenceUrl: "https://docs.aws.amazon.com/machine-learning/latest/dg/model-fit-underfitting-vs-overfitting.html",
+    tags: ["Overfitting", "Regularization", "Feature selection"]
+  },
+  {
+    id: "aws-aif-385",
+    difficulty: "medium",
+    certId: "aws-aif",
+    domainId: "d4",
+    domainName: "Guidelines for Responsible AI",
+    title: "Raising the ceiling on a too-simple defect detector",
+    scenario: "A factory uses a small model to flag defective circuit boards from a handful of summary measurements. It performs poorly on both the training images and new images, missing defect types that inspectors can see easily. The team has plenty of labeled images and compute budget available.",
+    question: "Which change is most appropriate?",
+    options: [
+      { id: 'A', text: "Reduce the amount of training data so that the model can focus on the most common defect types instead of the rare ones." },
+      { id: 'B', text: "Use a more expressive model and richer input features, such as the raw pixels, so the model can capture defect patterns." },
+      { id: 'C', text: "Add stronger regularization so that the model's weights stay small and it cannot fit the training examples too closely." },
+      { id: 'D', text: "Stop training earlier so that the model does not continue learning after its validation error begins to level off." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "Poor performance on training and new data points to underfitting, a high-bias model. Increasing capacity and giving it richer inputs lets it capture the patterns inspectors see. Stronger regularization and early stopping are remedies for overfitting and would make an underfit model simpler still. Reducing training data removes the examples the model needs and does not add capacity.",
+    referenceUrl: "https://docs.aws.amazon.com/machine-learning/latest/dg/model-fit-underfitting-vs-overfitting.html",
+    tags: ["Underfitting", "Model complexity", "Computer vision"]
+  },
+  {
+    id: "aws-aif-386",
+    difficulty: "medium",
+    certId: "aws-aif",
+    domainId: "d4",
+    domainName: "Guidelines for Responsible AI",
+    title: "High overall accuracy hiding a subgroup failure",
+    scenario: "A dermatology startup reports 94 percent accuracy for its skin lesion classifier on a mixed test set. A partner clinic serving mostly patients with darker skin tones sees far more missed melanomas than that figure suggests. The startup's board asks how the evaluation should change.",
+    question: "What should the startup add to its evaluation process?",
+    options: [
+      { id: 'A', text: "Report a single weighted F1 score in place of accuracy so that the headline metric accounts for class imbalance in the test set." },
+      { id: 'B', text: "Increase the size of the mixed test set, keeping the same skin tone mix, so the accuracy estimate is more precise." },
+      { id: 'C', text: "Evaluate the classifier only on images from the partner clinic so that the headline figure reflects that clinic's patients." },
+      { id: 'D', text: "Break results down by skin tone and other relevant groups, so any accuracy gap between groups is measured and reported." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "An aggregate metric can hide much worse performance for a demographic group. Subgroup analysis, breaking metrics down by relevant groups such as skin tone, exposes the gap so it can be fixed and disclosed. A weighted F1 score is still a single aggregate and can hide the same disparity. A larger mixed test set narrows the confidence interval of the aggregate but not the subgroup gap. Testing only the partner clinic's images swaps one blind spot for another rather than measuring every group.",
+    referenceUrl: "https://docs.aws.amazon.com/sagemaker/latest/dg/clarify-detect-post-training-bias.html",
+    tags: ["Subgroup analysis", "Bias", "Healthcare"]
+  },
+  {
+    id: "aws-aif-387",
+    difficulty: "easy",
+    certId: "aws-aif",
+    domainId: "d4",
+    domainName: "Guidelines for Responsible AI",
+    title: "What a statistician means by bias versus variance",
+    scenario: "A product manager at an e-commerce company hears the data team say that their recommendation model has high bias but low variance. She asks for a plain explanation because she assumed bias only referred to unfair treatment of customers.",
+    question: "What does high bias mean in this statistical sense?",
+    options: [
+      { id: 'A', text: "The model's training data contains more examples from some customer groups than from others, so those groups are favored." },
+      { id: 'B', text: "The model makes simplifying assumptions that cause it to miss real patterns, so its predictions are consistently off target." },
+      { id: 'C', text: "The model is very sensitive to small changes in training data, so different training samples produce very different predictions." },
+      { id: 'D', text: "The model's predictions have been deliberately adjusted by the business to promote certain products over others in results." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "In the bias-variance sense, bias is error from overly simple assumptions that make a model consistently miss real patterns, which leads to underfitting. Sensitivity to small changes in training data describes variance. Unequal representation of customer groups is a data bias that can cause unfairness, a related but different meaning of the word. Deliberate business promotion is a product decision, not a statistical property of the model.",
+    referenceUrl: "https://docs.aws.amazon.com/machine-learning/latest/dg/model-fit-underfitting-vs-overfitting.html",
+    tags: ["Bias", "Variance", "Terminology"]
+  },
+  {
+    id: "aws-aif-388",
+    difficulty: "hard",
+    certId: "aws-aif",
+    domainId: "d4",
+    domainName: "Guidelines for Responsible AI",
+    title: "Two remedies for a sentiment model that memorizes",
+    scenario: "A media company fine-tuned a neural network to classify reader comments by sentiment. Training loss keeps falling across 40 epochs, while validation loss bottoms out at epoch 9 and then rises steadily. Collecting more labeled comments will take months, so the team wants changes it can make now.",
+    question: "Which two changes should reduce the overfitting? (Choose two.)",
+    options: [
+      { id: 'A', text: "Add dropout or weight regularization so the network is discouraged from relying on individual training examples." },
+      { id: 'B', text: "Increase the number of epochs to 80 so that the rising validation loss has time to turn around and fall again." },
+      { id: 'C', text: "Stop training when validation loss stops improving, keeping the checkpoint with the lowest validation loss." },
+      { id: 'D', text: "Add more hidden layers so that the network can represent the subtle patterns that separate the validation comments." },
+      { id: 'E', text: "Remove the validation set and train on all data, since validation examples reduce the data available for learning." }
+    ],
+    correctAnswers: ['A', 'C'],
+    type: "multiple",
+    explanation: "Validation loss rising while training loss falls shows overfitting. Early stopping keeps the model from the point where it generalized best, and dropout or weight regularization constrains the network so it memorizes less. Training for more epochs continues the memorization. Additional hidden layers increase capacity and variance. Removing the validation set eliminates the signal used to detect overfitting and does not cure it.",
+    referenceUrl: "https://docs.aws.amazon.com/sagemaker/latest/dg/automatic-model-tuning-early-stopping.html",
+    tags: ["Overfitting", "Early stopping", "Regularization"]
+  },
+  {
+    id: "aws-aif-389",
+    difficulty: "easy",
+    certId: "aws-aif",
+    domainId: "d4",
+    domainName: "Guidelines for Responsible AI",
+    title: "Sending uncertain document extractions to people",
+    scenario: "A mortgage processor uses Amazon Textract to extract fields from scanned pay stubs. When extraction confidence falls below 90 percent, a loan officer must confirm the values before they are used in an underwriting decision. The processor wants a managed way to route those items to reviewers and collect their answers.",
+    question: "Which AWS service meets this requirement?",
+    options: [
+      { id: 'A', text: "SageMaker Ground Truth, with a labeling job that relabels the full pay stub archive nightly." },
+      { id: 'B', text: "Amazon Comprehend, with a classifier that predicts low confidence pay stubs for review." },
+      { id: 'C', text: "Amazon Augmented AI, with a human review workflow triggered by the confidence threshold." },
+      { id: 'D', text: "SageMaker Model Monitor, with a data quality schedule on the extraction model's endpoint." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "Amazon Augmented AI (Amazon A2I) provides human review workflows and integrates with Textract so that predictions below a confidence threshold go to reviewers, whose answers are returned for use. Ground Truth labels datasets for training rather than reviewing live predictions under a threshold. A Comprehend classifier would add another model's guess, not a human confirmation. Model Monitor tracks statistical quality of endpoint traffic and does not route items to people.",
+    referenceUrl: "https://docs.aws.amazon.com/sagemaker/latest/dg/a2i-use-augmented-ai-a2i-human-review-loops.html",
+    tags: ["Amazon A2I", "Human review", "Textract"]
+  },
+  {
+    id: "aws-aif-390",
+    difficulty: "easy",
+    certId: "aws-aif",
+    domainId: "d4",
+    domainName: "Guidelines for Responsible AI",
+    title: "Watching a live credit model for fairness decay",
+    scenario: "A bank deployed a credit limit model on a SageMaker endpoint after verifying that its outcomes were fair across age groups. Customer demographics are shifting as the bank expands into new markets. Risk officers want to be alerted if the model's fairness metrics move outside agreed limits over time.",
+    question: "Which capability should the bank configure?",
+    options: [
+      { id: 'A', text: "SageMaker Model Monitor with a bias drift monitoring schedule that uses SageMaker Clarify metrics." },
+      { id: 'B', text: "Amazon CloudWatch with an alarm on the endpoint's invocation latency and its 5XX error count." },
+      { id: 'C', text: "AWS Config with managed rules whose compliance metrics report the endpoint's KMS key usage." },
+      { id: 'D', text: "SageMaker Model Cards with the bias evaluation results recorded at the time the model was approved." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "SageMaker Model Monitor can run bias drift schedules that apply SageMaker Clarify bias metrics to live traffic and raise alerts when they cross thresholds, which is exactly continuous fairness monitoring. An AWS Config rule checks resource configuration such as encryption, not model behavior. Latency and error alarms measure operational health. A model card documents the fairness results at approval time but does not watch for later drift.",
+    referenceUrl: "https://docs.aws.amazon.com/sagemaker/latest/dg/clarify-model-monitor-bias-drift.html",
+    tags: ["Model Monitor", "Bias drift", "SageMaker Clarify"]
+  },
+  {
+    id: "aws-aif-391",
+    difficulty: "medium",
+    certId: "aws-aif",
+    domainId: "d4",
+    domainName: "Guidelines for Responsible AI",
+    title: "Explaining one declined insurance quote",
+    scenario: "A car insurer uses a gradient boosted model hosted on SageMaker to price policies. A customer disputes a high quote, and the complaints team must show which input features pushed that particular prediction up and by roughly how much. The insurer does not want to replace the model.",
+    question: "Which approach provides this explanation?",
+    options: [
+      { id: 'A', text: "Use Amazon Bedrock Guardrails to add a contextual grounding check to the pricing request." },
+      { id: 'B', text: "Use SageMaker Debugger to record the model's internal tensors for the disputed prediction." },
+      { id: 'C', text: "Use SageMaker Model Monitor to compare the request against the training data baseline." },
+      { id: 'D', text: "Use SageMaker Clarify to generate SHAP feature attributions for the disputed prediction." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "SageMaker Clarify produces SHAP-based feature attributions, including local explanations for an individual prediction, which shows how much each feature contributed to that quote without changing the model. Debugger captures training-time tensors to diagnose training problems, not per-prediction explanations for customers. Guardrails contextual grounding checks apply to generative model responses against a source, not tabular pricing models. Model Monitor detects drift across traffic rather than explaining one decision.",
+    referenceUrl: "https://docs.aws.amazon.com/sagemaker/latest/dg/clarify-model-explainability.html",
+    tags: ["SageMaker Clarify", "SHAP", "Explainability"]
+  },
+  {
+    id: "aws-aif-392",
+    difficulty: "medium",
+    certId: "aws-aif",
+    domainId: "d4",
+    domainName: "Guidelines for Responsible AI",
+    title: "Crowd labels that disagree with each other",
+    scenario: "A wildlife charity labeled 50,000 camera trap images through a volunteer workforce, with one volunteer per image. Spot checks show that about one image in six has a wrong species label, and the errors cluster on nocturnal animals. The charity wants more trustworthy labels before training its classifier.",
+    question: "Which approach most directly improves label quality?",
+    options: [
+      { id: 'A', text: "Send each image to several annotators in SageMaker Ground Truth, consolidate their answers, and audit disputed items." },
+      { id: 'B', text: "Convert each image to grayscale so that differences between day and night photos no longer confuse the volunteers." },
+      { id: 'C', text: "Train the classifier on the current labels and rely on the larger volume of correct labels to cancel out the errors." },
+      { id: 'D', text: "Enable SageMaker Model Monitor on the classifier's endpoint and review data quality violations after deployment." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Analyzing and improving label quality means catching annotator errors before training. Sending each item to multiple workers in SageMaker Ground Truth and consolidating their answers reduces individual mistakes, and auditing items where annotators disagree targets the confusing nocturnal images. Training on labels that are wrong one time in six teaches the model systematic errors, especially where errors cluster. Model Monitor watches production data and cannot fix training labels. Grayscale conversion does not help volunteers identify species.",
+    referenceUrl: "https://docs.aws.amazon.com/sagemaker/latest/dg/sms-annotation-consolidation.html",
+    tags: ["Label quality", "Ground Truth", "Data labeling"]
+  },
+  {
+    id: "aws-aif-393",
+    difficulty: "medium",
+    certId: "aws-aif",
+    domainId: "d4",
+    domainName: "Guidelines for Responsible AI",
+    title: "Human judgment on a legal summarization model",
+    scenario: "A law firm is comparing two foundation models in Amazon Bedrock for summarizing court filings. Partners care most about whether summaries are faithful to the filing and free of invented case citations, qualities they believe automated metrics miss. The firm wants its own associates to score the outputs.",
+    question: "Which evaluation approach fits these requirements?",
+    options: [
+      { id: 'A', text: "A SageMaker Model Monitor schedule that the firm's associates set up to compare summary statistics with a baseline." },
+      { id: 'B', text: "An automatic model evaluation job in Amazon Bedrock that scores the summaries with a built-in robustness metric." },
+      { id: 'C', text: "A Bedrock guardrail with a word filter that blocks any summary that contains the names of courts or case numbers." },
+      { id: 'D', text: "A model evaluation job in Amazon Bedrock that uses human workers, with the firm's associates as the review team." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Amazon Bedrock model evaluation supports jobs that use human workers, including the customer's own team, to rate outputs on criteria such as faithfulness; this is a human audit of truthfulness that automated metrics may miss. An automatic robustness metric measures sensitivity to input perturbations rather than faithfulness as judged by lawyers. Model Monitor compares statistical properties of traffic and does not judge factual accuracy. A word filter blocking court names would remove legitimate content and does not detect invented citations.",
+    referenceUrl: "https://docs.aws.amazon.com/bedrock/latest/userguide/evaluation-human.html",
+    tags: ["Model evaluation", "Human audit", "Amazon Bedrock"]
+  },
+  {
+    id: "aws-aif-394",
+    difficulty: "medium",
+    certId: "aws-aif",
+    domainId: "d4",
+    domainName: "Guidelines for Responsible AI",
+    title: "Checking a chatbot model for stereotyping",
+    scenario: "A recruiting platform is choosing an open-weight foundation model to draft candidate outreach messages. Before adoption, its responsible AI group wants a quantitative measure of whether the model tends to favor stereotyped statements about gender, race, and age. The team works in SageMaker Studio.",
+    question: "Which approach provides this measurement?",
+    options: [
+      { id: 'A', text: "Apply a Bedrock guardrail content filter for hate speech to every outreach message the model drafts." },
+      { id: 'B', text: "Run a SageMaker Clarify foundation model evaluation that includes the prompt stereotyping task." },
+      { id: 'C', text: "Run a SageMaker Clarify processing job that computes pre-training bias metrics on the foundation model's tabular data." },
+      { id: 'D', text: "Publish a SageMaker model card for the model that lists its intended uses and its risk rating." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "SageMaker Clarify foundation model evaluations include a prompt stereotyping task that measures how often a model prefers stereotyped over anti-stereotyped sentences across categories such as gender, race, and age. Pre-training bias metrics apply to tabular training data with facets, not to a pre-trained language model's tendencies. A hate speech filter blocks overtly harmful content but does not quantify subtle stereotyping. A model card documents the model but does not measure it.",
+    referenceUrl: "https://docs.aws.amazon.com/sagemaker/latest/dg/clarify-foundation-model-evaluate.html",
+    tags: ["SageMaker Clarify", "FM evaluation", "Stereotyping"]
+  },
+  {
+    id: "aws-aif-395",
+    difficulty: "hard",
+    certId: "aws-aif",
+    domainId: "d4",
+    domainName: "Guidelines for Responsible AI",
+    title: "Tooling for a fairness review of a benefits model",
+    scenario: "A state agency has trained a model on SageMaker that prioritizes housing benefit applications. Auditors require evidence that the trained model's predictions do not disadvantage applicants by disability status, and ongoing assurance after launch that this stays true as the applicant population changes.",
+    question: "Which two capabilities together meet the auditors' requirements? (Choose two.)",
+    options: [
+      { id: 'A', text: "AWS Trusted Advisor checks that report underused SageMaker instances and recommend smaller instance types." },
+      { id: 'B', text: "SageMaker Clarify post-training bias metrics, such as disparate impact, computed on the trained model's predictions." },
+      { id: 'C', text: "SageMaker Model Monitor bias drift schedules on the production endpoint, with alerts when metrics exceed thresholds." },
+      { id: 'D', text: "Amazon Inspector scans of the endpoint's container image for software vulnerabilities and exposed network paths." },
+      { id: 'E', text: "SageMaker Debugger rules that detect overfitting and vanishing gradients before the model makes predictions." }
+    ],
+    correctAnswers: ['B', 'C'],
+    type: "multiple",
+    explanation: "SageMaker Clarify post-training bias metrics, such as disparate impact and difference in positive proportions in predicted labels, provide the evidence about the trained model, and Model Monitor bias drift schedules extend that measurement to production so changes in the population are caught. Debugger rules diagnose training problems but not fairness across groups. Inspector finds software vulnerabilities, which matters for security but not for fairness. Trusted Advisor checks cost and best practices, not model outcomes.",
+    referenceUrl: "https://docs.aws.amazon.com/sagemaker/latest/dg/clarify-detect-post-training-bias.html",
+    tags: ["SageMaker Clarify", "Model Monitor", "Bias"]
+  },
+  {
+    id: "aws-aif-396",
+    difficulty: "easy",
+    certId: "aws-aif",
+    domainId: "d4",
+    domainName: "Guidelines for Responsible AI",
+    title: "Looking at results group by group",
+    scenario: "A city transport department built a model that predicts which bus riders qualify for reduced fares. Its overall precision is 90 percent. A community advisory board asks for the precision among riders over 65, riders with disabilities, and riders in each district, not just the city-wide figure.",
+    question: "What is this evaluation practice called?",
+    options: [
+      { id: 'A', text: "Data augmentation, which creates modified copies of existing records to increase the training set size." },
+      { id: 'B', text: "Cross-validation, which rotates the train and test splits to estimate the model's average performance." },
+      { id: 'C', text: "Hyperparameter tuning, which searches settings such as learning rate to find the best overall metric." },
+      { id: 'D', text: "Subgroup analysis, which computes performance metrics separately for each relevant population slice." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Subgroup analysis breaks model performance down by population slice so disparities hidden by a city-wide average become visible, which is what the board requests. Hyperparameter tuning optimizes an aggregate metric and does not report group results. Cross-validation produces a more reliable estimate of average performance, still in aggregate. Data augmentation changes the training data rather than evaluating results by group.",
+    referenceUrl: "https://aws.amazon.com/ai/responsible-ai/",
+    tags: ["Subgroup analysis", "Evaluation", "Fairness"]
+  },
+  {
+    id: "aws-aif-397",
+    difficulty: "easy",
+    certId: "aws-aif",
+    domainId: "d4",
+    domainName: "Guidelines for Responsible AI",
+    title: "A regulator asks how each credit decision was made",
+    scenario: "A small consumer lender must be able to show regulators and applicants exactly how its scoring model combines income, debt, and payment history to reach each decision. Accuracy only slightly below that of a complex model is acceptable. The data set is tabular with about a dozen features.",
+    question: "Which kind of model best fits the requirement?",
+    options: [
+      { id: 'A', text: "A large ensemble of several hundred boosted trees, combined by averaging to reduce prediction error." },
+      { id: 'B', text: "A large language model prompted to read each application and decide whether to approve the loan." },
+      { id: 'C', text: "A deep neural network with many hidden layers, trained to reach the highest possible accuracy score." },
+      { id: 'D', text: "A logistic regression model, whose coefficients show how each feature raises or lowers the score." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Logistic regression is a transparent model: its coefficients directly show how each feature contributes, so the lender can explain any decision, and the small loss in accuracy is acceptable here. A deep neural network is a black box that needs post-hoc tools to approximate explanations. An LLM making credit decisions is neither transparent nor predictable enough for this purpose. A large boosted ensemble is often more accurate but its combined trees are hard to follow for each decision.",
+    referenceUrl: "https://docs.aws.amazon.com/whitepapers/latest/model-explainability-aws-ai-ml/model-explainability-aws-ai-ml.html",
+    tags: ["Transparent models", "Interpretability", "Lending"]
+  },
+  {
+    id: "aws-aif-398",
+    difficulty: "medium",
+    certId: "aws-aif",
+    domainId: "d4",
+    domainName: "Guidelines for Responsible AI",
+    title: "Transparent versus explainable in a design review",
+    scenario: "During an architecture review at a hospital, one engineer describes a shallow decision tree for sepsis alerts as transparent, and a convolutional network for chest X-rays with saliency maps as explainable. A clinician asks what distinguishes the two terms.",
+    question: "Which statement correctly describes the difference?",
+    options: [
+      { id: 'A', text: "An explainable model publishes its training data and weights, while a transparent model only reports confidence scores with outputs." },
+      { id: 'B', text: "Both terms mean the same thing, and the engineer simply chose different words for models that expose identical information." },
+      { id: 'C', text: "A transparent model's internal logic can be followed directly, while an explainable model needs post-hoc techniques to describe outputs." },
+      { id: 'D', text: "A transparent model is one released under an open-source license, while an explainable model is one hosted by a managed service." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "A transparent, or interpretable, model such as a shallow decision tree exposes its logic so a person can trace how inputs become outputs. A black-box model such as a convolutional network is made explainable through post-hoc techniques, such as saliency maps or SHAP, which approximate why it produced a result. The terms are related but not identical. Publishing weights and data concerns openness, not the transparency-explainability distinction. Licensing and hosting say nothing about whether a model's reasoning can be followed.",
+    referenceUrl: "https://docs.aws.amazon.com/whitepapers/latest/model-explainability-aws-ai-ml/model-explainability-aws-ai-ml.html",
+    tags: ["Transparency", "Explainability", "Terminology"]
+  },
+  {
+    id: "aws-aif-399",
+    difficulty: "medium",
+    certId: "aws-aif",
+    domainId: "d4",
+    domainName: "Guidelines for Responsible AI",
+    title: "Letting users verify a policy assistant's answers",
+    scenario: "An HR department uses Amazon Bedrock Knowledge Bases to answer employee questions about leave policies. Employees distrust the answers because they cannot tell where the information comes from, and the underlying model's internal reasoning cannot be inspected. HR wants responses that users can check for themselves.",
+    question: "What should HR do to make the answers more explainable to employees?",
+    options: [
+      { id: 'A', text: "Switch to a larger foundation model with more parameters so that its answers are more fluent and sound more authoritative to employees." },
+      { id: 'B', text: "Increase the maximum output tokens so that each answer includes a longer knowledge-based description of how the policy applies." },
+      { id: 'C', text: "Publish the foundation model's full system prompt on the intranet so that employees can read the instructions the model follows." },
+      { id: 'D', text: "Return the source citations that the knowledge base provides with each response, linking to the passages that support the answer." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Knowledge Bases responses can include citations to the retrieved source passages, which lets employees verify each answer against the actual policy even though the model itself is a black box. Longer answers add words, not verifiability. A larger model may be more fluent, but sounding authoritative is not the same as being checkable. Publishing the system prompt reveals instructions rather than the evidence behind a specific answer, and can help attackers craft prompt injections.",
+    referenceUrl: "https://docs.aws.amazon.com/bedrock/latest/userguide/kb-test-config.html",
+    tags: ["Source citations", "Knowledge Bases", "Explainability"]
+  },
+  {
+    id: "aws-aif-400",
+    difficulty: "hard",
+    certId: "aws-aif",
+    domainId: "d4",
+    domainName: "Guidelines for Responsible AI",
+    title: "Does adding SHAP make a deep model transparent?",
+    scenario: "A fintech's compliance officer proposes documenting its deep learning fraud model as transparent because every flagged transaction now comes with SageMaker Clarify SHAP values. The model has millions of parameters and several embedding layers. The chief risk officer asks whether this classification is accurate before it goes into the regulatory filing.",
+    question: "How should the model be described in the filing?",
+    options: [
+      { id: 'A', text: "As transparent, because SHAP values reveal the complete internal computation the network performs for each flagged transaction." },
+      { id: 'B', text: "As neither transparent nor explainable, because SHAP values can only be computed for linear models and not for neural networks." },
+      { id: 'C', text: "As explainable but not transparent, because SHAP gives post-hoc attributions that approximate feature influence on each prediction." },
+      { id: 'D', text: "As transparent, because a model becomes interpretable once it is hosted on SageMaker and its artifacts are stored in Amazon S3." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "SHAP values are post-hoc, model-agnostic attributions that estimate how much each feature contributed to a prediction; they make the black-box model explainable without exposing or simplifying its internal computation, so it is not transparent. SHAP does not reveal the full computation of millions of parameters. SHAP, including Kernel SHAP used by Clarify, works with nonlinear models such as neural networks. Where a model is hosted or stored has no bearing on interpretability.",
+    referenceUrl: "https://docs.aws.amazon.com/sagemaker/latest/dg/clarify-shapley-values.html",
+    tags: ["SHAP", "Explainability", "Transparency"]
+  }
+];
+
+export default AWS_AIF_QUESTIONS_16;

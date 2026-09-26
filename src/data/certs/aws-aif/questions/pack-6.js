@@ -1,0 +1,532 @@
+export const AWS_AIF_QUESTIONS_6 = [
+  {
+    id: "aws-aif-126",
+    difficulty: "easy",
+    certId: "aws-aif",
+    domainId: "d2",
+    domainName: "Fundamentals of Generative AI",
+    title: "Assembling a corpus for a new base model",
+    scenario: "A national research consortium plans to pre-train its own language foundation model for public-sector use. The project team must decide what kind of data to gather for the first training stage, before any task-specific work begins.",
+    question: "What data best fits the pre-training stage?",
+    options: [
+      { id: 'A', text: "A very large and diverse collection of unlabeled text such as web pages, books, and public records." },
+      { id: 'B', text: "Ratings from reviewers who compared pairs of model answers and marked the one they preferred." },
+      { id: 'C', text: "A few thousand prompt and response pairs written by staff to show the exact tone for each task." },
+      { id: 'D', text: "A labeled set of citizen emails tagged by department, used to train a routing classifier model." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Pre-training is self-supervised: the model learns general language patterns by predicting tokens across an enormous, varied, unlabeled corpus, so breadth and volume matter more than labels. Curated prompt and response pairs are the input to fine-tuning, a later and much smaller stage that shapes behavior for specific tasks. A department-tagged email set trains a conventional supervised classifier, not a general-purpose foundation model. Pairwise preference ratings are collected after pre-training to align a model's behavior through reinforcement learning from human feedback.",
+    referenceUrl: "https://aws.amazon.com/what-is/foundation-models/",
+    tags: ["Foundation model lifecycle", "Pre-training", "Data selection"]
+  },
+  {
+    id: "aws-aif-127",
+    difficulty: "easy",
+    certId: "aws-aif",
+    domainId: "d2",
+    domainName: "Fundamentals of Generative AI",
+    title: "Scraped articles and a copyright warning",
+    scenario: "A media analytics startup plans to customize a model with 400,000 news articles scraped from publisher websites. Before anything else happens, its lawyer warns that many of the articles are copyrighted and that the startup has no license to use them for training.",
+    question: "In which stage of the foundation model lifecycle should this issue be resolved?",
+    options: [
+      { id: 'A', text: "Feedback, by removing articles later if publishers complain about the outputs." },
+      { id: 'B', text: "Evaluation, by scoring the customized model's output quality on held-out articles." },
+      { id: 'C', text: "Deployment, by restricting which customers can call the customized model's API." },
+      { id: 'D', text: "Data selection, by confirming usage rights and excluding unlicensed articles." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Data selection decides what the model will learn from, and confirming licensing and usage rights belongs there, before any training run bakes unlicensed content into the model's weights. Evaluation measures quality and cannot cure a rights problem in the training data. Restricting API access at deployment does not change the fact that the model was trained on content the startup had no right to use. Waiting for complaints during feedback leaves legal exposure in place, and removing content from a trained model generally means retraining.",
+    referenceUrl: "https://aws.amazon.com/what-is/foundation-models/",
+    tags: ["Data selection", "Foundation model lifecycle", "Licensing"]
+  },
+  {
+    id: "aws-aif-128",
+    difficulty: "easy",
+    certId: "aws-aif",
+    domainId: "d2",
+    domainName: "Fundamentals of Generative AI",
+    title: "Starting point for a small law firm's drafting tool",
+    scenario: "A 40-person law firm wants a tool that drafts first versions of engagement letters. It has no ML engineers, a modest budget, and a deadline of one quarter. The firm's IT lead is mapping the project onto the foundation model lifecycle.",
+    question: "Which lifecycle step should the firm focus on first?",
+    options: [
+      { id: 'A', text: "Choose an existing pre-trained model that already writes fluent, formal English prose." },
+      { id: 'B', text: "Collect preference ratings on draft letters so a model can be aligned through feedback." },
+      { id: 'C', text: "Deploy a self-hosted inference endpoint sized for the firm's expected peak traffic." },
+      { id: 'D', text: "Pre-train a new language model on the firm's archive of past letters and court filings." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Model selection comes first for an organization like this: picking a capable existing foundation model avoids the data, compute, and expertise that building one requires, and the firm can then prompt or lightly customize it. Pre-training a new model on a single firm's archive would need far more data and specialist skill than the firm has, and a few thousand letters are nowhere near enough for pre-training. Preference ratings are part of later alignment and feedback, which presuppose a model already exists. Sizing a self-hosted endpoint is a deployment decision that only makes sense after a model is chosen and evaluated, and a firm without engineers would struggle to operate it.",
+    referenceUrl: "https://docs.aws.amazon.com/bedrock/latest/userguide/models-supported.html",
+    tags: ["Model selection", "Foundation model lifecycle"]
+  },
+  {
+    id: "aws-aif-129",
+    difficulty: "medium",
+    certId: "aws-aif",
+    domainId: "d2",
+    domainName: "Fundamentals of Generative AI",
+    title: "Teaching a model a house answer format",
+    scenario: "An airline's support team uses a foundation model through Amazon Bedrock. Answers are accurate but ignore the airline's required structure: a one-line summary, numbered steps, then a policy citation. Prompting fixes this only part of the time, and the team has 3,000 approved answers written in that format.",
+    question: "Which lifecycle activity best addresses the gap?",
+    options: [
+      { id: 'A', text: "Fine-tune the model using the approved answers as labeled prompt and completion pairs." },
+      { id: 'B', text: "Re-run pre-training from scratch with the approved answers mixed into the base corpus." },
+      { id: 'C', text: "Raise the temperature so the model explores more ways to structure each answer it writes." },
+      { id: 'D', text: "Continue pre-training the model on the airline's unlabeled policy manuals and web pages." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Fine-tuning adapts an existing model with labeled examples of the desired input and output, which is exactly how to teach a consistent structure and style; 3,000 approved answers are a reasonable fine-tuning set. Continued pre-training on unlabeled manuals deepens domain knowledge, but the model already answers accurately and the problem is format, which unlabeled text does not teach. A higher temperature increases randomness and would make the structure less consistent. Pre-training from scratch discards the capable base model and costs orders of magnitude more, and a few thousand examples would be lost in a pre-training corpus anyway.",
+    referenceUrl: "https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models.html",
+    tags: ["Fine-tuning", "Amazon Bedrock", "Foundation model lifecycle"]
+  },
+  {
+    id: "aws-aif-130",
+    difficulty: "medium",
+    certId: "aws-aif",
+    domainId: "d2",
+    domainName: "Fundamentals of Generative AI",
+    title: "Rolling out a new model version carefully",
+    scenario: "A food delivery company's support assistant serves 2 million customers. A new fine-tuned version passed offline evaluation, but the team knows offline tests never cover every real conversation and wants to limit the damage if the new version misbehaves in production.",
+    question: "Which deployment approach best manages this risk?",
+    options: [
+      { id: 'A', text: "Run another offline benchmark on a larger public dataset before any customer sees it." },
+      { id: 'B', text: "Send a small share of traffic to the new version, compare results, and keep a rollback ready." },
+      { id: 'C', text: "Switch all traffic to the new version at once so that feedback arrives as fast as possible." },
+      { id: 'D', text: "Deploy to all users and rely on the next quarterly evaluation cycle to catch problems." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "A gradual rollout, sometimes called a canary or A/B deployment, exposes a small share of real traffic to the new version, compares its quality and business metrics with the current one, and allows a quick rollback, so problems that offline evaluation missed affect few customers. Switching everyone at once maximizes the blast radius of any regression. Another offline benchmark on public data still cannot reproduce real customer conversations. Waiting for a quarterly evaluation leaves a faulty model serving millions of customers for months.",
+    referenceUrl: "https://docs.aws.amazon.com/sagemaker/latest/dg/model-ab-testing.html",
+    tags: ["Deployment", "Foundation model lifecycle", "Rollout"]
+  },
+  {
+    id: "aws-aif-131",
+    difficulty: "easy",
+    certId: "aws-aif",
+    domainId: "d2",
+    domainName: "Fundamentals of Generative AI",
+    title: "Customers waiting on a freshly tuned model",
+    scenario: "A retail bank's data science team has just completed a job that adapts a foundation model to answer questions about the bank's credit card products. The business sponsor wants to put the model in front of customers the same afternoon.",
+    question: "According to the foundation model lifecycle, what should happen before deployment?",
+    options: [
+      { id: 'A', text: "Evaluate the tuned model against held-out test prompts and the bank's quality criteria." },
+      { id: 'B', text: "Return to data selection and gather a larger unlabeled corpus for another training run." },
+      { id: 'C', text: "Collect production feedback from customers and use it to decide whether to tune again." },
+      { id: 'D', text: "Pre-train a second base model so the bank has a fallback if the tuned one is unavailable." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Evaluation sits between fine-tuning and deployment: the tuned model must be tested on prompts it did not train on, against accuracy, safety, and business criteria, before customers see it. Pre-training a second base model is an enormous project and not a lifecycle prerequisite for deployment. Production feedback can only be collected after deployment, so it cannot be the gate before it. Gathering a new pre-training corpus restarts the lifecycle without any evidence that the current model is inadequate; evaluation is what would reveal whether that is needed.",
+    referenceUrl: "https://docs.aws.amazon.com/bedrock/latest/userguide/evaluation.html",
+    tags: ["Evaluation", "Foundation model lifecycle"]
+  },
+  {
+    id: "aws-aif-132",
+    difficulty: "medium",
+    certId: "aws-aif",
+    domainId: "d2",
+    domainName: "Fundamentals of Generative AI",
+    title: "Suspiciously perfect summarization scores",
+    scenario: "A health insurer fine-tuned a model to summarize claim notes and reports an evaluation score far above any published result. A reviewer discovers that the evaluation prompts were sampled from the same 10,000 examples used for fine-tuning.",
+    question: "What should the team change to get a trustworthy evaluation?",
+    options: [
+      { id: 'A', text: "Add more fine-tuning epochs so the model generalizes better to those same test prompts." },
+      { id: 'B', text: "Switch the metric from ROUGE to BLEU so the score reflects a different overlap measure." },
+      { id: 'C', text: "Score it on a public benchmark of news articles, since it holds far more than the claim notes." },
+      { id: 'D', text: "Test on a separate held-out set of claim notes that the model never saw during tuning." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Evaluating on training examples measures memorization, not the ability to summarize new notes, so the score is inflated. A held-out set drawn from the same kind of claim notes, kept out of fine-tuning, gives an honest estimate of production quality. Changing from ROUGE to BLEU swaps one overlap metric for another but leaves the leakage in place. More epochs push the model to fit its training data even more closely, which worsens overfitting rather than exposing it. A news benchmark avoids leakage but measures a different domain and says little about summarizing medical claim notes.",
+    referenceUrl: "https://docs.aws.amazon.com/bedrock/latest/userguide/evaluation.html",
+    tags: ["Evaluation", "Overfitting", "Test data"]
+  },
+  {
+    id: "aws-aif-133",
+    difficulty: "medium",
+    certId: "aws-aif",
+    domainId: "d2",
+    domainName: "Fundamentals of Generative AI",
+    title: "Cleaning trouble tickets before a training run",
+    scenario: "A telecom company is assembling documents to customize a foundation model for its network operations center. The compliance officer insists that problems in the data be dealt with before training begins, not discovered after the model is live.",
+    question: "Which two activities belong to the data selection and preparation stage? (Choose two.)",
+    options: [
+      { id: 'A', text: "Setting the maximum number of output tokens the model can return per request." },
+      { id: 'B', text: "Purchasing Provisioned Throughput model units for the expected request rate." },
+      { id: 'C', text: "Redacting customer names and phone numbers that appear in trouble tickets." },
+      { id: 'D', text: "Removing duplicate documents and filtering out low-quality or irrelevant text." },
+      { id: 'E', text: "Running an A/B test that compares two prompt versions with live operators." }
+    ],
+    correctAnswers: ['C', 'D'],
+    type: "multiple",
+    explanation: "Data selection and preparation decide what the model will learn from: deduplicating and filtering improve quality and stop the model over-weighting repeated or irrelevant text, and redacting personal information keeps it out of the model's weights, where it could later be reproduced. The maximum output token limit is an inference parameter set on each request after deployment. Provisioned Throughput is a capacity purchase for serving the model, a deployment and cost decision. An A/B test with live operators happens in production and belongs to evaluation and feedback, not to preparing training data.",
+    referenceUrl: "https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models.html",
+    tags: ["Data selection", "Data preparation", "PII"]
+  },
+  {
+    id: "aws-aif-134",
+    difficulty: "medium",
+    certId: "aws-aif",
+    domainId: "d2",
+    domainName: "Fundamentals of Generative AI",
+    title: "Comparing three itinerary-writing models",
+    scenario: "A travel agency has shortlisted three foundation models in Amazon Bedrock for writing itinerary summaries. It wants a repeatable comparison on its own 500 sample prompts, scored for accuracy and toxicity, before committing to a single model.",
+    question: "Which approach fits this step of the lifecycle?",
+    options: [
+      { id: 'A', text: "Deploy all three models in Amazon Bedrock and keep whichever draws the fewest complaints." },
+      { id: 'B', text: "Fine-tune each model on the 500 prompts, then keep whichever tuning job finishes first." },
+      { id: 'C', text: "Pick the model with the largest parameter count, since size predicts quality on every task." },
+      { id: 'D', text: "Run a model evaluation job for each model using the agency's own prompt dataset." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Amazon Bedrock model evaluation runs automatic evaluation jobs against a built-in or custom prompt dataset and reports metrics such as accuracy, robustness, and toxicity, giving a repeatable side-by-side comparison before deployment. Putting three untested models in front of customers exposes them to poor or harmful output and turns complaints into the test harness. Parameter count is only a rough signal; smaller models often match larger ones on narrow tasks at lower cost and latency. Fine-tuning before choosing is premature, prompts without reference outputs are not a training set, and job duration says nothing about output quality.",
+    referenceUrl: "https://docs.aws.amazon.com/bedrock/latest/userguide/evaluation.html",
+    tags: ["Model evaluation", "Amazon Bedrock", "Model selection"]
+  },
+  {
+    id: "aws-aif-135",
+    difficulty: "medium",
+    certId: "aws-aif",
+    domainId: "d2",
+    domainName: "Fundamentals of Generative AI",
+    title: "Going live with no operations staff",
+    scenario: "A small e-learning company has selected and evaluated a foundation model and now needs it in production. It has no operations staff to patch or scale inference servers, and daily traffic swings unpredictably between a handful of requests and several thousand.",
+    question: "Which deployment approach best fits?",
+    options: [
+      { id: 'A', text: "Host the model on EC2 GPU instances in an Auto Scaling group that the company configures." },
+      { id: 'B', text: "Run the model on an on-premises GPU server that the company buys and sizes for peak load." },
+      { id: 'C', text: "Invoke the model through a managed serverless API that bills per token and scales for you." },
+      { id: 'D', text: "Deploy the model to a SageMaker real-time endpoint on one instance type sized for the peak." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "On-demand inference in Amazon Bedrock is serverless: there are no instances to patch or scale, and charges follow the input and output tokens actually processed, which suits spiky, unpredictable traffic and a team without operations staff. EC2 GPU instances leave patching, scaling policies, and model serving software to the company. An on-premises server adds capital cost, sits idle at quiet times, and still needs someone to run it. A SageMaker real-time endpoint is managed, but the company chooses and pays for instances whether or not requests arrive, and a fixed peak-sized instance wastes money on quiet days.",
+    referenceUrl: "https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-bedrock.html",
+    tags: ["Deployment", "Amazon Bedrock", "Serverless"]
+  },
+  {
+    id: "aws-aif-136",
+    difficulty: "easy",
+    certId: "aws-aif",
+    domainId: "d2",
+    domainName: "Fundamentals of Generative AI",
+    title: "Weekly review of downvoted help answers",
+    scenario: "A software vendor launched a generative AI help assistant last month. Each answer shows thumbs-up and thumbs-down buttons, and every week the team reviews downvoted conversations to adjust prompts and plan the next round of tuning.",
+    question: "Which stage of the foundation model lifecycle does this activity represent?",
+    options: [
+      { id: 'A', text: "Model selection, in which candidate models are compared before committing to one." },
+      { id: 'B', text: "Feedback, which feeds real-world results back into later prompt and model improvements." },
+      { id: 'C', text: "Data selection, in which the corpus for the first training run is gathered and cleaned." },
+      { id: 'D', text: "Pre-training, in which the model learns general language patterns from unlabeled text." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "The feedback stage closes the lifecycle loop: signals from real users, such as ratings and escalations, reveal where the deployed model falls short and drive the next iteration of prompts, data, or tuning. Pre-training happens long before deployment and uses unlabeled corpora rather than user ratings. Model selection is the earlier choice among candidate models. Data selection prepares the initial training corpus; user feedback may later inform new data, but collecting and acting on live ratings is the feedback stage.",
+    referenceUrl: "https://aws.amazon.com/what-is/foundation-models/",
+    tags: ["Feedback", "Foundation model lifecycle"]
+  },
+  {
+    id: "aws-aif-137",
+    difficulty: "hard",
+    certId: "aws-aif",
+    domainId: "d2",
+    domainName: "Fundamentals of Generative AI",
+    title: "A tuned model that forgot how to summarize",
+    scenario: "A logistics firm fine-tuned a model on 50,000 shipment classification examples. Classification accuracy rose sharply, but evaluation also shows the model now writes poor free-text summaries, a task it handled well before tuning and one the dispatch team still relies on every day.",
+    question: "What is the most appropriate next step in the lifecycle?",
+    options: [
+      { id: 'A', text: "Add summarization examples to the tuning data, then re-tune and evaluate both tasks again." },
+      { id: 'B', text: "Lower the tuned model's temperature so that its summaries become more focused and consistent." },
+      { id: 'C', text: "Deploy the tuned model now and let production feedback show whether summaries really matter." },
+      { id: 'D', text: "Continue pre-training the tuned model on unlabeled shipment examples to restore general skill." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Tuning heavily on one narrow task can erode abilities the base model had, an effect often called catastrophic forgetting. The lifecycle is iterative: evaluation found the regression, so the team returns to data selection, mixes in examples of the task it must preserve, re-tunes, and evaluates both tasks before deployment. Deploying anyway knowingly ships a regression on a task the dispatch team depends on. Temperature affects randomness in sampling, not a skill the weights have lost. Continued pre-training on unlabeled shipment records adds domain text but supplies no summaries, so it does not target the lost behavior.",
+    referenceUrl: "https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models.html",
+    tags: ["Fine-tuning", "Evaluation", "Catastrophic forgetting"]
+  },
+  {
+    id: "aws-aif-138",
+    difficulty: "hard",
+    certId: "aws-aif",
+    domainId: "d2",
+    domainName: "Fundamentals of Generative AI",
+    title: "Downvotes spike after a product line launch",
+    scenario: "An electronics retailer's shopping assistant scored well in pre-launch evaluation. Three months later, after a new smart-home product line launched, downvotes and escalations rise sharply, almost all on questions about the new products. The model version and prompts have not changed.",
+    question: "What does this pattern indicate, and what should the team do?",
+    options: [
+      { id: 'A', text: "The model's weights have degraded with heavy use; redeploy the same version to reset its parameters." },
+      { id: 'B', text: "The original evaluation metric was flawed; re-run the pre-launch tests using a different metric." },
+      { id: 'C', text: "Users now ask about content the model never saw; update its knowledge or tuning data and re-evaluate." },
+      { id: 'D', text: "Traffic exceeds capacity; buy more Provisioned Throughput so that answers are generated faster." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "Failures concentrated on a topic that did not exist at evaluation time point to a shift in what users ask, not a broken model. Feedback has done its job, and the next iteration supplies the missing knowledge, for example by adding the new catalog to a retrieval source or tuning data, followed by re-evaluation. Model weights do not change during inference, so heavy use cannot degrade them and redeploying the same version changes nothing. The pre-launch evaluation was valid for the questions of that time; switching metrics does not add knowledge about new products. More throughput shortens waits but cannot make answers about unfamiliar products correct.",
+    referenceUrl: "https://aws.amazon.com/what-is/foundation-models/",
+    tags: ["Feedback", "Monitoring", "Data drift"]
+  },
+  {
+    id: "aws-aif-139",
+    difficulty: "medium",
+    certId: "aws-aif",
+    domainId: "d2",
+    domainName: "Fundamentals of Generative AI",
+    title: "A founder who wants a proprietary base model",
+    scenario: "A seed-stage startup wants a chatbot that answers questions about pet nutrition. One founder proposes pre-training a proprietary foundation model so the company owns the technology outright. The company has three engineers and eight months of runway.",
+    question: "What is the strongest reason to start from an existing foundation model instead?",
+    options: [
+      { id: 'A', text: "Pre-training demands huge datasets, specialized compute, and months of work it cannot fund." },
+      { id: 'B', text: "Existing models already know the company's proprietary nutrition data, so no customizing is needed." },
+      { id: 'C', text: "A model from in-house pre-training can only run on premises; existing models only run in the cloud." },
+      { id: 'D', text: "A model the startup pre-trains could never be fine-tuned in later months, blocking improvements." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Pre-training a capable foundation model takes vast curated datasets, large clusters of accelerators running for weeks or months, and specialist expertise, which is far beyond three engineers and eight months of funding; starting from an existing model and adding the startup's knowledge through prompting, retrieval, or fine-tuning delivers the product within its means. Existing models have not seen the company's private data, which is exactly why customization or retrieval is usually still needed. A model the startup pre-trained could be fine-tuned like any other. Where a model runs depends on how it is packaged and licensed, not on who trained it.",
+    referenceUrl: "https://aws.amazon.com/what-is/foundation-models/",
+    tags: ["Pre-training", "Model selection", "Cost"]
+  },
+  {
+    id: "aws-aif-140",
+    difficulty: "medium",
+    certId: "aws-aif",
+    domainId: "d2",
+    domainName: "Fundamentals of Generative AI",
+    title: "Brand voice that overlap scores cannot see",
+    scenario: "A cosmetics brand must decide whether a tuned model's product copy matches its playful brand voice. Automated overlap scores against reference copy are nearly identical for the two candidate models, yet the marketing team clearly prefers one of them in informal reviews.",
+    question: "Which evaluation approach should guide the final decision?",
+    options: [
+      { id: 'A', text: "Choose whichever model has the higher BLEU score against the reference product copy." },
+      { id: 'B', text: "Run a structured human evaluation in which marketers rate outputs on voice criteria." },
+      { id: 'C', text: "Measure each model's latency and pick the fastest, since voice quality is already tied." },
+      { id: 'D', text: "Choose whichever model has the lower perplexity on its original pre-training corpus." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "Tone and brand voice are subjective qualities that word-overlap metrics capture poorly, so a structured human evaluation, with clear rating criteria and several reviewers, is the right evidence at this lifecycle step; Amazon Bedrock model evaluation supports human evaluation jobs with your own work team. BLEU is another overlap metric and would inherit the same blindness already seen in the automated scores. Perplexity on the pre-training corpus measures general language modeling, not fit to this brand. Latency matters for user experience but says nothing about which copy sounds right.",
+    referenceUrl: "https://docs.aws.amazon.com/bedrock/latest/userguide/evaluation.html",
+    tags: ["Evaluation", "Human evaluation"]
+  },
+  {
+    id: "aws-aif-141",
+    difficulty: "easy",
+    certId: "aws-aif",
+    domainId: "d2",
+    domainName: "Fundamentals of Generative AI",
+    title: "One model serving three insurance teams",
+    scenario: "A mid-sized insurer wants help with three jobs: summarizing adjuster notes, drafting customer letters, and pulling key fields out of emails. A consultant points out that a traditional approach would build and maintain a separately trained model for each job.",
+    question: "Which advantage of generative AI makes a single foundation model a realistic alternative?",
+    options: [
+      { id: 'A', text: "Specialization: the model is trained only on insurance data, so it avoids off-topic text." },
+      { id: 'B', text: "Determinism: the model returns the same wording every time, simplifying letter approvals." },
+      { id: 'C', text: "Adaptability: one pre-trained model can handle many different tasks through prompting." },
+      { id: 'D', text: "Interpretability: each output can be traced to the specific weights that produced it." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "Adaptability is a core advantage of foundation models: because pre-training gives them broad language capability, one model can summarize, draft, and extract simply by changing the instructions, instead of maintaining a model per task. Generative models are not deterministic by default; the same prompt can produce different wording. Interpretability is a known weakness, since billions of parameters make it hard to explain why a particular output appeared. General-purpose foundation models are trained on broad data, not only on one industry's documents.",
+    referenceUrl: "https://aws.amazon.com/what-is/generative-ai/",
+    tags: ["Advantages", "Adaptability"]
+  },
+  {
+    id: "aws-aif-142",
+    difficulty: "easy",
+    certId: "aws-aif",
+    domainId: "d2",
+    domainName: "Fundamentals of Generative AI",
+    title: "A prototype built by the HR team",
+    scenario: "The HR team at a manufacturing company built a working prototype that rewrites job postings in inclusive language. Nobody on the team writes code or has ever trained a model; they described the task in plain English and tested it in a browser playground.",
+    question: "Which advantage of generative AI does this example illustrate most directly?",
+    options: [
+      { id: 'A', text: "Simplicity: a task can be described in natural language instead of labeled data and code." },
+      { id: 'B', text: "Scalability: the prototype serves thousands of users automatically without any setup." },
+      { id: 'C', text: "Accuracy: every generated posting is guaranteed free of errors, so review is unnecessary." },
+      { id: 'D', text: "Explainability: the model names the training documents that shaped each suggested edit." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Simplicity is one of the advantages the exam associates with generative AI: instead of collecting labeled examples, engineering features, and training a model, a user can state the task in everyday language and get a result. A playground prototype says nothing about serving thousands of users; production scaling is a separate engineering concern. Generative models can make mistakes and hallucinate, so human review of job postings remains necessary. Foundation models cannot reliably attribute an output to specific training documents, which is part of their interpretability limitation.",
+    referenceUrl: "https://aws.amazon.com/what-is/generative-ai/",
+    tags: ["Advantages", "Simplicity"]
+  },
+  {
+    id: "aws-aif-143",
+    difficulty: "easy",
+    certId: "aws-aif",
+    domainId: "d2",
+    domainName: "Fundamentals of Generative AI",
+    title: "Tailored replies while the customer waits",
+    scenario: "A furniture retailer's chat channel used to offer customers a menu of canned replies. The retailer now wants each response to reflect the customer's own order, wording, and delivery situation, produced within a few seconds while the customer is still in the chat.",
+    question: "Which advantage of generative AI is the retailer relying on?",
+    options: [
+      { id: 'A', text: "Determinism: it gives every customer the same approved reply to the same question." },
+      { id: 'B', text: "Responsiveness: it produces tailored content on demand in close to real time." },
+      { id: 'C', text: "Self-training: it retrains itself after every chat so later replies improve instantly." },
+      { id: 'D', text: "Low compute: it needs less processing per reply than looking up a canned response." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "Responsiveness refers to generative AI's ability to create new, context-specific content on request, quickly enough for interactive use, which is what replacing canned replies with personalized ones requires. Giving everyone the same approved reply is what the old canned menu did, and generative output is not deterministic by default. Generating text with a large model uses far more compute than retrieving a stored reply. Deployed models do not update their weights from each conversation; improvements come from deliberate retraining or prompt changes.",
+    referenceUrl: "https://aws.amazon.com/what-is/generative-ai/",
+    tags: ["Advantages", "Responsiveness"]
+  },
+  {
+    id: "aws-aif-144",
+    difficulty: "medium",
+    certId: "aws-aif",
+    domainId: "d2",
+    domainName: "Fundamentals of Generative AI",
+    title: "Replacing a decision-tree chatbot at a utility",
+    scenario: "A utility company's rule-based chatbot fails whenever customers phrase requests in ways its designers did not anticipate, and every new service requires engineers to add dozens of new rules. Leadership is considering an assistant built on a foundation model.",
+    question: "Which two advantages would the generative AI assistant bring? (Choose two.)",
+    options: [
+      { id: 'A', text: "It exposes a complete trace of the rules it applied to reach each answer." },
+      { id: 'B', text: "It can understand varied and unanticipated phrasings of the same request." },
+      { id: 'C', text: "It guarantees the same wording in every answer, which simplifies legal review." },
+      { id: 'D', text: "It removes the need to review outputs, since generated answers are correct." },
+      { id: 'E', text: "It can cover a new service through updated instructions and context alone." }
+    ],
+    correctAnswers: ['B', 'E'],
+    type: "multiple",
+    explanation: "A foundation model understands meaning rather than matching fixed patterns, so it copes with phrasings nobody scripted, and new services can often be supported by adding instructions and reference content rather than writing rule trees. Guaranteed identical wording is a property of the rule-based bot, not of a generative model whose output varies. A rule engine can show which rules fired; a neural model cannot give an equivalent trace, which is its interpretability limitation. Generative models can hallucinate, so answers still need guardrails, testing, and monitoring.",
+    referenceUrl: "https://aws.amazon.com/what-is/generative-ai/",
+    tags: ["Advantages", "Chatbots"]
+  },
+  {
+    id: "aws-aif-145",
+    difficulty: "medium",
+    certId: "aws-aif",
+    domainId: "d2",
+    domainName: "Fundamentals of Generative AI",
+    title: "A product launch with no retraining run",
+    scenario: "A consumer electronics company used to spend weeks retraining a text classifier whenever it launched a product, so its support bot could recognize questions about the new item. With a foundation model, the team now handles each launch by adding the product's specifications to the prompt context.",
+    question: "Why does this work without any retraining?",
+    options: [
+      { id: 'A', text: "Its general language ability lets it apply new context that is supplied at inference." },
+      { id: 'B', text: "Supplying specifications as context turns the model into a deterministic classifier." },
+      { id: 'C', text: "The model silently updates its weights each time it receives a new specification." },
+      { id: 'D', text: "The model memorized every product the company will ever launch during pre-training." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "A foundation model can reason over information placed in its prompt, often called in-context learning, so new facts supplied at inference time are used immediately without changing any weights. That adaptability is what removes the retraining cycle. Inference never updates model weights. A model cannot have learned about products that did not exist when its training data was collected. Adding context does not make a generative model deterministic or turn it into a fixed classifier; its outputs can still vary between runs.",
+    referenceUrl: "https://aws.amazon.com/what-is/generative-ai/",
+    tags: ["Adaptability", "In-context learning"]
+  },
+  {
+    id: "aws-aif-146",
+    difficulty: "easy",
+    certId: "aws-aif",
+    domainId: "d2",
+    domainName: "Fundamentals of Generative AI",
+    title: "Complaint text turned into a table on the first try",
+    scenario: "A logistics analyst asks a general-purpose foundation model to convert free-text delivery complaints into a table with columns for city, delay length, and cause. No one fine-tuned the model for this task, yet it returns usable tables on the first attempt.",
+    question: "Which characteristic of foundation models explains this result?",
+    options: [
+      { id: 'A', text: "They retrieve a stored answer from a database of other users' identical requests." },
+      { id: 'B', text: "They are pre-trained separately for every task that a business might request." },
+      { id: 'C', text: "They ship with a built-in library of table templates that match common requests." },
+      { id: 'D', text: "Broad pre-training lets them generalize to new tasks from instructions alone." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Foundation models are pre-trained on broad data, which gives them general skills they can apply to tasks they were never explicitly trained on when given clear instructions, known as zero-shot capability. One base model serves many tasks, rather than a separate pre-training run per task. Models generate output token by token from learned patterns, not by filling in a template library. They do not look up other users' past requests; each response is generated from the current prompt.",
+    referenceUrl: "https://aws.amazon.com/what-is/foundation-models/",
+    tags: ["Zero-shot", "Adaptability"]
+  },
+  {
+    id: "aws-aif-147",
+    difficulty: "medium",
+    certId: "aws-aif",
+    domainId: "d2",
+    domainName: "Fundamentals of Generative AI",
+    title: "A summarize button for a project tool",
+    scenario: "A project management SaaS company wants to add a button that summarizes long comment threads. Its developers know REST APIs but not machine learning, and building a summarization model themselves would require labeled data, a training pipeline, and hosting.",
+    question: "Which aspect of generative AI most reduces the effort involved?",
+    options: [
+      { id: 'A', text: "A pre-trained model is called with a prompt through an API, with no training pipeline." },
+      { id: 'B', text: "Generative AI builds a training pipeline per customer that yields its own summarizer." },
+      { id: 'C', text: "A generative model runs entirely in the user's browser, so no external call is made." },
+      { id: 'D', text: "Generative AI needs labeled summaries only for the first few hundred customer threads." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Because a foundation model already knows how to summarize, the developers only need to send the thread text with an instruction to a managed API and display the result, skipping data labeling, training, and model hosting. Nothing trains a per-customer model automatically; that would reintroduce the pipeline the team wants to avoid. Summarization with a capable foundation model works zero-shot, without a labeled starter set. Large foundation models are served from cloud infrastructure; they are not generally run inside a browser.",
+    referenceUrl: "https://aws.amazon.com/what-is/generative-ai/",
+    tags: ["Simplicity", "Summarization"]
+  },
+  {
+    id: "aws-aif-148",
+    difficulty: "hard",
+    certId: "aws-aif",
+    domainId: "d2",
+    domainName: "Fundamentals of Generative AI",
+    title: "Picking a bank's single generative AI pilot",
+    scenario: "A bank's innovation office has budget for one generative AI pilot. The shortlisted candidates are calculating loan interest, drafting follow-up emails after advisor meetings in 12 languages, enforcing who may view customer files, and reconciling daily ledger totals.",
+    question: "Which candidate best matches the advantages of generative AI?",
+    options: [
+      { id: 'A', text: "Enforcing which employees may view customer files according to access policies." },
+      { id: 'B', text: "Drafting personalized follow-up emails in 12 languages after advisor meetings." },
+      { id: 'C', text: "Reconciling daily ledger totals so that debits and credits balance precisely." },
+      { id: 'D', text: "Calculating exact loan interest amounts that must match each contract to the cent." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "Personalized, multilingual drafting plays directly to generative AI's strengths: producing varied natural language quickly, adapting to each client's context, and translating, with an advisor reviewing before sending. Interest calculations need exact, repeatable arithmetic that deterministic code provides and a probabilistic text generator does not guarantee. Access enforcement must be deterministic and auditable, so it belongs in an authorization system such as IAM policies or application rules. Ledger reconciliation also requires precise, verifiable computation, where a hallucinated figure would be a serious error.",
+    referenceUrl: "https://aws.amazon.com/what-is/generative-ai/",
+    tags: ["Advantages", "Use case fit"]
+  },
+  {
+    id: "aws-aif-149",
+    difficulty: "hard",
+    certId: "aws-aif",
+    domainId: "d2",
+    domainName: "Fundamentals of Generative AI",
+    title: "Vetting a vendor's slide of benefits",
+    scenario: "A vendor pitching a generative AI writing tool to a pharmaceutical marketing department lists several benefits in its slide deck. The department's head of compliance asks the internal AI lead which of the claims reflect genuine advantages of generative AI.",
+    question: "Which two claims should the AI lead endorse? (Choose two.)",
+    options: [
+      { id: 'A', text: "The model can show exactly which training documents each sentence was taken from." },
+      { id: 'B', text: "Staff can request drafts in plain language and receive them within a few seconds." },
+      { id: 'C', text: "The same model can draft emails, summarize studies, and rewrite copy for new readers." },
+      { id: 'D', text: "Every generated claim is factually accurate, so medical-legal review can be dropped." },
+      { id: 'E', text: "Outputs are identical for identical prompts at any setting, which eases versioning." }
+    ],
+    correctAnswers: ['B', 'C'],
+    type: "multiple",
+    explanation: "Handling many writing tasks with one model reflects adaptability, and plain-language requests answered in seconds reflect simplicity and responsiveness, all genuine advantages. Generative models can hallucinate, so in a regulated industry medical-legal review remains essential. Output varies with sampling settings such as temperature, and even low settings do not promise identical text across model versions. Foundation models cannot reliably trace a sentence back to specific training documents, which is part of their interpretability limitation; source attribution comes from techniques such as retrieval with citations.",
+    referenceUrl: "https://aws.amazon.com/what-is/generative-ai/",
+    tags: ["Advantages", "Limitations"]
+  },
+  {
+    id: "aws-aif-150",
+    difficulty: "medium",
+    certId: "aws-aif",
+    domainId: "d2",
+    domainName: "Fundamentals of Generative AI",
+    title: "Is 5,000 labeled examples enough?",
+    scenario: "A property management firm has 5,000 labeled examples of tenant requests paired with ideal replies. A board member asks whether that is enough to build its own model, and the technical lead must explain how data needs differ across stages of the lifecycle.",
+    question: "Which statement should the technical lead make?",
+    options: [
+      { id: 'A', text: "Pre-training uses a small, curated, labeled dataset that is specific to one task." },
+      { id: 'B', text: "Fine-tuning needs a larger dataset than the original pre-training run consumed." },
+      { id: 'C', text: "Fine-tuning adapts a pre-trained model with a comparatively small labeled dataset." },
+      { id: 'D', text: "Fine-tuning rebuilds every weight from scratch, so it needs pre-training compute." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "Fine-tuning starts from a model that already understands language and adjusts it with a modest labeled dataset, so a few thousand high-quality examples can meaningfully change behavior, whereas building a model from scratch would need a pre-training corpus many orders of magnitude larger. Fine-tuning datasets are tiny compared with pre-training corpora, not larger. Pre-training uses vast, broad, unlabeled data rather than a small task-specific labeled set. Fine-tuning starts from the existing weights and adjusts them, at a small fraction of pre-training compute.",
+    referenceUrl: "https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models.html",
+    tags: ["Fine-tuning", "Pre-training", "Data size"]
+  }
+];
+
+export default AWS_AIF_QUESTIONS_6;

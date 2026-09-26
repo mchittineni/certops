@@ -1,0 +1,532 @@
+export const AWS_AIF_QUESTIONS_7 = [
+  {
+    id: "aws-aif-151",
+    difficulty: "easy",
+    certId: "aws-aif",
+    domainId: "d2",
+    domainName: "Fundamentals of Generative AI",
+    title: "A court ruling that was never handed down",
+    scenario: "A paralegal asks a general-purpose chatbot for precedents supporting a motion. The response cites three appellate decisions with case numbers and quotations. When the paralegal checks the court database, one of the cited decisions does not exist at all.",
+    question: "Which limitation of generative AI does this illustrate?",
+    options: [
+      { id: 'A', text: "Hallucination: fluent, confident output not grounded in any real source." },
+      { id: 'B', text: "Toxicity: the model may produce offensive or harmful language." },
+      { id: 'C', text: "Nondeterminism: the same question can return different wording on each attempt." },
+      { id: 'D', text: "Latency: long answers take several seconds to generate, delaying the research." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "A hallucination is content that sounds plausible and authoritative but is fabricated; language models generate statistically likely text rather than looking facts up, so they can invent citations complete with case numbers. Nondeterminism describes variation between runs, which is not the problem here; one answer contained a fabricated fact. Latency affects speed, not truthfulness. Toxicity concerns offensive or harmful content, and a fake but polite legal citation is not toxic.",
+    referenceUrl: "https://aws.amazon.com/what-is/generative-ai/",
+    tags: ["Limitations", "Hallucination"]
+  },
+  {
+    id: "aws-aif-152",
+    difficulty: "easy",
+    certId: "aws-aif",
+    domainId: "d2",
+    domainName: "Fundamentals of Generative AI",
+    title: "Regression tests that never match twice",
+    scenario: "A QA engineer writes automated tests for a feature that generates product descriptions. Each test sends a fixed prompt and compares the output with a stored expected string. The tests fail intermittently even though nobody has changed the prompt, the code, or the model version.",
+    question: "Which characteristic of generative AI explains the failures?",
+    options: [
+      { id: 'A', text: "Interpretability limits, because the model cannot explain why it chose its words." },
+      { id: 'B', text: "Nondeterminism, because sampling can produce different text for the same prompt." },
+      { id: 'C', text: "Knowledge cutoff, because the model was trained on data from before the product launch." },
+      { id: 'D', text: "Hallucination, because the model invents product facts that are absent from the prompt." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "Generative models sample each next token from a probability distribution, so identical prompts can yield different wording; exact-string comparisons are therefore brittle, and tests should check properties such as required facts, format, or a similarity threshold instead. Limited interpretability makes outputs hard to explain but does not cause run-to-run variation. Hallucination is about invented content, while these tests fail even when the text may be accurate. A knowledge cutoff would produce the same kind of gap on every run rather than intermittent mismatches.",
+    referenceUrl: "https://docs.aws.amazon.com/bedrock/latest/userguide/inference-parameters.html",
+    tags: ["Limitations", "Nondeterminism", "Testing"]
+  },
+  {
+    id: "aws-aif-153",
+    difficulty: "easy",
+    certId: "aws-aif",
+    domainId: "d2",
+    domainName: "Fundamentals of Generative AI",
+    title: "An auditor asks why the model wrote that",
+    scenario: "An internal auditor at a pension fund reviews a generative AI tool that drafts investment commentary. She asks the data team to show which internal factors inside the model caused it to describe one fund as low risk. The team can show the prompt and the output, but nothing in between.",
+    question: "Which limitation of generative AI is the auditor running into?",
+    options: [
+      { id: 'A', text: "Limited interpretability: billions of parameters make its reasoning opaque." },
+      { id: 'B', text: "Nondeterminism: the model gives different commentary for the same fund each time." },
+      { id: 'C', text: "Limited adaptability: it cannot switch between fund categories." },
+      { id: 'D', text: "Limited responsiveness: the model cannot draft commentary quickly enough for use." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Foundation models are deep neural networks with billions of parameters, and there is no practical way to point to the internal factors that produced a particular sentence; that opacity is the interpretability limitation, and it matters most where decisions must be justified to auditors or regulators. Nondeterminism concerns variation between runs, not the inability to explain one run. Responsiveness and adaptability are advantages of generative AI, and nothing in the scenario suggests speed or task switching is the issue.",
+    referenceUrl: "https://aws.amazon.com/what-is/generative-ai/",
+    tags: ["Limitations", "Interpretability"]
+  },
+  {
+    id: "aws-aif-154",
+    difficulty: "easy",
+    certId: "aws-aif",
+    domainId: "d2",
+    domainName: "Fundamentals of Generative AI",
+    title: "Last year's savings rates quoted as current",
+    scenario: "A credit union's member assistant, built on a foundation model with no connection to internal systems, tells members that the savings rate is 3.1 percent. The credit union changed the rate to 4.0 percent two months ago, well after the model's training data was collected.",
+    question: "What is the most appropriate way to fix these inaccurate answers?",
+    options: [
+      { id: 'A', text: "Retrieve current rates from the lender's records and supply them in each prompt." },
+      { id: 'B', text: "Increase max output tokens so the model can explain its rates." },
+      { id: 'C', text: "Switch to a larger model from the same provider trained on the same data snapshot." },
+      { id: 'D', text: "Raise the temperature so that the model considers a wider range of possible rates." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "A model knows only what was in its training data, so facts that change after its knowledge cutoff come out wrong. Grounding answers in current data retrieved at request time, the retrieval augmented generation pattern, keeps them accurate without retraining whenever rates move. Raising the temperature adds randomness and would make the quoted rate less reliable. Longer outputs change verbosity, not the underlying fact. A larger model trained on the same snapshot has the same cutoff and would repeat the outdated rate.",
+    referenceUrl: "https://aws.amazon.com/what-is/retrieval-augmented-generation/",
+    tags: ["Limitations", "Inaccuracy", "Knowledge cutoff"]
+  },
+  {
+    id: "aws-aif-155",
+    difficulty: "medium",
+    certId: "aws-aif",
+    domainId: "d2",
+    domainName: "Fundamentals of Generative AI",
+    title: "Lowering the risk of invented dosage guidance",
+    scenario: "A veterinary clinic chain is building an assistant that answers staff questions about medication dosages for animals. A wrong answer could harm a patient, and a pilot showed the model occasionally states dosages that appear in none of the clinic's formularies.",
+    question: "Which two measures most directly reduce the risk from hallucinated answers? (Choose two.)",
+    options: [
+      { id: 'A', text: "Require a veterinarian to confirm any dosage before it is given to an animal." },
+      { id: 'B', text: "Raise the clinic model's temperature so it explores more dosage values." },
+      { id: 'C', text: "Increase the maximum output tokens so that each answer covers more drugs." },
+      { id: 'D', text: "Ground answers in passages retrieved from the clinic's approved formularies." },
+      { id: 'E', text: "Remove the system prompt so the model ignores the formularies' strict wording." }
+    ],
+    correctAnswers: ['A', 'D'],
+    type: "multiple",
+    explanation: "Retrieval grounding gives the model the authoritative formulary text to answer from, which sharply reduces invented values, and a human-in-the-loop check by a qualified veterinarian catches whatever errors remain before they can cause harm; high-stakes uses need both. A higher temperature increases randomness and makes fabricated values more likely. More output tokens lengthen answers without making them more accurate. Removing the system prompt strips the instructions that keep the model on task and pushes it back onto unverified general knowledge.",
+    referenceUrl: "https://aws.amazon.com/what-is/retrieval-augmented-generation/",
+    tags: ["Hallucination", "RAG", "Human review"]
+  },
+  {
+    id: "aws-aif-156",
+    difficulty: "medium",
+    certId: "aws-aif",
+    domainId: "d2",
+    domainName: "Fundamentals of Generative AI",
+    title: "Making contract clause labels more consistent",
+    scenario: "A procurement team uses a foundation model to label contract clauses as standard or nonstandard. Reviewers complain that the same clause is sometimes labeled differently on different days. The team wants outputs that are as repeatable as practical without changing models.",
+    question: "What should the team do, and what should it expect?",
+    options: [
+      { id: 'A', text: "Add a stop sequence, which forces the model to reuse the label it gave previously." },
+      { id: 'B', text: "Lower the temperature, which reduces variation but does not strictly guarantee it." },
+      { id: 'C', text: "Increase the output length, which lets the model settle on one consistent label." },
+      { id: 'D', text: "Raise top P toward 1.0, which fixes each answer to the single most likely label." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "A low temperature concentrates probability on the most likely tokens, so outputs become far more consistent, which suits classification; teams should still expect occasional variation and validate labels rather than assume perfect repeatability. Raising top P toward 1.0 widens the pool of candidate tokens, increasing variety rather than removing it. Output length limits how much text is produced but does not stabilize the choice of label. A stop sequence tells the model where to stop generating; it has no memory of earlier requests and cannot make it reuse a previous answer.",
+    referenceUrl: "https://docs.aws.amazon.com/bedrock/latest/userguide/inference-parameters.html",
+    tags: ["Nondeterminism", "Temperature", "Inference parameters"]
+  },
+  {
+    id: "aws-aif-157",
+    difficulty: "medium",
+    certId: "aws-aif",
+    domainId: "d2",
+    domainName: "Fundamentals of Generative AI",
+    title: "Loan decisions that must be explained to applicants",
+    scenario: "A consumer lender must give every declined applicant the specific factors behind the decision, and regulators audit those explanations. A product owner proposes letting a large language model read each application and decide approve or decline directly.",
+    question: "What is the main concern with this proposal?",
+    options: [
+      { id: 'A', text: "Language models are only licensed for creative writing, not for financial workflows." },
+      { id: 'B', text: "Generative models are too slow to return a decision while the applicant waits online." },
+      { id: 'C', text: "A language model cannot read structured application fields such as income or debt." },
+      { id: 'D', text: "The model's decision process is hard to interpret, so required reasons are unreliable." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Lending decisions demand factors that can be stated and audited. A large language model's internal reasoning cannot be reliably traced, and any explanation it writes is itself generated text that may not reflect how the decision was actually reached, so an interpretable scoring model with documented features is the safer design. Language models can read structured values once they are rendered as text, so input format is not the barrier. Generation typically takes seconds, which is acceptable for an online application. Many models are licensed for commercial use, including financial services, subject to each provider's terms.",
+    referenceUrl: "https://aws.amazon.com/what-is/generative-ai/",
+    tags: ["Interpretability", "Regulated decisions"]
+  },
+  {
+    id: "aws-aif-158",
+    difficulty: "hard",
+    certId: "aws-aif",
+    domainId: "d2",
+    domainName: "Fundamentals of Generative AI",
+    title: "Summaries quoting figures absent from the filing",
+    scenario: "An investment research firm uses Amazon Bedrock to summarize quarterly filings that it passes in with each request. Analysts found several summaries containing revenue figures that appear nowhere in the filing. The firm wants an automated control that blocks such responses before analysts see them.",
+    question: "Which control best meets the requirement?",
+    options: [
+      { id: 'A', text: "A guardrail with a denied topic for financial advice, blocking investment language." },
+      { id: 'B', text: "A guardrail with sensitive information filters that mask account numbers in the filing." },
+      { id: 'C', text: "A guardrail with a contextual grounding check against the source passed in." },
+      { id: 'D', text: "A guardrail with high-strength content filters for hate and violence." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "Contextual grounding checks in Amazon Bedrock Guardrails compare a model response with the reference source supplied in the request and with the user's query, scoring grounding and relevance; responses below the configured threshold are blocked, which catches figures that are not supported by the filing. A denied topic blocks a subject area such as investment advice and would not detect fabricated numbers inside an otherwise permitted summary. Content filters target harmful categories such as hate and violence, which these summaries do not contain. Sensitive information filters detect and mask PII patterns; they do not verify whether a figure is true.",
+    referenceUrl: "https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-contextual-grounding-check.html",
+    tags: ["Hallucination", "Amazon Bedrock Guardrails", "Grounding"]
+  },
+  {
+    id: "aws-aif-159",
+    difficulty: "medium",
+    certId: "aws-aif",
+    domainId: "d2",
+    domainName: "Fundamentals of Generative AI",
+    title: "Invoice totals that are almost right",
+    scenario: "A wholesaler asks a foundation model to read line items from supplier invoices and return the grand total. The line items are extracted correctly, but about one total in twenty is off by a small amount, and finance requires totals that are exact.",
+    question: "What is the best way to address this?",
+    options: [
+      { id: 'A', text: "Raise the temperature so that the model can reconsider its totals on each attempt." },
+      { id: 'B', text: "Have the model extract the line items and compute totals in deterministic code." },
+      { id: 'C', text: "Fine-tune the model on invoice line items until it adds long columns without mistakes." },
+      { id: 'D', text: "Allow more output tokens so the model can show each calculation." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "Language models predict text token by token and are not reliable calculators, so exact arithmetic should be delegated to code, a tool, or a function that the application calls; the model does what it is good at, extracting structured values from messy documents. More randomness makes arithmetic errors more likely, not less. Fine-tuning can improve accuracy but cannot guarantee exact results across every invoice, which is what finance requires. Longer outputs may help a model reason step by step but still leave a probabilistic calculator where an exact one is needed.",
+    referenceUrl: "https://aws.amazon.com/what-is/generative-ai/",
+    tags: ["Inaccuracy", "Limitations"]
+  },
+  {
+    id: "aws-aif-160",
+    difficulty: "easy",
+    certId: "aws-aif",
+    domainId: "d2",
+    domainName: "Fundamentals of Generative AI",
+    title: "Why a chatbot can sound certain and be wrong",
+    scenario: "After an assistant confidently gave a customer a wrong warranty period, a store manager asks the IT team how software can state something false so convincingly. He assumed the model looked answers up in a database, the way the store's inventory system does.",
+    question: "Which explanation should the IT team give?",
+    options: [
+      { id: 'A', text: "The model copied the warranty period from another customer's recent conversation." },
+      { id: 'B', text: "The model found the wrong row in the warranty database because of a stale index." },
+      { id: 'C', text: "The model was deliberately trained to prefer confident answers over accurate ones." },
+      { id: 'D', text: "It generates the most plausible next words, and plausible is not the same as true." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "A language model produces text by predicting likely tokens from patterns learned in training; it has no built-in step that checks facts, so it can produce a fluent, confident answer that is simply wrong. That is the root of hallucination and why grounding in authoritative data matters. A foundation model on its own does not query a database, so there is no index to go stale. Models are not trained to prefer confidence over accuracy; the confident tone comes from the style of their training text. Requests are processed independently, so the model does not copy details from other customers' sessions.",
+    referenceUrl: "https://aws.amazon.com/what-is/large-language-model/",
+    tags: ["Hallucination", "Limitations"]
+  },
+  {
+    id: "aws-aif-161",
+    difficulty: "hard",
+    certId: "aws-aif",
+    domainId: "d2",
+    domainName: "Fundamentals of Generative AI",
+    title: "Accurate answers that cannot be reproduced or explained",
+    scenario: "A pharmacy benefits company piloted a model that answers formulary questions. Every answer checked was factually correct and polite. However, asking the same question twice often produced differently worded answers, and when compliance asked why the model emphasized certain drugs, nobody could say.",
+    question: "Which two limitations did the pilot surface? (Choose two.)",
+    options: [
+      { id: 'A', text: "High latency, since the answers took too long to be generated for staff." },
+      { id: 'B', text: "Nondeterminism, since identical questions produced different wording." },
+      { id: 'C', text: "Toxicity, since the answers contained offensive or harmful language." },
+      { id: 'D', text: "Hallucination, since the model invented drug facts not found in any source." },
+      { id: 'E', text: "Limited interpretability, since no one could explain the model's emphasis." }
+    ],
+    correctAnswers: ['B', 'E'],
+    type: "multiple",
+    explanation: "Different wording for the same question is nondeterminism, and the inability to explain why the model emphasized particular drugs is the interpretability limitation; both were observed. Hallucination does not fit, because every answer checked was accurate. Toxicity does not fit, because the answers were polite and appropriate. Nothing in the pilot mentions slow responses, so latency was not surfaced.",
+    referenceUrl: "https://aws.amazon.com/what-is/generative-ai/",
+    tags: ["Nondeterminism", "Interpretability", "Limitations"]
+  },
+  {
+    id: "aws-aif-162",
+    difficulty: "medium",
+    certId: "aws-aif",
+    domainId: "d2",
+    domainName: "Fundamentals of Generative AI",
+    title: "Routing low-confidence extractions to reviewers",
+    scenario: "A mortgage processor uses a model to extract borrower details from scanned documents. Because generated output can be inaccurate, the processor wants a managed workflow that sends low-confidence results to human reviewers and records their corrections, without building a review application itself.",
+    question: "Which AWS service fits this requirement?",
+    options: [
+      { id: 'A', text: "Amazon Augmented AI, which provides human review workflows for ML predictions." },
+      { id: 'B', text: "Amazon SageMaker Ground Truth, for human labeling of raw training data before training." },
+      { id: 'C', text: "AWS Step Functions alone, with the team building its own review interface too." },
+      { id: 'D', text: "Amazon Comprehend, which detects entities and sentiment within the document text." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Amazon Augmented AI (Amazon A2I) provides managed human review workflows: conditions such as a confidence threshold route predictions to a private, vendor, or public workforce, reviewers use a provided task interface, and results are stored for audit and improvement. SageMaker Ground Truth is built for labeling datasets to train models, not for reviewing live predictions in a production workflow. Amazon Comprehend is another model that extracts entities; it does not add human oversight. Step Functions can orchestrate a process, but on its own the team would have to build and host the reviewer application it wants to avoid.",
+    referenceUrl: "https://docs.aws.amazon.com/sagemaker/latest/dg/a2i-use-augmented-ai-a2i-human-review-loops.html",
+    tags: ["Human review", "Amazon A2I", "Inaccuracy"]
+  },
+  {
+    id: "aws-aif-163",
+    difficulty: "easy",
+    certId: "aws-aif",
+    domainId: "d2",
+    domainName: "Fundamentals of Generative AI",
+    title: "Lifestyle photos for a furniture catalog",
+    scenario: "An online furniture store wants to create lifestyle images showing its sofas in different room styles, such as a sunny loft or a rustic cabin, from short written descriptions. The marketing team does not want to organize a photo shoot for every combination.",
+    question: "Which type of model fits this requirement?",
+    options: [
+      { id: 'A', text: "A text-to-image diffusion model that generates pictures from prompts." },
+      { id: 'B', text: "A text embedding model that converts descriptions into numeric vectors." },
+      { id: 'C', text: "A text-only language model that writes detailed descriptions of rooms." },
+      { id: 'D', text: "A speech recognition model that converts spoken descriptions into text." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Diffusion models learn to turn random noise into an image step by step, guided by a text prompt, which is how image generation models such as Amazon Nova Canvas or Stable Diffusion create pictures from descriptions. An embedding model produces vectors for search and similarity, not images. Speech recognition converts audio to text and generates nothing visual. A text-only language model can write vivid descriptions but cannot output an image.",
+    referenceUrl: "https://aws.amazon.com/what-is/stable-diffusion/",
+    tags: ["Model types", "Diffusion models", "Image generation"]
+  },
+  {
+    id: "aws-aif-164",
+    difficulty: "easy",
+    certId: "aws-aif",
+    domainId: "d2",
+    domainName: "Fundamentals of Generative AI",
+    title: "Finding similar tickets written in different words",
+    scenario: "A software company wants to find past support tickets that describe the same problem as a new ticket, even when customers use completely different wording, such as 'can't sign in' and 'login rejected'. The feature returns a ranked list of similar tickets rather than generated text.",
+    question: "Which type of model is the core of this feature?",
+    options: [
+      { id: 'A', text: "A text generation model that drafts a new reply for every incoming ticket." },
+      { id: 'B', text: "An embedding model mapping text to vectors whose distance reflects meaning." },
+      { id: 'C', text: "A diffusion model that produces an illustration of each ticket's problem." },
+      { id: 'D', text: "A keyword index that matches tickets sharing the same exact search terms." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "Embedding models, such as Amazon Titan Text Embeddings, convert text into vectors so that passages with similar meaning sit close together, even with no words in common; nearest-neighbor search over those vectors returns the ranked similar tickets. A diffusion model generates images, which is not the goal. A text generation model drafts content but does not by itself rank existing tickets by similarity. A keyword index needs shared terms, so it would miss 'can't sign in' versus 'login rejected'.",
+    referenceUrl: "https://docs.aws.amazon.com/bedrock/latest/userguide/titan-embedding-models.html",
+    tags: ["Model types", "Embeddings", "Semantic search"]
+  },
+  {
+    id: "aws-aif-165",
+    difficulty: "medium",
+    certId: "aws-aif",
+    domainId: "d2",
+    domainName: "Fundamentals of Generative AI",
+    title: "Claims that arrive as photos plus notes",
+    scenario: "An auto insurer wants a first-draft damage assessment for each claim. Every claim includes several photos of the vehicle and a paragraph of notes from the policyholder, and the draft must reason over both together, for example noticing when the notes mention a dent the photos do not show.",
+    question: "Which model capability is essential for this use case?",
+    options: [
+      { id: 'A', text: "A text-only language model with a very large context window for long claim notes." },
+      { id: 'B', text: "An embedding model that clusters claims so similar damage types are grouped together." },
+      { id: 'C', text: "A text-to-image model that renders how the vehicle probably looked before the accident." },
+      { id: 'D', text: "A multimodal model that accepts images and text together and reasons across both." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "A multimodal model takes several input types, here photos and text, in one request and can compare them, which is exactly what spotting a mismatch between notes and pictures needs. A large context window helps with long text but a text-only model cannot see the photos. A text-to-image model generates pictures rather than analyzing them. Clustering claims with embeddings could group similar cases, but it does not produce an assessment that reasons over one claim's photos and notes.",
+    referenceUrl: "https://docs.aws.amazon.com/bedrock/latest/userguide/models-supported.html",
+    tags: ["Model types", "Multimodal"]
+  },
+  {
+    id: "aws-aif-166",
+    difficulty: "medium",
+    certId: "aws-aif",
+    domainId: "d2",
+    domainName: "Fundamentals of Generative AI",
+    title: "A voice assistant that feels sluggish",
+    scenario: "A hotel chain is building an in-room voice assistant for requests such as extra towels or late checkout. In testing with a very large model, answers are good but guests wait four seconds before hearing anything, and usability tests show guests give up after about one second.",
+    question: "Which selection approach best addresses the performance requirement?",
+    options: [
+      { id: 'A', text: "Evaluate smaller, faster models that meet the quality bar, and stream the response." },
+      { id: 'B', text: "Move to a larger model with a longer context window so it understands requests faster." },
+      { id: 'C', text: "Keep the large model and raise the temperature so its responses are generated faster." },
+      { id: 'D', text: "Keep the large model and increase max output tokens so answers arrive in one piece." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Latency is a hard performance requirement here, and simple hospitality requests rarely need the largest model; a smaller model that passes evaluation returns tokens much sooner, and streaming lets speech start as soon as the first words are ready. Temperature changes randomness, not generation speed. A larger model with a longer context window is generally slower, not faster. Allowing more output tokens can only lengthen generation and does nothing to shorten the wait for the first words.",
+    referenceUrl: "https://docs.aws.amazon.com/bedrock/latest/userguide/conversation-inference.html",
+    tags: ["Model selection", "Latency", "Performance"]
+  },
+  {
+    id: "aws-aif-167",
+    difficulty: "hard",
+    certId: "aws-aif",
+    domainId: "d2",
+    domainName: "Fundamentals of Generative AI",
+    title: "Burst capacity without leaving the EU",
+    scenario: "A German insurer runs a claims assistant on Amazon Bedrock in the Frankfurt Region. It needs more throughput during storm seasons, when demand spikes, but its data protection policy forbids processing claim data outside the European Union.",
+    question: "Which approach meets both the capacity and the data residency requirement?",
+    options: [
+      { id: 'A', text: "Deploy a copy of the application in a US Region and fail over to it during storms." },
+      { id: 'B', text: "Use an EU geographic cross-Region inference profile that routes among EU Regions." },
+      { id: 'C', text: "Use a global cross-Region inference profile so requests reach any Region worldwide." },
+      { id: 'D', text: "Disable streaming responses so that each request consumes less Regional capacity." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "Cross-Region inference in Amazon Bedrock distributes requests across several Regions to absorb traffic bursts, and a geographic inference profile such as the EU profile keeps routing within Regions in that geography, satisfying the residency constraint. A global inference profile can route requests to Regions anywhere in the world, which breaks the policy. Failing over to a US Region processes claim data outside the EU. Streaming changes how the response is delivered, not how much model capacity a request consumes.",
+    referenceUrl: "https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html",
+    tags: ["Compliance", "Data residency", "Cross-Region inference"]
+  },
+  {
+    id: "aws-aif-168",
+    difficulty: "medium",
+    certId: "aws-aif",
+    domainId: "d2",
+    domainName: "Fundamentals of Generative AI",
+    title: "Legal wants the license read before launch",
+    scenario: "A media company plans to use a third-party foundation model to generate article summaries that it will sell to subscribers. Its general counsel wants to confirm, before any build work, that the model may be used commercially and what obligations come with it.",
+    question: "What should the team review to address this selection factor?",
+    options: [
+      { id: 'A', text: "The model provider's license agreement and acceptable use terms." },
+      { id: 'B', text: "The model's context window size and supported input modalities." },
+      { id: 'C', text: "The model's default temperature and top P values in the playground." },
+      { id: 'D', text: "The model's benchmark scores on a public summarization leaderboard." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Licensing is a compliance factor in model selection: each provider's end user license agreement and acceptable use policy state whether commercial use is permitted and what restrictions or attribution apply, and in Amazon Bedrock access to third-party models is subject to those provider terms. Benchmark scores speak to quality, not legal permission. Default inference parameters affect output style. Context window and modalities are capability factors; they matter for fit but not for whether the company may sell the output.",
+    referenceUrl: "https://docs.aws.amazon.com/bedrock/latest/userguide/model-access.html",
+    tags: ["Model selection", "Compliance", "Licensing"]
+  },
+  {
+    id: "aws-aif-169",
+    difficulty: "medium",
+    certId: "aws-aif",
+    domainId: "d2",
+    domainName: "Fundamentals of Generative AI",
+    title: "Reviewing 300-page supply agreements in one pass",
+    scenario: "A manufacturer wants a model to compare obligations across entire supply agreements, each about 300 pages, and flag clauses that contradict earlier sections of the same document. Splitting a contract into pieces has caused the model to miss contradictions between distant sections.",
+    question: "Which model capability matters most for this requirement?",
+    options: [
+      { id: 'A', text: "Image generation so clause relationships can be drawn as diagrams." },
+      { id: 'B', text: "A context window large enough to hold the whole agreement in a single request." },
+      { id: 'C', text: "A small parameter count so that the model returns results with the least latency." },
+      { id: 'D', text: "A low default temperature so that the model's clause comparisons are repeatable." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "The context window is the maximum number of tokens a model can consider at once; if a whole agreement fits, the model can relate a clause on page 280 to one on page 12, which chunking prevented. Image generation does nothing for reading contracts. Temperature can be set per request on most models, and repeatability does not solve the missed cross-references. A small model may be faster but typically has less capacity, and latency is not the stated requirement.",
+    referenceUrl: "https://docs.aws.amazon.com/bedrock/latest/userguide/models-supported.html",
+    tags: ["Model selection", "Context window"]
+  },
+  {
+    id: "aws-aif-170",
+    difficulty: "hard",
+    certId: "aws-aif",
+    domainId: "d2",
+    domainName: "Fundamentals of Generative AI",
+    title: "A defense contractor that must hold the weights",
+    scenario: "A defense contractor's security policy requires that any model it uses run on infrastructure it controls, with the model weights stored in its own account so they can be inspected, versioned, and deployed into an isolated network with no calls to a model provider's API.",
+    question: "Which kind of model satisfies this constraint?",
+    options: [
+      { id: 'A', text: "Any model behind a serverless API, since the contractor's traffic stays in AWS." },
+      { id: 'B', text: "A proprietary model called through a VPC endpoint so requests stay on the network." },
+      { id: 'C', text: "A proprietary model whose weights stay on the provider's hosted API infrastructure." },
+      { id: 'D', text: "An open-weight model whose weights the contractor can download and host itself." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Only open-weight models let an organization hold the actual weights, inspect and version them, and deploy them in its own environment, for example on SageMaker AI endpoints or EC2 inside an isolated VPC. Proprietary models reached only through a provider's hosted API never place weights in the customer's account. A serverless API keeps data on AWS but still means calling a managed endpoint the contractor does not control, and it provides no weights. A VPC endpoint keeps traffic on private networking, which is valuable, but the model still runs as a managed service rather than on infrastructure the contractor holds.",
+    referenceUrl: "https://docs.aws.amazon.com/sagemaker/latest/dg/jumpstart-foundation-models.html",
+    tags: ["Model selection", "Constraints", "Open-weight models"]
+  },
+  {
+    id: "aws-aif-171",
+    difficulty: "medium",
+    certId: "aws-aif",
+    domainId: "d2",
+    domainName: "Fundamentals of Generative AI",
+    title: "Support in Japanese and Portuguese under residency rules",
+    scenario: "A consumer electronics brand is choosing a model for a support assistant that must converse fluently in Japanese and Brazilian Portuguese. Customer conversations must be processed in Regions approved by its privacy office, and the shortlist has six candidate models.",
+    question: "Which two factors should drive the selection? (Choose two.)",
+    options: [
+      { id: 'A', text: "Support for generating images and video alongside text in responses." },
+      { id: 'B', text: "Rank on a public English-language leaderboard for general reasoning." },
+      { id: 'C', text: "Tested conversational quality in both of the required languages." },
+      { id: 'D', text: "Availability of the model in the Regions the privacy office approved." },
+      { id: 'E', text: "The highest parameter count among the six models on the shortlist." }
+    ],
+    correctAnswers: ['C', 'D'],
+    type: "multiple",
+    explanation: "The requirements name two hard constraints: language capability and where data may be processed. A model must demonstrably perform well in both languages, verified with the brand's own evaluation, and it must be offered in the approved Regions, since model availability in Amazon Bedrock varies by Region. Parameter count is a weak proxy for fitness and brings cost and latency. An English-language leaderboard says little about Japanese or Portuguese quality. Image and video generation is irrelevant to a text support assistant.",
+    referenceUrl: "https://docs.aws.amazon.com/bedrock/latest/userguide/models-regions.html",
+    tags: ["Model selection", "Multilingual", "Compliance"]
+  },
+  {
+    id: "aws-aif-172",
+    difficulty: "easy",
+    certId: "aws-aif",
+    domainId: "d2",
+    domainName: "Fundamentals of Generative AI",
+    title: "Tagging a million short tickets a month",
+    scenario: "A telecom provider wants to tag about one million short support messages a month with one of eight categories. A test showed that a small, low-cost model and the provider's most capable model reach almost identical accuracy on this task.",
+    question: "Which model should the provider choose?",
+    options: [
+      { id: 'A', text: "Both models in turn, sending every message to each and comparing tags." },
+      { id: 'B', text: "The most capable model, since small models cannot classify accurately." },
+      { id: 'C', text: "The most capable model, since capability lowers total cost." },
+      { id: 'D', text: "The small model, since it meets the accuracy need at far lower cost." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Model selection should pick the least expensive model that meets the requirement; with near-identical accuracy and a million requests a month, the small model's lower per-token price and faster responses add up to large savings. More capable models usually cost more per token, so capability does not lower total cost for a task a small model already handles. Sending every message to both models doubles cost for little benefit once the evaluation has been done. Small models classify short text well, as the test itself showed.",
+    referenceUrl: "https://aws.amazon.com/bedrock/pricing/",
+    tags: ["Model selection", "Cost"]
+  },
+  {
+    id: "aws-aif-173",
+    difficulty: "medium",
+    certId: "aws-aif",
+    domainId: "d2",
+    domainName: "Fundamentals of Generative AI",
+    title: "Big-model accuracy at small-model prices",
+    scenario: "An e-commerce company's product question assistant is accurate only on a large, expensive model; smaller models in the same family miss too many answers. The company handles a single, well-defined use case and wants something close to the large model's accuracy at a lower cost and latency.",
+    question: "Which Amazon Bedrock capability addresses this directly?",
+    options: [
+      { id: 'A', text: "Continued pre-training, which adds product text but leaves the model no smaller or cheaper." },
+      { id: 'B', text: "Provisioned Throughput, which reserves capacity for the large model at an hourly price." },
+      { id: 'C', text: "Model distillation, which trains a smaller student model on a larger teacher's responses." },
+      { id: 'D', text: "Batch inference, which processes stored prompts asynchronously at a lower price per token." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "Amazon Bedrock Model Distillation uses a larger teacher model to generate responses for a specific use case and then fine-tunes a smaller student model on them, producing a model that approaches the teacher's accuracy on that task with the smaller model's cost and speed. Continued pre-training improves domain knowledge but leaves the model large and expensive to run. Provisioned Throughput reserves capacity for predictable throughput; it does not make the large model cheaper per answer at modest volumes. Batch inference suits offline jobs, not an interactive assistant where shoppers wait for answers.",
+    referenceUrl: "https://docs.aws.amazon.com/bedrock/latest/userguide/model-distillation.html",
+    tags: ["Model selection", "Model distillation", "Cost"]
+  },
+  {
+    id: "aws-aif-174",
+    difficulty: "medium",
+    certId: "aws-aif",
+    domainId: "d2",
+    domainName: "Fundamentals of Generative AI",
+    title: "A roadmap that includes fine-tuning next year",
+    scenario: "A publishing house is choosing a model in Amazon Bedrock for a style-editing assistant. Prompting is good enough for launch, but the roadmap commits to fine-tuning on the house's edited manuscripts within a year, and the team does not want to switch models then.",
+    question: "Which factor should the team check before committing to a model?",
+    options: [
+      { id: 'A', text: "Whether Bedrock supports fine-tuning jobs for that specific model." },
+      { id: 'B', text: "Whether the model is available for batch inference and fine-tuning in every Region." },
+      { id: 'C', text: "Whether the model has the highest default temperature among the candidates." },
+      { id: 'D', text: "Whether it can draw cover images from a synopsis." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Customization support varies by model: only certain models in Amazon Bedrock can be fine-tuned or continued-pre-trained, so a model chosen today may block next year's plan. Checking the supported customization methods up front avoids a forced migration. Image generation is unrelated to style editing. Batch availability in every Region is neither required nor related to fine-tuning. Default temperature is adjustable per request and is not a selection criterion.",
+    referenceUrl: "https://docs.aws.amazon.com/bedrock/latest/userguide/custom-model-supported.html",
+    tags: ["Model selection", "Customization"]
+  },
+  {
+    id: "aws-aif-175",
+    difficulty: "easy",
+    certId: "aws-aif",
+    domainId: "d2",
+    domainName: "Fundamentals of Generative AI",
+    title: "Patient messages and the HIPAA question",
+    scenario: "A US hospital group wants a generative AI assistant that drafts replies to patient portal messages, which contain protected health information. Its compliance team will only approve services that are eligible for use under the group's business associate agreement with AWS.",
+    question: "What should the team confirm about the candidate service?",
+    options: [
+      { id: 'A', text: "That the model has the largest context window available." },
+      { id: 'B', text: "That the service offers an eligible no-code test playground." },
+      { id: 'C', text: "That the model was trained on public medical textbooks." },
+      { id: 'D', text: "That the service is on the HIPAA eligible services list." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Under a business associate agreement, protected health information may be processed only with HIPAA eligible services; Amazon Bedrock is on that list, and the customer still configures the application appropriately under the shared responsibility model. Context window size is a capability factor, not a compliance one. What a model was trained on does not make a service eligible to process PHI. A no-code playground helps experimentation but has nothing to do with regulatory eligibility.",
+    referenceUrl: "https://aws.amazon.com/compliance/hipaa-eligible-services-reference/",
+    tags: ["Compliance", "HIPAA", "Model selection"]
+  }
+];
+
+export default AWS_AIF_QUESTIONS_7;

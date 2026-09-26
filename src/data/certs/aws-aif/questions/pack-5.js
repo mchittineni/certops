@@ -1,0 +1,532 @@
+export const AWS_AIF_QUESTIONS_5 = [
+  {
+    id: "aws-aif-101",
+    difficulty: "easy",
+    certId: "aws-aif",
+    domainId: "d2",
+    domainName: "Fundamentals of Generative AI",
+    title: "A bill measured in units nobody recognizes",
+    scenario: "A publishing company's first invoice for its text-generation pilot charges separately for input and output, measured in thousands of units rather than in words or requests. The finance manager asks the engineering lead what one of these billing units actually is.",
+    question: "What should the engineering lead explain?",
+    options: [
+      { id: 'A', text: "An epoch, one full pass of the model over its training dataset" },
+      { id: 'B', text: "A token, meaning a word or piece of a word the model reads or writes" },
+      { id: 'C', text: "A parameter, one learned weight inside the model's neural network" },
+      { id: 'D', text: "An embedding, a list of numbers that encodes a sentence's meaning" }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "Language models split text into tokens, which are whole words, parts of words, punctuation or spaces, and both model limits and pricing on services such as Amazon Bedrock are expressed in input and output tokens. Parameters are the model's learned weights; their number describes model size, not usage. An embedding is a vector representation of text produced by an embedding model, not a billing unit for generation. An epoch is a training concept and plays no part in charging for inference.",
+    referenceUrl: "https://docs.aws.amazon.com/bedrock/latest/userguide/key-definitions.html",
+    tags: ["Tokens", "Pricing", "Generative AI concepts"]
+  },
+  {
+    id: "aws-aif-102",
+    difficulty: "medium",
+    certId: "aws-aif",
+    domainId: "d2",
+    domainName: "Fundamentals of Generative AI",
+    title: "Estimating tokens for a batch of reports",
+    scenario: "A consultancy wants to budget for summarizing 10,000 English reports of about 3,000 words each with a foundation model. Before running a pilot, the project manager needs a rough estimate of the input tokens per report, and the engineers tell her to use the common rule of thumb for English text.",
+    question: "Which estimate is most reasonable for one report?",
+    options: [
+      { id: 'A', text: "About 4,000 tokens, since a token is about three-quarters of a word" },
+      { id: 'B', text: "Exactly 3,000 tokens, since every English word is exactly one token" },
+      { id: 'C', text: "About 18,000 tokens, since each character is counted as one token" },
+      { id: 'D', text: "About 750 tokens, since each token spans roughly four words" }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "For typical English text, one token averages about four characters, or roughly three-quarters of a word, so 3,000 words come to around 4,000 tokens; the exact figure depends on each model's tokenizer. A token is smaller than a word on average, not four words long. Many words, especially long or rare ones, split into several tokens, so the count is not one per word. Modern LLM tokenizers group characters into subword units, so counting every character as a token overstates usage several times over.",
+    referenceUrl: "https://docs.aws.amazon.com/bedrock/latest/userguide/key-definitions.html",
+    tags: ["Tokens", "Cost estimation", "Generative AI concepts"]
+  },
+  {
+    id: "aws-aif-103",
+    difficulty: "medium",
+    certId: "aws-aif",
+    domainId: "d2",
+    domainName: "Fundamentals of Generative AI",
+    title: "Why the 400-page manual is split up first",
+    scenario: "An equipment maker is building an assistant that answers technicians' questions from 400-page service manuals. The design document says each manual is split into passages of a few hundred tokens before being converted into embeddings, and a new team member asks why the whole manual is not embedded as one piece.",
+    question: "What is the main reason for this step?",
+    options: [
+      { id: 'A', text: "Short passages remove the need to create any embeddings at all" },
+      { id: 'B', text: "Short passages let the model be retrained on each manual weekly" },
+      { id: 'C', text: "Short passages let retrieval return only the relevant sections" },
+      { id: 'D', text: "Short passages compress the manual so it uses less S3 storage" }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "Chunking splits long documents into smaller passages so each can be embedded and retrieved on its own; a question then pulls back only the few passages that match, which fits within embedding-model input limits and the model's context window and keeps answers focused. Chunks still have to be embedded, which is why the design converts them. Chunking is a retrieval step and does not retrain the model. Splitting text does not compress it; total storage stays about the same or grows with overlap.",
+    referenceUrl: "https://docs.aws.amazon.com/bedrock/latest/userguide/kb-chunking.html",
+    tags: ["Chunking", "Embeddings", "Generative AI concepts"]
+  },
+  {
+    id: "aws-aif-104",
+    difficulty: "hard",
+    certId: "aws-aif",
+    domainId: "d2",
+    domainName: "Fundamentals of Generative AI",
+    title: "Answers that lose half of every table",
+    scenario: "A pharmaceutical company's document assistant splits regulatory filings into fixed 80-token chunks with no overlap. Reviewers notice that answers often cite half a dosage table or a sentence cut off mid-clause, and that the retrieved passages lack the heading that explains what they refer to.",
+    question: "Which change is most likely to improve the retrieved context?",
+    options: [
+      { id: 'A', text: "Replace the embedding model with a model that returns more tokens" },
+      { id: 'B', text: "Use even smaller chunks with no overlap so each holds one table cell" },
+      { id: 'C', text: "Use larger chunks with overlap or a structure-aware chunking method" },
+      { id: 'D', text: "Raise the model's temperature so that it fills in the missing text" }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "Chunks that are too small split tables and sentences and separate content from the headings that give it meaning. Larger chunks, overlap between neighbouring chunks, or hierarchical and semantic chunking, which Amazon Bedrock Knowledge Bases supports, keep related text together so retrieval returns complete, self-explanatory passages. Even smaller chunks make fragmentation worse. A higher temperature makes generation more random and encourages invented content rather than restoring missing text. An embedding model outputs vectors, not tokens, so the proposed replacement does not address how the text was split.",
+    referenceUrl: "https://docs.aws.amazon.com/bedrock/latest/userguide/kb-chunking.html",
+    tags: ["Chunking", "Retrieval quality", "Generative AI concepts"]
+  },
+  {
+    id: "aws-aif-105",
+    difficulty: "easy",
+    certId: "aws-aif",
+    domainId: "d2",
+    domainName: "Fundamentals of Generative AI",
+    title: "What comes back from the embedding call",
+    scenario: "A developer sends the sentence 'Where is my parcel?' to an embedding model on Amazon Bedrock as part of a support search project. The response is a long list of 1,024 decimal numbers, and her manager asks what that output represents.",
+    question: "What is the output?",
+    options: [
+      { id: 'A', text: "A vector that encodes the sentence's meaning as numbers" },
+      { id: 'B', text: "A list of token ID numbers that tells the model how to spell it" },
+      { id: 'C', text: "An encrypted copy of the sentence for secure storage" },
+      { id: 'D', text: "The model's confidence score for each word in the text" }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "An embedding model converts text, and with multimodal models images too, into a vector: a fixed-length list of numbers positioned so that inputs with similar meanings end up close together, which enables semantic search and clustering. Token IDs are integers produced by a tokenizer, one per token, not a fixed 1,024 decimals for any sentence. The output is not encryption, and it cannot be reversed into the original text as a stored copy. Embeddings represent the input as a whole rather than scoring each word.",
+    referenceUrl: "https://aws.amazon.com/what-is/embeddings-in-machine-learning/",
+    tags: ["Embeddings", "Vectors", "Generative AI concepts"]
+  },
+  {
+    id: "aws-aif-106",
+    difficulty: "medium",
+    certId: "aws-aif",
+    domainId: "d2",
+    domainName: "Fundamentals of Generative AI",
+    title: "Rain-proof trail boots for a waterproof search",
+    scenario: "An outdoor retailer's site search returns nothing when shoppers type 'waterproof hiking shoes', because the matching products are described as 'rain-proof trail boots'. The team wants search that matches on meaning rather than exact words, without writing synonym lists by hand.",
+    question: "Which approach meets this goal?",
+    options: [
+      { id: 'A', text: "Embed queries and products, then return the closest vectors by similarity" },
+      { id: 'B', text: "Tokenize queries into words and require every word to match" },
+      { id: 'C', text: "Add stemming so that 'shoes' also matches the word 'shoe'" },
+      { id: 'D', text: "Use a diffusion model to draw the products from the query" }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Semantic search converts both the query and each product description into embeddings, then returns products whose vectors are closest to the query vector, typically by cosine similarity; 'waterproof hiking shoes' and 'rain-proof trail boots' land near each other because their meanings are similar. Stemming only normalises word endings and still needs shared words. Requiring every word to match is stricter keyword search and makes the problem worse. A diffusion model generates images and does not retrieve products.",
+    referenceUrl: "https://aws.amazon.com/what-is/embeddings-in-machine-learning/",
+    tags: ["Semantic search", "Vectors", "Embeddings"]
+  },
+  {
+    id: "aws-aif-107",
+    difficulty: "medium",
+    certId: "aws-aif",
+    domainId: "d2",
+    domainName: "Fundamentals of Generative AI",
+    title: "Finding furniture from a customer's photo",
+    scenario: "A furniture marketplace wants shoppers to upload a photo of a chair they like, or type a description, and get visually and semantically similar products from a catalogue of product images with short captions. Both kinds of query must be searchable against the same index.",
+    question: "Which type of model should the team use to build the index?",
+    options: [
+      { id: 'A', text: "A multimodal embedding model mapping images and text together" },
+      { id: 'B', text: "A text-generation LLM that writes captions for each new image" },
+      { id: 'C', text: "A diffusion model that generates new chair images from each caption" },
+      { id: 'D', text: "A text-only embedding model applied to the product captions" }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "A multimodal embedding model, such as Amazon Titan Multimodal Embeddings, maps images and text into the same vector space, so a photo query and a text query can both be compared with the same product vectors. A text-only embedding model cannot embed the shopper's uploaded photo. A diffusion model creates new images rather than indexing existing ones. Having an LLM write captions and then searching them loses much of the visual detail and still leaves the photo query without a direct match.",
+    referenceUrl: "https://docs.aws.amazon.com/bedrock/latest/userguide/titan-multiemb-models.html",
+    tags: ["Multimodal models", "Embeddings", "Visual search"]
+  },
+  {
+    id: "aws-aif-108",
+    difficulty: "easy",
+    certId: "aws-aif",
+    domainId: "d2",
+    domainName: "Fundamentals of Generative AI",
+    title: "The architecture under nearly every modern LLM",
+    scenario: "A student intern is preparing a slide on how today's large language models are built. His mentor tells him that almost all of them share one neural network architecture, introduced in 2017, which processes all tokens of the input in parallel and uses attention to relate them to one another.",
+    question: "Which architecture is the mentor describing?",
+    options: [
+      { id: 'A', text: "The decision tree ensemble, splitting data on feature values" },
+      { id: 'B', text: "The transformer, using self-attention across all the tokens" },
+      { id: 'C', text: "The recurrent neural network, reading one token at a time" },
+      { id: 'D', text: "The convolutional network, sliding filters over image pixels" }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "The transformer architecture, introduced in 2017, uses self-attention to weigh the relationship between every token and every other token and processes sequences in parallel, which made training on massive text corpora practical; it underpins modern LLMs. Recurrent networks process tokens sequentially, which limits parallel training and long-range memory. Convolutional networks are the classic architecture for images. Decision tree ensembles are classical ML models for tabular data, not neural language models.",
+    referenceUrl: "https://aws.amazon.com/what-is/transformers-in-artificial-intelligence/",
+    tags: ["Transformers", "LLM", "Generative AI concepts"]
+  },
+  {
+    id: "aws-aif-109",
+    difficulty: "hard",
+    certId: "aws-aif",
+    domainId: "d2",
+    domainName: "Fundamentals of Generative AI",
+    title: "Knowing which 'it' the sentence means",
+    scenario: "In the sentence 'The server rejected the request because it was malformed', a transformer-based model correctly treats 'it' as the request, and in 'The server rejected the request because it was overloaded', as the server. A product manager asks which part of the architecture makes this possible.",
+    question: "Which mechanism is responsible?",
+    options: [
+      { id: 'A', text: "The temperature setting, which picks the likelier meaning at random" },
+      { id: 'B', text: "Self-attention, which weighs how much each token relates to others" },
+      { id: 'C', text: "Chunking, which places each clause in its own separate text passage" },
+      { id: 'D', text: "Tokenization, which assigns the word 'it' a different ID each time" }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "Self-attention lets each token's representation draw on every other token in the context, weighted by relevance, so the representation of 'it' is shaped by 'malformed' or 'overloaded' and links to the right noun. A tokenizer maps the same word to the same ID regardless of context, so it cannot resolve the reference. Temperature controls randomness when choosing output tokens and does not create understanding. Chunking is a document-preparation step for retrieval; separating the clauses would actually remove the context needed to resolve 'it'.",
+    referenceUrl: "https://aws.amazon.com/what-is/transformers-in-artificial-intelligence/",
+    tags: ["Self-attention", "Transformers", "Context"]
+  },
+  {
+    id: "aws-aif-110",
+    difficulty: "easy",
+    certId: "aws-aif",
+    domainId: "d2",
+    domainName: "Fundamentals of Generative AI",
+    title: "One model for drafting, summarizing and answering",
+    scenario: "A law firm's IT director reads that a single model can draft emails, summarize contracts, answer questions and classify documents without being trained separately for each task. She wants to know the name for this kind of large, broadly pre-trained, general-purpose model.",
+    question: "What is this kind of model called?",
+    options: [
+      { id: 'A', text: "A foundation model, pre-trained on broad data for many kinds of tasks" },
+      { id: 'B', text: "A rules engine with templates written for each legal task" },
+      { id: 'C', text: "A task-specific classifier pre-trained only on the firm's files" },
+      { id: 'D', text: "A clustering model that groups contracts by their content" }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Foundation models are very large models pre-trained on broad, mostly unlabeled data, which gives them general capabilities that can be applied to many downstream tasks through prompting, retrieval or fine-tuning. A rules engine only does what its templates specify. A task-specific classifier trained on the firm's files handles one narrow task, the opposite of general-purpose. Clustering groups documents but cannot draft or answer questions.",
+    referenceUrl: "https://aws.amazon.com/what-is/foundation-models/",
+    tags: ["Foundation models", "Generative AI concepts", "Terminology"]
+  },
+  {
+    id: "aws-aif-111",
+    difficulty: "medium",
+    certId: "aws-aif",
+    domainId: "d2",
+    domainName: "Fundamentals of Generative AI",
+    title: "Replacing four narrow models with one",
+    scenario: "A bank runs four separate traditional ML models for email routing, sentiment scoring, entity extraction and short summaries, each trained on its own labeled dataset and maintained by a different team. An architect proposes replacing them with one foundation model driven by task-specific prompts.",
+    question: "What is the main advantage of the proposal?",
+    options: [
+      { id: 'A', text: "The foundation model is guaranteed to beat each specialist model" },
+      { id: 'B', text: "The foundation model costs less per request than every small one" },
+      { id: 'C', text: "One adaptable model covers many tasks without per-task training" },
+      { id: 'D', text: "The foundation model will never produce an inaccurate response" }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "Foundation models are adaptable: because they are pre-trained on broad data, one model can perform many language tasks from instructions and examples in the prompt, reducing the need to label data and maintain a separate model per task. They are not guaranteed to beat a well-tuned specialist on every task, which should be verified by evaluation. Large models are often more expensive per request than small task-specific models. They can still produce inaccurate or invented output.",
+    referenceUrl: "https://aws.amazon.com/what-is/foundation-models/",
+    tags: ["Foundation models", "Adaptability", "Traditional ML"]
+  },
+  {
+    id: "aws-aif-112",
+    difficulty: "easy",
+    certId: "aws-aif",
+    domainId: "d2",
+    domainName: "Fundamentals of Generative AI",
+    title: "Alt text for fifty thousand product photos",
+    scenario: "An online fashion store must add descriptive alt text to 50,000 product photos to meet accessibility rules. It wants a model that looks at each image and writes a sentence such as 'red knee-length wrap dress with short sleeves' in plain English.",
+    question: "Which type of model can do this directly?",
+    options: [
+      { id: 'A', text: "A text-to-speech model that reads each photo out loud" },
+      { id: 'B', text: "A text-only LLM given the product's SKU number as its prompt" },
+      { id: 'C', text: "A text embedding model applied to each image's file name" },
+      { id: 'D', text: "A multimodal model that accepts an image and outputs text" }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "A multimodal model can take more than one kind of input, here an image together with an instruction, and generate text about what it sees, which is exactly what alt text requires. A text-only LLM never sees the photo, so from a SKU number it could only guess. A text embedding model produces vectors, not descriptions, and file names carry little visual information. Text-to-speech converts existing text into audio and cannot interpret an image.",
+    referenceUrl: "https://docs.aws.amazon.com/nova/latest/userguide/modalities-image.html",
+    tags: ["Multimodal models", "Accessibility", "Use cases"]
+  },
+  {
+    id: "aws-aif-113",
+    difficulty: "medium",
+    certId: "aws-aif",
+    domainId: "d2",
+    domainName: "Fundamentals of Generative AI",
+    title: "How the campaign images were made",
+    scenario: "A marketing team generated campaign images by typing prompts such as 'a lighthouse at dawn in watercolor'. A curious executive asks how the underlying image model turns a sentence into a brand-new picture rather than finding an existing one.",
+    question: "Which explanation is accurate?",
+    options: [
+      { id: 'A', text: "It starts from pure noise and denoises step by step, guided by text" },
+      { id: 'B', text: "It retrieves the closest licensed stock photo using the prompt" },
+      { id: 'C', text: "It clusters existing images and averages a cluster into one" },
+      { id: 'D', text: "It predicts the next word, then renders each word as an icon" }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Diffusion models are trained by gradually adding noise to images and learning to reverse the process; to generate, they start from random noise and remove it over many steps, guided by the text prompt's embedding, producing a new image. Retrieving a stock photo is search, not generation. Predicting words and rendering icons does not describe how image models work. Averaging clustered images would produce a blurry blend rather than a coherent new picture.",
+    referenceUrl: "https://aws.amazon.com/what-is/stable-diffusion/",
+    tags: ["Diffusion models", "Image generation", "Generative AI concepts"]
+  },
+  {
+    id: "aws-aif-114",
+    difficulty: "hard",
+    certId: "aws-aif",
+    domainId: "d2",
+    domainName: "Fundamentals of Generative AI",
+    title: "Matching model families to a product backlog",
+    scenario: "A travel company's product backlog lists several generative AI features. The architect is checking a draft plan that pairs each feature with a model type and wants to confirm only the pairings that are correct.",
+    question: "Which pairings are correct? (Choose two.)",
+    options: [
+      { id: 'A', text: "Embedding model to find reviews similar to a traveler's written query" },
+      { id: 'B', text: "Text-to-image model to summarize long guest complaint email threads" },
+      { id: 'C', text: "Diffusion model to create illustrated destination posters from prompts" },
+      { id: 'D', text: "Diffusion model to translate hotel descriptions into five languages" },
+      { id: 'E', text: "Embedding model to write personalized trip itineraries for travelers" }
+    ],
+    correctAnswers: ['A', 'C'],
+    type: "multiple",
+    explanation: "Diffusion models generate images from text prompts, which fits destination posters, and embedding models turn text into vectors for similarity search, which fits finding reviews related to a query. Writing itineraries, translating descriptions and summarizing email threads are text-generation tasks for an LLM: an embedding model produces vectors rather than prose, and diffusion or text-to-image models produce pictures, not translations or summaries.",
+    referenceUrl: "https://aws.amazon.com/what-is/generative-ai/",
+    tags: ["Model types", "Diffusion models", "Embeddings"]
+  },
+  {
+    id: "aws-aif-115",
+    difficulty: "medium",
+    certId: "aws-aif",
+    domainId: "d2",
+    domainName: "Fundamentals of Generative AI",
+    title: "Replies in the wrong format, and no training budget",
+    scenario: "A logistics firm uses a foundation model to turn driver notes into incident reports, but outputs vary: some are paragraphs, some are bullet lists, and key fields are sometimes missing. The team has no budget for training and wants the fastest way to get consistent, complete reports.",
+    question: "What should the team try first?",
+    options: [
+      { id: 'A', text: "Refine the prompt with clear instructions and a sample report" },
+      { id: 'B', text: "Add more GPUs so that the model has capacity to follow the format" },
+      { id: 'C', text: "Switch to an embedding model so outputs follow a set structure" },
+      { id: 'D', text: "Pre-train a new foundation model on the firm's past reports" }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Prompt engineering, meaning clear instructions, the required fields, an output format and an example, changes model behavior without touching its weights, so it is the fastest and cheapest first step. Pre-training a new model costs enormous amounts of data and compute and the scenario excludes training spend. Embedding models return vectors, not formatted reports. Hardware affects speed and throughput, not whether the model follows a format.",
+    referenceUrl: "https://aws.amazon.com/what-is/prompt-engineering/",
+    tags: ["Prompt engineering", "Generative AI concepts", "Output format"]
+  },
+  {
+    id: "aws-aif-116",
+    difficulty: "easy",
+    certId: "aws-aif",
+    domainId: "d2",
+    domainName: "Fundamentals of Generative AI",
+    title: "Two-hour board meetings nobody wants to reread",
+    scenario: "A charity records its two-hour board meetings and already has accurate text transcripts. Trustees who miss a meeting want a one-page overview of the decisions made and actions agreed, delivered the next morning, without a staff member writing it.",
+    question: "Which generative AI use case fits this need?",
+    options: [
+      { id: 'A', text: "Image generation that turns each agenda item into a picture" },
+      { id: 'B', text: "Translation that converts each transcript into other languages" },
+      { id: 'C', text: "Summarization that condenses each transcript into key points" },
+      { id: 'D', text: "Code generation that writes a script to count spoken words" }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "Summarization is a core generative AI use case: an LLM reads a long text and produces a shorter version that keeps the decisions and actions. Images of agenda items do not tell trustees what was decided. A script that counts words produces statistics, not an overview. Translation changes the language but keeps the full length, which does not meet the one-page goal.",
+    referenceUrl: "https://aws.amazon.com/what-is/generative-ai/",
+    tags: ["Summarization", "Use cases", "LLM"]
+  },
+  {
+    id: "aws-aif-117",
+    difficulty: "easy",
+    certId: "aws-aif",
+    domainId: "d2",
+    domainName: "Fundamentals of Generative AI",
+    title: "Unit tests for a legacy billing module",
+    scenario: "A software team inherited a billing module with almost no tests. Developers want to highlight a function in their editor and have a model propose unit tests and explain what the function does, then review and adjust the suggestions before committing.",
+    question: "Which generative AI use case does this describe?",
+    options: [
+      { id: 'A', text: "Recommendation that ranks which functions get used the most" },
+      { id: 'B', text: "Image generation that draws diagrams of the billing workflow" },
+      { id: 'C', text: "Speech recognition that transcribes developers' spoken notes" },
+      { id: 'D', text: "Code generation that drafts candidate code and explanations" }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Code generation models, the kind behind coding assistants such as Amazon Q Developer, can write new code, generate unit tests and explain existing code from context in the editor, with developers reviewing the output. Transcribing spoken notes is speech recognition. Ranking functions by usage is analytics or recommendation and does not produce tests. Diagrams might help documentation, but they do not deliver unit tests.",
+    referenceUrl: "https://aws.amazon.com/what-is/ai-coding/",
+    tags: ["Code generation", "Use cases", "Developer productivity"]
+  },
+  {
+    id: "aws-aif-118",
+    difficulty: "medium",
+    certId: "aws-aif",
+    domainId: "d2",
+    domainName: "Fundamentals of Generative AI",
+    title: "Slogans that must still sound witty in French",
+    scenario: "A snack brand is launching a campaign in France and Germany. Word-for-word translations of its English slogans read flat, and the brand wants versions that keep the playful tone, adapt the puns to local culture and follow a style guide given in the request.",
+    question: "Why is an LLM a good fit for this task?",
+    options: [
+      { id: 'A', text: "It follows instructions on tone and style while it translates" },
+      { id: 'B', text: "It guarantees the same tone and style every single time it runs" },
+      { id: 'C', text: "It needs no human review because it never mistranslates idioms" },
+      { id: 'D', text: "It works without any prompt by learning from each campaign alone" }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Generative models can translate while following natural-language instructions about tone, audience, style guides and cultural adaptation, which suits creative localisation, sometimes called transcreation, better than literal translation. LLM output can vary between runs unless settings constrain it, so identical results are not guaranteed. Creative translations still need native-speaker review because models can misjudge idioms. The model is steered by the prompt; it does not learn from each campaign on its own.",
+    referenceUrl: "https://aws.amazon.com/what-is/generative-ai/",
+    tags: ["Translation", "Use cases", "Localization"]
+  },
+  {
+    id: "aws-aif-119",
+    difficulty: "easy",
+    certId: "aws-aif",
+    domainId: "d2",
+    domainName: "Fundamentals of Generative AI",
+    title: "A council website flooded with the same questions",
+    scenario: "A city council's call centre spends most of its time answering routine questions about bin collection days, parking permits and council tax. The council wants residents to type questions in their own words on the website and get conversational answers at any hour.",
+    question: "Which generative AI use case fits this goal?",
+    options: [
+      { id: 'A', text: "A forecasting model that predicts next week's call volume" },
+      { id: 'B', text: "A diffusion model that designs new parking permit cards" },
+      { id: 'C', text: "A code assistant that writes new pages for the website" },
+      { id: 'D', text: "A chatbot that replies conversationally in plain, everyday language" }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Generative AI chatbots understand free-form questions and reply conversationally around the clock, taking routine enquiries off the call centre. Designing permit cards with a diffusion model does not answer questions. A call-volume forecast helps staffing but still leaves residents waiting for answers. A code assistant could help developers build pages, but residents would still have to search them.",
+    referenceUrl: "https://aws.amazon.com/what-is/chatbot/",
+    tags: ["Chatbots", "Use cases", "Customer service"]
+  },
+  {
+    id: "aws-aif-120",
+    difficulty: "medium",
+    certId: "aws-aif",
+    domainId: "d2",
+    domainName: "Fundamentals of Generative AI",
+    title: "An intranet search that gives answers, not links",
+    scenario: "Employees at an engineering firm complain that the intranet search returns 40 links for a question such as 'How many days of paternity leave do I get?', and they must open several policies to find the answer. The firm wants search to reply with a short answer drawn from its policies, with links to the sources.",
+    question: "Which generative AI use case does this describe?",
+    options: [
+      { id: 'A', text: "Image generation that turns each policy into an infographic answer" },
+      { id: 'B', text: "Audio generation that reads each result aloud to employees" },
+      { id: 'C', text: "Generative search that writes a summary from retrieved passages" },
+      { id: 'D', text: "Keyword search tuned to rank the newest policies at the top" }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "Generative AI search retrieves the most relevant passages and uses an LLM to compose a direct answer with citations to the source documents, instead of returning a list of links. Infographics repackage policies but do not answer a specific question. Re-ranking keyword results still returns links for the employee to read. Reading results aloud changes the medium without producing an answer.",
+    referenceUrl: "https://aws.amazon.com/what-is/retrieval-augmented-generation/",
+    tags: ["Search", "Use cases", "Generative AI"]
+  },
+  {
+    id: "aws-aif-121",
+    difficulty: "hard",
+    certId: "aws-aif",
+    domainId: "d2",
+    domainName: "Fundamentals of Generative AI",
+    title: "Recommending books added this morning",
+    scenario: "An online bookshop adds 2,000 new titles each week. Its collaborative-filtering recommender cannot suggest a new title until enough customers have bought it, so new books are invisible for weeks. Each title does arrive with a rich publisher description.",
+    question: "Which approach best addresses this cold-start problem?",
+    options: [
+      { id: 'A', text: "Embed the publisher blurbs and recommend items with nearby vectors" },
+      { id: 'B', text: "Generate a cover image from each publisher description with diffusion" },
+      { id: 'C', text: "Ask a chatbot to guess which customers bought each new title first" },
+      { id: 'D', text: "Wait for purchases to build up, then retrain collaborative filtering" }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Embedding each title's description places books with similar content near each other in vector space, so a new book can be recommended to readers of similar books from the day it is added, with no purchase history required; this is how embeddings strengthen recommendation engines. Waiting for purchases is the problem being solved. Cover images do not create recommendations. A chatbot guessing past buyers invents data rather than recommending from evidence.",
+    referenceUrl: "https://aws.amazon.com/what-is/embeddings-in-machine-learning/",
+    tags: ["Recommendation engines", "Embeddings", "Cold start"]
+  },
+  {
+    id: "aws-aif-122",
+    difficulty: "medium",
+    certId: "aws-aif",
+    domainId: "d2",
+    domainName: "Fundamentals of Generative AI",
+    title: "Six-second product clips from a prompt",
+    scenario: "A cosmetics brand wants short product videos of about six seconds for social media, generated from a text prompt and a reference product image, without hiring a film crew. It already uses Amazon Bedrock and wants to stay there.",
+    question: "Which Amazon Bedrock model fits this requirement?",
+    options: [
+      { id: 'A', text: "Amazon Titan Text Embeddings, which vectorizes descriptions" },
+      { id: 'B', text: "Amazon Nova Canvas, which generates and edits still images" },
+      { id: 'C', text: "Amazon Nova Reel, which generates video from text and images" },
+      { id: 'D', text: "Amazon Nova Micro, which generates text replies at low latency" }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "Amazon Nova Reel is a video-generation model in Amazon Bedrock that creates short video clips from a text prompt, optionally with a reference image. Nova Canvas generates and edits still images, not video. Titan Text Embeddings produces vectors for search. Nova Micro is a text-only model optimised for speed and cost, and it cannot produce video.",
+    referenceUrl: "https://docs.aws.amazon.com/nova/latest/userguide/what-is-nova.html",
+    tags: ["Video generation", "Amazon Nova", "Use cases"]
+  },
+  {
+    id: "aws-aif-123",
+    difficulty: "medium",
+    certId: "aws-aif",
+    domainId: "d2",
+    domainName: "Fundamentals of Generative AI",
+    title: "Which ideas actually need generative AI",
+    scenario: "A home-insurance company's innovation board has a list of ideas and wants to fund generative AI only where it is the right tool, sending the rest to its traditional ML or engineering teams.",
+    question: "Which ideas are good fits for generative AI? (Choose two.)",
+    options: [
+      { id: 'A', text: "Drafting personalized replies to customer complaint emails" },
+      { id: 'B', text: "Predicting next quarter's claim counts from tabular history" },
+      { id: 'C', text: "Scoring each new claim's fraud risk from structured claim fields" },
+      { id: 'D', text: "Summarizing loss adjusters' long site-visit notes for managers" },
+      { id: 'E', text: "Calculating each policy's premium from the published rate table" }
+    ],
+    correctAnswers: ['A', 'D'],
+    type: "multiple",
+    explanation: "Drafting replies and summarizing long notes require producing new natural-language content, which is what generative models do well. Forecasting claim counts from tabular history and scoring fraud from structured fields are prediction tasks where traditional ML, such as regression and classification, is cheaper, more accurate and easier to explain. Calculating a premium from a rate table is a deterministic lookup that should be written as code.",
+    referenceUrl: "https://aws.amazon.com/what-is/generative-ai/",
+    tags: ["Use cases", "Generative AI vs ML", "Business fit"]
+  },
+  {
+    id: "aws-aif-124",
+    difficulty: "medium",
+    certId: "aws-aif",
+    domainId: "d2",
+    domainName: "Fundamentals of Generative AI",
+    title: "Editing product shots instead of reshooting",
+    scenario: "A homeware retailer has hundreds of studio photos. Designers want to replace the background of selected photos with a kitchen scene and create several alternative versions of a hero image for A/B tests, without organizing a new photo shoot. They plan to use an image-generation model in Amazon Bedrock.",
+    question: "Which capabilities should they rely on? (Choose two.)",
+    options: [
+      { id: 'A', text: "Image variation to generate new takes on a reference photo" },
+      { id: 'B', text: "Face comparison to confirm the same model appears in every photo" },
+      { id: 'C', text: "Object detection to count the items shown in each existing photo" },
+      { id: 'D', text: "Inpainting or outpainting to regenerate chosen areas of a photo" },
+      { id: 'E', text: "Optical character recognition to read the labels on the products" }
+    ],
+    correctAnswers: ['A', 'D'],
+    type: "multiple",
+    explanation: "Image-generation models such as Amazon Nova Canvas support inpainting and outpainting, which regenerate a masked region or extend beyond the image to replace backgrounds, and image variation, which creates new versions similar to a reference image. Object detection, OCR and face comparison are analysis capabilities of computer vision services such as Amazon Rekognition or Textract; they describe existing images rather than generating new content.",
+    referenceUrl: "https://docs.aws.amazon.com/nova/latest/userguide/image-generation.html",
+    tags: ["Image generation", "Amazon Nova", "Use cases"]
+  },
+  {
+    id: "aws-aif-125",
+    difficulty: "easy",
+    certId: "aws-aif",
+    domainId: "d2",
+    domainName: "Fundamentals of Generative AI",
+    title: "A long thread the model seems to forget",
+    scenario: "A support engineer pastes a very long email thread plus a question into a chat model. The model's reply ignores details from the earliest emails, and a colleague explains that the model has a fixed limit on how many tokens it can take into account in a single request, covering both input and output.",
+    question: "What is this limit called?",
+    options: [
+      { id: 'A', text: "The embedding dimension of the model's vectors" },
+      { id: 'B', text: "The temperature setting used during sampling" },
+      { id: 'C', text: "The context window of the model, in tokens" },
+      { id: 'D', text: "The parameter count of the model's network" }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "The context window is the maximum number of tokens a model can consider at once, spanning the prompt and the generated response; text beyond it is truncated or must be shortened, chunked or summarised first. Embedding dimension is the length of an embedding vector. Temperature controls randomness in token selection. Parameter count describes model size and does not directly set how much text fits in a request.",
+    referenceUrl: "https://docs.aws.amazon.com/bedrock/latest/userguide/key-definitions.html",
+    tags: ["Context window", "Tokens", "Generative AI concepts"]
+  }
+];
+
+export default AWS_AIF_QUESTIONS_5;

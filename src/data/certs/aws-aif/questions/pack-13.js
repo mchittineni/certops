@@ -1,0 +1,532 @@
+export const AWS_AIF_QUESTIONS_13 = [
+  {
+    id: "aws-aif-301",
+    difficulty: "easy",
+    certId: "aws-aif",
+    domainId: "d3",
+    domainName: "Applications of Foundation Models",
+    title: "What happens during a model's first training stage",
+    scenario: "A school district's technology committee is learning how large language models are built. A vendor explains that its model first spent months training on trillions of words of web pages, books, and code before any company-specific work began, and that no humans labeled that text.",
+    question: "Which description of this first stage is accurate?",
+    options: [
+      { id: 'A', text: "Retrieval augmentation, in which the model stores the text in a vector index to look up at runtime." },
+      { id: 'B', text: "Pre-training, in which the model learns language patterns by predicting tokens in unlabeled text." },
+      { id: 'C', text: "RLHF, in which human raters rank the model's responses so it learns which answers people prefer." },
+      { id: 'D', text: "Fine-tuning, in which the model learns a specific language task from human-labeled response pairs." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "Pre-training is the first and largest stage: the model trains on a massive unlabeled corpus using self-supervised objectives such as predicting the next token, which builds general knowledge of language and the world without human labels. Fine-tuning comes later and uses a much smaller labeled dataset for a specific task. RLHF is an alignment stage that relies on human preference rankings, which contradicts the absence of human labeling. Retrieval augmentation happens at inference time and does not train the model at all.",
+    referenceUrl: "https://aws.amazon.com/what-is/foundation-models/",
+    tags: ["Pre-training", "Self-supervised learning"]
+  },
+  {
+    id: "aws-aif-302",
+    difficulty: "easy",
+    certId: "aws-aif",
+    domainId: "d3",
+    domainName: "Applications of Foundation Models",
+    title: "What changes inside the model after tuning",
+    scenario: "A telecom fine-tuned a foundation model in Amazon Bedrock on 8,000 labeled examples of its support conversations. A manager asks what actually changed, because the prompts the application sends are the same as before, yet the answers now follow the company's troubleshooting style.",
+    question: "What did fine-tuning change?",
+    options: [
+      { id: 'A', text: "It attached the 8,000 examples to every prompt behind the scenes so they are read on each request." },
+      { id: 'B', text: "It adjusted the pre-trained model's weights using the labeled examples, producing a new custom model." },
+      { id: 'C', text: "It changed the default inference parameters, such as temperature, to match the troubleshooting style." },
+      { id: 'D', text: "It stored the examples in a knowledge base that the model now searches before generating each reply." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "Fine-tuning continues training an existing foundation model on a smaller labeled dataset, updating its weights so the new behavior is built in; in Amazon Bedrock the result is a separate custom model, which is why the same prompts now produce different answers. Nothing is appended to prompts behind the scenes, which would be in-context learning. No knowledge base is created; that would be RAG. Inference parameters are set per request by the caller and are not what a training job changes.",
+    referenceUrl: "https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models.html",
+    tags: ["Fine-tuning", "Custom models"]
+  },
+  {
+    id: "aws-aif-303",
+    difficulty: "medium",
+    certId: "aws-aif",
+    domainId: "d3",
+    domainName: "Applications of Foundation Models",
+    title: "Gaming slang that shifts every season",
+    scenario: "A game publisher's moderation assistant runs on a customized model. Player slang evolves every season, and each quarter the publisher collects millions of new unlabeled chat messages. It wants the model's language understanding to keep pace with the new slang by extending its earlier training, without labeling anything.",
+    question: "Which training approach should the publisher run each quarter?",
+    options: [
+      { id: 'A', text: "Fine-tuning on the new chat messages after moderators label each message as acceptable or harmful." },
+      { id: 'B', text: "Pre-training from scratch each quarter on all chat messages collected across every past season." },
+      { id: 'C', text: "Reinforcement learning from human feedback, with moderators ranking the model's slang explanations." },
+      { id: 'D', text: "Continued pre-training on the new raw chat messages, starting from the most recent model version." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Continued pre-training takes unlabeled domain text and extends the training of an existing model, so running it periodically on fresh chat data keeps the model's grasp of evolving language current without any labeling. Fine-tuning requires labels, which the publisher wants to avoid. Pre-training from scratch every quarter would repeat an enormously expensive process and discard what the model already knows. RLHF also depends on human effort, ranking responses, and targets preferences rather than vocabulary.",
+    referenceUrl: "https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models.html",
+    tags: ["Continued pre-training"]
+  },
+  {
+    id: "aws-aif-304",
+    difficulty: "easy",
+    certId: "aws-aif",
+    domainId: "d3",
+    domainName: "Applications of Foundation Models",
+    title: "How pre-training gets by without labels",
+    scenario: "A journalist writing about generative AI asks how foundation model builders can train on trillions of tokens when hiring people to label that much text would be impossible. The engineer she interviews explains that the text supplies its own training signal.",
+    question: "Which technique is the engineer describing?",
+    options: [
+      { id: 'A', text: "Transfer learning, in which labels from an earlier image model are reused to train the language model." },
+      { id: 'B', text: "Supervised learning, in which contractors label a sample of the text and the model infers the rest." },
+      { id: 'C', text: "Self-supervised learning, in which the model predicts hidden or next words taken from the text itself." },
+      { id: 'D', text: "Reinforcement learning, in which a reward function scores each document the model reads for quality." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "Self-supervised learning creates labels from the data itself: the model sees part of a sequence and is trained to predict the next or a masked token, so every sentence provides training examples without human annotation. That is what makes pre-training at internet scale feasible. Supervised learning depends on human-provided labels. Reinforcement learning optimizes actions against a reward and is used later for alignment, not to consume the raw corpus. Transfer learning reuses a trained model's knowledge for a new task; image labels do not supply a language training signal.",
+    referenceUrl: "https://aws.amazon.com/what-is/foundation-models/",
+    tags: ["Self-supervised learning", "Pre-training"]
+  },
+  {
+    id: "aws-aif-305",
+    difficulty: "medium",
+    certId: "aws-aif",
+    domainId: "d3",
+    domainName: "Applications of Foundation Models",
+    title: "Helpfulness that cannot be written as one right answer",
+    scenario: "A model provider's assistant gives technically correct replies that users find curt, overly long, or evasive depending on the question. The team cannot write a single correct answer for most prompts, but reviewers can readily say which of two candidate replies is better.",
+    question: "Which training technique fits this situation?",
+    options: [
+      { id: 'A', text: "Continued pre-training on more web text so the model sees many more examples of conversation." },
+      { id: 'B', text: "Reinforcement learning from human feedback, using reviewers' comparisons of alternative responses." },
+      { id: 'C', text: "Supervised fine-tuning on one reference answer per prompt that reviewers must write from scratch." },
+      { id: 'D', text: "Transfer learning from an image classifier so the model reuses general features for conversations." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "RLHF is designed for qualities such as helpfulness and tone that are easier to judge than to specify: reviewers compare or rank candidate responses, a reward model learns those preferences, and the model is optimized toward responses people prefer. Continued pre-training adds unlabeled text and does not target preferences. Supervised fine-tuning needs a written reference answer for each prompt, which the team says it cannot produce. Features from an image classifier do not transfer to conversational style.",
+    referenceUrl: "https://aws.amazon.com/what-is/reinforcement-learning-from-human-feedback/",
+    tags: ["RLHF", "Alignment"]
+  },
+  {
+    id: "aws-aif-306",
+    difficulty: "easy",
+    certId: "aws-aif",
+    domainId: "d3",
+    domainName: "Applications of Foundation Models",
+    title: "Base model that keeps writing instead of answering",
+    scenario: "A research lab downloads a base model that has only been pre-trained. When asked, What are the side effects of ibuprofen?, it continues with more questions in the style of a quiz instead of answering. The lab wants the model to respond to requests the way an assistant does.",
+    question: "Which fine-tuning method addresses this?",
+    options: [
+      { id: 'A', text: "Instruction tuning on pairs of instructions and good responses so the model learns to act on instructions." },
+      { id: 'B', text: "Continued pre-training on more medical articles so the model learns the answers to drug questions." },
+      { id: 'C', text: "Quantization of the model weights so that the model produces shorter, more direct completions faster." },
+      { id: 'D', text: "Knowledge distillation from a smaller model so the base model copies the smaller model's short answers." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "A base model is trained to continue text, so a question often prompts more text in the same style. Instruction tuning fine-tunes the model on many instruction-and-response examples, teaching it to treat input as a request and produce a helpful answer. More medical articles would improve domain knowledge but not the continue-the-text behavior. Distillation transfers knowledge from a larger teacher to a smaller student, not the reverse, and does not target instruction following. Quantization reduces precision to cut memory and latency without changing behavior in this way.",
+    referenceUrl: "https://aws.amazon.com/what-is/foundation-models/",
+    tags: ["Instruction tuning", "Fine-tuning"]
+  },
+  {
+    id: "aws-aif-307",
+    difficulty: "medium",
+    certId: "aws-aif",
+    domainId: "d3",
+    domainName: "Applications of Foundation Models",
+    title: "Reinsurance treaty clauses in house style",
+    scenario: "A reinsurance broker wants a model that drafts treaty clauses in the firm's precise wording conventions. Prompting with examples gets close but still drifts on long clauses. The firm has 12,000 pairs of deal summaries and the clauses its lawyers wrote for them, and it wants the model itself to produce this style reliably.",
+    question: "Which approach should the firm use?",
+    options: [
+      { id: 'A', text: "Domain-adaptation fine-tuning on the 12,000 labeled pairs so that the model learns the clause style." },
+      { id: 'B', text: "Continued pre-training on unrelated public contracts so the model learns general legal writing style." },
+      { id: 'C', text: "RAG over the 12,000 clauses so the model copies the most similar clause into each new draft verbatim." },
+      { id: 'D', text: "A higher temperature with the existing examples so the model drifts less when writing long clauses." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Fine-tuning a foundation model on labeled, domain-specific input-and-output pairs adapts it to a specialized task and style, and 12,000 lawyer-written pairs are a solid dataset for this, so the behavior becomes part of the model instead of depending on prompt examples. Continued pre-training on unrelated contracts would teach generic legal language, not the firm's conventions, and uses unlabeled data rather than the pairs the firm has. Copying the nearest clause verbatim does not draft a clause fitted to a new deal. A higher temperature increases variation, making drift worse.",
+    referenceUrl: "https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models.html",
+    tags: ["Fine-tuning", "Domain adaptation"]
+  },
+  {
+    id: "aws-aif-308",
+    difficulty: "medium",
+    certId: "aws-aif",
+    domainId: "d3",
+    domainName: "Applications of Foundation Models",
+    title: "Weld defects with only 900 photos",
+    scenario: "A shipyard wants a model that flags defective welds in photos, but it has only 900 labeled images. Training an image model from randomly initialized weights on so few photos performs poorly. An engineer suggests starting from a vision model that was already trained on millions of general images.",
+    question: "Which concept is the engineer applying?",
+    options: [
+      { id: 'A', text: "Transfer learning, which reuses features a pre-trained model learned and adapts them to the new task." },
+      { id: 'B', text: "Unsupervised clustering, which groups the weld photos without labels so that defects form a cluster." },
+      { id: 'C', text: "Data augmentation, which creates new labeled images by mixing the shipyard's photos with web images." },
+      { id: 'D', text: "Reinforcement learning, which rewards the model each time it correctly identifies a defective weld." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Transfer learning takes a model trained on a large general dataset, whose early layers already detect edges, textures, and shapes, and fine-tunes it on a small task-specific dataset, which is why a few hundred labeled images can be enough. SageMaker JumpStart offers pre-trained vision models that can be fine-tuned this way. Data augmentation transforms existing images, such as flips and crops, rather than borrowing a trained model's features, and mixing in web images would add incorrect labels. Clustering does not use the labels the shipyard has. Reinforcement learning suits sequential decision problems, not supervised image classification.",
+    referenceUrl: "https://docs.aws.amazon.com/sagemaker/latest/dg/studio-jumpstart.html",
+    tags: ["Transfer learning", "SageMaker JumpStart"]
+  },
+  {
+    id: "aws-aif-309",
+    difficulty: "hard",
+    certId: "aws-aif",
+    domainId: "d3",
+    domainName: "Applications of Foundation Models",
+    title: "Fine-tuning a 70-billion-parameter model on a budget",
+    scenario: "A research group wants to fine-tune a 70-billion-parameter open model on SageMaker for a domain task, but updating every weight would need more GPU memory than it can afford, and it must store a separate tuned copy for each of five tasks. The group wants most of the quality of full fine-tuning at a fraction of the compute and storage.",
+    question: "Which approach should the group use?",
+    options: [
+      { id: 'A', text: "Parameter-efficient fine-tuning such as LoRA, which trains small adapter weights and freezes the rest." },
+      { id: 'B', text: "Continued pre-training on the task data, which updates fewer weights than fine-tuning does in general." },
+      { id: 'C', text: "Pre-training a smaller model from scratch on the task data so that each of the five copies is smaller." },
+      { id: 'D', text: "Full fine-tuning of all weights on smaller batches, so the job fits in memory by running more slowly." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Parameter-efficient fine-tuning methods such as LoRA freeze the original weights and train a small number of added parameters, which sharply reduces GPU memory and training cost, and each task needs only a small adapter file rather than a full copy of the model. Smaller batches reduce activation memory but full fine-tuning still has to hold gradients and optimizer state for all 70 billion weights, and five full copies must be stored. Continued pre-training normally updates all weights too, and it uses unlabeled data. Pre-training a new model from scratch is far more expensive and loses the general knowledge of the open model.",
+    referenceUrl: "https://docs.aws.amazon.com/sagemaker/latest/dg/jumpstart-foundation-models-fine-tuning.html",
+    tags: ["PEFT", "LoRA", "Fine-tuning"]
+  },
+  {
+    id: "aws-aif-310",
+    difficulty: "medium",
+    certId: "aws-aif",
+    domainId: "d3",
+    domainName: "Applications of Foundation Models",
+    title: "Setting up a first Bedrock customization job",
+    scenario: "A developer is preparing her first fine-tuning job in Amazon Bedrock. She has cleaned and formatted her training examples, and her manager asks what else the job itself needs before it can start, so that the setup ticket can be completed in one pass.",
+    question: "What does the fine-tuning job require?",
+    options: [
+      { id: 'A', text: "A guardrail attached to the base model and the data pasted into the console's chat playground window." },
+      { id: 'B', text: "A running SageMaker notebook instance with the data loaded into memory and a GPU cluster reserved." },
+      { id: 'C', text: "A knowledge base connected to the data, an embeddings model, and a vector store for the examples." },
+      { id: 'D', text: "The data in Amazon S3, a service role that can read it and write output, and chosen hyperparameters." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "An Amazon Bedrock model customization job reads training data, and optional validation data, from Amazon S3, uses an IAM service role that Bedrock assumes to read that data and write output, and takes hyperparameters such as epochs, batch size, and learning rate. Bedrock manages the training compute, so no notebook or reserved cluster is required. Knowledge bases, embeddings, and vector stores belong to RAG, not fine-tuning. Guardrails apply at inference time, and the chat playground is not how training data is supplied.",
+    referenceUrl: "https://docs.aws.amazon.com/bedrock/latest/userguide/model-customization-submit.html",
+    tags: ["Fine-tuning", "Amazon Bedrock", "Model customization"]
+  },
+  {
+    id: "aws-aif-311",
+    difficulty: "easy",
+    certId: "aws-aif",
+    domainId: "d3",
+    domainName: "Applications of Foundation Models",
+    title: "Shaping examples for a text fine-tuning job",
+    scenario: "A data analyst exported 5,000 support questions and the agents' best answers from a CRM into an Excel workbook. She wants to use them to fine-tune a text model in Amazon Bedrock and asks how the training file should be structured.",
+    question: "How should she prepare the data?",
+    options: [
+      { id: 'A', text: "As a JSON Lines file in Amazon S3, with one record per line pairing each prompt with its response." },
+      { id: 'B', text: "As a folder of PDF files in Amazon S3, one per question, that Bedrock parses into training examples." },
+      { id: 'C', text: "As one plain text file that concatenates all questions and then all answers, stored in Amazon S3." },
+      { id: 'D', text: "As the original Excel workbook uploaded to the Bedrock console, with questions and answers in columns." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Amazon Bedrock fine-tuning expects a JSON Lines file in Amazon S3, where each line is one training record pairing an input with the desired output, in the prompt-and-completion or messages format that the chosen model specifies. Concatenating all questions and then all answers destroys the pairing the model must learn. Bedrock does not accept Excel workbooks as training input. PDFs are a data source format for knowledge bases, not for customization jobs.",
+    referenceUrl: "https://docs.aws.amazon.com/bedrock/latest/userguide/model-customization-prepare.html",
+    tags: ["Fine-tuning", "Data preparation", "JSONL"]
+  },
+  {
+    id: "aws-aif-312",
+    difficulty: "medium",
+    certId: "aws-aif",
+    domainId: "d3",
+    domainName: "Applications of Foundation Models",
+    title: "An open model that Bedrock cannot tune",
+    scenario: "A biotech startup wants to fine-tune a specific open-weight protein-language model that is available in the SageMaker AI model hub but is not available for customization in Amazon Bedrock. The team wants a managed, low-code way to run the fine-tuning and deploy an endpoint.",
+    question: "Which option should the startup use?",
+    options: [
+      { id: 'A', text: "SageMaker JumpStart, which fine-tunes that model on the team's data and then hosts it for inference." },
+      { id: 'B', text: "SageMaker Ground Truth, which labels the team's protein sequences so the model can learn from them." },
+      { id: 'C', text: "Amazon Bedrock continued pre-training, selecting the protein model from the list of base models." },
+      { id: 'D', text: "Amazon Q Business, connecting it to the sequence data so that it adapts the protein model on its own." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "SageMaker JumpStart provides pre-trained foundation models, including many open-weight models, with managed fine-tuning and one-step deployment to a SageMaker endpoint, which fits a model that Bedrock cannot customize. Bedrock customization is limited to the models that support it, and the scenario says this one does not. Ground Truth creates labeled datasets with human workers but does not run fine-tuning or deploy models. Amazon Q Business is a managed assistant over enterprise data and does not fine-tune models.",
+    referenceUrl: "https://docs.aws.amazon.com/sagemaker/latest/dg/jumpstart-foundation-models-fine-tuning.html",
+    tags: ["SageMaker JumpStart", "Fine-tuning"]
+  },
+  {
+    id: "aws-aif-313",
+    difficulty: "hard",
+    certId: "aws-aif",
+    domainId: "d3",
+    domainName: "Applications of Foundation Models",
+    title: "Comparing two ways to customize a model",
+    scenario: "An architecture review board is comparing continued pre-training and instruction-based fine-tuning for a pharmaceutical company. One team has a large archive of unlabeled regulatory filings; another has a few thousand question-and-answer pairs written by pharmacists. The board wants the differences stated correctly.",
+    question: "Which two statements are accurate? (Choose two.)",
+    options: [
+      { id: 'A', text: "Both approaches update the model at inference time as users ask questions, without a training job run." },
+      { id: 'B', text: "Instruction fine-tuning retrains the model from random weights, discarding what pre-training learned." },
+      { id: 'C', text: "Continued pre-training requires labeled pairs, and it cannot make use of unlabeled regulatory filings." },
+      { id: 'D', text: "Continued pre-training uses unlabeled text to deepen domain knowledge, such as the regulatory filings." },
+      { id: 'E', text: "Instruction fine-tuning uses labeled prompt-and-response pairs to teach how to respond to such tasks." }
+    ],
+    correctAnswers: ['D', 'E'],
+    type: "multiple",
+    explanation: "Continued pre-training extends a foundation model's training on unlabeled domain text, so the regulatory filings improve its domain knowledge and vocabulary. Instruction fine-tuning uses labeled input-and-output pairs, such as the pharmacists' question-and-answer set, to teach the model how to respond to a kind of request. Continued pre-training does not need labels; that is its main distinction. Fine-tuning starts from the pre-trained weights, which is why it needs so much less data than pre-training. Both approaches are offline training jobs that produce a custom model; neither updates the model as users interact with it.",
+    referenceUrl: "https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models.html",
+    tags: ["Continued pre-training", "Instruction tuning"]
+  },
+  {
+    id: "aws-aif-314",
+    difficulty: "easy",
+    certId: "aws-aif",
+    domainId: "d3",
+    domainName: "Applications of Foundation Models",
+    title: "Scraped Q&A pairs full of noise",
+    scenario: "A home-appliance maker gathered 30,000 question-and-answer pairs from its forums to fine-tune a support model. A sample review shows exact duplicates, answers that are simply wrong, spam links, and threads about competitors' products. Training has not started yet.",
+    question: "What should the team do before training?",
+    options: [
+      { id: 'A', text: "Translate the pairs into several languages first so the model sees each example in varied forms." },
+      { id: 'B', text: "Shuffle the pairs randomly so the duplicates and spam are spread evenly across the training epochs." },
+      { id: 'C', text: "Curate the data: remove duplicates, spam, and incorrect or off-topic answers, and verify what remains." },
+      { id: 'D', text: "Train on all 30,000 pairs unchanged, because larger datasets always outweigh noise in the examples." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "Data curation, which covers deduplicating, removing incorrect, harmful, or irrelevant examples, and checking quality, is a core step in preparing fine-tuning data because the model learns whatever the examples show, including wrong answers and spam. Volume does not cancel noise; a smaller clean dataset usually outperforms a larger noisy one. Translating the pairs multiplies the errors into more languages. Shuffling only redistributes the bad examples, which are still learned.",
+    referenceUrl: "https://docs.aws.amazon.com/bedrock/latest/userguide/model-customization-prepare.html",
+    tags: ["Data curation", "Data preparation"]
+  },
+  {
+    id: "aws-aif-315",
+    difficulty: "medium",
+    certId: "aws-aif",
+    domainId: "d3",
+    domainName: "Applications of Foundation Models",
+    title: "Call transcripts with card numbers and no consent record",
+    scenario: "A bank wants to fine-tune a model on 50,000 recorded call-center transcripts. Some transcripts contain full card numbers and customer addresses, and the legal team is unsure whether customers consented to their calls being used for model training. The data science team wants to start next week.",
+    question: "What should happen before the transcripts are used for training?",
+    options: [
+      { id: 'A', text: "Confirm usage rights to the data, and remove or mask PII under its governance policies." },
+      { id: 'B', text: "Encrypt the transcripts with a customer managed key, which resolves both the consent and PII concerns." },
+      { id: 'C', text: "Increase the number of training epochs so the model generalizes and does not memorize specific data." },
+      { id: 'D', text: "Start training now and apply a guardrail at inference time so that any card numbers are masked later." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Data governance for fine-tuning means establishing that the organization is permitted to use the data for this purpose and removing or masking sensitive data such as card numbers and addresses before training, because a model can memorize and later reproduce what it was trained on. An inference-time guardrail is a useful backstop but does not address the consent question or keep PII out of the model's weights. Encryption protects data at rest and in transit but does not grant usage rights or remove PII from the training signal. More epochs increase memorization rather than reduce it.",
+    referenceUrl: "https://docs.aws.amazon.com/wellarchitected/latest/generative-ai-lens/generative-ai-lens.html",
+    tags: ["Data governance", "PII", "Data preparation"]
+  },
+  {
+    id: "aws-aif-316",
+    difficulty: "medium",
+    certId: "aws-aif",
+    domainId: "d3",
+    domainName: "Applications of Foundation Models",
+    title: "Three thousand curated pairs or two hundred thousand scraped",
+    scenario: "A tax-software firm has 3,000 question-and-answer pairs written and checked by enrolled agents. A data engineer proposes adding 200,000 pairs scraped from public forums, of which a spot check found about a third to be inaccurate, to fine-tune the firm's assistant.",
+    question: "What is the best guidance on dataset size here?",
+    options: [
+      { id: 'A', text: "Delete half of the curated pairs so that the model is not overfitted to the enrolled agents' answers." },
+      { id: 'B', text: "Add all 200,000 scraped pairs, because fine-tuning quality depends mainly on the number of examples." },
+      { id: 'C', text: "Use only the scraped pairs, since the curated set is too small to have any effect on the model at all." },
+      { id: 'D', text: "Train on the vetted pairs, and add scraped pairs only after they are cleaned and verified as accurate." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "For fine-tuning, quality matters more than raw quantity: a few thousand accurate, representative examples can shift a model's behavior substantially, while adding a large set that is a third wrong teaches the model to give wrong answers. Scraped data can still help once it is filtered and verified. Treating size as the main driver ignores the one-third error rate. A few thousand curated pairs is a workable dataset, so discarding it for noisy data gets things backwards. Cutting good data to prevent overfitting removes the most valuable examples; overfitting is managed with validation data and epochs.",
+    referenceUrl: "https://docs.aws.amazon.com/bedrock/latest/userguide/model-customization-prepare.html",
+    tags: ["Dataset size", "Data quality", "Data preparation"]
+  },
+  {
+    id: "aws-aif-317",
+    difficulty: "medium",
+    certId: "aws-aif",
+    domainId: "d3",
+    domainName: "Applications of Foundation Models",
+    title: "Forty thousand unlabeled medical-coding snippets",
+    scenario: "A healthcare billing company has 40,000 clinical note snippets and wants to fine-tune a model to assign billing codes, but none of the snippets are labeled. It wants certified coders, working through a managed tool with task interfaces and quality workflows, to label the data.",
+    question: "Which AWS service fits this labeling need?",
+    options: [
+      { id: 'A', text: "AWS Glue DataBrew, which cleans and normalizes datasets with visual recipes before model training." },
+      { id: 'B', text: "Amazon SageMaker Ground Truth, which runs annotation jobs with human workforces and consolidates results." },
+      { id: 'C', text: "Amazon Comprehend Medical, which assigns final billing codes that can be used as labels unreviewed." },
+      { id: 'D', text: "Amazon SageMaker Clarify, which inspects labeled datasets for bias before and after model training." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "SageMaker Ground Truth manages data labeling with human workers, including a private workforce such as the company's own certified coders, and provides labeling task templates, consolidation of multiple annotations, and quality control. Comprehend Medical can suggest ICD-10-CM codes, but its output is an inference, and using unreviewed machine suggestions as ground truth would bake its errors into the model. DataBrew prepares and cleans data but does not provide human labeling. Clarify detects bias and explains predictions; it does not create labels.",
+    referenceUrl: "https://docs.aws.amazon.com/sagemaker/latest/dg/sms.html",
+    tags: ["Data labeling", "SageMaker Ground Truth"]
+  },
+  {
+    id: "aws-aif-318",
+    difficulty: "medium",
+    certId: "aws-aif",
+    domainId: "d3",
+    domainName: "Applications of Foundation Models",
+    title: "Tuned on one region, deployed in five",
+    scenario: "A travel company fine-tuned its booking assistant using only conversations from its UK call center. The assistant now serves customers in the US, India, Australia, and Canada, where it misreads local date formats, spellings, and common requests, while UK performance remains strong.",
+    question: "Which data preparation principle was overlooked?",
+    options: [
+      { id: 'A', text: "Data lineage, because the company did not record which S3 bucket the UK conversations were stored in." },
+      { id: 'B', text: "Dataset size, because the UK set had too many examples, and the model overfitted to the sheer volume." },
+      { id: 'C', text: "Representativeness, because the training data did not reflect the regions and users it now supports." },
+      { id: 'D', text: "Labeling accuracy, because UK agents' responses are inherently lower quality than other regions' ones." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "Fine-tuning data should be representative of the inputs the model will see in production. Training only on UK conversations taught UK conventions, so the model struggles with other regions' formats and phrasing while doing well in the UK. The fix is to include balanced examples from every served region. Nothing suggests the dataset was too large. Strong UK performance shows the labels were fine. Recording lineage is good governance but would not change what the model learned.",
+    referenceUrl: "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/machine-learning-lens.html",
+    tags: ["Representativeness", "Data preparation"]
+  },
+  {
+    id: "aws-aif-319",
+    difficulty: "easy",
+    certId: "aws-aif",
+    domainId: "d3",
+    domainName: "Applications of Foundation Models",
+    title: "Raters choosing the better of two replies",
+    scenario: "A chatbot vendor pays contractors to look at two responses generated for the same prompt and pick the one that is more helpful and less harmful. Thousands of these choices are used to train a separate model that scores responses, and the chatbot is then optimized to earn higher scores.",
+    question: "Which technique is the vendor using?",
+    options: [
+      { id: 'A', text: "Reinforcement learning from human feedback, using human preferences to build a reward model." },
+      { id: 'B', text: "Few-shot prompting, including the contractors' preferred responses as examples in every prompt." },
+      { id: 'C', text: "Retrieval Augmented Generation, retrieving the preferred response from an index at query time." },
+      { id: 'D', text: "Continued pre-training, feeding the contractors' choices into the model as unlabeled domain text." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "This is RLHF: human preference comparisons train a reward model, and the language model is then optimized with reinforcement learning to produce responses that the reward model scores highly, aligning it with human judgments of helpfulness and harmlessness. RAG retrieves documents at inference time and does not optimize the model. Continued pre-training uses unlabeled text, whereas preference choices are labels. Few-shot prompting places examples in a prompt and trains nothing.",
+    referenceUrl: "https://aws.amazon.com/what-is/reinforcement-learning-from-human-feedback/",
+    tags: ["RLHF", "Reward model"]
+  },
+  {
+    id: "aws-aif-320",
+    difficulty: "medium",
+    certId: "aws-aif",
+    domainId: "d3",
+    domainName: "Applications of Foundation Models",
+    title: "Collecting preference data for alignment",
+    scenario: "A company building its own chat model on SageMaker needs human preference data for an RLHF stage: domain experts must view several model responses per prompt and rank them. It wants a managed AWS option for running this human workflow instead of building a custom web app.",
+    question: "Which option should the company use?",
+    options: [
+      { id: 'A', text: "Amazon SageMaker Ground Truth, which supports human ranking and comparison of model responses." },
+      { id: 'B', text: "Amazon Bedrock Guardrails, which records a preference score for the model responses it evaluates." },
+      { id: 'C', text: "Amazon SageMaker Data Wrangler, which profiles and cleans the response data with visual transforms." },
+      { id: 'D', text: "Amazon Augmented AI, which routes low-confidence production predictions to human reviewers." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "SageMaker Ground Truth runs managed human labeling workflows, including tasks in which workers compare and rank model responses to produce preference data, and it can use a private workforce of domain experts. Data Wrangler prepares and transforms data but has no human ranking workflow. Amazon A2I adds human review of individual ML predictions in production, based on confidence thresholds or sampling, rather than building RLHF preference datasets. Guardrails filter content and do not collect human rankings.",
+    referenceUrl: "https://docs.aws.amazon.com/sagemaker/latest/dg/sms.html",
+    tags: ["RLHF", "SageMaker Ground Truth", "Data preparation"]
+  },
+  {
+    id: "aws-aif-321",
+    difficulty: "hard",
+    certId: "aws-aif",
+    domainId: "d3",
+    domainName: "Applications of Foundation Models",
+    title: "Preparing a contract-review fine-tuning set",
+    scenario: "A legal-tech firm is preparing 15,000 labeled examples to fine-tune a contract-review model in Amazon Bedrock. It also wants trustworthy evidence, from the training job itself, of whether the model is learning to generalize or just memorizing the examples.",
+    question: "Which two steps should the firm take? (Choose two.)",
+    options: [
+      { id: 'A', text: "Remove duplicate and near-duplicate examples so no contract is overrepresented in the training set." },
+      { id: 'B', text: "Copy the validation examples into the training set too, so the model has seen every example before." },
+      { id: 'C', text: "Keep client names and account numbers in the examples so the model learns to recognize clients." },
+      { id: 'D', text: "Label the rarest contract type with the most common clause so the classes look evenly balanced." },
+      { id: 'E', text: "Hold out a separate validation set that the job scores but never trains on, and watch its loss." }
+    ],
+    correctAnswers: ['A', 'E'],
+    type: "multiple",
+    explanation: "Deduplication prevents the model from over-weighting repeated contracts and reduces memorization. A held-out validation set, which Amazon Bedrock accepts alongside the training data and scores during the job, shows whether the model generalizes: if validation loss rises while training loss keeps falling, the model is overfitting. Copying validation examples into training destroys the independence that makes validation meaningful. Mislabeling data to fake balance corrupts the labels. Client names and account numbers are sensitive data that should be removed or masked, and learning them is not the goal.",
+    referenceUrl: "https://docs.aws.amazon.com/bedrock/latest/userguide/model-customization-prepare.html",
+    tags: ["Data preparation", "Validation data", "Fine-tuning"]
+  },
+  {
+    id: "aws-aif-322",
+    difficulty: "easy",
+    certId: "aws-aif",
+    domainId: "d3",
+    domainName: "Applications of Foundation Models",
+    title: "Why the job asks for a second dataset",
+    scenario: "While configuring a fine-tuning job in Amazon Bedrock, a junior engineer sees an optional field for validation data in addition to the training data. He asks a senior colleague whether it is worth supplying, since it means setting aside examples that could otherwise be used for training.",
+    question: "What is the main purpose of validation data in the job?",
+    options: [
+      { id: 'A', text: "It replaces the training data halfway through the job so the model sees fresh examples late on." },
+      { id: 'B', text: "It supplies unlabeled text for a continued pre-training pass that runs before the fine-tuning." },
+      { id: 'C', text: "It provides the prompts that the custom model will serve in production after it is deployed." },
+      { id: 'D', text: "It measures performance on examples the model does not train on, helping to reveal overfitting." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Validation data is held out from training and scored during the job, so its loss shows how well the model performs on unseen examples; a gap between falling training loss and rising validation loss signals overfitting and helps choose settings such as the number of epochs. It does not replace training data mid-job. It is not the production workload. Continued pre-training is a separate customization type with its own unlabeled dataset.",
+    referenceUrl: "https://docs.aws.amazon.com/bedrock/latest/userguide/model-customization-prepare.html",
+    tags: ["Validation data", "Overfitting"]
+  },
+  {
+    id: "aws-aif-323",
+    difficulty: "hard",
+    certId: "aws-aif",
+    domainId: "d3",
+    domainName: "Applications of Foundation Models",
+    title: "Validation loss climbing after epoch two",
+    scenario: "A fine-tuning job in Amazon Bedrock ran for eight epochs. Training loss fell steadily throughout, but validation loss reached its lowest point after epoch two and rose every epoch after that. The resulting custom model reproduces training examples well but answers new questions worse than expected.",
+    question: "Which adjustment should the team make for the next job?",
+    options: [
+      { id: 'A', text: "Reduce the epoch count to about two, where validation loss bottomed out, to limit the overfitting seen." },
+      { id: 'B', text: "Increase the epoch count to twelve so the model has more time to settle on a better generalization." },
+      { id: 'C', text: "Remove the validation set so the job trains on more data and the validation loss no longer applies." },
+      { id: 'D', text: "Raise the learning rate sharply so the model moves quickly past the point where it began overfitting." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Falling training loss with rising validation loss is the signature of overfitting: after epoch two the model memorized training examples at the expense of generalization. Training for about two epochs, or otherwise stopping near the validation minimum, keeps the best generalizing state. More epochs deepen the overfitting. Removing the validation set only hides the symptom. A much higher learning rate makes training unstable and does not address memorization.",
+    referenceUrl: "https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models-hp.html",
+    tags: ["Hyperparameters", "Overfitting", "Epochs"]
+  },
+  {
+    id: "aws-aif-324",
+    difficulty: "medium",
+    certId: "aws-aif",
+    domainId: "d3",
+    domainName: "Applications of Foundation Models",
+    title: "Mapping out an RLHF project plan",
+    scenario: "A product manager is writing a plan for aligning her company's fine-tuned model with RLHF. Her draft lists five candidate steps, and an ML engineer is asked to confirm which of them actually belong to the RLHF process.",
+    question: "Which two steps are part of RLHF? (Choose two.)",
+    options: [
+      { id: 'A', text: "Optimize the language model with reinforcement learning to maximize the reward model's score." },
+      { id: 'B', text: "Train a reward model on human rankings that compare different responses to the same prompt." },
+      { id: 'C', text: "Run continued pre-training on unlabeled documents to broaden the model's domain vocabulary." },
+      { id: 'D', text: "Index the company's documents in a vector store so the model retrieves them when it responds." },
+      { id: 'E', text: "Add a word filter guardrail that blocks responses containing terms that reviewers disliked." }
+    ],
+    correctAnswers: ['A', 'B'],
+    type: "multiple",
+    explanation: "RLHF typically starts from a supervised fine-tuned model, collects human rankings of candidate responses, trains a reward model on those rankings, and then uses reinforcement learning to optimize the language model toward responses that earn high reward. Indexing documents in a vector store is RAG. Continued pre-training on unlabeled text is a different customization method. A guardrail word filter blocks specific terms at inference time and does not train the model on human feedback.",
+    referenceUrl: "https://aws.amazon.com/what-is/reinforcement-learning-from-human-feedback/",
+    tags: ["RLHF", "Reward model"]
+  },
+  {
+    id: "aws-aif-325",
+    difficulty: "easy",
+    certId: "aws-aif",
+    domainId: "d3",
+    domainName: "Applications of Foundation Models",
+    title: "Training prompts that look nothing like real ones",
+    scenario: "A property manager fine-tuned a model with neatly written, formal prompts created by its staff. In production, tenants send short, misspelled messages mixing several requests, and the tuned model handles these far worse than the test prompts.",
+    question: "What should the team change in the training data?",
+    options: [
+      { id: 'A', text: "Rewrite the tenants' real messages into formal language before sending them to the tuned model." },
+      { id: 'B', text: "Train for more epochs on the existing staff-written prompts so the model becomes more confident." },
+      { id: 'C', text: "Include real tenant-style messages, with typos and combined questions, paired with good responses." },
+      { id: 'D', text: "Increase the formality of the staff-written prompts further so that the model learns clearer input." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "Fine-tuning examples should look like the inputs the model will receive in production. Adding real tenant-style messages, with their typos, brevity, and mixed requests, paired with correct responses teaches the model to handle what it will actually see. Rewriting every live message adds a fragile preprocessing step and still leaves the model untrained on real input. Making the training prompts even more formal widens the mismatch. More epochs on unrepresentative data deepens overfitting to the wrong style.",
+    referenceUrl: "https://docs.aws.amazon.com/bedrock/latest/userguide/model-customization-prepare.html",
+    tags: ["Representativeness", "Data preparation"]
+  }
+];
+
+export default AWS_AIF_QUESTIONS_13;
