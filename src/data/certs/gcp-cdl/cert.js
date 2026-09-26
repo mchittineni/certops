@@ -12,7 +12,7 @@ export default {
   "title": "Google Cloud Digital Leader",
   "category": "Cloud Engineering",
   "tier": "foundational",
-  "status": "planned",
+  "status": "live",
   "priority": null,
   "badgeClass": "badge-gcp",
   "icon": "googlecloud",
