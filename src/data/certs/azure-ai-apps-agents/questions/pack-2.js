@@ -1,0 +1,532 @@
+export const AZURE_AI_APPS_AGENTS_QUESTIONS_2 = [
+  {
+    id: "azure-ai-apps-agents-26",
+    difficulty: "easy",
+    certId: "azure-ai-apps-agents",
+    domainId: "d1",
+    domainName: "Plan and manage an Azure AI solution",
+    title: "Three teams sharing one set of model deployments",
+    scenario: "A media group has three product teams building separate agents. Central IT wants to deploy and pay for the gpt-4.1 and embedding models once, apply one set of network and security settings, but keep each team's agents, files and evaluations separated so a developer on one team cannot edit another team's agents.",
+    question: "How should the developer structure the Foundry environment?",
+    options: [
+      { id: 'A', text: "Create three resource groups with an Azure OpenAI resource in each and share the keys between the teams." },
+      { id: 'B', text: "Create one Foundry project for everyone and tag each agent with the owning team's name for filtering." },
+      { id: 'C', text: "Create three Foundry resources, one per team, each holding its own copy of the gpt-4.1 and embedding models." },
+      { id: 'D', text: "Create one Foundry resource with the shared model deployments and a separate Foundry project for each team." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "A Foundry resource is the administrative, security and networking boundary and holds model deployments that its projects can use, while each Foundry project is a separate workspace with its own agents, files and access control. One resource with a project per team therefore shares deployments and settings but isolates each team's work. Three Foundry resources duplicate deployments, quota and security configuration. A single shared project lets every developer see and change every agent, and tags do not restrict access. Separate Azure OpenAI resources duplicate models, and sharing keys bypasses role-based access control entirely.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/concepts/architecture",
+    tags: ["Foundry projects", "Architecture"]
+  },
+  {
+    id: "azure-ai-apps-agents-27",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d1",
+    domainName: "Plan and manage an Azure AI solution",
+    title: "Keeping every agent conversation in our own tenant",
+    scenario: "A healthcare provider is moving its patient-intake agent to production. Its security policy says conversation history, uploaded files and vector stores created by the agent must be stored at rest in Azure resources the provider owns, can audit and can apply its own keys and network rules to.",
+    question: "Which two resources does the developer provide in the standard agent setup to meet the policy? (Choose two.)",
+    options: [
+      { id: 'A', text: "An Azure Cache for Redis instance that stores the agent's conversations so they can be reloaded quickly." },
+      { id: 'B', text: "An Azure SQL Database that holds the agent definitions, instructions and the full tool configuration." },
+      { id: 'C', text: "An Azure Cosmos DB for NoSQL account that stores the agent's conversations, messages and agent definitions." },
+      { id: 'D', text: "An Azure AI Search service that holds the vector stores the agent creates for file search and retrieval." },
+      { id: 'E', text: "An Azure Event Hubs namespace that captures each message so the provider keeps an archived audit copy." }
+    ],
+    correctAnswers: ['C', 'D'],
+    type: "multiple",
+    explanation: "The standard agent setup has the customer bring their own Azure Cosmos DB for NoSQL account for thread storage (conversations, messages and agent metadata), an Azure AI Search service for the vector stores the agent creates, and an Azure Storage account for uploaded files, so all agent data at rest lives in the customer's tenant. Azure Cache for Redis, Azure SQL Database and Event Hubs are not storage targets that the Agent Service writes to; configuring them would leave the agent's actual data in Microsoft-managed storage under the basic setup.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/agents/concepts/standard-agent-setup",
+    tags: ["Standard agent setup", "Data residency", "Foundry Agent Service"]
+  },
+  {
+    id: "azure-ai-apps-agents-28",
+    difficulty: "hard",
+    certId: "azure-ai-apps-agents",
+    domainId: "d1",
+    domainName: "Plan and manage an Azure AI solution",
+    title: "Project creation fails against an existing database",
+    scenario: "A developer runs the standard agent setup Bicep template and passes the resource ID of an existing serverless-mode Cosmos DB for NoSQL account whose total throughput limit has been capped at 1,000 RU/s to control cost. The Foundry resource and search service deploy, but creating the project fails during capability configuration with a throughput error.",
+    question: "What should the developer do to complete the deployment?",
+    options: [
+      { id: 'A', text: "Raise the account's total throughput limit to at least 3,000 RU/s so the containers standard setup creates can be provisioned." },
+      { id: 'B', text: "Switch the Cosmos DB account from serverless to provisioned throughput, because standard setup rejects serverless accounts." },
+      { id: 'C', text: "Enable the analytical store on the Cosmos DB account so that agent threads are written to column storage instead of rows." },
+      { id: 'D', text: "Move the Cosmos DB account into the same resource group as the Foundry resource and then rerun the template." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Standard setup provisions several containers in the customer's Cosmos DB account, each needing 1,000 RU/s, so the account's total throughput limit must be at least 3,000 RU/s; a 1,000 RU/s cap makes project creation fail. Both provisioned and serverless modes are supported, so changing the capacity mode is unnecessary. The analytical store is for Synapse Link analytics and does not change where agent threads are written. Resource group placement does not matter; the template accepts a full resource ID from any group.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/agents/concepts/standard-agent-setup",
+    tags: ["Standard agent setup", "Cosmos DB", "Troubleshooting"]
+  },
+  {
+    id: "azure-ai-apps-agents-29",
+    difficulty: "hard",
+    certId: "azure-ai-apps-agents",
+    domainId: "d1",
+    domainName: "Plan and manage an Azure AI solution",
+    title: "Agents that may only reach private endpoints",
+    scenario: "A defence contractor requires that its Foundry agents run with public network access disabled on every dependency and that agent tool calls reach internal APIs only through its hub-and-spoke virtual network. Its Cosmos DB, Storage and AI Search accounts already sit behind private endpoints in the same region as the planned Foundry resource.",
+    question: "Which configuration meets the requirement?",
+    options: [
+      { id: 'A', text: "Keep public access enabled on the Foundry resource and restrict it with IP firewall rules for the contractor's egress addresses." },
+      { id: 'B', text: "Use the standard agent setup with your own virtual network, delegating a subnet for agent network injection and private endpoints." },
+      { id: 'C', text: "Deploy the agent code on an Azure virtual machine in the spoke and call the Foundry models over their public endpoint." },
+      { id: 'D', text: "Use the basic agent setup and add a private endpoint to the Foundry resource so that client traffic stays on the virtual network." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "Private networking for Foundry Agent Service uses the standard setup with a customer-supplied virtual network: a delegated subnet lets the agent runtime inject into the network, so tool calls leave through the customer's routing, and private endpoints connect the Foundry resource and the bring-your-own Cosmos DB, Storage and AI Search accounts with public access disabled. The basic setup stores data in Microsoft-managed resources and cannot route agent egress through the virtual network, so a private endpoint for clients alone falls short. IP firewall rules still leave the public endpoint enabled. Calling models over their public endpoint from a VM contradicts the no-public-access rule.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/agents/how-to/virtual-networks",
+    tags: ["Private networking", "Standard agent setup", "Virtual networks"]
+  },
+  {
+    id: "azure-ai-apps-agents-30",
+    difficulty: "hard",
+    certId: "azure-ai-apps-agents",
+    domainId: "d1",
+    domainName: "Plan and manage an Azure AI solution",
+    title: "Surviving a regional outage for a claims assistant",
+    scenario: "An insurer's claims assistant calls a Global Standard gpt-4.1 deployment on a Foundry resource in East US 2. After a regional incident interrupted the assistant for two hours, leadership requires it to keep serving requests if the resource's region fails, with no code changes in the client applications.",
+    question: "What should the architect recommend?",
+    options: [
+      { id: 'A', text: "Change the deployment to Global Provisioned, because provisioned capacity is automatically re-homed in another region." },
+      { id: 'B', text: "Deploy a second Foundry resource in another region and put Azure API Management in front with backend failover." },
+      { id: 'C', text: "Keep one resource and raise the Global Standard quota so traffic has more headroom during an incident in East US 2." },
+      { id: 'D', text: "Enable zone redundancy on the Foundry resource so an outage in East US 2 is absorbed by its availability zones." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "A Global Standard deployment routes inference globally, but requests enter through the resource's region, so an incident there interrupts the endpoint. A second Foundry resource in another region with the same deployment, fronted by API Management using a backend pool and circuit breaker, gives clients one unchanged URL that fails over automatically. Global Provisioned reserves throughput but is still reached through the same regional resource. More quota does not help when the region is unavailable. Availability zones protect against a datacentre failure within a region, not a regional incident, and are not a Foundry resource setting that addresses this.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/how-to/high-availability-resiliency",
+    tags: ["High availability", "API Management", "Multi-region"]
+  },
+  {
+    id: "azure-ai-apps-agents-31",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d1",
+    domainName: "Plan and manage an Azure AI solution",
+    title: "Stopping one app from starving the others",
+    scenario: "Five internal applications share a gpt-4.1 deployment. Last week a new summarization app consumed most of the tokens-per-minute allowance and the other four received HTTP 429 responses. The platform team wants a per-application token budget enforced centrally, plus token-usage metrics per application, without changing the model deployment.",
+    question: "What should the team implement?",
+    options: [
+      { id: 'A', text: "Set a lower max_tokens value in the summarization app so each of its responses consumes fewer output tokens." },
+      { id: 'B', text: "Front the deployment with Azure API Management and apply the token limit and token metric policies per application." },
+      { id: 'C', text: "Create a separate deployment of the same model for each application and split the quota evenly across them." },
+      { id: 'D', text: "Enable diagnostic settings on the Foundry resource and create an alert whenever total tokens exceed a daily threshold." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "API Management's AI gateway policies include a token limit policy that enforces tokens-per-minute budgets keyed by subscription or application, and a token metric policy that emits token usage per consumer, all centrally and without touching the deployment. Five separate deployments change the deployment layout and fix the split rigidly, leaving unused quota stranded. Lowering max_tokens in one app relies on that app's code and caps only output length, not its request rate. Diagnostic alerts notify after the fact but enforce nothing.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/api-management/genai-gateway-capabilities",
+    tags: ["API Management", "AI gateway", "Token limits"]
+  },
+  {
+    id: "azure-ai-apps-agents-32",
+    difficulty: "easy",
+    certId: "azure-ai-apps-agents",
+    domainId: "d1",
+    domainName: "Plan and manage an Azure AI solution",
+    title: "An API key for a third-party weather service",
+    scenario: "A logistics agent calls a commercial weather API through the OpenAPI tool, and the vendor issues only API keys. The security team forbids keys in source code, environment variables or agent instructions and wants the key rotated centrally without redeploying the agent.",
+    question: "Where should the developer store the key?",
+    options: [
+      { id: 'A', text: "In the agent's instructions, encrypted with a passphrase that the model is told to use when calling the API." },
+      { id: 'B', text: "In the OpenAPI definition's example values, so the tool reads it from the spec at the moment it calls the API." },
+      { id: 'C', text: "In a project connection for the API, with the Foundry resource's connection secrets backed by Azure Key Vault." },
+      { id: 'D', text: "In an application setting of the client web app, passed to the agent as a message at the start of each run." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "The OpenAPI tool authenticates with API keys through a project connection, and connection secrets can be kept in an Azure Key Vault linked to the Foundry resource, so the key is never in code or prompts and can be rotated in one place. Putting an encrypted key and passphrase in instructions exposes both to the model and to anyone reading the agent definition. Passing the key in a message places it in conversation history. Example values in the OpenAPI definition are part of the tool schema the model sees, which leaks the secret.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/how-to/set-up-key-vault-connection",
+    tags: ["Connections", "Key Vault", "Secrets"]
+  },
+  {
+    id: "azure-ai-apps-agents-33",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d1",
+    domainName: "Plan and manage an Azure AI solution",
+    title: "Adding partner models without changing endpoints",
+    scenario: "A software vendor has run production apps against an Azure OpenAI resource for two years. It now wants to use Foundry Agent Service and partner models from the Foundry catalog, but dozens of applications hard-code the existing endpoint and use its current deployments, and the vendor wants no client reconfiguration.",
+    question: "What should the developer do?",
+    options: [
+      { id: 'A', text: "Create a hub-based project that connects to the Azure OpenAI resource and deploy partner models to the hub." },
+      { id: 'B', text: "Upgrade the Azure OpenAI resource to a Foundry resource, keeping its endpoint, keys and existing deployments." },
+      { id: 'C', text: "Create a new Foundry resource, recreate all deployments there and update each application's endpoint and keys." },
+      { id: 'D', text: "Keep the Azure OpenAI resource and front it with Azure Front Door, routing partner model paths to another resource." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "An Azure OpenAI resource can be upgraded in place to a Foundry resource; the upgrade preserves the endpoint, API keys and existing deployments while unlocking projects, Foundry Agent Service and the wider Foundry Models catalog, so no client changes are needed. Creating a new resource forces every application to be reconfigured. A hub-based project is the older architecture and does not give the current Agent Service capabilities that Foundry projects provide. Front Door path routing adds a second resource and custom plumbing without upgrading anything.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/how-to/upgrade-azure-openai",
+    tags: ["Foundry resource", "Azure OpenAI", "Upgrade"]
+  },
+  {
+    id: "azure-ai-apps-agents-34",
+    difficulty: "easy",
+    certId: "azure-ai-apps-agents",
+    domainId: "d1",
+    domainName: "Plan and manage an Azure AI solution",
+    title: "Prompts must be processed inside the EU",
+    scenario: "A German online bank is deploying gpt-4.1 for a customer-service assistant. Its data protection officer accepts processing anywhere within the EU Data Boundary but not outside it, and the bank wants pay-per-token billing and the highest default quota available under that constraint.",
+    question: "Which deployment type should the developer choose?",
+    options: [
+      { id: 'A', text: "Global Standard in a German region, because the resource's location keeps prompts within the EU boundary." },
+      { id: 'B', text: "Global Batch in an EU region, since batch jobs are always processed in the region of the Foundry resource." },
+      { id: 'C', text: "Data Zone Standard in a region inside the EU data zone, so inference stays within the EU Data Boundary." },
+      { id: 'D', text: "Regional Provisioned in Germany West Central, reserving PTUs so traffic cannot leave the chosen region." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "Data Zone Standard processes prompts and responses only within the Microsoft-defined data zone, and the EU zone follows the EU Data Boundary, while keeping pay-per-token billing and higher default quota than single-geography Standard. Global Standard may process inference in any Azure region regardless of where the resource sits. Global Batch is also a global type and is asynchronous, which does not suit a live assistant. Regional Provisioned keeps processing in the geography but is reserved-capacity billing, not pay-per-token.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/foundry-models/concepts/deployment-types",
+    tags: ["Deployment types", "Data Zone", "Data residency"]
+  },
+  {
+    id: "azure-ai-apps-agents-35",
+    difficulty: "easy",
+    certId: "azure-ai-apps-agents",
+    domainId: "d1",
+    domainName: "Plan and manage an Azure AI solution",
+    title: "Five million product blurbs by next week",
+    scenario: "An online marketplace wants gpt-4.1-mini to rewrite five million product descriptions before a site relaunch next week. Nobody waits on individual results, the budget is tight, and the job must not eat into the quota used by the live shopping assistant on the same subscription.",
+    question: "Which deployment type should the developer use for the rewrite job?",
+    options: [
+      { id: 'A', text: "Global Batch, submitting JSONL files so the requests run asynchronously at a discount on separate quota." },
+      { id: 'B', text: "Developer, which offers the lowest token price and is intended for large offline processing workloads." },
+      { id: 'C', text: "Global Provisioned, reserving enough PTUs to complete the job within the week and then releasing them." },
+      { id: 'D', text: "Global Standard, sending the requests as fast as the shared quota allows from a queue-driven worker service." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Global Batch accepts requests in JSONL files, processes them asynchronously with a 24-hour target turnaround at about half the Global Standard price, and uses a separate enqueued-token quota, so the live assistant's quota is untouched. Global Standard at full speed competes with the assistant for the same tokens-per-minute quota and costs twice as much. Provisioned capacity requires a reservation sized for the job and is more expensive for a one-off. The Developer type is only for evaluating fine-tuned models and expires after 24 hours.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/batch",
+    tags: ["Batch", "Deployment types", "Cost"]
+  },
+  {
+    id: "azure-ai-apps-agents-36",
+    difficulty: "hard",
+    certId: "azure-ai-apps-agents",
+    domainId: "d1",
+    domainName: "Plan and manage an Azure AI solution",
+    title: "Steady trading-desk load with occasional spikes",
+    scenario: "A brokerage's research assistant runs a steady, high volume of gpt-4.1 calls during market hours and needs low, consistent latency. A few times a month, news events push traffic well above the normal peak for less than an hour, and the firm does not want to reserve capacity for those spikes or return errors to analysts.",
+    question: "Which two actions should the developer take? (Choose two.)",
+    options: [
+      { id: 'A', text: "Configure spillover on the provisioned deployment to a Standard deployment for requests over capacity." },
+      { id: 'B', text: "Configure a Global Batch deployment to absorb the news-driven spikes as asynchronous overflow jobs." },
+      { id: 'C', text: "Serve the baseline traffic from a Provisioned deployment sized for the normal market-hours peak." },
+      { id: 'D', text: "Serve the baseline traffic from a Global Standard deployment with the maximum quota assigned to it." },
+      { id: 'E', text: "Size the Provisioned deployment for the largest news spike so that no request ever exceeds capacity." }
+    ],
+    correctAnswers: ['A', 'C'],
+    type: "multiple",
+    explanation: "Provisioned throughput gives reserved capacity with low latency variance, which suits a steady high-volume baseline, and spillover sends requests that exceed the provisioned capacity to a designated standard deployment instead of returning 429 errors, covering short spikes on pay-per-token pricing. Global Standard alone has higher latency variability at sustained high volume. Batch processing targets 24-hour turnaround, so analysts would wait far too long. Sizing PTUs for the rare spike reserves capacity that sits idle almost all month, which the firm explicitly rejected.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/spillover-traffic-management",
+    tags: ["Provisioned throughput", "Spillover", "Deployment types"]
+  },
+  {
+    id: "azure-ai-apps-agents-37",
+    difficulty: "easy",
+    certId: "azure-ai-apps-agents",
+    domainId: "d1",
+    domainName: "Plan and manage an Azure AI solution",
+    title: "Trying out a freshly fine-tuned model",
+    scenario: "A developer has just fine-tuned gpt-4.1-mini on support transcripts and wants to run an evaluation set of 500 prompts against it for a day before deciding whether to promote it. No production traffic will touch the model yet and the team wants to avoid the hourly hosting charge of a standard fine-tuned deployment.",
+    question: "Which deployment type fits this step?",
+    options: [
+      { id: 'A', text: "Global Batch, submitting the evaluation prompts as a JSONL file against the base model." },
+      { id: 'B', text: "Standard, deploying the fine-tuned model regionally with the default hosting charges." },
+      { id: 'C', text: "Developer, which hosts a fine-tuned model for evaluation with a 24-hour lifetime." },
+      { id: 'D', text: "Regional Provisioned, reserving the minimum number of PTUs for the fine-tuned model." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "The Developer deployment type exists for evaluating fine-tuned models: it bills per token without the hourly hosting fee, carries no SLA and is deleted automatically after 24 hours, which matches a one-day evaluation. A batch job against the base model does not test the fine-tuned weights at all. Provisioned capacity is a reservation for steady production traffic. A Standard fine-tuned deployment incurs the hourly hosting charge the team wants to avoid.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/foundry-models/concepts/deployment-types",
+    tags: ["Fine-tuning", "Developer deployment", "Deployment types"]
+  },
+  {
+    id: "azure-ai-apps-agents-38",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d1",
+    domainName: "Plan and manage an Azure AI solution",
+    title: "Hosting an open-weight model from Hugging Face",
+    scenario: "A biotech research group wants to serve a specific open-weight Qwen model from the Hugging Face collection in the Foundry catalog. The model is not offered as a serverless API, and the group wants Foundry to handle GPU provisioning, runtime patching and scale-to-zero rather than running its own clusters.",
+    question: "Which deployment option should the developer choose?",
+    options: [
+      { id: 'A', text: "An AKS cluster with GPU node pools, running vLLM with the downloaded weights and a custom ingress." },
+      { id: 'B', text: "A Data Zone Provisioned deployment, reserving PTUs for the model inside the research group's data zone." },
+      { id: 'C', text: "A managed compute deployment in the Foundry project, sized for the model and allowed to scale to zero." },
+      { id: 'D', text: "A Global Standard serverless API deployment, requesting access to the model through the quota portal." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "Managed compute hosts open-source, partner and custom-weight models on dedicated GPU capacity that Foundry sizes, provisions and patches, served through the project endpoint, with autoscaling and scale-to-zero. Serverless API deployment types such as Global Standard or Data Zone Provisioned apply only to models offered as serverless APIs, which this model is not. A self-managed AKS cluster works but hands the group exactly the GPU and runtime operations it wants to avoid.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/concepts/deployments-overview",
+    tags: ["Managed compute", "Open models", "Deployment options"]
+  },
+  {
+    id: "azure-ai-apps-agents-39",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d1",
+    domainName: "Plan and manage an Azure AI solution",
+    title: "Processing that must stay in one geography",
+    scenario: "A Japanese government agency is building an internal drafting assistant with modest, bursty traffic. Its procurement rules require that prompts and responses be processed only within Japan, and a Microsoft-defined multi-country data zone does not meet the rule. It prefers pay-per-token billing.",
+    question: "Which deployment type should the developer select?",
+    options: [
+      { id: 'A', text: "Global Standard in Japan East, which processes data in Japan whenever capacity is available there." },
+      { id: 'B', text: "Standard in a Japanese region, which processes data within the customer-specified Azure geography." },
+      { id: 'C', text: "Data Zone Standard in Japan East, which restricts processing to the Asia Pacific data zone only." },
+      { id: 'D', text: "Global Provisioned in Japan West, reserving throughput so the deployment serves only Japanese regions." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "The Standard deployment type processes prompts and responses within the Azure geography chosen by the customer and bills per token, which suits low, bursty volume with a single-country requirement. Data Zone Standard keeps processing within the APAC zone, which spans several countries and fails the rule. Global Standard and Global Provisioned may process inference in any Azure region, whatever the resource's location, and Global Provisioned is reserved-capacity billing as well.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/foundry-models/concepts/deployment-types",
+    tags: ["Deployment types", "Data residency"]
+  },
+  {
+    id: "azure-ai-apps-agents-40",
+    difficulty: "easy",
+    certId: "azure-ai-apps-agents",
+    domainId: "d1",
+    domainName: "Plan and manage an Azure AI solution",
+    title: "First deployment for a new prototype",
+    scenario: "A start-up is building its first Foundry prototype, a chat assistant for its marketing site. It has no data-residency obligations, expects unpredictable traffic, wants the newest model versions as soon as they launch, and wants the lowest pay-per-token price.",
+    question: "Which deployment type should the developer start with?",
+    options: [
+      { id: 'A', text: "Regional Provisioned, reserving PTUs in a single region for consistent latency." },
+      { id: 'B', text: "Global Standard, which launches new models first at the lowest pay-per-token price." },
+      { id: 'C', text: "Data Zone Standard, which keeps processing within the US data zone for compliance." },
+      { id: 'D', text: "Standard, deploying to a single region so traffic is processed within its Azure geography." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "Global Standard is the recommended starting point: new models arrive there first, it has the lowest price and broadest region coverage, it bills per token for unpredictable traffic, and it provides the highest default quota. Regional Provisioned is reserved capacity, which a prototype with unknown traffic cannot size. Standard and Data Zone Standard add residency guarantees the start-up does not need, receive models later and have lower default quota.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/foundry-models/concepts/deployment-types",
+    tags: ["Deployment types", "Global Standard"]
+  },
+  {
+    id: "azure-ai-apps-agents-41",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d1",
+    domainName: "Plan and manage an Azure AI solution",
+    title: "Banning global processing across all subscriptions",
+    scenario: "A multinational's cloud governance team has decided that no business unit may create model deployments whose inference can be processed in any Azure region. There are 140 subscriptions under one management group, and developers keep choosing the default deployment type in the portal.",
+    question: "What should the governance team do?",
+    options: [
+      { id: 'A', text: "Remove the Foundry User role from every developer so that only the governance team can create any deployments." },
+      { id: 'B', text: "Configure a guardrail on each Foundry resource that blocks prompts routed to regions outside the home geography." },
+      { id: 'C', text: "Assign an Azure Policy at the management group that restricts the allowed locations for Foundry resources." },
+      { id: 'D', text: "Assign an Azure Policy at the management group that denies deployments whose sku.name is GlobalStandard." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Deployment types are expressed as the sku.name of the Microsoft.CognitiveServices/accounts/deployments resource, so an Azure Policy with a deny effect on GlobalStandard (and the other global SKUs) at the management group blocks those deployments in all 140 subscriptions while leaving other types available. Removing developer roles stops all development rather than one deployment type, and Foundry User is not the role that creates deployments. Guardrails filter content; they do not control where inference is processed. Allowed locations constrain where the resource sits, but a global deployment on a resource in an allowed region can still be processed anywhere.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/foundry-models/concepts/deployment-types",
+    tags: ["Azure Policy", "Deployment types", "Governance"]
+  },
+  {
+    id: "azure-ai-apps-agents-42",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d1",
+    domainName: "Plan and manage an Azure AI solution",
+    title: "Controlling when a model version changes",
+    scenario: "A regulated lender validated its credit-memo assistant against a specific gpt-4.1 model version. Its model-risk team insists that the deployment must not move to a newer default version on its own, and that any upgrade happen only after revalidation, unless the pinned version is being retired.",
+    question: "How should the developer configure the deployment's version upgrade option?",
+    options: [
+      { id: 'A', text: "Set it to upgrade once a new default version is available, so the model stays current at all times." },
+      { id: 'B', text: "Set it to upgrade once the current version expires, so it stays pinned until the version retires." },
+      { id: 'C', text: "Set it to no automatic upgrade, and let the deployment keep serving the version after it retires." },
+      { id: 'D', text: "Leave the version blank in the deployment template, so the platform selects the default at runtime." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "The upgrade-when-expired option keeps the deployment on the pinned version until that version reaches retirement, then moves it to the current default, which matches revalidating on the team's own schedule while avoiding an outage at retirement. Upgrading as soon as a new default is available changes the model without revalidation. With no automatic upgrade, the deployment stops serving requests once its version is retired rather than continuing on it. Omitting the version lets the platform pick and auto-update the default, which is the opposite of pinning.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/working-with-models",
+    tags: ["Model versions", "Deployment configuration"]
+  },
+  {
+    id: "azure-ai-apps-agents-43",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d1",
+    domainName: "Plan and manage an Azure AI solution",
+    title: "Splitting one region's quota across deployments",
+    scenario: "A subscription has 450,000 tokens per minute of Global Standard quota for gpt-4.1-mini in Sweden Central. The team needs a production deployment for its customer chatbot and a separate test deployment for its developers, and production must never be throttled because developers ran a load test.",
+    question: "How should the developer configure the deployments?",
+    options: [
+      { id: 'A', text: "Create one deployment with all 450,000 TPM and give developers a separate API key to identify test traffic." },
+      { id: 'B', text: "Create two deployments and assign each a TPM allocation, for example 400,000 to production and 50,000 to test." },
+      { id: 'C', text: "Create two deployments, each set to 450,000 TPM, because each deployment receives its own copy of the quota." },
+      { id: 'D', text: "Create the test deployment in a Data Zone Standard SKU, which draws on production's Global Standard quota last." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "Quota is granted per subscription, region, model and deployment type, and each deployment is assigned a slice of it as its tokens-per-minute rate limit, with requests per minute derived proportionally. Allocating 400,000 TPM to production and 50,000 to test isolates the two, so a developer load test can exhaust only its own slice. A single shared deployment lets test traffic consume production's limit, and keys do not partition rate limits. Deployments share the quota rather than each receiving a full copy, so two 450,000 allocations cannot be created. Data Zone Standard has its own separate quota, and nothing makes it draw on another type's quota.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/quota",
+    tags: ["Quota", "Deployment configuration", "Rate limits"]
+  },
+  {
+    id: "azure-ai-apps-agents-44",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d1",
+    domainName: "Plan and manage an Azure AI solution",
+    title: "Changing an agent's instructions safely",
+    scenario: "A developer maintains a prompt agent in Foundry Agent Service that three applications call by name. She needs to rewrite its instructions and add a tool, compare the old and new behaviour on the same evaluation set, and be able to return to the previous behaviour immediately if the change causes problems.",
+    question: "How should she make the change?",
+    options: [
+      { id: 'A', text: "Create a new agent version with the updated definition, evaluate it against the previous version, and keep the old one to fall back to." },
+      { id: 'B', text: "Edit the instructions of the current version in place, because agent versions stay mutable until the agent itself is deleted or renamed." },
+      { id: 'C', text: "Duplicate the Foundry project and make the change there, then switch the three apps to the copied project's endpoint." },
+      { id: 'D', text: "Delete the agent and create a new one with the same name, then restore it from the portal's recycle bin if problems occur." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Agent definitions are versioned: each change to instructions, model or tools creates a new immutable agent version, so the developer can evaluate the new version against the old one on the same dataset and point callers back at the previous version if needed. Versions are snapshots and are not edited in place. Deleting and recreating the agent loses history and offers no recycle-bin restore. Duplicating the project to change one agent multiplies resources and forces every application to change endpoints.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/agents/concepts/development-lifecycle",
+    tags: ["Agent versions", "Foundry Agent Service"]
+  },
+  {
+    id: "azure-ai-apps-agents-45",
+    difficulty: "hard",
+    certId: "azure-ai-apps-agents",
+    domainId: "d1",
+    domainName: "Plan and manage an Azure AI solution",
+    title: "Running a LangGraph agent on managed infrastructure",
+    scenario: "A fintech team has built a research agent in Python with LangGraph, including custom orchestration code that cannot be expressed as prompt instructions and tool settings. It wants Foundry to host the agent with its own endpoint and Microsoft Entra identity, manage scaling and session state, and emit OpenTelemetry traces, without the team running Kubernetes.",
+    question: "How should the developer deploy the agent?",
+    options: [
+      { id: 'A', text: "Package the agent as a container image in Azure Container Registry and deploy it as a hosted agent in the project." },
+      { id: 'B', text: "Upload the Python files to the code interpreter tool of a prompt agent and have that agent call them on every turn." },
+      { id: 'C', text: "Deploy the agent to Azure App Service and register the App Service URL in the project as an OpenAPI tool connection." },
+      { id: 'D', text: "Recreate the logic as a prompt agent in the Foundry portal, pasting the LangGraph code into the instructions field." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Hosted agents run your own agent code, built with any framework such as LangGraph or Microsoft Agent Framework, as a container image pulled from Azure Container Registry; the Agent Service assigns a dedicated agent identity and endpoint, manages per-session compute and state, and wires in Application Insights tracing. Pasting code into instructions does not execute it. Hosting on App Service and wrapping it as a tool leaves the team operating the runtime and does not make it a Foundry agent. Code interpreter runs short sandboxed scripts per request, not a long-lived agent runtime.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/agents/concepts/hosted-agents",
+    tags: ["Hosted agents", "LangGraph", "Foundry Agent Service"]
+  },
+  {
+    id: "azure-ai-apps-agents-46",
+    difficulty: "hard",
+    certId: "azure-ai-apps-agents",
+    domainId: "d1",
+    domainName: "Plan and manage an Azure AI solution",
+    title: "Tool calls break the day the agent is published",
+    scenario: "An HR agent reads leave balances from an Azure SQL database through a tool that authenticates with agent identity. In the project playground every call succeeds. After the developer publishes the agent so staff can reach it through a stable endpoint, every leave-balance call fails with an authorization error, although the database and tool are unchanged.",
+    question: "What should the developer do?",
+    options: [
+      { id: 'A', text: "Republish the agent with the latest version, because the endpoint still points to the unpublished draft." },
+      { id: 'B', text: "Switch the tool to API key authentication and paste the database connection string into its settings." },
+      { id: 'C', text: "Grant the published agent's own Entra agent identity the database role that the project identity held." },
+      { id: 'D', text: "Grant each member of staff the Foundry User role on the project so that the tool runs under their identity." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "Before publishing, an agent's tools authenticate with the project's shared agent identity; publishing creates a distinct Entra agent identity for the published agent, and role assignments do not transfer, so the new identity must be granted the same database access. Giving staff Foundry User on the project exposes every agent in it and does not change which identity the tool uses. Embedding a connection string replaces keyless access with a secret. Republishing leaves the new identity just as unauthorised, so the failures continue.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/agents/how-to/agent-applications",
+    tags: ["Agent identity", "Publishing", "RBAC"]
+  },
+  {
+    id: "azure-ai-apps-agents-47",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d1",
+    domainName: "Plan and manage an Azure AI solution",
+    title: "Declaring a model deployment in Bicep",
+    scenario: "A platform engineer is writing Bicep for a Foundry resource and needs a gpt-4.1-mini deployment that is processed in any Azure region with pay-per-token billing and a rate limit of 200,000 tokens per minute. The template already declares the Microsoft.CognitiveServices/accounts resource.",
+    question: "Which two settings must the deployment resource declare? (Choose two.)",
+    options: [
+      { id: 'A', text: "A sku capacity of 200000, because capacity for this type is expressed in single tokens per minute." },
+      { id: 'B', text: "A sku capacity of 200, because capacity for this type is expressed in thousands of tokens per minute." },
+      { id: 'C', text: "A sku block with name set to GlobalStandard for pay-per-token processing in any region." },
+      { id: 'D', text: "A sku block with name set to ProvisionedManaged for pay-per-token processing in any region." },
+      { id: 'E', text: "A raiPolicyName of GlobalStandard, which is where the deployment type is recorded for the account." }
+    ],
+    correctAnswers: ['B', 'C'],
+    type: "multiple",
+    explanation: "A Microsoft.CognitiveServices/accounts/deployments resource carries the deployment type as sku.name, and GlobalStandard is the pay-per-token type processed in any region. For standard deployment types, sku.capacity is expressed in units of 1,000 tokens per minute, so 200 yields 200,000 TPM. ProvisionedManaged is Regional Provisioned, a reserved-capacity type measured in PTUs. A capacity of 200000 would request 200 million TPM. raiPolicyName names the content filter (guardrail) policy attached to the deployment, not its type.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/foundry-models/how-to/create-model-deployments",
+    tags: ["Bicep", "Deployment configuration", "Infrastructure as code"]
+  },
+  {
+    id: "azure-ai-apps-agents-48",
+    difficulty: "easy",
+    certId: "azure-ai-apps-agents",
+    domainId: "d1",
+    domainName: "Plan and manage an Azure AI solution",
+    title: "A fine-tuned deployment that vanished",
+    scenario: "A developer deployed a fine-tuned gpt-4.1-mini model with the Standard type for a seasonal promotion. The promotion ended, the app stopped calling the model, and when the team returned three weeks later to reuse it, the deployment was gone although the fine-tuned model itself was still listed.",
+    question: "What explains the missing deployment?",
+    options: [
+      { id: 'A', text: "The deployment was migrated to the Developer type, which deletes it after a 24-hour lifetime." },
+      { id: 'B', text: "Customized model deployments that stay inactive for more than 15 days are deleted automatically." },
+      { id: 'C', text: "Fine-tuned models expire 21 days after training, and their deployments are removed along with them." },
+      { id: 'D', text: "Standard deployments of any model are reclaimed after two weeks when their quota goes unused." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "A fine-tuned (customized) model deployment that receives no calls for more than 15 days is deleted automatically to stop hosting charges, while the fine-tuned model remains available to redeploy. Fine-tuned models do not expire three weeks after training, which is why the model is still listed. Deployments of base models are not reclaimed for unused quota. Nothing converts a deployment to the Developer type; that type is chosen explicitly at deployment.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/fine-tuning-deploy",
+    tags: ["Fine-tuning", "Deployment lifecycle"]
+  },
+  {
+    id: "azure-ai-apps-agents-49",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d1",
+    domainName: "Plan and manage an Azure AI solution",
+    title: "Grounding on a search service in another team's subscription",
+    scenario: "A data team runs an Azure AI Search service that already holds a curated product index. An agent in a Foundry project owned by a different team must query that index, and the search service has key-based authentication disabled.",
+    question: "What should the developer configure?",
+    options: [
+      { id: 'A', text: "A project connection to the search service using Microsoft Entra ID, with the project identity given Search Index Data Reader." },
+      { id: 'B', text: "A project connection using Microsoft Entra ID, with the project identity given only the Search Service Contributor role on the service." },
+      { id: 'C', text: "A copy of the product index exported into the project's own search service, refreshed on a nightly schedule." },
+      { id: 'D', text: "A project connection to the search service using its admin key, after asking the data team to re-enable key access." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "A project connection to an existing Azure AI Search service can authenticate with Microsoft Entra ID, and querying an index needs a data-plane role such as Search Index Data Reader for the project's managed identity; that works with keys disabled and follows least privilege. Asking to re-enable keys weakens the data team's security posture and admin keys grant far more than read. Copying the index duplicates data and makes it stale. Search Service Contributor is a control-plane role for managing the service and does not grant permission to read index documents.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/search/search-security-rbac",
+    tags: ["Connections", "Azure AI Search", "RBAC"]
+  },
+  {
+    id: "azure-ai-apps-agents-50",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d1",
+    domainName: "Plan and manage an Azure AI solution",
+    title: "Choosing a project type for a new agent programme",
+    scenario: "An airline's AI team is starting a new programme built on Foundry Agent Service, Foundry IQ knowledge bases and the current Foundry SDK. Its existing experiments live in a hub-based project that uses prompt flow and an Azure Machine Learning workspace. The team asks which project type new agent work should use.",
+    question: "What should the developer recommend?",
+    options: [
+      { id: 'A', text: "Create a hub-based project in a new hub so that the agents stay isolated from the existing prompt flow experiments." },
+      { id: 'B', text: "Continue in the hub-based project, because hubs are required for any project that deploys agents." },
+      { id: 'C', text: "Create a Foundry project on a Foundry resource, the project type that the current agent features target." },
+      { id: 'D', text: "Create an Azure Machine Learning workspace and build the agents there as managed online endpoints." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "Foundry projects, created on a Foundry resource, are the recommended project type and the one that the current Foundry Agent Service, Foundry IQ and Foundry SDK capabilities are built for; hub-based projects remain for workloads that depend on Azure Machine Learning features such as prompt flow. Hubs are not required for agents, so staying in the hub gains nothing. Managed online endpoints in Azure Machine Learning host models, not Foundry agents. A new hub-based project isolates the work but still uses the older architecture.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/what-is-foundry",
+    tags: ["Foundry projects", "Hub-based projects", "Architecture"]
+  }
+];
+
+export default AZURE_AI_APPS_AGENTS_QUESTIONS_2;

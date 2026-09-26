@@ -1,0 +1,532 @@
+export const AZURE_AI_APPS_AGENTS_QUESTIONS_9 = [
+  {
+    id: "azure-ai-apps-agents-201",
+    difficulty: "easy",
+    certId: "azure-ai-apps-agents",
+    domainId: "d2",
+    domainName: "Implement generative AI and agentic solutions",
+    title: "Copywriter and brand reviewer going back and forth",
+    scenario: "A cosmetics brand wants a copywriter agent to draft product descriptions while a brand-compliance agent critiques each draft, with the two iterating in a shared thread until the reviewer is satisfied. A manager component should decide whose turn it is and when the exchange ends.",
+    question: "Which Microsoft Agent Framework orchestration pattern fits best?",
+    options: [
+      { id: 'A', text: "Sequential, where the copywriter runs once and its single output is passed on to the reviewer." },
+      { id: 'B', text: "Handoff, where the copywriter passes control to the reviewer and leaves the conversation for good." },
+      { id: 'C', text: "Group chat, where agents share one conversation and a manager selects the next speaker each round." },
+      { id: 'D', text: "Concurrent, where both agents receive the brief in parallel and their outputs are merged at the end." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "Group chat orchestration puts agents in a shared conversation, with a manager deciding who speaks next and when to stop, which suits iterative draft-and-critique loops. Concurrent orchestration runs agents independently in parallel, so the reviewer never sees a draft to critique. Handoff transfers control permanently to the next agent rather than alternating. Sequential runs each agent once in a fixed order, which allows only one round of review.",
+    referenceUrl: "https://learn.microsoft.com/en-us/agent-framework/workflows/orchestrations/",
+    tags: ["Multi-agent", "Group chat", "Agent Framework"]
+  },
+  {
+    id: "azure-ai-apps-agents-202",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d2",
+    domainName: "Implement generative AI and agentic solutions",
+    title: "Open-ended market entry research",
+    scenario: "A consultancy wants a system that takes a loose request such as \"Assess whether we should enter the Brazilian e-bike market\" and works out the steps itself: which specialists to involve (web research, financial modeling, regulatory analysis), in what order, and when to revise the plan as findings come in. The steps cannot be defined in advance.",
+    question: "Which orchestration pattern should the team use?",
+    options: [
+      { id: 'A', text: "Handoff, where the research agent decides once which specialist should take over the conversation." },
+      { id: 'B', text: "Magentic, where a manager agent plans, tracks progress and dynamically assigns specialist agents." },
+      { id: 'C', text: "Concurrent, where all specialists run at once on the request and a final step concatenates results." },
+      { id: 'D', text: "Sequential, with the research, finance and regulatory agents always invoked in that fixed order." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "Magentic orchestration uses a manager agent that builds and updates a plan, tracks progress, and chooses which specialist agent acts next, re-planning as results arrive, which fits open-ended problems whose steps cannot be predefined. A fixed sequential order cannot adapt to findings. Concurrent orchestration runs every specialist once without coordination or re-planning. Handoff passes control agent to agent but has no central planner tracking progress toward the overall goal.",
+    referenceUrl: "https://learn.microsoft.com/en-us/agent-framework/workflows/orchestrations/",
+    tags: ["Multi-agent", "Magentic", "Planning"]
+  },
+  {
+    id: "azure-ai-apps-agents-203",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d2",
+    domainName: "Implement generative AI and agentic solutions",
+    title: "Delegating to another team's agent",
+    scenario: "An airline's customer agent in Foundry needs to delegate baggage-claim questions to a baggage agent that a partner team built and runs on its own platform. The partner exposes the agent through an Agent2Agent (A2A) protocol endpoint and does not want to share its code, prompts or tools.",
+    question: "How should the developer integrate the baggage agent?",
+    options: [
+      { id: 'A', text: "Add the baggage agent's endpoint as an agent-to-agent tool so the customer agent can delegate tasks to it." },
+      { id: 'B', text: "Add the baggage agent's container image to the project and deploy it as a second hosted agent of its own." },
+      { id: 'C', text: "Describe the baggage agent's website in an OpenAPI file and attach it to the customer agent as a function." },
+      { id: 'D', text: "Copy the baggage agent's prompts into a new Foundry agent version and run the copy locally in the project." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "The agent-to-agent (A2A) tool lets a Foundry agent call a remote agent through its A2A endpoint, delegating tasks and receiving results while the remote agent's implementation stays private to its owners. Copying prompts requires assets the partner will not share and forks their logic. Redeploying the partner's image also requires their code. An OpenAPI description of a website is not an A2A interface and would not carry the agent protocol's task semantics.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/agents/how-to/tools/agent-to-agent",
+    tags: ["A2A", "Multi-agent", "Agent tools"]
+  },
+  {
+    id: "azure-ai-apps-agents-204",
+    difficulty: "hard",
+    certId: "azure-ai-apps-agents",
+    domainId: "d2",
+    domainName: "Implement generative AI and agentic solutions",
+    title: "LLM routing where the steps are fixed",
+    scenario: "A lender built a Magentic-style orchestration in which a manager agent decides the order of five steps: identity check, credit pull, affordability model, underwriting rules and offer letter. The steps and their order are fixed by regulation, yet in testing the manager occasionally skips the credit pull or runs underwriting before affordability. Auditors want identical ordering on every application.",
+    question: "What should the team change?",
+    options: [
+      { id: 'A', text: "Switch the manager to a reasoning model with high reasoning effort so it plans the fixed order more reliably." },
+      { id: 'B', text: "Replace the orchestration with group chat so every agent sees the others' output before it decides to act." },
+      { id: 'C', text: "Model the steps as an Agent Framework workflow with explicit edges, using agents only inside steps." },
+      { id: 'D', text: "Add a stronger instruction to the manager agent that lists the required order and forbids skipping any step." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "When the sequence is known and mandated, the order should be enforced by code: an Agent Framework workflow with explicit edges between executors guarantees each step runs in the defined order, while agents can still do the reasoning inside steps such as drafting the offer letter. Stronger prompting or a stronger model makes compliance more likely but never guaranteed, which fails an audit requirement. Group chat still lets a manager choose speakers dynamically, reintroducing the same variability.",
+    referenceUrl: "https://learn.microsoft.com/en-us/agent-framework/workflows/",
+    tags: ["Workflows", "Deterministic orchestration", "Agent Framework"]
+  },
+  {
+    id: "azure-ai-apps-agents-205",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d2",
+    domainName: "Implement generative AI and agentic solutions",
+    title: "Making a Foundry agent callable by partner agents",
+    scenario: "A logistics company has a shipment-tracking agent in Foundry. Several partners run their own agents on other platforms and want to delegate tracking questions to it using a standard agent protocol, rather than through a bespoke REST API that the company would have to design and version.",
+    question: "What should the developer do?",
+    options: [
+      { id: 'A', text: "Enable an incoming A2A endpoint on the tracking agent and give partners its address and auth requirements." },
+      { id: 'B', text: "Add each partner's agent to the tracking agent as an MCP tool so requests can flow in both directions." },
+      { id: 'C', text: "Expose the tracking agent's conversations through the project's connections so partners can read results." },
+      { id: 'D', text: "Publish the tracking agent's instructions and tool definitions so partners can recreate the agent themselves." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Foundry agents can expose an incoming agent-to-agent (A2A) endpoint, so agents on other platforms can discover and delegate tasks to them over a standard protocol, with Microsoft Entra ID or configured authentication controlling access. Publishing instructions and tools gives away the implementation and creates unmanaged copies. MCP tools let this agent call out to servers; they do not make it callable by partners. Project connections are outbound links to resources, not an inbound interface for other organizations.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/agents/how-to/enable-agent-to-agent-endpoint",
+    tags: ["A2A", "Interoperability", "Multi-agent"]
+  },
+  {
+    id: "azure-ai-apps-agents-206",
+    difficulty: "easy",
+    certId: "azure-ai-apps-agents",
+    domainId: "d2",
+    domainName: "Implement generative AI and agentic solutions",
+    title: "Five agents for a simple FAQ",
+    scenario: "A startup's architect proposes five cooperating agents (router, retriever, answerer, formatter and checker) for a help-center bot that answers questions from one product manual using two tools. Early tests show high latency and cost, and the answers are no better than those from a single prototype agent.",
+    question: "What should the team do?",
+    options: [
+      { id: 'A', text: "Keep all five agents but move them to smaller models so the extra hops cost less time and money." },
+      { id: 'B', text: "Add a sixth manager agent to coordinate the five and reduce the number of wasted turns between them." },
+      { id: 'C', text: "Run the five agents concurrently instead of in sequence so the total latency matches one agent." },
+      { id: 'D', text: "Use one agent with the two tools and clear instructions, adding agents only if a real need appears." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Multi-agent designs add latency, cost and failure points, and they pay off only when tasks need distinct expertise, separate tool sets or security boundaries; a single agent with two tools and good instructions is the right starting point for a one-manual FAQ. Smaller models still pay for the unnecessary hops. A manager agent adds another layer to an already over-built design. The steps depend on each other, so running them concurrently would break the flow.",
+    referenceUrl: "https://learn.microsoft.com/en-us/agent-framework/overview/agent-framework-overview",
+    tags: ["Multi-agent", "Agent design", "Simplicity"]
+  },
+  {
+    id: "azure-ai-apps-agents-207",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d2",
+    domainName: "Implement generative AI and agentic solutions",
+    title: "Two agents politely arguing forever",
+    scenario: "In a group chat orchestration, a pricing agent and a margin-guard agent sometimes keep proposing and rejecting discounts for dozens of rounds, running up token costs until the request times out. The business wants the conversation to end in a bounded way with a result a human can pick up.",
+    question: "What should the developer configure?",
+    options: [
+      { id: 'A', text: "A higher temperature on both agents so that they explore new proposals and converge on agreement sooner." },
+      { id: 'B', text: "A larger context window for both agents so they can remember every earlier offer and stop repeating it." },
+      { id: 'C', text: "A termination condition and a round limit on the manager, handing unresolved cases to a human reviewer." },
+      { id: 'D', text: "A switch to concurrent orchestration so both agents answer once and the stricter of the two results wins." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "Group chat managers support termination logic, such as stopping when agreement is reached, plus a cap on rounds; when the cap is hit, the orchestration should end and escalate the unresolved case with its transcript so a person can decide. Higher temperature adds randomness, not convergence. A larger context window lets the agents hold more history but does not stop them disagreeing. Concurrent orchestration removes the negotiation the business designed and simply picks one answer.",
+    referenceUrl: "https://learn.microsoft.com/en-us/agent-framework/workflows/orchestrations/group-chat",
+    tags: ["Group chat", "Safeguards", "Termination"]
+  },
+  {
+    id: "azure-ai-apps-agents-208",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d2",
+    domainName: "Implement generative AI and agentic solutions",
+    title: "Designing specialists for an insurance claims system",
+    scenario: "An insurer is splitting a monolithic claims agent that has 25 tools and a 9,000-token prompt into several agents coordinated by an orchestrator. The goals are more accurate tool use, a smaller blast radius if one agent misbehaves, and lower token cost per step.",
+    question: "Which two design choices support these goals? (Choose two.)",
+    options: [
+      { id: 'A', text: "Give every agent all 25 tools so any agent can finish a claim if the orchestrator routes it badly." },
+      { id: 'B', text: "Have every agent share one identity with write access to all claims systems to simplify permissions." },
+      { id: 'C', text: "Have the orchestrator pass each specialist only the context and inputs needed for the current step." },
+      { id: 'D', text: "Forward the full transcript of every agent to every other agent after each step to keep them aligned." },
+      { id: 'E', text: "Give each specialist agent only the few tools and instructions its own narrow task actually needs." }
+    ],
+    correctAnswers: ['C', 'E'],
+    type: "multiple",
+    explanation: "Narrow agents with only their own tools and instructions choose tools more accurately and can do less damage if they go wrong, and passing each one only the context it needs keeps prompts short and cheap. Giving every agent every tool recreates the monolith's selection problem in each agent. A shared, broadly privileged identity maximizes blast radius. Broadcasting every transcript to every agent inflates token cost and exposes data that agents do not need.",
+    referenceUrl: "https://learn.microsoft.com/en-us/agent-framework/workflows/orchestrations/",
+    tags: ["Multi-agent", "Least privilege", "Agent design"]
+  },
+  {
+    id: "azure-ai-apps-agents-209",
+    difficulty: "easy",
+    certId: "azure-ai-apps-agents",
+    domainId: "d2",
+    domainName: "Implement generative AI and agentic solutions",
+    title: "Correct lookup, ignored result",
+    scenario: "A pension agent correctly calls get_balance with the right member ID, and the tool returns the current balance. Yet in some runs the final answer quotes a figure from earlier in the conversation or a rounded guess instead of the value the tool returned. The team wants an evaluator aimed at exactly this step.",
+    question: "Which evaluator should the team use?",
+    options: [
+      { id: 'A', text: "Tool Call Success, which checks that get_balance returned without a technical error or timeout." },
+      { id: 'B', text: "Intent Resolution, which checks that the agent understood the member wanted their balance." },
+      { id: 'C', text: "Tool Selection, which checks that the agent chose the needed tools and no unnecessary ones." },
+      { id: 'D', text: "Tool Output Utilization, which checks that the agent correctly used tool results in its reply." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Tool Output Utilization measures whether the agent correctly understood and used the results of its tool calls in its reasoning and final response, which is exactly where these runs fail. Tool Selection and Tool Call Success would both pass, because the right tool was called and it succeeded. Intent Resolution would also pass, because the agent understood the request; it simply ignored the answer it received.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/concepts/evaluation-evaluators/agent-evaluators",
+    tags: ["Agent evaluation", "Tool Output Utilization"]
+  },
+  {
+    id: "azure-ai-apps-agents-210",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d2",
+    domainName: "Implement generative AI and agentic solutions",
+    title: "Continuing after an MCP approval request",
+    scenario: "A developer's prompt agent uses an MCP tool with require_approval set to always. After a user asks to create a support ticket, the response ends with an mcp_approval_request item naming the server, tool and arguments instead of a final answer. A reviewer in the app clicks Approve.",
+    question: "What should the app send next?",
+    options: [
+      { id: 'A', text: "A function_call_output item with the ticket details, since the app itself is responsible for running the MCP tool." },
+      { id: 'B', text: "A new request containing an mcp_approval_response with approve true and the request ID, chained to that response." },
+      { id: 'C', text: "Nothing further, because the service polls the app for the reviewer's decision and resumes the run by itself." },
+      { id: 'D', text: "The same user message again with require_approval set to never, so that the tool call goes ahead immediately." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "The approval handshake is explicit: the app sends a new request whose input includes an mcp_approval_response carrying the approval_request_id and approve set to true (or false), linked to the previous response or conversation, and the service then calls the MCP server and continues. Re-sending with approval disabled bypasses the control the team configured. MCP tools execute on the service side, not in the app, so function_call_output is the wrong item. The service does not poll clients; it waits for the approval response.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/agents/how-to/tools/model-context-protocol",
+    tags: ["MCP tool", "Approval flow", "Human in the loop"]
+  },
+  {
+    id: "azure-ai-apps-agents-211",
+    difficulty: "hard",
+    certId: "azure-ai-apps-agents",
+    domainId: "d2",
+    domainName: "Implement generative AI and agentic solutions",
+    title: "Approvals for writes only",
+    scenario: "A DevOps agent connects to a vendor's MCP server exposing list_incidents, get_incident, update_incident and close_incident. With require_approval set to always, on-call engineers are drowning in approval prompts for harmless lookups. Security still requires a human decision before anything changes an incident, enforced by the platform rather than by the app or the prompt.",
+    question: "How should the developer configure the MCP tool?",
+    options: [
+      { id: 'A', text: "Remove update_incident and close_incident from the server so that the remaining tools never need an approval." },
+      { id: 'B', text: "Set require_approval per tool, so the two read tools never need approval while update and close always do." },
+      { id: 'C', text: "Keep require_approval at always and have the app auto-approve any request whose tool name starts with get or list." },
+      { id: 'D', text: "Set require_approval to never and tell the agent in its instructions to confirm with the user before any update." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "require_approval accepts either a single value or a per-tool configuration, so list_incidents and get_incident can run without prompts while update_incident and close_incident always produce an approval request that a human must answer. Instructions are not a platform control and can be bypassed. Auto-approving by name prefix moves the decision into app code and trusts the vendor's naming. Removing the write tools eliminates the approval noise but also the capability the team needs.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/agents/how-to/tools/model-context-protocol",
+    tags: ["MCP tool", "Approval policy", "Human in the loop"]
+  },
+  {
+    id: "azure-ai-apps-agents-212",
+    difficulty: "hard",
+    certId: "azure-ai-apps-agents",
+    domainId: "d2",
+    domainName: "Implement generative AI and agentic solutions",
+    title: "Approvals that take three days",
+    scenario: "A procurement workflow built with Microsoft Agent Framework drafts a purchase order, then waits for a budget holder's approval, which can take several days, before sending the order to the supplier. The workflow runs in a hosted agent whose compute may be recycled at any time, and the team cannot afford to redo completed steps after a restart.",
+    question: "What should the developer use?",
+    options: [
+      { id: 'A', text: "Have the approval step poll an inbox every minute inside a loop so the workflow never reaches an idle state." },
+      { id: 'B', text: "Keep the workflow waiting in memory and raise the hosted agent's idle timeout to its maximum of 60 minutes." },
+      { id: 'C', text: "Enable workflow checkpointing to durable storage and resume from the checkpoint once approval arrives." },
+      { id: 'D', text: "Store the draft purchase order in a memory store so that the agent can recall it once the approval comes in." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "Agent Framework workflows can checkpoint their state, including completed steps and pending human-in-the-loop requests, to durable storage and later resume from that checkpoint, so a multi-day wait survives restarts without repeating work. A 60-minute idle timeout is far shorter than three days, and in-memory state is lost when compute recycles. Memory stores hold distilled user context, not workflow execution state. Busy-polling for days wastes compute and still loses progress if the process dies.",
+    referenceUrl: "https://learn.microsoft.com/en-us/agent-framework/workflows/checkpoints",
+    tags: ["Checkpointing", "Human in the loop", "Workflows"]
+  },
+  {
+    id: "azure-ai-apps-agents-213",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d2",
+    domainName: "Implement generative AI and agentic solutions",
+    title: "Asking the requester for a missing detail",
+    scenario: "An IT onboarding workflow built with Agent Framework provisions laptops and accounts for new hires. When the hiring manager's request omits the new hire's start date, the workflow currently guesses one. The team wants the workflow to pause, ask the manager for the missing date, and continue with the answer.",
+    question: "Which capability should the developer use?",
+    options: [
+      { id: 'A', text: "A default start date of two weeks from today set in the agent's instructions for incomplete requests." },
+      { id: 'B', text: "A higher reasoning effort on the provisioning agent so it infers the start date from the request text." },
+      { id: 'C', text: "A retry policy on the provisioning step that re-runs it until the model produces a plausible start date." },
+      { id: 'D', text: "A human-in-the-loop request from the workflow that emits a question and waits for an external response." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Agent Framework workflows support human-in-the-loop request and response: an executor emits a request for information, the workflow pauses, the application surfaces the question to the manager, and the workflow resumes with the response. More reasoning cannot recover information that is not in the request. A hard-coded default is still a guess. Retrying until the output looks plausible just launders a fabricated date.",
+    referenceUrl: "https://learn.microsoft.com/en-us/agent-framework/workflows/human-in-the-loop",
+    tags: ["Human in the loop", "Workflows", "Agent Framework"]
+  },
+  {
+    id: "azure-ai-apps-agents-214",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d2",
+    domainName: "Implement generative AI and agentic solutions",
+    title: "An autonomous agent stuck in a tool loop",
+    scenario: "An autonomous data-quality agent runs nightly without supervision. One night it repeatedly called a failing validation API more than 400 times, consuming a large share of the month's token budget before someone killed it the next morning. The team wants such runs to stop safely on their own.",
+    question: "Which safeguard addresses this most directly?",
+    options: [
+      { id: 'A', text: "Enforce per-run limits on tool calls, tokens and wall-clock time, ending the run with an alert when hit." },
+      { id: 'B', text: "Enable continuous evaluation on the agent so that runs with poor task adherence are scored the next day." },
+      { id: 'C', text: "Add an instruction telling the agent not to call any tool more than a reasonable number of times per run." },
+      { id: 'D', text: "Move the agent to a provisioned deployment so the extra tool-call tokens are covered by reserved capacity." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Unsupervised agents need hard, code-enforced budgets, such as a maximum number of tool calls or loop iterations, a token budget and a timeout per run, that terminate the run and notify someone when exceeded. An instruction depends on the model noticing its own loop, which is what failed. Provisioned capacity changes how tokens are billed, not whether a runaway loop stops. Continuous evaluation scores behavior after the fact and does not stop a run in progress.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/agents/concepts/tool-best-practice",
+    tags: ["Autonomous agents", "Safeguards", "Cost control"]
+  },
+  {
+    id: "azure-ai-apps-agents-215",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d2",
+    domainName: "Implement generative AI and agentic solutions",
+    title: "Evaluating a manager and its specialists",
+    scenario: "An insurer's claims system uses an orchestrator agent that delegates to specialist agents for policy lookup, fraud screening and payment calculation. The team wants evaluation that shows whether each claim was fully handled end to end, and also whether the specialists called their tools correctly along the way.",
+    question: "Which two evaluation choices should the team make? (Choose two.)",
+    options: [
+      { id: 'A', text: "Apply Task Completion to every specialist's partial output and average the scores across the agents." },
+      { id: 'B', text: "Apply Similarity to the specialists' outputs without references so their answers can be compared." },
+      { id: 'C', text: "Apply Document Retrieval to the orchestrator's delegations, treating each specialist as a document." },
+      { id: 'D', text: "Apply Tool Call Accuracy to the specialists' tool calls to judge each step's calls and parameters." },
+      { id: 'E', text: "Apply Task Completion to the orchestrator's final output, the result the claimant actually receives." }
+    ],
+    correctAnswers: ['D', 'E'],
+    type: "multiple",
+    explanation: "System evaluators such as Task Completion apply to the end-to-end outcome, which in a multi-agent system means the orchestrator or final agent's output, while process evaluators such as Tool Call Accuracy examine individual steps, including specialists' tool calls. Scoring each specialist's partial output for task completion misjudges agents that were never meant to finish the whole task. Document Retrieval needs labeled documents, not agents. Similarity requires ground-truth references.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/concepts/evaluation-evaluators/agent-evaluators",
+    tags: ["Agent evaluation", "Multi-agent", "Task Completion"]
+  },
+  {
+    id: "azure-ai-apps-agents-216",
+    difficulty: "hard",
+    certId: "azure-ai-apps-agents",
+    domainId: "d2",
+    domainName: "Implement generative AI and agentic solutions",
+    title: "Refunds the agent may grant on its own",
+    scenario: "A retailer lets its returns agent issue refunds autonomously up to 50 dollars; anything larger must go to a human supervisor. The rule currently lives only in the agent's instructions, and a red-team tester convinced the agent to issue a 400-dollar refund by claiming to be a supervisor.",
+    question: "Where should the 50-dollar rule be enforced?",
+    options: [
+      { id: 'A', text: "In a stronger system instruction that repeats the limit and tells the agent to ignore claims of authority." },
+      { id: 'B', text: "In the refund tool's server-side code, which pays up to 50 dollars and routes larger ones to a supervisor." },
+      { id: 'C', text: "In a Task Adherence evaluation run each night that flags conversations where the agent went over the limit." },
+      { id: 'D', text: "In an output guardrail with a custom blocklist entry that blocks any response mentioning amounts over 50." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "Business limits on actions must be enforced where the action executes: the refund tool's backend checks the amount and either pays it or creates a supervisor approval task, so no prompt manipulation can exceed the limit. Instructions, however strongly worded, remain vulnerable to social engineering, as the test showed. A blocklist on response text does not stop the tool call that moves the money. A nightly evaluation detects the violation only after the money is gone.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/agents/concepts/tool-best-practice",
+    tags: ["Semi-autonomous agents", "Safeguards", "Tool design"]
+  },
+  {
+    id: "azure-ai-apps-agents-217",
+    difficulty: "easy",
+    certId: "azure-ai-apps-agents",
+    domainId: "d2",
+    domainName: "Implement generative AI and agentic solutions",
+    title: "Did the agent follow its own rules?",
+    scenario: "A pharmacy agent's system message says it must never recommend dosage changes and must always suggest contacting a pharmacist for medication questions. The quality team wants a built-in evaluator that judges, for each logged conversation, whether the agent's actions and answers complied with those instructions.",
+    question: "Which evaluator should the team use?",
+    options: [
+      { id: 'A', text: "Document Retrieval, which judges how well retrieved leaflets matched labeled relevance for each query." },
+      { id: 'B', text: "Task Adherence, which judges whether the agent followed its system message rules and constraints." },
+      { id: 'C', text: "Tool Call Success, which judges whether each of the agent's tool calls ran without a technical error." },
+      { id: 'D', text: "Fluency, which judges whether the agent's answers used correct grammar and a readable structure." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "The Task Adherence evaluator measures whether an agent's actions adhere to its assigned task according to the rules, procedures and policy constraints in its system message and prior steps, which is exactly the compliance question. Fluency judges language quality. Tool Call Success detects technical failures of tool calls, not policy compliance. Document Retrieval measures search ranking against relevance labels.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/concepts/evaluation-evaluators/agent-evaluators",
+    tags: ["Agent evaluation", "Task Adherence"]
+  },
+  {
+    id: "azure-ai-apps-agents-218",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d2",
+    domainName: "Implement generative AI and agentic solutions",
+    title: "Right tool, badly formed arguments",
+    scenario: "A hotel booking agent almost always picks the correct function, but error logs show many calls with dates written as \"next Friday\" instead of YYYY-MM-DD, room types outside the allowed list, and an unexpected guests_count parameter. The team wants an evaluator that strictly checks every parameter of each tool call against the tool definitions.",
+    question: "Which evaluator fits?",
+    options: [
+      { id: 'A', text: "Tool Output Utilization, which checks that the agent used the returned results in its final reply." },
+      { id: 'B', text: "Intent Resolution, which checks that the agent correctly understood what booking the user wanted." },
+      { id: 'C', text: "Tool Input Accuracy, which strictly checks each parameter's type, format, presence and its value." },
+      { id: 'D', text: "Tool Selection, which checks that the agent chose the needed tools and avoided unnecessary ones." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "Tool Input Accuracy applies strict criteria to every tool call parameter: groundedness, type compliance, format compliance, required parameters present, no unexpected parameters and appropriate values, which covers bad date formats, invalid room types and extra fields. Tool Selection would pass these runs because the right tools were chosen. Intent Resolution checks understanding of the request, not argument formatting. Tool Output Utilization looks at how results were used after the call.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/concepts/evaluation-evaluators/agent-evaluators",
+    tags: ["Agent evaluation", "Tool Input Accuracy", "Tool schemas"]
+  },
+  {
+    id: "azure-ai-apps-agents-219",
+    difficulty: "easy",
+    certId: "azure-ai-apps-agents",
+    domainId: "d2",
+    domainName: "Implement generative AI and agentic solutions",
+    title: "Separating agent mistakes from API outages",
+    scenario: "A shipping agent's poor answers turn out to have two causes: sometimes it reasons badly, and sometimes the carrier API it calls times out or returns server errors. Before digging into reasoning quality, the team wants an evaluator that simply flags runs where tool calls failed technically.",
+    question: "Which evaluator should the team run?",
+    options: [
+      { id: 'A', text: "Coherence, which flags final answers whose ideas are not logically connected together." },
+      { id: 'B', text: "Tool Call Accuracy, which flags tool calls made with the wrong function or parameters." },
+      { id: 'C', text: "Task Completion, which flags runs where the user did not receive a usable deliverable." },
+      { id: 'D', text: "Tool Call Success, which flags tool calls that ended in technical errors or timeouts." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Tool Call Success measures whether tool calls succeeded or resulted in technical errors or exceptions, which isolates API reliability problems from reasoning problems. Tool Call Accuracy judges whether the right calls were made with the right parameters, which a timed-out but correct call would pass. Task Completion and Coherence judge outcomes and writing, mixing both causes together.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/concepts/evaluation-evaluators/agent-evaluators",
+    tags: ["Agent evaluation", "Tool Call Success", "Error analysis"]
+  },
+  {
+    id: "azure-ai-apps-agents-220",
+    difficulty: "hard",
+    certId: "azure-ai-apps-agents",
+    domainId: "d2",
+    domainName: "Implement generative AI and agentic solutions",
+    title: "Regression test for the agent's tool path",
+    scenario: "A bank knows the correct tool path for 150 test requests, for example verify_identity, then get_accounts, then transfer_funds. After each agent version change, it wants to check that those steps still appear in that order, while tolerating extra harmless lookups the agent may add, and it wants precision and recall figures without an LLM judge.",
+    question: "What should the team configure?",
+    options: [
+      { id: 'A', text: "Task Navigation Efficiency with expected actions per request and the matching mode set to in_order_match." },
+      { id: 'B', text: "Intent Resolution with the expected intent per request and a judge deployment rating each run on the scale." },
+      { id: 'C', text: "Task Navigation Efficiency with the expected actions per request and the matching mode set to exact_match." },
+      { id: 'D', text: "Tool Call Accuracy with the tool definitions and a judge deployment rating each run on the 1 to 5 scale." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Task Navigation Efficiency compares the agent's actual actions with expected actions and returns pass or fail plus precision, recall and F1 without a judge model; in_order_match requires all expected steps in the right order while allowing extra steps, which matches the requirement. exact_match would fail every run in which the agent added a harmless lookup. Tool Call Accuracy is an LLM-judge score that does not test a known path. Intent Resolution judges understanding of the request, not the sequence of actions.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/concepts/evaluation-evaluators/agent-evaluators",
+    tags: ["Agent evaluation", "Task Navigation Efficiency", "Regression testing"]
+  },
+  {
+    id: "azure-ai-apps-agents-221",
+    difficulty: "hard",
+    certId: "azure-ai-apps-agents",
+    domainId: "d2",
+    domainName: "Implement generative AI and agentic solutions",
+    title: "Tool evaluators misreading search-grounded runs",
+    scenario: "A developer evaluates an agent whose main tools are the Azure AI Search tool and web search. Tool call accuracy and tool output utilization scores look erratic and contradict what the traces show. The same evaluators give sensible results on another agent that uses only function tools and file search.",
+    question: "What is the most likely explanation and response?",
+    options: [
+      { id: 'A', text: "The pass threshold is too low, so raise it from 3 to 4 to stabilize the scores for these search tools." },
+      { id: 'B', text: "The dataset lacks ground-truth answers, so add expected responses to every row and rerun the evaluation." },
+      { id: 'C', text: "The judge model is too small, so replace it with a larger reasoning model and rerun the same evaluators." },
+      { id: 'D', text: "Those tools have limited evaluator support, so avoid these evaluators there and use supported ones." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Foundry documents limited support in tool-focused evaluators, and in groundedness, for conversations that include built-in tools such as Azure AI Search, Bing grounding, web search, SharePoint, code interpreter and Fabric data agent; for those agents, rely on evaluators such as task adherence, intent resolution, relevance or task completion instead. Function tools, MCP and file search are supported, which is why the other agent scores sensibly. A bigger judge does not fix unsupported tool formats. These evaluators do not use ground truth. Changing a threshold only moves the pass line on unreliable scores.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/concepts/evaluation-evaluators/agent-evaluators",
+    tags: ["Agent evaluation", "Tool support", "Error analysis"]
+  },
+  {
+    id: "azure-ai-apps-agents-222",
+    difficulty: "easy",
+    certId: "azure-ai-apps-agents",
+    domainId: "d2",
+    domainName: "Implement generative AI and agentic solutions",
+    title: "Misunderstood requests at a telecom help desk",
+    scenario: "A telecom's support agent often answers a different question from the one customers meant; a request to cancel a roaming add-on gets instructions for cancelling the whole contract. The team wants a built-in evaluator focused on whether the agent correctly identified what the user wanted.",
+    question: "Which evaluator should the team use?",
+    options: [
+      { id: 'A', text: "Tool Call Success, which judges whether the cancellation tools ran without any technical failures." },
+      { id: 'B', text: "Intent Resolution, which judges whether the agent identified and addressed what the user really meant." },
+      { id: 'C', text: "Protected material, which judges whether the answer contained copyrighted text from contract terms." },
+      { id: 'D', text: "Groundedness, which judges whether the cancellation steps were supported by the retrieved policies." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "Intent Resolution measures whether the agent correctly understood the user's intent, suited to support scenarios where misreading the request is the failure. Tool Call Success is about technical errors in tool execution. Protected material targets copyrighted text. Groundedness would pass well-sourced contract cancellation steps even though they answer the wrong question.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/concepts/evaluation-evaluators/agent-evaluators",
+    tags: ["Agent evaluation", "Intent Resolution"]
+  },
+  {
+    id: "azure-ai-apps-agents-223",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d2",
+    domainName: "Implement generative AI and agentic solutions",
+    title: "Finished the booking, but wastefully",
+    scenario: "A corporate travel agent sometimes ends conversations without actually producing a bookable itinerary, and even when it succeeds it often calls weather, currency and visa tools that the trip does not need, adding cost and latency. The team wants one evaluator for each of these two problems.",
+    question: "Which two evaluators should the team add? (Choose two.)",
+    options: [
+      { id: 'A', text: "Tool Call Success, to judge whether the weather and currency tools returned without errors." },
+      { id: 'B', text: "Task Completion, to judge whether the agent delivered a usable itinerary that met the request." },
+      { id: 'C', text: "Fluency, to judge whether the itinerary text is written in clear and grammatical language." },
+      { id: 'D', text: "Protected material, to judge whether the itinerary copies text from airline fare rules." },
+      { id: 'E', text: "Tool Selection, to judge whether the agent chose the needed tools without unnecessary calls." }
+    ],
+    correctAnswers: ['B', 'E'],
+    type: "multiple",
+    explanation: "Task Completion measures end-to-end success, whether the agent produced a usable deliverable that meets all requirements, and Tool Selection measures whether the agent selected the correct tools without unnecessary ones, which targets the wasted weather, currency and visa calls. Fluency judges writing. Protected material checks copyrighted text. Tool Call Success reports technical failures, and the unnecessary calls succeed technically.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/concepts/evaluation-evaluators/agent-evaluators",
+    tags: ["Agent evaluation", "Task Completion", "Tool Selection"]
+  },
+  {
+    id: "azure-ai-apps-agents-224",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d2",
+    domainName: "Implement generative AI and agentic solutions",
+    title: "Scoring yesterday's conversations without side effects",
+    scenario: "A travel agent's real conversations from yesterday include bookings and cancellations. The team wants to run task adherence and intent resolution over those 500 actual conversations. Re-running the agent on the same inputs would create duplicate bookings and might not reproduce what customers actually saw.",
+    question: "How should the team run the evaluation?",
+    options: [
+      { id: 'A', text: "Replay each conversation against the agent in a test project and evaluate the fresh responses it produces." },
+      { id: 'B', text: "Run a cloud evaluation with an agent response data source that retrieves the stored responses to score them." },
+      { id: 'C', text: "Enable continuous evaluation today, since it back-fills scores for the previous day's conversations as well." },
+      { id: 'D', text: "Export the final reply text of each conversation and evaluate it with coherence and fluency instead of these." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "A cloud evaluation can use an agent response data source, retrieving the stored agent responses, including tool calls, and passing them to evaluators through {{sample.output_items}}, so the actual conversations are scored with no re-execution and no side effects. Replaying in a test project still calls tools and measures a different run from the one customers saw. Plain reply text drops the tool calls that task adherence needs, and swapping evaluators changes the question. Continuous evaluation samples new traffic going forward; it does not back-fill earlier runs.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/observability/how-to/cloud-evaluation",
+    tags: ["Agent evaluation", "Cloud evaluation", "Production data"]
+  },
+  {
+    id: "azure-ai-apps-agents-225",
+    difficulty: "easy",
+    certId: "azure-ai-apps-agents",
+    domainId: "d2",
+    domainName: "Implement generative AI and agentic solutions",
+    title: "Spotting frustrated customers across a whole chat",
+    scenario: "An energy supplier wants to measure how satisfied customers would be with entire multi-turn conversations with its billing agent, catching signs of frustration such as repeated rephrasing, rather than scoring each reply in isolation.",
+    question: "Which evaluator fits this goal?",
+    options: [
+      { id: 'A', text: "Violence, which rates the severity of threatening language in the customer messages and replies." },
+      { id: 'B', text: "Tool Input Accuracy, which rates whether the billing tools received correctly formatted parameters." },
+      { id: 'C', text: "Relevance, which rates whether each single reply addressed the most recent customer message only." },
+      { id: 'D', text: "Customer Satisfaction, which rates the whole conversation on helpfulness, tone, resolution and more." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "The Customer Satisfaction evaluator (preview) takes the conversation messages and rates holistic satisfaction across dimensions such as helpfulness, completeness, clarity, tone, resolution and adaptability, which surfaces frustration that builds over several turns. Relevance judges replies one at a time. Tool Input Accuracy looks at tool arguments. Violence is a safety evaluator for harmful content, not satisfaction.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/concepts/evaluation-evaluators/agent-evaluators",
+    tags: ["Agent evaluation", "Customer Satisfaction"]
+  }
+];
+
+export default AZURE_AI_APPS_AGENTS_QUESTIONS_9;

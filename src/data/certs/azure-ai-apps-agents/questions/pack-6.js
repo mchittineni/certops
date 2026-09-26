@@ -1,0 +1,533 @@
+export const AZURE_AI_APPS_AGENTS_QUESTIONS_6 = [
+  {
+    id: "azure-ai-apps-agents-126",
+    difficulty: "easy",
+    certId: "azure-ai-apps-agents",
+    domainId: "d2",
+    domainName: "Implement generative AI and agentic solutions",
+    title: "Porting a Claude app onto Foundry",
+    scenario: "A publishing company has a manuscript-review tool written against the Anthropic Messages API. It has now deployed a Claude model in its Foundry resource so that billing, governance and Microsoft Entra ID authentication run through Azure, and it wants to change as little code as possible.",
+    question: "How should the developer call the Claude deployment?",
+    options: [
+      { id: 'A', text: "Keep the Anthropic prompts but wrap the deployment in a prompt agent called through the project's Responses API." },
+      { id: 'B', text: "Use the Azure AI Language SDK, which exposes partner chat models through its conversation analysis operation." },
+      { id: 'C', text: "Keep the Anthropic SDK and point its base URL at the resource's /anthropic endpoint, passing an Entra ID token." },
+      { id: 'D', text: "Rewrite the tool with the OpenAI SDK against the resource's /openai/v1 endpoint, passing an Entra ID token instead." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "Claude models deployed in Foundry are served through an Anthropic-compatible endpoint on the resource (/anthropic), so the existing Anthropic SDK code keeps working once its base URL and credentials change. Rewriting against the OpenAI SDK is a larger change and is not the documented route for Claude's native Messages API. Wrapping the model in an agent changes the architecture rather than minimizing change. The Azure Language SDK is a Foundry Tools SDK for prebuilt language features, not a gateway to partner chat models.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/how-to/develop/sdk-overview",
+    tags: ["Claude", "Anthropic SDK", "Foundry Models"]
+  },
+  {
+    id: "azure-ai-apps-agents-127",
+    difficulty: "easy",
+    certId: "azure-ai-apps-agents",
+    domainId: "d2",
+    domainName: "Implement generative AI and agentic solutions",
+    title: "Users staring at an empty chat bubble",
+    scenario: "A tax-advice assistant built on gpt-4.1 produces detailed answers of 600 to 900 tokens. Total generation time is acceptable, but usability testing shows people abandon the page during the eight seconds before any text appears. The product owner wants text to start appearing almost immediately.",
+    question: "What should the developer change?",
+    options: [
+      { id: 'A', text: "Enable streaming on the request and render each delta in the UI as it arrives from the model." },
+      { id: 'B', text: "Set temperature to 0 so the model spends less time sampling each token of the long answer." },
+      { id: 'C', text: "Send the request to a Global Batch deployment so it is scheduled ahead of other queued calls." },
+      { id: 'D', text: "Cap max_tokens at 200 so the whole answer is generated and returned in under two seconds." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Streaming returns tokens as server-sent events while the model generates them, so the first words appear within a fraction of a second and perceived latency collapses even though total generation time is unchanged. Cutting max_tokens truncates the detailed answers users need. Batch deployments are asynchronous with a target turnaround of up to 24 hours, which makes latency far worse. Temperature changes which tokens are chosen, not how fast they are produced.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/chatgpt",
+    tags: ["Streaming", "Latency", "Chat"]
+  },
+  {
+    id: "azure-ai-apps-agents-128",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d2",
+    domainName: "Implement generative AI and agentic solutions",
+    title: "Chat Completions call rejected after a model swap",
+    scenario: "A developer switches a working Chat Completions call from a gpt-4.1 deployment to an o4-mini deployment to improve multistep math answers. The request, which sets temperature to 0.2 and max_tokens to 800, now fails with an unsupported parameter error. The developer wants to keep an 800-token budget for each answer.",
+    question: "What change fixes the request?",
+    options: [
+      { id: 'A', text: "Set reasoning_effort to minimal and keep temperature at 0.2, which reasoning models accept once effort is at its lowest." },
+      { id: 'B', text: "Remove temperature and replace max_tokens with max_completion_tokens, which caps visible output plus reasoning tokens." },
+      { id: 'C', text: "Replace max_tokens with max_output_tokens and set top_p to 0.2 so sampling stays as deterministic as before the swap." },
+      { id: 'D', text: "Keep max_tokens, move temperature into the system message as an instruction, and pin the request to an older API version." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "Reasoning models such as o4-mini reject sampling parameters like temperature and top_p, and in Chat Completions they take max_completion_tokens instead of max_tokens; that cap covers both the hidden reasoning tokens and the visible answer, so 800 may need raising if answers come back empty. Pinning an older API version does not make max_tokens or temperature valid for a reasoning model. max_output_tokens is the Responses API name, and top_p is just as unsupported as temperature. No reasoning_effort setting re-enables temperature.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/reasoning",
+    tags: ["Reasoning models", "Chat Completions", "Parameters"]
+  },
+  {
+    id: "azure-ai-apps-agents-129",
+    difficulty: "easy",
+    certId: "azure-ai-apps-agents",
+    domainId: "d2",
+    domainName: "Implement generative AI and agentic solutions",
+    title: "Embedding 300,000 chunks one call at a time",
+    scenario: "A developer's ingestion script calls a text-embedding-3-small deployment once per chunk for 300,000 short chunks and takes most of a day, mostly spent on request overhead and rate-limit waits on request count. Each chunk is well under the model's input token limit.",
+    question: "How should the developer speed up the embedding step?",
+    options: [
+      { id: 'A', text: "Switch to text-embedding-3-large, whose larger vectors take fewer calls to cover the same number of document chunks." },
+      { id: 'B', text: "Pass many chunks as an array in the input of each embeddings request, staying within the per-request input limits." },
+      { id: 'C', text: "Concatenate all 300,000 chunks into one long string and embed it once, then split the vector back into chunk-sized parts." },
+      { id: 'D', text: "Set the dimensions parameter to 256, because shorter vectors let the service process each single-chunk call faster." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "The embeddings API accepts an array of inputs in one request, up to a documented maximum number of items and tokens, and returns one vector per item in order, which cuts request overhead and request-count throttling dramatically. A single vector for the whole corpus cannot be split back into per-chunk meaning, and the input would exceed the token limit anyway. Vector size has nothing to do with how many inputs each call covers. Reducing dimensions shrinks storage but barely changes per-call latency, and the script would still make 300,000 calls.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/embeddings",
+    tags: ["Embeddings", "Throughput", "Ingestion"]
+  },
+  {
+    id: "azure-ai-apps-agents-130",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d2",
+    domainName: "Implement generative AI and agentic solutions",
+    title: "Code model that refuses Chat Completions",
+    scenario: "A platform team adds a gpt-5-codex deployment to its Foundry resource to power an internal refactoring tool. The tool's existing client calls the Chat Completions endpoint for every other model, but requests to the new deployment fail with an error saying the operation is not supported for this model.",
+    question: "What should the developer do?",
+    options: [
+      { id: 'A', text: "Switch the tool to the legacy Completions endpoint, which code models use because they expect raw prompt strings." },
+      { id: 'B', text: "Call the deployment through the Responses API, which is the only inference API that this code model supports." },
+      { id: 'C', text: "Redeploy the model with the Global Standard deployment type, since code models reject Chat Completions on Standard." },
+      { id: 'D', text: "Add a system message with the role set to developer, which code models require before they accept Chat Completions." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "The codex family of models, including gpt-5-codex and codex-mini, is served only through the Responses API, so the tool must call responses.create against the deployment. The deployment type does not change which APIs a model supports. A developer-role message is a prompt construct, not an unlock for an unsupported API. The legacy Completions endpoint does not serve these models either.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/responses",
+    tags: ["Code models", "Responses API", "Model consumption"]
+  },
+  {
+    id: "azure-ai-apps-agents-131",
+    difficulty: "easy",
+    certId: "azure-ai-apps-agents",
+    domainId: "d2",
+    domainName: "Implement generative AI and agentic solutions",
+    title: "Sending a phone photo to a vision-capable model",
+    scenario: "A home-insurance app lets customers photograph water damage and ask a gpt-4.1 deployment what they are looking at. Photos are uploaded to the app's backend as JPEG bytes and are not stored anywhere publicly reachable.",
+    question: "How should the backend include the photo in the model request?",
+    options: [
+      { id: 'A', text: "Encode the bytes as a base64 data URL and pass it in an image content part alongside the text of the question." },
+      { id: 'B', text: "Upload the JPEG to the Files API with purpose set to fine-tune and reference its file ID in the system message." },
+      { id: 'C', text: "Run Azure AI Vision OCR on the photo first and send only the extracted text in the user message to gpt-4.1." },
+      { id: 'D', text: "Generate an embedding of the photo with text-embedding-3-large and append the vector to the user's question." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Vision-capable models accept images as content parts in the user message, either as a publicly reachable URL or as a base64-encoded data URL; with private bytes, the data URL is the direct route. OCR discards everything that is not text, which is most of what water damage looks like. Files uploaded for fine-tuning are training data, not message attachments. text-embedding-3-large is a text embedding model and a raw vector is not something a chat model can interpret as an image.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/gpt-with-vision",
+    tags: ["Multimodal", "Vision", "gpt-4.1"]
+  },
+  {
+    id: "azure-ai-apps-agents-132",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d2",
+    domainName: "Implement generative AI and agentic solutions",
+    title: "Natural-sounding voice concierge in the browser",
+    scenario: "A hotel group wants a browser-based voice concierge where guests speak and hear replies with conversational latency, including the ability to interrupt the assistant mid-sentence. A prototype that chains speech to text, a chat model and text to speech works, but guests complain about multi-second pauses between turns.",
+    question: "Which approach should the developer adopt?",
+    options: [
+      { id: 'A', text: "Send each recorded utterance to a gpt-4o-audio model through Chat Completions and play back the returned audio clip." },
+      { id: 'B', text: "Keep the chained pipeline but switch the chat step to gpt-4.1-nano so that the text portion of every turn completes faster." },
+      { id: 'C', text: "Connect the browser to a gpt-realtime deployment through the Realtime API over WebRTC for streaming audio in and out." },
+      { id: 'D', text: "Batch utterances into ten-second chunks and transcribe them with a Whisper deployment before calling the chat model." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "The Realtime API with a gpt-realtime model streams audio in both directions over one session, handles voice activity detection and interruptions, and WebRTC is the recommended transport for client-side browser audio because it is built for low-latency media. A smaller chat model shortens only one of three sequential hops. Chat Completions with an audio model is request-response: the whole utterance must be recorded and the whole reply generated before playback, and it offers no barge-in. Ten-second batching adds latency rather than removing it.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/realtime-audio-webrtc",
+    tags: ["Realtime API", "Audio", "Multimodal"]
+  },
+  {
+    id: "azure-ai-apps-agents-133",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d2",
+    domainName: "Implement generative AI and agentic solutions",
+    title: "Questions about charts inside a PDF report",
+    scenario: "An investment firm wants analysts to ask a gpt-4.1 app about a 30-page PDF annual report, including questions whose answers appear only in bar charts and tables rendered as images. The team wants the quickest route that keeps the charts' visual content available to the model for each question.",
+    question: "How should the app supply the report to the model?",
+    options: [
+      { id: 'A', text: "Attach the PDF to the file search tool so the model retrieves chunks of chart pixels by vector similarity for each question." },
+      { id: 'B', text: "Embed each page with text-embedding-3-large and pass the page vectors in the prompt as the model's visual context." },
+      { id: 'C', text: "Upload the report as a file input in the Responses API, so the model receives both the extracted text and page images." },
+      { id: 'D', text: "Extract the PDF's text layer with a PDF library and send only that text, because models cannot read chart images." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "Vision-capable models accept PDFs as file inputs in the Responses API; the service passes both the extracted text and an image of each page, so values that exist only in charts remain visible to the model. Extracting only the text layer drops the charts, which is where the answers live. Embedding vectors are for similarity search and cannot be interpreted by a chat model as visual context. File search indexes extracted text chunks, not chart pixels, so chart-only values are lost there too.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/responses",
+    tags: ["Multimodal", "PDF input", "Responses API"]
+  },
+  {
+    id: "azure-ai-apps-agents-134",
+    difficulty: "hard",
+    certId: "azure-ai-apps-agents",
+    domainId: "d2",
+    domainName: "Implement generative AI and agentic solutions",
+    title: "Parser crash on a declined extraction request",
+    scenario: "A background-check service uses structured outputs with a strict JSON schema to extract fields from uploaded documents. Occasionally a document contains content the model declines to process, and on those requests the parser crashes because the expected object is missing even though the call returned HTTP 200 and finished normally.",
+    question: "How should the app handle these responses?",
+    options: [
+      { id: 'A', text: "Switch the response format to json_object, which forces the model to return a JSON object even when it declines." },
+      { id: 'B', text: "Check for a refusal in the returned message before parsing, and route refused documents to a manual review queue." },
+      { id: 'C', text: "Mark every field optional in the strict schema so a declined request still yields an object with the fields empty." },
+      { id: 'D', text: "Treat each crash as a content-filter block and retry the same request with the content filter set to annotate only." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "With structured outputs, a safety-based refusal does not follow the schema; the message carries a refusal field (or refusal content) instead of the parsed object, so the app must detect it and handle it explicitly, here by sending the document to a human. JSON mode does not stop the model declining and gives up the schema guarantee the service depends on. A content-filter block shows up as a content_filter finish reason or an HTTP 400, not a normal completion, so changing filter settings addresses the wrong mechanism. Strict mode requires every property to be listed as required, and optional fields would not turn a refusal into schema output anyway.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/structured-outputs",
+    tags: ["Structured outputs", "Refusals", "Error handling"]
+  },
+  {
+    id: "azure-ai-apps-agents-135",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d2",
+    domainName: "Implement generative AI and agentic solutions",
+    title: "Follow-up questions that retrieve nothing useful",
+    scenario: "A bank's mortgage RAG chatbot answers first questions well. When a customer follows up with \"And what about the fixed-rate one?\", the app embeds that sentence as-is, the vector search returns unrelated chunks, and the answer is vague. The full chat history is available to the app on every turn.",
+    question: "What should the developer add to the retrieval step?",
+    options: [
+      { id: 'A', text: "A model call that rewrites the latest message into a standalone query, using the chat history, before retrieval." },
+      { id: 'B', text: "A larger k on the vector query so that the chunks describing fixed-rate products are more likely to be included." },
+      { id: 'C', text: "A higher temperature on the answer-generation call so the model infers the missing product from general knowledge." },
+      { id: 'D', text: "An embedding of the full chat history concatenated into one string, used as the vector for every search query." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Follow-up messages depend on earlier turns, so a common RAG step is to have a model condense the history and the latest message into a standalone query, here something like \"fixed-rate mortgage terms\", and search with that. A larger k returns more chunks for the same ambiguous query rather than better ones. Embedding the whole history blends every topic discussed into one vector and drifts further as the conversation grows. Raising temperature makes the model guess, which moves the answer away from the bank's documents.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/search/retrieval-augmented-generation-overview",
+    tags: ["RAG", "Query rewriting", "Conversation history"]
+  },
+  {
+    id: "azure-ai-apps-agents-136",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d2",
+    domainName: "Implement generative AI and agentic solutions",
+    title: "Answers quoting a retired firmware manual",
+    scenario: "A router manufacturer's support RAG app indexes manuals for firmware versions 3, 4 and 5 in one Azure AI Search index, and each chunk has a filterable firmware_version field. Customers on version 5 keep receiving steps from the version 3 manual, which describe menus that no longer exist. The app knows each customer's firmware version from their device registration.",
+    question: "How should the developer change the retrieval query?",
+    options: [
+      { id: 'A', text: "Add a scoring profile that boosts chunks whose firmware_version value is highest, so version 5 appears first." },
+      { id: 'B', text: "Add a filter on firmware_version to every query so that only chunks for the customer's version are searched." },
+      { id: 'C', text: "Rebuild the index with the semantic ranker enabled so chunks from the version 5 manual rank above older versions." },
+      { id: 'D', text: "Tell the model in the system message to ignore any retrieved steps that seem to describe an older firmware menu." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "A filter on the firmware_version field restricts the candidate set, and in prefilter mode, the default for vector queries, it is applied before the nearest-neighbor search so the top k results all come from the customer's version. A boosting profile only reorders results, so version 3 chunks can still fill the context when they match better. The model cannot reliably tell which manual a chunk came from, and prompting is not a retrieval control. The semantic ranker reorders by relevance to the question, not by version, and old steps are often just as relevant textually.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/search/vector-search-filters",
+    tags: ["RAG", "Filters", "Vector search"]
+  },
+  {
+    id: "azure-ai-apps-agents-137",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d2",
+    domainName: "Implement generative AI and agentic solutions",
+    title: "HR policy bot inventing benefits",
+    scenario: "An HR RAG app retrieves the right policy chunks, but testers find that when a policy is silent on a topic the model fills the gap with plausible benefits that do not exist, and reviewers cannot tell which chunk a sentence came from. The team wants to change the generation step, not the retrieval step.",
+    question: "Which two changes should the developer make? (Choose two.)",
+    options: [
+      { id: 'A', text: "Tell the model in the system message to answer only from the supplied sources and to say it cannot find the answer otherwise." },
+      { id: 'B', text: "Remove the chunk titles and metadata from the prompt so the model has fewer tokens to reason over and drifts less often." },
+      { id: 'C', text: "Label each retrieved chunk with a source ID in the prompt and require the model to cite those IDs next to each claim." },
+      { id: 'D', text: "Raise temperature to 1.0 so the model explores more phrasings and becomes less likely to lock onto an invented answer." },
+      { id: 'E', text: "Increase max_completion_tokens so the model has room to explain its reasoning before it settles on the final answer." }
+    ],
+    correctAnswers: ['A', 'C'],
+    type: "multiple",
+    explanation: "Grounding instructions that restrict the answer to the provided sources and give the model an explicit way out when the sources are silent directly target gap-filling. Tagging chunks with IDs and requiring inline citations both discourages unsupported claims and lets reviewers trace every sentence back to a chunk. Higher temperature increases randomness and makes fabrication more likely, not less. Stripping titles and metadata removes the very context that helps the model and reviewers tie claims to sources. A larger output budget does nothing to stop invented content; it only allows longer answers.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/prompt-engineering",
+    tags: ["RAG", "Grounding", "Citations"]
+  },
+  {
+    id: "azure-ai-apps-agents-138",
+    difficulty: "hard",
+    certId: "azure-ai-apps-agents",
+    domainId: "d2",
+    domainName: "Implement generative AI and agentic solutions",
+    title: "Weak chunks pushing the model to improvise",
+    scenario: "A public-sector benefits chatbot always passes the top five chunks from a hybrid query with the semantic ranker enabled. For questions the knowledge base does not cover, the five chunks are only loosely related, and the model stitches them into an authoritative-sounding but wrong answer instead of admitting it has no source. The team wants off-topic questions to reach the model with no context at all.",
+    question: "What should the developer implement in the app?",
+    options: [
+      { id: 'A', text: "Disable the semantic ranker so that the raw BM25 scores decide which of the loosely related chunks are passed on." },
+      { id: 'B', text: "Drop any chunk whose @search.rerankerScore is below a tuned threshold, such as 2 on the 0 to 4 scale, before prompting." },
+      { id: 'C', text: "Lower k from five to one so that only the single best-matching chunk is passed to the model for each user question." },
+      { id: 'D', text: "Drop any chunk whose @search.score from Reciprocal Rank Fusion is below 0.5, since fused scores map to probability." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "The semantic ranker's @search.rerankerScore sits on a fixed 0 to 4 scale that reflects how well a passage answers the query, so it can be compared across queries and used as a relevance cut-off; with nothing above the threshold, the prompt carries no context and the grounding instructions lead the model to say it has no answer. RRF scores are small rank-based numbers that are not probabilities and are not comparable across queries, so a 0.5 cut-off is meaningless. Passing one chunk still passes a weak chunk when nothing relevant exists. Removing the semantic ranker loses the calibrated score that makes a threshold possible.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/search/semantic-search-overview",
+    tags: ["Semantic ranker", "RAG", "Relevance"]
+  },
+  {
+    id: "azure-ai-apps-agents-139",
+    difficulty: "easy",
+    certId: "azure-ai-apps-agents",
+    domainId: "d2",
+    domainName: "Implement generative AI and agentic solutions",
+    title: "DeploymentNotFound on the first call",
+    scenario: "An administrator deploys gpt-4.1-mini in a Foundry resource and names the deployment support-chat-prod. A developer's first request through the OpenAI SDK against the resource's v1 endpoint passes model=\"gpt-4.1-mini\" and fails with a DeploymentNotFound error, although the key and endpoint are correct.",
+    question: "How should the developer fix the request?",
+    options: [
+      { id: 'A', text: "Append the model version, such as gpt-4.1-mini-2025-04-14, to the model value so the service can find the deployment." },
+      { id: 'B', text: "Rename support-chat-prod to a blank deployment name so the service registers it under the model's catalog name." },
+      { id: 'C', text: "Add an api-version query string to the endpoint, because the v1 endpoint needs one to resolve model names in requests." },
+      { id: 'D', text: "Pass support-chat-prod as the model value, because Azure routes each request by deployment name, not model name." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "In Azure, the model field of a request carries the deployment name the administrator chose, and the service routes the call to that deployment; support-chat-prod is therefore the right value. A model version string is still not a deployment name. The v1 endpoint was introduced precisely so that no api-version parameter is required, and adding one does not map model names to deployments. A deployment name is required and cannot be left blank, although choosing a name that matches the model name is a common convention.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/openai/api-version-lifecycle",
+    tags: ["Deployments", "OpenAI SDK", "v1 API"]
+  },
+  {
+    id: "azure-ai-apps-agents-140",
+    difficulty: "easy",
+    certId: "azure-ai-apps-agents",
+    domainId: "d2",
+    domainName: "Implement generative AI and agentic solutions",
+    title: "Price list that changes every morning",
+    scenario: "An electronics distributor wants its sales assistant to quote current prices and stock levels, which are updated in a database every morning, and to show which price sheet each answer came from.",
+    question: "Which approach should the developer use?",
+    options: [
+      { id: 'A', text: "Retrieve the relevant price-sheet rows at query time and ground the prompt on them, citing each sheet in the answer." },
+      { id: 'B', text: "Use a larger reasoning model with a newer training cutoff so its built-in knowledge covers the distributor's prices." },
+      { id: 'C', text: "Fine-tune gpt-4.1-mini nightly on the updated price list so the model memorizes the current figures every morning." },
+      { id: 'D', text: "Paste the entire price database into the system message of every request so the model always has complete data." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Retrieval-augmented generation fetches the current rows when the question is asked, so answers reflect the morning update and can cite the source sheet. Fine-tuning teaches style and patterns rather than reliably storing facts, takes time to train, and cannot cite sources. Pasting the whole database into every prompt is costly, may exceed the context window, and buries the relevant rows. No model's training data contains a private, daily-changing price list.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/concepts/retrieval-augmented-generation",
+    tags: ["RAG", "Fine-tuning", "Grounding"]
+  },
+  {
+    id: "azure-ai-apps-agents-141",
+    difficulty: "hard",
+    certId: "azure-ai-apps-agents",
+    domainId: "d2",
+    domainName: "Implement generative AI and agentic solutions",
+    title: "Context overflow in a long research session",
+    scenario: "A market-research app calls the Responses API and passes previous_response_id on each turn so the model sees the whole session, plus 20 retrieved chunks per turn. After roughly forty turns, requests start failing because the input exceeds the model's context window. Analysts want long sessions to continue even if the oldest turns are dropped.",
+    question: "What should the developer change?",
+    options: [
+      { id: 'A', text: "Raise max_output_tokens on each request so the model has more room left over to fit the growing session history." },
+      { id: 'B', text: "Move the 20 retrieved chunks into the instructions parameter, which is not counted against the context window." },
+      { id: 'C', text: "Set store to false on each request so the oldest turns stop counting toward the context window of the chained response." },
+      { id: 'D', text: "Set truncation to auto so the service drops the oldest conversation items whenever the input would overflow." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "The Responses API truncation parameter defaults to disabled, which makes an oversized request fail; setting it to auto lets the service drop items from the start of the conversation to fit the context window, which is the behavior analysts accepted. Setting store to false stops the response being persisted and breaks previous_response_id chaining rather than shrinking it. The output budget shares the same context window, so raising it leaves less room for input. Instructions are part of the model input and count against the window like any other tokens.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/responses",
+    tags: ["Responses API", "Context window", "Conversation state"]
+  },
+  {
+    id: "azure-ai-apps-agents-142",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d2",
+    domainName: "Implement generative AI and agentic solutions",
+    title: "Extraction step breaking the downstream parser",
+    scenario: "A logistics pipeline asks gpt-4.1 to turn free-text delivery notes into an object with fields for address, time window and hazard class. About one response in fifty omits a field or adds an unexpected one, which crashes the next pipeline stage. The team needs every response to match its JSON schema exactly.",
+    question: "What should the developer configure?",
+    options: [
+      { id: 'A', text: "Set a stop sequence on the closing brace so the model cannot append extra fields after the expected object ends." },
+      { id: 'B', text: "Supply a JSON schema in the response format with strict set to true, so output is constrained to that exact schema." },
+      { id: 'C', text: "Set the response format to json_object so the model always returns valid JSON matching the schema's general shape." },
+      { id: 'D', text: "Add three sample JSON objects to the system message and lower temperature to 0 so the model copies their structure." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "Structured outputs with a json_schema response format and strict set to true constrain decoding so the output always conforms to the supplied schema, with every required field present and no extra properties when additionalProperties is false. JSON mode guarantees valid JSON but not adherence to any particular schema, which is the failure the team sees. Few-shot examples and temperature 0 make the right shape more likely but give no guarantee. A stop sequence on a brace would cut off nested objects and does nothing about missing fields.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/structured-outputs",
+    tags: ["Structured outputs", "JSON schema", "Pipelines"]
+  },
+  {
+    id: "azure-ai-apps-agents-143",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d2",
+    domainName: "Implement generative AI and agentic solutions",
+    title: "What happens after the model asks for a function",
+    scenario: "A travel app gives a gpt-4.1 deployment a get_flight_status function definition through the Responses API. For the question \"Is BA117 on time?\", the response contains a function_call item with a call_id and arguments, but no text answer for the user.",
+    question: "What should the app do next?",
+    options: [
+      { id: 'A', text: "Show the function_call arguments to the user as the answer, because the model has already resolved the flight status." },
+      { id: 'B', text: "Run get_flight_status with those arguments and send the result back as function_call_output with the same call_id." },
+      { id: 'C', text: "Resend the original question with tool_choice set to none so that the model answers directly in plain text this time." },
+      { id: 'D', text: "Wait for the Foundry service to call the app's get_flight_status endpoint and stream the final answer back on its own." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "With function calling, the model only proposes a call; the application executes the function and returns the result as a function_call_output item carrying the matching call_id, after which the model writes the user-facing answer grounded on that result. The arguments are the model's request, not an answer. Forcing tool_choice to none makes the model guess without live data. The service never invokes a client-defined function by itself; execution is always the caller's responsibility.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/function-calling",
+    tags: ["Function calling", "Tool-augmented flows", "Responses API"]
+  },
+  {
+    id: "azure-ai-apps-agents-144",
+    difficulty: "easy",
+    certId: "azure-ai-apps-agents",
+    domainId: "d2",
+    domainName: "Implement generative AI and agentic solutions",
+    title: "Always look up the order before replying",
+    scenario: "A returns chatbot has three functions: lookup_order, create_return_label and escalate_to_agent. Compliance requires that the first model call of every conversation invokes lookup_order with the order number the customer typed, never answering from general knowledge.",
+    question: "How should the developer configure the first request?",
+    options: [
+      { id: 'A', text: "Set tool_choice to required so that the model has to call one of the three functions before it may produce any text." },
+      { id: 'B', text: "Set tool_choice to auto and describe lookup_order as mandatory in the function description sent with the request." },
+      { id: 'C', text: "Set parallel_tool_calls to true so the model calls lookup_order together with the other two functions on the first request." },
+      { id: 'D', text: "Set tool_choice to name lookup_order explicitly so the model must call that specific function on this first request." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Setting tool_choice to a specific function forces the model to call exactly that function, which meets the compliance rule. With auto, the model decides and may still answer directly regardless of the description. required forces some tool call but lets the model pick create_return_label or escalate_to_agent instead. parallel_tool_calls only allows several calls in one turn; it does not force any call, let alone a specific one.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/function-calling",
+    tags: ["Function calling", "tool_choice"]
+  },
+  {
+    id: "azure-ai-apps-agents-145",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d2",
+    domainName: "Implement generative AI and agentic solutions",
+    title: "Refund issued before the order was verified",
+    scenario: "An e-commerce assistant exposes verify_order and issue_refund functions. Logs show that for some requests the model emits both calls in the same turn, so the app issues a refund in parallel with a verification that later fails. The team wants the refund decision to be made only after the verification result is back.",
+    question: "What should the developer change?",
+    options: [
+      { id: 'A', text: "Merge verify_order and issue_refund into one function so the model cannot call either of them independently again." },
+      { id: 'B', text: "Set tool_choice to required on every turn so parallel function calls are executed strictly in the listed order." },
+      { id: 'C', text: "Lower temperature to 0 so the model follows the order of the functions as listed in the tools array on each turn." },
+      { id: 'D', text: "Set parallel_tool_calls to false so the model issues at most one call per turn and sees each result before the next." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "With parallel tool calls disabled, the model makes at most one function call per turn, so it must receive the verify_order result before it can decide whether to call issue_refund. Merging the functions hides a business decision inside one opaque call and removes the model's ability to verify without refunding. required forces a call but says nothing about ordering or parallelism. Temperature affects sampling randomness, not whether multiple calls are emitted together, and the tools array implies no execution order.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/function-calling",
+    tags: ["Function calling", "Parallel tool calls", "Multistep flows"]
+  },
+  {
+    id: "azure-ai-apps-agents-146",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d2",
+    domainName: "Implement generative AI and agentic solutions",
+    title: "Streaming chat that crashes on tool calls",
+    scenario: "A developer streams Responses API output to a chat UI for responsiveness. When the model decides to call a get_inventory function, the app tries to json-parse the arguments from the first streamed event and throws, because at that point only a partial fragment of the JSON arguments has arrived.",
+    question: "How should the app handle function calls while streaming?",
+    options: [
+      { id: 'A', text: "Parse each argument delta event on its own and merge the partial JSON objects together once the stream ends." },
+      { id: 'B', text: "Buffer the argument delta events, then parse and run the function once the arguments done event arrives." },
+      { id: 'C', text: "Set parallel_tool_calls to false so that each function call's arguments arrive in a single streamed event." },
+      { id: 'D', text: "Disable streaming whenever tools are attached, because streamed responses cannot contain function call items." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "When streaming, function call arguments arrive as a series of response.function_call_arguments.delta events carrying string fragments, followed by a response.function_call_arguments.done event with the complete arguments; the app should buffer the fragments per call and execute only after the done event. Streaming works fine with tools, so disabling it throws away responsiveness for no reason. Disabling parallel calls limits the number of calls, not how their arguments are chunked. Individual fragments are not valid JSON, so parsing them separately fails.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/function-calling",
+    tags: ["Streaming", "Function calling", "Responses API"]
+  },
+  {
+    id: "azure-ai-apps-agents-147",
+    difficulty: "hard",
+    certId: "azure-ai-apps-agents",
+    domainId: "d2",
+    domainName: "Implement generative AI and agentic solutions",
+    title: "Deep analysis requests timing out at the gateway",
+    scenario: "A due-diligence tool sends long contract bundles to an o3 deployment with reasoning_effort set to high through the Responses API. Some requests run for several minutes, and the company's API gateway drops idle HTTP connections after 120 seconds, so users lose results the model finished generating. The gateway timeout cannot be changed.",
+    question: "How should the developer restructure the calls?",
+    options: [
+      { id: 'A', text: "Submit each bundle to a Global Batch deployment and poll the output file until the job reports that it is complete." },
+      { id: 'B', text: "Create the response with background set to true, then poll it by ID until its status is completed." },
+      { id: 'C', text: "Lower reasoning_effort to low on every request so each contract bundle finishes inside the 120-second gateway window." },
+      { id: 'D', text: "Split each bundle into chunks sent as parallel requests and concatenate the partial analyses returned by each one." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "Background mode in the Responses API returns immediately with a response ID and a queued or in-progress status; the client then retrieves the response by ID, or streams from a cursor, until it completes, so no single HTTP connection has to stay open for minutes. Lowering effort trades away the depth the analysts need and still gives no guarantee of finishing in time. Batch has a 24-hour target turnaround, which is far too slow for an interactive tool. Splitting a contract bundle breaks cross-document reasoning, which is the point of the analysis.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/responses",
+    tags: ["Background mode", "Reasoning models", "Responses API"]
+  },
+  {
+    id: "azure-ai-apps-agents-148",
+    difficulty: "hard",
+    certId: "azure-ai-apps-agents",
+    domainId: "d2",
+    domainName: "Implement generative AI and agentic solutions",
+    title: "Stateless multi-turn calls to a reasoning model",
+    scenario: "A healthcare provider's policy forbids any response content from being retained by the model service between calls. Its triage app uses the Responses API with a gpt-5 deployment across multiple turns that include function calls, and the developers want the model to keep the benefit of its earlier reasoning between those turns.",
+    question: "Which two settings should the developer use? (Choose two.)",
+    options: [
+      { id: 'A', text: "Set store to false on every request so the service does not persist the response objects between the calls." },
+      { id: 'B', text: "Pass previous_response_id on each turn so the model can load reasoning content kept between calls by the service." },
+      { id: 'C', text: "Set reasoning summary to detailed and paste the returned summary text back into the instructions on every turn." },
+      { id: 'D', text: "Request reasoning.encrypted_content in include and pass those reasoning items back as input on the next call." },
+      { id: 'E', text: "Create a conversation object and attach it to each request so the history is kept for the whole triage session." }
+    ],
+    correctAnswers: ['A', 'D'],
+    type: "multiple",
+    explanation: "With store set to false the service keeps no response record, and asking for reasoning.encrypted_content returns the model's reasoning items in encrypted form; the app passes them back as input on the next turn so the model can reuse its reasoning without anything being retained server side. previous_response_id and conversation objects both depend on the service storing prior items, which the policy forbids. A reasoning summary is a human-readable digest, not the reasoning state itself, and pasting it into instructions does not restore the model's reasoning context.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/responses",
+    tags: ["Responses API", "Reasoning models", "Data retention"]
+  },
+  {
+    id: "azure-ai-apps-agents-149",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d2",
+    domainName: "Implement generative AI and agentic solutions",
+    title: "Misreading small labels on wiring diagrams",
+    scenario: "An aircraft maintenance app sends photos of wiring diagrams to a gpt-4.1 deployment and asks which connector a wire lands on. Answers are wrong whenever the answer depends on tiny pin labels, although the overall layout is described correctly. Token cost per image is a secondary concern to accuracy.",
+    question: "Which two changes should improve accuracy? (Choose two.)",
+    options: [
+      { id: 'A', text: "Set the image detail parameter to high so the model processes the image as high-resolution tiles, not one small view." },
+      { id: 'B', text: "Set the image detail parameter to low so the model spends its token budget on reasoning rather than on raw pixels." },
+      { id: 'C', text: "Lower temperature to 0 so the model reads the connector pin labels deterministically instead of sampling alternatives." },
+      { id: 'D', text: "Convert the photo to grayscale and downscale it to 512 pixels on the long side to remove visual noise from the image." },
+      { id: 'E', text: "Crop the photo to the region around the connector before sending it, so the pin labels occupy more of the image." }
+    ],
+    correctAnswers: ['A', 'E'],
+    type: "multiple",
+    explanation: "High detail makes the model analyze the image as a set of higher-resolution tiles in addition to a low-resolution overview, which is what fine text needs, at the cost of more image tokens. Cropping to the region of interest makes the labels larger relative to the frame, so the same resolution budget captures them legibly. Low detail processes a single small version of the image and throws away exactly the detail required. Temperature changes sampling of output tokens, not how clearly the model perceives the image. Downscaling to 512 pixels destroys small text.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/gpt-with-vision",
+    tags: ["Multimodal", "Vision", "Image detail"]
+  },
+  {
+    id: "azure-ai-apps-agents-150",
+    difficulty: "hard",
+    certId: "azure-ai-apps-agents",
+    domainId: "d2",
+    domainName: "Implement generative AI and agentic solutions",
+    title: "One giant prompt for a claims pipeline",
+    scenario: "An insurer's claims pipeline uses a single 6,000-token prompt that classifies the claim, extracts policy details, checks coverage rules and drafts a customer letter in one call. When the letter is wrong, engineers cannot tell which step failed, and a misclassification silently produces a confident but invalid letter. They want a multistep design that is easier to debug and fails safely.",
+    question: "Which two design changes should the team make? (Choose two.)",
+    options: [
+      { id: 'A', text: "Split the work into chained calls, one per step, each with its own focused prompt and a structured output schema." },
+      { id: 'B', text: "Add more examples of correct letters to the single prompt so the model learns what a valid final letter looks like." },
+      { id: 'C', text: "Move every step into one reasoning model call with reasoning_effort set to high so it checks its own work." },
+      { id: 'D', text: "Run all four steps as parallel calls on the raw claim and merge their outputs into the letter at the very end." },
+      { id: 'E', text: "Validate each step's output in code, such as checking the class against allowed values, before the next step runs." }
+    ],
+    correctAnswers: ['A', 'E'],
+    type: "multiple",
+    explanation: "Prompt chaining breaks the task into focused calls whose structured outputs can be inspected individually, which makes failures attributable to a step. Deterministic validation gates between steps stop a bad classification or extraction from flowing into the letter, so the pipeline fails safely instead of producing a confident but invalid result. A single reasoning call is still one opaque step with no inspectable intermediate state. Running the steps in parallel ignores their dependencies, since coverage checks need the extracted policy details and the letter needs the coverage decision. More letter examples improve style but do nothing for debuggability or safe failure.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/prompt-engineering",
+    tags: ["Prompt chaining", "Multistep pipelines", "Structured outputs"]
+  }
+];
+
+export default AZURE_AI_APPS_AGENTS_QUESTIONS_6;

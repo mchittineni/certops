@@ -1,0 +1,533 @@
+export const AZURE_AI_APPS_AGENTS_QUESTIONS_1 = [
+  {
+    id: "azure-ai-apps-agents-1",
+    difficulty: "easy",
+    certId: "azure-ai-apps-agents",
+    domainId: "d1",
+    domainName: "Plan and manage an Azure AI solution",
+    title: "Routing two million short tickets a day",
+    scenario: "A telecom help desk receives about two million short support tickets a day, each under 80 words. Every ticket must be tagged with one of 14 fixed categories within a second of arrival. Finance has capped the model spend for this workload at a fraction of what the chat assistant costs, and accuracy tests show the task needs no multistep reasoning.",
+    question: "Which model choice best fits the workload?",
+    options: [
+      { id: 'A', text: "Deploy a compact model such as gpt-4.1-nano or Phi-4-mini and prompt it with the 14 categories and a few labelled examples." },
+      { id: 'B', text: "Deploy the flagship GPT-5 model on Global Provisioned capacity so latency stays predictable at two million calls each day." },
+      { id: 'C', text: "Deploy gpt-image-1 alongside a chat model so that screenshots attached to tickets are classified in the same request." },
+      { id: 'D', text: "Deploy a reasoning model such as o3 with high reasoning effort so each of the 14 categories is weighed before one is returned." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Short, fixed-label classification with no reasoning requirement is the textbook case for a small language model: gpt-4.1-nano or Phi-4-mini returns a label quickly at a per-token price far below larger models, and few-shot examples in the prompt give it the category boundaries. A reasoning model with high effort spends many hidden reasoning tokens per call, raising both latency and cost for a task that does not need it. Putting the flagship model on provisioned capacity buys predictable latency but at a price that ignores the spend cap. gpt-image-1 generates images rather than classifying them, and the tickets are text.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/foundry-models/concepts/models-sold-directly-by-azure",
+    tags: ["Model selection", "Small language models", "Cost"]
+  },
+  {
+    id: "azure-ai-apps-agents-2",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d1",
+    domainName: "Plan and manage an Azure AI solution",
+    title: "Repair assistant for crews with no signal",
+    scenario: "A wind-farm operator wants a troubleshooting assistant on the rugged Windows laptops its technicians carry into turbine nacelles, where there is no network connection for hours at a time. The assistant answers questions from a 300-page maintenance manual and must not send any data to the cloud while offline. The laptops have 32 GB of RAM and a modest GPU.",
+    question: "What should the developer choose?",
+    options: [
+      { id: 'A', text: "Create a Foundry agent with the file search tool over the manual and let the laptops sync its answers once online." },
+      { id: 'B', text: "Run a Phi small language model on each laptop with Foundry Local and ground it on a local copy of the manual's full text." },
+      { id: 'C', text: "Deploy a Phi model to a managed compute endpoint in Foundry and call it through the Foundry SDK from the laptops." },
+      { id: 'D', text: "Deploy gpt-4.1 as a Data Zone Standard deployment and cache the most recent responses on each laptop for offline use." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "Foundry Local runs optimized models such as the Phi family directly on Windows and macOS hardware and exposes an OpenAI-compatible endpoint on the device, so inference happens with no connectivity and no data leaves the laptop; a small model fits in 32 GB of RAM. A Data Zone Standard deployment is still a cloud endpoint, and cached answers cannot cover new questions asked in the nacelle. A managed compute endpoint hosts the same Phi model but in Azure, so it is unreachable offline. A cloud agent with file search also requires a live connection when the question is asked.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry-local/what-is-foundry-local",
+    tags: ["Foundry Local", "Small language models", "Edge"]
+  },
+  {
+    id: "azure-ai-apps-agents-3",
+    difficulty: "easy",
+    certId: "azure-ai-apps-agents",
+    domainId: "d1",
+    domainName: "Plan and manage an Azure AI solution",
+    title: "Answering questions about photographed receipts",
+    scenario: "An expense app lets employees photograph a paper receipt and then type a question such as whether the meal exceeds the per-person allowance. The team wants one model call to read the image, reason about the amounts and answer in natural language, with no separate extraction step to build.",
+    question: "Which kind of model should the team deploy?",
+    options: [
+      { id: 'A', text: "A text-only small language model such as Phi-4-mini, sending the receipt file name and the user's question together." },
+      { id: 'B', text: "A multimodal chat model such as gpt-4.1 that accepts the receipt image and the question as parts of one message." },
+      { id: 'C', text: "A text-embedding model such as text-embedding-3-large, comparing the question vector with a vector of the receipt." },
+      { id: 'D', text: "An image-generation model such as gpt-image-1, asking it to redraw the receipt with the totals highlighted." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "A multimodal chat model accepts image content parts alongside text in the same message, so it can read the receipt's amounts and answer the policy question in a single call. An embedding model returns vectors for similarity search; it cannot produce an answer or read the figures on an image. A text-only model never sees the pixels, so a file name gives it nothing to reason over. An image-generation model creates or edits images and does not answer questions about their contents.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/gpt-with-vision",
+    tags: ["Multimodal models", "Model selection", "Vision"]
+  },
+  {
+    id: "azure-ai-apps-agents-4",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d1",
+    domainName: "Plan and manage an Azure AI solution",
+    title: "Checking lease clauses against a rulebook",
+    scenario: "A property firm wants an assistant that compares a 40-page commercial lease with a rulebook of 60 interdependent covenants and explains, step by step, which clauses break which rules. Pilot testing with a general chat model produced confident answers that skipped intermediate checks. Response time of up to a minute is acceptable.",
+    question: "Which model choice addresses the pilot's weakness?",
+    options: [
+      { id: 'A', text: "Switch to a smaller chat model with a lower temperature so it follows the rulebook more literally and answers faster." },
+      { id: 'B', text: "Keep the chat model and fine-tune it on a few hundred summaries of past leases the firm's lawyers have reviewed." },
+      { id: 'C', text: "Switch to a reasoning model such as o3 or o4-mini and raise its reasoning effort for the covenant comparison." },
+      { id: 'D', text: "Keep the chat model and raise max_tokens so it has room to write every clause of the lease into its answer." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "Reasoning models spend internal reasoning tokens working through intermediate steps before answering, and the reasoning effort parameter lets the developer trade latency for more thorough analysis, which suits interdependent rule checking where a minute is acceptable. A smaller model with lower temperature is more deterministic but not better at multistep logic. Raising max_tokens only permits a longer output; it does not make the model perform the skipped checks. Fine-tuning on lease summaries teaches tone and format, not the ability to evaluate 60 interlocking covenants.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/reasoning",
+    tags: ["Reasoning models", "Model selection"]
+  },
+  {
+    id: "azure-ai-apps-agents-5",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d1",
+    domainName: "Plan and manage an Azure AI solution",
+    title: "Overnight transcription of recorded calls",
+    scenario: "An insurer records roughly 30,000 claims calls a day as stereo WAV files in Blob Storage. Compliance needs a transcript of every call with speaker separation and word-level timestamps by the next morning, and the audio frequently includes product names that the default recognizer gets wrong.",
+    question: "What should the solution use?",
+    options: [
+      { id: 'A', text: "Real-time speech to text in Azure Speech through the Speech SDK, streaming each stored file through a microphone input." },
+      { id: 'B', text: "A multimodal chat model called once per file, with the WAV attached and a prompt asking for a timestamped transcript." },
+      { id: 'C', text: "Azure Language in Foundry Tools with conversation summarization applied to the audio files as they land in the container." },
+      { id: 'D', text: "Batch transcription in Azure Speech in Foundry Tools with diarization enabled and a custom speech model for the product terms." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Batch transcription processes large volumes of stored audio asynchronously from Blob Storage, returns diarized, word-timestamped transcripts, and can reference a custom speech model trained on the insurer's product vocabulary, which fits an overnight deadline. A chat model is not built to return reliable word-level timestamps and would require custom orchestration for 30,000 files. Real-time recognition is intended for live audio; pushing stored files through it one by one is slower and adds no benefit. Conversation summarization works on transcripts that already exist and does not transcribe audio.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/ai-services/speech-service/batch-transcription",
+    tags: ["Azure Speech", "Batch transcription", "Foundry Tools"]
+  },
+  {
+    id: "azure-ai-apps-agents-6",
+    difficulty: "hard",
+    certId: "azure-ai-apps-agents",
+    domainId: "d1",
+    domainName: "Plan and manage an Azure AI solution",
+    title: "One endpoint for prompts of mixed difficulty",
+    scenario: "A tax-software company's assistant receives a mix of prompts: most are simple lookups, but about one in ten needs deep multistep reasoning. Today every prompt goes to a large reasoning model, which is accurate but expensive. The team wants the cost of the simple prompts to fall without writing its own classifier or maintaining routing logic in the application.",
+    question: "What should the developer deploy?",
+    options: [
+      { id: 'A', text: "A model router deployment in Foundry, called as a single chat endpoint that picks a suitable underlying model for each prompt." },
+      { id: 'B', text: "Two deployments behind Azure API Management with a round-robin load-balancing policy across the small and the large model." },
+      { id: 'C', text: "A lower reasoning effort on the existing reasoning model for all prompts, raising it only when users complain about answers." },
+      { id: 'D', text: "A Global Batch deployment of the reasoning model so that every request is billed at the discounted asynchronous rate." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Model router is a deployable Foundry model that evaluates each prompt and forwards it to a suitable underlying chat or reasoning model, so simple lookups go to cheaper models and hard prompts to capable ones, with no routing code in the application. Round-robin balancing in API Management sends prompts to models regardless of difficulty, so half of the hard prompts would land on the small model. Batch deployments target a 24-hour turnaround and cannot serve an interactive assistant. Lowering reasoning effort for everything degrades exactly the prompts that need depth, and relying on complaints is not a control.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/model-router",
+    tags: ["Model router", "Cost", "Model selection"]
+  },
+  {
+    id: "azure-ai-apps-agents-7",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d1",
+    domainName: "Plan and manage an Azure AI solution",
+    title: "Shrinking vector storage for a product catalogue",
+    scenario: "A retailer is embedding 40 million product descriptions for semantic search. Early tests show text-embedding-3-large gives the best relevance, but storing its full 3,072-dimension vectors would exceed the search service's storage budget. The team wants to keep the model and give up as little relevance as possible.",
+    question: "Which two actions should the developer take? (Choose two.)",
+    options: [
+      { id: 'A', text: "Embed only the product titles rather than the descriptions so each vector contains fewer tokens and uses less storage." },
+      { id: 'B', text: "Enable scalar or binary quantization on the vector field in Azure AI Search, with rescoring against the original vectors." },
+      { id: 'C', text: "Set the vector field's retrievable property to true so that the stored vectors are compressed when they are returned." },
+      { id: 'D', text: "Switch to text-embedding-ada-002, which returns 1,536 dimensions and ranks catalogue text better than text-embedding-3-large." },
+      { id: 'E', text: "Request a smaller vector size through the dimensions parameter of text-embedding-3-large, for example 1,024 dimensions." }
+    ],
+    correctAnswers: ['B', 'E'],
+    type: "multiple",
+    explanation: "The text-embedding-3 models accept a dimensions parameter that returns a shortened vector which keeps most of the relevance of the full one, directly cutting storage per document. Azure AI Search vector compression through scalar or binary quantization shrinks the in-memory vector index further, and rescoring with the original full-precision vectors recovers much of the lost ranking quality. ada-002 is an older model that scores below text-embedding-3-large on retrieval benchmarks, so switching trades relevance away. The retrievable property controls whether vectors come back in results; setting it true adds storage rather than compressing anything. Vector length is fixed by dimensions, not by input token count, so embedding shorter text saves nothing and loses the description content.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/search/vector-search-how-to-configure-compression-storage",
+    tags: ["Embeddings", "Azure AI Search", "Vector compression"]
+  },
+  {
+    id: "azure-ai-apps-agents-8",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d1",
+    domainName: "Plan and manage an Azure AI solution",
+    title: "Redacting identifiers from support transcripts",
+    scenario: "A bank must strip names, account numbers, phone numbers and addresses from chat transcripts before they are stored for analytics. Auditors want the same input always to produce the same redaction, with a confidence score and category for each item removed, and the bank wants to avoid prompt maintenance for this step.",
+    question: "Which service should the developer use?",
+    options: [
+      { id: 'A', text: "Azure AI Content Safety text moderation, blocking any transcript whose personal data severity exceeds a threshold." },
+      { id: 'B', text: "Custom named entity recognition in Azure Language, trained from scratch on labelled examples of each identifier." },
+      { id: 'C', text: "PII detection in Azure Language in Foundry Tools, using the redacted text and the entity categories it returns." },
+      { id: 'D', text: "A gpt-4.1-mini deployment with a system message that asks it to replace any personal details with asterisks." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "The prebuilt PII detection feature recognizes standard categories such as person names, phone numbers, addresses and bank account numbers, returns each entity with its category and confidence score, and produces a redacted copy of the text deterministically, with no prompt to maintain. An LLM prompt can redact but gives no per-entity confidence and can vary between calls, which the auditors reject. Content Safety classifies harm categories such as hate or violence; it has no personal-data severity to filter on. Custom NER needs labelled training data and ongoing model management to reproduce categories the prebuilt feature already supports.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/ai-services/language-service/personally-identifiable-information/overview",
+    tags: ["Azure Language", "PII detection", "Foundry Tools"]
+  },
+  {
+    id: "azure-ai-apps-agents-9",
+    difficulty: "easy",
+    certId: "azure-ai-apps-agents",
+    domainId: "d1",
+    domainName: "Plan and manage an Azure AI solution",
+    title: "Campaign artwork from a text brief",
+    scenario: "A travel agency's marketing team wants an internal tool where staff type a short brief, such as a beach at dusk in a watercolour style, and receive several candidate banner images. The images are generated from scratch and the agency already has a Foundry project in a supported region.",
+    question: "Which Foundry capability should the tool call?",
+    options: [
+      { id: 'A', text: "Image analysis in Azure Vision, asking for tags and a dense caption to describe the brief the staff member typed." },
+      { id: 'B', text: "A multimodal gpt-4.1 deployment that returns an SVG description of the banner in its chat completion." },
+      { id: 'C', text: "Azure Content Understanding with an image analyzer that extracts fields from a reference photo of a beach." },
+      { id: 'D', text: "A gpt-image-1 deployment from Foundry Models, sending the brief as the prompt and requesting several images." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "gpt-image-1 is the image-generation model in Foundry Models; it creates new images from a text prompt and can return several candidates per request. Image analysis in Azure Vision describes existing images and cannot create one from a brief. Content Understanding extracts structured information from content that already exists. A chat model returns text, and asking it for SVG markup does not produce the watercolour artwork the team wants.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/dall-e",
+    tags: ["Image generation", "gpt-image-1", "Foundry Models"]
+  },
+  {
+    id: "azure-ai-apps-agents-10",
+    difficulty: "easy",
+    certId: "azure-ai-apps-agents",
+    domainId: "d1",
+    domainName: "Plan and manage an Azure AI solution",
+    title: "Travel agent that must know today's disruptions",
+    scenario: "A corporate travel desk is building a Foundry agent that answers questions such as whether a rail strike announced this morning affects a booked journey. The answers depend on public news published minutes or hours earlier, and the agent must cite the pages it used.",
+    question: "Which tool should the developer add to the agent?",
+    options: [
+      { id: 'A', text: "The file search tool over a vector store that the team refreshes every Monday with downloaded news articles." },
+      { id: 'B', text: "The memory search tool, so the agent recalls disruptions that earlier travellers mentioned in chats." },
+      { id: 'C', text: "The code interpreter tool, letting the agent write Python that downloads and parses travel news pages." },
+      { id: 'D', text: "Grounding with Bing Search, so the agent retrieves current public web results and cites their URLs." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Grounding with Bing Search lets an agent query the public web at request time and return answers with citations to the source URLs, which covers news published minutes earlier. A vector store refreshed weekly is days out of date for a strike announced this morning. Code interpreter runs in a sandbox without general internet access, so it cannot fetch news pages. Memory stores what users said in earlier conversations; it is not a news source and cannot be cited as one.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/agents/how-to/tools/bing-tools",
+    tags: ["Foundry Agent Service", "Grounding with Bing", "Agent tools"]
+  },
+  {
+    id: "azure-ai-apps-agents-11",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d1",
+    domainName: "Plan and manage an Azure AI solution",
+    title: "Pulling fields from mixed supplier paperwork",
+    scenario: "A logistics firm receives bills of lading, customs declarations and delivery notes as scanned PDFs and phone photos. It wants a defined schema of fields, such as consignee, weight and HS code, returned as JSON with confidence scores and grounding locations, and it would rather describe the fields than label hundreds of training documents.",
+    question: "Which Foundry service fits best?",
+    options: [
+      { id: 'A', text: "Azure Content Understanding in Foundry Tools with a custom analyzer whose field schema describes each target value." },
+      { id: 'B', text: "Azure Translator document translation, followed by a keyword search over the translated PDF output." },
+      { id: 'C', text: "Azure Vision image analysis with the Read feature, then regular expressions mapping text lines to the schema." },
+      { id: 'D', text: "A custom classification project in Azure Language that assigns each document to one of the three types." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Content Understanding analyzers take a field schema, with names, types and natural-language descriptions, and use generative models to extract those fields from documents and images, returning structured output with confidence and source grounding and without a large labelled training set. OCR followed by regular expressions breaks as soon as layouts vary across suppliers and returns no confidence per field. Document translation changes the language of a file but extracts nothing. Custom classification tells the firm which document type it has, not the consignee or weight inside it.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/ai-services/content-understanding/overview",
+    tags: ["Content Understanding", "Field extraction", "Foundry Tools"]
+  },
+  {
+    id: "azure-ai-apps-agents-12",
+    difficulty: "hard",
+    certId: "azure-ai-apps-agents",
+    domainId: "d1",
+    domainName: "Plan and manage an Azure AI solution",
+    title: "Refund process with a manager sign-off step",
+    scenario: "A retailer wants to automate refunds: one agent validates the order, a second checks fraud signals, and refunds over 500 dollars must pause until a manager approves before a third agent issues the payment. The process owners want the sequence, branch conditions and approval pause defined declaratively and visible in the Foundry portal rather than hidden in application code.",
+    question: "What should the developer build?",
+    options: [
+      { id: 'A', text: "A Global Batch job that submits all refund requests nightly and routes the results to managers in a morning report." },
+      { id: 'B', text: "A single prompt agent with all three agents' instructions merged and a note telling it to wait for a manager when needed." },
+      { id: 'C', text: "Three prompt agents invoked from an Azure Function that polls a storage queue for approvals every fifteen minutes." },
+      { id: 'D', text: "A workflow in Foundry Agent Service that sequences the agents, branches on the amount and adds a human-in-the-loop step." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Foundry workflows orchestrate multiple agents declaratively, with sequential steps, conditional branches and human-in-the-loop nodes that pause execution for approval, and the definition is visible and editable in the portal. Merging everything into one prompt agent leaves the approval rule as an instruction the model may not honour and provides no real pause. Chaining agents from a Function works but hides the process in code, which the owners explicitly rejected. A nightly batch job delays every refund and has no per-request approval gate.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/agents/concepts/workflow",
+    tags: ["Foundry Agent Service", "Workflows", "Human in the loop"]
+  },
+  {
+    id: "azure-ai-apps-agents-13",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d1",
+    domainName: "Plan and manage an Azure AI solution",
+    title: "Vector search beside operational records",
+    scenario: "A property-listing platform stores 8 million listings as JSON documents in Azure Cosmos DB for NoSQL, where they are updated hundreds of times a second. It wants a chat feature that finds similar listings by meaning and filters by city in the same query, and the architects want to avoid running a second data store that must be kept in sync.",
+    question: "What should the developer implement?",
+    options: [
+      { id: 'A', text: "Export the listings to Azure Blob Storage and attach them to a Foundry agent through the file search tool." },
+      { id: 'B', text: "Copy the listings nightly from Cosmos DB into Azure AI Search with an indexer and run vector queries against the search index." },
+      { id: 'C', text: "Enable vector search in Cosmos DB for NoSQL, store embeddings on each document and query with VectorDistance." },
+      { id: 'D', text: "Move the listings out of Cosmos DB into Azure Database for PostgreSQL with pgvector and query them there." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "Cosmos DB for NoSQL supports vector indexes and the VectorDistance system function, so embeddings stored on each listing can be searched by similarity and combined with a WHERE filter on city, all in the operational store with no synchronisation. A nightly indexer run introduces a second store and results that are up to a day stale for data changing every second. File search over exported blobs also duplicates the data and is intended for document retrieval, not filtered queries over records. Migrating to PostgreSQL replaces the database rather than adding a capability, which is far more disruptive than required.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/cosmos-db/nosql/vector-search",
+    tags: ["Cosmos DB", "Vector search", "Retrieval"]
+  },
+  {
+    id: "azure-ai-apps-agents-14",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d1",
+    domainName: "Plan and manage an Azure AI solution",
+    title: "Chaptering hours of training footage",
+    scenario: "A manufacturer has 2,000 hours of recorded safety training videos. It wants each video split into segments with a short description, the spoken transcript, and a flag for any segment that shows a person without a hard hat, returned as structured output that a downstream app can index.",
+    question: "Which service should the developer use?",
+    options: [
+      { id: 'A', text: "Azure Content Understanding with a video analyzer that segments the video and returns defined fields." },
+      { id: 'B', text: "Azure Speech batch transcription with diarization, using the transcript timings to define each segment." },
+      { id: 'C', text: "Azure Vision image analysis applied to one still frame exported from the start of each video file." },
+      { id: 'D', text: "A gpt-image-1 deployment that edits each frame to highlight missing hard hats before human review." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Content Understanding video analyzers combine transcription with visual understanding, split a video into segments and return custom fields, such as a description and a hard-hat flag, as structured output ready for indexing. Speech batch transcription provides only the audio track, so it cannot detect missing hard hats. Analyzing a single frame per video misses everything that happens afterwards. gpt-image-1 generates and edits images; it does not analyse video or produce structured segment data.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/ai-services/content-understanding/video/overview",
+    tags: ["Content Understanding", "Video analysis", "Multimodal"]
+  },
+  {
+    id: "azure-ai-apps-agents-15",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d1",
+    domainName: "Plan and manage an Azure AI solution",
+    title: "Part numbers and plain-language questions together",
+    scenario: "An aircraft-parts distributor is building a RAG assistant over 1.2 million catalogue entries in Azure AI Search. Engineers sometimes search by exact part numbers such as MS21042L3 and sometimes ask descriptive questions such as a self-locking nut for high-temperature use. Pilot users complain that the top three results are often relevant but poorly ordered.",
+    question: "Which two retrieval settings should the developer configure? (Choose two.)",
+    options: [
+      { id: 'A', text: "Hybrid queries that run full-text and vector search in one request and merge them with Reciprocal Rank Fusion." },
+      { id: 'B', text: "A synonym map that expands every part number into its manufacturer description at index time for each entry." },
+      { id: 'C', text: "The semantic ranker, so a language model re-scores the merged top results before they reach the chat model." },
+      { id: 'D', text: "A larger exhaustive KNN setting on every query, which also corrects the ordering of lexical matches in results." },
+      { id: 'E', text: "Pure vector queries only, removing the full-text fields so that part numbers are matched by embedding similarity." }
+    ],
+    correctAnswers: ['A', 'C'],
+    type: "multiple",
+    explanation: "Hybrid search runs the keyword query, which matches exact tokens such as MS21042L3, and the vector query, which matches descriptive intent, in parallel and fuses them with Reciprocal Rank Fusion. The semantic ranker then re-scores the top results with a language-understanding model, which directly addresses relevant-but-poorly-ordered results. Pure vector search handles alphanumeric codes badly because embeddings do not preserve exact strings. Exhaustive KNN improves vector recall at a compute cost but does nothing to the ordering of keyword matches. Synonym maps expand query terms, and mapping 1.2 million part numbers to descriptions is neither their purpose nor a ranking fix.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/search/hybrid-search-overview",
+    tags: ["Azure AI Search", "Hybrid search", "Semantic ranker"]
+  },
+  {
+    id: "azure-ai-apps-agents-16",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d1",
+    domainName: "Plan and manage an Azure AI solution",
+    title: "Chunking and embedding without custom code",
+    scenario: "A university library keeps 90,000 research PDFs in Blob Storage and adds about 200 new ones a week. It wants them chunked, embedded with a text-embedding-3-small deployment and indexed in Azure AI Search on a schedule, and the small team does not want to own a separate ingestion service or its embedding code.",
+    question: "What should the developer configure?",
+    options: [
+      { id: 'A', text: "A vector field in the index with a vectorizer defined, relying on the vectorizer to embed documents at indexing." },
+      { id: 'B', text: "A Logic App that triggers on each new blob, calls the embedding deployment and pushes documents to the index." },
+      { id: 'C', text: "A Python job on Azure Container Apps that runs weekly, chunks with a library and calls the push API for each chunk." },
+      { id: 'D', text: "Integrated vectorization: an indexer with a skillset using Text Split and the Azure OpenAI Embedding skill." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Integrated vectorization uses an indexer on a schedule with a skillset in which the Text Split skill chunks each document and the Azure OpenAI Embedding skill calls the embedding deployment, writing chunks and vectors to the index with change tracking and no custom code. A Logic App and a Container Apps job both work but are exactly the separate ingestion code the team wants to avoid. A vectorizer on the index embeds query text at search time; it does not embed documents during indexing, which is the skillset's job.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/search/vector-search-integrated-vectorization",
+    tags: ["Azure AI Search", "Integrated vectorization", "Indexing"]
+  },
+  {
+    id: "azure-ai-apps-agents-17",
+    difficulty: "hard",
+    certId: "azure-ai-apps-agents",
+    domainId: "d1",
+    domainName: "Plan and manage an Azure AI solution",
+    title: "Chunks that cut tables and headings in half",
+    scenario: "A pharmaceutical company indexes long regulatory submissions that contain nested headings and multi-page tables. Its current skillset splits every document into fixed 2,000-character pages, and grounded answers often quote half a table or lose the section a paragraph belongs to. The team wants chunks that follow the document's structure and carry their heading path.",
+    question: "What should the developer change in the ingestion pipeline?",
+    options: [
+      { id: 'A', text: "Keep the chunking but raise the overlap between pages to 50 percent so split content appears twice." },
+      { id: 'B', text: "Replace Text Split with the OCR skill so every page image is re-read before the text is split up." },
+      { id: 'C', text: "Increase the fixed page length to 8,000 characters so that most tables and their headings fit inside one chunk." },
+      { id: 'D', text: "Add the Document Layout skill to produce Markdown sections and chunk on headings with their parent path." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "The Document Layout skill uses Document Intelligence's layout model to return the document as Markdown sections, so chunking can follow headings and keep tables whole while attaching the heading hierarchy to each chunk as context. Larger fixed pages still cut at arbitrary positions and dilute embeddings with unrelated text. The OCR skill extracts text from images but understands no structure, so splitting afterwards has the same problem. Heavy overlap duplicates content, inflating the index, and still never yields a chunk that holds the whole table with its section.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/search/cognitive-search-skill-document-intelligence-layout",
+    tags: ["Azure AI Search", "Chunking", "Document Layout skill"]
+  },
+  {
+    id: "azure-ai-apps-agents-18",
+    difficulty: "hard",
+    certId: "azure-ai-apps-agents",
+    domainId: "d1",
+    domainName: "Plan and manage an Azure AI solution",
+    title: "Compound questions across HR sources",
+    scenario: "An HR agent grounds on policy documents in Blob Storage and a SharePoint site. Employees ask compound questions such as how parental leave differs between the UK and German entities and what changed this year, and a single search query returns chunks that answer only part of the question. The team wants the retrieval layer itself to break the question up, query both sources and return cited results.",
+    question: "Which retrieval approach should the developer adopt?",
+    options: [
+      { id: 'A', text: "A single hybrid retrieval query with top raised to 50 so the answer draws on many more chunks at once." },
+      { id: 'B', text: "A Foundry IQ knowledge base over both sources, using agentic retrieval to plan and run parallel subqueries." },
+      { id: 'C', text: "A scoring profile that boosts documents whose title contains the entity names found in the user question." },
+      { id: 'D', text: "The file search tool with both sources uploaded into one vector store and the default chunking strategy." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "A Foundry IQ knowledge base uses Azure AI Search agentic retrieval: an LLM plans the query, decomposes it into subqueries, runs them in parallel across the configured knowledge sources such as Blob Storage and SharePoint, semantically reranks the results and returns them with citations. Raising top on one query adds more loosely related chunks but still runs a single interpretation of a compound question. Uploading both sources into a file search vector store duplicates SharePoint content, loses its permissions and still issues one query. A scoring profile only boosts ranking; it does not split the question into its parts.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/search/agentic-retrieval-overview",
+    tags: ["Foundry IQ", "Agentic retrieval", "Azure AI Search"]
+  },
+  {
+    id: "azure-ai-apps-agents-19",
+    difficulty: "easy",
+    certId: "azure-ai-apps-agents",
+    domainId: "d1",
+    domainName: "Plan and manage an Azure AI solution",
+    title: "Questions about a contract the user just uploaded",
+    scenario: "A procurement agent lets a buyer drag a supplier contract PDF into the chat and ask about its termination terms. Each contract is relevant only to that conversation, and the team does not want to build or maintain a search index for these one-off files.",
+    question: "What should the developer use?",
+    options: [
+      { id: 'A', text: "Fine-tuning a model on each contract so it can answer questions about the termination terms." },
+      { id: 'B', text: "The memory search tool, which saves the contract text as a long-term memory for the buyer." },
+      { id: 'C', text: "The file search tool, attaching each uploaded PDF to a vector store for that conversation." },
+      { id: 'D', text: "A Foundry IQ knowledge base with a new knowledge source for every contract in a conversation." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "The file search tool parses, chunks and embeds uploaded files into a managed vector store that the agent searches during the conversation, which is the intended pattern for user-provided documents. A knowledge base is meant for curated organizational content shared across agents, and creating a source per upload is heavy. Fine-tuning takes hours and teaches style, not retrieval of specific clauses. Memory holds distilled user preferences and summaries across sessions, not full documents for retrieval.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/agents/how-to/tools/file-search",
+    tags: ["File search", "Foundry Agent Service", "Retrieval"]
+  },
+  {
+    id: "azure-ai-apps-agents-20",
+    difficulty: "hard",
+    certId: "azure-ai-apps-agents",
+    domainId: "d1",
+    domainName: "Plan and manage an Azure AI solution",
+    title: "Board papers only directors may see",
+    scenario: "A bank's knowledge agent grounds on a SharePoint library where board papers are restricted to directors while general policies are open to all staff. Security requires that an employee never receives content from a document they could not open themselves, and permissions change weekly as committees rotate.",
+    question: "Which two design choices meet the requirement? (Choose two.)",
+    options: [
+      { id: 'A', text: "Apply a Content Safety blocklist containing the titles of every board paper to the agent's output filter." },
+      { id: 'B', text: "Grant the Foundry project's managed identity read access to the whole SharePoint library and index it all." },
+      { id: 'C', text: "Run retrieval under the signed-in user's Microsoft Entra identity so permissions are enforced at query time." },
+      { id: 'D', text: "Ground the agent on a knowledge source that synchronises the SharePoint access control lists into the index." },
+      { id: 'E', text: "Add a system message instructing the agent not to reveal board papers to anyone lacking director permissions." }
+    ],
+    correctAnswers: ['C', 'D'],
+    type: "multiple",
+    explanation: "Permission-aware grounding needs the index to know who may read each document and the query to know who is asking: synchronising SharePoint ACLs into the knowledge source keeps document permissions current as committees change, and running retrieval under the caller's Entra identity lets the service trim results to what that user can open. A system message is a behavioural hint that prompt injection or model error can bypass, so it is not a security control. Indexing everything under the project identity makes all content retrievable by anyone who uses the agent. A title blocklist cannot catch content quoted from inside a paper and must be updated by hand.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/agents/concepts/what-is-foundry-iq",
+    tags: ["Foundry IQ", "Security trimming", "SharePoint"]
+  },
+  {
+    id: "azure-ai-apps-agents-21",
+    difficulty: "easy",
+    certId: "azure-ai-apps-agents",
+    domainId: "d1",
+    domainName: "Plan and manage an Azure AI solution",
+    title: "Remembering a shopper's size and allergies",
+    scenario: "A grocery chain's shopping agent should remember, across visits weeks apart, that a customer is lactose intolerant and prefers own-brand products, without the customer repeating it. Conversation threads are discarded after each session to keep storage costs low.",
+    question: "Which capability should the developer add to the agent?",
+    options: [
+      { id: 'A', text: "A larger context window model so the whole purchase history fits into every request prompt." },
+      { id: 'B', text: "The file search tool over a vector store that holds the chain's product and allergen catalogue." },
+      { id: 'C', text: "A longer conversation retention period so that earlier threads can be reopened on each visit." },
+      { id: 'D', text: "A memory store attached through the memory search tool, scoped to each signed-in customer." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Memory in Foundry Agent Service extracts durable facts such as preferences and dietary needs into a managed memory store, consolidates them and retrieves them in later sessions; the memory search tool with a per-user scope keeps each customer's memories separate. A bigger context window still needs the history supplied on every call and grows cost with every visit. File search over the catalogue grounds product facts but knows nothing about the individual. Keeping threads longer contradicts the storage decision and would still require reloading entire conversations rather than the distilled facts.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/agents/concepts/what-is-memory",
+    tags: ["Agent memory", "Foundry Agent Service"]
+  },
+  {
+    id: "azure-ai-apps-agents-22",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d1",
+    domainName: "Plan and manage an Azure AI solution",
+    title: "Letting an agent call an existing REST service",
+    scenario: "A shipping company already runs an order-tracking REST API in Azure with a published OpenAPI 3.0 definition and Microsoft Entra authentication. It wants a Foundry agent to call the API directly from the service side, with no client application in the loop to execute calls on the agent's behalf.",
+    question: "Which tool should the developer attach to the agent?",
+    options: [
+      { id: 'A', text: "The browser automation tool, pointing it at the tracking web page that customers use to look up shipments." },
+      { id: 'B', text: "Function calling, returning the tool call to the client application so it invokes the API with its own authentication." },
+      { id: 'C', text: "The OpenAPI tool, importing the existing definition and using managed identity authentication for the calls." },
+      { id: 'D', text: "The code interpreter tool, giving the agent the OpenAPI definition so it writes Python to issue the HTTP requests." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "The OpenAPI tool turns an OpenAPI 3.0 definition into callable operations that the Agent Service invokes server-side, and it supports anonymous, API key and managed identity authentication, which fits an Entra-protected API. Function calling hands the call back to the client to execute, which the company explicitly does not want. Code interpreter runs in a sandbox without general network access and would need credentials in code. Browser automation drives a web UI, which is slower and more fragile than calling the documented API directly.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/agents/how-to/tools/openapi",
+    tags: ["OpenAPI tool", "Agent tools", "Foundry Agent Service"]
+  },
+  {
+    id: "azure-ai-apps-agents-23",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d1",
+    domainName: "Plan and manage an Azure AI solution",
+    title: "One ticketing integration for many agents",
+    scenario: "An IT department runs six Foundry agents and a LangGraph agent that all need to create and query tickets in its service desk platform. The platform vendor already publishes a remote Model Context Protocol server for its API. The team wants to reuse that integration rather than write per-agent code, and to approve each ticket-creation call during the pilot.",
+    question: "What should the developer do?",
+    options: [
+      { id: 'A', text: "Connect each agent to the vendor's server as an OpenAPI tool and add a Content Safety filter on the tool output." },
+      { id: 'B', text: "Add the vendor's server to each agent as an MCP tool and set its approval requirement to always during the pilot phase." },
+      { id: 'C', text: "Write a function-calling schema per agent that mirrors the vendor API and execute the calls in each client app." },
+      { id: 'D', text: "Upload the vendor's API documentation to a vector store and let each agent read it through the file search tool." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "The MCP tool connects an agent to a remote Model Context Protocol server, so every agent, including non-Foundry frameworks that speak MCP, can reuse the vendor's published tools, and the require_approval setting pauses each call for approval until the team relaxes it. Hand-written function schemas in every client duplicate the integration seven times. Reading API documentation through file search lets an agent describe the API but not call it. An MCP server is not an OpenAPI definition, so it cannot be imported through the OpenAPI tool, and a content filter is not an approval step.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/agents/how-to/tools/model-context-protocol",
+    tags: ["MCP", "Agent tools", "Approval"]
+  },
+  {
+    id: "azure-ai-apps-agents-24",
+    difficulty: "easy",
+    certId: "azure-ai-apps-agents",
+    domainId: "d1",
+    domainName: "Plan and manage an Azure AI solution",
+    title: "Charts from an uploaded sales spreadsheet",
+    scenario: "A sales-operations agent must accept an uploaded CSV of quarterly sales, calculate growth by region and return a bar chart as an image in the chat. Calculations must be exact rather than estimated by the model.",
+    question: "Which tool should the developer enable?",
+    options: [
+      { id: 'A', text: "The file search tool, which chunks the CSV rows into a vector store for the model to read and summarise." },
+      { id: 'B', text: "The image generation tool, which draws a bar chart from a text description of the regional growth figures." },
+      { id: 'C', text: "Grounding with Bing Search, which looks up regional growth benchmarks to compare against the uploaded data." },
+      { id: 'D', text: "The code interpreter tool, which runs Python in a sandbox over the uploaded file and returns the chart it creates." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Code interpreter executes model-written Python in a sandbox with access to uploaded files, so the growth figures are computed exactly and a plotting library produces a real chart image. File search retrieves chunks of text for the model to read, so any arithmetic is still performed by the model and can be wrong. Web search brings in outside benchmarks but performs no calculation on the CSV. An image generation model draws a picture that looks like a chart, with no guarantee the bars match the data.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/agents/how-to/tools/code-interpreter",
+    tags: ["Code interpreter", "Agent tools"]
+  },
+  {
+    id: "azure-ai-apps-agents-25",
+    difficulty: "hard",
+    certId: "azure-ai-apps-agents",
+    domainId: "d1",
+    domainName: "Plan and manage an Azure AI solution",
+    title: "Stock lookups that must stay on the shop floor",
+    scenario: "A hardware chain's in-store kiosk app uses a Foundry agent. To answer stock questions the agent needs data from a SQL Server database inside each store's network, which has no inbound connectivity from Azure and whose credentials may never leave the store. The kiosk app already has a local connection to that database.",
+    question: "Which two approaches meet the constraints? (Choose two.)",
+    options: [
+      { id: 'A', text: "Use code interpreter and upload a nightly export of each store's stock table at the start of a conversation." },
+      { id: 'B', text: "Define a function tool for the stock lookup and have the kiosk app execute it locally and return the output." },
+      { id: 'C', text: "Define the lookup with a strict JSON schema so the kiosk can validate arguments before running the query." },
+      { id: 'D', text: "Use the OpenAPI tool pointed at the store database's REST endpoint and store its password in the connection." },
+      { id: 'E', text: "Use the Azure Functions tool so the agent posts stock queries to a function that connects into each store." }
+    ],
+    correctAnswers: ['B', 'C'],
+    type: "multiple",
+    explanation: "Function calling is executed client-side: the agent returns a tool call, the kiosk app, which already reaches the database locally, runs the query and submits the output, so no inbound connection or credential leaves the store. Enabling strict mode on the function's JSON schema guarantees the arguments match the declared types, letting the kiosk validate them before touching SQL. The Azure Functions tool and the OpenAPI tool are both invoked from the service side, which requires inbound reachability the stores do not provide, and the OpenAPI option also places the credential in Azure. A nightly export in code interpreter answers from stale data and still moves the stock table out of the store.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/agents/how-to/tools/function-calling",
+    tags: ["Function calling", "Agent tools", "Structured outputs"]
+  }
+];
+
+export default AZURE_AI_APPS_AGENTS_QUESTIONS_1;

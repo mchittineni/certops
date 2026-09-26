@@ -1,0 +1,532 @@
+export const AZURE_AI_APPS_AGENTS_QUESTIONS_4 = [
+  {
+    id: "azure-ai-apps-agents-76",
+    difficulty: "easy",
+    certId: "azure-ai-apps-agents",
+    domainId: "d1",
+    domainName: "Plan and manage an Azure AI solution",
+    title: "Some manuals never reach the index",
+    scenario: "A manufacturer's RAG assistant indexes service manuals from Blob Storage with a scheduled indexer. Technicians report that answers never cite certain recent manuals, although the files are in the container. The indexer shows a status of success with warnings on each run.",
+    question: "Where should the developer look first?",
+    options: [
+      { id: 'A', text: "The indexer's execution history, reviewing the errors and warnings for each failed document." },
+      { id: 'B', text: "The model deployment's Time to Response metric, checking whether the chat model is timing out." },
+      { id: 'C', text: "The semantic configuration of the index, checking which fields are listed as prioritized content." },
+      { id: 'D', text: "The storage account's access tier, moving the container from Hot to Cool to speed up reads." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "An indexer run can succeed overall while skipping or partially processing individual documents; its execution history records per-document errors and warnings, such as unsupported content, extraction failures or skill errors, which explains why particular manuals are missing. The semantic configuration affects ranking of documents already indexed, not whether they were ingested. Chat model latency cannot stop documents entering the index. Cool tier reduces storage cost and does not make reads faster or fix ingestion.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/search/search-howto-monitor-indexers",
+    tags: ["Azure AI Search", "Indexers", "Ingestion quality"]
+  },
+  {
+    id: "azure-ai-apps-agents-77",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d1",
+    domainName: "Plan and manage an Azure AI solution",
+    title: "Withdrawn policies still appear in answers",
+    scenario: "An HR assistant grounds on policy PDFs that a blob indexer pulls from Azure Blob Storage every hour. When HR deletes an outdated policy from the container, the assistant keeps citing it for weeks. New and updated files are picked up correctly.",
+    question: "What should the developer configure?",
+    options: [
+      { id: 'A', text: "Add a high-water mark change detection policy on the last-modified column of the indexer's data source." },
+      { id: 'B', text: "Enable the enrichment cache on the skillset so that removed documents are purged from cached outputs." },
+      { id: 'C', text: "Enable blob soft delete and set a native blob soft delete detection policy on the indexer's data source." },
+      { id: 'D', text: "Reduce the indexer schedule to five minutes so deletions are found on the next blob run." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "Indexers detect new and changed blobs automatically but cannot see a blob that no longer exists; a deletion detection policy, such as native blob soft delete with soft delete enabled on the storage account, lets the indexer notice the deletion and remove the document from the index. Running more often still never sees the missing file. A high-water mark policy detects changes, not deletions. The enrichment cache stores skill outputs for reuse and does not remove documents from the index.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/search/search-howto-index-changed-deleted-blobs",
+    tags: ["Azure AI Search", "Deletion detection", "Ingestion quality"]
+  },
+  {
+    id: "azure-ai-apps-agents-78",
+    difficulty: "hard",
+    certId: "azure-ai-apps-agents",
+    domainId: "d1",
+    domainName: "Plan and manage an Azure AI solution",
+    title: "Answers ignore the back half of long reports",
+    scenario: "A research firm indexes 300-page analyst reports from Blob Storage into an Azure AI Search service on the Basic tier, with a skillset that chunks and embeds the extracted text. Questions about content near the end of a report never retrieve anything, and the indexer shows a warning that extracted text was truncated for those documents.",
+    question: "What should the developer do?",
+    options: [
+      { id: 'A', text: "Switch the embedding model to text-embedding-3-large, which accepts a longer input per chunk it embeds." },
+      { id: 'B', text: "Increase the Text Split skill's page overlap so the final pages of each blob repeat in earlier chunks." },
+      { id: 'C', text: "Move the index to a Standard tier service, which extracts far more characters per blob than the Basic tier." },
+      { id: 'D', text: "Enable the semantic ranker so that content from the end of each report is promoted in the search results." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "Blob indexers cap the characters extracted from each document by service tier; Basic extracts 64,000 characters, far less than a 300-page report, while Standard tiers extract millions, so the text after the cap is never chunked or embedded. Chunk overlap operates only on the text that was extracted, so it cannot recover truncated pages. The embedding model's input limit applies per chunk, not to how much of the blob is extracted. The semantic ranker reorders results and cannot surface text that is not in the index.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/search/search-limits-quotas-capacity",
+    tags: ["Azure AI Search", "Indexer limits", "Ingestion quality"]
+  },
+  {
+    id: "azure-ai-apps-agents-79",
+    difficulty: "easy",
+    certId: "azure-ai-apps-agents",
+    domainId: "d1",
+    domainName: "Plan and manage an Azure AI solution",
+    title: "A skill returns empty output for some documents",
+    scenario: "A developer's skillset extracts text, runs the Document Layout skill and then a custom Web API skill that tags regulatory clauses. For a subset of documents the tags field is empty in the index. She wants to inspect each skill's inputs and outputs for one problem document and try fixes interactively.",
+    question: "Which tool should she use?",
+    options: [
+      { id: 'A', text: "The semantic ranker's captions, which show how each skill contributed text to the indexed document." },
+      { id: 'B', text: "Search explorer, running a full-text query for the document title to view the stored index fields." },
+      { id: 'C', text: "The Azure Monitor activity log for the search service, filtered to operations run by the indexer." },
+      { id: 'D', text: "A debug session in Azure AI Search for that document and skillset, editing skill settings in place." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Debug sessions load a single document through the skillset and show the enriched document tree with every skill's inputs, outputs and errors, and let the developer change mappings or skill settings and rerun before saving the fix. Search explorer shows only the final indexed fields, not why a skill produced nothing. The activity log records control-plane operations, not skill execution details. Semantic captions highlight passages at query time and reveal nothing about enrichment.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/search/cognitive-search-debug-session",
+    tags: ["Azure AI Search", "Debug sessions", "Skillsets"]
+  },
+  {
+    id: "azure-ai-apps-agents-80",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d1",
+    domainName: "Plan and manage an Azure AI solution",
+    title: "Measuring whether users click what search returns",
+    scenario: "A retailer runs a product-search page and a RAG assistant on the same Azure AI Search index. The product team wants to know which queries return results that users never click, and whether relevance changes after each tuning release, using data from real sessions.",
+    question: "What should the developer implement?",
+    options: [
+      { id: 'A', text: "Search Latency and Search Queries Per Second metrics in Azure Monitor, charted after each release." },
+      { id: 'B', text: "Indexer execution history, comparing document counts in the index before and after each release." },
+      { id: 'C', text: "Search traffic analytics, logging search and click events from the client to Application Insights." },
+      { id: 'D', text: "A scoring profile that boosts popular products, which records the queries whose top results go unclicked." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "Search traffic analytics instruments the client to send search and click events, correlated by a search ID, to Application Insights, so the team can find queries with no clicks and compare click-through before and after each relevance change. Latency and throughput metrics show performance, not whether results were useful. Document counts show ingestion volume. A scoring profile changes ranking but does not record user behaviour.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/search/search-traffic-analytics",
+    tags: ["Azure AI Search", "Relevance", "Search traffic analytics"]
+  },
+  {
+    id: "azure-ai-apps-agents-81",
+    difficulty: "hard",
+    certId: "azure-ai-apps-agents",
+    domainId: "d1",
+    domainName: "Plan and manage an Azure AI solution",
+    title: "Keyword matches crowd out semantic matches",
+    scenario: "A knowledge-base assistant uses hybrid queries over an index of support articles. Evaluation shows that for conversational questions, articles that merely repeat the question's words outrank articles that answer it, while the vector results alone rank the right articles highly. The team wants to shift the fusion toward the vector side without dropping keyword search.",
+    question: "What should the developer change?",
+    options: [
+      { id: 'A', text: "Add a scoring profile boosting title matches, which also applies within the hybrid fusion." },
+      { id: 'B', text: "Remove the searchable attribute from the content field so that keyword matching uses the titles only." },
+      { id: 'C', text: "Switch the vector algorithm from HNSW to exhaustive KNN so vector results score higher." },
+      { id: 'D', text: "Set a weight above 1 on the vector query in the hybrid request so its ranks count more in the fusion." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "In a hybrid query each vector query can carry a weight that scales its contribution to Reciprocal Rank Fusion relative to the text query, so a weight above 1 shifts the combined ranking toward semantic matches while keyword search still contributes. A title-boosting scoring profile strengthens keyword signals, the opposite of what is needed. Exhaustive KNN can improve vector recall but does not change how the two result lists are weighted. Making content unsearchable cripples keyword retrieval rather than rebalancing it.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/search/hybrid-search-ranking",
+    tags: ["Azure AI Search", "Hybrid search", "Relevance tuning"]
+  },
+  {
+    id: "azure-ai-apps-agents-82",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d1",
+    domainName: "Plan and manage an Azure AI solution",
+    title: "Semantic reranking focuses on the wrong text",
+    scenario: "An index of legal FAQs has fields for question, answer, internal notes and category. After enabling the semantic ranker, the developer sees rerankerScore values driven by boilerplate in the internal notes field, and captions quoting it, instead of the answer text.",
+    question: "What should the developer change?",
+    options: [
+      { id: 'A', text: "Add the category field to a scoring profile so that the ranker weights the answer text more heavily." },
+      { id: 'B', text: "Redefine the semantic configuration with the question as title and the answer as first content field." },
+      { id: 'C', text: "Mark the internal notes field as retrievable so the ranker can tell which of the fields are boilerplate." },
+      { id: 'D', text: "Raise the top parameter so that the semantic ranker reorders more than 50 results on each query it runs." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "The semantic configuration tells the ranker which fields to read and in what priority: a title field, content fields in order, and keyword fields; putting the question as title and the answer first in content, and leaving the notes out, makes scores and captions reflect the answer. The ranker processes at most the top 50 results regardless of top. Retrievable controls whether a field is returned, not how the ranker weighs it. Scoring profiles affect the initial BM25 ranking, not the semantic reranking inputs.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/search/semantic-how-to-configure",
+    tags: ["Azure AI Search", "Semantic ranker", "Relevance tuning"]
+  },
+  {
+    id: "azure-ai-apps-agents-83",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d1",
+    domainName: "Plan and manage an Azure AI solution",
+    title: "Re-running every skill after a small mapping change",
+    scenario: "A developer's skillset runs OCR and an Azure OpenAI embedding skill over 250,000 scanned pages. Each time she changes an output field mapping or adds a downstream skill, resetting the indexer re-runs OCR and embedding on every page, which takes two days and costs a lot in model calls.",
+    question: "What should she configure?",
+    options: [
+      { id: 'A', text: "An enrichment cache on the skillset in a storage account, so unchanged skill outputs are reused." },
+      { id: 'B', text: "A knowledge store projection to Azure Tables that the indexer reads back as a skill cache." },
+      { id: 'C', text: "A high-water mark policy, so the indexer skips pages already embedded on a reset." },
+      { id: 'D', text: "A second indexer on the same data source with smaller batches so reruns finish faster." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Incremental enrichment stores skill outputs in a cache in Azure Storage and, when the skillset or mappings change, re-runs only the skills affected by the change, reusing cached OCR and embedding outputs for everything else. A knowledge store persists enrichments for other consumers, but the indexer does not read it back as a cache. A second indexer with smaller batches repeats the same work. Change detection skips unchanged source documents on normal runs, but resetting the indexer deliberately reprocesses everything, so it does not help here.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/search/cognitive-search-incremental-indexing-conceptual",
+    tags: ["Azure AI Search", "Incremental enrichment", "Cost"]
+  },
+  {
+    id: "azure-ai-apps-agents-84",
+    difficulty: "easy",
+    certId: "azure-ai-apps-agents",
+    domainId: "d1",
+    domainName: "Plan and manage an Azure AI solution",
+    title: "Removing keys from a Python chat client",
+    scenario: "A developer's Python app calls a Foundry model deployment with an API key read from an environment variable. The security team wants no keys anywhere, and the same code must work on developer laptops signed in with the Azure CLI and in production on Azure Container Apps with a managed identity.",
+    question: "What should the developer change?",
+    options: [
+      { id: 'A', text: "Use DefaultAzureCredential with a bearer token provider and grant each identity Foundry User." },
+      { id: 'B', text: "Use ClientSecretCredential with an app registration secret stored in the same environment variable." },
+      { id: 'C', text: "Move the API key to Azure Key Vault and have the app read it from the vault at startup on every host." },
+      { id: 'D', text: "Regenerate the API key each night and inject the new value into the container app's secret settings." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "DefaultAzureCredential tries a chain of credential sources, picking up the Azure CLI sign-in on a laptop and the managed identity on Container Apps, and a bearer token provider supplies Microsoft Entra tokens to the client; granting each identity a data-plane role such as Foundry User replaces the key entirely. Key Vault stores the key more safely but the app still uses a key. Nightly rotation also keeps key authentication. A client secret is just another stored credential and breaks the no-secrets requirement.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/concepts/authentication-authorization-foundry",
+    tags: ["Keyless authentication", "Managed identity", "DefaultAzureCredential"]
+  },
+  {
+    id: "azure-ai-apps-agents-85",
+    difficulty: "easy",
+    certId: "azure-ai-apps-agents",
+    domainId: "d1",
+    domainName: "Plan and manage an Azure AI solution",
+    title: "A web app calling models with its own identity",
+    scenario: "A web app hosted on Azure App Service calls chat and embedding deployments on a Foundry resource. The team wants the app to authenticate as itself, with no credential to store or rotate and with its access removed automatically if the app is deleted.",
+    question: "What should the developer configure?",
+    options: [
+      { id: 'A', text: "An app registration with a certificate credential, with the certificate uploaded to App Service." },
+      { id: 'B', text: "A shared access signature for the Foundry resource, stored as an App Service connection string value." },
+      { id: 'C', text: "A user account for the app in Microsoft Entra ID, with its password saved in an App Service setting." },
+      { id: 'D', text: "A system-assigned managed identity on the web app, granted a data-plane role on the Foundry resource." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "A system-assigned managed identity is created with the App Service app, its credentials are managed and rotated by Azure, and it is deleted with the app, removing its role assignments' effect; granting it a data-plane role such as Foundry User lets it call the deployments keylessly. A user account with a stored password is a secret to manage and violates the no-credential requirement. Foundry resources do not use shared access signatures. A certificate on an app registration still has to be stored, renewed and cleaned up by the team.",
+    referenceUrl: "https://learn.microsoft.com/en-us/entra/identity/managed-identities-azure-resources/overview",
+    tags: ["Managed identity", "App Service", "Keyless authentication"]
+  },
+  {
+    id: "azure-ai-apps-agents-86",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d1",
+    domainName: "Plan and manage an Azure AI solution",
+    title: "Enforcing keyless access across every AI resource",
+    scenario: "After an API key for a Foundry resource was found in a public repository, the CISO ordered that key-based authentication be disabled on every Foundry and Azure AI services resource in the tenant, including resources created in future, and that existing non-compliant resources be reported.",
+    question: "What should the cloud team do?",
+    options: [
+      { id: 'A', text: "Regenerate both keys on every resource and store the new keys in a central Key Vault owned by security." },
+      { id: 'B', text: "Enable Microsoft Defender for Cloud's AI threat protection, which blocks all requests signed with keys." },
+      { id: 'C', text: "Assign the built-in Azure Policy that requires local authentication to be disabled on those resources." },
+      { id: 'D', text: "Remove the Foundry User role from all users so that nobody can read keys from the resources' pages." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "Foundry and Azure AI services resources expose a disableLocalAuth property, and a built-in Azure Policy can audit or deny resources where local (key) authentication is enabled; assigned at a management group, it blocks non-compliant new resources and reports existing ones. Regenerating keys keeps key authentication alive. Reading keys is controlled by the listKeys action, which roles such as Contributor include, so removing Foundry User neither blocks key access nor disables keys. Defender for Cloud's AI threat protection detects threats; it does not disable key authentication.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/ai-services/disable-local-auth",
+    tags: ["Keyless authentication", "Azure Policy", "Governance"]
+  },
+  {
+    id: "azure-ai-apps-agents-87",
+    difficulty: "hard",
+    certId: "azure-ai-apps-agents",
+    domainId: "d1",
+    domainName: "Plan and manage an Azure AI solution",
+    title: "Reaching Foundry only from the corporate network",
+    scenario: "A bank requires that its Foundry resource be reachable only from its virtual network and connected on-premises networks, with no access from the public internet. Applications resolve the resource by its normal endpoint host name, and the bank runs Azure DNS private zones for other services.",
+    question: "Which two actions should the network engineer take? (Choose two.)",
+    options: [
+      { id: 'A', text: "Add the on-premises egress IP addresses to the Foundry resource firewall and keep public access on." },
+      { id: 'B', text: "Add a service endpoint for Microsoft.CognitiveServices on the subnet and leave public access enabled." },
+      { id: 'C', text: "Link the privatelink DNS zones for the Foundry endpoints to the virtual network used for resolution." },
+      { id: 'D', text: "Place an Azure Application Gateway with a public listener in front of the Foundry endpoint host name." },
+      { id: 'E', text: "Create a private endpoint for the Foundry resource and set its public network access to disabled." }
+    ],
+    correctAnswers: ['C', 'E'],
+    type: "multiple",
+    explanation: "A private endpoint gives the Foundry resource a private IP in the virtual network, and disabling public network access removes the internet path. Linking the privatelink DNS zones, such as privatelink.cognitiveservices.azure.com, privatelink.openai.azure.com and privatelink.services.ai.azure.com, lets the normal host names resolve to that private IP from Azure and, through DNS forwarding, from on-premises. Service endpoints and IP firewall rules still leave the public endpoint reachable. An Application Gateway with a public listener reintroduces internet exposure.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/how-to/configure-private-link",
+    tags: ["Private networking", "Private endpoints", "DNS"]
+  },
+  {
+    id: "azure-ai-apps-agents-88",
+    difficulty: "hard",
+    certId: "azure-ai-apps-agents",
+    domainId: "d1",
+    domainName: "Plan and manage an Azure AI solution",
+    title: "Indexer blocked by a locked-down storage account",
+    scenario: "After the storage account holding contract PDFs was switched to disable public network access with a private endpoint for applications, the Azure AI Search indexer that reads it began failing with 403 errors. The search service itself runs on a Standard tier and must keep reading the container without reopening public access.",
+    question: "What should the developer configure?",
+    options: [
+      { id: 'A', text: "A private endpoint for the search service in the storage virtual network, so the indexer uses that for outbound calls." },
+      { id: 'B', text: "A service endpoint for Microsoft.Storage on the subnet that hosts the application's private endpoint for blobs." },
+      { id: 'C', text: "A shared private link from the search service to the storage account's blob sub-resource, approved on the account." },
+      { id: 'D', text: "A storage firewall rule allowing the search service's public IP address while public access stays disabled." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "Indexers make outbound connections from the search service, and a shared private link creates a managed private endpoint from the search service to the storage account's blob sub-resource; once the connection is approved on the storage account, the indexer reads over the private path with public access still disabled. A private endpoint for the search service handles inbound client traffic, not the indexer's outbound calls. IP firewall rules apply only when public network access is enabled for selected networks. A service endpoint on an application subnet does nothing for traffic originating from the search service.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/search/search-indexer-howto-access-private",
+    tags: ["Azure AI Search", "Shared private link", "Private networking"]
+  },
+  {
+    id: "azure-ai-apps-agents-89",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d1",
+    domainName: "Plan and manage an Azure AI solution",
+    title: "Integrated vectorization after keys were disabled",
+    scenario: "A search index uses the Azure OpenAI Embedding skill and a vectorizer that both call an embedding deployment on a Foundry resource. After the security team disabled key authentication on the Foundry resource, indexing and vector queries both fail with authentication errors.",
+    question: "Which two actions restore integrated vectorization without re-enabling keys? (Choose two.)",
+    options: [
+      { id: 'A', text: "Enable a managed identity on the Azure AI Search service and reference it in the skill and vectorizer." },
+      { id: 'B', text: "Store the Foundry resource's key in the skill definition, because skills are exempt from disabled local auth." },
+      { id: 'C', text: "Grant the search service identity the Search Index Data Contributor role on its own index and skillset." },
+      { id: 'D', text: "Grant the Foundry resource's managed identity the Search Service Contributor role on the search service." },
+      { id: 'E', text: "Grant the search service identity an inference role such as Cognitive Services OpenAI User on the resource." }
+    ],
+    correctAnswers: ['A', 'E'],
+    type: "multiple",
+    explanation: "With keys disabled, the embedding skill and the vectorizer must authenticate as the search service: enabling its managed identity and referencing it in both definitions makes the calls use Microsoft Entra tokens, and granting that identity an inference role on the Foundry resource, such as Cognitive Services OpenAI User, authorises the embedding calls. Search Index Data Contributor lets clients read and write the search index; it does nothing for outbound calls to the model. Keys cannot be used at all once local authentication is disabled. Granting the Foundry identity rights on the search service is the wrong direction.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/search/cognitive-search-skill-azure-openai-embedding",
+    tags: ["Integrated vectorization", "Managed identity", "Keyless authentication"]
+  },
+  {
+    id: "azure-ai-apps-agents-90",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d1",
+    domainName: "Plan and manage an Azure AI solution",
+    title: "Encrypting stored data with the bank's own key",
+    scenario: "A bank's regulator requires that data a Foundry resource stores at rest, such as uploaded files and fine-tuning data, be encrypted with keys the bank controls and can revoke. The bank already runs Azure Key Vault for other workloads.",
+    question: "What should the developer configure?",
+    options: [
+      { id: 'A', text: "A private endpoint on the Foundry resource, because private traffic is encrypted with the bank's key." },
+      { id: 'B', text: "Azure Disk Encryption on the Foundry resource, using a key-encryption key stored in the bank's vault." },
+      { id: 'C', text: "Transparent data encryption on the Foundry resource, using a service-managed key rotated each year." },
+      { id: 'D', text: "Customer-managed keys on the Foundry resource, from a vault with soft delete and purge protection." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Foundry resources encrypt data at rest with Microsoft-managed keys by default and support customer-managed keys from Azure Key Vault, which the bank can rotate or revoke; the vault must have soft delete and purge protection enabled and the resource's managed identity needs key permissions. Transparent data encryption is a SQL feature, and a service-managed key is not controlled by the bank. Private endpoints secure the network path, not storage encryption. Azure Disk Encryption applies to virtual machine disks, not to a PaaS resource.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/concepts/encryption-keys-portal",
+    tags: ["Customer-managed keys", "Encryption", "Key Vault"]
+  },
+  {
+    id: "azure-ai-apps-agents-91",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d1",
+    domainName: "Plan and manage an Azure AI solution",
+    title: "Developers who may build in one project only",
+    scenario: "A Foundry resource hosts projects for finance and marketing. A new marketing developer must build and test agents using the resource's existing model deployments and connections in the marketing project, but must not create deployments, manage the resource, or touch the finance project.",
+    question: "Which role assignments meet the requirement?",
+    options: [
+      { id: 'A', text: "Contributor on the resource group so the developer can build agents in either project if needed." },
+      { id: 'B', text: "Foundry Account Owner on the Foundry resource so the developer can use every shared deployment." },
+      { id: 'C', text: "Foundry User on the Foundry resource, inherited as data access by every project." },
+      { id: 'D', text: "Foundry User on the marketing project and Reader on the Foundry resource to view its deployments." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Foundry User at project scope grants the data actions needed to build and test agents in that project only, and Reader on the resource lets the developer see the shared deployments and connections without managing them, matching Microsoft's sample enterprise mapping. Foundry Account Owner can manage models and the resource, and cannot build in projects without Foundry User. Contributor on the resource group can create and delete resources, including deployments, and grants no project data actions. Foundry User at resource scope is inherited by every project, including finance.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/concepts/rbac-foundry",
+    tags: ["RBAC", "Foundry roles", "Least privilege"]
+  },
+  {
+    id: "azure-ai-apps-agents-92",
+    difficulty: "easy",
+    certId: "azure-ai-apps-agents",
+    domainId: "d1",
+    domainName: "Plan and manage an Azure AI solution",
+    title: "Stricter filtering for a children's reading app",
+    scenario: "An education company is building a reading companion for children aged 7 to 10 on a gpt-4.1-mini deployment. The default guardrail blocks medium and high severity harmful content, but the company wants low severity violent and sexual content blocked as well, in both prompts and completions.",
+    question: "What should the developer do?",
+    options: [
+      { id: 'A', text: "Create a custom guardrail with violence and sexual thresholds at Low and assign it to the deployment." },
+      { id: 'B', text: "Apply for modified guardrails so the harm categories can be turned off and replaced with the app's own." },
+      { id: 'C', text: "Set the deployment's temperature to 0 so the model avoids generating low severity violent content." },
+      { id: 'D', text: "Add a sentence to the system message telling the model never to mention violent or sexual topics at all." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Guardrail controls set a severity threshold per harm category and intervention point; a Low threshold for violence and sexual on user input and output blocks low, medium and high severity content, and the custom guardrail is then assigned to the deployment. A system message influences the model but cannot block prompts and is not an enforced filter. Modified guardrails are an approval process for loosening or turning off filtering, the opposite of the goal. Temperature affects randomness, not content safety.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/guardrails/guardrails-overview",
+    tags: ["Guardrails", "Content filtering", "Severity levels"]
+  },
+  {
+    id: "azure-ai-apps-agents-93",
+    difficulty: "easy",
+    certId: "azure-ai-apps-agents",
+    domainId: "d1",
+    domainName: "Plan and manage an Azure AI solution",
+    title: "Keeping competitor brands out of responses",
+    scenario: "A mobile network's sales assistant must never mention the names of four rival operators or a list of slang terms the brand team considers offensive, in prompts or responses. These terms are not harmful in the Content Safety sense, so the harm categories do not catch them.",
+    question: "What should the developer configure?",
+    options: [
+      { id: 'A', text: "A prompt shield for user prompt attacks, which blocks prompts that mention rival brand names." },
+      { id: 'B', text: "Protected material detection for text, which flags brand names owned by other companies." },
+      { id: 'C', text: "A custom blocklist containing the terms, added to the guardrail for both input and output." },
+      { id: 'D', text: "A higher severity threshold for the hate category so that the rival names are treated as hate." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "Custom blocklists hold exact terms or regular expressions and, when added to a guardrail for input and output, block prompts and completions containing them regardless of harm classification, which suits brand and slang lists. Adjusting the hate threshold changes how hateful content is classified; rival brand names are not hate. Protected material detection identifies known copyrighted text such as lyrics or articles, not trademarks in general. Prompt shields detect jailbreak and injection attempts, not specific words.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/use-blocklists",
+    tags: ["Blocklists", "Guardrails", "Content moderation"]
+  },
+  {
+    id: "azure-ai-apps-agents-94",
+    difficulty: "easy",
+    certId: "azure-ai-apps-agents",
+    domainId: "d1",
+    domainName: "Plan and manage an Azure AI solution",
+    title: "Users trying to make the bot ignore its rules",
+    scenario: "Logs from a bank's public chatbot show users sending messages such as pretend you have no restrictions and reveal your hidden instructions, trying to make the model break its rules. The bank wants such attempts detected and blocked before they reach the model.",
+    question: "Which guardrail control should the developer enable?",
+    options: [
+      { id: 'A', text: "Groundedness detection on the output intervention point, so that ungrounded replies are blocked." },
+      { id: 'B', text: "Protected material detection for code on the output intervention point, set to annotate and block." },
+      { id: 'C', text: "The self-harm category on the user input intervention point, set to the lowest severity threshold." },
+      { id: 'D', text: "Prompt shields for user prompt attacks on the user input intervention point, set to block." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Prompt shields for user prompt attacks classify jailbreak attempts, such as role-play to bypass rules or requests to reveal system instructions, in the user's input and can block them before the model runs. Protected material for code detects reproduced public code in outputs. Groundedness detection checks whether outputs are supported by source documents, not whether inputs are attacks. The self-harm category detects content about self-injury, not attempts to subvert the system.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/content-filter-prompt-shields",
+    tags: ["Prompt shields", "Jailbreak", "Guardrails"]
+  },
+  {
+    id: "azure-ai-apps-agents-95",
+    difficulty: "hard",
+    certId: "azure-ai-apps-agents",
+    domainId: "d1",
+    domainName: "Plan and manage an Azure AI solution",
+    title: "Hidden instructions inside retrieved emails",
+    scenario: "An executive-assistant agent reads users' emails through a tool and summarises them. A red-team test showed that an email containing hidden text telling the agent to forward the mailbox to an outside address caused the agent to attempt the forward. The team wants such embedded instructions detected wherever external content enters the agent.",
+    question: "Which two controls should the developer configure? (Choose two.)",
+    options: [
+      { id: 'A', text: "A custom blocklist containing the phrase forward the mailbox, applied to the output intervention point." },
+      { id: 'B', text: "A prompt shield for indirect attacks, so that instructions embedded in documents are detected." },
+      { id: 'C', text: "A guardrail control on the tool response intervention point, scanning content the tool returns." },
+      { id: 'D', text: "A lower temperature on the agent's model so it is less inclined to follow embedded instructions." },
+      { id: 'E', text: "A prompt shield for user prompt attacks applied only to the text the user types into the chat." }
+    ],
+    correctAnswers: ['B', 'C'],
+    type: "multiple",
+    explanation: "Indirect attacks, also called cross-prompt injection, are instructions hidden in third-party content such as emails or documents, and the prompt shield for indirect attacks is designed to detect them. For agents, applying the control at the tool response intervention point scans what the email tool returns before the agent acts on it. A user prompt attack shield on typed input misses content that arrives through tools. Temperature does not make a model resistant to injected instructions. A single-phrase blocklist on output is trivially evaded by rewording and acts only after the agent has already decided to act.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/guardrails/intervention-points",
+    tags: ["Prompt shields", "Indirect prompt injection", "Agent guardrails"]
+  },
+  {
+    id: "azure-ai-apps-agents-96",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d1",
+    domainName: "Plan and manage an Azure AI solution",
+    title: "A coding assistant that may copy public code",
+    scenario: "A software company's internal coding assistant generates code for developers. Legal counsel is worried that the assistant could reproduce sizeable snippets from public GitHub repositories without attribution, and wants such output identified so developers can check licences before using it.",
+    question: "Which guardrail risk should the developer enable?",
+    options: [
+      { id: 'A', text: "Protected material for code on the output, which flags matches to public repository code with citations." },
+      { id: 'B', text: "Protected material for text on the output, which flags song lyrics, articles and recipes in generated code." },
+      { id: 'C', text: "Groundedness detection on the output, which flags any generated code that is not found in the prompt." },
+      { id: 'D', text: "Prompt shields for indirect attacks on the input, which flag code copied from public sources into prompts." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Protected material for code detects output that matches code from public GitHub repositories and can return citation information, such as the repository and licence, so developers can review it. Protected material for text targets known text content such as lyrics, articles and recipes, not code. Indirect attack shields detect injected instructions, not copied code. Groundedness detection checks that outputs are supported by provided sources and would flag nearly all newly written code.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/content-filter-protected-material",
+    tags: ["Protected material", "Guardrails", "Code generation"]
+  },
+  {
+    id: "azure-ai-apps-agents-97",
+    difficulty: "hard",
+    certId: "azure-ai-apps-agents",
+    domainId: "d1",
+    domainName: "Plan and manage an Azure AI solution",
+    title: "An agent that ignores its model's strict filter",
+    scenario: "A developer applied a custom guardrail with violence set to High on a gpt-4.1 deployment. An agent built on that deployment has its own guardrail, assigned by another team, with violence set to Low on input and output and no controls on tool calls. The developer expected the model's guardrail to also apply to the agent.",
+    question: "How is violence detected for the agent's traffic?",
+    options: [
+      { id: 'A', text: "Only the agent's guardrail applies: input and output are scanned at Low; tool calls are not scanned." },
+      { id: 'B', text: "The stricter of the two settings applies to every intervention point, including the agent's tool calls." },
+      { id: 'C', text: "Both guardrails apply: input and output are scanned by each, and tool calls use the model's settings." },
+      { id: 'D', text: "The model's guardrail applies, because a deployment's guardrail always takes precedence over agents." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Risks in an agent are detected using the guardrail assigned to the agent, which fully overrides the guardrail of its underlying model deployment; so violence is scanned at the Low threshold on input and output, and tool calls and tool responses are not scanned because the agent's guardrail has no controls there. The two guardrails are not combined, the deployment's guardrail does not take precedence, and no stricter-of-both rule exists. An agent inherits its model's guardrail only when no guardrail is assigned to the agent.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/guardrails/guardrails-overview",
+    tags: ["Agent guardrails", "Guardrails", "Inheritance"]
+  },
+  {
+    id: "azure-ai-apps-agents-98",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d1",
+    domainName: "Plan and manage an Azure AI solution",
+    title: "A clinical app blocked on legitimate questions",
+    scenario: "A hospital's clinician-facing assistant keeps having prompts about overdose thresholds and wound injuries blocked by the self-harm and violence filters, even at the High threshold. Clinical governance has approved turning these categories off for this internal tool only.",
+    question: "What must the hospital do before it can turn the filters off?",
+    options: [
+      { id: 'A', text: "Assign the Foundry Account Owner role to the developer, which unlocks the Off option for filters." },
+      { id: 'B', text: "Add the medical terms to a custom blocklist marked as allowed, which bypasses the harm categories." },
+      { id: 'C', text: "Move the deployment to Global Provisioned, where content filters can be switched off by default." },
+      { id: 'D', text: "Apply for modified guardrails through Microsoft's limited access review and wait for approval." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "For models sold by Azure, only customers approved through the limited access review for modified guardrails can set harm categories to Off; once approved, a custom guardrail can turn off the categories for the deployment. No role unlocks the Off setting without approval. Deployment type does not change filtering rights. Blocklists add terms to block; there is no allow-list that overrides harm classification.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/guardrails/guardrails-overview",
+    tags: ["Guardrails", "Modified guardrails", "Content filtering"]
+  },
+  {
+    id: "azure-ai-apps-agents-99",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d1",
+    domainName: "Plan and manage an Azure AI solution",
+    title: "Trialling a new filter without breaking users",
+    scenario: "A publisher wants to understand how often its news-summary deployment's outputs would trigger protected material for text before it starts blocking them. During a two-week trial the app must keep returning every completion while the team logs which ones would have been flagged.",
+    question: "How should the developer configure the control?",
+    options: [
+      { id: 'A', text: "Set the protected material control's action to annotate only, and log the annotations the API returns." },
+      { id: 'B', text: "Leave the control disabled and run the groundedness evaluator weekly to estimate the flagged volume." },
+      { id: 'C', text: "Set the protected material control to annotate and block, and resubmit blocked requests with a new seed." },
+      { id: 'D', text: "Apply the control to the user input intervention point only, so completions are never evaluated at all." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "For model deployments, a control's action can be annotate, which returns the detection results in the API response without blocking, so the app keeps serving every completion while the team logs how often protected material would have been flagged. Annotate and block stops completions, which the trial must avoid, and resubmitting does not bypass it. Applying the control only to input never evaluates completions, which is where protected material appears. Groundedness measures support by sources, not copyrighted text.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/guardrails/guardrails-overview",
+    tags: ["Guardrails", "Annotations", "Protected material"]
+  },
+  {
+    id: "azure-ai-apps-agents-100",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d1",
+    domainName: "Plan and manage an Azure AI solution",
+    title: "Flagging summaries that invent facts",
+    scenario: "An insurer's claims-summary deployment receives the source claim documents in each request and returns a summary. Reviewers found summaries stating damage amounts that appear nowhere in the documents. The team wants the platform to detect ungrounded statements in completions at request time rather than only in later evaluations.",
+    question: "Which guardrail risk should the developer add?",
+    options: [
+      { id: 'A', text: "The violence category on the output at the Low threshold, which catches descriptions of claim damage." },
+      { id: 'B', text: "Prompt shields for indirect attacks on the input, which detect false figures in source documents." },
+      { id: 'C', text: "Protected material for text on the output, which detects figures copied from documents in the request." },
+      { id: 'D', text: "Groundedness detection on the output, which checks the completion against the supplied source documents." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Groundedness detection, a preview guardrail risk for model deployments, compares the completion with the grounding documents supplied in the request and flags statements they do not support, catching invented damage amounts at request time. Indirect attack shields look for injected instructions, not incorrect numbers. The violence category classifies harmful violent content, not accuracy. Protected material detection looks for known copyrighted text and would not flag an invented figure.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/content-filter-groundedness",
+    tags: ["Groundedness detection", "Guardrails", "Fabrication"]
+  }
+];
+
+export default AZURE_AI_APPS_AGENTS_QUESTIONS_4;

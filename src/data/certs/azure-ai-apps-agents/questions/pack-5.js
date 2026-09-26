@@ -1,0 +1,532 @@
+export const AZURE_AI_APPS_AGENTS_QUESTIONS_5 = [
+  {
+    id: "azure-ai-apps-agents-101",
+    difficulty: "easy",
+    certId: "azure-ai-apps-agents",
+    domainId: "d1",
+    domainName: "Plan and manage an Azure AI solution",
+    title: "Safety sign-off for a teen wellbeing chatbot",
+    scenario: "A charity is about to launch a wellbeing chatbot for teenagers. Its safeguarding board wants documented evidence, before launch, of how often the bot's responses to a 600-prompt test set contain violent, sexual, self-harm or hateful content, measured in a consistent way it can repeat for every later release.",
+    question: "What should the developer run?",
+    options: [
+      { id: 'A', text: "The BLEU and ROUGE evaluators, comparing responses with a reference free of sexual or self-harm content." },
+      { id: 'B', text: "The coherence and fluency evaluators over the test set, reporting the average score for each release." },
+      { id: 'C', text: "The built-in risk and safety evaluators for violence, sexual, self-harm and hate over the test set." },
+      { id: 'D', text: "A load test that replays the test set at peak volume and counts responses that return HTTP 400." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "The built-in risk and safety evaluators score each response for violence, sexual, self-harm and hate or unfairness content with a severity level and reason, using a Microsoft-hosted service, so the board gets a repeatable defect rate per category for every release. Coherence and fluency measure writing quality, not harm. HTTP 400 responses show where the content filter blocked prompts, not how harmful the generated responses are. BLEU and ROUGE measure word overlap with references and cannot detect harmful content.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/concepts/evaluation-evaluators/risk-safety-evaluators",
+    tags: ["Safety evaluation", "Evaluators", "Responsible AI"]
+  },
+  {
+    id: "azure-ai-apps-agents-102",
+    difficulty: "hard",
+    certId: "azure-ai-apps-agents",
+    domainId: "d1",
+    domainName: "Plan and manage an Azure AI solution",
+    title: "Turning severity scores into a release decision",
+    scenario: "A safety evaluation of a travel assistant returns, for each of 1,000 responses, a violence score from 0 to 7 with a label and reason. The release policy says no more than 1 percent of responses may exceed the low severity band. A manager proposes averaging the scores and releasing if the mean is under 2.",
+    question: "How should the developer evaluate the policy instead?",
+    options: [
+      { id: 'A', text: "Average the violence reasons with a judge model and release if the summary describes the content as safe." },
+      { id: 'B', text: "Release if the maximum violence score in the set stays below the top of the high severity band." },
+      { id: 'C', text: "Report the median violence score and release if it falls inside the very low band for the set." },
+      { id: 'D', text: "Compute the defect rate, the share of responses above the threshold of 3, and compare it to 1 percent." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Safety evaluators produce a severity score from 0 to 7 in bands of very low, low, medium and high, and results are aggregated as a defect rate: the percentage of responses whose score exceeds a threshold, by default 3, the top of the low band. That maps directly onto a policy about how many responses exceed low severity. A mean or median hides a small number of severe responses among many safe ones. A maximum below the top of the high band would allow medium and high severity content. Summarising the reasons with another model is not a measurable criterion.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/concepts/evaluation-evaluators/risk-safety-evaluators",
+    tags: ["Safety evaluation", "Defect rate", "Evaluators"]
+  },
+  {
+    id: "azure-ai-apps-agents-103",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d1",
+    domainName: "Plan and manage an Azure AI solution",
+    title: "Measuring whether poisoned documents steer answers",
+    scenario: "A procurement RAG app retrieves supplier documents that the supplier writes. The security team seeded some test documents with hidden instructions and wants a metric, computed over the test run's query, context and response triples, of how often the responses were actually manipulated by that embedded content.",
+    question: "Which evaluator should the developer use?",
+    options: [
+      { id: 'A', text: "The relevance evaluator, because manipulated responses stop answering the user's original query." },
+      { id: 'B', text: "The indirect attack evaluator, which detects responses affected by instructions hidden in context." },
+      { id: 'C', text: "The groundedness evaluator, because manipulated responses are always unsupported by the context." },
+      { id: 'D', text: "The protected material evaluator, because hidden instructions are treated as protected content." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "The indirect attack evaluator checks whether a response shows the effects of cross-prompt injection, such as manipulated content, intrusion or information gathering, caused by instructions embedded in the context, which is exactly the metric requested. A manipulated response can still be grounded in the poisoned context, so groundedness can miss it. Protected material detects copyrighted text. A manipulated response may remain relevant to the query, so relevance cannot isolate the attack's effect.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/concepts/evaluation-evaluators/risk-safety-evaluators",
+    tags: ["Indirect attack", "Safety evaluation", "Prompt injection"]
+  },
+  {
+    id: "azure-ai-apps-agents-104",
+    difficulty: "easy",
+    certId: "azure-ai-apps-agents",
+    domainId: "d1",
+    domainName: "Plan and manage an Azure AI solution",
+    title: "Explaining a low score to the review board",
+    scenario: "An evaluation run flagged 40 responses of a pension-advice assistant with low groundedness scores. The compliance review board does not want to read every context document; it wants a short explanation, for each flagged response, of why the evaluator judged it as it did.",
+    question: "What should the developer give the board?",
+    options: [
+      { id: 'A', text: "A rerun of the evaluation with a higher temperature on the judge model to see whether the scores change." },
+      { id: 'B', text: "The model deployment's Time to Response metric for each flagged request, charted across the whole run." },
+      { id: 'C', text: "The reason text that the AI-assisted evaluator returns with each score, shown per row in the results." },
+      { id: 'D', text: "The token usage figures for each flagged row, showing how much of the context the evaluator actually read." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "AI-assisted evaluators such as groundedness return a reason alongside each score that explains the judgement, for example which claims the context did not support, and the Foundry portal shows it per row, giving the board an explanation without reading the documents. Token counts show cost, not reasoning. Raising judge temperature makes scores less consistent and explains nothing. Latency is unrelated to why a response was judged ungrounded.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/how-to/evaluate-results",
+    tags: ["Evaluation", "Explanations", "Groundedness"]
+  },
+  {
+    id: "azure-ai-apps-agents-105",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d1",
+    domainName: "Plan and manage an Azure AI solution",
+    title: "Screening generated SQL for injection flaws",
+    scenario: "A data-platform team's agent writes SQL and Python snippets that analysts paste into production notebooks. Before wider rollout, the security lead wants each generated snippet in a 500-item test set checked for security weaknesses such as SQL injection and unsafe deserialization, as part of the evaluation run.",
+    question: "Which evaluator should the developer add?",
+    options: [
+      { id: 'A', text: "The code vulnerability evaluator, which flags generated code with common security flaws." },
+      { id: 'B', text: "The protected material evaluator, which flags generated code with common security flaws." },
+      { id: 'C', text: "The F1 score evaluator, comparing each snippet with a secure reference snippet by token overlap." },
+      { id: 'D', text: "The tool call accuracy evaluator, which checks whether the SQL tool was chosen for every snippet." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "The code vulnerability evaluator is a risk and safety evaluator that analyses generated code for security weaknesses such as SQL injection, code injection and unsafe deserialization across common languages, which is exactly the check requested. Protected material detection looks for reproduced third-party content, not vulnerabilities. F1 overlap with a reference says nothing about whether a snippet is exploitable. Tool call accuracy judges tool selection and arguments, not the safety of the code produced.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/concepts/evaluation-evaluators/risk-safety-evaluators",
+    tags: ["Code vulnerability", "Safety evaluation"]
+  },
+  {
+    id: "azure-ai-apps-agents-106",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d1",
+    domainName: "Plan and manage an Azure AI solution",
+    title: "Checking answers against an in-house style rule",
+    scenario: "A regulated fund manager requires every assistant response that mentions past performance to include the phrase that past performance does not guarantee future results, or an equivalent warning, while avoiding forecasts. No built-in evaluator checks this rule, and the team wants it scored in the same evaluation runs as groundedness.",
+    question: "What should the developer build?",
+    options: [
+      { id: 'A', text: "A blocklist containing forecasting words, attached to the deployment's guardrail on the output point." },
+      { id: 'B', text: "A fine-tuned judge model trained on the relevance evaluator's outputs and used as a relevance check." },
+      { id: 'C', text: "A system message instruction, measured by counting how often the model mentions past performance." },
+      { id: 'D', text: "A custom prompt-based evaluator with a rubric for both rules, run alongside the others." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Foundry supports custom evaluators, either code-based or prompt-based with an LLM judge and rubric, which run alongside built-in evaluators in the same evaluation and report scores per row; a prompt-based evaluator can judge whether an equivalent warning is present and forecasts are avoided. A blocklist blocks words at runtime but cannot check that an equivalent warning was included or produce evaluation scores. A system message is a mitigation, not a measurement. A judge trained on relevance outputs measures relevance, not the compliance rule.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/concepts/evaluation-evaluators/custom-evaluators",
+    tags: ["Custom evaluators", "Evaluation", "Compliance"]
+  },
+  {
+    id: "azure-ai-apps-agents-107",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d1",
+    domainName: "Plan and manage an Azure AI solution",
+    title: "Evaluating 50,000 rows with shared results",
+    scenario: "A developer ran quality and safety evaluators locally on her laptop against a 200-row sample. The full evaluation dataset now has 50,000 rows, runs take hours on her machine, and auditors need every run, its parameters and results kept in the Foundry project where they can review them later.",
+    question: "What should the developer do?",
+    options: [
+      { id: 'A', text: "Run a cloud evaluation through the Foundry SDK so the project executes it and stores the results." },
+      { id: 'B', text: "Split the dataset across ten laptops and email the result files to the auditors after each run." },
+      { id: 'C', text: "Upload the dataset to a vector store and ask the agent to summarise how well it answered each row." },
+      { id: 'D', text: "Run the evaluators inside the production agent so every live response is scored before it is sent." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Cloud evaluation submits the dataset and evaluator configuration to the Foundry project, which runs the evaluation remotely at scale and records the run, parameters and per-row results in the project for later review. Splitting the job across laptops and emailing files loses the central, auditable record. Scoring every live response inline adds latency and cost and does not evaluate the dataset. Asking the agent to grade itself is neither a defined evaluator nor auditable.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/observability/how-to/cloud-evaluation",
+    tags: ["Cloud evaluation", "Evaluation", "Auditing"]
+  },
+  {
+    id: "azure-ai-apps-agents-108",
+    difficulty: "easy",
+    certId: "azure-ai-apps-agents",
+    domainId: "d1",
+    domainName: "Plan and manage an Azure AI solution",
+    title: "Seeing every step an agent took",
+    scenario: "A support agent sometimes gives a wrong refund amount, and developers cannot tell whether the model misread the order, a tool returned bad data, or the agent skipped a tool. They want a timeline of each run showing model calls, tool calls with their inputs and outputs, and durations.",
+    question: "What should the developer set up?",
+    options: [
+      { id: 'A', text: "A Cost Management export listing each agent run's token charges alongside the refund amounts given." },
+      { id: 'B', text: "Azure Monitor metric alerts on the deployment's token counts, grouped by the refund amount returned." },
+      { id: 'C', text: "A diagnostic setting sending the Foundry resource's audit logs to a storage account for later review." },
+      { id: 'D', text: "Tracing for the agent, sending OpenTelemetry spans to the project's Application Insights." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Foundry tracing, built on OpenTelemetry and stored in the project's Application Insights resource, records each agent run as a trace of spans for model calls and tool calls, with inputs, outputs and timings, so developers can see exactly where the wrong amount came from. Audit logs capture control-plane and access events, not the steps of a run. Metric alerts and cost exports aggregate numbers and cannot show the sequence of actions in a particular run.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/observability/concepts/trace-agent-concept",
+    tags: ["Tracing", "OpenTelemetry", "Auditing"]
+  },
+  {
+    id: "azure-ai-apps-agents-109",
+    difficulty: "hard",
+    certId: "azure-ai-apps-agents",
+    domainId: "d1",
+    domainName: "Plan and manage an Azure AI solution",
+    title: "Tracing a health app without leaking patient data",
+    scenario: "A telehealth provider enabled OpenTelemetry tracing for its symptom-checker agent. The privacy officer requires that traces in production contain timing, token counts and tool names but never the text of patient messages or model responses, while developers in a separate test environment with synthetic data want full message content in traces.",
+    question: "Which two actions meet both requirements? (Choose two.)",
+    options: [
+      { id: 'A', text: "Record content in production but set the Application Insights retention period to seven days." },
+      { id: 'B', text: "Enable content recording everywhere and apply a daily cap on the production Application Insights." },
+      { id: 'C', text: "Disable tracing in production entirely and rely on the deployment's Time to Response metric." },
+      { id: 'D', text: "Enable message content recording only in the test environment through its tracing configuration." },
+      { id: 'E', text: "Leave message content recording disabled in production, which is the default for gen AI tracing." }
+    ],
+    correctAnswers: ['D', 'E'],
+    type: "multiple",
+    explanation: "Gen AI tracing captures span metadata such as durations, token usage and tool names by default, while recording of message content (prompts, responses, tool arguments) is off unless explicitly enabled through a setting such as an environment variable, so production can keep the default and the test environment can turn content recording on. A daily cap limits volume but still stores patient text until it is reached. Disabling tracing loses the timing and tool data the officer allows. Short retention still stores patient text for a week.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/observability/how-to/trace-agent-setup",
+    tags: ["Tracing", "Privacy", "Content recording"]
+  },
+  {
+    id: "azure-ai-apps-agents-110",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d1",
+    domainName: "Plan and manage an Azure AI solution",
+    title: "Proving an advert image was AI-generated",
+    scenario: "A retailer publishes marketing images created with gpt-image-1 in Foundry. A new advertising code requires that AI-generated imagery carry verifiable, tamper-evident information about its origin that platforms and viewers can inspect with standard tools.",
+    question: "What provides this provenance?",
+    options: [
+      { id: 'A', text: "The EXIF camera model field, which the service sets to the name of the deployment that made the image." },
+      { id: 'B', text: "A visible logo that the design team adds to the corner of each image before it is published online." },
+      { id: 'C', text: "The file name pattern the service assigns to generated images, which marks them as AI-generated." },
+      { id: 'D', text: "The Content Credentials manifest based on C2PA that the service embeds in each generated image." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Images generated by Azure OpenAI image models in Foundry carry Content Credentials, a cryptographically signed manifest following the C2PA standard that records the image's AI origin and can be verified with standard tools. A logo added by hand is neither tamper-evident nor machine-verifiable. File names are chosen by whoever saves the file and prove nothing. Setting EXIF camera fields is not how provenance is recorded and such fields are trivially edited.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/content-credentials",
+    tags: ["Provenance", "Content Credentials", "Image generation"]
+  },
+  {
+    id: "azure-ai-apps-agents-111",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d1",
+    domainName: "Plan and manage an Azure AI solution",
+    title: "Recording which document backed each answer",
+    scenario: "An agent answers questions about insurance policy wording using the file search tool over uploaded policy PDFs. Auditors want every stored answer to record which source file and passage supported it, so they can later verify the answer against the exact document version used.",
+    question: "What should the application store with each answer?",
+    options: [
+      { id: 'A', text: "The model deployment name, which identifies the policy documents that the agent searched." },
+      { id: 'B', text: "The guardrail name assigned to the agent, which records the documents allowed for each answer." },
+      { id: 'C', text: "The file citation annotations in the response, with their file IDs and the quoted passages." },
+      { id: 'D', text: "The run's total token count, which identifies how much of each policy file the model had read." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "When the agent uses file search, the response includes citation annotations that reference the source file IDs and the text spans used, so storing them with each answer gives auditors provenance down to the file and passage. Token counts indicate volume, not sources. The deployment name identifies the model, not the documents. A guardrail defines safety controls and records nothing about which documents supported an answer.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/agents/how-to/tools/file-search",
+    tags: ["Provenance", "Citations", "File search"]
+  },
+  {
+    id: "azure-ai-apps-agents-112",
+    difficulty: "hard",
+    certId: "azure-ai-apps-agents",
+    domainId: "d1",
+    domainName: "Plan and manage an Azure AI solution",
+    title: "Attributing a jailbreak attempt to the right user",
+    scenario: "A bank enabled Microsoft Defender for Cloud threat protection for AI services on the subscription hosting its customer chatbot. When Defender raises a jailbreak alert, the security operations team can see the application's managed identity but not which signed-in customer sent the prompt or from which IP address.",
+    question: "Which two changes let SOC analysts attribute future alerts to end users? (Choose two.)",
+    options: [
+      { id: 'A', text: "Switch the chatbot to API key authentication so each key maps to one customer in the audit trail." },
+      { id: 'B', text: "Grant each customer the Foundry User role so that their own identity appears in every request." },
+      { id: 'C', text: "Enable the prompt shield for user prompt attacks, which records the customer's name in the alert." },
+      { id: 'D', text: "Pass the user security context, such as end-user ID and source IP, in each request the app makes." },
+      { id: 'E', text: "Stream Defender for Cloud alerts to Microsoft Sentinel and correlate them with the app's sign-in logs." }
+    ],
+    correctAnswers: ['D', 'E'],
+    type: "multiple",
+    explanation: "Defender for Cloud's AI threat protection can include end-user details in alerts when the application passes user security context, such as a hashed end-user ID, source IP and application name, with each request. Sending alerts to Microsoft Sentinel then lets analysts correlate them with the application's sign-in and activity logs for investigation. Giving every customer a Foundry role is inappropriate and does not change how the app authenticates. Per-customer API keys are impractical and weaken security. Prompt shields detect jailbreaks but do not add user identity to alerts.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/defender-for-cloud/gain-end-user-context-ai",
+    tags: ["Defender for Cloud", "Auditing", "Threat protection"]
+  },
+  {
+    id: "azure-ai-apps-agents-113",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d1",
+    domainName: "Plan and manage an Azure AI solution",
+    title: "Prompts and responses under records retention",
+    scenario: "A law firm's compliance team must be able to search, retain and place legal holds on employees' prompts to and responses from its internal Foundry-based assistant, using the same compliance tooling that already governs its email and Teams chats.",
+    question: "What should the firm enable?",
+    options: [
+      { id: 'A', text: "Customer-managed keys on the Foundry resource so the firm controls the stored conversations." },
+      { id: 'B', text: "A diagnostic setting streaming Foundry request metrics to an event hub for the SIEM to archive." },
+      { id: 'C', text: "Content recording in Application Insights traces with retention extended to the legal maximum." },
+      { id: 'D', text: "The Microsoft Purview integration for Foundry, so interactions flow into audit and eDiscovery." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Microsoft Purview integrates with Foundry so AI prompts and responses are captured for Purview Audit, eDiscovery, retention policies and legal holds, the same tools the firm uses for email and Teams. Request metrics contain counts, not conversation content. Application Insights traces are an engineering tool without eDiscovery or legal hold capabilities. Customer-managed keys control encryption, not search and retention.",
+    referenceUrl: "https://learn.microsoft.com/en-us/purview/ai-azure-foundry",
+    tags: ["Microsoft Purview", "Auditing", "Compliance"]
+  },
+  {
+    id: "azure-ai-apps-agents-114",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d1",
+    domainName: "Plan and manage an Azure AI solution",
+    title: "A manager must approve each payment call",
+    scenario: "A finance agent uses an MCP server that exposes list_invoices, get_vendor and pay_invoice tools. Reading tools may run freely, but every pay_invoice call must pause until a finance manager approves it in the company's approval app, and the decision must be recorded against the run.",
+    question: "How should the developer configure the MCP tool?",
+    options: [
+      { id: 'A', text: "Require approval for pay_invoice only, and have the app submit the manager's decision to the run." },
+      { id: 'B', text: "Set approval to never for all tools and add an instruction telling the agent to ask before paying." },
+      { id: 'C', text: "Require approval for every tool so the manager reviews reads and payments in the approval app." },
+      { id: 'D', text: "Remove pay_invoice from the server and let the manager pay invoices by hand in the finance system." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "The MCP tool's approval setting can require approval for specific tool names; when pay_invoice is called the run pauses with an approval request, the application routes it to the manager, and the approve or reject decision submitted back is part of the run's record while read tools run without interruption. An instruction is not an enforced control. Requiring approval for every tool floods the manager with harmless reads. Removing the tool abandons the automation instead of governing it.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/agents/how-to/tools/model-context-protocol",
+    tags: ["Approval workflows", "MCP", "Human in the loop"]
+  },
+  {
+    id: "azure-ai-apps-agents-115",
+    difficulty: "easy",
+    certId: "azure-ai-apps-agents",
+    domainId: "d1",
+    domainName: "Plan and manage an Azure AI solution",
+    title: "Who loosened the content filter last night?",
+    scenario: "On Monday the security team noticed that the guardrail on a production deployment had been changed over the weekend to a less strict configuration. They need to find out which identity made the change and when.",
+    question: "Where should they look?",
+    options: [
+      { id: 'A', text: "The agent traces in Application Insights, filtered to spans recorded during the weekend." },
+      { id: 'B', text: "The Azure Activity log for the Foundry resource, filtered to write operations at the weekend." },
+      { id: 'C', text: "The deployment's Processed Prompt Tokens metric over the weekend to see when usage changed." },
+      { id: 'D', text: "The continuous evaluation results, looking for the run where safety scores first dropped." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "Changing a guardrail or deployment configuration is a control-plane write operation, and the Azure Activity log records each one with the caller's identity, time and operation, so it answers who and when directly. Token metrics show usage patterns, not configuration changes. Agent traces record runs, not administrative actions. Evaluation results might show an effect of the change but not who made it.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-monitor/platform/activity-log",
+    tags: ["Activity log", "Auditing", "Guardrails"]
+  },
+  {
+    id: "azure-ai-apps-agents-116",
+    difficulty: "hard",
+    certId: "azure-ai-apps-agents",
+    domainId: "d1",
+    domainName: "Plan and manage an Azure AI solution",
+    title: "An inventory of every agent and what it can reach",
+    scenario: "A multinational's identity team is alarmed that dozens of Foundry agents call internal systems and nobody can list them. It wants every agent to appear as a distinct identity in its directory, so that it can review each agent's permissions, apply Conditional Access and disable a misbehaving agent centrally.",
+    question: "What capability supports this?",
+    options: [
+      { id: 'A', text: "Microsoft Entra Agent ID, which gives agents their own identities that admins can govern in Entra." },
+      { id: 'B', text: "Tagging each agent in its project with an owner tag and exporting the tags with Azure Resource Graph." },
+      { id: 'C', text: "A single user-assigned managed identity shared by all agents, reviewed monthly by the identity team." },
+      { id: 'D', text: "A configuration management database entry per agent, synced nightly from each project's agent list." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Foundry agents receive identities through Microsoft Entra Agent ID, so each agent appears in the directory where administrators can inventory agents, review their permissions, apply Conditional Access policies and disable an agent centrally. Tags are metadata and agents are not tagged Azure resources that Resource Graph lists with identities. A shared managed identity makes agents indistinguishable, so one cannot be restricted or disabled without affecting all. A configuration management database record documents agents but gives no enforcement point.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/agents/concepts/agent-identity",
+    tags: ["Agent identity", "Entra Agent ID", "Governance"]
+  },
+  {
+    id: "azure-ai-apps-agents-117",
+    difficulty: "easy",
+    certId: "azure-ai-apps-agents",
+    domainId: "d1",
+    domainName: "Plan and manage an Azure AI solution",
+    title: "Which actions may an IT agent take alone?",
+    scenario: "An IT helpdesk agent can look up device details, reset a user's multifactor registration and wipe a lost laptop. Leadership accepts the agent acting alone on lookups but wants a person to confirm any action that is hard to reverse before it happens.",
+    question: "Which oversight design fits?",
+    options: [
+      { id: 'A', text: "Remove the reset and wipe tools and let the agent only explain how users can do these themselves." },
+      { id: 'B', text: "Run lookups autonomously and require human approval before the reset and wipe actions execute." },
+      { id: 'C', text: "Let the agent run every action autonomously and review a weekly report of the wipes and resets." },
+      { id: 'D', text: "Require a technician to approve every action, including lookups, before the agent may proceed." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "Matching oversight to risk means read-only, reversible actions run autonomously while irreversible or high-impact actions, such as resets and remote wipes, require human-in-the-loop approval before execution. A weekly review is after-the-fact oversight that cannot undo a wrongful wipe. Approving every lookup adds friction without reducing meaningful risk. Removing the tools abandons the automation the helpdesk wants.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/agents/concepts/workflow",
+    tags: ["Oversight modes", "Human in the loop", "Agent governance"]
+  },
+  {
+    id: "azure-ai-apps-agents-118",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d1",
+    domainName: "Plan and manage an Azure AI solution",
+    title: "Exposing only three tools from a large MCP server",
+    scenario: "A sales agent connects to a CRM vendor's MCP server that exposes 40 tools, including tools that delete accounts and export the whole customer database. The sales agent needs only search_contacts, get_opportunity and log_call, and the governance team wants the other tools unavailable to the agent entirely.",
+    question: "What should the developer configure?",
+    options: [
+      { id: 'A', text: "A guardrail blocklist containing the names of the 37 unwanted tools on the output intervention point." },
+      { id: 'B', text: "Approval required for all 40 tools, with the sales manager rejecting any call outside the three tools." },
+      { id: 'C', text: "An instruction telling the agent to use only search_contacts, get_opportunity and log_call from the server." },
+      { id: 'D', text: "An allowed tools list on the MCP tool containing only search_contacts, get_opportunity and log_call." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "The MCP tool definition accepts an allowed tools list, so only the named tools from the server are exposed to the agent and the destructive tools cannot be invoked at all. An instruction is guidance the model might ignore. A blocklist inspects text in outputs and does not control which tools the agent can call. Requiring approval for everything keeps the dangerous tools callable and depends on a manager catching every mistake.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/agents/how-to/tools/model-context-protocol",
+    tags: ["Tool access control", "MCP", "Agent governance"]
+  },
+  {
+    id: "azure-ai-apps-agents-119",
+    difficulty: "easy",
+    certId: "azure-ai-apps-agents",
+    domainId: "d1",
+    domainName: "Plan and manage an Azure AI solution",
+    title: "An analytics agent with write access it never uses",
+    scenario: "A reporting agent authenticates to a Cosmos DB account with its agent identity to answer questions about orders. During a review, security finds that the identity holds a data contributor role, although the agent only ever reads data.",
+    question: "What should the developer change?",
+    options: [
+      { id: 'A', text: "Add an instruction telling the agent never to write to Cosmos DB, keeping its current role assignment." },
+      { id: 'B', text: "Move the agent's database access to an account key stored in a project connection with read scope." },
+      { id: 'C', text: "Enable continuous evaluation so any write operations by the agent are flagged in the dashboard." },
+      { id: 'D', text: "Replace the contributor role with a read-only data role scoped to the containers the agent queries." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Least privilege for agent tools means granting the agent identity only the permissions its tasks require, at the narrowest scope; a read-only data role on the containers it queries removes the ability to write even if the agent is manipulated. An instruction does not remove the permission. Cosmos DB account keys grant full access and replace identity-based control with a secret. Evaluation might detect misuse afterwards but does not prevent it.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/agents/concepts/agent-identity",
+    tags: ["Least privilege", "Agent identity", "Tool access control"]
+  },
+  {
+    id: "azure-ai-apps-agents-120",
+    difficulty: "hard",
+    certId: "azure-ai-apps-agents",
+    domainId: "d1",
+    domainName: "Plan and manage an Azure AI solution",
+    title: "An agent that wanders off its assigned task",
+    scenario: "A travel-booking agent has tools for searching flights, booking and sending emails. In testing, when asked only to compare fares, it sometimes emailed the user's manager or started a booking. The team wants the platform to detect at runtime when an agent's planned tool use does not align with what the user asked for, and block it.",
+    question: "Which control should the developer add?",
+    options: [
+      { id: 'A', text: "A prompt shield for user prompt attacks on the user input point, set to annotate and block." },
+      { id: 'B', text: "A lower temperature on the agent's model, so that it calls tools less often during a run." },
+      { id: 'C', text: "A groundedness control on the output, so replies unsupported by the fare data are blocked." },
+      { id: 'D', text: "A task adherence control in the agent's guardrail, applied at the tool call intervention point." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Task adherence, a guardrail risk available for agents, detects when an agent's actions, such as a proposed tool call, are misaligned with the user's request or instructions, and applied at the tool call intervention point it can block the unintended email or booking before it runs. Prompt shields detect jailbreaks by users, which is not what is happening here. Groundedness applies to model outputs and is not supported for agents. Temperature does not reliably stop inappropriate tool calls.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/guardrails/task-adherence",
+    tags: ["Task adherence", "Agent guardrails", "Agent governance"]
+  },
+  {
+    id: "azure-ai-apps-agents-121",
+    difficulty: "hard",
+    certId: "azure-ai-apps-agents",
+    domainId: "d1",
+    domainName: "Plan and manage an Azure AI solution",
+    title: "Hosted agent limited to approved destinations",
+    scenario: "A hosted agent written with Microsoft Agent Framework browses supplier portals and calls internal APIs. After a prompt-injection test caused it to post data to an unknown website, the security team requires that the agent reach only an approved list of domains, enforced by the platform and independent of the agent's code.",
+    question: "Which two measures should the developer apply? (Choose two.)",
+    options: [
+      { id: 'A', text: "A lower max_tokens value, so the agent cannot build requests long enough to exfiltrate data." },
+      { id: 'B', text: "A check inside the agent code that compares each URL with the list before calling the endpoint." },
+      { id: 'C', text: "Network egress controls in the hosted agent's guardrail, allowing only the approved destinations." },
+      { id: 'D', text: "Outbound traffic routed through the customer virtual network, with firewall rules for the domains." },
+      { id: 'E', text: "A prompt shield for user prompt attacks, which prevents the agent from contacting new domains." }
+    ],
+    correctAnswers: ['C', 'D'],
+    type: "multiple",
+    explanation: "Hosted agents support network egress controls configured in the guardrail, which the platform enforces to limit outbound connections to allowed destinations, and hosted agents can also send outbound traffic through a customer virtual network where Azure Firewall rules allow only approved domains; both are enforced outside the agent's code. A check inside the code can be bypassed if the code or its dependencies are manipulated, which the requirement rules out. Prompt shields detect attacks in text but do not restrict network destinations. max_tokens limits output size and does nothing to stop connections.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/agents/how-to/add-hosted-agent-guardrails",
+    tags: ["Hosted agents", "Egress controls", "Agent governance"]
+  },
+  {
+    id: "azure-ai-apps-agents-122",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d1",
+    domainName: "Plan and manage an Azure AI solution",
+    title: "Separating read and write powers across agents",
+    scenario: "An HR assistant answers policy questions for all 20,000 employees and can also update employee bank details. Security reviewers worry that a prompt injection in any conversation could trigger a bank-detail change. They want the public-facing agent to hold no write permissions at all.",
+    question: "What design should the developer adopt?",
+    options: [
+      { id: 'A', text: "Keep one agent and lower its temperature so it is less likely to call the write tool." },
+      { id: 'B', text: "Keep one agent and give the bank-details tool a longer description warning against misuse." },
+      { id: 'C', text: "Split out a separate agent with the write tool and its own identity, behind an approval step." },
+      { id: 'D', text: "Keep one agent and add a groundedness guardrail so that ungrounded tool calls are blocked." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "Separating privileges across agents means the employee-facing agent has no write tool or permission, and bank-detail changes go through a separate agent with its own least-privilege identity that is invoked only after an approval step in the workflow, so an injection in a public conversation cannot directly change data. Temperature and tool descriptions influence behaviour but leave the permission in place. Groundedness is not applied to agent tool calls and does not remove write access.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/agents/concepts/workflow",
+    tags: ["Least privilege", "Multi-agent", "Agent governance"]
+  },
+  {
+    id: "azure-ai-apps-agents-123",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d1",
+    domainName: "Plan and manage an Azure AI solution",
+    title: "Autonomous agent with humans watching, not approving",
+    scenario: "A logistics company's rerouting agent adjusts delivery routes hundreds of times a day, and waiting for approval on each change would defeat its purpose. Operations managers accept autonomy but want to be alerted quickly when the agent's error rate or unusual behaviour spikes, so they can intervene or stop it.",
+    question: "Which oversight approach fits?",
+    options: [
+      { id: 'A', text: "A monthly manual review of a random sample of reroutes, with changes rolled back if needed." },
+      { id: 'B', text: "Human-in-the-loop approval on every reroute, with managers approving changes in a queue." },
+      { id: 'C', text: "No oversight, because autonomous agents cannot be monitored once they are deployed to users." },
+      { id: 'D', text: "Human-on-the-loop monitoring: autonomous runs with dashboards and alerts on error signals." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Human-on-the-loop oversight lets the agent act autonomously while people supervise through monitoring dashboards, traces and alerts on signals such as error rates or evaluation scores, and can intervene or stop the agent when something goes wrong, which suits high-frequency, low-individual-impact actions. Approval on every reroute defeats the purpose. Autonomous agents can and should be monitored. A monthly sample reacts far too slowly to a sudden spike.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/observability/how-to/how-to-monitor-agents-dashboard",
+    tags: ["Oversight modes", "Monitoring", "Agent governance"]
+  },
+  {
+    id: "azure-ai-apps-agents-124",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d1",
+    domainName: "Plan and manage an Azure AI solution",
+    title: "Security alerts for attacks on AI workloads",
+    scenario: "A security operations centre already uses Microsoft Defender for Cloud. It wants alerts when someone attempts jailbreaks, tries to extract sensitive data, or uses stolen credentials against the company's Foundry model deployments, surfaced alongside its other cloud security alerts.",
+    question: "What should the SOC enable?",
+    options: [
+      { id: 'A', text: "Continuous evaluation with the violence evaluator, emailing results to the SOC distribution list." },
+      { id: 'B', text: "Threat protection for AI services in Defender for Cloud on the subscriptions hosting Foundry." },
+      { id: 'C', text: "A Cost Management anomaly alert on the Foundry resources, forwarded to the SOC ticketing tool." },
+      { id: 'D', text: "A daily Defender for Cloud secure score export listing deployments with modified guardrails." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "Defender for Cloud's threat protection for AI services analyses AI workload traffic and raises security alerts for jailbreak attempts, sensitive data exposure, credential misuse and similar threats, alongside the SOC's existing Defender alerts and in Defender XDR. Continuous evaluation measures response quality and harm, not attacks by threat actors. Cost anomalies may follow an attack but are not security detections. A secure score export reports security posture, not live threats.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/defender-for-cloud/ai-threat-protection",
+    tags: ["Defender for Cloud", "Threat protection", "Security"]
+  },
+  {
+    id: "azure-ai-apps-agents-125",
+    difficulty: "easy",
+    certId: "azure-ai-apps-agents",
+    domainId: "d1",
+    domainName: "Plan and manage an Azure AI solution",
+    title: "Keeping agent traces long enough for audit",
+    scenario: "An insurer's audit policy requires that execution traces of its claims agent, stored in the Application Insights resource connected to its Foundry project, remain queryable for 18 months. Traces currently disappear after 90 days.",
+    question: "What should the developer change?",
+    options: [
+      { id: 'A', text: "Export the traces to the agent's file search vector store so they remain searchable for the period." },
+      { id: 'B', text: "Increase the Foundry project's agent version count so older runs are kept with their agent versions." },
+      { id: 'C', text: "Increase retention on the Log Analytics workspace tables behind the Application Insights resource." },
+      { id: 'D', text: "Enable content recording on the Application Insights resource so traces live as long as chats." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "Workspace-based Application Insights stores telemetry in a Log Analytics workspace, so extending retention on the workspace or on the specific trace tables keeps traces queryable for 18 months. Content recording controls what a trace contains, not how long it is kept. Agent versions are definitions and do not preserve run telemetry. A vector store is meant for retrieval grounding, not audit retention of telemetry, and would not support KQL queries.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-monitor/logs/data-retention-configure",
+    tags: ["Tracing", "Retention", "Auditing"]
+  }
+];
+
+export default AZURE_AI_APPS_AGENTS_QUESTIONS_5;

@@ -1,0 +1,532 @@
+export const AZURE_AI_APPS_AGENTS_QUESTIONS_16 = [
+  {
+    id: "azure-ai-apps-agents-376",
+    difficulty: "easy",
+    certId: "azure-ai-apps-agents",
+    domainId: "d4",
+    domainName: "Implement text analysis solutions",
+    title: "Analysts who rank pairs of draft summaries",
+    scenario: "A securities regulator's policy team reviews AI-drafted summaries of consultation responses. Over six months analysts have recorded about 2,500 cases where they compared two drafts of the same summary and marked which one better matched the team's cautious, hedged tone. The team wants a GPT-4.1 deployment adjusted so its drafts lean toward the style analysts chose.",
+    question: "Which customization method makes the best use of this data?",
+    options: [
+      { id: 'A', text: "Reinforcement fine-tuning with a grader that awards points whenever a draft contains hedging words." },
+      { id: 'B', text: "Supervised fine-tuning on the rejected drafts, labeled as examples of the tone to be avoided." },
+      { id: 'C', text: "A custom text classification project in Azure Language that labels drafts as hedged or not hedged." },
+      { id: 'D', text: "Direct preference optimization, training on each pair as a chosen and a rejected completion." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Direct preference optimization is designed for exactly this signal: each training example holds a prompt with a preferred and a non-preferred completion, and the model learns to favor the preferred style, such as tone, without needing a hand-written reward function. Reinforcement fine-tuning targets reasoning models with a grader for tasks whose answers can be checked; a keyword-counting grader is a poor proxy for tone. Supervised fine-tuning learns to imitate the completions it is given, so training on rejected drafts would teach the unwanted style. A classification project only labels drafts; it does not change what the model writes.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/fine-tuning",
+    tags: ["Fine-tuning", "DPO", "Compliance summarization"]
+  },
+  {
+    id: "azure-ai-apps-agents-377",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d4",
+    domainName: "Implement text analysis solutions",
+    title: "Regulator-ready summaries in a house format",
+    scenario: "A bank's compliance office wants one-page summaries of new regulatory circulars written in its house style: an obligations list, an affected-products line and a deadline table, using the bank's own terms for product families. Circulars arrive weekly, the house format was agreed last month and may still be adjusted, and the team has only about fifteen gold-standard summaries written by analysts.",
+    question: "Which approach should the developer try first?",
+    options: [
+      { id: 'A', text: "Train a custom text classification project in Azure Language to label each circular with the right product family." },
+      { id: 'B', text: "Call the Azure Language summarization API in abstractive mode and ask it to output the obligations as a sentence list." },
+      { id: 'C', text: "Run supervised fine-tuning on a GPT-4.1-mini base model using the fifteen gold summaries as the training file." },
+      { id: 'D', text: "Write a system message that defines the sections and glossary, and include two or three gold summaries as examples." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "With a format that may still change and only fifteen examples, prompt engineering is the right first step: a system message that spells out the sections and the bank's terminology, plus a few gold summaries as few-shot examples, steers the model immediately and can be edited the day the format changes. Fine-tuning on fifteen examples is too little data and would have to be repeated each time the format moves. A custom classification project only labels documents; it produces no summary. The Azure Language summarization API does not accept a custom output template or glossary, so it cannot produce the bank's house structure.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/prompt-engineering",
+    tags: ["Prompt engineering", "Few-shot", "Compliance summarization"]
+  },
+  {
+    id: "azure-ai-apps-agents-378",
+    difficulty: "hard",
+    certId: "azure-ai-apps-agents",
+    domainId: "d4",
+    domainName: "Implement text analysis solutions",
+    title: "Shrinking a 6,000-token extraction prompt",
+    scenario: "An insurer extracts 40 claim attributes from adjuster notes with a GPT-4.1 deployment. To get acceptable accuracy the prompt now carries a 6,000-token instruction block and twelve worked examples, which dominates cost at two million calls a month. The attribute list has been stable for a year, and the team holds 3,000 notes whose correct extractions were verified by adjusters.",
+    question: "What should the team do to cut per-call cost while keeping accuracy?",
+    options: [
+      { id: 'A', text: "Keep the prompt unchanged and move the deployment to provisioned throughput to lower the price of each token." },
+      { id: 'B', text: "Fine-tune a smaller model such as GPT-4.1-mini on the reviewed extraction pairs and call it with a short prompt." },
+      { id: 'C', text: "Move the instruction block and examples into a vector index and retrieve only the three closest examples per note." },
+      { id: 'D', text: "Switch the deployment to a reasoning model with reasoning effort set to low so it needs fewer worked examples." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "The task is stable, well defined and backed by 3,000 verified examples, which is the profile where supervised fine-tuning pays off: the behavior the long prompt was teaching is learned into the weights, so a smaller, cheaper model can be called with a brief prompt and still hit the accuracy target. Retrieving a few examples trims the prompt but keeps a large instruction block and adds a retrieval hop on every call. A reasoning model generally costs more per call and does not remove the need for the attribute definitions. Provisioned throughput changes how capacity is bought, not how many tokens each call sends.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/fine-tuning-considerations",
+    tags: ["Fine-tuning", "Cost optimization", "Domain extraction"]
+  },
+  {
+    id: "azure-ai-apps-agents-379",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d4",
+    domainName: "Implement text analysis solutions",
+    title: "Extraction rules that change every month",
+    scenario: "A pharmaceutical firm extracts adverse-event details from case reports. The list of reportable event categories and their definitions is revised by the safety board every month, and auditors must be able to see exactly which version of the definitions was applied to each report. The extraction currently runs on a GPT-4.1 deployment.",
+    question: "How should the team supply the category definitions to the model?",
+    options: [
+      { id: 'A', text: "Rely on the model's medical knowledge and cite the regulation's definitions in the system message so it applies the latest rules." },
+      { id: 'B', text: "Train a custom named entity recognition model in Azure Language and retrain it after each board revision." },
+      { id: 'C', text: "Store the versioned definitions and inject the current version into the prompt, logging the version ID per call." },
+      { id: 'D', text: "Fine-tune the deployment each month on reports relabeled with the new categories and keep one model per version." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "Injecting the current definitions into the prompt at run time means a board revision takes effect as soon as the stored text changes, and logging the version ID with each call gives auditors an exact record of what was applied. Monthly fine-tuning adds a labeling and training cycle for every revision, and a model's weights do not show which definition produced a given output. A custom NER model also needs relabeling and retraining after each revision, and it extracts spans rather than applying written definitions. The model's built-in knowledge cannot know the board's internal definitions or this month's changes.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/prompt-engineering",
+    tags: ["Prompt engineering", "Auditability", "Domain extraction"]
+  },
+  {
+    id: "azure-ai-apps-agents-380",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d4",
+    domainName: "Implement text analysis solutions",
+    title: "Labeled entity data for loan agreements",
+    scenario: "A lender wants to pull 14 domain entities, such as collateral type, covenant threshold and cross-default clause, from loan agreements. Legal staff have already labeled 600 agreements, the extraction must run as a low-cost API call at high volume, and the lender wants per-entity precision and recall reported before the model goes live.",
+    question: "Which Foundry Tools capability fits these requirements?",
+    options: [
+      { id: 'A', text: "Custom named entity recognition in Azure Language, trained on the annotated contracts and deployed." },
+      { id: 'B', text: "Named entity recognition in Azure Language, using its prebuilt categories to extract the loan terms directly." },
+      { id: 'C', text: "Key phrase extraction in Azure Language, filtered afterward against the list of 14 entity names." },
+      { id: 'D', text: "The Entity Linking skill in Azure AI Search, which maps loan terms to Wikipedia articles during indexing." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Custom named entity recognition trains a model on your own labeled documents for your own entity schema, reports precision, recall and F1 per entity after training, and is then called through a deployment at a per-record price suited to high volume, which matches the labeled agreements and the evaluation requirement. Prebuilt NER only recognizes fixed categories such as Person, Organization and DateTime, not covenant thresholds. Key phrase extraction returns salient phrases without typing them into your entities. Entity Linking resolves well-known entities to Wikipedia and has no notion of loan-specific concepts.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/ai-services/language-service/custom-named-entity-recognition/overview",
+    tags: ["Azure Language", "Custom NER", "Domain extraction"]
+  },
+  {
+    id: "azure-ai-apps-agents-381",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d4",
+    domainName: "Implement text analysis solutions",
+    title: "Preparing a training file for clause tagging",
+    scenario: "A law firm will fine-tune GPT-4.1-mini to tag clauses in commercial leases with the firm's own risk labels. In production every request will carry the same short system message describing the label set, followed by the clause text. The team has 1,800 clauses labeled by associates and wants to spot overfitting while the job runs.",
+    question: "Which two steps prepare the data correctly? (Choose two.)",
+    options: [
+      { id: 'A', text: "Write each example as one JSON line holding a messages array with the system, user and assistant turns." },
+      { id: 'B', text: "Upload the firm's full lease precedents as raw documents so the job learns the risk labels from context." },
+      { id: 'C', text: "Write each example as a prompt and completion pair in a CSV file, with one clause and its label per row." },
+      { id: 'D', text: "Hold back a share of the examples as a separate validation file that is submitted with the training file." },
+      { id: 'E', text: "Leave the system message out of the training examples so the model learns the labels from clause text alone." }
+    ],
+    correctAnswers: ['A', 'D'],
+    type: "multiple",
+    explanation: "Chat models in Foundry are fine-tuned from JSONL files in which each line is one conversation with a messages array, and the examples should look like production requests, including the same system message. Supplying a separate validation file lets the job report validation loss alongside training loss, which is how overfitting shows up during training. Prompt and completion pairs belong to the legacy completion format and are not used for chat models, and CSV is not an accepted training format. Omitting the system message creates a mismatch between training and production prompts. Raw documents are not training examples; fine-tuning needs labeled input and output pairs.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/fine-tuning",
+    tags: ["Fine-tuning", "Training data", "Domain extraction"]
+  },
+  {
+    id: "azure-ai-apps-agents-382",
+    difficulty: "easy",
+    certId: "azure-ai-apps-agents",
+    domainId: "d4",
+    domainName: "Implement text analysis solutions",
+    title: "Transcribing a voicemail backlog on demand",
+    scenario: "A property-management company stores tenant voicemails, each under ten minutes, as MP3 files. An agent picks up each new voicemail, needs its transcript returned in the same HTTP call so it can classify the request immediately, and the company does not want to poll a job or stream audio in real time.",
+    question: "Which Azure Speech in Foundry Tools option should the agent call?",
+    options: [
+      { id: 'A', text: "Real-time speech to text in the Speech SDK, pushing the MP3 audio through a stream with continuous recognition." },
+      { id: 'B', text: "The fast transcription API, posting each file and receiving the text synchronously in the response." },
+      { id: 'C', text: "The Voice Live API, opening a WebSocket session and sending each voicemail as input audio buffer events." },
+      { id: 'D', text: "Batch transcription, submitting a job that points at the MP3 files in Blob Storage and polling for the result." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "The fast transcription API accepts an audio file and returns the transcript synchronously, faster than real time, which is exactly the one-call, no-polling pattern the agent needs. Batch transcription is asynchronous: you create a job and poll until it completes, which the company wants to avoid. Real-time recognition in the Speech SDK is designed for live streams and would require streaming the file through the SDK. Voice Live is a speech-to-speech conversational API for live voice agents, not a file transcription endpoint.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/ai-services/speech-service/fast-transcription-create",
+    tags: ["Azure Speech", "Fast transcription", "Speech to text"]
+  },
+  {
+    id: "azure-ai-apps-agents-383",
+    difficulty: "easy",
+    certId: "azure-ai-apps-agents",
+    domainId: "d4",
+    domainName: "Implement text analysis solutions",
+    title: "Crackly speech on a telephone voice agent",
+    scenario: "A pharmacy chain's refill agent answers calls through a telephony platform that carries 8 kHz mu-law audio. The agent synthesizes replies with an Azure neural voice at the default output format, and the platform resamples the audio, which callers describe as crackly and slightly delayed.",
+    question: "What should the developer change?",
+    options: [
+      { id: 'A', text: "Wrap the replies in an SSML prosody element that lowers the pitch and slows the rate of the neural voice." },
+      { id: 'B', text: "Request a 48 kHz, 16-bit RIFF output format and let the platform convert that audio to mu-law itself." },
+      { id: 'C', text: "Replace the neural voice with a professional custom voice recorded specifically for telephone playback." },
+      { id: 'D', text: "Set the synthesizer's output format to 8 kHz 8-bit mono mu-law so no resampling or conversion is needed." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "The Speech service can synthesize directly in telephony formats, including 8 kHz 8-bit mono mu-law, so asking for the format the platform carries removes the resampling step that is degrading and delaying the audio. A 48 kHz format makes the conversion larger, not smaller, and sends more bytes. Prosody changes how the voice speaks, not the encoding. A professional custom voice is a separate, limited access investment and would still be converted from the default format.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/ai-services/speech-service/how-to-speech-synthesis",
+    tags: ["Text to speech", "Audio formats", "Telephony"]
+  },
+  {
+    id: "azure-ai-apps-agents-384",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d4",
+    domainName: "Implement text analysis solutions",
+    title: "Making an agent read order numbers clearly",
+    scenario: "A retailer's voice agent reads back order numbers such as 'AB2049' and delivery windows. Customers complain that the neural voice says 'two thousand forty-nine' instead of individual digits and rushes straight from the order number into the delivery time without pausing.",
+    question: "How should the developer fix the spoken output?",
+    options: [
+      { id: 'A', text: "Upload a pronunciation dataset to a custom speech project that maps each order number to its spoken digits." },
+      { id: 'B', text: "Add a phrase list containing the order-number format so the synthesizer recognizes it as a sequence of digits." },
+      { id: 'C', text: "Wrap the order number in an SSML say-as element with interpret-as set to characters and add a break element after it." },
+      { id: 'D', text: "Lower the speaking rate for the whole reply with an SSML prosody element so every number is read more slowly." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "In SSML, say-as with interpret-as characters (or spell-out) makes the voice read the string one character at a time, and a break element inserts an explicit pause before the delivery window. A custom speech pronunciation dataset tunes speech recognition, not text to speech output. Slowing the whole reply with prosody still reads 2049 as a number, just more slowly. Phrase lists bias recognition of spoken input; they have no effect on how a voice synthesizes text.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/ai-services/speech-service/speech-synthesis-markup-structure",
+    tags: ["Text to speech", "SSML", "Voice agents"]
+  },
+  {
+    id: "azure-ai-apps-agents-385",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d4",
+    domainName: "Implement text analysis solutions",
+    title: "Lip-synced 3D character for a museum guide",
+    scenario: "A science museum is building a kiosk agent that answers questions through a custom 3D character rendered in its own game engine. The agent's replies are synthesized with an Azure neural voice, and the character's mouth must move in sync with the speech.",
+    question: "What should the developer use to drive the character's mouth animation?",
+    options: [
+      { id: 'A', text: "Viseme events from the synthesizer, using their IDs, offsets or blend shapes to animate the character's face." },
+      { id: 'B', text: "Word boundary events from the synthesizer, mapping each word's offset to a generic open-mouth frame on the character." },
+      { id: 'C', text: "The standard text to speech avatar, embedding its WebRTC video stream inside the game engine's 3D scene." },
+      { id: 'D', text: "Bookmark elements placed in the SSML before each sentence to trigger a talking animation for its duration." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Viseme events report the mouth position for each phoneme along with its audio offset, and can return 2D SVG or 3D blend shapes, which is exactly what a custom character rig needs for lip sync. Word boundary events are too coarse: one mouth shape per word does not look like speech. The text to speech avatar produces its own rendered presenter video, not animation data for a custom 3D model. Bookmarks mark points in the SSML and could start and stop an animation, but they carry no phoneme-level mouth information.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/ai-services/speech-service/how-to-speech-synthesis-viseme",
+    tags: ["Text to speech", "Visemes", "Avatars"]
+  },
+  {
+    id: "azure-ai-apps-agents-386",
+    difficulty: "hard",
+    certId: "azure-ai-apps-agents",
+    domainId: "d4",
+    domainName: "Implement text analysis solutions",
+    title: "Cutting silence before a voice agent speaks",
+    scenario: "A travel agent app streams replies from a GPT-4.1 deployment token by token, but currently waits for the full reply before sending it to Azure text to speech, so callers hear three to four seconds of silence on long answers. The team wants speech to start as soon as the first words are generated, while keeping the same neural voice.",
+    question: "Which two changes reduce the time to first audio? (Choose two.)",
+    options: [
+      { id: 'A', text: "Feed the streamed tokens to the synthesizer through text streaming input instead of one complete string." },
+      { id: 'B', text: "Switch the synthesizer output format to a 48 kHz uncompressed RIFF format so each audio chunk is higher quality." },
+      { id: 'C', text: "Wrap the full reply in SSML with a prosody element raising the rate so the reply finishes playing sooner." },
+      { id: 'D', text: "Play synthesized audio as chunks arrive rather than waiting for the synthesis result to complete." },
+      { id: 'E', text: "Move synthesis to batch synthesis so the long reply text is processed asynchronously by a background job." }
+    ],
+    correctAnswers: ['A', 'D'],
+    type: "multiple",
+    explanation: "Text streaming input lets the synthesizer start producing audio from the first tokens the model emits, and consuming the audio stream as chunks arrive, rather than waiting for the completed result, lets playback start immediately; together they remove the wait for the whole reply. A higher-quality uncompressed format makes each chunk larger and does nothing for latency. A faster speaking rate shortens playback but not the delay before audio begins. Batch synthesis is an asynchronous API for long-form content such as audiobooks and adds latency rather than removing it.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/ai-services/speech-service/how-to-lower-speech-synthesis-latency",
+    tags: ["Text to speech", "Latency", "Streaming"]
+  },
+  {
+    id: "azure-ai-apps-agents-387",
+    difficulty: "easy",
+    certId: "azure-ai-apps-agents",
+    domainId: "d4",
+    domainName: "Implement text analysis solutions",
+    title: "One API for a phone-based voice agent",
+    scenario: "A city council wants a phone voice agent for residents' questions about bin collections. The small team does not want to chain separate speech to text, language model and text to speech services, and callers must be able to interrupt the agent mid-sentence in noisy environments such as busy streets.",
+    question: "Which service should the team build on?",
+    options: [
+      { id: 'A', text: "The Speech SDK recognizer and synthesizer wired to a chat completions deployment in a custom orchestrator." },
+      { id: 'B', text: "Batch transcription of each call followed by a text reply that is synthesized and played back to the caller." },
+      { id: 'C', text: "The Voice Live API, which handles recognition, the model and synthesis with noise suppression and barge-in." },
+      { id: 'D', text: "Custom speech with a model trained on street noise, deployed to an endpoint the phone system calls per turn." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "The Voice Live API is a managed speech-to-speech interface that combines recognition, a generative model and synthesis in one WebSocket session, and adds noise suppression, echo cancellation, interruption detection and end-of-turn detection, which fits a small team and noisy callers. Wiring the SDK recognizer, a model and the synthesizer yourself is exactly the chaining the team wants to avoid. Batch transcription is asynchronous and cannot hold a live conversation. A custom speech model improves recognition only; it provides no model reasoning, voice output or interruption handling.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/ai-services/speech-service/voice-live",
+    tags: ["Voice Live", "Voice agents", "Azure Speech"]
+  },
+  {
+    id: "azure-ai-apps-agents-388",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d4",
+    domainName: "Implement text analysis solutions",
+    title: "Live captions with speaker labels for a board meeting",
+    scenario: "A nonprofit streams its monthly board meeting from a single room microphone and wants live captions on screen that show which participant is speaking, for example 'Guest-1' and 'Guest-2', as the meeting happens. Recordings are not kept after the meeting ends.",
+    question: "Which Speech SDK capability should the developer use?",
+    options: [
+      { id: 'A', text: "ConversationTranscriber with continuous transcription, reading the speaker ID in each transcribed event." },
+      { id: 'B', text: "SpeechRecognizer with continuous recognition, adding speaker names from the recognized event's offset values." },
+      { id: 'C', text: "A batch transcription job with diarization enabled, started at the end of each agenda item in the meeting." },
+      { id: 'D', text: "TranslationRecognizer with the source language as the only target, reading the speaker from each result." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "ConversationTranscriber performs real-time diarization: as it transcribes continuously from one audio stream, each transcribed event carries a speaker ID such as Guest-1, which is what live captions with speaker labels need. SpeechRecognizer does not separate speakers, and offsets only give timing. TranslationRecognizer returns translations and does not identify speakers. Batch transcription supports diarization but runs asynchronously on stored files, so it cannot caption the meeting live, and the recordings are not being kept.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/ai-services/speech-service/get-started-stt-diarization",
+    tags: ["Azure Speech", "Diarization", "Real-time transcription"]
+  },
+  {
+    id: "azure-ai-apps-agents-389",
+    difficulty: "hard",
+    certId: "azure-ai-apps-agents",
+    domainId: "d4",
+    domainName: "Implement text analysis solutions",
+    title: "Reacting to partial speech in a kiosk agent",
+    scenario: "A drive-through ordering agent uses the Speech SDK for recognition. Product managers want the menu display to highlight items while the customer is still speaking, and want the order sent to the language model only once each utterance is complete, so partial phrases are never submitted.",
+    question: "How should the developer wire the recognizer events?",
+    options: [
+      { id: 'A', text: "Use single-shot recognition and update the display from the result, then call the model after a set timeout." },
+      { id: 'B', text: "Handle canceled events for the display and send the text from speech start detected events to the model." },
+      { id: 'C', text: "Handle recognized events for the display and use the session stopped event to send each utterance to the model." },
+      { id: 'D', text: "Handle recognizing events for the display and send recognized events carrying a final result to the model." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "During continuous recognition the recognizing event fires repeatedly with interim hypotheses as the customer speaks, which suits live highlighting, and the recognized event fires once per utterance with the final result, which is the right trigger for the model. Single-shot recognition returns only one final result per call, so there are no interim updates. Using recognized events for the display delays highlighting until each utterance ends, and session stopped fires once at the end of the whole session, not per utterance. Canceled events report errors, and speech start detected carries no text.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/ai-services/speech-service/how-to-recognize-speech",
+    tags: ["Speech SDK", "Continuous recognition", "Voice agents"]
+  },
+  {
+    id: "azure-ai-apps-agents-390",
+    difficulty: "easy",
+    certId: "azure-ai-apps-agents",
+    domainId: "d4",
+    domainName: "Implement text analysis solutions",
+    title: "Product names misheard by a support agent",
+    scenario: "A software vendor's voice support agent keeps transcribing its product names, such as 'Zentrova' and 'Qubelink', as ordinary English words. The vendor has marketing copy and support articles containing the names in context but no transcribed call audio, and wants the fastest meaningful improvement from a trained model.",
+    question: "Which training data should the developer upload to a custom speech project?",
+    options: [
+      { id: 'A', text: "Audio-only recordings of support calls without transcripts, uploaded as a training dataset for the base model." },
+      { id: 'B', text: "Audio recordings of support calls paired with word-by-word human transcripts of what each caller said." },
+      { id: 'C', text: "A custom display formatting file with rewrite rules that change the misheard words back into product names." },
+      { id: 'D', text: "Plain text sentences taken from the existing written material that use each product name naturally." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Plain text related to the domain is the recommended starting point for vocabulary problems: sentences that use the product names in context teach the language model to expect them, and training with text finishes in minutes rather than the days audio training can take. Audio with human-labeled transcripts targets accents and acoustics and the vendor has none. Display formatting rewrite rules only change how recognized text is displayed and cannot reliably map arbitrary misrecognitions back. Audio-only training is a limited preview for en-US and does not target vocabulary.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/ai-services/speech-service/how-to-custom-speech-test-and-train",
+    tags: ["Custom speech", "Training data", "Vocabulary"]
+  },
+  {
+    id: "azure-ai-apps-agents-391",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d4",
+    domainName: "Implement text analysis solutions",
+    title: "Heavy accents on a noisy factory floor",
+    scenario: "A manufacturer's hands-free maintenance agent is used by technicians with strong regional accents next to running machinery. Recognition of ordinary words, not just jargon, is poor. The team has recorded 20 hours of technicians speaking on the floor and can pay for word-by-word transcription of it.",
+    question: "What should the team use to train the custom speech model?",
+    options: [
+      { id: 'A', text: "The recorded audio paired with human-labeled transcripts, uploaded in the required WAV format as a zip." },
+      { id: 'B', text: "A phrase list sent at run time containing the most common maintenance terms and machine identifiers." },
+      { id: 'C', text: "A pronunciation file listing phonetic spellings for the words technicians most often use near the machines." },
+      { id: 'D', text: "Structured text with lists of machine names and example sentences that reference those lists by name." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Audio with human-labeled transcripts is the data type that improves the acoustic side of recognition, such as accents, speaking styles and background noise, and 20 hours from the target environment is well within the recommended range. Pronunciation data only defines how specific terms are spoken and does not help ordinary words. Structured text improves recognition of patterned utterances and vocabulary, not acoustic conditions. A phrase list is a run-time vocabulary boost and cannot compensate for accents or machine noise.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/ai-services/speech-service/how-to-custom-speech-test-and-train",
+    tags: ["Custom speech", "Acoustic adaptation", "Training data"]
+  },
+  {
+    id: "azure-ai-apps-agents-392",
+    difficulty: "easy",
+    certId: "azure-ai-apps-agents",
+    domainId: "d4",
+    domainName: "Implement text analysis solutions",
+    title: "Recognizing guest names without training",
+    scenario: "A hotel's concierge voice agent must recognize the names of the guests checked in today, a list that changes every few hours. The developer cannot retrain a model for each change and wants the fix applied per recognition session.",
+    question: "What should the developer use?",
+    options: [
+      { id: 'A', text: "A pronunciation dataset uploaded to a custom speech project and linked to the base model." },
+      { id: 'B', text: "A custom keyword model trained on each guest's name so the recognizer listens for those names." },
+      { id: 'C', text: "A custom speech model retrained with plain text of the guest names each time the list changes." },
+      { id: 'D', text: "A phrase list built at run time from the current check-in names and added to the recognizer." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "A phrase list is supplied at run time, needs no training, and boosts recognition of the listed words and names for that session, so it can be rebuilt every time the guest list changes. Retraining a custom speech model every few hours is slow and costly. A pronunciation dataset also requires training a custom model. Custom keyword is for wake words that activate a device, typically one phrase, not a changing list of names inside normal speech.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/ai-services/speech-service/improve-accuracy-phrase-list",
+    tags: ["Phrase list", "Speech to text", "Voice agents"]
+  },
+  {
+    id: "azure-ai-apps-agents-393",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d4",
+    domainName: "Implement text analysis solutions",
+    title: "Pointing the SDK at a trained custom model",
+    scenario: "A developer has trained and deployed a custom speech model for a logistics company's warehouse agent. The Python app currently creates its SpeechConfig from the Speech resource's region and an Entra ID token, and transcriptions still look identical to the base model.",
+    question: "What must the developer add so the recognizer uses the custom model?",
+    options: [
+      { id: 'A', text: "Change the resource region in the config to the region where the custom model was trained." },
+      { id: 'B', text: "Set speech_recognition_language on the config to the locale that the custom model was trained on." },
+      { id: 'C', text: "Load a phrase list from the custom model's training file into the recognizer at session start." },
+      { id: 'D', text: "Set endpoint_id on the config object to the custom model's endpoint ID." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "A deployed custom speech model is reached through its custom endpoint, and the Speech SDK routes recognition to it when the SpeechConfig's endpoint ID is set to that deployment's ID; without it, requests go to the base model. Setting the recognition language only selects a base model locale. Loading training sentences as a phrase list is a different, weaker technique and still uses the base model. Changing the region does not select the custom model, and a model can be copied to other regions anyway.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/ai-services/speech-service/how-to-custom-speech-deploy-model",
+    tags: ["Custom speech", "Speech SDK", "Endpoints"]
+  },
+  {
+    id: "azure-ai-apps-agents-394",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d4",
+    domainName: "Implement text analysis solutions",
+    title: "Proving a custom model beats the baseline",
+    scenario: "A healthcare call center trained a custom speech model on clinical vocabulary. Before replacing the base model in its triage agent, the operations lead wants a numeric accuracy comparison between the base model and the custom model on representative calls.",
+    question: "Which two actions produce that comparison? (Choose two.)",
+    options: [
+      { id: 'A', text: "Upload a set of call audio files without transcripts and inspect the two models' transcripts side by side." },
+      { id: 'B', text: "Upload 0.5 to 5 hours of typical call audio together with human-labeled transcripts as a test dataset." },
+      { id: 'C', text: "Run a custom speech test that evaluates both models on the dataset and compare their word error rates." },
+      { id: 'D', text: "Compare the training loss reported for the custom model with the base model's published accuracy figures." },
+      { id: 'E', text: "Compare the confidence scores the two models return in their detailed output across a week of live calls." }
+    ],
+    correctAnswers: ['B', 'C'],
+    type: "multiple",
+    explanation: "Quantitative evaluation in custom speech needs audio with human-labeled transcripts as the reference, and a test run against that dataset reports word error rate, built from insertions, deletions and substitutions, for each model so they can be compared directly. Audio without transcripts supports only visual inspection, not a number. Confidence scores are the model's own estimates and are not a measure of accuracy against ground truth. Training loss and generic published figures do not reflect performance on this call center's audio.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/ai-services/speech-service/how-to-custom-speech-evaluate-data",
+    tags: ["Custom speech", "Word error rate", "Evaluation"]
+  },
+  {
+    id: "azure-ai-apps-agents-395",
+    difficulty: "hard",
+    certId: "azure-ai-apps-agents",
+    domainId: "d4",
+    domainName: "Implement text analysis solutions",
+    title: "Branded voice and tuned recognition in Voice Live",
+    scenario: "An airline runs its rebooking voice agent on the Voice Live API with gpt-4.1. It has an approved professional custom voice for its brand and a custom speech model tuned to airport codes and fare names, and wants both used in the existing Voice Live sessions without building a separate speech pipeline.",
+    question: "What should the developer do?",
+    options: [
+      { id: 'A', text: "Reference the custom speech model and the custom voice in the Voice Live session's input and output settings." },
+      { id: 'B', text: "Switch the session model to gpt-realtime so the custom voice and custom speech model are applied natively." },
+      { id: 'C', text: "Upload the custom speech training data as a phrase list in the session instructions sent at session start." },
+      { id: 'D', text: "Replace Voice Live with a chained pipeline of the Speech SDK recognizer, a chat deployment and the synthesizer." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Voice Live supports customizing both ends of the session: a custom speech model for audio input and a custom voice for audio output are configured in the session settings, so the existing sessions pick them up with no separate pipeline. Rebuilding a chained pipeline throws away the managed orchestration the airline chose. Native-audio realtime models process input audio themselves, so switching to one does not make a custom speech model apply to recognition. Session instructions steer the language model, not the recognizer, and training data is not a phrase list.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/ai-services/speech-service/voice-live-how-to-customize",
+    tags: ["Voice Live", "Custom speech", "Custom voice"]
+  },
+  {
+    id: "azure-ai-apps-agents-396",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d4",
+    domainName: "Implement text analysis solutions",
+    title: "Formatting policy numbers in transcripts",
+    scenario: "An insurer's claims agent reads transcripts produced by a custom speech model. Policy numbers are spoken as 'P K seven four two one' but must appear as 'PK-7421', and 'Contoso' should always be capitalized in what the agent reads. Recognition accuracy itself is already acceptable.",
+    question: "What should the developer add to the custom speech training?",
+    options: [
+      { id: 'A', text: "A display format file with an ITN rule for the policy-number pattern and a rewrite rule for capitalization." },
+      { id: 'B', text: "A structured text file with a list of all active policy numbers referenced from example claim sentences." },
+      { id: 'C', text: "A plain text dataset containing thousands of sentences that include policy numbers written in the PK- form." },
+      { id: 'D', text: "A pronunciation file mapping 'PK-7421' to the spoken form 'P K seven four two one' for each policy." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Custom display text formatting rules control how the lexical result is turned into display text: an ITN rule defines the pattern for policy numbers, and a rewrite rule fixes capitalization of the brand, which matches a case where recognition is fine and only presentation is wrong. A pronunciation file defines spoken forms for fixed terms and cannot cover every policy number. More plain text shifts vocabulary probabilities but does not impose a display pattern. A structured list of every active policy is unmaintainable and still targets recognition rather than formatting.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/ai-services/speech-service/display-text-format",
+    tags: ["Custom speech", "Display formatting", "ITN"]
+  },
+  {
+    id: "azure-ai-apps-agents-397",
+    difficulty: "hard",
+    certId: "azure-ai-apps-agents",
+    domainId: "d4",
+    domainName: "Implement text analysis solutions",
+    title: "A brand voice from a hired voice actor",
+    scenario: "A bank wants its voice agent to speak in a unique brand voice recorded by a voice actor it has hired, in a studio-quality production that will run for years across many channels. Legal wants to be sure the voice is created with the actor's documented permission.",
+    question: "What does the bank need in order to create the voice?",
+    options: [
+      { id: 'A', text: "Approved limited access for professional voice, a recorded consent statement from the actor, and training data." },
+      { id: 'B', text: "A personal voice built from a short sample of the actor, created through the personal voice API without approval." },
+      { id: 'C', text: "A prebuilt neural voice styled with SSML express-as and prosody to approximate the actor's delivery." },
+      { id: 'D', text: "A gpt-4o-mini-tts deployment given instructions that describe the actor's tone, pace and accent in each request." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Professional voice, the custom neural voice offering, is the choice for a production brand voice: it is a limited access feature that requires an approved application, a recorded statement in which the voice talent consents to the use of their voice, and a set of studio recordings used for training. Personal voice also requires approved access, and it is designed for short-sample scenarios such as a user's own voice in an app, not a studio brand voice. Styling a prebuilt voice or describing a tone to gpt-4o-mini-tts produces an approximation, not a unique voice owned by the bank.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/ai-services/speech-service/professional-voice-create-project",
+    tags: ["Custom voice", "Professional voice", "Responsible AI"]
+  },
+  {
+    id: "azure-ai-apps-agents-398",
+    difficulty: "easy",
+    certId: "azure-ai-apps-agents",
+    domainId: "d4",
+    domainName: "Implement text analysis solutions",
+    title: "Wake word for an in-vehicle assistant",
+    scenario: "A delivery-van maker is adding a voice assistant to its dashboard. The assistant must stay idle and start streaming audio to the cloud only after the driver says 'Hey Courier', and detection must work in the vehicle itself even when the van has no mobile coverage.",
+    question: "Which Azure Speech capability should the team use for the activation phrase?",
+    options: [
+      { id: 'A', text: "Intent recognition with a pattern that matches 'Hey Courier' in the Speech SDK's intent recognizer." },
+      { id: 'B', text: "A custom keyword model for 'Hey Courier' running on the device through the Speech SDK keyword recognizer." },
+      { id: 'C', text: "A phrase list containing 'Hey Courier' added to a continuous cloud recognizer that runs all the time." },
+      { id: 'D', text: "A custom speech model trained with audio of drivers saying 'Hey Courier', deployed to a cloud endpoint." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "Custom keyword produces an on-device model for a wake word, and the Speech SDK's keyword recognition listens locally and only starts cloud recognition after the phrase is detected, which works without connectivity and avoids streaming all audio. A phrase list or a custom speech endpoint both require continuous cloud recognition, which fails without coverage and streams everything. Intent recognition with patterns also needs cloud recognition of the audio first.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/ai-services/speech-service/custom-keyword-basics",
+    tags: ["Custom keyword", "Wake word", "Speech SDK"]
+  },
+  {
+    id: "azure-ai-apps-agents-399",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d4",
+    domainName: "Implement text analysis solutions",
+    title: "Structured-text training for patterned commands",
+    scenario: "A logistics firm's warehouse agent hears commands such as 'move pallet 14 to bay C' and 'send forklift 3 to dock 7', built from a few sentence patterns and catalogs of about 3,000 location and equipment names. Some names also have unusual pronunciations. The team wants to train a custom speech model without writing out every combination.",
+    question: "Which training data format should the team use?",
+    options: [
+      { id: 'A', text: "A structured text file defining lists of names, example sentences that reference them, and a phonetic lexicon." },
+      { id: 'B', text: "A display format file with rewrite rules that expand each command pattern into the full list of name values." },
+      { id: 'C', text: "A pronunciation file for the unusual names alongside a structured text file with its own lexicon section." },
+      { id: 'D', text: "A plain text file with every possible combination of the command patterns and names written out in full." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Structured text in Markdown lets you declare lists with the list syntax, reference them from example sentences in curly braces, and add a phonetic lexicon section for unusual pronunciations, which covers patterned commands without writing every combination. A separate pronunciation file cannot be combined with structured text training; pronunciations must go inside the structured text file. Writing out every combination is exactly what the team wants to avoid and risks repeated-line limits. Display format rules change how output is displayed, not what the model expects to hear.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/ai-services/speech-service/how-to-custom-speech-test-and-train",
+    tags: ["Custom speech", "Structured text", "Training data"]
+  },
+  {
+    id: "azure-ai-apps-agents-400",
+    difficulty: "hard",
+    certId: "azure-ai-apps-agents",
+    domainId: "d4",
+    domainName: "Implement text analysis solutions",
+    title: "Training audio that is silently ignored",
+    scenario: "A developer trained a custom speech model on 30 hours of recorded customer calls with human-labeled transcripts, but accent-related errors did not improve. The dataset is a zip of 16 kHz, 16-bit mono WAV files, each containing one complete call of three to eight minutes with its matching transcript.",
+    question: "What is the most likely reason the audio had no acoustic effect?",
+    options: [
+      { id: 'A', text: "Human-labeled transcripts are used only for testing, so the model was trained on the audio with no labels." },
+      { id: 'B', text: "The 16 kHz sample rate is unsupported for training, so the service downsampled and discarded the audio." },
+      { id: 'C', text: "The files exceed the per-file length allowed for audio training, so only their transcripts were used as text." },
+      { id: 'D', text: "Audio training needs stereo files so the service can separate the agent channel from the customer channel." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "For training, each audio file with a human-labeled transcript must be short, about 40 seconds at most; for longer files the service uses only the transcript text, so whole calls of several minutes contribute vocabulary but no acoustic adaptation. The fix is to segment the calls into short utterances with matching transcripts. Training audio must be mono, not stereo. Both 8 kHz and 16 kHz are supported sample rates. Human-labeled transcripts are used for training as well as testing; they are what makes audio training possible.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/ai-services/speech-service/how-to-custom-speech-test-and-train",
+    tags: ["Custom speech", "Audio training", "Troubleshooting"]
+  }
+];
+
+export default AZURE_AI_APPS_AGENTS_QUESTIONS_16;

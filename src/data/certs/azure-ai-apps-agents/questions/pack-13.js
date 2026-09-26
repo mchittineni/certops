@@ -1,0 +1,532 @@
+export const AZURE_AI_APPS_AGENTS_QUESTIONS_13 = [
+  {
+    id: "azure-ai-apps-agents-301",
+    difficulty: "easy",
+    certId: "azure-ai-apps-agents",
+    domainId: "d3",
+    domainName: "Implement computer vision solutions",
+    title: "Sorting a million listing photos by room type",
+    scenario: "A property portal wants each of its one million listing photos labelled as kitchen, bathroom, bedroom, living room or exterior by a gpt-4.1-mini deployment. The label depends only on the overall scene, not on small details, and the budget for the job is tight.",
+    question: "How should each image be sent to the model?",
+    options: [
+      { id: 'A', text: "With the image detail setting at low, so the model receives a small fixed-size version at a low, fixed token cost." },
+      { id: 'B', text: "Upscaled to 4K before upload with detail left at auto, so the model sees the scene with the greatest possible clarity." },
+      { id: 'C', text: "With detail at high and max_completion_tokens at 5, so the small label keeps the cost of each request to a minimum." },
+      { id: 'D', text: "With the image detail setting at high, so the model tiles each photo and never mistakes one room type for another." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Vision-enabled chat models accept a detail setting for each image. Low detail sends a small, fixed-size version at a fixed, small token cost, which is enough to recognise an overall scene and keeps a million-image job cheap. High detail tiles the image into many segments that each add input tokens, which buys nothing for scene-level labels. Upscaling only increases the number of tiles if the model chooses high detail, and adds upload size. Limiting completion tokens trims the output, but the image tokens on the input side dominate the cost.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/gpt-with-vision",
+    tags: ["Multimodal models", "Image detail", "Cost"]
+  },
+  {
+    id: "azure-ai-apps-agents-302",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d3",
+    domainName: "Implement computer vision solutions",
+    title: "Reading tiny serial plates from site photos",
+    scenario: "Field engineers photograph industrial pumps, and an app asks a vision-enabled model to read the serial number stamped on a small metal plate that occupies only a few percent of each photo. The model often misreads characters or says the plate is illegible.",
+    question: "Which two changes should improve accuracy? (Choose two.)",
+    options: [
+      { id: 'A', text: "Crop the photo around the plate before sending it, so the characters fill much more of the model's input." },
+      { id: 'B', text: "Convert the photo to greyscale and reduce it to 512 pixels wide so the plate's contrast stands out more." },
+      { id: 'C', text: "Send the photo at detail low twice in the same request so the model can compare the two identical copies." },
+      { id: 'D', text: "Send the image with detail set to high so that the model processes the photo as higher-resolution tiles." },
+      { id: 'E', text: "Lower the temperature to 0 so that the model stops guessing characters that are hard for it to make out." }
+    ],
+    correctAnswers: ['A', 'D'],
+    type: "multiple",
+    explanation: "High detail lets the model examine the image as higher-resolution tiles, and cropping to the plate makes the small characters occupy far more of the pixels the model actually sees; together they give the model legible evidence. Shrinking the photo to 512 pixels removes exactly the detail the characters need, whatever the colour. Temperature affects sampling of the answer, not what the model can see, so an illegible input stays illegible. Two copies at low detail are both downsampled, so neither contains the missing detail.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/gpt-with-vision",
+    tags: ["Multimodal models", "Image detail", "Visual QA"]
+  },
+  {
+    id: "azure-ai-apps-agents-303",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d3",
+    domainName: "Implement computer vision solutions",
+    title: "Before-and-after photos of a repaired roof",
+    scenario: "An insurer's claims assistant must judge whether a roofer completed the agreed repair by comparing a photo taken before the work with one taken after. Both photos are hosted on the insurer's storage with short-lived SAS URLs, and the model must reason about both at once.",
+    question: "How should the request to the vision-enabled model be built?",
+    options: [
+      { id: 'A', text: "Place both image URLs in the system message and send the comparison question as the user message on its own." },
+      { id: 'B', text: "Send one user message holding two image parts, each labelled before or after in text, plus the comparison task." },
+      { id: 'C', text: "Stitch the two photos into a single side-by-side image at half resolution and send it as one image content part." },
+      { id: 'D', text: "Send one request per photo asking for a description, then ask a text model to compare the before and after text." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "A single user message can carry several image content parts together with text, so labelling each photo and stating the task lets the model compare the actual pixels of both images in one reasoning pass. Image content belongs in user messages; system messages hold instructions as text. Comparing two independent text descriptions loses visual evidence that neither description happened to mention. Stitching at half resolution discards detail and invites confusion about which half is which, when the API already accepts multiple images.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/gpt-with-vision",
+    tags: ["Multimodal models", "Multiple images", "Visual reasoning"]
+  },
+  {
+    id: "azure-ai-apps-agents-304",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d3",
+    domainName: "Implement computer vision solutions",
+    title: "Image tokens dominating a monthly bill",
+    scenario: "A home-inspection app sends each customer's 12-megapixel photos to a vision-enabled model with detail set to high to describe visible defects. Finance notes that input tokens per request are far higher than expected, although the defects inspectors care about are clearly visible at moderate resolution.",
+    question: "What should the developers change first?",
+    options: [
+      { id: 'A', text: "Downscale photos to a moderate resolution before sending them, which reduces the number of tiles each one costs." },
+      { id: 'B', text: "Switch every request to detail low, which keeps high-resolution tiling but charges a flat, moderate rate per image." },
+      { id: 'C', text: "Send the photos as PNG instead of JPEG, since image tokens are counted from the compressed size of each upload." },
+      { id: 'D', text: "Move the images, at full resolution, into the system message, since system content is cached and so never billed as input tokens." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "At high detail, input token cost grows with the number of tiles the image is divided into after scaling, so sending moderately sized images that still show the defects clearly cuts tokens without losing the needed evidence. Low detail does not tile at all; it sends a small fixed-size version, which may be too coarse for defect descriptions. Token counts depend on image dimensions, not file format or compressed size. Images belong in user messages, and cached prompt tokens are discounted rather than free.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/gpt-with-vision",
+    tags: ["Multimodal models", "Token cost", "Image detail"]
+  },
+  {
+    id: "azure-ai-apps-agents-305",
+    difficulty: "easy",
+    certId: "azure-ai-apps-agents",
+    domainId: "d3",
+    domainName: "Implement computer vision solutions",
+    title: "One-line captions in the shop's own voice",
+    scenario: "An online garden centre needs a caption of no more than 15 words for each of 40,000 product photos, written in a friendly tone, in British English, and always naming the plant's colour. Descriptions longer than one line break the product grid layout.",
+    question: "Which approach produces captions that meet these rules?",
+    options: [
+      { id: 'A', text: "Azure Vision Image Analysis dense captions, joining the ten region captions, colour details included, into one line." },
+      { id: 'B', text: "Azure Vision Image Analysis 4.0 captions, whose fixed-style sentence has a tone and length the app cannot steer." },
+      { id: 'C', text: "A vision-enabled chat model with a system message setting length, tone, spelling and the colour rule for every photo." },
+      { id: 'D', text: "Azure Vision OCR on each photo, using any text printed on the plant label as the product caption in the grid." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "A multimodal chat model follows instructions about length, tone, spelling variant and required content, so a system message can enforce one friendly line that always mentions colour. The Image Analysis 4.0 caption feature returns a generic sentence with no control over style or mandatory details, and that service is deprecated with retirement in September 2028. Joining up to ten region captions produces a long, repetitive string that breaks the one-line limit. OCR returns printed text only, and many photos have no label or show only a Latin name.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/gpt-with-vision",
+    tags: ["Captioning", "Multimodal models", "Prompt engineering"]
+  },
+  {
+    id: "azure-ai-apps-agents-306",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d3",
+    domainName: "Implement computer vision solutions",
+    title: "Captions for each part of a busy street scene",
+    scenario: "A mapping start-up already uses Azure Vision in a supported region and wants, for each street photo, a short caption for the whole image plus separate one-sentence captions for individual regions such as a cyclist or a café sign, each with pixel coordinates so the app can draw boxes on the photo.",
+    question: "Which Image Analysis 4.0 feature returns this output?",
+    options: [
+      { id: 'A', text: "Dense captions, which return sentences for up to ten image regions, each with a bounding box, including the whole image." },
+      { id: 'B', text: "Object detection, which returns a descriptive sentence and a confidence score for every object in the whole photo." },
+      { id: 'C', text: "Smart crops at several aspect ratios, which return a caption for each of the regions cropped and its coordinates." },
+      { id: 'D', text: "The caption feature with gender-neutral captions enabled, which returns one sentence per region of the street photo." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Dense captions generate one-sentence captions for up to ten regions, one of which is the whole image, and return a bounding box in pixels for each, which is exactly caption-plus-coordinates output. The standard caption feature returns a single sentence for the whole image; the gender-neutral option only changes wording. Object detection returns object tags with bounding boxes, not descriptive sentences. Smart crops return the coordinates of an area of interest for a requested aspect ratio, without captions. Image Analysis 4.0 is deprecated, with retirement in September 2028, so new designs should plan a migration path.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/ai-services/computer-vision/concept-describe-images-40",
+    tags: ["Captioning", "Dense captions", "Azure Vision"]
+  },
+  {
+    id: "azure-ai-apps-agents-307",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d3",
+    domainName: "Implement computer vision solutions",
+    title: "A single caption for a whole photo album",
+    scenario: "A wedding-photography platform lets couples upload a set of eight photos from one part of the day, such as the first dance, and wants a single two-sentence caption summarising the set as a whole rather than eight separate captions stitched together.",
+    question: "How should the app request the caption?",
+    options: [
+      { id: 'A', text: "Send only the first photo of the set at high detail and treat its caption as representative of the other seven photos." },
+      { id: 'B', text: "Run Image Analysis tags on each photo and join the tags that appear in at least half of the photos into a two-sentence caption." },
+      { id: 'C', text: "Caption each photo in its own request and then take the most common words across the eight captions as the album text." },
+      { id: 'D', text: "Send the eight photos as image parts in one request with an instruction to write one two-sentence caption for the set." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Vision-enabled chat models accept multiple images in one request, so the model can look across the whole set and write a single summary that reflects what the photos share and how they differ, following the length instruction. Word frequency across separate captions produces a bag of words, not a coherent caption. One photo cannot represent seven others it never saw. Tags are single words without relationships or narrative, and joining them does not produce natural sentences.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/gpt-with-vision",
+    tags: ["Captioning", "Multiple images", "Multimodal models"]
+  },
+  {
+    id: "azure-ai-apps-agents-308",
+    difficulty: "hard",
+    certId: "azure-ai-apps-agents",
+    domainId: "d3",
+    domainName: "Implement computer vision solutions",
+    title: "Short and long descriptions in one reliable payload",
+    scenario: "A museum's collection site needs, for every artwork photo, a caption under 20 words for thumbnails and a detailed description of 150 to 250 words for the object page. The ingestion code breaks whenever the model's reply is not parseable, and the team wants one model call per image.",
+    question: "How should the developers request both outputs?",
+    options: [
+      { id: 'A', text: "Enable JSON mode and describe the two outputs' keys in the prompt, relying on JSON mode to enforce the field names and types." },
+      { id: 'B', text: "Use structured outputs with a strict JSON schema holding a short caption field and a detailed description field." },
+      { id: 'C', text: "Make two calls per image, one at detail low for the caption and one at detail high for the detailed description." },
+      { id: 'D', text: "Ask for both texts separated by a line of dashes in plain text, then split the reply on the dashes in the ingestion code." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "Structured outputs with a strict JSON schema force the reply to contain exactly the declared fields with the declared types, so one call yields a reliably parseable object with both the short caption and the long description; length guidance stays in the field descriptions and prompt. A delimiter in plain text breaks whenever the model varies its formatting. JSON mode guarantees valid JSON but not that the expected keys are present or correctly named. Two calls double the requests the team wanted to avoid.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/structured-outputs",
+    tags: ["Captioning", "Structured outputs", "Multimodal models"]
+  },
+  {
+    id: "azure-ai-apps-agents-309",
+    difficulty: "easy",
+    certId: "azure-ai-apps-agents",
+    domainId: "d3",
+    domainName: "Implement computer vision solutions",
+    title: "Guessing at gauges that are out of frame",
+    scenario: "Plant operators send photos of control panels to an assistant and ask questions such as the current reading on a pressure gauge. When the gauge is cut off or blurred, the assistant still states a confident number, and supervisors want it to answer only from what the photo actually shows.",
+    question: "What should the developers add to the system message?",
+    options: [
+      { id: 'A', text: "An instruction to estimate the most likely reading from typical operating ranges whenever the gauge is unclear." },
+      { id: 'B', text: "An instruction to answer confidently and briefly, because operators need a single number rather than caveats." },
+      { id: 'C', text: "An instruction to describe every gauge on the panel in full before answering whichever question was asked." },
+      { id: 'D', text: "An instruction to answer only from what is visible and to reply that it cannot tell when the gauge is unreadable." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Grounding visual answers means restricting the model to evidence in the image and giving it an explicit, acceptable way to abstain, such as saying the value cannot be determined, so it stops inventing readings. Estimating from typical ranges is precisely the fabrication supervisors want removed. Describing every gauge first adds tokens and latency without preventing a guess about the unreadable one. Demanding confident answers pushes the model further towards guessing.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/gpt-with-vision",
+    tags: ["Visual QA", "Grounding", "Prompt engineering"]
+  },
+  {
+    id: "azure-ai-apps-agents-310",
+    difficulty: "hard",
+    certId: "azure-ai-apps-agents",
+    domainId: "d3",
+    domainName: "Implement computer vision solutions",
+    title: "Answers a warehouse auditor can check",
+    scenario: "A logistics firm's assistant answers auditors' questions about photos of pallets, such as how many boxes carry a hazardous-goods label. Auditors must be able to verify each answer quickly against the photo, and incorrect confident answers have caused failed audits.",
+    question: "Which two design choices support verifiable answers? (Choose two.)",
+    options: [
+      { id: 'A', text: "Raise the temperature so that the model considers more possible counts before committing to a single answer." },
+      { id: 'B', text: "Tell the model to answer only from visible evidence and to say when the photo does not show enough to answer." },
+      { id: 'C', text: "Replace the model with Image Analysis tags, whose label names serve as the evidence for every audit answer." },
+      { id: 'D', text: "Add a web search tool so that the model can look up typical box counts for pallets of that product and size." },
+      { id: 'E', text: "Ask the model to cite its evidence, such as quoting label text it read and saying where on the pallet it appears." }
+    ],
+    correctAnswers: ['B', 'E'],
+    type: "multiple",
+    explanation: "Restricting the model to visible evidence with an explicit way to abstain prevents invented counts, and asking it to cite what it saw, such as quoted label text and its location, lets an auditor check the answer against the photo in seconds. Web search supplies typical figures from elsewhere, which is the opposite of grounding in this photo. Higher temperature makes answers more variable, not more accurate. Image tags name general concepts without counts or locations, so they cannot answer or evidence a counting question.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/gpt-with-vision",
+    tags: ["Visual QA", "Grounding", "Evidence"]
+  },
+  {
+    id: "azure-ai-apps-agents-311",
+    difficulty: "easy",
+    certId: "azure-ai-apps-agents",
+    domainId: "d3",
+    domainName: "Implement computer vision solutions",
+    title: "Alt text that screen reader users complain about",
+    scenario: "A university generates alt text for images on its public website with a multimodal model. Screen reader users report that every description starts with \"Image of\", runs to several sentences, and describes decorative page dividers in detail. The accessibility office wants the output to follow common alt text guidance.",
+    question: "What should the generation prompt ask for?",
+    options: [
+      { id: 'A', text: "Full descriptive text for every visual element so no information is lost, prefixed with \"Image of\" for clarity." },
+      { id: 'B', text: "The image's file name and dimensions, which screen readers can announce consistently across the whole site." },
+      { id: 'C', text: "A list of keywords for each image, including decorative ones, to improve how the pages rank in search engines." },
+      { id: 'D', text: "Concise text conveying the image's content and purpose, with no \"image of\" prefix, and an empty alt for decoration." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Accessibility guidance asks for short alt text that conveys the content and purpose of an informative image; screen readers already announce that an element is an image, so an \"image of\" prefix is redundant, and purely decorative images should have an empty alt attribute so assistive technology skips them. Describing every element produces long, tiring text and belongs, if needed, in an extended description. Keyword lists serve search engines rather than people using screen readers. File names and dimensions convey nothing about what the image shows.",
+    referenceUrl: "https://www.w3.org/WAI/tutorials/images/",
+    tags: ["Alt text", "Accessibility", "Multimodal models"]
+  },
+  {
+    id: "azure-ai-apps-agents-312",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d3",
+    domainName: "Implement computer vision solutions",
+    title: "Accessible descriptions for complex charts",
+    scenario: "A public-health agency publishes line charts of weekly case numbers. A blind analyst needs the trends and key values from each chart, but web editors say a paragraph of numbers in the alt attribute makes pages hard to navigate with a screen reader.",
+    question: "What should the generation workflow produce for each chart?",
+    options: [
+      { id: 'A', text: "A long alt attribute holding every data point from the chart, so the analyst hears all values without extra links." },
+      { id: 'B', text: "The OCR text from the chart's axes and legend, used as the alt attribute so the labels are read out as printed." },
+      { id: 'C', text: "Only a visible caption beneath the chart, with the alt attribute left empty because the chart counts as decorative." },
+      { id: 'D', text: "Short alt text naming the chart and main trend, plus an extended description with key values placed on the page." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "For complex images such as charts, accessibility guidance pairs a short text alternative that identifies the image and its key message with a longer description, such as nearby text or a linked section, that conveys the data. A multimodal model can draft both. Putting every data point in alt is exactly the navigation problem editors described. A chart that carries information is not decorative, so an empty alt hides it from the analyst. Axis labels and legend text without the trend or values do not convey what the chart shows.",
+    referenceUrl: "https://www.w3.org/WAI/tutorials/images/complex/",
+    tags: ["Alt text", "Extended descriptions", "Accessibility"]
+  },
+  {
+    id: "azure-ai-apps-agents-313",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d3",
+    domainName: "Implement computer vision solutions",
+    title: "Alt text across a thousand-page intranet",
+    scenario: "A bank is retrofitting accessibility on a legacy intranet with thousands of images, from staff photos and process diagrams to spacer graphics and ornamental borders. An automated pipeline with a multimodal model will write the alt attributes, and auditors will spot-check the results.",
+    question: "Which two rules should the pipeline apply? (Choose two.)",
+    options: [
+      { id: 'A', text: "Reuse the page's title as the alt attribute of every image on that page so they stay consistent sitewide." },
+      { id: 'B', text: "For informative images, write brief alt text that conveys what matters about the image in its page context." },
+      { id: 'C', text: "Include the words \"bank\", \"secure\" and \"trusted\" in every alt attribute to reinforce the intranet brand." },
+      { id: 'D', text: "Classify each image as decorative or informative first, and give decorative ones an empty alt attribute." },
+      { id: 'E', text: "Write \"Picture of\" at the start of every alt attribute so screen reader users know images are present." }
+    ],
+    correctAnswers: ['B', 'D'],
+    type: "multiple",
+    explanation: "Accessible alt text starts with a decision: decorative images such as spacers and borders get an empty alt so screen readers skip them, and informative images get concise text that conveys their meaning in the context where they appear. Screen readers already announce an image, so a \"Picture of\" prefix only adds noise. Brand words stuffed into every attribute tell users nothing about the image. Repeating the page title for every image gives identical, meaningless alternatives.",
+    referenceUrl: "https://www.w3.org/WAI/tutorials/images/decision-tree/",
+    tags: ["Alt text", "Accessibility", "Automation"]
+  },
+  {
+    id: "azure-ai-apps-agents-314",
+    difficulty: "hard",
+    certId: "azure-ai-apps-agents",
+    domainId: "d3",
+    domainName: "Implement computer vision solutions",
+    title: "Same photo, different meaning on each page",
+    scenario: "A charity reuses one photo of volunteers loading a van on its donations page, its careers page and a news story about a flood response. An alt text pipeline sends only the image to a multimodal model and stores one description per image hash, and editors say the result fits none of the pages well.",
+    question: "How should the pipeline be changed?",
+    options: [
+      { id: 'A', text: "Keep one alt text per image hash but make it longer, so it covers every purpose the photo might serve on any page." },
+      { id: 'B', text: "Send the image together with the surrounding page context and store alt text per placement rather than per image." },
+      { id: 'C', text: "Replace the model's output with Image Analysis tags, which stay accurate however the image is reused on pages." },
+      { id: 'D', text: "Send the image at detail high so that the model notices more details and writes a description that suits all pages." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "Good alt text conveys the image's purpose where it appears, and that purpose changes with context: giving on one page, working with the charity on another, disaster response in the news story. Supplying the surrounding text and heading to the model, and storing a description per placement, lets it write the right alternative for each use. A longer universal description tires screen reader users and still does not state the purpose on any one page. Tags lack both sentences and purpose. More visual detail does not tell the model why the photo is on a given page.",
+    referenceUrl: "https://www.w3.org/WAI/tutorials/images/informative/",
+    tags: ["Alt text", "Accessibility", "Context"]
+  },
+  {
+    id: "azure-ai-apps-agents-315",
+    difficulty: "easy",
+    certId: "azure-ai-apps-agents",
+    domainId: "d3",
+    domainName: "Implement computer vision solutions",
+    title: "Structured attributes from catalogue photos",
+    scenario: "A furniture marketplace wants every seller photo analysed for a fixed set of visual characteristics: dominant colour, material, style such as mid-century or industrial, and whether a person appears. The results must come back as named fields the catalogue database can store directly.",
+    question: "What should the developers create in Azure Content Understanding?",
+    options: [
+      { id: 'A', text: "A custom analyzer based on prebuilt-image with a field schema whose fields generate or classify each attribute." },
+      { id: 'B', text: "A custom analyzer based on prebuilt-layout with an extract field for each attribute that the catalogue stores." },
+      { id: 'C', text: "A custom analyzer based on prebuilt-audio with generate fields, reusing the same schema for images and speech." },
+      { id: 'D', text: "No custom analyzer; call prebuilt-read on each photo and map the words it returns onto the catalogue fields." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Custom analyzers derive from one of four base analyzers, and for photos the base is prebuilt-image; a field schema then defines each attribute, using generate for free-form values and classify for a fixed set of categories such as style. prebuilt-layout is a document content-extraction analyzer, and the extract method applies to documents only. prebuilt-read performs OCR and returns printed text, not visual characteristics. prebuilt-audio is the base for audio content and cannot analyse images.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/ai-services/content-understanding/concepts/prebuilt-analyzers",
+    tags: ["Content Understanding", "Custom analyzers", "Images"]
+  },
+  {
+    id: "azure-ai-apps-agents-316",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d3",
+    domainName: "Implement computer vision solutions",
+    title: "Analyzer rejected over an extract field",
+    scenario: "A developer creates an image analyzer in Content Understanding to capture the brand name visible on sports shoes in product photos. She copies a field definition from a receipt analyzer that uses the extract method, and creating the image analyzer fails with a validation error about that field.",
+    question: "How should she fix the field definition?",
+    options: [
+      { id: 'A', text: "Change the field's method to generate, with a description telling the model to return the brand name shown." },
+      { id: 'B', text: "Change the base analyzer to prebuilt-document so the extract method field is accepted while images are still analysed." },
+      { id: 'C', text: "Add an enum of every shoe brand name to the extract field, since extract on images needs a closed value list." },
+      { id: 'D', text: "Enable estimateFieldSourceAndConfidence on the image analyzer, which is required before extract can be used." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "The extract method, which returns values exactly as they appear with source locations, is supported for documents only; image analyzers use generate or classify. Switching the field to generate with a clear description returns the visible brand name. Rebasing the analyzer on prebuilt-document makes it a document analyzer, which is not designed for product photos. estimateFieldSourceAndConfidence is a document analyzer setting for grounding and confidence, and does not unlock extract for images. A closed list of values is what classify is for, and an enum does not make extract valid.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/ai-services/content-understanding/overview",
+    tags: ["Content Understanding", "Field extraction", "Images"]
+  },
+  {
+    id: "azure-ai-apps-agents-317",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d3",
+    domainName: "Implement computer vision solutions",
+    title: "Grading vehicle damage into three bands",
+    scenario: "A car-rental firm photographs returned vehicles and wants Content Understanding to record the damage level for each photo as exactly one of none, minor or major, so that downstream billing rules can branch on the value without any text parsing or cleanup.",
+    question: "How should the damage field be defined in the image analyzer?",
+    options: [
+      { id: 'A', text: "As a string field with the generate method and a description asking whether damage is none, minor or major." },
+      { id: 'B', text: "As a number field with the generate method that returns a score from 0 to 100 for the damage in the photo." },
+      { id: 'C', text: "As a string field with the classify method and an enum limited to none, minor and major for the photo." },
+      { id: 'D', text: "As a string field with the extract method so the service returns the damage wording printed on the vehicle." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "The classify method chooses a value from a predefined set, and an enum restricted to none, minor and major gives billing rules exactly one of three known values. A generated sentence would need parsing, which the firm wants to avoid. The extract method is for documents and returns text as it appears, and vehicles do not carry printed damage ratings. A numeric score would still need thresholds to map to bands, reintroducing interpretation downstream.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/ai-services/content-understanding/overview",
+    tags: ["Content Understanding", "Classification", "Field schema"]
+  },
+  {
+    id: "azure-ai-apps-agents-318",
+    difficulty: "hard",
+    certId: "azure-ai-apps-agents",
+    domainId: "d3",
+    domainName: "Implement computer vision solutions",
+    title: "Image analyzer calls failing on a fresh resource",
+    scenario: "A team creates a new Microsoft Foundry resource and immediately calls prebuilt-imageSearch and a custom image analyzer through the Content Understanding 2025-11-01 API. prebuilt-layout calls on PDFs succeed, but every image analysis request fails because no model deployment can be resolved.",
+    question: "What should the team do?",
+    options: [
+      { id: 'A', text: "Switch the image requests to the 2026-06-01-preview API version, which analyses images without any model deployment." },
+      { id: 'B', text: "Add the prebuilt-read analyzer as the base of each image analyzer so the service can fall back to its built-in models." },
+      { id: 'C', text: "Deploy a supported chat completion model and an embedding model, then map them with the defaults API or per request." },
+      { id: 'D', text: "Create a separate Azure Vision resource and link it to the Foundry resource so that image analyzers can use its models." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "Content Understanding runs generative features on your own Foundry deployments: it needs a supported chat completion model and an embedding model, mapped either as resource defaults with PATCH to the defaults endpoint or in each analyze request with modelDeployments. prebuilt-layout and prebuilt-read need no model, which is why the PDF calls worked. No API version removes the model requirement for generative analysis. Azure Vision is a separate service that Content Understanding does not use for its analyzers. Custom analyzers can only derive from the four base analyzers, and prebuilt-read is not one of them.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/ai-services/content-understanding/concepts/models-deployments",
+    tags: ["Content Understanding", "Model deployments", "Configuration"]
+  },
+  {
+    id: "azure-ai-apps-agents-319",
+    difficulty: "easy",
+    certId: "azure-ai-apps-agents",
+    domainId: "d3",
+    domainName: "Implement computer vision solutions",
+    title: "Making a photo archive searchable in plain words",
+    scenario: "A newspaper wants its archive of 300,000 photographs added to a search index so that its RAG assistant can find images from questions such as \"crowds at the harbour festival\". It needs a descriptive paragraph for each image and wants to write no custom schema.",
+    question: "Which Content Understanding analyzer should the ingestion pipeline call?",
+    options: [
+      { id: 'A', text: "prebuilt-imageSearch, which generates a one-paragraph description of each image for search and retrieval." },
+      { id: 'B', text: "prebuilt-layout, which detects figures for search indexing and returns their locations and printed text." },
+      { id: 'C', text: "prebuilt-documentSearch, which turns each photo into a chunked Markdown document with a one-paragraph summary." },
+      { id: 'D', text: "prebuilt-videoSearch, which segments each photo into scenes and writes a description of every segment found." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "prebuilt-imageSearch is the RAG analyzer for images: it generates a one-paragraph description of each image's content for search and retrieval, with no schema to write. prebuilt-documentSearch is designed for documents, and its figure analysis describes charts and diagrams inside PDFs and images of documents rather than captioning photographs for retrieval. prebuilt-videoSearch processes video files. prebuilt-layout performs OCR and layout extraction and does not describe what a photo shows.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/ai-services/content-understanding/concepts/prebuilt-analyzers",
+    tags: ["Content Understanding", "RAG", "Images"]
+  },
+  {
+    id: "azure-ai-apps-agents-320",
+    difficulty: "easy",
+    certId: "azure-ai-apps-agents",
+    domainId: "d3",
+    domainName: "Implement computer vision solutions",
+    title: "Webinar recordings for a retrieval assistant",
+    scenario: "A software vendor wants its 900 recorded product webinars indexed so a support agent can retrieve the exact moment a feature was demonstrated. Each segment needs a description of what is on screen, the spoken transcript and key frames, delivered in a format that can go straight into a vector store.",
+    question: "Which prebuilt analyzer should the vendor use?",
+    options: [
+      { id: 'A', text: "prebuilt-audioSearch, which transcribes each recording and summarises the whole conversation in one paragraph." },
+      { id: 'B', text: "prebuilt-imageSearch, applied to screenshot frames taken every minute, with descriptions indexed at each timestamp." },
+      { id: 'C', text: "prebuilt-callCenter, which extracts topics and sentiment from recordings and returns them as structured fields." },
+      { id: 'D', text: "prebuilt-videoSearch, which segments each video and returns descriptions, WEBVTT transcripts and key frames." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "prebuilt-videoSearch segments videos automatically and returns RAG-ready Markdown with a description of each segment, an inline WEBVTT transcript and key frames, ready for a vector store. prebuilt-audioSearch transcribes speech and summarises it but ignores what is on screen, where demos happen. Screenshots every minute miss what happens between captures, lose the transcript and require custom glue code. prebuilt-callCenter targets call analytics fields, not segment-level retrieval of video content.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/ai-services/content-understanding/video/overview",
+    tags: ["Content Understanding", "Video analysis", "RAG"]
+  },
+  {
+    id: "azure-ai-apps-agents-321",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d3",
+    domainName: "Implement computer vision solutions",
+    title: "Brand-safety check across an entire advert",
+    scenario: "An advertising network must decide, for each 30-second video advert, whether it contains alcohol imagery anywhere and must produce a single overall summary of the advert. It is building a custom video analyzer in Content Understanding and does not need per-scene results.",
+    question: "How should segmentation be configured?",
+    options: [
+      { id: 'A', text: "Set enableSegment to true with a single content category describing alcohol scenes and ignore the others." },
+      { id: 'B', text: "Set enableSegment to false so the whole advert is treated as one segment and fields cover its full length." },
+      { id: 'C', text: "Set enableSegment to true with a content category for each scene type and read the field from every segment." },
+      { id: 'D', text: "Set returnDetails to true so the camera shot times split the advert into segments for the alcohol check." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "With enableSegment false, Content Understanding treats the entire video as one segment and extracts fields across its full duration, which suits compliance checks that look for an issue anywhere and full-length summaries. Custom segmentation with enableSegment true creates per-segment results the network then has to aggregate, and it consumes generative tokens for segmentation. returnDetails adds detail such as shot timestamps to the output but does not define field extraction scope. Segmenting only alcohol scenes would still produce segment-level output rather than one overall answer and summary.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/ai-services/content-understanding/video/overview",
+    tags: ["Content Understanding", "Video analysis", "Segmentation"]
+  },
+  {
+    id: "azure-ai-apps-agents-322",
+    difficulty: "hard",
+    certId: "azure-ai-apps-agents",
+    domainId: "d3",
+    domainName: "Implement computer vision solutions",
+    title: "Splitting evening bulletins into separate stories",
+    scenario: "A broadcaster wants each hour-long news bulletin split into one segment per news story, skipping adverts and promos, with each story then analysed by a dedicated NewsAnalyzer that extracts headline, location and people. The developer is writing the parent video analyzer's configuration.",
+    question: "Which configuration should the developer use?",
+    options: [
+      { id: 'A', text: "returnDetails set to true so each camera shot becomes a story segment, then route every shot to NewsAnalyzer." },
+      { id: 'B', text: "enableSegment set to true and one content category describing story boundaries and routing to NewsAnalyzer." },
+      { id: 'C', text: "enableSegment set to true and one content category per news topic, such as sport, weather and politics." },
+      { id: 'D', text: "enableSegment set to false plus a generate field listing stories, then call NewsAnalyzer on each list item." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "Custom segmentation uses enableSegment true with contentCategories: a natural-language description tells the model how to cut the video, for example one segment per distinct story with adverts ignored, and the category's analyzerId routes each segment to NewsAnalyzer. Video currently supports only one contentCategories object, so defining a category per topic is not supported. A whole-video field listing stories returns text rather than timed segments to route. Camera shots are far finer than stories, so routing every shot would fragment each story into many pieces.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/ai-services/content-understanding/video/overview",
+    tags: ["Content Understanding", "Video segmentation", "Analyzer routing"]
+  },
+  {
+    id: "azure-ai-apps-agents-323",
+    difficulty: "hard",
+    certId: "azure-ai-apps-agents",
+    domainId: "d3",
+    domainName: "Implement computer vision solutions",
+    title: "Missed logo flashes and unreadable shirt numbers",
+    scenario: "A sports-rights company used a Content Understanding video analyzer to log sponsor logos and read player shirt numbers in match footage. Logos that appear for a fraction of a second are often missing, and distant shirt numbers are frequently wrong, although the same frames look clear to reviewers.",
+    question: "What explains these results?",
+    options: [
+      { id: 'A', text: "The analyzer uses only the audio track for field extraction, so any visual detail comes from a low-quality proxy." },
+      { id: 'B', text: "Shot detection is disabled by default, so frames in the second half of each shot are skipped until returnDetails is set." },
+      { id: 'C', text: "Custom fields run only on the first key frame of each segment, so later appearances within a segment are ignored." },
+      { id: 'D', text: "The analyzer samples about one frame per second and resizes frames to 512 by 512 pixels, losing brief events and small text." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Content Understanding video analysis samples roughly one frame per second and resizes sampled frames to 512 by 512 pixels, so single-frame or sub-second events can be missed and small or distant text can become illegible. For these requirements the company would need a pipeline that extracts frames at a higher rate and analyses them at higher resolution. Field extraction uses both visual and speech context, not audio alone. returnDetails adds detail such as shot timestamps to the output; it does not change frame sampling. Fields are generated from multiple frames of each segment, not just the first key frame.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/ai-services/content-understanding/video/overview",
+    tags: ["Content Understanding", "Video analysis", "Limitations"]
+  },
+  {
+    id: "azure-ai-apps-agents-324",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d3",
+    domainName: "Implement computer vision solutions",
+    title: "Editors need exact cut points and sentence timings",
+    scenario: "A documentary producer uses a Content Understanding video analyzer to prepare footage for editing. Editors want the millisecond timestamps of every camera cut so clips can be repackaged on existing edits, plus sentence-level timings in the transcript, but the analyzer output contains neither.",
+    question: "What should the developer change?",
+    options: [
+      { id: 'A', text: "Add a generate field asking the model to output every camera cut and sentence-level timestamps in milliseconds." },
+      { id: 'B', text: "Set returnDetails to true so the output includes cameraShotTimesMs and sentence-level transcript timestamps." },
+      { id: 'C', text: "Set enableSegment to true with a content category describing camera cuts so that each cut becomes a segment." },
+      { id: 'D', text: "Switch to prebuilt-audioSearch for the transcript timings and to prebuilt-imageSearch for the shot boundaries." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "Shot detection results are returned as a list of millisecond timestamps in cameraShotTimesMs, and sentence-level transcript timestamps appear, only when returnDetails is set to true. Custom segmentation creates model-defined segments that may not align with every cut and consumes generative tokens. Asking a generative field for timestamps invites invented values instead of the service's detected cut points. prebuilt-imageSearch works on still images and cannot detect shots, and splitting the job across analyzers is unnecessary.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/ai-services/content-understanding/video/overview",
+    tags: ["Content Understanding", "Video analysis", "Shot detection"]
+  },
+  {
+    id: "azure-ai-apps-agents-325",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d3",
+    domainName: "Implement computer vision solutions",
+    title: "Garbled transcripts in regional-language videos",
+    scenario: "A media archive analyses videos in Welsh and Scottish Gaelic with Content Understanding and leaves the language setting on automatic multilingual detection. The resulting transcripts read like poor English, and segment descriptions built on them are misleading.",
+    question: "What is the most likely cause and fix?",
+    options: [
+      { id: 'A', text: "Automatic detection maps unsupported locales to the closest supported one; set the locale explicitly or confirm support." },
+      { id: 'B', text: "Frames are sampled at 512 pixels, which lowers audio quality; upload higher-resolution video so speech comes through." },
+      { id: 'C', text: "Video analyzers transcribe English only, whatever automatic detection finds; add a Translator step before storage." },
+      { id: 'D', text: "Diarization is merging speakers; enable returnDetails so each speaker's phrases are transcribed with the right language." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "When multilingual transcription is used and a file contains an unsupported locale, the service produces a result based on the closest supported locale, which is likely wrong; the documented fix is to configure locales explicitly and confirm the language is supported by Azure Speech in Foundry Tools. Video analyzers support the full set of speech-to-text languages, not English only. returnDetails exposes phrase-level detail but does not change how speech is recognised. Frame resolution affects visual analysis, not audio transcription.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/ai-services/content-understanding/video/overview",
+    tags: ["Content Understanding", "Video analysis", "Transcription"]
+  }
+];
+
+export default AZURE_AI_APPS_AGENTS_QUESTIONS_13;
