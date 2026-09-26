@@ -1,0 +1,532 @@
+export const AZURE_AI_APPS_AGENTS_QUESTIONS_7 = [
+  {
+    id: "azure-ai-apps-agents-151",
+    difficulty: "easy",
+    certId: "azure-ai-apps-agents",
+    domainId: "d2",
+    domainName: "Implement generative AI and agentic solutions",
+    title: "Catching invented clauses in lease summaries",
+    scenario: "A property-management firm's app summarizes lease agreements from retrieved clauses. Reviewers have found summaries that mention break clauses and rent-free periods that appear nowhere in the retrieved text. The team wants an automated check that scores each summary against the clauses the model was given, and it has no reference summaries.",
+    question: "Which built-in evaluator should the team run?",
+    options: [
+      { id: 'A', text: "Relevance, which scores how directly the summary addresses the question the user asked about the lease." },
+      { id: 'B', text: "Groundedness, which scores whether every claim in the summary is supported by the supplied context." },
+      { id: 'C', text: "Fluency, which scores whether the summary reads naturally, with correct grammar and a clear structure." },
+      { id: 'D', text: "Similarity, which scores how close the summary is in meaning to a reference answer written by a lawyer." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "The groundedness evaluator uses an LLM judge to check whether the response's claims are supported by the provided context, which is exactly how fabricated clauses are caught, and it needs no ground truth. Relevance checks whether the response addresses the query, so an on-topic but invented clause can still score well. Similarity compares against a ground-truth answer, which the team does not have. Fluency judges language quality, and fabricated text is often perfectly fluent.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/concepts/evaluation-evaluators/rag-evaluators",
+    tags: ["Evaluation", "Groundedness", "Fabrication"]
+  },
+  {
+    id: "azure-ai-apps-agents-152",
+    difficulty: "easy",
+    certId: "azure-ai-apps-agents",
+    domainId: "d2",
+    domainName: "Implement generative AI and agentic solutions",
+    title: "Answers that are accurate but beside the point",
+    scenario: "A university IT helpdesk bot often responds with correct, well-sourced information that does not answer what the student asked; a question about resetting a password gets a paragraph on account lockout policy. The team has logged queries and responses but no expected answers, and wants a score for how well each response addresses its query.",
+    question: "Which evaluator fits, and what inputs does it need?",
+    options: [
+      { id: 'A', text: "Response Completeness, mapped to the response and a ground truth, with a judge model configured." },
+      { id: 'B', text: "Retrieval, mapped to the query and the retrieved context, with a judge model deployment configured." },
+      { id: 'C', text: "Groundedness, mapped to the response and the retrieved context, with a judge model configured." },
+      { id: 'D', text: "Relevance, mapped to the query and the response, with a judge model deployment configured for scoring." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "The relevance evaluator measures how accurately and directly a response addresses the query, needs only the query and the response, and uses an LLM judge deployment. The retrieval evaluator scores the retrieved chunks, not the final answer. Response Completeness needs a ground-truth answer, which the team does not have. Groundedness would pass these responses, because the off-target content is well supported by the sources.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/concepts/evaluation-evaluators/rag-evaluators",
+    tags: ["Evaluation", "Relevance"]
+  },
+  {
+    id: "azure-ai-apps-agents-153",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d2",
+    domainName: "Implement generative AI and agentic solutions",
+    title: "Safety answers that leave out a step",
+    scenario: "A chemical plant's procedure assistant is grounded on its manuals and passes groundedness checks, yet operators report answers that omit steps, such as skipping the valve isolation before a filter change. Engineers have written expected answers for 300 common questions and want a metric that flags responses missing information those expected answers contain.",
+    question: "Which evaluator should they add?",
+    options: [
+      { id: 'A', text: "Coherence, which scores whether each answer's steps are presented in a logical order that operators can follow." },
+      { id: 'B', text: "Intent Resolution, which scores whether the assistant correctly understood what operation the operator described." },
+      { id: 'C', text: "Response Completeness, which scores how fully each answer covers the information in the matching expected answer." },
+      { id: 'D', text: "Groundedness Pro, which returns a strict true or false for whether each answer is consistent with the manual text." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "Response Completeness compares the response with a ground-truth answer and measures recall: whether critical information in the expected answer is missing, which is exactly the omitted-step failure. Groundedness and Groundedness Pro measure precision, meaning nothing unsupported was added, so an answer that omits a step still passes. Coherence judges logical flow, not coverage. Intent Resolution checks that the user's intent was identified, which is not the problem here.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/concepts/evaluation-evaluators/rag-evaluators",
+    tags: ["Evaluation", "Response Completeness", "Ground truth"]
+  },
+  {
+    id: "azure-ai-apps-agents-154",
+    difficulty: "hard",
+    certId: "azure-ai-apps-agents",
+    domainId: "d2",
+    domainName: "Implement generative AI and agentic solutions",
+    title: "Choosing top-k and chunk size with labeled data",
+    scenario: "A search team is tuning a RAG index and wants to compare 12 combinations of chunk size, top-k and vector versus hybrid retrieval. Subject-matter experts have already labeled, for 400 queries, how relevant each candidate document is on a 0 to 4 scale. The team wants ranking-quality metrics such as NDCG computed without an LLM judge.",
+    question: "Which evaluator should the team use for the parameter sweep?",
+    options: [
+      { id: 'A', text: "Relevance, which rates each final answer against its query so the best retrieval setting yields top scores." },
+      { id: 'B', text: "Document Retrieval, which compares retrieved documents with the relevance labels and reports NDCG and more." },
+      { id: 'C', text: "Similarity, which compares each generated answer with an expert's reference answer to rank the settings." },
+      { id: 'D', text: "Retrieval, which asks a judge model to rate how relevant the retrieved chunks are to each of the 400 queries." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "The Document Retrieval evaluator takes human relevance labels (qrels) as retrieval_ground_truth plus the documents each configuration returned, and computes search metrics such as Fidelity, NDCG, XDCG, max relevance and holes with no judge model, which is designed for parameter sweeps. The Retrieval evaluator is an LLM-judge metric intended for when you have no labels, so it ignores the work the experts already did and adds cost and variance. Relevance and Similarity score the generated answer, mixing generation quality into what should be a retrieval-only comparison.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/concepts/evaluation-evaluators/rag-evaluators",
+    tags: ["Evaluation", "Document Retrieval", "Parameter sweep"]
+  },
+  {
+    id: "azure-ai-apps-agents-155",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d2",
+    domainName: "Implement generative AI and agentic solutions",
+    title: "A strict pass or fail on groundedness",
+    scenario: "A regulated lender wants a yes-or-no verdict on whether each chatbot answer is strictly consistent with the retrieved policy text, rather than a 1 to 5 score that analysts debate. The compliance team also prefers not to run its own GPT deployment as the judge for this check.",
+    question: "Which evaluator meets both preferences?",
+    options: [
+      { id: 'A', text: "Groundedness, with its pass threshold raised from 3 to 5 so that only fully supported answers pass." },
+      { id: 'B', text: "Relevance, with its pass threshold set to 5, since only fully consistent answers can be fully relevant." },
+      { id: 'C', text: "Ungrounded attributes, which flags any statement in the answer that is not found in the policy text." },
+      { id: 'D', text: "Groundedness Pro, which uses the Azure AI Content Safety service and returns a true or false result." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Groundedness Pro applies a strict definition of groundedness using the Azure AI Content Safety service, returns a boolean rather than a Likert score, and needs no judge deployment from the customer. The standard groundedness evaluator is still a 1 to 5 LLM-judge score that requires a GPT deployment, even with a stricter threshold. Relevance measures whether the query is addressed, not consistency with sources. Ungrounded attributes looks specifically for unsupported inferences about people's emotional state or protected-class membership, not general factual consistency.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/concepts/evaluation-evaluators/rag-evaluators",
+    tags: ["Evaluation", "Groundedness Pro", "Content Safety"]
+  },
+  {
+    id: "azure-ai-apps-agents-156",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d2",
+    domainName: "Implement generative AI and agentic solutions",
+    title: "Evaluating with no judge model available",
+    scenario: "A public-sector team's subscription has no quota left for any GPT deployment until next quarter, but it must evaluate a translation-assist chatbot now. It has a test set with queries, responses and approved reference answers, and needs one quality signal and one safety signal from built-in evaluators that can run without a judge deployment of its own.",
+    question: "Which two evaluators can the team run? (Choose two.)",
+    options: [
+      { id: 'A', text: "Task Adherence, which judges whether each response followed the chatbot's system instructions." },
+      { id: 'B', text: "Coherence, which rates how logically organized each response is and how easy it is to follow." },
+      { id: 'C', text: "BLEU score, which compares n-gram overlap between each response and its approved reference answer." },
+      { id: 'D', text: "Groundedness, which rates whether each response is supported by the reference answer text." },
+      { id: 'E', text: "Violence, which scores each response for violent content using the hosted evaluation service." }
+    ],
+    correctAnswers: ['C', 'E'],
+    type: "multiple",
+    explanation: "Textual similarity metrics such as BLEU, ROUGE, GLEU, METEOR and F1 are computed mathematically from the response and the ground truth, so they need no model at all. Risk and safety evaluators such as violence run on Microsoft's hosted safety models in the Foundry evaluation service and do not take a deployment_name. Coherence, Groundedness and Task Adherence are AI-assisted evaluators that require the customer's own judge model deployment, which the team cannot create.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/concepts/evaluation-evaluators/textual-similarity-evaluators",
+    tags: ["Evaluation", "BLEU", "Safety evaluation"]
+  },
+  {
+    id: "azure-ai-apps-agents-157",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d2",
+    domainName: "Implement generative AI and agentic solutions",
+    title: "Legal and brand risks in generated ad copy",
+    scenario: "A drinks company's slogan generator produces ad copy for campaigns in 30 countries. Legal worries that slogans may reproduce song lyrics verbatim, and the brand team worries about copy that stereotypes or demeans nationalities and ethnic groups. The team wants built-in safety evaluations for exactly these two risks before launch.",
+    question: "Which two evaluators should the team include? (Choose two.)",
+    options: [
+      { id: 'A', text: "Indirect attack, which measures whether responses followed instructions hidden in the campaign brief." },
+      { id: 'B', text: "Code vulnerability, which measures whether responses include insecure snippets for campaign pages." },
+      { id: 'C', text: "Groundedness, which measures whether each slogan is supported by the product facts in the brief." },
+      { id: 'D', text: "Protected material, which measures whether responses contain copyrighted text such as song lyrics." },
+      { id: 'E', text: "Hateful and unfair content, which measures demeaning or stereotyping language about social groups." }
+    ],
+    correctAnswers: ['D', 'E'],
+    type: "multiple",
+    explanation: "The protected material evaluator uses Azure AI Content Safety protected material detection to flag copyrighted text such as lyrics and articles, and the hateful and unfair content evaluator scores language that attacks or unfairly represents groups defined by attributes such as nationality or ethnicity. Indirect attack concerns instructions injected through context, which neither team raised. Code vulnerability targets generated code. Groundedness is a quality measure of factual support, not a safety check for copyright or stereotyping.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/concepts/evaluation-evaluators/risk-safety-evaluators",
+    tags: ["Safety evaluation", "Protected material", "Hate and unfairness"]
+  },
+  {
+    id: "azure-ai-apps-agents-158",
+    difficulty: "easy",
+    certId: "azure-ai-apps-agents",
+    domainId: "d2",
+    domainName: "Implement generative AI and agentic solutions",
+    title: "Code-first agents on Foundry models",
+    scenario: "A team is writing a Python multi-agent system in code and has chosen Microsoft Agent Framework for orchestration. The agents must use models deployed in the team's Foundry project, and the team does not want to wire up the project endpoint and an OpenAI-compatible client by hand.",
+    question: "What should the developers use to connect the agents to Foundry?",
+    options: [
+      { id: 'A', text: "The Anthropic SDK pointed at the project, because Agent Framework only supports Messages-style APIs." },
+      { id: 'B', text: "The Azure AI Language SDK, whose conversation client can host the agents' model calls in the project." },
+      { id: 'C', text: "A raw HTTP client that posts to the management endpoint, which exposes the project's model deployments." },
+      { id: 'D', text: "The Agent Framework FoundryChatClient, which uses the Foundry SDK under the hood for project access." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Agent Framework's Foundry package provides FoundryChatClient, which depends on the Foundry SDK to reach the project's models and tools through the Responses API on the project endpoint, so developers do not configure the endpoint and OpenAI client themselves. The Language SDK is for prebuilt text analysis. Agent Framework is not limited to Anthropic-style APIs. The management endpoint is the Azure Resource Manager control plane, not an inference API.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/how-to/develop/sdk-overview",
+    tags: ["Agent Framework", "Foundry SDK", "SDK selection"]
+  },
+  {
+    id: "azure-ai-apps-agents-159",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d2",
+    domainName: "Implement generative AI and agentic solutions",
+    title: "Interview summaries that guess a candidate's mood",
+    scenario: "A recruiting platform generates summaries of candidate interview transcripts for hiring managers. An audit found summaries such as \"the candidate seemed anxious\" or remarks implying the candidate's ethnicity, even when nothing in the transcript supported them. The team wants an evaluator that specifically flags such inferences.",
+    question: "Which evaluator should the team add?",
+    options: [
+      { id: 'A', text: "Hateful and unfair content, which scores the severity of hostile language about any social group in the summary." },
+      { id: 'B', text: "Sensitive data leakage, which flags summaries that expose personal identifiers found in the candidate's transcript." },
+      { id: 'C', text: "Groundedness, which scores on a 1 to 5 scale whether the summary's claims are supported by the transcript text." },
+      { id: 'D', text: "Ungrounded attributes, which flags inferences about emotional state or protected class unsupported by context." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "The ungrounded attributes evaluator takes the query, response and context and flags responses that infer a person's emotional state or protected-class attributes without support in the context, which is exactly the audit finding. Hate and unfairness looks for hostile or demeaning content, and a neutral-sounding guess about mood would score low. Groundedness is a general score that dilutes this specific risk among all claims. Sensitive data leakage is an agent-only evaluator for exposure of data such as financial or health identifiers.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/concepts/evaluation-evaluators/risk-safety-evaluators",
+    tags: ["Safety evaluation", "Ungrounded attributes", "Responsible AI"]
+  },
+  {
+    id: "azure-ai-apps-agents-160",
+    difficulty: "hard",
+    certId: "azure-ai-apps-agents",
+    domainId: "d2",
+    domainName: "Implement generative AI and agentic solutions",
+    title: "Groundedness for an agent with no context column",
+    scenario: "A developer wants to measure whether a claims agent's answers are grounded in what its function tools returned. The evaluation dataset contains conversation arrays for query and response, including the tool call and tool result messages, but no separate context column, because retrieval happens through the tools at run time.",
+    question: "How should the developer configure the groundedness evaluator?",
+    options: [
+      { id: 'A', text: "Build a context column by pasting the full claims policy into every row, since groundedness cannot run without one." },
+      { id: 'B', text: "Switch to Groundedness Pro, which is the only groundedness evaluator that accepts conversation arrays with tools." },
+      { id: 'C', text: "Map query and response in agent mode and supply tool_definitions, letting the evaluator read context from tool results." },
+      { id: 'D', text: "Switch to Response Completeness, which judges support for each claim using the ground truth instead of context." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "The groundedness evaluator has an agent response mode: given query and response message arrays that include tool calls and results, plus tool_definitions, it extracts the grounding context from the tool results, so a separate context field is optional. Pasting the whole policy into every row judges against text the agent never retrieved. Groundedness Pro requires query, response and context and is not the tool-aware option. Response Completeness measures recall against a ground-truth answer, not support for claims.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/concepts/evaluation-evaluators/rag-evaluators",
+    tags: ["Groundedness", "Agent evaluation", "Evaluation datasets"]
+  },
+  {
+    id: "azure-ai-apps-agents-161",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d2",
+    domainName: "Implement generative AI and agentic solutions",
+    title: "An HR agent that must never change salaries",
+    scenario: "An HR agent can read and update employee records through tools. Its written policy says the agent must never change compensation fields or terminate an employee record, even if a manager asks. Before rollout, the team wants a built-in evaluation that runs against the agent and flags any run in which it attempted one of those disallowed tool actions.",
+    question: "Which evaluator should the team use?",
+    options: [
+      { id: 'A', text: "Tool Call Accuracy, which judges whether each tool call used the right function and correct parameters." },
+      { id: 'B', text: "Task Adherence, which judges whether the final reply follows the agent's system message and prior steps." },
+      { id: 'C', text: "Sensitive data leakage, which checks whether the agent exposed salary figures or personal identifiers." },
+      { id: 'D', text: "Prohibited actions, which checks the agent's tool calls against a user-verified policy of disallowed actions." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "The prohibited actions evaluator, an agent-only safety evaluator, takes the query, response and tool calls and measures whether the agent engaged in actions that violate an explicit, user-verified policy of disallowed actions or tool uses, which matches the salary and termination rules. Task Adherence is a broader quality judgment about following instructions and does not target a specific policy of forbidden actions. Tool Call Accuracy rewards correct calls, and a perfectly formed salary update would score well. Sensitive data leakage looks at exposure of information, not at forbidden write actions.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/concepts/evaluation-evaluators/risk-safety-evaluators",
+    tags: ["Safety evaluation", "Prohibited actions", "Agents"]
+  },
+  {
+    id: "azure-ai-apps-agents-162",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d2",
+    domainName: "Implement generative AI and agentic solutions",
+    title: "A cheap, deterministic regression check",
+    scenario: "A product-FAQ bot has a test set of 2,000 questions with approved reference answers. The team wants a nightly CI gate that compares new responses with the references by word overlap, gives identical scores for identical inputs on every run, and incurs no judge-model token cost.",
+    question: "Which evaluator best fits the gate?",
+    options: [
+      { id: 'A', text: "Coherence, which asks a judge model to rate whether each response is logically organized and easy to follow." },
+      { id: 'B', text: "F1 score, which computes the overlap of words between each response and its reference, with no judge model." },
+      { id: 'C', text: "Relevance, which asks a judge model to rate whether each response addresses the question it was given." },
+      { id: 'D', text: "Similarity, which asks a judge model to rate how equivalent each response is to the approved reference answer." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "F1 score is a textual similarity metric computed from shared tokens between the response and the ground truth (precision and recall of words), so it is deterministic, free of judge-model cost and suited to regression gating; BLEU, ROUGE, GLEU and METEOR are similar non-LLM options. Similarity, Coherence and Relevance are all AI-assisted evaluators that call a judge model, costing tokens and introducing run-to-run variance, and the latter two ignore the reference answers entirely.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/concepts/evaluation-evaluators/textual-similarity-evaluators",
+    tags: ["Evaluation", "F1 score", "CI/CD"]
+  },
+  {
+    id: "azure-ai-apps-agents-163",
+    difficulty: "hard",
+    certId: "azure-ai-apps-agents",
+    domainId: "d2",
+    domainName: "Implement generative AI and agentic solutions",
+    title: "Tool-call evaluator scoring every row as a failure",
+    scenario: "A developer configures a cloud evaluation that runs a Foundry agent over a test dataset and applies the tool call accuracy evaluator. Every row fails with a reason saying no tool calls were found, even though traces show the agent calling its functions. The evaluator's response field is mapped to {{sample.output_text}}.",
+    question: "What should the developer change?",
+    options: [
+      { id: 'A', text: "Keep {{sample.output_text}} and add the agent's system prompt to the dataset so tool calls can be inferred." },
+      { id: 'B', text: "Keep {{sample.output_text}} but switch from tool call accuracy to the relevance evaluator for this agent run." },
+      { id: 'C', text: "Map the response field to {{sample.output_items}}, which carries the agent's structured tool calls and results." },
+      { id: 'D', text: "Map the response field to {{item.response}}, so the evaluator reads the expected output held in the dataset." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "In Foundry cloud evaluations, {{sample.output_text}} is only the agent's final plain-text reply, while {{sample.output_items}} contains the structured output, including tool calls and tool results, which evaluators such as tool call accuracy, tool selection and task adherence need. {{item.response}} reads a precomputed field from the dataset rather than the agent's live run. Switching to relevance hides the problem instead of measuring tool use. A system prompt does not reconstruct the calls the agent actually made.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/concepts/evaluation-evaluators/agent-evaluators",
+    tags: ["Cloud evaluation", "Data mapping", "Agent evaluators"]
+  },
+  {
+    id: "azure-ai-apps-agents-164",
+    difficulty: "easy",
+    certId: "azure-ai-apps-agents",
+    domainId: "d2",
+    domainName: "Implement generative AI and agentic solutions",
+    title: "Judging readability of meeting recaps",
+    scenario: "A collaboration tool writes recaps of team meetings with no retrieval step and no reference recaps. Users complain that some recaps jump between topics and contain garbled sentences. The product team wants built-in quality evaluators that judge how well the recaps hang together and how well they are written.",
+    question: "Which evaluators should the team choose?",
+    options: [
+      { id: 'A', text: "Coherence and Fluency, which judge the logical flow and the language quality of each recap." },
+      { id: 'B', text: "F1 score and ROUGE, which compare each recap word by word against an approved reference recap." },
+      { id: 'C', text: "Groundedness and Retrieval, which judge the recap against the source context that was retrieved." },
+      { id: 'D', text: "Intent Resolution and Task Adherence, which judge how well each recap follows the agent's rules." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Coherence rates whether a response's ideas are logically connected and well organized, and Fluency rates grammar, vocabulary and readability; both are general-purpose LLM-judge evaluators that need no context or reference. Groundedness and Retrieval need retrieved context, which this app does not have. F1 and ROUGE need reference recaps. Intent Resolution and Task Adherence are agent evaluators about understanding intent and following instructions, not writing quality.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/concepts/evaluation-evaluators/general-purpose-evaluators",
+    tags: ["Evaluation", "Coherence", "Fluency"]
+  },
+  {
+    id: "azure-ai-apps-agents-165",
+    difficulty: "easy",
+    certId: "azure-ai-apps-agents",
+    domainId: "d2",
+    domainName: "Implement generative AI and agentic solutions",
+    title: "One setting to reach models, agents and evaluations",
+    scenario: "A developer is starting a Python app that will call models, run prompt agents and submit evaluations in a Foundry project named claims-dev on the resource contoso-ai. The architect wants the app configured with a single endpoint value rather than separate URLs per feature.",
+    question: "Which endpoint should the developer configure with AIProjectClient?",
+    options: [
+      { id: 'A', text: "https://contoso-ai.services.ai.azure.com/api/projects/claims-dev, the project endpoint." },
+      { id: 'B', text: "https://contoso-ai.cognitiveservices.azure.com, the resource's classic Foundry Tools endpoint." },
+      { id: 'C', text: "https://management.azure.com with the claims-dev resource ID, which routes to the data plane." },
+      { id: 'D', text: "https://contoso-ai.openai.azure.com/openai/v1, which serves models, agents and evaluations alike." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "The Foundry SDK connects through the project endpoint, in the form https://{resource-name}.services.ai.azure.com/api/projects/{project-name}, which exposes models, agents, evaluations, connections and other project APIs; project.get_openai_client() then returns an OpenAI-compatible client for the Responses API on the same endpoint. The /openai/v1 endpoint serves model inference but not agents or evaluations. The cognitiveservices endpoint is used by individual Foundry Tools SDKs. management.azure.com is the Azure Resource Manager control plane, not an inference endpoint.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/how-to/develop/sdk-overview",
+    tags: ["Foundry SDK", "Project endpoint"]
+  },
+  {
+    id: "azure-ai-apps-agents-166",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d2",
+    domainName: "Implement generative AI and agentic solutions",
+    title: "Search endpoint hard-coded in three services",
+    scenario: "Three microservices in a RAG solution each hard-code the Azure AI Search endpoint and index settings, which broke when the team moved to a new search service. The Foundry project already has a connection to the new search service, and the architect wants services to discover such settings from the project at startup.",
+    question: "What should the services do?",
+    options: [
+      { id: 'A', text: "Use the project client to read the search connection by name and take its target endpoint from it." },
+      { id: 'B', text: "Use the OpenAI-compatible client from get_openai_client to read the search connection by name." },
+      { id: 'C', text: "Call the Azure AI Search management API with the project's name to find the linked search service." },
+      { id: 'D', text: "Query the project's Application Insights resource for the search endpoint recorded in earlier traces." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "The Foundry SDK splits work between the project client, for Foundry-native operations such as listing and reading connections, retrieving project properties and enabling tracing, and the OpenAI-compatible client, for Responses API calls, agents and evaluations. Reading the connection by name from the project client returns its target and metadata, so services follow the project configuration. The OpenAI-compatible client has no connections API. The search management API does not know about Foundry projects. Traces are telemetry, not a configuration source.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/how-to/develop/sdk-overview",
+    tags: ["Foundry SDK", "Connections"]
+  },
+  {
+    id: "azure-ai-apps-agents-167",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d2",
+    domainName: "Implement generative AI and agentic solutions",
+    title: "Lowest-latency embedding calls from a gateway",
+    scenario: "A latency-sensitive search gateway only needs to generate embeddings and short chat completions with models sold directly by Azure. It already uses the OpenAI Python library, it does not use agents, evaluations or platform tools, and the team wants maximum compatibility with the OpenAI API surface.",
+    question: "Which SDK and endpoint should the gateway use?",
+    options: [
+      { id: 'A', text: "Microsoft Agent Framework with a FoundryChatClient, which wraps embeddings for multi-agent systems." },
+      { id: 'B', text: "The OpenAI SDK against the resource's /openai/v1 endpoint, authenticating with Entra ID or a key." },
+      { id: 'C', text: "The Foundry SDK against the project endpoint, calling OpenAI embeddings through the project client." },
+      { id: 'D', text: "The Azure AI Language SDK, whose text analytics client also returns embedding vectors for text." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "The OpenAI SDK against the /openai/v1 endpoint gives the full OpenAI API surface, including embeddings and Chat Completions, with the best latency and maximum compatibility, and accepts Entra ID tokens or API keys. The Foundry SDK is the choice when agents, evaluations or Foundry-specific tools are needed, and embeddings are not a project-client operation. Agent Framework targets agent and multi-agent orchestration. The Language SDK provides prebuilt text analysis, not embedding vectors.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/how-to/develop/sdk-overview",
+    tags: ["OpenAI SDK", "v1 API", "Embeddings"]
+  },
+  {
+    id: "azure-ai-apps-agents-168",
+    difficulty: "hard",
+    certId: "azure-ai-apps-agents",
+    domainId: "d2",
+    domainName: "Implement generative AI and agentic solutions",
+    title: "API key rejected by the project endpoint",
+    scenario: "A developer copies the Foundry resource key into an app that creates prompt agents through AIProjectClient on the project endpoint. Every call returns 401, although the same key works for Chat Completions calls on the resource's /openai/v1 endpoint. The developer's account already holds the Foundry User role on the project.",
+    question: "What is the cause and the fix?",
+    options: [
+      { id: 'A', text: "The key belongs to the resource, so generate a project-scoped key in the portal and pass it to AIProjectClient." },
+      { id: 'B', text: "The Foundry User role blocks key use, so assign the Foundry Project Manager role before retrying with the key." },
+      { id: 'C', text: "The project endpoint requires Microsoft Entra ID, so pass a token credential such as DefaultAzureCredential." },
+      { id: 'D', text: "Keys must be sent in an api-key header, so wrap the key in AzureKeyCredential before passing it to the client." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "API keys work on the /openai/v1 inference endpoint, but the Foundry project endpoint used by AIProjectClient for agents, evaluations and connections authenticates with Microsoft Entra ID, so the client needs a token credential such as DefaultAzureCredential and the caller's role assignment then applies. Projects do not issue their own keys. Changing the header format does not make keys acceptable to the project APIs. Roles govern what an Entra identity may do; no role enables key authentication.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/how-to/develop/sdk-overview",
+    tags: ["Authentication", "Keyless", "Foundry SDK"]
+  },
+  {
+    id: "azure-ai-apps-agents-169",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d2",
+    domainName: "Implement generative AI and agentic solutions",
+    title: "Keyless access from a container app",
+    scenario: "A logistics company deploys an Azure Container Apps service that calls prompt agents and models in a Foundry project. Security policy forbids storing API keys or secrets in configuration, and the service must receive only the permissions it needs to build and use project resources, not to manage the project or its connections.",
+    question: "Which two actions should the developer take? (Choose two.)",
+    options: [
+      { id: 'A', text: "Assign the container app's identity the Foundry Account Owner role on the Foundry resource group." },
+      { id: 'B', text: "Assign the container app's identity the Reader role on the Foundry resource and the project scope." },
+      { id: 'C', text: "Assign the container app's identity the Foundry User role scoped to the specific Foundry project." },
+      { id: 'D', text: "Store the resource key in a container app secret and reference it through an environment variable." },
+      { id: 'E', text: "Enable a managed identity on the container app and authenticate with a token credential in code." }
+    ],
+    correctAnswers: ['C', 'E'],
+    type: "multiple",
+    explanation: "A managed identity gives the container app a Microsoft Entra identity with no secret to store, and code obtains tokens through a credential such as DefaultAzureCredential or ManagedIdentityCredential. Foundry User (formerly Azure AI User) at project scope is the least-privilege role for building with and using project resources such as agents and models. A key in a container app secret is still a stored secret, which the policy forbids. Foundry Account Owner can create projects and manage account-level resources, far beyond what the service needs. Reader grants control-plane visibility only and cannot call the data-plane APIs.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/concepts/rbac-foundry",
+    tags: ["Managed identity", "RBAC", "Keyless"]
+  },
+  {
+    id: "azure-ai-apps-agents-170",
+    difficulty: "hard",
+    certId: "azure-ai-apps-agents",
+    domainId: "d2",
+    domainName: "Implement generative AI and agentic solutions",
+    title: "Wrong identity picked up in App Service",
+    scenario: "An App Service web app has a system-assigned identity and one user-assigned identity; only the user-assigned identity holds the Foundry User role on the project. The code builds DefaultAzureCredential with no arguments, and calls to the project fail with 403 while the same code works on developers' laptops.",
+    question: "How should the developer fix authentication without code that differs per environment?",
+    options: [
+      { id: 'A', text: "Replace DefaultAzureCredential with an API key read from app settings in production and Entra ID locally." },
+      { id: 'B', text: "Disable the user-assigned identity so DefaultAzureCredential falls back to the Azure CLI login on the host." },
+      { id: 'C', text: "Set the AZURE_TENANT_ID app setting to the tenant ID, which makes the credential choose the right identity." },
+      { id: 'D', text: "Set the AZURE_CLIENT_ID app setting to the user-assigned identity's client ID, which the credential honors." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "With no configuration, DefaultAzureCredential's managed identity step uses the system-assigned identity, which has no role on the project; setting AZURE_CLIENT_ID to the user-assigned identity's client ID makes the credential request tokens for that identity, while laptops without the variable keep using the developer's Azure CLI or Visual Studio Code sign-in. There is no Azure CLI login on App Service to fall back to. Keys break the keyless design and cannot call the project endpoint. The tenant ID does not select among identities.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/developer/python/sdk/authentication/credential-chains",
+    tags: ["DefaultAzureCredential", "Managed identity", "Authentication"]
+  },
+  {
+    id: "azure-ai-apps-agents-171",
+    difficulty: "easy",
+    certId: "azure-ai-apps-agents",
+    domainId: "d2",
+    domainName: "Implement generative AI and agentic solutions",
+    title: "Adding document translation to a generative app",
+    scenario: "A generative AI app built with the Foundry SDK now needs to translate uploaded Word documents into eight languages while preserving their formatting, using the prebuilt Azure Translator capability in the same Foundry resource.",
+    question: "Which SDK should the developer use for the translation step?",
+    options: [
+      { id: 'A', text: "The Foundry SDK's project client, which exposes Translator document translation as a project operation." },
+      { id: 'B', text: "The Anthropic SDK against the /anthropic endpoint, which handles document formats for any language pair." },
+      { id: 'C', text: "The OpenAI SDK against /openai/v1 with a Word file input, which returns the translated Word document." },
+      { id: 'D', text: "The Foundry Tools SDK for Azure Translator, which calls that tool's own document translation endpoint." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Prebuilt capabilities such as Translator, Speech, Vision, Language and Content Safety are called through the Foundry Tools SDKs and their tool-specific endpoints; Translator's document translation preserves the structure and formatting of Office documents. The project client handles Foundry-native operations such as connections and project properties, not translation. The Anthropic SDK serves Claude models. Chat models can translate text, but the OpenAI SDK does not return a formatted translated Word document.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/how-to/develop/sdk-overview",
+    tags: ["Foundry Tools", "Translator", "SDK selection"]
+  },
+  {
+    id: "azure-ai-apps-agents-172",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d2",
+    domainName: "Implement generative AI and agentic solutions",
+    title: "Low-code trigger for an invoice-review agent",
+    scenario: "A finance operations team already automates invoice intake with Azure Logic Apps: a workflow fires when an email with a PDF arrives in a shared mailbox and then posts to Teams. The team wants a Foundry agent to review each invoice as a step in that existing workflow, without writing and hosting custom glue code.",
+    question: "What should the developer do?",
+    options: [
+      { id: 'A', text: "Add a step in the Logic Apps workflow that calls the Foundry agent and passes the invoice for review." },
+      { id: 'B', text: "Publish the agent to Microsoft Teams so that team members forward each invoice email to it by hand." },
+      { id: 'C', text: "Replace the Logic Apps intake with a hosted agent step that polls the shared mailbox for new invoices." },
+      { id: 'D', text: "Export the agent definition as an OpenAPI file and import it into the mailbox as an Outlook add-in." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Azure Logic Apps can call and orchestrate Foundry agents as steps inside workflows, combining its triggers and connectors, such as a new email in a mailbox, with the agent's reasoning, so the existing flow gains an agent step with no custom hosting. Rewriting intake as a hosted agent discards the working workflow and requires custom code. An OpenAPI export and an Outlook add-in are not how agents are invoked from mail flows. Forwarding emails by hand removes the automation the team already has.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/logic-apps/automate-foundry-agents-with-workflows",
+    tags: ["Logic Apps", "Connectors", "Agents"]
+  },
+  {
+    id: "azure-ai-apps-agents-173",
+    difficulty: "easy",
+    certId: "azure-ai-apps-agents",
+    domainId: "d2",
+    domainName: "Implement generative AI and agentic solutions",
+    title: "First run of a sample on a developer laptop",
+    scenario: "A new developer clones the team's Foundry sample, which authenticates with DefaultAzureCredential, and runs it locally. The call fails because no credential is available. The developer has an Entra ID account that an administrator has already granted the Foundry User role on the project.",
+    question: "What should the developer do before running the sample again?",
+    options: [
+      { id: 'A', text: "Copy the resource key from the portal and export it in a FOUNDRY_API_KEY environment variable." },
+      { id: 'B', text: "Sign in with az login using the Entra ID account, so the credential chain picks up that token." },
+      { id: 'C', text: "Create a service principal secret for the Entra account and paste it into the sample's source." },
+      { id: 'D', text: "Enable a system-assigned managed identity on the laptop through the Azure portal and restart." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "DefaultAzureCredential tries a chain of sources, including environment variables, managed identity and developer tools such as the Azure CLI and Visual Studio Code; after az login, it obtains a token for the developer's account, whose Foundry User role authorizes the calls. A secret pasted into source code is a leak waiting to happen and unnecessary here. The sample does not read a key variable, and the project endpoint needs Entra ID anyway. Managed identities exist for Azure resources, not personal laptops.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/how-to/develop/sdk-overview",
+    tags: ["DefaultAzureCredential", "Local development"]
+  },
+  {
+    id: "azure-ai-apps-agents-174",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d2",
+    domainName: "Implement generative AI and agentic solutions",
+    title: "Adding SharePoint grounding to an existing client",
+    scenario: "A developer's app uses the OpenAI SDK against a Foundry resource's /openai/v1 endpoint for Responses API calls. The team now wants those calls to use Foundry platform tools such as SharePoint grounding and memory, which are not available on that endpoint, while keeping the Responses API programming model.",
+    question: "What should the developer change?",
+    options: [
+      { id: 'A', text: "Create an AIProjectClient on the project endpoint and use get_openai_client for the Responses API calls." },
+      { id: 'B', text: "Add an api-version query parameter to the /openai/v1 endpoint so the preview platform tools become available." },
+      { id: 'C', text: "Pass the SharePoint site URL as a file input on the /openai/v1 endpoint so the model reads it during calls." },
+      { id: 'D', text: "Replace the OpenAI SDK with the Foundry Tools SDK for SharePoint and call it before each model request." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "The /openai/v1 endpoint exposes the OpenAI API surface for models but not Foundry-specific features such as agents, evaluations and Foundry-exclusive platform tools; the OpenAI-compatible client returned by AIProjectClient.get_openai_client targets the Responses API on the project endpoint, where those tools are available, so the code keeps the same programming model. An api-version parameter does not add platform tools. There is no Foundry Tools SDK for SharePoint grounding. A site URL is not a file input the model can authenticate to and read.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/how-to/develop/sdk-overview",
+    tags: ["Foundry SDK", "Responses API", "Platform tools"]
+  },
+  {
+    id: "azure-ai-apps-agents-175",
+    difficulty: "hard",
+    certId: "azure-ai-apps-agents",
+    domainId: "d2",
+    domainName: "Implement generative AI and agentic solutions",
+    title: "No test questions for a brand-new assistant",
+    scenario: "A water utility is about to pilot a RAG assistant over 900 pages of engineering standards. There are no production logs yet and the subject-matter experts can spare only a day, so the team cannot hand-write hundreds of evaluation questions. It wants a representative query set generated from its own documents to feed the groundedness and relevance evaluators.",
+    question: "What should the team do?",
+    options: [
+      { id: 'A', text: "Ask the assistant itself to list the questions it can answer and use that output as the ground-truth dataset." },
+      { id: 'B', text: "Run the AI Red Teaming Agent against the assistant and reuse its generated attack prompts as the test query set." },
+      { id: 'C', text: "Use Foundry synthetic data generation to create queries from the standards text, then have experts review a sample." },
+      { id: 'D', text: "Start the pilot without evaluation and turn on continuous evaluation once real user traffic has been collected." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "Foundry's synthetic data generation (and the evaluation SDK's simulator) creates realistic queries, and multi-turn simulation seeds, from a reference document, agent instructions or an index, so the team can build a representative test set quickly and spend scarce expert time reviewing a sample rather than writing from scratch. Red-teaming prompts are adversarial and measure safety, not everyday answer quality. Launching without evaluation defeats the purpose of a pre-pilot check. Questions produced by the system under test are biased toward what it already handles and are not ground truth.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/observability/how-to/evaluation-dataset-synthetic",
+    tags: ["Synthetic data", "Evaluation datasets", "Simulator"]
+  }
+];
+
+export default AZURE_AI_APPS_AGENTS_QUESTIONS_7;

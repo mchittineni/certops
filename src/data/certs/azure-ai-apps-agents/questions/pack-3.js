@@ -1,0 +1,532 @@
+export const AZURE_AI_APPS_AGENTS_QUESTIONS_3 = [
+  {
+    id: "azure-ai-apps-agents-51",
+    difficulty: "easy",
+    certId: "azure-ai-apps-agents",
+    domainId: "d1",
+    domainName: "Plan and manage an Azure AI solution",
+    title: "Pipeline sign-in without a stored secret",
+    scenario: "A team's GitHub Actions workflow deploys Bicep for its Foundry resource and then creates agents in the project. The security team has banned client secrets and certificates stored as repository secrets because a leaked secret last year went unnoticed for months.",
+    question: "How should the workflow authenticate to Azure?",
+    options: [
+      { id: 'A', text: "Use OpenID Connect with a federated credential on a Microsoft Entra app, signing in through the azure/login action." },
+      { id: 'B', text: "Create a service principal secret with a 30-day expiry and rotate it in the repository with a scheduled workflow." },
+      { id: 'C', text: "Store the Foundry resource's API key as a repository secret and pass it to each deployment step in the workflow." },
+      { id: 'D', text: "Run the workflow on a self-hosted runner and sign in interactively with a team member's account once a week." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Workload identity federation lets GitHub Actions exchange its short-lived OIDC token for a Microsoft Entra token through a federated credential on an app registration or user-assigned managed identity, so no secret is stored anywhere. A rotating service principal secret still stores a secret in the repository, which is banned. A Foundry API key is also a stored secret and cannot deploy Bicep, because keys authorise data-plane calls only. Interactive sign-in ties the pipeline to a person, expires, and breaks unattended runs.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/developer/github/connect-from-azure-openid-connect",
+    tags: ["CI/CD", "GitHub Actions", "Workload identity federation"]
+  },
+  {
+    id: "azure-ai-apps-agents-52",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d1",
+    domainName: "Plan and manage an Azure AI solution",
+    title: "Blocking a prompt change that hurts answers",
+    scenario: "Developers change an agent's instructions and tools several times a week through pull requests. Twice this quarter a change reduced answer quality and was noticed only by customers. The team wants every pull request to be scored against a fixed test dataset, and the merge blocked if quality drops below agreed thresholds.",
+    question: "What should the team add to the pipeline?",
+    options: [
+      { id: 'A', text: "An evaluation step running evaluators such as groundedness and task adherence on the dataset, failing below thresholds." },
+      { id: 'B', text: "A manual approval gate in which a senior developer chats with the new agent version for ten minutes before approving the merge." },
+      { id: 'C', text: "A load-testing step that sends the dataset to the agent at production volume and fails the build if latency exceeds two seconds." },
+      { id: 'D', text: "A linting step that checks the instructions file for banned words and a maximum length before allowing the pull request to merge." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Running an evaluation in the pipeline, for example with the Foundry evaluation GitHub Action or the Foundry SDK, scores each candidate agent version on the fixed dataset with evaluators such as groundedness, relevance and task adherence, and failing the job below a threshold turns quality into an automated merge gate. Linting instructions says nothing about answer quality. Load testing measures latency and throughput, not correctness. A ten-minute manual chat is unrepeatable and covers far fewer cases than the dataset.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/observability/how-to/evaluation-github-action",
+    tags: ["CI/CD", "Evaluation", "Quality gates"]
+  },
+  {
+    id: "azure-ai-apps-agents-53",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d1",
+    domainName: "Plan and manage an Azure AI solution",
+    title: "Moving an agent from test to production",
+    scenario: "An insurer has dev, test and production Foundry projects on separate Foundry resources. Today a developer recreates each agent in the production portal by copying instructions and tool settings by hand, and last month a missing tool setting caused a production incident. The insurer wants identical, auditable promotions.",
+    question: "What should the developer implement?",
+    options: [
+      { id: 'A', text: "Grant developers Foundry User on the production project so they can copy agents directly from the test project." },
+      { id: 'B', text: "Keep the agent definition in source control and have a pipeline create the agent version in each project." },
+      { id: 'C', text: "Point the production applications at the test project's agent endpoint so that only one copy of the agent exists." },
+      { id: 'D', text: "Export the test project's agent settings to a JSON file and have operations re-enter them in production." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "Treating the agent definition (model deployment name, instructions, tools and their connections) as code in the repository, with a pipeline that creates the agent version in each environment's project through the Foundry SDK or REST API, makes every promotion identical, reviewed and traceable, with per-environment values supplied as parameters. Giving developers production access still relies on manual copying. Serving production from the test project removes the environment boundary entirely. Re-keying settings from an export is the same manual process that caused the incident.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/agents/concepts/development-lifecycle",
+    tags: ["CI/CD", "Agent promotion", "Environments"]
+  },
+  {
+    id: "azure-ai-apps-agents-54",
+    difficulty: "easy",
+    certId: "azure-ai-apps-agents",
+    domainId: "d1",
+    domainName: "Plan and manage an Azure AI solution",
+    title: "Rebuilding an identical environment on demand",
+    scenario: "A consultancy spins up a fresh Foundry environment for each client engagement: a Foundry resource, a project, a gpt-4.1-mini deployment and an Application Insights connection. Engineers currently click through the portal and often forget a step. The firm wants the environment reproducible from a repository.",
+    question: "What should the team use?",
+    options: [
+      { id: 'A', text: "An Azure Resource Graph query that lists existing Foundry resources so engineers can compare their settings." },
+      { id: 'B', text: "A resource lock on the first client's resource group so its configuration can be copied to later engagements." },
+      { id: 'C', text: "A saved portal screenshot checklist that every engineer follows step by step when creating each client's environment." },
+      { id: 'D', text: "Bicep or Terraform templates for the resource, project, deployment and connection, deployed from the repository." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Infrastructure as code declares the Foundry resource (Microsoft.CognitiveServices/accounts), its projects, model deployments and connections, so each engagement is created identically from version-controlled templates, whether with Bicep, Terraform or an azd template. A checklist still depends on people clicking correctly. Resource Graph queries report on what exists but create nothing. A resource lock prevents deletion or change; it is not a way to copy configuration.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/how-to/create-resource-template",
+    tags: ["Infrastructure as code", "Bicep", "CI/CD"]
+  },
+  {
+    id: "azure-ai-apps-agents-55",
+    difficulty: "hard",
+    certId: "azure-ai-apps-agents",
+    domainId: "d1",
+    domainName: "Plan and manage an Azure AI solution",
+    title: "Least privilege for a release pipeline identity",
+    scenario: "A release pipeline's managed identity must create and update model deployments on a Foundry resource and then create agent versions in one project on that resource. It must not be able to assign roles to anyone or create new Foundry resources, and the security team wants built-in roles only.",
+    question: "Which two role assignments should the developer make? (Choose two.)",
+    options: [
+      { id: 'A', text: "Foundry User on the project, which grants the data actions needed to build and version agents there." },
+      { id: 'B', text: "Owner on the resource group, which covers both deployments and agents in a single role assignment." },
+      { id: 'C', text: "Foundry Agent Consumer on the project, which grants permission to create and update agent versions." },
+      { id: 'D', text: "Cognitive Services Contributor on the Foundry resource, which lets the identity manage its model deployments." },
+      { id: 'E', text: "Foundry Account Owner on the subscription, which covers both deployments and agent data actions." }
+    ],
+    correctAnswers: ['A', 'D'],
+    type: "multiple",
+    explanation: "Managing model deployments is a control-plane action granted by Cognitive Services Contributor on the Foundry resource, and building agents is a data action granted by Foundry User on the project, so the pair covers both tasks with no role-assignment rights and no ability to create resources outside that scope. Owner on the resource group can assign roles and create resources. Foundry Account Owner can create Foundry resources, can assign some roles and does not include the project data actions needed to build agents. Foundry Agent Consumer only lets a principal call agent endpoints; it cannot create or change agents.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/concepts/rbac-foundry",
+    tags: ["RBAC", "CI/CD", "Least privilege"]
+  },
+  {
+    id: "azure-ai-apps-agents-56",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d1",
+    domainName: "Plan and manage an Azure AI solution",
+    title: "One command to provision and deploy a hosted agent",
+    scenario: "A developer has a hosted agent sample with its infrastructure templates, an azure.yaml file describing the agent service, and a Dockerfile. New team members keep failing to reproduce the environment because they run a dozen separate CLI commands in the wrong order. The team wants one command that provisions the infrastructure, builds the image and deploys the agent.",
+    question: "What should the team use?",
+    options: [
+      { id: 'A', text: "The Azure Developer CLI, running azd up so that it provisions the templates and then deploys the agent service." },
+      { id: 'B', text: "The Azure CLI command az deployment group create, which also builds and pushes the container image automatically." },
+      { id: 'C', text: "The Foundry portal's agent playground, importing the Dockerfile so the portal builds and hosts the container image." },
+      { id: 'D', text: "Docker Compose, running docker compose up so the agent container starts locally and registers itself in Foundry." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "The Azure Developer CLI reads azure.yaml and the infrastructure folder, and azd up runs provision (the Bicep templates) followed by deploy (building the image, pushing it to the registry and creating the hosted agent version), giving new team members a single reproducible command that also works in CI. az deployment group create deploys ARM or Bicep templates but does not build containers. Docker Compose runs containers locally and does not create Azure resources or Foundry agents. The playground tests agents; it does not build images from a Dockerfile.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/developer/azure-developer-cli/overview",
+    tags: ["Azure Developer CLI", "Hosted agents", "CI/CD"]
+  },
+  {
+    id: "azure-ai-apps-agents-57",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d1",
+    domainName: "Plan and manage an Azure AI solution",
+    title: "Adversarial testing before each release",
+    scenario: "A bank's customer-facing agent passes its quality evaluations, but the risk team wants evidence before every release that the agent resists jailbreak attempts and harmful-content probes across many attack strategies. The team has no in-house red team and wants the results scored and stored with the other evaluation runs in the project.",
+    question: "What should the developer add to the release process?",
+    options: [
+      { id: 'A', text: "A load test that replays last month's production conversations at twice the normal request volume." },
+      { id: 'B', text: "A groundedness evaluation on the standard test dataset, raising its pass threshold for each release." },
+      { id: 'C', text: "A scan by the AI red teaming agent, reviewing its attack success rate before approving." },
+      { id: 'D', text: "A blocklist of known attack phrases, updated by the risk team before each release." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "The AI red teaming agent uses Microsoft's PyRIT framework to generate adversarial probes across risk categories and attack strategies, scores whether each attack succeeded and records the scan in the Foundry project, giving the risk team an attack success rate per release. Groundedness measures whether answers are supported by context, not resistance to attacks. A phrase blocklist catches only known strings and produces no evidence of robustness. Replaying normal conversations under load tests capacity rather than adversarial behaviour.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/concepts/ai-red-teaming-agent",
+    tags: ["AI red teaming agent", "Safety evaluation", "CI/CD"]
+  },
+  {
+    id: "azure-ai-apps-agents-58",
+    difficulty: "easy",
+    certId: "azure-ai-apps-agents",
+    domainId: "d1",
+    domainName: "Plan and manage an Azure AI solution",
+    title: "Occasional 429 responses at lunchtime peaks",
+    scenario: "A canteen-ordering assistant calls a Global Standard deployment. For a few minutes around noon each day, some requests fail with HTTP 429 and a retry-after-ms header, although average daily usage is well under the deployment's limit. The team wants those users served without buying more capacity.",
+    question: "What should the developer implement first?",
+    options: [
+      { id: 'A', text: "Raise the temperature parameter so each response is generated faster and frees the quota sooner." },
+      { id: 'B', text: "Delete and recreate the deployment each morning so that its rate limit counter is reset before noon." },
+      { id: 'C', text: "Retry the throttled requests after the delay in the retry-after header, backing off exponentially." },
+      { id: 'D', text: "Switch the deployment to Global Batch so that the lunchtime requests are queued for later processing." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "A 429 means the deployment's per-minute rate limit was exceeded momentarily; the response says how long to wait, and retrying after that delay with exponential backoff, which the Azure and OpenAI SDKs support, smooths short peaks without extra capacity. Batch processing has a 24-hour target turnaround, which is useless for lunch orders. Rate limits are enforced per minute, so recreating the deployment changes nothing and causes downtime. Temperature affects randomness, not speed or token consumption.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/openai/quotas-limits",
+    tags: ["Rate limits", "Retry", "429"]
+  },
+  {
+    id: "azure-ai-apps-agents-59",
+    difficulty: "hard",
+    certId: "azure-ai-apps-agents",
+    domainId: "d1",
+    domainName: "Plan and manage an Azure AI solution",
+    title: "Throttled although actual token use is low",
+    scenario: "A summarization service sends about 40 requests a minute to a deployment with a 100,000 TPM limit. Each request has a 600-token prompt and the model typically returns 150 tokens, yet the service receives frequent HTTP 429 responses. A code review shows every request sets max_tokens to 4,096 as a safety margin.",
+    question: "What is the most likely cause, and what should the developer change?",
+    options: [
+      { id: 'A', text: "The rate limiter counts max_tokens in each request's estimate, so lower it near the expected output length." },
+      { id: 'B', text: "The deployment's quota is shared with batch jobs, so move the summarization service onto a separate resource." },
+      { id: 'C', text: "Prompt tokens are billed twice under Global Standard, so shorten the prompt to half of its current length." },
+      { id: 'D', text: "Requests per minute are capped at one per 1,000 TPM, so spread the calls across several minutes instead." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "When a request arrives, the service estimates its token cost from the prompt plus the max_tokens value and counts that estimate against the tokens-per-minute limit, so 40 requests reserving about 4,700 tokens each exceed 100,000 TPM even though far fewer tokens are generated. Setting max_tokens near the real output size fixes the throttling. The derived requests-per-minute limit is several requests per 1,000 TPM, far above 40 per minute here. Batch jobs use a separate enqueued-token quota. Prompt tokens are not double-counted.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/quota",
+    tags: ["Rate limits", "max_tokens", "Troubleshooting"]
+  },
+  {
+    id: "azure-ai-apps-agents-60",
+    difficulty: "easy",
+    certId: "azure-ai-apps-agents",
+    domainId: "d1",
+    domainName: "Plan and manage an Azure AI solution",
+    title: "Launch traffic will exceed the regional quota",
+    scenario: "A retailer's holiday campaign is forecast to need three times the tokens per minute that its subscription currently holds for gpt-4.1 Global Standard in its region. Every existing deployment already uses its full allocation, and the campaign starts in four weeks.",
+    question: "What should the developer do?",
+    options: [
+      { id: 'A', text: "Lower the temperature on all requests, because deterministic responses consume less of the quota." },
+      { id: 'B', text: "Switch the API calls to key authentication, because key-based calls are not counted against quota." },
+      { id: 'C', text: "Submit a quota increase request for that model and deployment type in the region before launch." },
+      { id: 'D', text: "Create additional deployments of the same model, because each new deployment brings its own quota." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "Quota is granted per subscription, region, model and deployment type, so more capacity comes from a quota increase request (or from another region or subscription), submitted early enough to be approved before launch. New deployments draw on the same regional pool rather than adding to it. Authentication method has no effect on quota. Temperature changes output randomness, not the number of tokens counted against the limit.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/openai/quotas-limits",
+    tags: ["Quota", "Capacity planning"]
+  },
+  {
+    id: "azure-ai-apps-agents-61",
+    difficulty: "hard",
+    certId: "azure-ai-apps-agents",
+    domainId: "d1",
+    domainName: "Plan and manage an Azure AI solution",
+    title: "Getting cache hits on a long shared prompt",
+    scenario: "Every request from a contract-review app sends a 3,000-token block of legal guidance plus the same 20 tool definitions, followed by the user's clause. The developer put the user's clause and a timestamp at the top of the prompt for readability. Usage data shows cached_tokens is always zero, and the team wants to lower input-token cost without changing models.",
+    question: "What should the developer change?",
+    options: [
+      { id: 'A', text: "Set a lower temperature so the model reuses the cached output of earlier requests for similar clauses." },
+      { id: 'B', text: "Move the static guidance and tool definitions to the start and put the variable content last." },
+      { id: 'C', text: "Split the guidance across two shorter messages so that each one stays under the 1,024-token caching size." },
+      { id: 'D', text: "Send the tool definitions in a separate message placed after the user's clause." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "Prompt caching applies when a request of at least 1,024 tokens shares an identical prefix with a recent request; placing the unchanging guidance and tool definitions first and the variable clause and timestamp last lets that prefix match, and cached input tokens are billed at a discount. Keeping content below 1,024 tokens disqualifies it from caching rather than enabling it. Temperature affects sampling, not input-token caching, and cached prompts do not reuse earlier outputs. Moving the tool definitions after the clause puts variable content ahead of them, so the shared prefix shrinks and fewer tokens are cached.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/prompt-caching",
+    tags: ["Prompt caching", "Cost optimization"]
+  },
+  {
+    id: "azure-ai-apps-agents-62",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d1",
+    domainName: "Plan and manage an Azure AI solution",
+    title: "Is the provisioned deployment the right size?",
+    scenario: "A logistics firm bought 300 PTUs for a gpt-4.1 provisioned deployment three months ago. Finance suspects the reservation is oversized, while developers report occasional 429 responses at the morning peak. The team needs data showing how much of the provisioned capacity is used over time.",
+    question: "Which signal should the developer analyse?",
+    options: [
+      { id: 'A', text: "The number of agent versions created in the project, compared with the number of PTUs in the reservation." },
+      { id: 'B', text: "The Azure Advisor score for the subscription, which reports the percentage of each PTU reservation used." },
+      { id: 'C', text: "The Search Latency metric of the connected Azure AI Search service during the morning peak window." },
+      { id: 'D', text: "The Provisioned-managed Utilization V2 metric for the deployment in Azure Monitor, reviewed across peaks." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Provisioned-managed Utilization V2 reports the percentage of a provisioned deployment's capacity in use over time, so the team can see average utilisation for finance and the morning peaks that hit 100 percent and return 429s. Advisor provides recommendations but not per-deployment PTU utilisation. Search latency measures the search service, not model capacity. The number of agent versions has no relationship to model throughput consumption.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/monitor-openai",
+    tags: ["Provisioned throughput", "Azure Monitor", "Capacity planning"]
+  },
+  {
+    id: "azure-ai-apps-agents-63",
+    difficulty: "easy",
+    certId: "azure-ai-apps-agents",
+    domainId: "d1",
+    domainName: "Plan and manage an Azure AI solution",
+    title: "Warning before the monthly AI spend is exceeded",
+    scenario: "A charity runs its volunteer-help agent on a Foundry resource in its own resource group. Its monthly budget for the workload is 2,000 dollars, and the trustees want an email to the finance lead when forecast spend reaches 80 percent so they can act before month end.",
+    question: "What should the developer configure?",
+    options: [
+      { id: 'A', text: "A budget in Microsoft Cost Management scoped to the resource group, with a forecast alert at 80 percent." },
+      { id: 'B', text: "A spending limit on the Foundry resource that stops all inference once the monthly budget is consumed." },
+      { id: 'C', text: "A daily cap on the Log Analytics workspace, which also limits the monthly spend on the Foundry resource." },
+      { id: 'D', text: "A metric alert on the deployment's Processed Prompt Tokens metric that fires above a fixed token count." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "A Cost Management budget scoped to the resource group tracks actual and forecast cost for everything in it, and a forecast threshold at 80 percent sends an email through an action group before the budget is reached. A token metric alert fires on usage volume, not on money, and misses costs such as tools or search. Foundry resources have no built-in spending limit that halts inference at a dollar amount. A Log Analytics daily cap limits log ingestion in that workspace and does not affect model charges.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/cost-management-billing/costs/tutorial-acm-create-budgets",
+    tags: ["Cost management", "Budgets"]
+  },
+  {
+    id: "azure-ai-apps-agents-64",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d1",
+    domainName: "Plan and manage an Azure AI solution",
+    title: "Long agent conversations are getting expensive",
+    scenario: "A travel agent built on a gpt-4.1 prompt agent handles conversations that often run to 60 turns. Token analytics show input tokens per turn growing steadily through a conversation, and most early turns are small talk. The team wants to cut cost per conversation without noticeably lowering answer quality.",
+    question: "Which two actions should the developer take? (Choose two.)",
+    options: [
+      { id: 'A', text: "Increase max_tokens on every turn so that the model finishes each answer in fewer conversation turns." },
+      { id: 'B', text: "Add every earlier conversation for the user to a vector store so that each turn searches all of them." },
+      { id: 'C', text: "Move the prompt agent to a Regional Provisioned deployment, which bills history tokens at a lower rate." },
+      { id: 'D', text: "Limit how much earlier conversation history is sent on each turn, for example by truncating older messages." },
+      { id: 'E', text: "Route simple sub-tasks, such as intent detection or formatting, to a smaller and cheaper model deployment." }
+    ],
+    correctAnswers: ['D', 'E'],
+    type: "multiple",
+    explanation: "Input tokens grow because the full history is resent on every turn, so limiting or truncating older messages, or replacing them with a summary, directly cuts cost per turn while keeping recent context. Sending lightweight sub-tasks to a small model lowers the per-token price for work that does not need gpt-4.1. Raising max_tokens only permits longer outputs and does not shorten conversations. Provisioned deployments are billed for reserved capacity, not per history token, and do not make history cheaper. Searching every past conversation adds retrieval cost and more input tokens, not fewer.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/concepts/manage-costs",
+    tags: ["Cost optimization", "Token usage", "Agents"]
+  },
+  {
+    id: "azure-ai-apps-agents-65",
+    difficulty: "easy",
+    certId: "azure-ai-apps-agents",
+    domainId: "d1",
+    domainName: "Plan and manage an Azure AI solution",
+    title: "Search queries slow down during business hours",
+    scenario: "A RAG assistant's Azure AI Search service on the Standard tier runs with one replica and one partition. The 20 GB index fits comfortably, but at peak hours query latency triples and the throttled queries percentage rises. The team also wants the read-availability SLA.",
+    question: "How should the developer scale the search service?",
+    options: [
+      { id: 'A', text: "Add partitions, because partitions spread query load and provide the high-availability SLA." },
+      { id: 'B', text: "Move to the Storage Optimized tier, which gives the largest capacity for index storage." },
+      { id: 'C', text: "Add replicas, at least two, to increase query throughput and qualify for the read SLA." },
+      { id: 'D', text: "Rebuild the index with fewer fields, because field count determines query concurrency." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "Replicas are copies of the index that serve queries in parallel, so adding them raises query throughput, and two or more replicas qualify a service for the read-availability SLA. Partitions add storage and indexing capacity, which this 20 GB index does not need, and do not provide the availability SLA on their own. Storage Optimized tiers target very large indexes and have higher query latency. Trimming fields reduces index size but does not address concurrent query load.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/search/search-capacity-planning",
+    tags: ["Azure AI Search", "Scaling", "Replicas"]
+  },
+  {
+    id: "azure-ai-apps-agents-66",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d1",
+    domainName: "Plan and manage an Azure AI solution",
+    title: "Which deployment is making responses slow?",
+    scenario: "A Foundry resource hosts four model deployments used by different applications. Users of one app report that answers have become slow over the past week, and the developer needs to see response latency over time for each deployment separately, without changing any application code.",
+    question: "What should the developer do?",
+    options: [
+      { id: 'A', text: "Run an evaluation with the fluency evaluator on each deployment, because fluency scores fall as latency grows." },
+      { id: 'B', text: "Chart the resource's Processed Prompt Tokens metric, because rising token counts always mean a longer time to response." },
+      { id: 'C', text: "Open the resource's Azure Monitor metrics, chart Time to Response and split it by the model deployment name." },
+      { id: 'D', text: "Enable the Foundry resource's audit logs and count how many management operations ran against each deployment." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "Foundry model deployments emit platform metrics to Azure Monitor with no code changes, including latency metrics such as Time to Response, and splitting by the ModelDeploymentName dimension isolates the slow deployment over time. Audit logs record control-plane operations, not inference latency. Token volume can influence latency but does not measure it, so it cannot confirm where the slowdown is. Fluency evaluates language quality and is unrelated to response time.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/monitor-openai",
+    tags: ["Azure Monitor", "Latency", "Metrics"]
+  },
+  {
+    id: "azure-ai-apps-agents-67",
+    difficulty: "hard",
+    certId: "azure-ai-apps-agents",
+    domainId: "d1",
+    domainName: "Plan and manage an Azure AI solution",
+    title: "Catching quality drift after a model upgrade",
+    scenario: "A deployment used by a legal research assistant is set to auto-upgrade model versions. The team worries that a version change, or gradual changes in the indexed content, could quietly degrade answers. It keeps a curated dataset of 300 questions with expected answers and wants to detect drift from a known baseline each week.",
+    question: "What should the developer configure?",
+    options: [
+      { id: 'A', text: "A weekly AI red teaming scan whose attack success rate is compared to the previous week's rate to detect the drift." },
+      { id: 'B', text: "An Azure Monitor alert raised when the deployment's Time to Response drifts from its baseline." },
+      { id: 'C', text: "A scheduled evaluation running the curated dataset weekly with quality evaluators, compared to the baseline." },
+      { id: 'D', text: "Continuous evaluation on a sample of production traffic, which scores answers against the curated expected responses." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "Scheduled evaluation reruns a fixed test dataset on a schedule with quality evaluators such as similarity, groundedness and relevance, so week-over-week scores against the same questions reveal drift caused by a model version or content change. Continuous evaluation samples live traffic, which has no expected answers and varies week to week, so it cannot compare against the curated baseline. Latency alerts say nothing about answer quality. Red teaming measures resistance to attacks, not the correctness of legal research answers.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/concepts/observability",
+    tags: ["Drift", "Scheduled evaluation", "Monitoring"]
+  },
+  {
+    id: "azure-ai-apps-agents-68",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d1",
+    domainName: "Plan and manage an Azure AI solution",
+    title: "Scoring live answers without slowing users",
+    scenario: "A benefits agent in production handles about 20,000 conversations a day. The team wants ongoing groundedness and relevance scores on real traffic shown in the Foundry observability dashboard, while keeping evaluation cost bounded and adding no latency to user responses.",
+    question: "What should the developer configure?",
+    options: [
+      { id: 'A', text: "A nightly batch deployment that regenerates every day's answers with a larger model and compares the two versions." },
+      { id: 'B', text: "Continuous evaluation with a sampling rate and hourly cap, writing results to the project's Application Insights." },
+      { id: 'C', text: "A scheduled evaluation over the curated test dataset every hour, treating its scores as production quality metrics." },
+      { id: 'D', text: "A synchronous evaluator call inside the agent's response path that scores every answer before it is sent to the user." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "Continuous evaluation runs evaluators asynchronously on a configurable sample of production agent runs, with a maximum number of evaluated requests per hour, and writes results to the Application Insights resource connected to the project, where the dashboard displays them, so cost is bounded and users see no added latency. Scoring every answer inline adds an extra model call to each response. Regenerating answers with another model measures that model, not the production agent. A curated dataset does not reflect what real users are asking.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/observability/how-to/how-to-monitor-agents-dashboard",
+    tags: ["Continuous evaluation", "Monitoring", "Application Insights"]
+  },
+  {
+    id: "azure-ai-apps-agents-69",
+    difficulty: "hard",
+    certId: "azure-ai-apps-agents",
+    domainId: "d1",
+    domainName: "Plan and manage an Azure AI solution",
+    title: "Diagnosing why RAG answers go wrong",
+    scenario: "A policy assistant sometimes gives wrong answers. The team cannot tell whether the retriever is fetching the wrong chunks or the model is adding claims the chunks do not support. It captures the query, retrieved context and response for each sampled request and wants two metrics that separate these failure modes.",
+    question: "Which two evaluators should the developer run? (Choose two.)",
+    options: [
+      { id: 'A', text: "The coherence evaluator, which scores how logically the sentences of the response connect together." },
+      { id: 'B', text: "The groundedness evaluator, which checks whether the response's claims are supported by the context." },
+      { id: 'C', text: "The retrieval evaluator, which scores how relevant the retrieved context is to the user's query." },
+      { id: 'D', text: "The fluency evaluator, which scores the grammar and readability of the response for the query." },
+      { id: 'E', text: "The BLEU score evaluator, which counts n-gram overlap between the response and the retrieved context." }
+    ],
+    correctAnswers: ['B', 'C'],
+    type: "multiple",
+    explanation: "The retrieval evaluator judges whether the retrieved chunks are relevant to the query, isolating retriever failures, and the groundedness evaluator judges whether the response's claims are supported by that context, isolating fabrication by the model. Together they tell the team which stage to fix. Fluency and coherence assess writing quality and would score a well-written fabricated answer highly. BLEU measures n-gram overlap with a reference and would reward copying the context rather than detecting unsupported claims.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/concepts/evaluation-evaluators/rag-evaluators",
+    tags: ["Evaluation", "Groundedness", "RAG"]
+  },
+  {
+    id: "azure-ai-apps-agents-70",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d1",
+    domainName: "Plan and manage an Azure AI solution",
+    title: "Tracking how often the content filter intervenes",
+    scenario: "A youth-education chatbot uses a deployment with the default guardrail configuration. The trust and safety team wants to see, over time, how many prompts and completions are blocked or annotated in each harm category, to spot abuse campaigns and to tune thresholds.",
+    question: "What should the developer use?",
+    options: [
+      { id: 'A', text: "The Processed Inference Tokens metric, filtered to the hours when abuse campaigns usually take place." },
+      { id: 'B', text: "The risks and safety monitoring view, which charts the deployment's blocked requests by harm category." },
+      { id: 'C', text: "The built-in harm evaluators on sampled traffic, which score the completions that reached users." },
+      { id: 'D', text: "The Azure Activity log, which records a management event every time a prompt is filtered by category." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "Risks and safety monitoring aggregates content filtering results for a deployment, showing blocked request volume and severity by harm category such as hate, sexual, violence and self-harm over time, which is what the team needs to spot campaigns and tune thresholds. Token metrics show volume, not filtering outcomes. Harm evaluators score responses that were returned, so they cannot count the ones the filter blocked. The Activity log records control-plane operations on resources, not individual inference requests.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/risks-safety-monitor",
+    tags: ["Content filtering", "Safety monitoring", "Guardrails"]
+  },
+  {
+    id: "azure-ai-apps-agents-71",
+    difficulty: "hard",
+    certId: "azure-ai-apps-agents",
+    domainId: "d1",
+    domainName: "Plan and manage an Azure AI solution",
+    title: "Paging the on-call engineer when quality drops",
+    scenario: "A retailer's agent already writes continuous evaluation results, including a groundedness score per sampled run, to the Application Insights resource connected to its Foundry project. The on-call engineer must be paged automatically when the average groundedness over the last hour falls below 3.5.",
+    question: "What should the developer configure?",
+    options: [
+      { id: 'A', text: "A metric alert on the deployment's Time to Response metric, because low groundedness raises response time." },
+      { id: 'B', text: "An Azure Monitor log search alert that queries the evaluation results and notifies an action group." },
+      { id: 'C', text: "A Cost Management anomaly alert that fires when evaluation spend changes, signalling a change in quality." },
+      { id: 'D', text: "An Azure Service Health alert for the Foundry resource's region, which also reports degraded results." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "Because the evaluation scores are stored in Application Insights, an Azure Monitor log search alert can run a KQL query that averages groundedness over the last hour and trigger an action group, which pages the engineer when the value drops below 3.5. Cost anomalies reflect spend, not answer quality. Groundedness and latency are unrelated, so a latency alert would miss the drop. Service Health reports Azure platform incidents, not the quality of a customer's agent.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-monitor/alerts/alerts-create-log-alert-rule",
+    tags: ["Alerts", "Azure Monitor", "Continuous evaluation"]
+  },
+  {
+    id: "azure-ai-apps-agents-72",
+    difficulty: "easy",
+    certId: "azure-ai-apps-agents",
+    domainId: "d1",
+    domainName: "Plan and manage an Azure AI solution",
+    title: "Keeping request logs for an internal audit",
+    scenario: "An internal audit requires the platform team to keep a searchable record of inference requests to its Foundry resource, including caller, deployment, status code and duration, for 12 months. The logs must be queryable with KQL alongside other resource logs.",
+    question: "What should the developer configure?",
+    options: [
+      { id: 'A', text: "An Azure Policy that audits whether each deployment has a name that matches the naming convention." },
+      { id: 'B', text: "A Microsoft Defender for Cloud recommendation that exports the resource's secure score every day." },
+      { id: 'C', text: "A resource lock on the Foundry resource so that its built-in request logs can never be deleted." },
+      { id: 'D', text: "A diagnostic setting on the Foundry resource that sends request logs to a Log Analytics workspace." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Resource logs are collected only when a diagnostic setting routes them; sending the Foundry resource's request and audit log categories to a Log Analytics workspace makes them queryable with KQL and lets the table retention be set to 12 months. A resource lock prevents changes to the resource but creates no log history. A naming policy reports compliance of deployment names, not requests. Secure score exports summarise security posture, not individual inference calls.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/monitor-openai",
+    tags: ["Diagnostic settings", "Log Analytics", "Auditing"]
+  },
+  {
+    id: "azure-ai-apps-agents-73",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d1",
+    domainName: "Plan and manage an Azure AI solution",
+    title: "Comparing a candidate model before switching",
+    scenario: "A developer wants to replace gpt-4o with gpt-4.1 behind a customer-support app. Before switching, she must show that the new model scores at least as well on the team's 400-question evaluation dataset for relevance, groundedness and safety, with results side by side in the Foundry portal.",
+    question: "What should she do?",
+    options: [
+      { id: 'A', text: "Run an evaluation against each model deployment on the same dataset and compare the runs in the portal." },
+      { id: 'B', text: "Switch production traffic to the new model for a day and compare customer satisfaction survey scores." },
+      { id: 'C', text: "Compare the two models' benchmark results on public datasets in the portal's model catalog." },
+      { id: 'D', text: "Compare Time to Response metrics for the two deployments, because faster answers indicate better quality." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Running the same dataset through each deployment with the relevance, groundedness and safety evaluators produces two evaluation runs that the Foundry portal can compare side by side, giving task-specific evidence before any user sees the change. Public benchmark rankings reflect general datasets, not the team's support questions. A day of production traffic exposes customers to an unvalidated model and yields noisy signals. Latency says nothing about answer quality or safety.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/how-to/evaluate-results",
+    tags: ["Evaluation", "Model comparison"]
+  },
+  {
+    id: "azure-ai-apps-agents-74",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d1",
+    domainName: "Plan and manage an Azure AI solution",
+    title: "Operational health view for several agents",
+    scenario: "A contact-centre team runs five prompt agents in one Foundry project and connected an Application Insights resource to the project. Managers want one place to see each agent's run volume, success rate, token consumption and latency trends, plus any evaluation scores, without building their own workbook.",
+    question: "What should the developer point the managers to?",
+    options: [
+      { id: 'A', text: "The agent monitoring dashboard in the Foundry portal, reading the project's Application Insights data." },
+      { id: 'B', text: "The Azure Advisor blade for the subscription, which lists each agent with cost and reliability advice." },
+      { id: 'C', text: "The search traffic analytics report of the project's Azure AI Search service, filtered to each agent." },
+      { id: 'D', text: "The Cost analysis view in Cost Management, grouped by the tags applied to each of the five agents." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "The agent monitoring dashboard in the Foundry portal uses the project's connected Application Insights data to show operational metrics such as runs, success rate, token usage and latency, along with continuous evaluation results, per agent and with no custom workbook. Advisor gives recommendations, not agent run metrics. Cost analysis shows spend, and agents are not tagged Azure resources that it can group by. Search traffic analytics covers query activity on a search service, not agent runs.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/observability/how-to/how-to-monitor-agents-dashboard",
+    tags: ["Agent monitoring", "Observability", "Application Insights"]
+  },
+  {
+    id: "azure-ai-apps-agents-75",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d1",
+    domainName: "Plan and manage an Azure AI solution",
+    title: "Hundreds of failed evaluations to make sense of",
+    scenario: "After a large evaluation run, 340 of 2,000 agent responses failed the task adherence threshold. Reading them one by one would take days, and the developer wants to see which recurring patterns of failure account for most of them so she can prioritise fixes.",
+    question: "Which Foundry capability should she use?",
+    options: [
+      { id: 'A', text: "Prompt caching on the agent's deployment, which groups repeated prompts into cache entries for review." },
+      { id: 'B', text: "The AI red teaming agent, which replays each failed response with adversarial prompts to find recurring failure patterns." },
+      { id: 'C', text: "The semantic ranker on the evaluation dataset index, which sorts failed responses by their reranker score." },
+      { id: 'D', text: "Cluster analysis on the evaluation results, which groups failed responses into recurring failure patterns." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Cluster analysis groups evaluation failures by similarity and summarises each cluster, so the developer sees which recurring patterns, such as a misused tool or ignored constraint, account for most of the 340 failures and can prioritise fixes. The red teaming agent generates adversarial attacks; it does not organise existing failures. Prompt caching lowers input-token cost and produces no analysis. The semantic ranker reorders search results by relevance and cannot categorise evaluation failures.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/observability/how-to/cluster-analysis",
+    tags: ["Evaluation", "Error analysis", "Cluster analysis"]
+  }
+];
+
+export default AZURE_AI_APPS_AGENTS_QUESTIONS_3;

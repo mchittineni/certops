@@ -1,0 +1,532 @@
+export const AZURE_AI_APPS_AGENTS_QUESTIONS_20 = [
+  {
+    id: "azure-ai-apps-agents-476",
+    difficulty: "easy",
+    certId: "azure-ai-apps-agents",
+    domainId: "d5",
+    domainName: "Implement information extraction solutions",
+    title: "Clean Markdown for a policy knowledge base",
+    scenario: "An airline's knowledge team is loading 12,000 operations manuals, a mix of PDFs, Word files and slide decks full of diagrams, into a RAG index. It wants each file turned into structure-preserving Markdown with descriptions of the diagrams, a one-paragraph summary, and chunks ready for embedding, from a single Content Understanding call per file.",
+    question: "Which analyzer should the team use?",
+    options: [
+      { id: 'A', text: "prebuilt-documentSearch, which returns Markdown, figure descriptions, a summary and chunks." },
+      { id: 'B', text: "prebuilt-read, which extracts words and paragraphs with basic OCR but no summary or chunks." },
+      { id: 'C', text: "prebuilt-idDocument, which returns the structured text of each page as a list of fields." },
+      { id: 'D', text: "prebuilt-documentFields, which extracts the key-value pairs found in each manual as fields." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "prebuilt-documentSearch is the RAG analyzer for documents: it extracts content with layout as Markdown, describes figures and analyzes charts and diagrams, captures handwritten annotations, generates a one-paragraph summary, and produces chunked output ready for embedding. prebuilt-read gives basic OCR text without layout, figure descriptions or summaries. prebuilt-documentFields extracts key-value pairs, not a readable representation of the manual. prebuilt-idDocument is a domain analyzer for identity documents such as passports.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/ai-services/content-understanding/concepts/prebuilt-analyzers",
+    tags: ["Content Understanding", "RAG analyzers", "Markdown"]
+  },
+  {
+    id: "azure-ai-apps-agents-477",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d5",
+    domainName: "Implement information extraction solutions",
+    title: "Exported digital contracts at the lowest cost",
+    scenario: "A property platform receives 300,000 lease agreements a month, all exported directly from its e-signature system as born-digital PDFs with a text layer; none are scans. It needs the raw text and document metadata such as author and creation date, has no model deployments connected, and wants the cheapest extraction option in Content Understanding.",
+    question: "Which analyzer fits?",
+    options: [
+      { id: 'A', text: "prebuilt-contract, which returns the parties, dates and clauses of each lease as extracted fields." },
+      { id: 'B', text: "prebuilt-layout, which runs OCR over each rendered page and returns paragraphs, tables and figures." },
+      { id: 'C', text: "prebuilt-documentSearch, which returns Markdown with a summary and chunks for every lease file." },
+      { id: 'D', text: "prebuilt-digitalParse, which reads machine-readable content straight from each file's structure." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "prebuilt-digitalParse extracts machine-readable content by analyzing a file's internal structure and encoding, needs no language or embedding model, and in the GA API is the content extraction analyzer that returns document metadata by default, which suits born-digital PDFs. prebuilt-contract and prebuilt-documentSearch use generative models, which require connected deployments and cost more. prebuilt-layout also needs no model but performs OCR and layout analysis designed for scanned or image-based documents, which these leases do not need.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/ai-services/content-understanding/concepts/prebuilt-analyzers",
+    tags: ["Content Understanding", "Content extraction", "Cost optimization"]
+  },
+  {
+    id: "azure-ai-apps-agents-478",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d5",
+    domainName: "Implement information extraction solutions",
+    title: "Tables that arrive as HTML in the Markdown",
+    scenario: "A developer builds a custom analyzer on prebuilt-document to feed an agent that parses tables with a Markdown table parser. The analyzer's Markdown output renders every table as an HTML table element, which the parser rejects, although the headings and paragraphs are fine.",
+    question: "What should the developer change in the analyzer configuration?",
+    options: [
+      { id: 'A', text: "Set annotationFormat to markdown so table cells are returned as Markdown annotations instead." },
+      { id: 'B', text: "Set tableFormat to markdown so extracted tables are written as Markdown tables in the result." },
+      { id: 'C', text: "Set enableLayout to false so tables are flattened into plain paragraphs the parser can accept." },
+      { id: 'D', text: "Set chartFormat to markdown so both tables and charts are serialized in the same text format." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "The tableFormat setting controls how document analyzers write extracted tables; its default is html, which preserves complex structures, and setting it to markdown writes simple Markdown tables that text-based parsers accept. annotationFormat governs annotations such as highlights and strikethroughs, not tables. Disabling layout loses document structure, including the tables the agent needs. chartFormat applies to chart data and supports only the Chart.js format.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/ai-services/content-understanding/concepts/analyzer-reference",
+    tags: ["Content Understanding", "Analyzer configuration", "Markdown"]
+  },
+  {
+    id: "azure-ai-apps-agents-479",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d5",
+    domainName: "Implement information extraction solutions",
+    title: "Charts an agent can reason about numerically",
+    scenario: "An asset manager's research agent reads quarterly fund reports processed by a custom document analyzer. Analysts want the agent to compare the values plotted in bar and line charts across quarters, and accessibility reviewers want plain-language text explaining every chart and diagram. Neither appears in the current output.",
+    question: "Which two settings should be enabled on the analyzer? (Choose two.)",
+    options: [
+      { id: 'A', text: "enableOcr, so the numbers printed in each chart's axis labels become fields." },
+      { id: 'B', text: "enableFormula, so plotted values are returned as LaTeX expressions per chart." },
+      { id: 'C', text: "enableFigureDescription, so each figure gets a natural-language description." },
+      { id: 'D', text: "enableFigureAnalysis, so chart data is extracted in structured Chart.js form." },
+      { id: 'E', text: "enableBarcode, so the data encoded in each figure image is decoded as values." }
+    ],
+    correctAnswers: ['C', 'D'],
+    type: "multiple",
+    explanation: "Figure analysis performs deeper analysis of figures, including extracting chart data into structured Chart.js format that an agent can compare, and figure description generates natural-language descriptions of figures suitable for alt text; both are off by default. Formula detection extracts mathematical equations, not plotted values. Barcode detection decodes barcodes and QR codes. OCR reads axis labels as text but does not reconstruct the data series or describe the figure.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/ai-services/content-understanding/concepts/analyzer-reference",
+    tags: ["Content Understanding", "Figure analysis", "Charts"]
+  },
+  {
+    id: "azure-ai-apps-agents-480",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d5",
+    domainName: "Implement information extraction solutions",
+    title: "Posting claims automatically when the model is sure",
+    scenario: "A health insurer extracts member ID, provider and billed amount from claim forms with a custom Content Understanding analyzer. Operations wants claims posted automatically when extraction is reliable, other claims queued for a reviewer who can see where on the page each value came from, and auditors want that location recorded.",
+    question: "Which two design choices meet these requirements? (Choose two.)",
+    options: [
+      { id: 'A', text: "Set omitContent to true so reviewers see only field values and never the extracted document text." },
+      { id: 'B', text: "Set returnDetails to false so the response stays small and every claim can be posted more quickly." },
+      { id: 'C', text: "Change every field to the generate method so the model fills values even when the form is unclear." },
+      { id: 'D', text: "Queue any document with a field below an agreed confidence threshold for review, showing its region." },
+      { id: 'E', text: "Enable estimateFieldSourceAndConfidence so each field returns a confidence score and its source region." }
+    ],
+    correctAnswers: ['D', 'E'],
+    type: "multiple",
+    explanation: "Enabling source and confidence estimation returns, for each field, a confidence score from 0 to 1 and the page and bounding region where the value was found; the workflow can then post claims whose fields all clear a threshold and route the rest to a reviewer who sees the grounded region, which also gives auditors the location. Turning details off removes information reviewers need. Generating values for unclear forms invents data instead of flagging uncertainty. Omitting content does not provide confidence or locations.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/ai-services/content-understanding/concepts/analyzer-reference",
+    tags: ["Content Understanding", "Confidence scores", "Human review"]
+  },
+  {
+    id: "azure-ai-apps-agents-481",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d5",
+    domainName: "Implement information extraction solutions",
+    title: "A risk sentence that no lease states outright",
+    scenario: "A commercial landlord's analyzer extracts rent, term and break dates from leases. It now also wants a field holding a one-sentence assessment of how tenant-friendly the break clause is, which no lease states in so many words, returned with the other fields for its portfolio agent.",
+    question: "How should the new field be defined?",
+    options: [
+      { id: 'A', text: "As an array field of extract strings that returns every sentence mentioning the break clause." },
+      { id: 'B', text: "As a boolean field with the classify method that marks each lease as tenant-friendly or not." },
+      { id: 'C', text: "As a string field with the extract method, so the sentence is copied from the break clause text." },
+      { id: 'D', text: "As a string field with the generate method and a description of what the sentence must cover." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "The generate method produces values the model writes from the content, such as summaries and assessments that do not appear verbatim, and the field description acts as the instruction for what the sentence must cover. The extract method returns values exactly as they appear in the document, and no lease contains this assessment. A classify field chooses from fixed categories and would not produce the requested sentence. Returning every mentioning sentence hands the agent raw text rather than the assessment.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/ai-services/content-understanding/concepts/analyzer-reference",
+    tags: ["Content Understanding", "Field methods", "Structured output"]
+  },
+  {
+    id: "azure-ai-apps-agents-482",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d5",
+    domainName: "Implement information extraction solutions",
+    title: "Dates written five different ways",
+    scenario: "A shipping firm's analyzer extracts the departure date from bills of lading issued in many countries, where it appears as '03/04/2026', '4 March 2026', '2026-03-04' and other forms. The field is currently a string, and a downstream job with fragile parsing rules often fails on it.",
+    question: "What should the developer change?",
+    options: [
+      { id: 'A', text: "Change the field type to date so the service returns the value normalized to a canonical format." },
+      { id: 'B', text: "Keep the string type and add a regular expression step in the downstream job for each date format." },
+      { id: 'C', text: "Change the field to an array of strings so each possible reading of the date is returned." },
+      { id: 'D', text: "Change the field to the classify method with an enum listing every date format that has been seen." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Content Understanding normalizes values of typed fields; declaring the field as a date returns the value in a canonical date format regardless of how it was printed, which removes the fragile parsing downstream. Regular expressions per format are what the team is trying to escape. Classify with an enum picks a category, not a date value. Returning multiple readings pushes the ambiguity downstream instead of resolving it.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/ai-services/content-understanding/concepts/analyzer-reference",
+    tags: ["Content Understanding", "Field types", "Normalization"]
+  },
+  {
+    id: "azure-ai-apps-agents-483",
+    difficulty: "hard",
+    certId: "azure-ai-apps-agents",
+    domainId: "d5",
+    domainName: "Implement information extraction solutions",
+    title: "A five-level schema with falling accuracy",
+    scenario: "A developer modeled construction tenders in one analyzer field schema as tender, containing lots, containing work packages, containing line items, containing material specifications, five levels deep. Extraction is slow and values often land under the wrong parent, while a small test schema with two levels was accurate.",
+    question: "What should the developer do?",
+    options: [
+      { id: 'A', text: "Flatten the structure to two or three levels, carrying the owning lot and package IDs on each row." },
+      { id: 'B', text: "Remove all field descriptions so the model relies on the structure alone to place each value." },
+      { id: 'C', text: "Add more levels so each material property becomes its own object and the model has clearer targets." },
+      { id: 'D', text: "Switch every nested object to the classify method so the model only chooses among fixed values." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Guidance for field schemas is to avoid nesting deeper than two or three levels, because deep hierarchies reduce both performance and extraction accuracy; flattening, for example returning line items as rows that carry their lot and package identifiers, keeps relationships while staying shallow. Adding levels makes the problem worse. Classify only suits fixed categories and cannot capture quantities or specifications. Field descriptions act as prompts, so removing them reduces accuracy.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/ai-services/content-understanding/concepts/analyzer-reference",
+    tags: ["Content Understanding", "Field schema", "Accuracy"]
+  },
+  {
+    id: "azure-ai-apps-agents-484",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d5",
+    domainName: "Implement information extraction solutions",
+    title: "Invoice output changing after an API upgrade",
+    scenario: "A retailer's accounts payable agent calls prebuilt-invoice directly. After moving to a newer API version, some fields came back with different names and the agent's parser broke. The team wants the extraction schema to stay stable until it chooses to change it, while starting from the prebuilt behavior.",
+    question: "What should the team do?",
+    options: [
+      { id: 'A', text: "Get the prebuilt-invoice definition and create a custom analyzer copy of it for production use." },
+      { id: 'B', text: "Pin the agent to the oldest API version forever so prebuilt-invoice can never change its schema." },
+      { id: 'C', text: "Call prebuilt-invoice and prebuilt-receipt for each file and merge whichever fields they return." },
+      { id: 'D', text: "Switch to prebuilt-documentFields, whose key-value output has no schema that could ever change." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Prebuilt analyzer definitions can change between API versions, so the recommended practice for production is to retrieve the prebuilt definition and create your own custom analyzer from it; the copy keeps its schema until you update it, while still starting from the prebuilt configuration. Pinning to an old API version forever forgoes fixes and eventually hits retirement. Generic key-value output has unpredictable keys, which is worse for a parser. Calling two analyzers and merging adds cost and inconsistency.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/ai-services/content-understanding/concepts/prebuilt-analyzers",
+    tags: ["Content Understanding", "Custom analyzers", "Versioning"]
+  },
+  {
+    id: "azure-ai-apps-agents-485",
+    difficulty: "easy",
+    certId: "azure-ai-apps-agents",
+    domainId: "d5",
+    domainName: "Implement information extraction solutions",
+    title: "No fields in the analyze response",
+    scenario: "A developer posts a scanned delivery note to a custom analyzer's analyze endpoint and receives an HTTP 202 Accepted response with no extracted fields in the body. The developer assumes the analyzer is broken.",
+    question: "What should the code do next?",
+    options: [
+      { id: 'A', text: "Poll the Operation-Location URL until the status is Succeeded, then read the result object." },
+      { id: 'B', text: "Resubmit the document with returnDetails set to true so the fields are included in the 202 body." },
+      { id: 'C', text: "Switch to the synchronous analyze endpoint of the analyzer, which returns fields in one response." },
+      { id: 'D', text: "Delete and recreate the analyzer, because a 202 means its creation had not finished successfully." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Analysis is an asynchronous operation: the analyze request returns 202 Accepted with an Operation-Location header pointing at the analyzer result, and the client polls that URL until the status is Succeeded, when the result object contains the content and fields. returnDetails adds detail to the eventual result, not to the 202 response. A 202 on analyze says nothing about analyzer creation. The analyze operation is not offered as a synchronous call that returns fields directly.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/ai-services/content-understanding/quickstart/use-rest-api",
+    tags: ["Content Understanding", "REST API", "Async operations"]
+  },
+  {
+    id: "azure-ai-apps-agents-486",
+    difficulty: "easy",
+    certId: "azure-ai-apps-agents",
+    domainId: "d5",
+    domainName: "Implement information extraction solutions",
+    title: "Payloads bloated by content nobody reads",
+    scenario: "A logistics firm's integration only needs the five structured fields its custom analyzer extracts from customs declarations. Each response also carries the full extracted document content, which inflates message sizes on its queue and slows the consumer.",
+    question: "Which analyzer setting should the developer enable?",
+    options: [
+      { id: 'A', text: "enableLayout set to false, so the fields are extracted from a shorter plain text." },
+      { id: 'B', text: "segmentPerPage, so the content is split into one smaller object for every page." },
+      { id: 'C', text: "tableFormat set to markdown, so the tables in the content take far fewer bytes." },
+      { id: 'D', text: "omitContent, so the response leaves out the content object and returns the fields." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Setting omitContent to true excludes the original content object from the response, leaving just the structured field data, which is what the integration consumes. Splitting content per page still returns all of it. Disabling layout can hurt extraction accuracy and the content is still returned. Changing table formatting trims only a little and keeps the content the consumer ignores.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/ai-services/content-understanding/concepts/analyzer-reference",
+    tags: ["Content Understanding", "Analyzer configuration", "Payload size"]
+  },
+  {
+    id: "azure-ai-apps-agents-487",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d5",
+    domainName: "Implement information extraction solutions",
+    title: "Forty delivery notes scanned into one PDF",
+    scenario: "Drivers scan a day's delivery notes into one PDF, one note per page, all of the same type. The custom analyzer currently treats the whole PDF as one document and returns a single consignee and signature date instead of one set of fields for each delivery note.",
+    question: "How should the analyzer be configured?",
+    options: [
+      { id: 'A', text: "Enable segmentation with segmentPerPage set to true so each page is processed as its own unit." },
+      { id: 'B', text: "Set returnDetails to true so the response lists the fields page by page with their spans." },
+      { id: 'C', text: "Change the fields to arrays so every consignee and signature date is collected into one list." },
+      { id: 'D', text: "Set omitContent to true so the analyzer returns fields without merging the content of each page." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "When segmentation is enabled, segmentPerPage forces one segment per page instead of logical boundaries, so each page, here one delivery note, is treated as an independent unit with its own field results. omitContent only trims the response. Arrays would collect values into lists but lose the pairing of each consignee with its own signature date. returnDetails adds positions and confidence but still produces one set of fields for the file.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/ai-services/content-understanding/concepts/analyzer-reference",
+    tags: ["Content Understanding", "Segmentation", "Field extraction"]
+  },
+  {
+    id: "azure-ai-apps-agents-488",
+    difficulty: "hard",
+    certId: "azure-ai-apps-agents",
+    domainId: "d5",
+    domainName: "Implement information extraction solutions",
+    title: "Subtotals captured as the amount due",
+    scenario: "A utilities firm's custom analyzer defines a number field named Total with the description 'the total'. On bills that show a subtotal, taxes, previous balance and amount due, the field often returns the subtotal or previous balance. The schema has no other amount fields.",
+    question: "What is the most effective fix?",
+    options: [
+      { id: 'A', text: "Rewrite its description to name the final payable figure and the label it usually appears under." },
+      { id: 'B', text: "Rename the field to TOTAL_AMOUNT in capitals so the model gives it more weight during extraction." },
+      { id: 'C', text: "Remove the analyzer description so the model focuses on the field schema without other context." },
+      { id: 'D', text: "Change the field type from number to string so the service stops choosing among numeric values." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Field descriptions act as mini-prompts that guide extraction, so a specific description saying which figure is wanted, what it includes and how it is usually labeled lets the model pick the amount due rather than other totals; adding explicit fields for the subtotal and previous balance can help further. Capitalizing the name does not convey meaning. Changing the type loses normalization and does not tell the model which number to pick. The analyzer description also gives useful context, so removing it reduces accuracy.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/ai-services/content-understanding/concepts/best-practices",
+    tags: ["Content Understanding", "Field descriptions", "Accuracy"]
+  },
+  {
+    id: "azure-ai-apps-agents-489",
+    difficulty: "easy",
+    certId: "azure-ai-apps-agents",
+    domainId: "d5",
+    domainName: "Implement information extraction solutions",
+    title: "Where to start with an unfamiliar document type",
+    scenario: "A newly acquired subsidiary sends a type of customs pre-clearance form the team has never processed. Before designing a custom analyzer, the developer wants a suggested set of fields that the form contains, as a starting point to review and edit.",
+    question: "Which prebuilt analyzer helps with this?",
+    options: [
+      { id: 'A', text: "prebuilt-layout, which returns the paragraphs and tables of the form with their page positions." },
+      { id: 'B', text: "prebuilt-procurement, which classifies procurement documents and routes them onward." },
+      { id: 'C', text: "prebuilt-documentSearch, which returns the form as Markdown along with a short written summary." },
+      { id: 'D', text: "prebuilt-documentFieldSchema, which analyzes sample documents and proposes a field schema." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "prebuilt-documentFieldSchema is a utility analyzer that analyzes documents and proposes an appropriate field schema, which is useful for discovering structure in a new document type before refining a custom analyzer. prebuilt-procurement routes procurement documents such as invoices to their analyzers and would not fit a customs form. prebuilt-layout and prebuilt-documentSearch return content and structure, not a suggested set of named fields.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/ai-services/content-understanding/concepts/prebuilt-analyzers",
+    tags: ["Content Understanding", "Utility analyzers", "Schema design"]
+  },
+  {
+    id: "azure-ai-apps-agents-490",
+    difficulty: "hard",
+    certId: "azure-ai-apps-agents",
+    domainId: "d5",
+    domainName: "Implement information extraction solutions",
+    title: "Analyzer creation rejected over its model",
+    scenario: "A developer deployed gpt-5.2 in the Foundry resource under the deployment name contoso-extract and connected it for Content Understanding. The custom analyzer definition sets models.completion to contoso-extract, and the create request is rejected with a message that the model is not supported by the base analyzer.",
+    question: "What should the developer change in the analyzer definition?",
+    options: [
+      { id: 'A', text: "Set models.completion to gpt-5.2, a model name the base analyzer lists among its supported models." },
+      { id: 'B', text: "Rename the deployment to prebuilt-document so its name matches the base analyzer the schema uses." },
+      { id: 'C', text: "Set baseAnalyzerId to gpt-5.2 so the analyzer inherits its completion settings from that model." },
+      { id: 'D', text: "Move contoso-extract into models.embedding so the deployment is supported through the embedding slot." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "The models property of an analyzer takes Foundry catalog model names, not deployment names, and they must match the base analyzer's supported models; at run time the service maps the model name to the deployment configured at the resource level. Setting completion to gpt-5.2 fixes the rejection. baseAnalyzerId must be one of the base analyzers such as prebuilt-document. The embedding slot is for embedding models. Renaming a deployment does not change how the models property is interpreted.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/ai-services/content-understanding/concepts/analyzer-reference",
+    tags: ["Content Understanding", "Model configuration", "Troubleshooting"]
+  },
+  {
+    id: "azure-ai-apps-agents-491",
+    difficulty: "hard",
+    certId: "azure-ai-apps-agents",
+    domainId: "d5",
+    domainName: "Implement information extraction solutions",
+    title: "Labeled examples that change nothing",
+    scenario: "A bank labeled 20 sample loan statements in Content Understanding Studio to improve its custom analyzer, but accuracy on hard cases did not change. The resource has a completion model deployment linked, and the team notices the analyzer's model configuration lists only that one model.",
+    question: "What is the most likely missing piece?",
+    options: [
+      { id: 'A', text: "A second completion model deployment, because labeled examples are processed by a separate model." },
+      { id: 'B', text: "A classify field for each labeled value, because labels only apply to fields using that method." },
+      { id: 'C', text: "The enableSegment setting, because labeled examples only apply to segments rather than whole files." },
+      { id: 'D', text: "A text embedding model deployment connected and named for the analyzer, used for the examples." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Content Understanding uses your own text embedding model deployment for training examples: the analyzer's models configuration has an embedding entry, such as text-embedding-3-large, alongside the completion model, and without an embedding model connected the labeled examples cannot be used. A second completion deployment does not provide embeddings. Segmentation is unrelated to training examples. Labels apply to extracted and generated fields, not only classify fields.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/ai-services/content-understanding/concepts/models-deployments",
+    tags: ["Content Understanding", "Training examples", "Embedding models"]
+  },
+  {
+    id: "azure-ai-apps-agents-492",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d5",
+    domainName: "Implement information extraction solutions",
+    title: "Analyses that succeed with fields missing",
+    scenario: "A trauma unit extracts injury descriptions and treatment fields from emergency department reports with a custom analyzer. For some reports the analysis succeeds and the Markdown content is complete, but several generated fields are absent and the response includes warnings. Clinicians need those fields for every report.",
+    question: "Which two actions address this? (Choose two.)",
+    options: [
+      { id: 'A', text: "Inspect the warnings, which indicate the deployment's guardrail restricted field generation." },
+      { id: 'B', text: "Switch the fields from generate to extract so the guardrail no longer inspects their text values." },
+      { id: 'C', text: "Increase max tokens on the analyzer so the warnings clear and the model has room to generate the fields." },
+      { id: 'D', text: "Disable OCR on the analyzer so injury descriptions are no longer read from the scanned reports." },
+      { id: 'E', text: "Seek approval for annotate-only behavior so detections are kept for review instead of blocking." }
+    ],
+    correctAnswers: ['A', 'E'],
+    type: "multiple",
+    explanation: "Content Understanding inherits the guardrails of the Foundry model deployment it uses; they can restrict field generation while preserving extracted content, so analysis succeeds with warnings and some values missing. Reviewing the warnings confirms the cause, and with the required approval an annotate-only configuration keeps detections for human review instead of blocking the fields. There is no max tokens setting that bypasses guardrails. Switching to extract does not exempt values from the guardrail. Disabling OCR would lose the text entirely.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/ai-services/content-understanding/concepts/guardrails",
+    tags: ["Content Understanding", "Guardrails", "Troubleshooting"]
+  },
+  {
+    id: "azure-ai-apps-agents-493",
+    difficulty: "easy",
+    certId: "azure-ai-apps-agents",
+    domainId: "d5",
+    domainName: "Implement information extraction solutions",
+    title: "Speeding up analysis of native digital PDFs",
+    scenario: "A software company's custom analyzer processes release notes that are always generated as native digital PDFs with a full text layer; none are scans or photos. The team wants to trim unnecessary processing to improve throughput without changing the fields it extracts.",
+    question: "Which configuration change fits?",
+    options: [
+      { id: 'A', text: "Set enableOcr to false, since the embedded text already holds the words the analyzer needs." },
+      { id: 'B', text: "Set returnDetails to true, so the service can skip layout analysis for each digital page." },
+      { id: 'C', text: "Set enableFigureAnalysis to true, so figures are processed before the text is extracted." },
+      { id: 'D', text: "Set segmentPerPage to true, so every page is analyzed separately and finishes faster." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "OCR is enabled by default for document analyzers so scans and photos can be read; for native digital PDFs the guidance is to disable it to improve performance, because the text is already machine-readable. Figure analysis adds work rather than removing it. returnDetails controls how much detail comes back and does not skip layout. Per-page segmentation changes how results are grouped and adds overhead.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/ai-services/content-understanding/concepts/analyzer-reference",
+    tags: ["Content Understanding", "Performance", "Analyzer configuration"]
+  },
+  {
+    id: "azure-ai-apps-agents-494",
+    difficulty: "easy",
+    certId: "azure-ai-apps-agents",
+    domainId: "d5",
+    domainName: "Implement information extraction solutions",
+    title: "Equations garbled in research ingestion",
+    scenario: "A university's research assistant grounds on physics papers processed by a custom analyzer that was built with the formula option switched off to save time. Equations now appear as scrambled symbols in the Markdown, and answers about derivations are wrong.",
+    question: "Which setting should the developer turn back on?",
+    options: [
+      { id: 'A', text: "enableBarcode, which decodes coded symbols into values within the output." },
+      { id: 'B', text: "enableFormula, which returns detected math in LaTeX within the output." },
+      { id: 'C', text: "enableFigureDescription, which writes each equation out as prose text." },
+      { id: 'D', text: "enableAnnotations, which captures marked-up symbols as annotation text." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "Formula detection extracts mathematical formulas and equations in LaTeX, which language models read reliably, and is recommended for scientific papers; it is on by default and was turned off here. Barcode detection decodes barcodes and QR codes. Annotations capture highlights, underlines and similar markup. Figure descriptions describe images and diagrams, not inline equations.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/ai-services/content-understanding/concepts/analyzer-reference",
+    tags: ["Content Understanding", "Formulas", "RAG ingestion"]
+  },
+  {
+    id: "azure-ai-apps-agents-495",
+    difficulty: "easy",
+    certId: "azure-ai-apps-agents",
+    domainId: "d5",
+    domainName: "Implement information extraction solutions",
+    title: "Highlighting extracted text in a review screen",
+    scenario: "A developer is building a review screen that overlays boxes on a scanned tax form to show exactly where each word and paragraph of the extracted content came from. The current analyzer response contains the Markdown text but no positions or spans for the content.",
+    question: "Which analyzer setting should be enabled?",
+    options: [
+      { id: 'A', text: "enableSegment, which splits the content into boxes for each region of the page." },
+      { id: 'B', text: "omitContent, which replaces the Markdown with the page coordinates of each word." },
+      { id: 'C', text: "returnDetails, which adds bounding boxes, offsets and confidence to the response." },
+      { id: 'D', text: "tableFormat, which adds a bounding box around every table cell in the Markdown." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "returnDetails includes detailed information in the response, such as bounding boxes, text spans, confidence scores and metadata, which a review screen needs to draw overlays; it increases response size. omitContent removes the content object rather than adding positions. Segmentation splits a file into logical sections, not word boxes. tableFormat only changes how tables are written.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/ai-services/content-understanding/concepts/analyzer-reference",
+    tags: ["Content Understanding", "Grounding", "Analyzer configuration"]
+  },
+  {
+    id: "azure-ai-apps-agents-496",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d5",
+    domainName: "Implement information extraction solutions",
+    title: "Readable text for the agent, fields for the ledger",
+    scenario: "An import broker wants each commercial invoice to feed two consumers: an agent that reasons over the whole document to answer customs questions, and an ERP integration that posts structured totals and HS codes. A developer plans two separate Content Understanding calls per invoice, one for Markdown and one for fields.",
+    question: "What should the developer do instead?",
+    options: [
+      { id: 'A', text: "Use omitContent on one analyzer and returnDetails on another, then join the two results by page." },
+      { id: 'B', text: "Use one custom analyzer whose single result carries both the Markdown content and the schema fields." },
+      { id: 'C', text: "Use prebuilt-read for the agent and send its text to a chat model to extract the ERP fields afterward." },
+      { id: 'D', text: "Use prebuilt-documentSearch for both consumers and have the ERP parse totals from the summary text." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "An analyzer result includes the extracted content as Markdown along with the structured fields defined in its schema, so one call based on prebuilt-document or prebuilt-invoice serves both the agent's reasoning and the ERP posting. Using OCR text and a separate chat call adds a step and loses Content Understanding's grounding and confidence. Parsing totals from a summary is unreliable. Two analyzers and a join is the duplicated work the single call avoids.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/ai-services/content-understanding/overview",
+    tags: ["Content Understanding", "Structured output", "Markdown"]
+  },
+  {
+    id: "azure-ai-apps-agents-497",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d5",
+    domainName: "Implement information extraction solutions",
+    title: "Strikethroughs that change a contract's meaning",
+    scenario: "A law firm ingests negotiated contract drafts where counterparties strike through clauses and underline insertions in digital PDFs. Its agent keeps quoting struck-out text as if it were agreed, because the Markdown shows deleted and inserted words the same way.",
+    question: "What should the developer enable in the document analyzer?",
+    options: [
+      { id: 'A', text: "Barcode detection, so revision marks are decoded into tracked change metadata fields." },
+      { id: 'B', text: "Figure description, so each struck-out clause is described in its own block." },
+      { id: 'C', text: "Formula detection, so the strike marks are returned as LaTeX notation in the output." },
+      { id: 'D', text: "Annotation capture, so strikethroughs and underlines are marked in the Markdown." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Document analyzers can capture annotations such as highlights, underlines and strikethroughs and return them in Markdown, so downstream reasoning can tell deleted text from inserted text; prebuilt-layout and prebuilt-documentSearch surface this for digital PDFs and handwritten markup. Figure descriptions describe images, not text markup. Formula detection targets equations. Barcode detection decodes barcodes and has nothing to do with revision marks.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/ai-services/content-understanding/concepts/analyzer-reference",
+    tags: ["Content Understanding", "Annotations", "Grounding"]
+  },
+  {
+    id: "azure-ai-apps-agents-498",
+    difficulty: "hard",
+    certId: "azure-ai-apps-agents",
+    domainId: "d5",
+    domainName: "Implement information extraction solutions",
+    title: "Costs jump after adding labeled samples",
+    scenario: "An insurer recreated its custom document analyzer with the preview API version and added labeled training samples to improve accuracy. Monthly Content Understanding charges rose noticeably even though document volume and model token usage stayed roughly flat, and the returned config.workflow value now begins with advanced.",
+    question: "What explains the increase?",
+    options: [
+      { id: 'A', text: "Labeled samples are billed as extra pages on every analysis, doubling the content extraction meter." },
+      { id: 'B', text: "The preview API adds a flat monthly fee to any analyzer that is created with that API version." },
+      { id: 'C', text: "Labeled samples force figure analysis on for every page, adding generative figure description charges." },
+      { id: 'D', text: "Analyzers with labeled data are billed at a higher contextualization rate than ones without labels." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "With the preview API, the service resolves an analyzer's workflow when it is created: without labeled data it resolves to a standard workflow, while an analyzer with labeled data resolves to an advanced workflow, and the workflow family determines the contextualization rate, so advanced analyzers are billed at the higher advanced contextualization rate. Labeled samples are not billed as extra pages. There is no flat fee for the preview API. Labels do not switch on figure analysis.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/ai-services/content-understanding/concepts/analyzer-reference",
+    tags: ["Content Understanding", "Pricing", "Training examples"]
+  },
+  {
+    id: "azure-ai-apps-agents-499",
+    difficulty: "hard",
+    certId: "azure-ai-apps-agents",
+    domainId: "d5",
+    domainName: "Implement information extraction solutions",
+    title: "Figure descriptions missing for slide decks",
+    scenario: "A consultancy runs prebuilt-documentSearch over client deliverables. For PDF reports, charts come back with descriptions and Chart.js data, but for PowerPoint and Word files with the same charts the Markdown contains the text only, with no figure descriptions or chart data.",
+    question: "What should the team do so every deliverable gets figure analysis?",
+    options: [
+      { id: 'A', text: "Route Office files to prebuilt-layout, which performs figure analysis for every supported file format." },
+      { id: 'B', text: "Convert the Office files to PDF before analysis, because figure analysis supports only PDF and images." },
+      { id: 'C', text: "Split each deck into single slides, since figure analysis runs only on files that are one page long." },
+      { id: 'D', text: "Set enableFigureDescription on prebuilt-documentSearch, since it is off by default for Office files." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "For prebuilt-documentSearch, figure description and chart and diagram analysis are supported only for PDF and image file formats, so Office files receive text and layout without figure analysis; converting them to PDF, or rendering slides as images, brings them into scope. Prebuilt analyzers cannot be reconfigured in place, and the limit is the format, not a default. prebuilt-layout detects figure locations but does not generate descriptions. Page count is not the constraint.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/ai-services/content-understanding/concepts/prebuilt-analyzers",
+    tags: ["Content Understanding", "Figure analysis", "File formats"]
+  },
+  {
+    id: "azure-ai-apps-agents-500",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d5",
+    domainName: "Implement information extraction solutions",
+    title: "Structured Markdown without any model deployment",
+    scenario: "A government department must convert 50,000 scanned planning documents into Markdown with headings, paragraphs and tables for a search index. Its policy does not yet allow generative model deployments, and it does not need summaries or figure descriptions, only a faithful structural representation.",
+    question: "Which analyzer should the department use?",
+    options: [
+      { id: 'A', text: "prebuilt-layout, which returns paragraphs, tables and sections using OCR, with no model needed." },
+      { id: 'B', text: "prebuilt-documentSearch, which returns Markdown plus summaries and figure descriptions for each file." },
+      { id: 'C', text: "A custom analyzer on prebuilt-document with generate fields for each heading, table and paragraph." },
+      { id: 'D', text: "prebuilt-read, which returns the words and paragraphs of each page without tables or layout structure." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "prebuilt-layout extracts words, paragraphs, tables, figures and document structure such as sections from scanned documents and requires no language or embedding model, so it produces structural Markdown within the department's policy. prebuilt-documentSearch and a custom analyzer with generate fields both depend on generative model deployments. prebuilt-read provides OCR text without the layout structure the index needs.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/ai-services/content-understanding/concepts/prebuilt-analyzers",
+    tags: ["Content Understanding", "Layout", "Model selection"]
+  }
+];
+
+export default AZURE_AI_APPS_AGENTS_QUESTIONS_20;

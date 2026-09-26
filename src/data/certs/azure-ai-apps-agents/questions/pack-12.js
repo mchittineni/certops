@@ -1,0 +1,532 @@
+export const AZURE_AI_APPS_AGENTS_QUESTIONS_12 = [
+  {
+    id: "azure-ai-apps-agents-276",
+    difficulty: "easy",
+    certId: "azure-ai-apps-agents",
+    domainId: "d3",
+    domainName: "Implement computer vision solutions",
+    title: "Stickers that sit on any chat background",
+    scenario: "A messaging app generates custom emoji-style stickers with a gpt-image-1 deployment. Designers complain that every sticker arrives on a white square, which looks wrong on dark chat themes. The stickers must be usable directly, with no separate image-processing service in the pipeline.",
+    question: "How should the generation request be configured?",
+    options: [
+      { id: 'A', text: "Set background to transparent and keep output_format as png so the sticker is returned with an alpha channel." },
+      { id: 'B', text: "Set quality to high and add \"on a transparent background\" to the prompt while leaving other settings as default." },
+      { id: 'C', text: "Pass each generated sticker to the Image Analysis background removal feature before saving it to the library." },
+      { id: 'D', text: "Set output_format to jpeg with output_compression at its lowest setting so the sticker edges stay free of halos." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "gpt-image-1 supports a background parameter; setting it to transparent produces an image with an alpha channel, which requires PNG output because JPEG cannot store transparency. JPEG output therefore cannot deliver a transparent sticker at any compression level. Asking for transparency only in the prompt leaves the parameter at auto, so the model may still paint a solid backdrop, and quality does not affect transparency. The Image Analysis 4.0 background removal feature was retired in March 2025, and the requirement rules out a separate processing service anyway.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/dall-e",
+    tags: ["Image generation", "gpt-image-1", "Generation controls"]
+  },
+  {
+    id: "azure-ai-apps-agents-277",
+    difficulty: "easy",
+    certId: "azure-ai-apps-agents",
+    domainId: "d3",
+    domainName: "Implement computer vision solutions",
+    title: "Marking the area a model may repaint",
+    scenario: "A property-listing site lets agents remove clutter from room photos. The app calls the image edits endpoint with the original photo and a prompt, and wants only the region the agent brushes over, such as a pile of boxes on the floor, to be regenerated.",
+    question: "How must the mask be prepared?",
+    options: [
+      { id: 'A', text: "As a PNG matching the photo's dimensions, with the boxes' region fully transparent and the rest left opaque." },
+      { id: 'B', text: "As a PNG of any size, with the boxes' region painted solid white and every other pixel fully transparent." },
+      { id: 'C', text: "As a black-and-white JPEG at half the photo's resolution, with black pixels covering the boxes that need to go." },
+      { id: 'D', text: "As a JSON list of polygon coordinates around the boxes, sent in the prompt text alongside the edit instruction." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "For the image edits API the mask is a PNG whose dimensions exactly match the input image; fully transparent pixels (alpha zero) mark where the model may edit, and opaque pixels mark what to keep. A JPEG cannot carry transparency and a half-resolution mask does not match the input. Polygon coordinates in the prompt are not a mask; the model would treat them as text. Painting the target white and making everything else transparent inverts the convention, inviting edits everywhere except the boxes, and an arbitrary size is rejected.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/dall-e",
+    tags: ["Image editing", "Inpainting", "Masks"]
+  },
+  {
+    id: "azure-ai-apps-agents-278",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d3",
+    domainName: "Implement computer vision solutions",
+    title: "Faces drifting during outfit changes",
+    scenario: "A fashion retailer's virtual try-on feature edits customer selfies to show a new jacket, using a gpt-image-1-mini deployment. The jackets look right, but customers say the edited face no longer quite looks like them. The team must keep facial features as close to the original as possible.",
+    question: "What should the team change?",
+    options: [
+      { id: 'A', text: "Keep gpt-image-1-mini and request ten images per edit with n, then let the customer choose the closest likeness." },
+      { id: 'B', text: "Keep gpt-image-1-mini and set quality to high so the model renders facial features more faithfully in edits." },
+      { id: 'C', text: "Move to a gpt-image-1 deployment and set input_fidelity to high so the edit preserves the person's facial features." },
+      { id: 'D', text: "Move the feature to a dall-e-3 deployment, whose edits keep the unmasked face untouched pixel for pixel." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "The input_fidelity parameter controls how much effort the model spends matching the style and features, especially faces, of the input image, and it is not supported by gpt-image-1-mini, so the team needs a model such as gpt-image-1 with input_fidelity set to high. Higher quality increases detail but not likeness to the input. Generating ten candidates multiplies cost and still leaves every candidate at low fidelity. dall-e-3 was retired in March 2026, so it can no longer be deployed or called at all.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/dall-e",
+    tags: ["Image editing", "Input fidelity", "gpt-image-1"]
+  },
+  {
+    id: "azure-ai-apps-agents-279",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d3",
+    domainName: "Implement computer vision solutions",
+    title: "Staging a room from four product shots",
+    scenario: "A furniture retailer has studio photos of a sofa, a lamp, a rug and a coffee table. Merchandisers want a single lifestyle image showing all four real products arranged in a sunlit living room, so shoppers can see them together without a physical photo shoot.",
+    question: "How should the developers produce the image?",
+    options: [
+      { id: 'A', text: "Call the image edits endpoint with the sofa photo and a mask, then describe the other three products in the prompt." },
+      { id: 'B', text: "Call the image generations endpoint with a prompt that includes the URLs of the four product photos and the scene." },
+      { id: 'C', text: "Submit the four product photos to Sora 2 as reference images and take a still frame from the resulting video clip." },
+      { id: 'D', text: "Call the image edits endpoint with the four product photos as input images and a prompt that describes the scene." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "The gpt-image edits endpoint accepts multiple input images, up to 16 per request, and a prompt, so the model can compose the actual products into a new scene. The generations endpoint takes only text; URLs in the prompt are read as words, not fetched as images. Sora 2 accepts a single reference image that anchors the first frame, so it cannot combine four products, and extracting a frame is a roundabout way to make a still. Sending only the sofa and describing the rest in text means the lamp, rug and table would be invented rather than the real products.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/dall-e",
+    tags: ["Image editing", "Reference images", "gpt-image"]
+  },
+  {
+    id: "azure-ai-apps-agents-280",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d3",
+    domainName: "Implement computer vision solutions",
+    title: "Hundreds of storyboard drafts per session",
+    scenario: "A film-previsualisation tool lets directors iterate quickly: each session generates around 200 rough storyboard frames, of which the director keeps perhaps ten for the final board. Costs are running far over budget, and directors say the rough frames only need to be good enough to judge composition.",
+    question: "Which approach reduces cost while keeping final frames sharp?",
+    options: [
+      { id: 'A', text: "Generate the drafts at size 1536x1024 so the board keeps wider frames and fewer drafts are needed." },
+      { id: 'B', text: "Generate drafts at quality low, then regenerate only the frames the director keeps at quality high for the board." },
+      { id: 'C', text: "Generate every draft at quality high but set n to 10 so the director's frames need far fewer API calls." },
+      { id: 'D', text: "Keep PNG output and set output_compression to its maximum so each draft is billed only as a smaller payload." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "gpt-image models accept a quality setting of low, medium or high, and lower quality uses far fewer output tokens and returns faster, which suits throwaway composition drafts; regenerating just the chosen frames at high quality keeps the final board sharp. Batching drafts with n reduces calls but not the per-image cost at high quality. A larger size increases the cost of each image and does not reduce how many drafts a director explores. Output compression applies only to JPEG output and affects file size, not what the generation is billed.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/dall-e",
+    tags: ["Image generation", "Quality", "Cost control"]
+  },
+  {
+    id: "azure-ai-apps-agents-281",
+    difficulty: "easy",
+    certId: "azure-ai-apps-agents",
+    domainId: "d3",
+    domainName: "Implement computer vision solutions",
+    title: "Image links missing after a model migration",
+    scenario: "A greeting-card site moved its generator to a gpt-image-1.5 deployment. The old code read data[0].url from each response and stored the link in its database, but that value is now missing and the upload step fails. The site wants to keep serving images by URL to its web front end.",
+    question: "What should the developers change?",
+    options: [
+      { id: 'A', text: "Decode the b64_json value, save the bytes to Blob Storage, and store the blob's URL in the site database instead." },
+      { id: 'B', text: "Add response_format set to url to the request body so a hosted link returns for the site database as before." },
+      { id: 'C', text: "Set output_format to webp so the service returns a lightweight hosted link rather than embedding the image data." },
+      { id: 'D', text: "Move to the newest preview api-version, which restores the url value for gpt-image deployments." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "gpt-image models always return base64-encoded image data in b64_json and do not support the response_format parameter, so the application must decode the data and host the file itself, for example in Blob Storage behind its own URL or CDN. Setting response_format is not supported for these models. WebP is not a supported output format; PNG and JPEG are. No API version adds hosted URLs for gpt-image models.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/dall-e",
+    tags: ["Image generation", "Response format", "Migration"]
+  },
+  {
+    id: "azure-ai-apps-agents-282",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d3",
+    domainName: "Implement computer vision solutions",
+    title: "Replacing a retired image model",
+    scenario: "A children's publisher built an illustration tool on a dall-e-3 deployment using style set to vivid, quality set to hd and size 1792x1024. Since March 2026 every call fails. The publisher wants the tool working again with a comparable look and wide landscape output.",
+    question: "Which two actions should the developers take? (Choose two.)",
+    options: [
+      { id: 'A', text: "Deploy a gpt-image series model and point the tool at it, because dall-e-3 is retired and its deployments no longer work." },
+      { id: 'B', text: "Keep the dall-e-3 deployment and request a quota increase, since the failures come from the deployment's rate limits." },
+      { id: 'C', text: "Describe the vivid look in the prompt, set quality to high and switch the size to 1536x1024 for landscape pictures." },
+      { id: 'D', text: "Keep size 1792x1024, hd quality and vivid style on the new deployment, since gpt-image models accept them." },
+      { id: 'E', text: "Move the tool to a Sora 2 deployment in landscape mode and save the first frame of each clip as the illustration." }
+    ],
+    correctAnswers: ['A', 'C'],
+    type: "multiple",
+    explanation: "dall-e-3 was retired on March 4, 2026, and existing deployments are non-functional, so the tool must move to a gpt-image series model. gpt-image models have no style parameter, so the vivid look moves into the prompt; quality takes low, medium or high rather than hd, and the gpt-image-1 series supports 1536x1024 for landscape instead of 1792x1024. A quota increase cannot revive a retired model. Carrying over the dall-e-3 size and quality values would be rejected. Generating video to extract a still costs more and produces lower-resolution frames than an image model.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/dall-e",
+    tags: ["Image generation", "Model retirement", "Migration"]
+  },
+  {
+    id: "azure-ai-apps-agents-283",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d3",
+    domainName: "Implement computer vision solutions",
+    title: "Users leaving during a thirty-second wait",
+    scenario: "An interior-design app generates a room concept with a gpt-image-1 deployment at high quality. Generation takes up to 30 seconds, and analytics show many users close the screen before the image appears. Product wants users to see the picture taking shape instead of a spinner.",
+    question: "What should the developers implement?",
+    options: [
+      { id: 'A', text: "Set n to 3 at quality low and show the first finished image while the other two keep generating in the background." },
+      { id: 'B', text: "Enable streaming on the request with partial_images set to between 1 and 3, and render each partial as it arrives." },
+      { id: 'C', text: "Submit the request as an asynchronous job, poll it every few seconds, and show a progress percentage to the user." },
+      { id: 'D', text: "Request size 256x256 first and then a second call at full size, swapping the small image out once the large arrives." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "gpt-image-1 series and gpt-image-2 models support streaming image generation: with stream enabled, the partial_images parameter (1 to 3) returns intermediate images before the final result, so the app can show the picture developing. Generating several low-quality images shows a different picture from the one the user will get. 256x256 is not a supported size for gpt-image-1, whose sizes are 1024x1024, 1024x1536 and 1536x1024. Image generation is a synchronous call with no job to poll and no progress percentage.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/dall-e",
+    tags: ["Image generation", "Streaming", "User experience"]
+  },
+  {
+    id: "azure-ai-apps-agents-284",
+    difficulty: "hard",
+    certId: "azure-ai-apps-agents",
+    domainId: "d3",
+    domainName: "Implement computer vision solutions",
+    title: "Native-resolution art for lobby screens",
+    scenario: "A hotel group wants generated seasonal artwork for lobby displays that run at 2560x1440. Brand guidelines forbid upscaling because it softens fine text-like patterns in the designs. The team currently uses a gpt-image-1 deployment and can deploy any generally available image model in its region.",
+    question: "Which approach meets the requirement?",
+    options: [
+      { id: 'A', text: "Deploy gpt-image-2 and request a custom 2560x1440 size, since both edges are multiples of 16 within its limits." },
+      { id: 'B', text: "Keep gpt-image-1 and pass size 2560x1440 in the request, since the model accepts any size up to its pixel limit." },
+      { id: 'C', text: "Keep gpt-image-1 at 1536x1024 with quality high and let the display hardware scale each image to fill the screen." },
+      { id: 'D', text: "Deploy a Sora 2 model at 1280x720, generate a short still scene and export its sharpest frame at full size." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "gpt-image-2 accepts custom WIDTHxHEIGHT sizes when both edges are multiples of 16, the aspect ratio is between 1:3 and 3:1, the long edge is at most 3,840 pixels and total pixels fall within the supported range; 2560x1440 meets every constraint, so it can be generated natively. The gpt-image-1 series supports only 1024x1024, 1024x1536 and 1536x1024, so a 2560x1440 request is rejected. Letting the display scale a smaller image is upscaling, which the guidelines forbid. A 1280x720 video frame is smaller still and would also need upscaling.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/dall-e",
+    tags: ["Image generation", "gpt-image-2", "Resolution"]
+  },
+  {
+    id: "azure-ai-apps-agents-285",
+    difficulty: "easy",
+    certId: "azure-ai-apps-agents",
+    domainId: "d3",
+    domainName: "Implement computer vision solutions",
+    title: "Retrieving a generated product teaser",
+    scenario: "A developer calls a Sora 2 deployment through the v1 API to create a short teaser from a text prompt. The create call returns immediately with an ID and a status of queued, and no video data. The developer needs the finished clip saved as an MP4 in the company's asset library.",
+    question: "What should the code do next?",
+    options: [
+      { id: 'A', text: "Call the image generations endpoint with the returned ID, which converts the queued status into a downloadable file." },
+      { id: 'B', text: "Reopen the create call with streaming enabled so that the video frames are pushed to the client as they are rendered." },
+      { id: 'C', text: "Resubmit with a longer client timeout, since the MP4 for the asset library comes back in the create call's body." },
+      { id: 'D', text: "Poll the video by ID until the status is completed, then download its content and copy it into the asset library." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Video generation is asynchronous: the create call returns a job with an ID, the client polls that video until its status is completed (or failed or cancelled), and then downloads the content and stores it. Video generation does not stream frames to the client. The create response never contains the MP4, so a longer timeout does not help. The image generations endpoint has nothing to do with video jobs.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/video-generation",
+    tags: ["Video generation", "Sora 2", "Asynchronous jobs"]
+  },
+  {
+    id: "azure-ai-apps-agents-286",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d3",
+    domainName: "Implement computer vision solutions",
+    title: "Bringing a square product photo to life",
+    scenario: "A cosmetics brand wants a landscape clip that starts from its official 1024x1024 product photo, with the product rotating on a marble counter. The developer passes the photo as input_reference to a Sora 2 deployment with size 1280x720, and the request is rejected.",
+    question: "How should the developer fix the request?",
+    options: [
+      { id: 'A', text: "Send the photo as a mask image instead of input_reference so that Sora 2 can accept a reference of any dimensions." },
+      { id: 'B', text: "Change the size from 1280x720 to 1024x1024 so that the video matches the reference photo's dimensions." },
+      { id: 'C', text: "Crop or resize the photo to exactly 1280x720 before sending it as input_reference with the size set to 1280x720." },
+      { id: 'D', text: "Generate a video from text first and then call remix with the photo's file ID to insert the product into the clip." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "For Sora 2, the input_reference image anchors the first frame and must match the requested output resolution exactly, with 720x1280 and 1280x720 as the supported values, so the photo must be cropped or resized to 1280x720. 1024x1024 is not a supported Sora 2 output size. Sora 2 has no mask parameter; masks belong to the image edits API. Remix takes the ID of a previously completed video and a prompt, not an image file.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/video-generation",
+    tags: ["Video generation", "Sora 2", "Reference images"]
+  },
+  {
+    id: "azure-ai-apps-agents-287",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d3",
+    domainName: "Implement computer vision solutions",
+    title: "Warmer colours without losing the choreography",
+    scenario: "A drinks company approved a Sora 2 clip of dancers on a rooftop, including its camera moves and timing. The creative director now wants only the colour palette shifted to warm sunset tones, keeping the choreography, framing and scene transitions as they are.",
+    question: "What is the most effective way to produce the revised clip?",
+    options: [
+      { id: 'A', text: "Resubmit the original prompt with warm sunset colours added and the same size and seconds, then compare the new result." },
+      { id: 'B', text: "Download the clip, shift each frame's palette with gpt-image edits and a full-frame mask, then reassemble the video." },
+      { id: 'C', text: "Call remix with the approved video's ID and a prompt describing just the palette change to warm sunset tones." },
+      { id: 'D', text: "Take the approved clip's first frame, shift its tones with image edits, and pass it to Sora 2 as input_reference." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "Remix takes the ID of a completed Sora 2 video and a new prompt, keeping the original's structure, motion, framing and transitions while applying the requested change, which is exactly a targeted colour adjustment. Regenerating from the prompt produces a new performance with different choreography and camera moves. A recoloured first frame only anchors the start; everything after it is generated afresh. Editing frames one by one is slow, costly and produces flicker because each frame is edited independently.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/video-generation",
+    tags: ["Video editing", "Remix", "Sora 2"]
+  },
+  {
+    id: "azure-ai-apps-agents-288",
+    difficulty: "hard",
+    certId: "azure-ai-apps-agents",
+    domainId: "d3",
+    domainName: "Implement computer vision solutions",
+    title: "One remix asked to change everything",
+    scenario: "An agency sends a single remix request against an approved Sora 2 clip asking to change the lighting to dusk, recolour the lead actor's shirt, add falling leaves and slow the camera pan. The result has visual defects and several of the four changes are missing.",
+    question: "How should the agency rework its editing workflow?",
+    options: [
+      { id: 'A', text: "Chain several remixes, each applying one clearly described change to the video produced by the previous step." },
+      { id: 'B', text: "Generate a fresh clip from a prompt that lists all four changes, since remix cannot apply several changes at once." },
+      { id: 'C', text: "Request the most variants the size allows in one remix job and keep whichever variant shows the most changes." },
+      { id: 'D', text: "Repeat the same four-change remix with seconds set to 12 so that the model has more frames to apply every change." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Microsoft's guidance for remix is to limit each request to one clearly articulated adjustment; narrow, precise edits keep greater fidelity to the source and reduce visual defects. Chaining single-change remixes applies all four edits while preserving the approved motion and framing. Asking for a longer duration does not make a multi-change edit more reliable and changes the clip's length. Regenerating from scratch discards the approved choreography. Picking among variants of an overloaded prompt still inherits the same defects and missing changes.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/video-generation",
+    tags: ["Video editing", "Remix", "Sora 2"]
+  },
+  {
+    id: "azure-ai-apps-agents-289",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d3",
+    domainName: "Implement computer vision solutions",
+    title: "Vertical clip for a phone-first campaign",
+    scenario: "A fitness brand's social team wants short generated clips for vertical phone feeds. Each clip should run as close to eight seconds as possible without editing, and the team is using a Sora 2 deployment through the v1 videos API with the OpenAI Python client.",
+    question: "Which request settings should the developer use?",
+    options: [
+      { id: 'A', text: "Set width, height and n_seconds on the images generations endpoint, which returns a short portrait clip." },
+      { id: 'B', text: "Set size to 1024x1792 and seconds to 8, which is the portrait size that image and video models both accept." },
+      { id: 'C', text: "Set size to 1280x720 and seconds to 8, then rotate the finished clip by 90 degrees to make it vertical." },
+      { id: 'D', text: "Set size to 720x1280 and seconds to 8, which are both supported values for Sora 2 in portrait orientation." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Sora 2 accepts a size of 720x1280 for portrait or 1280x720 for landscape and a seconds value of 4, 8 or 12, so 720x1280 at 8 seconds gives a vertical eight-second clip directly. 1024x1792 was a dall-e-3 image size and is not a Sora 2 output size. Rotating a landscape clip turns the scene on its side rather than framing it for a vertical feed. The images generations endpoint produces still images, and width, height and n_seconds belong to the older Sora jobs API rather than the images API.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/video-generation",
+    tags: ["Video generation", "Sora 2", "Generation controls"]
+  },
+  {
+    id: "azure-ai-apps-agents-290",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d3",
+    domainName: "Implement computer vision solutions",
+    title: "Silent clips from the first video model",
+    scenario: "A travel start-up built destination teasers on the original Sora model's video generation jobs API. Every clip is silent, so editors add stock ambience by hand. The start-up wants waves, street noise and similar sound generated together with the picture, with no separate audio pipeline.",
+    question: "What should the developers do?",
+    options: [
+      { id: 'A', text: "Move to a Sora 2 deployment through the v1 videos API, since Sora 2 generates audio in its output videos." },
+      { id: 'B', text: "Keep the original Sora deployment and add an audio description to each prompt so that sound is rendered alongside it." },
+      { id: 'C', text: "Keep the original Sora deployment and set n_variants to 2, since the second variant always includes an audio track." },
+      { id: 'D', text: "Generate narration for each clip with a text-to-speech deployment and merge it with the video in a post step." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Sora 2 adds audio generation to its output videos, so ambient sound is produced together with the picture, and it is used through the Azure OpenAI v1 videos API. The original Sora model produces silent video regardless of what the prompt says about sound. A text-to-speech step adds narration rather than scene audio and is exactly the separate audio pipeline the start-up wants to avoid. Variants are alternative interpretations of the same prompt, not versions with sound.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/video-generation",
+    tags: ["Video generation", "Sora 2", "Audio"]
+  },
+  {
+    id: "azure-ai-apps-agents-291",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d3",
+    domainName: "Implement computer vision solutions",
+    title: "Famous cartoon mascot in a generated ad",
+    scenario: "A toy retailer's intern prompts a Sora 2 deployment for a clip in which a well-known studio's cartoon character and a lifelike news presenter unbox a new toy. Every attempt is refused, and the marketing lead asks how to get a usable clip for the campaign.",
+    question: "What should the team do?",
+    options: [
+      { id: 'A', text: "Pass a screenshot of the cartoon character as input_reference so that Sora 2 copies the look from the image directly." },
+      { id: 'B', text: "Redesign the ad around original, non-photorealistic characters, because Sora 2 blocks IP and photorealistic content." },
+      { id: 'C', text: "Describe the character in more indirect terms and add a disclaimer to the prompt that the ad is a parody of the studio." },
+      { id: 'D', text: "Request modified guardrails for the deployment, which allow Sora 2 to render protected characters for approved brands." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "Sora 2's built-in responsible AI protections block intellectual-property content, such as recognisable copyrighted characters, and photorealistic content, so a usable clip needs original characters in a non-photorealistic style. Modified guardrails adjust configurable content filter categories; they do not unlock the model's built-in IP and photorealism blocks. Rewording the prompt to dodge protections is both ineffective and a misuse of the service. Supplying the copyrighted character as a reference image is still generating protected IP and is moderated the same way.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/video-generation",
+    tags: ["Video generation", "Responsible AI", "Sora 2"]
+  },
+  {
+    id: "azure-ai-apps-agents-292",
+    difficulty: "easy",
+    certId: "azure-ai-apps-agents",
+    domainId: "d3",
+    domainName: "Implement computer vision solutions",
+    title: "Turning a still into a short moving shot",
+    scenario: "A real-estate marketer has a finished landscape photograph of a lakeside villa and wants an eight-second clip that begins from that exact image and slowly pushes in towards the front door, for use in listing videos on social media.",
+    question: "Which Foundry capability should the marketer use?",
+    options: [
+      { id: 'A', text: "The gpt-image edits endpoint with the photograph and n set to 10, stitching the returned frames into a clip." },
+      { id: 'B', text: "Azure Vision Image Analysis smart crops, called at several aspect ratios to simulate a camera moving inwards." },
+      { id: 'C', text: "Sora 2 video generation with the photograph as input_reference and a prompt describing the slow push-in shot." },
+      { id: 'D', text: "Content Understanding with a video analyzer, which produces key frames and camera moves from an input image." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "Sora 2 supports image-to-video: the input_reference image anchors the first frame and the prompt describes the motion, producing a clip that starts from the exact photo. Ten independently edited images would not form smooth, consistent motion. Content Understanding analyses existing video and extracts information; it does not generate footage. Smart crops return coordinates of regions of interest in a still image, which cannot create real camera motion or parallax.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/video-generation",
+    tags: ["Video generation", "Image to video", "Sora 2"]
+  },
+  {
+    id: "azure-ai-apps-agents-293",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d3",
+    domainName: "Implement computer vision solutions",
+    title: "Swapping a grey sky for a blue one",
+    scenario: "A tourism board edits landscape photos of a castle so that overcast skies become clear blue. The masonry, trees and people in the foreground must look as close to the originals as possible, and the edit should be confined to the sky wherever the model allows.",
+    question: "Which two measures should the developer apply to the image edits request? (Choose two.)",
+    options: [
+      { id: 'A', text: "Supply a PNG mask the same size as the photo in which the sky pixels are fully transparent and the rest are opaque." },
+      { id: 'B', text: "Supply a JPEG mask at the same size as the photo in which the sky has been painted black and the rest left white." },
+      { id: 'C', text: "Set background to transparent so that only the sky is regenerated and all foreground pixels are kept unchanged." },
+      { id: 'D', text: "Set input_fidelity to high so that the model works harder to preserve the details and features of the input photo." },
+      { id: 'E', text: "Call the generations endpoint with a detailed description of the castle so the foreground is recreated faithfully." }
+    ],
+    correctAnswers: ['A', 'D'],
+    type: "multiple",
+    explanation: "A PNG mask matching the photo's dimensions, with the sky fully transparent, tells the edits endpoint which region to change, and input_fidelity set to high makes the model work harder to match the input's details, keeping the foreground faithful. A JPEG cannot hold transparency, and black-and-white painting is not how the edits API reads masks. The background parameter controls whether the output has a transparent background; it does not select an edit region. The generations endpoint creates a new image from text, so the castle and people would be reinvented.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/dall-e",
+    tags: ["Image editing", "Masks", "Input fidelity"]
+  },
+  {
+    id: "azure-ai-apps-agents-294",
+    difficulty: "hard",
+    certId: "azure-ai-apps-agents",
+    domainId: "d3",
+    domainName: "Implement computer vision solutions",
+    title: "Turning summer photos into winter scenes",
+    scenario: "A ski resort wants its summer photos of the village reworked as snowy winter scenes for next season's brochure. Snow must appear on roofs, trees and streets across the whole picture, while the buildings' layout and the viewpoint of each photo stay recognisably the same.",
+    question: "How should the developer call the image API?",
+    options: [
+      { id: 'A', text: "Generate a Sora 2 clip from each photo and then remix it into winter, keeping the first frame as a still." },
+      { id: 'B', text: "Call the generations endpoint with a detailed text description of the village as it looks in each photo." },
+      { id: 'C', text: "Call the edits endpoint with the photo and a prompt describing the winter scene, supplying no mask at all." },
+      { id: 'D', text: "Call the edits endpoint with the photo and a mask of the same size in which every pixel is fully opaque." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "When the change affects the entire image, a prompt-driven edit without a mask lets the model modify the whole photo while using it as the reference for layout and viewpoint. The generations endpoint ignores the source photo, so the village would be reimagined. In a mask, opaque pixels mean keep, so a fully opaque mask marks nothing for editing. A video round trip adds cost and latency, and remixing produces motion rather than a single brochure still at image-model resolution.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/dall-e",
+    tags: ["Image editing", "Prompt-driven edits", "gpt-image"]
+  },
+  {
+    id: "azure-ai-apps-agents-295",
+    difficulty: "hard",
+    certId: "azure-ai-apps-agents",
+    domainId: "d3",
+    domainName: "Implement computer vision solutions",
+    title: "Overnight batch of 600 catalogue images",
+    scenario: "An online retailer runs an overnight job that generates 600 product lifestyle images with one gpt-image-1 deployment on the default quota. After a few minutes most requests return HTTP 429, and the job fails well before morning. The retailer wants the job to finish reliably each night.",
+    question: "What should the team do?",
+    options: [
+      { id: 'A', text: "Pace requests with retry and exponential backoff that honours the retry-after header, and request a quota increase." },
+      { id: 'B', text: "Set n to 10 on every request, since images returned in one call count as a single request against the quota." },
+      { id: 'C', text: "Create a second gpt-image-1 deployment in the same region and subscription and split the requests between the two." },
+      { id: 'D', text: "Move the job to quality low for every image, since the quota is enforced in tokens rather than as images per minute." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Image models have a default quota measured in images per minute, low for gpt-image-1, so a 600-image job must be paced: retrying with exponential backoff that honours retry-after smooths the load, and a quota increase raises the ceiling. Images generated with n still count individually, so batching does not escape the limit. Quota is allocated per model per region per subscription, so a second deployment in the same region shares it. Lowering quality reduces cost and latency, but the limit is on images per minute rather than tokens.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/openai/quotas-limits",
+    tags: ["Image generation", "Quotas", "Rate limits"]
+  },
+  {
+    id: "azure-ai-apps-agents-296",
+    difficulty: "easy",
+    certId: "azure-ai-apps-agents",
+    domainId: "d3",
+    domainName: "Implement computer vision solutions",
+    title: "Lighter images for a mobile news feed",
+    scenario: "A news app generates a hero image for each article with a gpt-image-1 deployment. The default PNG files are several megabytes each and slow down the mobile feed. Editors are happy with slightly lossy photographic images as long as the app needs no extra conversion service.",
+    question: "Which request settings should the developers use?",
+    options: [
+      { id: 'A', text: "Set output_format to webp so the service returns a modern compressed format that phones decode quickly." },
+      { id: 'B', text: "Set quality to low so that the service returns a smaller file, keeping PNG as the output format for the feed." },
+      { id: 'C', text: "Set output_format to jpeg and tune output_compression to trade a little quality for a much smaller file." },
+      { id: 'D', text: "Keep output_format as png and set output_compression so that the service shrinks each PNG file it returns." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "gpt-image models can return JPEG instead of the default PNG, and output_compression, which applies only to JPEG, tunes the trade-off between file size and fidelity, giving small photographic files straight from the API. WebP is not a supported output format; PNG and JPEG are. output_compression has no effect on PNG output. Low quality reduces generation detail and cost, but the PNG files remain large because the format is lossless.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/dall-e",
+    tags: ["Image generation", "Output format", "Generation controls"]
+  },
+  {
+    id: "azure-ai-apps-agents-297",
+    difficulty: "hard",
+    certId: "azure-ai-apps-agents",
+    domainId: "d3",
+    domainName: "Implement computer vision solutions",
+    title: "Remixing footage shot on a phone",
+    scenario: "A wedding videographer wants to use Sora 2 remix to restyle a ten-second clip she filmed on her phone into a watercolour look. She uploads the MP4 and passes the file's ID to the remix call, which fails, and she asks which inputs remix and generation actually accept.",
+    question: "Which statement is correct?",
+    options: [
+      { id: 'A', text: "The MP4 can be passed as input_reference instead, because Sora 2 accepts a video reference in place of an image." },
+      { id: 'B', text: "Remix works only on the phone clip once it is converted to WebM, which is the format Sora 2 reads for video input." },
+      { id: 'C', text: "Remix needs the ID of a completed Sora 2 video, and input_reference takes a JPEG, PNG or WebP image rather than video." },
+      { id: 'D', text: "Remix accepts any uploaded MP4 up to 20 seconds, so the failure must come from the clip exceeding the size limit." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "Sora 2 remix takes the ID of a previously completed Sora 2 video and reuses its structure, motion and framing; its video-to-video modality applies to generated video, not arbitrary uploads. The input_reference parameter accepts a single image in JPEG, PNG or WebP format. Remix does not accept uploaded footage of any length, input_reference does not take video, and converting the container format does not change what the API accepts. She could instead extract a frame as an image reference, accepting that the motion will be regenerated.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/video-generation",
+    tags: ["Video editing", "Remix", "Sora 2"]
+  },
+  {
+    id: "azure-ai-apps-agents-298",
+    difficulty: "easy",
+    certId: "azure-ai-apps-agents",
+    domainId: "d3",
+    domainName: "Implement computer vision solutions",
+    title: "Clips vanishing a day after generation",
+    scenario: "A training company generates Sora 2 clips during the day and has a script that downloads them by video ID the following week for editing. The script now fails for every clip, even though generation succeeded and each status showed completed at the time.",
+    question: "What should the company change?",
+    options: [
+      { id: 'A', text: "Set a longer retention period in the create request so the service keeps each clip until the editors need it." },
+      { id: 'B', text: "Regenerate the clips with the same prompt and seed next week, which returns the original clip from cache." },
+      { id: 'C', text: "Download each clip soon after it completes and store it in the company's own storage before it expires." },
+      { id: 'D', text: "Grant the script's identity the Foundry User role, because downloads of older clips need extra permissions." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "Generated video jobs are available for a limited time, 24 hours after creation, and each completed video carries an expires_at value; after that the content cannot be downloaded and the job must be run again. The fix is to download on completion and keep the file in the company's own storage. There is no retention parameter to extend availability. Regenerating produces a new clip, not a cached copy of the original. Permissions do not change with a clip's age, and the same identity downloaded successfully before expiry.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/video-generation",
+    tags: ["Video generation", "Sora 2", "Retention"]
+  },
+  {
+    id: "azure-ai-apps-agents-299",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d3",
+    domainName: "Implement computer vision solutions",
+    title: "Detailed landscape plates for a print catalogue",
+    scenario: "A kitchenware brand generates full-width landscape illustrations for a printed catalogue with a gpt-image-1 deployment. Print designers need the widest landscape frame the model supports and the most detailed rendering it can produce, and cost per image is not a concern.",
+    question: "Which two settings should the request use? (Choose two.)",
+    options: [
+      { id: 'A', text: "Set quality to hd, which renders more detailed images than standard quality." },
+      { id: 'B', text: "Set size to 1536x1024, the landscape resolution that the gpt-image-1 series supports." },
+      { id: 'C', text: "Set style to vivid so the model renders hyper-real detail suited to print output." },
+      { id: 'D', text: "Set size to 1792x1024, the widest landscape resolution image generation supports." },
+      { id: 'E', text: "Set quality to high, the most detailed of the quality levels the model accepts." }
+    ],
+    correctAnswers: ['B', 'E'],
+    type: "multiple",
+    explanation: "The gpt-image-1 series supports 1024x1024, 1024x1536 and 1536x1024, so 1536x1024 is its landscape size, and quality accepts low, medium or high, with high the most detailed. 1792x1024 was a dall-e-3 size and is not accepted by gpt-image-1. The hd and standard quality values also belonged to dall-e-3. The style parameter with vivid or natural existed only for dall-e-3; gpt-image models take stylistic direction from the prompt.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/dall-e",
+    tags: ["Image generation", "Generation controls", "gpt-image-1"]
+  },
+  {
+    id: "azure-ai-apps-agents-300",
+    difficulty: "hard",
+    certId: "azure-ai-apps-agents",
+    domainId: "d3",
+    domainName: "Implement computer vision solutions",
+    title: "Image generation needed this week, no approvals",
+    scenario: "A newly created subscription for a design agency must ship an image-generation feature within days. Legal says the agency cannot wait for any limited-access application to be reviewed, and it needs a model that also handles edits well. The Foundry resource is in a region where all current image models are offered.",
+    question: "Which model should the team deploy?",
+    options: [
+      { id: 'A', text: "gpt-image-1, because it is the original gpt-image model and is open to every subscription without an application." },
+      { id: 'B', text: "gpt-image-2, because it is generally available to all customers and supports improved editing without approval." },
+      { id: 'C', text: "gpt-image-1-mini, because smaller models are exempt from the limited-access application that larger ones need." },
+      { id: 'D', text: "dall-e-3, because it has been generally available the longest and never required any limited-access approval." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "gpt-image-2 is generally available with public access and offers improved image editing, so it can be deployed immediately. gpt-image-1, gpt-image-1-mini and gpt-image-1.5 are limited-access previews that require an approved application before deployment, which the agency cannot wait for. dall-e-3 was retired on March 4, 2026, and can no longer be deployed.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/dall-e",
+    tags: ["Image generation", "Model selection", "Limited access"]
+  }
+];
+
+export default AZURE_AI_APPS_AGENTS_QUESTIONS_12;

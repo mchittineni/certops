@@ -1,0 +1,532 @@
+export const AZURE_AI_APPS_AGENTS_QUESTIONS_8 = [
+  {
+    id: "azure-ai-apps-agents-176",
+    difficulty: "easy",
+    certId: "azure-ai-apps-agents",
+    domainId: "d2",
+    domainName: "Implement generative AI and agentic solutions",
+    title: "A benefits agent that drifts into tax advice",
+    scenario: "A payroll provider's prompt agent is meant to answer employees' questions about pension and leave benefits. In testing it happily gives personal tax advice and speculates about salary reviews, which the company must not do. Its instructions currently say only \"You are a helpful HR assistant.\"",
+    question: "What should the developer change first?",
+    options: [
+      { id: 'A', text: "Switch the agent to a larger reasoning model so it can work out on its own which kinds of question are out of scope." },
+      { id: 'B', text: "Attach the file search tool with the benefits handbook so the agent's answers come only from that uploaded document." },
+      { id: 'C', text: "Rewrite the instructions to state the agent's role, its goal, the topics in scope, and how to decline or escalate others." },
+      { id: 'D', text: "Lower the temperature of the agent's model deployment to 0 so it stops producing speculative answers about pay." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "An agent's instructions define its role, goals and boundaries; spelling out what is in scope, what is not, and exactly how to respond to out-of-scope requests, such as a polite refusal plus a pointer to the right team, is the primary control for this drift. A bigger model cannot infer company policy that nobody stated. Temperature affects randomness, not which topics the agent is willing to discuss. A benefits handbook helps ground in-scope answers but does not stop the agent answering tax questions from general knowledge.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/agents/overview",
+    tags: ["Agent instructions", "Agent design", "Scope"]
+  },
+  {
+    id: "azure-ai-apps-agents-177",
+    difficulty: "easy",
+    certId: "azure-ai-apps-agents",
+    domainId: "d2",
+    domainName: "Implement generative AI and agentic solutions",
+    title: "Remembering the earlier turns of a chat",
+    scenario: "A developer's first prototype of a Foundry prompt agent answers each user message in isolation, so a follow-up such as \"book the cheaper one\" fails because the agent has no idea what options it offered a moment ago. The developer wants the platform to keep the turn history rather than resending it from the client each time.",
+    question: "What should the developer do?",
+    options: [
+      { id: 'A', text: "Upload each finished turn to a vector store and attach the file search tool to the agent for recall." },
+      { id: 'B', text: "Create a new agent version after each turn so the instructions include the latest part of the chat." },
+      { id: 'C', text: "Attach a memory store to the agent so each message is saved as a long-term memory for that user." },
+      { id: 'D', text: "Create a conversation object once and pass its ID with every response request made to the agent." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "A conversation is a durable, service-side record of messages, tool calls and responses; passing its ID on each request lets the agent see the prior turns without the client resending them. Long-term memory distills preferences and summaries across sessions and is not a verbatim turn history. Agent versions are immutable definitions, and creating one per turn is both wrong and wasteful. File search retrieves semantically similar chunks, so the exact preceding turns may not be retrieved at all.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/agents/concepts/runtime-components",
+    tags: ["Conversations", "Conversation state", "Agents"]
+  },
+  {
+    id: "azure-ai-apps-agents-178",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d2",
+    domainName: "Implement generative AI and agentic solutions",
+    title: "Picking up a chat on a different device",
+    scenario: "A bank's support agent chains turns with previous_response_id held in the browser's memory. Customers who start on the website and later open the mobile app or come back the next day lose the thread, and support supervisors also want to open the full history of any customer's session in the portal.",
+    question: "Which change best meets these needs?",
+    options: [
+      { id: 'A', text: "Create a conversation per customer session, store its ID server side, and pass it from every channel the user opens." },
+      { id: 'B', text: "Store the latest response ID in a browser cookie so the website can resume the chain on the customer's next visit." },
+      { id: 'C', text: "Enable long-term memory for each customer so the agent recalls a summary of their previous chats on any device." },
+      { id: 'D', text: "Send the full transcript from the client on every turn and set store to false so that no history is kept in Foundry." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "A conversation object is a durable record kept in Foundry, independent of any client, so storing its ID against the customer's session on the server lets the website, the mobile app and a later visit all continue the same history, and it can be viewed in the portal. A cookie keeps the chain on one browser only. Client-held transcripts with store off defeat both cross-device continuity and supervisor review. Memory keeps distilled preferences and summaries, not the full turn-by-turn history supervisors want.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/agents/concepts/runtime-components",
+    tags: ["Conversations", "previous_response_id", "Multichannel"]
+  },
+  {
+    id: "azure-ai-apps-agents-179",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d2",
+    domainName: "Implement generative AI and agentic solutions",
+    title: "Agent keeps calling the wrong lookup",
+    scenario: "A distributor's agent has two function tools, search_orders and search_invoices, each described only as \"Searches records\" with a single parameter named q. Logs show the agent often calls search_invoices when customers ask where a delivery is. The functions themselves work correctly.",
+    question: "What should the developer do to improve tool selection?",
+    options: [
+      { id: 'A', text: "Merge both functions into one search_records function with a free-text q parameter so no choice is needed." },
+      { id: 'B', text: "Rename the functions to f1 and f2 and list their purposes in the agent instructions to save tool tokens." },
+      { id: 'C', text: "Set parallel_tool_calls to true so the agent calls both functions and can pick whichever result fits better." },
+      { id: 'D', text: "Give each function a description saying what it returns and when to use it, with clearly named parameters." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "The model chooses tools from their names, descriptions and parameter schemas; describing what each function returns, when to use it (for example delivery status versus billing questions) and giving parameters meaningful names such as order_number is the documented fix for mis-selection. Merging hides the distinction inside the backend and still has to route internally. Calling both wastes calls and pushes the ambiguity into the answer. Opaque names separated from their descriptions make selection harder, not easier.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/agents/concepts/tool-best-practice",
+    tags: ["Tool schemas", "Function calling", "Tool selection"]
+  },
+  {
+    id: "azure-ai-apps-agents-180",
+    difficulty: "easy",
+    certId: "azure-ai-apps-agents",
+    domainId: "d2",
+    domainName: "Implement generative AI and agentic solutions",
+    title: "Invalid priority values from the agent",
+    scenario: "An IT service-desk agent calls a create_ticket function whose priority parameter is declared as a plain string. The ticketing API accepts only P1, P2, P3 or P4, but the agent sometimes sends values such as \"urgent\" or \"high\", which the API rejects.",
+    question: "How should the developer change the function schema?",
+    options: [
+      { id: 'A', text: "Declare priority as an integer from 1 to 4 and let the API map free-text words back to codes." },
+      { id: 'B', text: "Remove priority from the schema and let the ticketing API assign a default P3 to all tickets." },
+      { id: 'C', text: "Declare priority as a string with an enum of P1, P2, P3 and P4 in the parameter's JSON schema." },
+      { id: 'D', text: "Mark priority as optional so the agent can leave it out whenever it is unsure of the right code." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "An enum in the parameter's JSON schema tells the model the exact allowed values, and with strict function schemas the arguments are constrained to them, so free-text priorities disappear. Changing the type to an integer does not stop the model producing words, and the API does not accept integers anyway. Dropping the parameter loses information the service desk needs. Making it optional invites the agent to omit it, which is not what the API requires.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/agents/how-to/tools/function-calling",
+    tags: ["Tool schemas", "Function calling", "JSON schema"]
+  },
+  {
+    id: "azure-ai-apps-agents-181",
+    difficulty: "hard",
+    certId: "azure-ai-apps-agents",
+    domainId: "d2",
+    domainName: "Implement generative AI and agentic solutions",
+    title: "Sixty tools and falling accuracy",
+    scenario: "An operations agent has grown to 60 tools covering ticketing, CMDB, monitoring and HR systems, all exposed through a Foundry toolbox. Input token costs have tripled because every definition is sent on every call, and the agent increasingly picks a similar but wrong tool. The team does not want to split the agent or remove capabilities.",
+    question: "What should the developer do?",
+    options: [
+      { id: 'A', text: "Enable tool search on the toolbox, so the agent discovers relevant tools at runtime and critical ones are pinned." },
+      { id: 'B', text: "Set tool_choice to required on every request so that the agent must commit to a tool before writing any text." },
+      { id: 'C', text: "Switch the agent to a model with a larger context window so that all 60 tool definitions fit with room to spare." },
+      { id: 'D', text: "Move all 60 toolbox descriptions into the agent's instructions and drop the tool definitions from each request." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Toolbox tool search (preview) hides tools by default and gives the agent two meta-tools, one to search for relevant tools by describing the need and one to call a discovered tool, while you pin critical tools and add organization-specific context; this cuts per-request tokens and improves selection accuracy across hundreds of tools. Descriptions in the instructions still cost tokens on every call, and without definitions the model cannot call the tools. Forcing a tool call does nothing for selection quality. A larger window accommodates the bloat but keeps the cost and the confusion.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/agents/concepts/toolbox-overview",
+    tags: ["Toolbox", "Tool search", "Tool selection"]
+  },
+  {
+    id: "azure-ai-apps-agents-182",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d2",
+    domainName: "Implement generative AI and agentic solutions",
+    title: "Server-side processing with no client to run it",
+    scenario: "A mortgage agent must trigger a document-verification routine that the team already runs as serverless code in Azure. Conversations often happen through a thin web chat that cannot execute business logic itself, and the routine can take a couple of minutes, so the team wants the agent to hand work to it through a queue and pick up the result when it is written back.",
+    question: "Which tool should the developer attach to the agent?",
+    options: [
+      { id: 'A', text: "A function tool, so the web chat receives each call and queues it for the verification routine in Azure." },
+      { id: 'B', text: "The code interpreter tool, so the agent reimplements the verification logic in its own Python sandbox." },
+      { id: 'C', text: "The Azure Functions tool, which sends the request to a function through a queue and reads the queued reply." },
+      { id: 'D', text: "The browser automation tool, so the agent opens the verification routine's admin page and triggers it." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "The Azure Functions tool lets an agent invoke a function through a storage queue: the agent writes the call to an input queue, the function processes it asynchronously and writes the result to an output queue, and the service returns that result to the agent, with no client execution needed. A function tool requires the calling client to execute the code, which the thin web chat cannot do. Code interpreter runs in an isolated sandbox without access to the existing routine or its data. Driving an admin page with browser automation is fragile and bypasses the proper interface.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/agents/how-to/tools/azure-functions",
+    tags: ["Azure Functions tool", "Agent tools", "Asynchronous"]
+  },
+  {
+    id: "azure-ai-apps-agents-183",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d2",
+    domainName: "Implement generative AI and agentic solutions",
+    title: "Grounding an agent on one product category",
+    scenario: "An outdoor retailer attaches the Azure AI Search tool to its gear-advice agent, pointing at an existing index with text, vector and category fields and a semantic configuration. The agent for the climbing department must only ever retrieve documents whose category is climbing, and the team wants the tool's best-quality retrieval mode.",
+    question: "How should the developer configure the tool?",
+    options: [
+      { id: 'A', text: "Set query_type to semantic and build a second index containing only the climbing documents for the tool." },
+      { id: 'B', text: "Set query_type to vector_semantic_hybrid and set the tool's filter to category eq 'climbing'." },
+      { id: 'C', text: "Set query_type to vector and raise top_k to 50 so that enough climbing documents are always included." },
+      { id: 'D', text: "Set query_type to simple and ask the agent in its instructions to discard any category other than climbing." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "The Azure AI Search tool supports query types simple, vector, semantic, vector_simple_hybrid and vector_semantic_hybrid, the default and highest-quality option that combines keyword and vector retrieval with semantic reranking; its filter setting applies an OData filter to every query the agent makes, enforcing the category restriction in retrieval rather than in the prompt. Instructions are not a retrieval control. Pure vector with a large top_k still returns other categories and floods the context. A separate index duplicates data and maintenance when a filter does the job.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/agents/how-to/tools/ai-search",
+    tags: ["Azure AI Search tool", "Filters", "Hybrid search"]
+  },
+  {
+    id: "azure-ai-apps-agents-184",
+    difficulty: "hard",
+    certId: "azure-ai-apps-agents",
+    domainId: "d2",
+    domainName: "Implement generative AI and agentic solutions",
+    title: "Citations without anything to click",
+    scenario: "A standards body's agent uses the Azure AI Search tool over an index of published standards. Answers include citation markers, but the URL citation annotations carry no link, so readers cannot open the source standard. The index has searchable content and vector fields, a title field, and the source address is stored only in a field that is not marked retrievable.",
+    question: "What should the developer change?",
+    options: [
+      { id: 'A', text: "Switch query_type from vector_semantic_hybrid to simple so that the tool returns every source field." },
+      { id: 'B', text: "Raise top_k from 5 to 20 so that more retrievable documents, and their metadata, reach the model per query." },
+      { id: 'C', text: "Tell the agent in its instructions to write the full web address of each standard after its answers." },
+      { id: 'D', text: "Make the source address field retrievable, so the tool can return it as the link in each URL citation." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "For the Azure AI Search tool to produce citations with links, the index needs a retrievable field containing the source URL, optionally with a retrievable title; fields that are not retrievable are never returned, so the annotations cannot carry the address. Asking the model to write addresses invites invented or mistyped links with no guarantee of accuracy. The query type changes how documents are matched, not which fields come back. More results do not make a non-retrievable field appear.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/agents/how-to/tools/ai-search",
+    tags: ["Azure AI Search tool", "Citations", "Index design"]
+  },
+  {
+    id: "azure-ai-apps-agents-185",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d2",
+    domainName: "Implement generative AI and agentic solutions",
+    title: "Project documents living in SharePoint Online",
+    scenario: "An engineering consultancy wants an agent, published to Microsoft Teams, that answers questions from project documents stored across several SharePoint Online sites. Each engineer may read only the sites of projects they are staffed on, and the firm does not want to copy documents into another index or build its own permission sync.",
+    question: "Which approach should the developer use?",
+    options: [
+      { id: 'A', text: "Attach the web search tool scoped to the firm's SharePoint domain so the agent searches the sites live." },
+      { id: 'B', text: "Attach the SharePoint tool, which retrieves on behalf of the signed-in user so their site access applies." },
+      { id: 'C', text: "Export the sites nightly into a vector store and attach the file search tool to the agent for every user." },
+      { id: 'D', text: "Give the agent's identity read access to every site and tell the agent to check each user's staffing list." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "The SharePoint tool grounds the agent on SharePoint content using identity passthrough (on-behalf-of), so results respect the signed-in user's existing permissions with no copy or custom sync; it therefore needs a user context such as a Teams sign-in. Nightly export to a vector store loses per-user permissions and duplicates data. A broadly privileged agent identity combined with prompt-based checks is not access control. Web search reaches public web content, not an organization's authenticated SharePoint sites.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/agents/how-to/tools/sharepoint",
+    tags: ["SharePoint tool", "Identity passthrough", "Knowledge"]
+  },
+  {
+    id: "azure-ai-apps-agents-186",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d2",
+    domainName: "Implement generative AI and agentic solutions",
+    title: "Sales questions over a lakehouse",
+    scenario: "A beverage company keeps curated sales and inventory tables in a Microsoft Fabric lakehouse, and its analysts have already built and tested a Fabric data agent that answers questions over those tables. Regional managers now want a Foundry agent in Teams that can answer questions such as \"Which SKUs fell below safety stock in the north region last week?\"",
+    question: "How should the developer give the Foundry agent this capability?",
+    options: [
+      { id: 'A', text: "Write an OpenAPI wrapper that sends the manager's question as raw SQL text directly to the lakehouse." },
+      { id: 'B', text: "Index the Fabric lakehouse tables into Azure AI Search and attach the Azure AI Search tool for the questions." },
+      { id: 'C', text: "Export the lakehouse tables to CSV every night and let the code interpreter tool analyze the latest files." },
+      { id: 'D', text: "Connect the existing Fabric data agent to the Foundry agent through the Fabric data agent tool in Foundry." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "The Fabric data agent tool connects a Foundry agent to a Fabric data agent, which translates natural-language questions into queries over the lakehouse and returns grounded results, reusing the analysts' tested work and Fabric's security with the user's identity. Nightly CSV exports go stale and duplicate data outside Fabric's governance. A search index retrieves text chunks and is poor at aggregations such as below-threshold stock by region and week. Passing model-written raw SQL straight to the lakehouse through a custom wrapper adds risk and rebuilds what the data agent already does.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/agents/how-to/tools/fabric",
+    tags: ["Fabric data agent", "Agent tools", "Structured data"]
+  },
+  {
+    id: "azure-ai-apps-agents-187",
+    difficulty: "hard",
+    certId: "azure-ai-apps-agents",
+    domainId: "d2",
+    domainName: "Implement generative AI and agentic solutions",
+    title: "Letting an agent read uploaded invoices reliably",
+    scenario: "A procurement agent must pull supplier name, invoice number, line items and totals from invoices users upload, then check them against purchase orders. The team already has a tested custom analyzer in Azure Content Understanding for these invoices, and it wants the agent to call that analyzer server side as a tool rather than asking the chat model to read the scans.",
+    question: "What should the developer do?",
+    options: [
+      { id: 'A', text: "Attach the file search tool to each invoice, so the agent retrieves the line items by semantic similarity." },
+      { id: 'B', text: "Attach the browser automation tool and have the agent drive the Content Understanding studio page for each file." },
+      { id: 'C', text: "Describe the analyzer in an OpenAPI definition and attach it as an OpenAPI tool with managed identity." },
+      { id: 'D', text: "Attach the code interpreter tool and let the agent rebuild the analyzer as OCR code inside its sandbox." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "Content Understanding analyzers are exposed through a REST API, so describing the analyze operation in an OpenAPI 3 definition and attaching it as an OpenAPI tool, authenticated with managed identity, lets the agent invoke the tested analyzer server side and receive structured fields to reason over. File search returns text chunks by similarity, not a reliable extraction of totals and line items. Writing OCR code in the sandbox discards the tested analyzer and its field schema. Driving a portal page with browser automation is fragile and not an integration.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/agents/how-to/tools/openapi",
+    tags: ["Content Understanding", "OpenAPI tool", "Agent tools"]
+  },
+  {
+    id: "azure-ai-apps-agents-188",
+    difficulty: "hard",
+    certId: "azure-ai-apps-agents",
+    domainId: "d2",
+    domainName: "Implement generative AI and agentic solutions",
+    title: "One customer's preferences shown to another",
+    scenario: "A travel agent uses the memory search tool against a memory store. During a pilot, a customer was greeted with another traveler's seat and meal preferences. The developer had set the tool's scope to a fixed string, \"travel-pilot\", while each customer signs in with Microsoft Entra ID before chatting.",
+    question: "How should the developer configure memory?",
+    options: [
+      { id: 'A', text: "Set the memory search tool's scope to {{$userId}} so the scope is resolved from each caller's identity." },
+      { id: 'B', text: "Disable user profile memory in the store and keep only chat summary memory for the travel-pilot scope." },
+      { id: 'C', text: "Create a new memory store every morning so the pilot's shared scope never holds preferences for long." },
+      { id: 'D', text: "Set a short default TTL on the travel-pilot scope so another traveler's preferences expire within an hour." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Memories are partitioned by scope, so a fixed scope puts every traveler's memories in one shared bucket; setting the memory search tool's scope to {{$userId}} makes the service resolve the scope from the authenticated caller, isolating each user's memories. Recreating the store daily or shortening TTL only narrows the window in which the leak occurs. Disabling profile memory removes the personalization the agent exists to provide while summaries in the shared scope can still leak.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/agents/how-to/memory-usage",
+    tags: ["Memory", "Scope", "Privacy"]
+  },
+  {
+    id: "azure-ai-apps-agents-189",
+    difficulty: "easy",
+    certId: "azure-ai-apps-agents",
+    domainId: "d2",
+    domainName: "Implement generative AI and agentic solutions",
+    title: "\"Please forget my home address\"",
+    scenario: "A grocery delivery agent stores customer preferences in a Foundry memory store. A customer asks the agent to forget their old home address immediately, and the privacy team wants that specific memory removed without wiping the customer's other preferences such as dietary restrictions.",
+    question: "What should the developer implement?",
+    options: [
+      { id: 'A', text: "Use the direct forget behavior or delete that memory item through the memory store's item operations." },
+      { id: 'B', text: "Delete the whole memory store and re-create it, then ask the customer to restate their other preferences." },
+      { id: 'C', text: "Lower the store's default TTL to one day so the service can forget the address memory by tomorrow." },
+      { id: 'D', text: "Remove the conversation that contained the address, since memories are deleted with their source chat." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Memory in Foundry Agent Service supports item-level create, read, update, list and delete operations and direct remember-or-forget commands, so a single memory can be removed immediately while other items stay. Deleting the whole store destroys every customer's memories. Memories are extracted and consolidated into the store and persist independently of the conversation they came from. A default TTL applies to newly created entries and does not guarantee immediate removal of an existing one.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/agents/concepts/what-is-memory",
+    tags: ["Memory", "Privacy", "Data lifecycle"]
+  },
+  {
+    id: "azure-ai-apps-agents-190",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d2",
+    domainName: "Implement generative AI and agentic solutions",
+    title: "Agent output consumed by a claims system",
+    scenario: "An insurance triage agent reads a first notice of loss and must hand its decision to a downstream claims system as an object with claim_type, severity and next_action. The claims system rejects anything that does not match its contract, and the team wants that shape enforced by the platform rather than by prompt wording.",
+    question: "How should the developer configure the agent?",
+    options: [
+      { id: 'A', text: "Set the agent's text format to JSON object, so every reply is guaranteed to be parseable by the claims system." },
+      { id: 'B', text: "Add a function tool named submit_decision and parse whatever arguments the model sends as the final output." },
+      { id: 'C', text: "Add an example object to the agent instructions and ask it to always reply using exactly the same JSON keys." },
+      { id: 'D', text: "Set the agent's text format to a JSON schema with strict enabled, so every reply conforms to that contract." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Configuring the agent's response text format as a JSON schema with strict mode applies structured outputs, so each reply is constrained to the schema's required fields and types. An example in the instructions makes the shape likely, not guaranteed. A function tool can work, but without a strict schema its arguments are not guaranteed either, and it turns a response contract into a fake tool call. JSON object mode guarantees valid JSON only, not the claims system's specific fields.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/structured-outputs",
+    tags: ["Structured outputs", "Agents", "Integration"]
+  },
+  {
+    id: "azure-ai-apps-agents-191",
+    difficulty: "easy",
+    certId: "azure-ai-apps-agents",
+    domainId: "d2",
+    domainName: "Implement generative AI and agentic solutions",
+    title: "Reusing the enterprise search index",
+    scenario: "A utility's knowledge team already maintains a large Azure AI Search index of maintenance procedures, with vector fields, a semantic configuration and indexers that refresh it hourly. A new field-support agent must ground its answers on that same index and cite the procedures it uses.",
+    question: "Which tool should the developer attach to the agent?",
+    options: [
+      { id: 'A', text: "The code interpreter tool, with a nightly export of the index loaded into its sandbox." },
+      { id: 'B', text: "The web search tool, restricted to the utility's public site where procedures are posted." },
+      { id: 'C', text: "The Azure AI Search tool, connected to the existing index through a project connection." },
+      { id: 'D', text: "The file search tool, with every procedure re-uploaded into a vector store for the agent." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "The Azure AI Search tool grounds an agent on an existing index through a project connection, reusing its vectors, semantic configuration and hourly refresh, and returns inline citations. Re-uploading procedures into a file search vector store duplicates content and loses the indexer's freshness. Internal maintenance procedures are not on the public web. A nightly export in a sandbox is stale and does not provide retrieval with citations.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/agents/how-to/tools/ai-search",
+    tags: ["Azure AI Search tool", "Knowledge", "Grounding"]
+  },
+  {
+    id: "azure-ai-apps-agents-192",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d2",
+    domainName: "Implement generative AI and agentic solutions",
+    title: "OpenAPI tool rejected at creation",
+    scenario: "A developer attaches a fleet-tracking API to an agent as an OpenAPI tool using the vendor's OpenAPI 3.0 file. Creating the agent version fails with a validation error about the tool's functions. Inspection shows the paths and schemas are valid, but none of the operations in the file has an operationId.",
+    question: "What should the developer do?",
+    options: [
+      { id: 'A', text: "Downgrade the definition to Swagger 2.0, because the OpenAPI tool validates operations only in that format." },
+      { id: 'B', text: "Add every operation's summary to the agent instructions so the service can derive each operationId." },
+      { id: 'C', text: "Switch the tool's authentication from anonymous to managed identity so that the definition can be read." },
+      { id: 'D', text: "Add a unique operationId to each operation, since the tool turns each one into a function named after it." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "The OpenAPI tool converts each operation in the definition into a function the model can call, using the operationId as the function name, so every operation needs a unique operationId made of allowed characters. The tool expects OpenAPI 3.x, so moving to Swagger 2.0 is backwards. Authentication settings govern calls to the API at run time, not validation of the definition. Instructions cannot supply function names for the tool definition.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/agents/how-to/tools/openapi",
+    tags: ["OpenAPI tool", "Tool schemas"]
+  },
+  {
+    id: "azure-ai-apps-agents-193",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d2",
+    domainName: "Implement generative AI and agentic solutions",
+    title: "Checking a portal that has no API",
+    scenario: "A freight forwarder wants its agent to look up container status on a port authority's public web portal, which has no API: the agent must open the site, type a container number into a search form, and read the results page. The team does not want to host browsers or write scraping code itself.",
+    question: "Which tool should the developer attach?",
+    options: [
+      { id: 'A', text: "The OpenAPI tool, generating a definition from the portal's HTML pages so the form becomes a callable API." },
+      { id: 'B', text: "The web search tool, so the agent finds the status in search results that mention the container number." },
+      { id: 'C', text: "The browser automation tool, which drives a managed browser to navigate pages and fill in the search form." },
+      { id: 'D', text: "The computer use tool, with the team's own code running the returned actions on a virtual desktop it hosts." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "The browser automation tool lets the agent carry out real browser tasks, navigating pages, filling forms and reading results, in a managed Playwright browser environment, so the team neither hosts browsers nor writes scrapers. Web search returns indexed public pages and will not submit a form or show live container status. An OpenAPI definition must describe an actual API, which the portal does not have. The computer use tool returns actions for your own code to execute in an environment you host, which the team wants to avoid.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/agents/how-to/tools/browser-automation",
+    tags: ["Browser automation", "Agent tools"]
+  },
+  {
+    id: "azure-ai-apps-agents-194",
+    difficulty: "hard",
+    certId: "azure-ai-apps-agents",
+    domainId: "d2",
+    domainName: "Implement generative AI and agentic solutions",
+    title: "Automating a legacy Windows desktop app",
+    scenario: "An insurer's claims staff still use a legacy Windows desktop application with no API and no web front end. The team wants an agent that can see the application's screens and click and type in it to re-key claim data, running on virtual machines the insurer controls inside its own network.",
+    question: "Which tool fits, and who executes the actions?",
+    options: [
+      { id: 'A', text: "Browser automation, with the service's managed browser driving the desktop app across the insurer's network." },
+      { id: 'B', text: "The Azure Functions tool, with a queue-triggered function that clicks through the desktop application's screens." },
+      { id: 'C', text: "Code interpreter, which runs Python in its sandbox to send keystrokes into the insurer's desktop application." },
+      { id: 'D', text: "Computer use, where the model proposes actions from screenshots and the insurer's code executes them on the VMs." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "The computer use tool works from screenshots: the model returns actions such as clicks and keystrokes, and the customer's own code executes them in an environment it controls, then sends back a new screenshot, so it can operate desktop applications on the insurer's VMs. Browser automation drives web pages in a managed browser and cannot operate a Windows desktop app. Code interpreter's sandbox is isolated from customer machines. A queue-triggered function has no view of the screen, so it cannot decide where to click from what the application shows.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/agents/how-to/tools/computer-use",
+    tags: ["Computer use", "Agent tools", "Automation"]
+  },
+  {
+    id: "azure-ai-apps-agents-195",
+    difficulty: "easy",
+    certId: "azure-ai-apps-agents",
+    domainId: "d2",
+    domainName: "Implement generative AI and agentic solutions",
+    title: "Instructions for a new returns agent",
+    scenario: "A developer is writing instructions for a retail returns agent that has tools to look up orders, check return eligibility and create return labels. Early tests show it sometimes creates labels without checking eligibility and answers questions about store hiring, which is out of scope.",
+    question: "Which two additions to the instructions will help most? (Choose two.)",
+    options: [
+      { id: 'A', text: "Define the agent's scope as returns and exchanges, with a set reply for anything outside that scope." },
+      { id: 'B', text: "Write every rule in capital letters so that the model gives more weight to the instructions it reads." },
+      { id: 'C', text: "Add a long fictional backstory for the agent persona so it stays in character throughout every chat." },
+      { id: 'D', text: "State the order of tool use: check eligibility before any label is created, and never skip that step." },
+      { id: 'E', text: "Paste the complete return policy for every country into the instructions to cover all edge cases." }
+    ],
+    correctAnswers: ['A', 'D'],
+    type: "multiple",
+    explanation: "Explicit tool-use rules, such as always checking eligibility before creating a label, address the sequencing failure, and a clear scope with a prescribed response for out-of-scope requests addresses the hiring questions. A long backstory adds tokens without improving policy adherence. Capital letters are not a reliable way to raise priority and make instructions harder to maintain. Pasting every country's policy bloats every request and belongs in a knowledge tool that retrieves only what is relevant.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/prompt-engineering",
+    tags: ["Agent instructions", "Agent design"]
+  },
+  {
+    id: "azure-ai-apps-agents-196",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d2",
+    domainName: "Implement generative AI and agentic solutions",
+    title: "Policy answers plus live account data",
+    scenario: "A mobile operator's support agent must answer questions like \"Can I roam in Japan on my plan, and how much data have I used this month?\" Roaming policies live in an Azure AI Search index maintained by the knowledge team, and account usage comes from an internal REST service that already has an OpenAPI 3 definition and accepts Microsoft Entra ID tokens.",
+    question: "Which two tools should the developer attach to the agent? (Choose two.)",
+    options: [
+      { id: 'A', text: "The file search tool, with the knowledge team's policy files re-uploaded to a vector store." },
+      { id: 'B', text: "The web search tool, reading public roaming pages instead of the OpenAPI usage service." },
+      { id: 'C', text: "The OpenAPI tool, importing the usage service definition with managed identity auth." },
+      { id: 'D', text: "The code interpreter tool, loading a daily export of every subscriber's data usage." },
+      { id: 'E', text: "The Azure AI Search tool, connected to the knowledge team's roaming policy index." }
+    ],
+    correctAnswers: ['C', 'E'],
+    type: "multiple",
+    explanation: "The Azure AI Search tool grounds policy answers on the maintained index with citations, and the OpenAPI tool calls the usage service from its existing definition, authenticating with managed identity, for live per-customer data. Public pages may lag the maintained policy index and do not cover plan-specific rules. A daily export of all subscribers' usage in a sandbox is stale and exposes everyone's data. Re-uploading policies into a vector store duplicates what the index already provides and drifts out of date.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/agents/concepts/tool-catalog",
+    tags: ["Agent tools", "Azure AI Search tool", "OpenAPI tool"]
+  },
+  {
+    id: "azure-ai-apps-agents-197",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d2",
+    domainName: "Implement generative AI and agentic solutions",
+    title: "Chats lost when the app restarts",
+    scenario: "A utility's outage agent runs behind an App Service web app. Each time the app restarts or scales out, customers mid-conversation are greeted as if they were new, because the app kept the conversation ID in process memory. The operator wants conversations to survive restarts and work across instances without changing how the agent itself is defined.",
+    question: "Which two changes should the developer make? (Choose two.)",
+    options: [
+      { id: 'A', text: "Create a new agent version on each restart so that every instance gets a fresh copy of the history." },
+      { id: 'B', text: "Keep using the Foundry conversation object, which retains its items independently of the web app." },
+      { id: 'C', text: "Persist each customer's conversation ID in a shared store such as a database keyed by their session." },
+      { id: 'D', text: "Store the full transcript in the agent instructions so any instance can rebuild the previous turns." },
+      { id: 'E', text: "Enable ARR affinity so each customer always returns to the same instance that holds the chat in memory." }
+    ],
+    correctAnswers: ['B', 'C'],
+    type: "multiple",
+    explanation: "Foundry conversations are durable service-side records, so the history already survives; what is lost is the app's pointer to it. Persisting the conversation ID in a shared database or cache keyed by the customer's session lets any instance, before or after a restart, continue the same conversation. ARR affinity does not survive restarts and breaks when instances are replaced. Agent versions are definitions, not per-customer state. Putting transcripts in instructions would require a new version per customer and leak data between them.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/agents/concepts/runtime-components",
+    tags: ["Conversations", "State management", "Scalability"]
+  },
+  {
+    id: "azure-ai-apps-agents-198",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d2",
+    domainName: "Implement generative AI and agentic solutions",
+    title: "A tool that returns two megabytes of JSON",
+    scenario: "A logistics agent's get_shipments function returns the full JSON record, with tracking events, for every shipment matching a customer, sometimes several megabytes. Conversations with large customers fail with context-length errors or become very slow and expensive, even though the agent usually needs only the latest status of a few shipments.",
+    question: "What is the best fix?",
+    options: [
+      { id: 'A', text: "Store each get_shipments result in a memory store so later turns can recall it without resending the data." },
+      { id: 'B', text: "Return a compact, filtered result with only needed fields, paginated, plus parameters to narrow the query." },
+      { id: 'C', text: "Enable automatic truncation on each request so the service trims the oversized tool output as it arrives." },
+      { id: 'D', text: "Switch the agent to a model with the largest context window so every get_shipments result always fits." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "Tool results are added to the model's context, so tools should return only what the agent needs, with filtering parameters (status, date range, shipment ID) and pagination for large sets; this cuts tokens, latency and failure risk and helps the model focus. A bigger window still pays for megabytes of irrelevant tokens on every turn. Truncation drops the oldest conversation items, not the middle of a huge tool output, and can remove important earlier turns. Memory stores distilled user context, not bulk operational records.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/agents/concepts/tool-best-practice",
+    tags: ["Tool design", "Context window", "Function calling"]
+  },
+  {
+    id: "azure-ai-apps-agents-199",
+    difficulty: "easy",
+    certId: "azure-ai-apps-agents",
+    domainId: "d2",
+    domainName: "Implement generative AI and agentic solutions",
+    title: "Attaching a Foundry IQ knowledge base",
+    scenario: "A knowledge team has built a Foundry IQ knowledge base over the company's policy sites and document libraries, with agentic retrieval configured. A developer now needs a prompt agent to query that knowledge base during conversations.",
+    question: "How should the developer connect the agent to the knowledge base?",
+    options: [
+      { id: 'A', text: "Through the memory search tool, importing the knowledge base as the agent's long-term user memory." },
+      { id: 'B', text: "Through the code interpreter tool, uploading the knowledge base definition file into the sandbox." },
+      { id: 'C', text: "Through the file search tool, exporting the knowledge base's sources into the agent's vector store." },
+      { id: 'D', text: "Through the MCP tool, pointing at the knowledge base's MCP endpoint via a project connection." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Foundry IQ knowledge bases expose an MCP endpoint, and agents consume them through the MCP tool, typically authenticated through a project connection, so the agent gets agentic retrieval with citations. Exporting sources into a file search vector store abandons the knowledge base's retrieval planning and freshness. A definition file in a sandbox gives no retrieval at all. Memory stores hold per-user context learned from conversations, not curated organizational content.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/agents/concepts/what-is-foundry-iq",
+    tags: ["Foundry IQ", "MCP tool", "Knowledge"]
+  },
+  {
+    id: "azure-ai-apps-agents-200",
+    difficulty: "hard",
+    certId: "azure-ai-apps-agents",
+    domainId: "d2",
+    domainName: "Implement generative AI and agentic solutions",
+    title: "Hosted agent that forgets between webhook calls",
+    scenario: "A team deploys a hosted agent that receives GitHub webhook payloads through the Invocations protocol and triages issues over several related events. The agent treats each event as if it had never seen the issue before. The team assumed Foundry would track the history automatically, as it does for their chat agents that use the Responses protocol.",
+    question: "What should the team do?",
+    options: [
+      { id: 'A', text: "Raise the session idle timeout to 60 minutes, which makes the platform keep conversation history longer." },
+      { id: 'B', text: "Attach a memory store with scope {{$userId}}, since webhook calls from GitHub carry the user's identity." },
+      { id: 'C', text: "Manage state in the agent code, keyed by session ID, using the session filesystem or the state store." },
+      { id: 'D', text: "Pass a conversation ID in each webhook call, because Invocations stores the history once one is supplied." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "With the Invocations protocol, the session ID is the primary concept and there is no platform-managed conversation history; the agent code must manage state itself, for example in the persistent session filesystem or the durable key-value state store, keyed by a session ID derived from the issue. Conversation IDs are the Responses protocol's managed history. Webhooks arrive with no signed-in end user, so a {{$userId}} memory scope has no user to resolve and memory is not a turn history anyway. The idle timeout only controls when compute is released; it does not create history the code never stored.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/agents/concepts/hosted-agents",
+    tags: ["Hosted agents", "Invocations protocol", "State management"]
+  }
+];
+
+export default AZURE_AI_APPS_AGENTS_QUESTIONS_8;

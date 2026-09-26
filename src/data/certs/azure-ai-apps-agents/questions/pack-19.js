@@ -1,0 +1,532 @@
+export const AZURE_AI_APPS_AGENTS_QUESTIONS_19 = [
+  {
+    id: "azure-ai-apps-agents-451",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d5",
+    domainName: "Implement information extraction solutions",
+    title: "Price tables that break across pages",
+    scenario: "A wholesaler's RAG pipeline in Azure AI Search ingests supplier catalogs whose price tables often continue over two or three pages. With the current Document Layout skill in text mode, tables arrive as flattened plain text and each page's part of a table lands in a different chunk, so answers quote the wrong price. The team wants to keep one skill for extraction and chunking.",
+    question: "Which change best addresses this?",
+    options: [
+      { id: 'A', text: "Keep the Document Layout skill and set its markdownHeaderDepth to h1 so tables stay under one heading." },
+      { id: 'B', text: "Keep the Document Layout skill and add a Text Split skill after it with a much larger maximum chunk size." },
+      { id: 'C', text: "Replace the Document Layout skill with the Azure Content Understanding skill in the same skillset." },
+      { id: 'D', text: "Replace the Document Layout skill with the OCR skill and Text Merge so every table is read as one block." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "The Azure Content Understanding skill implements the same interface as the Document Layout skill but outputs tables and figures as Markdown, recognizes tables that span pages as a single unit, and lets chunks span pages, which is exactly what multi-page price tables need, and it performs chunking itself. Bigger Text Split chunks still start from flattened table text and arbitrary page breaks. OCR with Text Merge loses table structure entirely. markdownHeaderDepth only applies to Markdown output mode and controls how headings nest, not whether a table split across pages is reassembled.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/search/cognitive-search-skill-content-understanding",
+    tags: ["Azure AI Search", "Content Understanding skill", "Chunking"]
+  },
+  {
+    id: "azure-ai-apps-agents-452",
+    difficulty: "easy",
+    certId: "azure-ai-apps-agents",
+    domainId: "d5",
+    domainName: "Implement information extraction solutions",
+    title: "Layout skill complaining about missing file data",
+    scenario: "A developer adds the Document Layout skill to a skillset over a Blob Storage data source, mapping its file_data input to /document/file_data. Every document then fails with a warning that the input file_data could not be found, even though the blobs are valid PDFs.",
+    question: "What should the developer change?",
+    options: [
+      { id: 'A', text: "Set allowSkillsetToReadFileData to true on the indexer so the original file is placed in the tree." },
+      { id: 'B', text: "Change the skill's context from /document to /document/pages/* so it runs on each page's file." },
+      { id: 'C', text: "Set imageAction to generateNormalizedImages on the indexer so each PDF is exposed to skills as file data." },
+      { id: 'D', text: "Set dataToExtract to contentAndMetadata on the indexer so the PDF's bytes are extracted as text." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Skills that take a file_data input, such as Document Layout and Content Understanding, need the indexer setting allowSkillsetToReadFileData set to true, which creates the /document/file_data node holding the original file downloaded from Blob Storage. imageAction produces normalized images, not the file object. contentAndMetadata controls text and metadata extraction and does not create file_data. Changing the context to pages does not help because the node the skill reads still does not exist.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/search/cognitive-search-skill-document-intelligence-layout",
+    tags: ["Azure AI Search", "Document Layout skill", "Troubleshooting"]
+  },
+  {
+    id: "azure-ai-apps-agents-453",
+    difficulty: "easy",
+    certId: "azure-ai-apps-agents",
+    domainId: "d5",
+    domainName: "Implement information extraction solutions",
+    title: "Checkboxes and tables in scanned inspection forms",
+    scenario: "A property inspector's app sends scanned inspection forms to Azure Document Intelligence with the prebuilt read model. The text comes through well, but the grounding pipeline also needs the defect tables with their rows and columns and whether each tick box on the form was marked.",
+    question: "Which two outputs does switching to the prebuilt layout model add? (Choose two.)",
+    options: [
+      { id: 'A', text: "Word-level confidence scores, which the read model does not return at all." },
+      { id: 'B', text: "Recognition of handwritten text lines, which the read model cannot extract." },
+      { id: 'C', text: "Tables returned with their row and column structure and each cell's content." },
+      { id: 'D', text: "Selection marks reported as selected or unselected, with their positions." },
+      { id: 'E', text: "A per-field schema of named values extracted from the form without training." }
+    ],
+    correctAnswers: ['C', 'D'],
+    type: "multiple",
+    explanation: "The layout model builds on the read model's OCR and adds document structure: tables with rows, columns and cells, selection marks with their state, paragraphs with roles, sections and figures. Handwriting recognition and word-level confidence already come with the read model. Named fields extracted without training are what prebuilt domain models or the query fields add-on provide, not the base layout output.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/ai-services/document-intelligence/prebuilt/layout",
+    tags: ["Document Intelligence", "Layout model", "OCR"]
+  },
+  {
+    id: "azure-ai-apps-agents-454",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d5",
+    domainName: "Implement information extraction solutions",
+    title: "Structure-preserving text for a custom chunker",
+    scenario: "A developer writes a custom Python ingestion job that calls Azure Document Intelligence's layout model on engineering standards, splits the result on headings, and pushes chunks into Azure AI Search. The default content output is plain text, so headings and tables cannot be told apart from body text.",
+    question: "How should the job request the layout results?",
+    options: [
+      { id: 'A', text: "Add the keyValuePairs add-on so each heading and its paragraph are returned as one key-value pair." },
+      { id: 'B', text: "Set outputContentFormat to markdown so headings and tables are marked up in the content output." },
+      { id: 'C', text: "Add the styleFont add-on and treat any text in a bold or larger font as the start of a heading." },
+      { id: 'D', text: "Call the prebuilt read model instead, which returns headings as separate lines in its content output." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "The layout model can return its content in Markdown when outputContentFormat is set to markdown, marking headings and representing tables so a chunker can split on section boundaries and keep tables intact. The read model returns less structure than layout. Key-value pairs pair form labels with values; they do not represent headings with their paragraphs. Inferring headings from font styles is brittle when layout already identifies section headings.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/ai-services/document-intelligence/prebuilt/layout",
+    tags: ["Document Intelligence", "Markdown output", "Chunking"]
+  },
+  {
+    id: "azure-ai-apps-agents-455",
+    difficulty: "hard",
+    certId: "azure-ai-apps-agents",
+    domainId: "d5",
+    domainName: "Implement information extraction solutions",
+    title: "Two extra fields on top of a prebuilt invoice",
+    scenario: "An accounts payable team uses Azure Document Intelligence's prebuilt invoice model. Suppliers also print a carbon-offset reference and a framework agreement number on their invoices, which the prebuilt schema does not return. The team needs both values extracted now and has no time to label documents for a custom model.",
+    question: "What should the developer use?",
+    options: [
+      { id: 'A', text: "The keyValuePairs add-on, then search the returned pairs for keys that look like the two labels." },
+      { id: 'B', text: "A custom template model trained on five invoices labeled with every field including the two new ones." },
+      { id: 'C', text: "The queryFields add-on on the invoice request, listing the two extra field names to pull out." },
+      { id: 'D', text: "A composed model that combines the prebuilt invoice model with the layout model for the extra values." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "Query fields is a premium add-on that extends the schema of a prebuilt or custom model at request time: you set the features parameter to include queryFields and list up to 20 field names, and the service returns those values alongside the prebuilt fields, with no labeling. Key-value pairs return whatever label and value pairs are detected and would need fragile matching on varying supplier labels. A custom template model requires labeling, which the team has no time for. Composed models route documents to one of their component custom models; they do not merge prebuilt and layout outputs.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/ai-services/document-intelligence/concept/add-on-capabilities",
+    tags: ["Document Intelligence", "Query fields", "Field extraction"]
+  },
+  {
+    id: "azure-ai-apps-agents-456",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d5",
+    domainName: "Implement information extraction solutions",
+    title: "Supplier certificates with no common layout",
+    scenario: "A food manufacturer must extract the certificate number, issuing body and expiry date from supplier quality certificates. Hundreds of suppliers use their own designs, so the fields appear in different places and wordings on each certificate. The team can label a few hundred examples and wants a single model to extract the fields.",
+    question: "Which Document Intelligence model type fits best?",
+    options: [
+      { id: 'A', text: "A custom neural model, trained on labeled certificates that cover the full variety of layouts." },
+      { id: 'B', text: "A custom template model, trained on five labeled certificates from the most common certificate design." },
+      { id: 'C', text: "The prebuilt layout model, reading the three values from its tables and paragraphs by field position." },
+      { id: 'D', text: "A custom classification model, trained to assign each certificate to its issuing body as a class label." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Custom neural models are designed for structured, semi-structured and unstructured documents whose layouts vary, learning to find fields by meaning across designs, so one model trained on diverse labeled certificates can extract the three values. Custom template models rely on a consistent visual template and lose accuracy when layouts vary. The layout model returns structure but no named fields, and positions differ per supplier. A classification model assigns document types; it does not extract field values.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/ai-services/document-intelligence/train/custom-neural",
+    tags: ["Document Intelligence", "Custom neural model", "Field extraction"]
+  },
+  {
+    id: "azure-ai-apps-agents-457",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d5",
+    domainName: "Implement information extraction solutions",
+    title: "Shipping labels with barcodes and printed text",
+    scenario: "A logistics firm photographs parcel labels and sends them to Azure Document Intelligence's layout model before an agent reconciles shipments. The printed addresses are extracted, but the agent also needs the decoded values of the Code 128 and QR codes on each label.",
+    question: "How should the request be changed?",
+    options: [
+      { id: 'A', text: "Switch to the prebuilt read model, which decodes barcodes by default on each page." },
+      { id: 'B', text: "Add the formulas add-on so the encoded patterns are returned as LaTeX expressions." },
+      { id: 'C', text: "Add barcodes to the features parameter so each barcode's symbology and content come back." },
+      { id: 'D', text: "Add the ocrHighResolution add-on so the barcode stripes are read as printed characters." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "Barcode extraction is an add-on capability: including barcodes in the features parameter returns each detected barcode with its type, such as QR code or Code 128, and its decoded value. High-resolution OCR improves recognition of small printed text but does not decode barcodes. The read model also requires the add-on to return barcodes. The formulas add-on extracts mathematical formulas, not barcodes.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/ai-services/document-intelligence/concept/add-on-capabilities",
+    tags: ["Document Intelligence", "Barcodes", "Add-on capabilities"]
+  },
+  {
+    id: "azure-ai-apps-agents-458",
+    difficulty: "easy",
+    certId: "azure-ai-apps-agents",
+    domainId: "d5",
+    domainName: "Implement information extraction solutions",
+    title: "A knowledge base straight from a blob container",
+    scenario: "A charity keeps 6,000 grant guidance PDFs in a Blob Storage container and has no search index yet. Its developer wants a Foundry IQ knowledge base over the files with chunking and embeddings handled for them, refreshed as new PDFs are added, without hand-building an index, skillset and indexer.",
+    question: "What should the developer create?",
+    options: [
+      { id: 'A', text: "A file search vector store in the agent, then register that vector store as the knowledge source." },
+      { id: 'B', text: "A search index knowledge source, after first building the index, skillset and indexer by hand in code." },
+      { id: 'C', text: "A blob knowledge source, which generates the splitting, embedding and indexing pipeline automatically." },
+      { id: 'D', text: "A web knowledge source restricted to the container's public URL so the files are fetched on demand." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "An indexed knowledge source such as a blob knowledge source points at the container and has Azure AI Search generate the ingestion objects for it, handling chunking, embedding and metadata extraction and supporting scheduled refresh, which is exactly what the developer wants. A search index knowledge source wraps an index you have already built, which is the hand work being avoided. A file search vector store belongs to the agent service and is not a knowledge source type. A web knowledge source retrieves public web content and would expose the container publicly.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/search/agentic-knowledge-source-overview",
+    tags: ["Foundry IQ", "Knowledge sources", "Ingestion"]
+  },
+  {
+    id: "azure-ai-apps-agents-459",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d5",
+    domainName: "Implement information extraction solutions",
+    title: "Knowledge base calls failing with 403",
+    scenario: "A developer connected a Foundry agent to a Foundry IQ knowledge base through an MCP tool and a RemoteTool project connection that authenticates with the project's managed identity. Every knowledge base call from the agent fails with a 403 response from Azure AI Search, while the developer's own retrieve calls from a notebook succeed.",
+    question: "What should the developer check first?",
+    options: [
+      { id: 'A', text: "That the project's managed identity holds Search Index Data Reader on the search service." },
+      { id: 'B', text: "That the agent's MCP tool has require_approval set to always for the retrieve operation." },
+      { id: 'C', text: "That the search service's managed identity holds Foundry User on the Foundry project." },
+      { id: 'D', text: "That the developer's own account holds Search Service Contributor on the search service." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "The RemoteTool connection calls the knowledge base's MCP endpoint as the project's managed identity, so that identity needs a data-plane role on the search service, Search Index Data Reader for read access; a 403 from Azure AI Search points to this missing assignment. The developer's own roles explain why the notebook works but do not apply to the agent's calls. The search identity needs Cognitive Services User on the Foundry resource only when the knowledge base calls an LLM, and Foundry User is for people building agents. Approval settings control human review of tool calls, not authorization.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/agents/how-to/foundry-iq-connect",
+    tags: ["Foundry IQ", "RBAC", "Troubleshooting"]
+  },
+  {
+    id: "azure-ai-apps-agents-460",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d5",
+    domainName: "Implement information extraction solutions",
+    title: "Figures as images for a multimodal answer step",
+    scenario: "A medical-device maker's ingestion job uses Azure Document Intelligence's layout model on instruction manuals. For each figure the layout result reports its location and caption, but the RAG app also needs the figure itself as an image file so a vision-capable model can be shown it when a question refers to that diagram.",
+    question: "How should the job obtain the figure images?",
+    options: [
+      { id: 'A', text: "Request figure output on the analyze call, then download each cropped figure image by its figure ID." },
+      { id: 'B', text: "Switch outputContentFormat to markdown, which inlines every figure as an image in the content." },
+      { id: 'C', text: "Train a custom neural model with a figure field that returns the image bytes for every diagram." },
+      { id: 'D', text: "Add the ocrHighResolution add-on, which embeds each figure as base64 data inside the content output." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "The layout model can generate cropped images of detected figures when figure output is requested on the analyze call; each figure can then be retrieved by its ID from the analysis result and stored for the multimodal step. High-resolution OCR improves small-text recognition and does not return images. Markdown output marks where figures are, with any text inside them, but does not embed the image data. Custom neural models extract text values, not image crops.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/ai-services/document-intelligence/prebuilt/layout",
+    tags: ["Document Intelligence", "Figures", "Multimodal RAG"]
+  },
+  {
+    id: "azure-ai-apps-agents-461",
+    difficulty: "hard",
+    certId: "azure-ai-apps-agents",
+    domainId: "d5",
+    domainName: "Implement information extraction solutions",
+    title: "Fast, cheap knowledge base calls for simple lookups",
+    scenario: "A telecom's self-service agent uses a Foundry IQ knowledge base over a single product-FAQ index. Nearly all questions are short lookups, the agent itself composes the final answer, and latency and token cost from the knowledge base's LLM query planning now dominate each turn. The team wants to stay on the generally available API where possible.",
+    question: "How should the knowledge base be configured?",
+    options: [
+      { id: 'A', text: "Keep query planning but switch the knowledge base model to a reasoning model with the lowest settings." },
+      { id: 'B', text: "Enable answer synthesis so the knowledge base returns a finished answer and the agent skips its step." },
+      { id: 'C', text: "Set retrieval reasoning effort to medium so the planner issues fewer but better targeted subqueries on each call." },
+      { id: 'D', text: "Use minimal reasoning effort with extractive output, so retrieval runs directly without an LLM planning step." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "With minimal retrieval reasoning effort the knowledge base skips LLM query planning and runs the query directly against its sources, returning extractive data that the agent reasons over; this removes the planning latency and tokens and is the mode supported by the generally available API version. Medium effort adds more LLM processing, not less. Swapping the planner model still keeps an LLM call on every turn. Answer synthesis adds another LLM step and is a preview capability, and the agent already writes the answer.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/search/agentic-retrieval-how-to-create-knowledge-base",
+    tags: ["Foundry IQ", "Agentic retrieval", "Latency"]
+  },
+  {
+    id: "azure-ai-apps-agents-462",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d5",
+    domainName: "Implement information extraction solutions",
+    title: "An agent that wants raw passages, not prose",
+    scenario: "A law firm's research agent calls a Foundry IQ knowledge base and then applies its own reasoning and citation formatting to what comes back. The knowledge base currently returns a pre-written natural-language answer, which the agent paraphrases and whose citations are hard to trace back to specific passages.",
+    question: "Which knowledge base setting should the developer change?",
+    options: [
+      { id: 'A', text: "Remove the LLM from the knowledge base so it returns only the names of the matching knowledge sources." },
+      { id: 'B', text: "Raise the reasoning effort so the synthesized answer contains more citations for each statement." },
+      { id: 'C', text: "Add answer instructions telling the knowledge base to quote every passage verbatim in its answer." },
+      { id: 'D', text: "Set the output mode to extractive data so the agent receives retrieved content with its references." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "A knowledge base's output mode decides whether it returns a synthesized answer or extractive data; extractive data returns the retrieved content with references, so the agent can reason over the raw passages and build traceable citations itself. Raising reasoning effort affects query planning, not the output form. Answer instructions shape the synthesized answer but still hand the agent prose. A knowledge base without an LLM still returns retrieved content, not just source names.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/search/agentic-retrieval-how-to-create-knowledge-base",
+    tags: ["Foundry IQ", "Agentic retrieval", "Citations"]
+  },
+  {
+    id: "azure-ai-apps-agents-463",
+    difficulty: "easy",
+    certId: "azure-ai-apps-agents",
+    domainId: "d5",
+    domainName: "Implement information extraction solutions",
+    title: "New contracts searchable within minutes",
+    scenario: "A legal team uploads signed contracts to Blob Storage throughout the day, and its indexer runs on a daily schedule. Lawyers now want each new contract available to the RAG assistant within a few minutes of upload, without reprocessing the thousands of existing contracts each time.",
+    question: "What should the developer implement?",
+    options: [
+      { id: 'A', text: "Run the indexer on demand from an Event Grid-triggered function whenever a blob is created." },
+      { id: 'B', text: "Create a new indexer from an Event Grid-triggered function for each blob that is uploaded." },
+      { id: 'C', text: "Change the indexer schedule to every minute and reset it before each run to catch new files." },
+      { id: 'D', text: "Reset the indexer from an Event Grid-triggered function whenever a blob is created in the container." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Running an existing indexer on demand, for example from an Azure Function triggered by a Blob Storage created event, starts an incremental run that uses change detection to process only new or modified blobs, so new contracts appear within minutes. Resetting clears the indexer's change tracking state and forces reprocessing of every contract. Resetting before every scheduled run has the same problem, and five minutes is the shortest schedule interval anyway. Creating an indexer per blob multiplies objects and hits service limits.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/search/search-howto-run-reset-indexers",
+    tags: ["Azure AI Search", "Indexers", "Ingestion"]
+  },
+  {
+    id: "azure-ai-apps-agents-464",
+    difficulty: "hard",
+    certId: "azure-ai-apps-agents",
+    domainId: "d5",
+    domainName: "Implement information extraction solutions",
+    title: "Hybrid tool queries against a push-built index",
+    scenario: "A developer's pipeline embeds chunks with its own code and pushes them into an Azure AI Search index that stores vectors but has no query-time embedding configured. A Foundry agent uses the Azure AI Search tool with query_type set to vector_semantic_hybrid, but the tool calls fail or return keyword-quality results, because the tool sends the user's question as text.",
+    question: "What should the developer do so the tool's hybrid queries work?",
+    options: [
+      { id: 'A', text: "Define a vectorizer for the embedding model on the vector field's profile in the index schema." },
+      { id: 'B', text: "Add an Azure OpenAI Embedding skill to a skillset on the index so the tool's text is embedded." },
+      { id: 'C', text: "Raise top_k on the tool so the keyword results include enough of the semantically relevant chunks." },
+      { id: 'D', text: "Change query_type to vector so the tool sends only the vector part of the query to the index." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Because the tool passes the question as text, the vector portion of a hybrid query can only run if the search service can embed that text itself, which requires a vectorizer for the same embedding model on the vector field's profile. A pure vector query type still needs the text embedded, so it fails for the same reason. Skills run only during indexing and never see queries. Raising top_k returns more keyword results without adding vector relevance.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/search/vector-search-how-to-configure-vectorizer",
+    tags: ["Azure AI Search tool", "Vectorizer", "Hybrid search"]
+  },
+  {
+    id: "azure-ai-apps-agents-465",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d5",
+    domainName: "Implement information extraction solutions",
+    title: "Timeouts on thousand-page regulatory filings",
+    scenario: "A bank's skillset uses the Document Layout skill on regulatory filings. Most documents index fine, but filings over about 900 pages consistently fail with a timeout, and the finance team notices that the Foundry resource is still billed for those attempts.",
+    question: "What should the team do?",
+    options: [
+      { id: 'A', text: "Split the large filings into smaller files before ingestion so each one finishes within the limit." },
+      { id: 'B', text: "Increase the indexer's batch size so more pages of each filing are processed in parallel per run." },
+      { id: 'C', text: "Switch the skill to Markdown output mode so the large filings take less time to be processed." },
+      { id: 'D', text: "Move the search service to a higher tier so the skill's per-document processing time limit is extended." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "The Document Layout skill is not suitable for documents that need more than five minutes of processing in the layout model; it times out while charges still apply, so very large filings should be split into smaller files before ingestion. Indexer batch size controls how many documents are sent per batch, not how a single document is processed. Output format does not materially change layout processing time. The search tier does not extend the skill's processing limit.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/search/cognitive-search-skill-document-intelligence-layout",
+    tags: ["Azure AI Search", "Document Layout skill", "Limits"]
+  },
+  {
+    id: "azure-ai-apps-agents-466",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d5",
+    domainName: "Implement information extraction solutions",
+    title: "Street photos versus multipage scanned PDFs",
+    scenario: "A city council builds two ingestion flows. One reads text from single street photos of parking signs, returning results synchronously to a mobile app. The other extracts text from multipage scanned planning applications stored as PDFs for a RAG index.",
+    question: "Which OCR services fit the two flows?",
+    options: [
+      { id: 'A', text: "Image Analysis captions for the photos and the Azure Language service for the scanned PDFs." },
+      { id: 'B', text: "Azure Vision Read OCR for the photos and Document Intelligence read for the multipage PDFs." },
+      { id: 'C', text: "Document Intelligence read for the photos and Azure Vision Read OCR for the multipage PDFs." },
+      { id: 'D', text: "Azure Vision Read OCR for both flows, calling it once for each page of every PDF in turn." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "Azure Vision's Read OCR in Image Analysis is optimized for general, in-the-wild images such as street signs and returns results synchronously, while Document Intelligence's read model is built for documents, including multipage PDFs, and returns text with page structure. Swapping them uses each service against its design. Calling image OCR page by page means rendering PDFs yourself. Captions describe scenes rather than reading sign text, and Azure Language analyzes text but does not perform OCR.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/ai-services/computer-vision/concept-ocr",
+    tags: ["OCR", "Azure Vision", "Document Intelligence"]
+  },
+  {
+    id: "azure-ai-apps-agents-467",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d5",
+    domainName: "Implement information extraction solutions",
+    title: "Agentic retrieval from a custom orchestrator",
+    scenario: "A consultancy runs its own Python orchestration service rather than Foundry Agent Service. It wants the same multi-source Foundry IQ knowledge base that its Foundry agents use, including permission-aware retrieval and citations, called from a step in that service.",
+    question: "How should the service use the knowledge base?",
+    options: [
+      { id: 'A', text: "Recreate the knowledge sources as separate indexes and query each one in turn with the search client." },
+      { id: 'B', text: "Call a Foundry agent from the orchestrator solely to relay knowledge base results back to it." },
+      { id: 'C', text: "Export the knowledge base to a vector store and attach it to the orchestrator's model calls." },
+      { id: 'D', text: "Call the knowledge base's retrieve action directly through the REST API or an Azure AI Search SDK." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Foundry IQ knowledge bases live in Azure AI Search and can be queried from any application with the knowledge base retrieve action, over REST or the Azure AI Search client libraries, keeping the same sources, agentic retrieval behavior, permission handling and references. Rebuilding separate indexes loses the multi-source orchestration. Knowledge bases cannot be exported into a vector store. Relaying through an agent adds an unnecessary hop and cost.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/search/agentic-retrieval-how-to-retrieve",
+    tags: ["Foundry IQ", "Agentic retrieval", "Integration"]
+  },
+  {
+    id: "azure-ai-apps-agents-468",
+    difficulty: "easy",
+    certId: "azure-ai-apps-agents",
+    domainId: "d5",
+    domainName: "Implement information extraction solutions",
+    title: "Keyless access for the agent search tool",
+    scenario: "A hospital's security team forbids API keys. A developer is adding the Azure AI Search tool to a Foundry agent and has created a project connection to the search service that uses Microsoft Entra ID. The agent's calls to the index are rejected.",
+    question: "Which identity needs roles on the search service?",
+    options: [
+      { id: 'A', text: "The search service's own managed identity, which must be granted a role on the search service itself." },
+      { id: 'B', text: "A service principal whose client secret is stored in the connection for the agent to present on every call." },
+      { id: 'C', text: "The developer's user account, which created the connection and so signs every call the agent makes." },
+      { id: 'D', text: "The system-assigned managed identity of the Foundry account that hosts the agent and makes its calls." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "For keyless use of the Azure AI Search tool, calls to the search service are made with the system-assigned managed identity of the Foundry account that holds the project, so that identity needs roles such as Search Index Data Contributor and Search Service Contributor on the search service. The developer's account is not used for the agent's runtime calls. The search service's identity is for outbound calls it makes, not inbound ones. A client secret is still a stored credential, which the policy forbids.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/agents/how-to/tools/ai-search",
+    tags: ["Azure AI Search tool", "Managed identity", "Keyless"]
+  },
+  {
+    id: "azure-ai-apps-agents-469",
+    difficulty: "hard",
+    certId: "azure-ai-apps-agents",
+    domainId: "d5",
+    domainName: "Implement information extraction solutions",
+    title: "Described charts inside layout-aware chunks",
+    scenario: "An energy consultancy is building a new ingestion skillset for scanned market reports full of charts and multi-page tables. It wants chunks that respect paragraph and table boundaries, with an AI-written description of each chart embedded in the chunk text so questions about chart trends can be answered, and it is willing to use preview features.",
+    question: "Which two configuration choices meet the requirement? (Choose two.)",
+    options: [
+      { id: 'A', text: "Use the Document Layout skill in Markdown mode with markdownHeaderDepth set to h6 for every heading." },
+      { id: 'B', text: "Set modelName and modelDeployment on that skill to a chat model deployed in the attached resource." },
+      { id: 'C', text: "Add a Text Split skill after extraction with sentence mode so chunks never cut through a paragraph." },
+      { id: 'D', text: "Use the Azure Content Understanding skill with the semantic chunking method measured in tokens." },
+      { id: 'E', text: "Add the Image Analysis skill so a caption for each chart is generated and appended to its chunk." }
+    ],
+    correctAnswers: ['B', 'D'],
+    type: "multiple",
+    explanation: "The Content Understanding skill's semantic chunking method (preview) is layout-aware, respecting paragraph boundaries and handling large tables, and measures chunks in tokens; specifying modelName and modelDeployment for a chat completion model deployed in the Foundry resource attached to the skillset turns on AI-generated descriptions of images, charts and diagrams, which are inlined into the chunk Markdown. A Text Split skill is unnecessary because the skill chunks itself, and sentence mode ignores table structure. The Document Layout skill outputs tables and figures as plain text and cannot describe charts. Image Analysis captions are short scene descriptions that miss chart trends, and appending them requires extra mapping.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/search/cognitive-search-skill-content-understanding",
+    tags: ["Content Understanding skill", "Semantic chunking", "Multimodal RAG"]
+  },
+  {
+    id: "azure-ai-apps-agents-470",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d5",
+    domainName: "Implement information extraction solutions",
+    title: "One embedding per file instead of per chunk",
+    scenario: "A developer's skillset runs Text Split with context /document to produce /document/pages, followed by an Azure OpenAI Embedding skill whose context is /document and whose text input is /document/content. The index shows a single vector per file and long files fail with input-too-long errors.",
+    question: "How should the embedding skill be configured?",
+    options: [
+      { id: 'A', text: "Keep both settings and raise the embedding deployment's rate limit so long files are no longer rejected." },
+      { id: 'B', text: "Set the context to /document/content and add the dimensions parameter so long text is truncated safely." },
+      { id: 'C', text: "Set the context to /document/pages/* and the text input to /document/pages/* so each chunk is embedded." },
+      { id: 'D', text: "Keep the context at /document and change the text input to /document/pages so every chunk is sent together." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "A skill runs once per node matched by its context, so setting the context to /document/pages/* and the text input to /document/pages/* embeds each chunk separately, producing one vector per chunk that index projections can map to chunk documents, and keeps each input within the model's limit. Sending the whole pages collection at the document context still creates one call per file. Rate limits do not change maximum input length. /document/content is a single node per file, and the dimensions parameter shortens the output vector, not the input.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/search/cognitive-search-skill-azure-openai-embedding",
+    tags: ["Azure AI Search", "Embedding skill", "Enrichment tree"]
+  },
+  {
+    id: "azure-ai-apps-agents-471",
+    difficulty: "easy",
+    certId: "azure-ai-apps-agents",
+    domainId: "d5",
+    domainName: "Implement information extraction solutions",
+    title: "Backfilling eight thousand archived invoices",
+    scenario: "Before launching an invoice-query agent, a distributor must run 8,000 archived invoice PDFs through Azure Document Intelligence's prebuilt invoice model once. The files are already in a Blob Storage container, and the team does not want to write code that submits and tracks thousands of individual analyze requests.",
+    question: "Which approach should the developer use?",
+    options: [
+      { id: 'A', text: "Document Intelligence Studio, uploading the invoices a few at a time and downloading each JSON result." },
+      { id: 'B', text: "The batch analysis API, which takes the whole set in one request and writes each result to an output location." },
+      { id: 'C', text: "The Global Batch deployment type for a GPT model, sending each PDF as a line in a JSONL input file." },
+      { id: 'D', text: "The Document Layout skill in Azure AI Search, with the prebuilt invoice fields mapped as skill outputs." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "Document Intelligence's batch analysis API processes up to 10,000 documents from a Blob Storage container in a single request and writes the results to a destination container, which removes the need to submit and track each file. Uploading through the Studio is manual and impractical at this volume. Global Batch is for asynchronous model inference on JSONL requests and does not run the invoice model. The Document Layout skill returns layout, not the prebuilt invoice fields.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/ai-services/document-intelligence/prebuilt/batch-analysis",
+    tags: ["Document Intelligence", "Batch analysis", "Ingestion"]
+  },
+  {
+    id: "azure-ai-apps-agents-472",
+    difficulty: "hard",
+    certId: "azure-ai-apps-agents",
+    domainId: "d5",
+    domainName: "Implement information extraction solutions",
+    title: "Images found in PDFs but not in Word files",
+    scenario: "A training provider indexes course material that exists as both PDF and DOCX versions using the Document Layout skill with image extraction and location metadata. Image verbalization works for PDFs, but for many DOCX files the extracted images and their page locations are missing or inconsistent, which breaks the multimodal answers.",
+    question: "What is the most reliable fix?",
+    options: [
+      { id: 'A', text: "Convert the DOCX files to PDF before indexing so image handling is consistent across the two file types." },
+      { id: 'B', text: "Set imageAction to generateNormalizedImages so the indexer extracts images from DOCX files instead." },
+      { id: 'C', text: "Switch the skill's outputFormat to Markdown so image placeholders are written into DOCX section text." },
+      { id: 'D', text: "Raise the chunk maximumLength so that each DOCX image falls inside the same chunk as its paragraph." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "The Document Layout skill inherits the layout model's documented behavior differences between file types, and DOCX and PDF handle images differently; where consistent image behavior is required, the documented guidance is to convert documents to PDF before indexing. Indexer image extraction produces normalized images without the layout skill's location metadata. Markdown mode does not return images. Chunk length has no effect on whether images are extracted.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/search/cognitive-search-skill-document-intelligence-layout",
+    tags: ["Azure AI Search", "Document Layout skill", "Multimodal search"]
+  },
+  {
+    id: "azure-ai-apps-agents-473",
+    difficulty: "easy",
+    certId: "azure-ai-apps-agents",
+    domainId: "d5",
+    domainName: "Implement information extraction solutions",
+    title: "Starting a custom extraction model for one form",
+    scenario: "A city permits office wants to extract seven fields from its own standard building-permit application form, which always has the same layout. The developer is planning how many completed forms staff must label before training a first Document Intelligence custom model.",
+    question: "What is the minimum number of labeled examples needed to get started?",
+    options: [
+      { id: 'A', text: "Five hundred completed forms, because each labeled field needs dozens of examples itself." },
+      { id: 'B', text: "Five completed forms of this type, with different values filled in on each of them." },
+      { id: 'C', text: "One completed form, because a fixed layout can be learned from a single labeled example." },
+      { id: 'D', text: "Fifty completed forms, the minimum training set size for any custom extraction model." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "Document Intelligence custom extraction models need only five labeled examples of the same form or document type to get started, ideally with all fields completed and different values in each; more examples help with low-quality images or varied layouts. A single example is below the minimum. Fifty or five hundred forms may improve accuracy for harder documents but are not required to begin.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/ai-services/document-intelligence/train/custom-model",
+    tags: ["Document Intelligence", "Custom models", "Training data"]
+  },
+  {
+    id: "azure-ai-apps-agents-474",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d5",
+    domainName: "Implement information extraction solutions",
+    title: "Invoices an agent can both filter and read",
+    scenario: "A distributor's finance agent answers questions such as 'what did we pay Fabrikam for freight in March, and what did the invoice say about late fees'. Invoices are PDFs and scans. The agent must filter precisely by supplier and date and also quote the invoice text, and the team builds its own ingestion job that pushes into Azure AI Search.",
+    question: "How should the ingestion job populate the index?",
+    options: [
+      { id: 'A', text: "Extract only the invoice fields into the index and discard the text, since the fields answer every question." },
+      { id: 'B', text: "Run a Content Understanding invoice analyzer, pushing its fields as filterable fields and its Markdown as content." },
+      { id: 'C', text: "Run OCR only and index the raw text, letting the agent infer supplier and date from each chunk at query time." },
+      { id: 'D', text: "Index each PDF as a single vector of the whole invoice so similarity search can match supplier and date terms." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "A multimodal extraction step such as Content Understanding's prebuilt invoice analyzer returns normalized fields, like vendor name and invoice date, and a Markdown representation of the whole document; pushing the fields into filterable index fields gives exact filtering, and indexing the Markdown gives quotable text. Raw OCR text leaves supplier and date to fuzzy inference, so filters are unreliable. One vector per invoice cannot filter precisely. Keeping only fields loses the late-fee wording the agent must quote.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/ai-services/content-understanding/concepts/prebuilt-analyzers",
+    tags: ["Content Understanding", "Field extraction", "Azure AI Search"]
+  },
+  {
+    id: "azure-ai-apps-agents-475",
+    difficulty: "hard",
+    certId: "azure-ai-apps-agents",
+    domainId: "d5",
+    domainName: "Implement information extraction solutions",
+    title: "Citations that open the exact page",
+    scenario: "A regulator's review agent grounds on inspection reports chunked by the Azure Content Understanding skill, with index projections writing one search document per chunk. Auditors require every citation to link to the source report and state which page or pages the quoted text came from. Currently chunks carry only their text and embedding.",
+    question: "Which two changes provide what the citations need? (Choose two.)",
+    options: [
+      { id: 'A', text: "Include locationMetadata in the skill's extractionOptions and map its page range into chunk fields." },
+      { id: 'B', text: "Set the skill's maximum chunk length to one page so a chunk's ordinal position equals its page." },
+      { id: 'C', text: "Project the parent file's storage URL into each chunk document through the index projection." },
+      { id: 'D', text: "Extract normalized images for each page so the agent can show the page image as the citation." },
+      { id: 'E', text: "Enable semantic captions on queries so each result reports the page on which its caption appears." }
+    ],
+    correctAnswers: ['A', 'C'],
+    type: "multiple",
+    explanation: "With locationMetadata in the Content Understanding skill's extractionOptions, each text section carries its page range and position, which can be mapped into fields of the chunk document; projecting the parent's storage path or URL into every chunk gives the link to the source report. Semantic captions return passages, not page numbers. Chunk length is measured in characters or tokens and chunks can span pages, so ordinal position is not a page number. Page images add cost and still lack the page reference and link the auditors need.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/search/cognitive-search-skill-content-understanding",
+    tags: ["Content Understanding skill", "Citations", "Index projections"]
+  }
+];
+
+export default AZURE_AI_APPS_AGENTS_QUESTIONS_19;

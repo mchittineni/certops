@@ -1,0 +1,532 @@
+export const AZURE_AI_APPS_AGENTS_QUESTIONS_15 = [
+  {
+    id: "azure-ai-apps-agents-351",
+    difficulty: "easy",
+    certId: "azure-ai-apps-agents",
+    domainId: "d4",
+    domainName: "Implement text analysis solutions",
+    title: "Tagging people and places in a news archive",
+    scenario: "A media monitoring firm must tag people, organisations, locations and dates in five million archived news articles. The categories are standard, no labelled training data exists, and the firm wants consistent, low-cost results without writing or maintaining prompts.",
+    question: "Which capability should the firm use?",
+    options: [
+      { id: 'A', text: "Prebuilt named entity recognition in Azure Language, which returns predefined entity categories for text." },
+      { id: 'B', text: "Key phrase extraction in Azure Language, which lists the main concepts of every article in the archive." },
+      { id: 'C', text: "Custom named entity recognition in Azure Language, trained on labelled articles to learn the firm's categories." },
+      { id: 'D', text: "Text analytics for health in Azure Language, which links recognised entities to a knowledge base of terms." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Prebuilt named entity recognition is a preconfigured Azure Language core feature that identifies entities and categorises them into predefined types such as person, organisation, location and date-time, with no training or prompt maintenance, which suits standard categories at archive scale. Custom NER is for entity types specific to your data and needs labelled examples the firm does not have. Key phrase extraction returns main concepts without categorising them as people or places. Text analytics for health targets medical entities in clinical text.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/ai-services/language-service/named-entity-recognition/overview",
+    tags: ["Azure Language", "Named entity recognition"]
+  },
+  {
+    id: "azure-ai-apps-agents-352",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d4",
+    domainName: "Implement text analysis solutions",
+    title: "Routing emails into twelve fixed topics from day one",
+    scenario: "A utility's contact centre wants every incoming customer email assigned to exactly one of twelve topics, such as billing dispute, meter reading or outage report, starting next week. There is no labelled training data, and the topic list may gain a new entry every few months.",
+    question: "Which approach should the developers take?",
+    options: [
+      { id: 'A', text: "Run key phrase extraction on each email and map the phrases that come back onto the twelve topics with rules." },
+      { id: 'B', text: "Prompt a chat model with topic definitions and a structured output whose topic field is an enum of the twelve." },
+      { id: 'C', text: "Train a custom text classification project in Azure Language after labelling several hundred emails per topic." },
+      { id: 'D', text: "Run prebuilt entity recognition on each email and assign the topic that matches the most frequent entity type." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "A chat model given clear definitions of each topic can classify zero-shot, and a structured output schema with an enum restricts the answer to exactly one of the twelve values; adding a topic later is a prompt and schema change rather than a retraining exercise. Custom text classification needs labelled data the team does not have and is now a legacy capability. Key phrases vary freely and would need brittle mapping rules. Entity types such as person or location do not correspond to business topics.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/structured-outputs",
+    tags: ["Classification", "Structured outputs", "Generative prompting"]
+  },
+  {
+    id: "azure-ai-apps-agents-353",
+    difficulty: "hard",
+    certId: "azure-ai-apps-agents",
+    domainId: "d4",
+    domainName: "Implement text analysis solutions",
+    title: "Contract fields that are sometimes absent",
+    scenario: "A developer uses structured outputs with strict mode to extract governing law, renewal date and liability cap from supplier contracts. Many contracts have no liability cap, and the model invents plausible caps rather than leaving the field empty. The schema lists all three fields as required, as strict mode demands.",
+    question: "How should the schema be changed?",
+    options: [
+      { id: 'A', text: "Keep it required but type it as string or null, and tell the model to return null when no cap is stated." },
+      { id: 'B', text: "Switch from strict structured outputs to JSON mode so optional fields can be omitted without a schema error." },
+      { id: 'C', text: "Add a default value of zero to the liability cap field so the model fills in zero when the contract is silent." },
+      { id: 'D', text: "Remove the liability cap field from the required list so the model can leave it out whenever it finds no cap." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Strict structured outputs require every property to be listed as required, so optional values are expressed with a union type that includes null, together with an instruction to return null when the information is absent; the model then has a valid way to say nothing was found. Removing the field from required breaks strict mode's schema rules. JSON mode drops schema enforcement entirely, bringing back missing and misnamed keys. A default of zero misstates an uncapped contract as having a zero cap, which is worse than an invented value.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/structured-outputs",
+    tags: ["Structured outputs", "Extraction", "JSON schema"]
+  },
+  {
+    id: "azure-ai-apps-agents-354",
+    difficulty: "easy",
+    certId: "azure-ai-apps-agents",
+    domainId: "d4",
+    domainName: "Implement text analysis solutions",
+    title: "Summaries that must quote the judgment exactly",
+    scenario: "A legal publisher adds a short summary above each court judgment. Editors insist the summary may only contain sentences taken word for word from the judgment, in their original order, because paraphrase could misstate the court's reasoning.",
+    question: "Which summarization approach meets the rule?",
+    options: [
+      { id: 'A', text: "Abstractive summarization, which writes new concise sentences capturing the judgment's original points." },
+      { id: 'B', text: "Conversation summarization, which recaps the judgment into timestamped chapters with issue and resolution." },
+      { id: 'C', text: "Extractive summarization, which selects key sentences from the text and keeps their original positions." },
+      { id: 'D', text: "A chat model asked to paraphrase the judgment in plain English, limited to five sentences for each case." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "Extractive summarization in Azure Language builds a summary by selecting the most important sentences from the document and preserving their original positions, so every sentence is verbatim. Abstractive summarization generates new sentences, which is the paraphrase editors forbid. Conversation summarization is designed for chats and transcripts, not written judgments. A chat model asked to paraphrase also produces new wording.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/ai-services/language-service/summarization/overview",
+    tags: ["Azure Language", "Summarization", "Extractive"]
+  },
+  {
+    id: "azure-ai-apps-agents-355",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d4",
+    domainName: "Implement text analysis solutions",
+    title: "Denied conditions counted as diagnoses",
+    scenario: "A health insurer extracts conditions from discharge letters for risk models. Its current keyword approach counts \"patient denies chest pain\" and \"no history of diabetes\" as positive findings, inflating risk scores. The insurer wants each condition labelled with whether it is present, negated or hypothetical.",
+    question: "Which capability should the pipeline use?",
+    options: [
+      { id: 'A', text: "Sentiment analysis with opinion mining, which marks negative assessments attached to each medical condition." },
+      { id: 'B', text: "Key phrase extraction, which returns each condition phrase so a rule can mark it negated when no precedes it." },
+      { id: 'C', text: "Prebuilt named entity recognition, which tags each health condition as a general entity with a confidence score." },
+      { id: 'D', text: "Text analytics for health, whose assertion detection marks each condition's certainty, such as negated." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Text analytics for health extracts medical entities and relations and adds assertion detection, which labels certainty (for example negative), conditionality and association, so denied or absent conditions are not treated as diagnoses. Prebuilt NER has no notion of negation for clinical findings. Opinion mining measures sentiment toward aspects, and a negated condition is not a negative opinion. Hand-written negation rules on key phrases miss the many ways clinicians express uncertainty.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/ai-services/language-service/text-analytics-for-health/overview",
+    tags: ["Text analytics for health", "Assertion detection"]
+  },
+  {
+    id: "azure-ai-apps-agents-356",
+    difficulty: "hard",
+    certId: "azure-ai-apps-agents",
+    domainId: "d4",
+    domainName: "Implement text analysis solutions",
+    title: "Extracted figures nobody can trace back",
+    scenario: "A procurement team uses a chat model to extract penalty amounts and notice periods from supplier emails into its contract system. Occasionally a value appears that is not in the email at all. Reviewers want every extracted value to be verifiable and invented values stopped before they are saved.",
+    question: "Which two measures should the developers implement? (Choose two.)",
+    options: [
+      { id: 'A', text: "Ask the model to rate its confidence from 0 to 100 for each value and save only the values it scores above 80." },
+      { id: 'B', text: "Increase the temperature so the model explores alternative readings of the email before settling on each value." },
+      { id: 'C', text: "Have the schema return a verbatim source quote per value, and check in code that it occurs in the email." },
+      { id: 'D', text: "Use structured outputs with a strict schema so every value arrives in a typed, named field the code can validate." },
+      { id: 'E', text: "Enable JSON mode instead of a schema so the model is free to add explanatory keys for values it is unsure about." }
+    ],
+    correctAnswers: ['C', 'D'],
+    type: "multiple",
+    explanation: "Requiring a verbatim supporting quote for each value and checking in code that the quote actually appears in the email catches fabricated values deterministically and gives reviewers the evidence. Strict structured outputs make each value arrive in a predictable, typed field so that the validation code can run reliably. Self-reported confidence is not calibrated and a model can be confidently wrong. Higher temperature increases variability and the chance of invented values. JSON mode removes schema enforcement, making the output harder to validate.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/structured-outputs",
+    tags: ["Extraction", "Grounding", "Structured outputs"]
+  },
+  {
+    id: "azure-ai-apps-agents-357",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d4",
+    domainName: "Implement text analysis solutions",
+    title: "Language detection after a Translator upgrade",
+    scenario: "A travel site called the Translator v3 Detect method to route reviews to regional moderation queues before translating them. It is moving to Translator text translation API version 2026-06-06 and finds that its detection call no longer exists in the new version.",
+    question: "What should the developers use for detection?",
+    options: [
+      { id: 'A', text: "The Translator 2026-06-06 BreakSentence method, which runs detection on each sentence it splits out." },
+      { id: 'B', text: "The Translator 2026-06-06 Transliterate method, which reports the source script and language for any input." },
+      { id: 'C', text: "Azure Language's language detection, which returns a language code and confidence score for each text." },
+      { id: 'D', text: "The Translator 2026-06-06 Dictionary Lookup method, which reports the source language of the words it finds." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "API version 2026-06-06 no longer supports the v3 Detect method, and Microsoft's migration guidance is to replace it with language detection in Azure Language, which returns the detected language, its ISO code and a confidence score. BreakSentence and Dictionary Lookup were also removed in 2026-06-06. Transliterate converts text between scripts for a language you specify; it is not a language detector.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/ai-services/translator/text-translation/how-to/migrate-to-2026-06-06",
+    tags: ["Language detection", "Translator", "Migration"]
+  },
+  {
+    id: "azure-ai-apps-agents-358",
+    difficulty: "easy",
+    certId: "azure-ai-apps-agents",
+    domainId: "d4",
+    domainName: "Implement text analysis solutions",
+    title: "Giving an agent entity and PII tools",
+    scenario: "A developer is building an agent in Foundry Agent Service that must detect personal data and recognise named entities in user messages as tool calls, using Azure Language rather than prompting the model to do it. She wants a standard integration rather than writing and hosting wrapper functions.",
+    question: "What should she connect to the agent?",
+    options: [
+      { id: 'A', text: "The Azure Language MCP server, available as a remote server in the Foundry Tool Catalog for agents to call." },
+      { id: 'B', text: "The Azure Language container images, run locally and called as a tool over HTTP from the model's prompt." },
+      { id: 'C', text: "A Content Understanding analyzer from the Foundry portal with generate fields for entities and personal data." },
+      { id: 'D', text: "A Translator deployment, whose translate call returns the entities and personal data it found as metadata." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Azure Language capabilities are exposed as tools through the Azure Language MCP server, available as a remote server in the Microsoft Foundry Tool Catalog (and as a local server for self-hosted setups), so an agent can call PII detection and NER through a standard protocol without custom wrappers. Containers still need hosting and wrapper code, and a laptop is not a production endpoint. A Content Understanding analyzer would use generative fields rather than the Azure Language models she wants. Translator does not return entity or PII metadata.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/ai-services/language-service/overview",
+    tags: ["Azure Language", "MCP", "Agents"]
+  },
+  {
+    id: "azure-ai-apps-agents-359",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d4",
+    domainName: "Implement text analysis solutions",
+    title: "Most-mentioned phrases across hotel reviews",
+    scenario: "A hotel chain wants a monthly word cloud of the phrases guests mention most, such as \"rooftop pool\" or \"slow check-in\", built from 200,000 English reviews. It needs no categories or sentiment, just the main talking points of each review, at the lowest cost per review.",
+    question: "Which Azure Language feature should the job call?",
+    options: [
+      { id: 'A', text: "Custom named entity recognition, trained to label amenities and service issues before counting their occurrences." },
+      { id: 'B', text: "Entity linking, returning Wikipedia links for the main entities in each review and counting how often each appears." },
+      { id: 'C', text: "Abstractive summarization, generating a sentence per review and counting the most frequent phrases in those sentences." },
+      { id: 'D', text: "Key phrase extraction, returning the main concepts in each review so the job can count the most frequent phrases." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Key phrase extraction is a preconfigured feature that returns the main concepts in unstructured text as a list, exactly the raw material for counting talking points, and it needs no training. Summaries paraphrase and lose the phrases guests actually used. Entity linking disambiguates named entities to Wikipedia, and most talking points, such as slow check-in, are not linkable entities. Custom NER requires labelling and training for a need that key phrases already meet.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/ai-services/language-service/key-phrase-extraction/overview",
+    tags: ["Azure Language", "Key phrase extraction"]
+  },
+  {
+    id: "azure-ai-apps-agents-360",
+    difficulty: "easy",
+    certId: "azure-ai-apps-agents",
+    domainId: "d4",
+    domainName: "Implement text analysis solutions",
+    title: "Great food, terrible service",
+    scenario: "A restaurant group analyses reviews with Azure Language sentiment analysis. Managers see an overall label per review but need to know which aspects, such as food, service or price, guests felt positive or negative about, so each kitchen and front-of-house team gets relevant feedback.",
+    question: "What should the developers enable?",
+    options: [
+      { id: 'A', text: "Entity linking alongside sentiment, which attaches a sentiment label to each entity it links to a Wikipedia article." },
+      { id: 'B', text: "Key phrase extraction alongside sentiment, which labels each extracted phrase as positive or negative for managers." },
+      { id: 'C', text: "Opinion mining in the sentiment request, which links each target, such as service, to the opinions expressed on it." },
+      { id: 'D', text: "Language detection in the same request, which splits each review by language so aspects can be scored separately." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "Opinion mining, enabled as an option on sentiment analysis, returns aspect-based results: targets such as food or service with the assessments made about them and their sentiment, which is what managers need. Language detection identifies the language, not aspects. Key phrase extraction returns phrases without sentiment. Entity linking disambiguates named entities to Wikipedia and does not score how guests felt about service or price.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/ai-services/language-service/sentiment-opinion-mining/overview",
+    tags: ["Sentiment analysis", "Opinion mining"]
+  },
+  {
+    id: "azure-ai-apps-agents-361",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d4",
+    domainName: "Implement text analysis solutions",
+    title: "Too many reviews labelled mixed",
+    scenario: "A product team's dashboard shows a third of app-store reviews with a document sentiment of mixed, which managers find unhelpful. A typical example reads: \"Love the new layout. The app crashes every time I upload a photo.\" The team wants to understand the label and surface the actionable part.",
+    question: "Which explanation and change are correct?",
+    options: [
+      { id: 'A', text: "Mixed means the review is in more than one language; add language detection first and then rerun the analysis." },
+      { id: 'B', text: "Mixed means the model had low confidence; raise the confidence threshold to find and relabel them as neutral." },
+      { id: 'C', text: "Mixed means the text has both positive and negative sentences; use sentence-level results to find issues." },
+      { id: 'D', text: "Mixed means the review was too long to score; split each review into halves and analyse each half on its own." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "Azure Language returns a document-level label of mixed when a document contains at least one positive and at least one negative sentence, as in the example. The response also includes sentence-level sentiment with confidence scores, so the dashboard can surface the negative sentences, such as the crash report, as actionable feedback. Mixed is not a low-confidence or multilingual indicator, and the example is far below any length limit.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/ai-services/language-service/sentiment-opinion-mining/overview",
+    tags: ["Sentiment analysis", "Mixed sentiment"]
+  },
+  {
+    id: "azure-ai-apps-agents-362",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d4",
+    domainName: "Implement text analysis solutions",
+    title: "Spotting condescending replies from support agents",
+    scenario: "A software company reviews thousands of support replies a week and wants each flagged for tone: courteous, neutral, curt, condescending or sarcastic. Managers found that positive, negative and neutral sentiment scores miss sarcasm and condescension entirely.",
+    question: "Which approach should the developers use?",
+    options: [
+      { id: 'A', text: "Run Azure Language sentiment analysis with opinion mining and map negative assessments onto the five tone labels." },
+      { id: 'B', text: "Prompt a chat model with definitions and examples of each tone and require an enum of the five labels in reply." },
+      { id: 'C', text: "Run Azure Language language detection and flag replies whose confidence score is low as likely sarcasm cases." },
+      { id: 'D', text: "Run the Content Safety text API and treat any hate severity above zero as a condescending or sarcastic reply." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "Tone categories such as condescending or sarcastic are nuanced and not covered by sentiment polarity, so a chat model given definitions and a few examples of each label, with a structured enum output, can classify tone directly and consistently. Mapping opinion-mining polarity onto five tones repeats the limitation managers observed. The Content Safety hate category targets attacks on identity groups, not rudeness in general. Language detection confidence says nothing about tone.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/structured-outputs",
+    tags: ["Tone detection", "Generative prompting", "Classification"]
+  },
+  {
+    id: "azure-ai-apps-agents-363",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d4",
+    domainName: "Implement text analysis solutions",
+    title: "Masking cards and phone numbers but not names",
+    scenario: "A retailer stores chat logs for quality review. Card numbers and phone numbers must be redacted, but customer and staff names must remain readable so reviewers can follow the conversation. The current Azure Language PII call redacts every category it detects, including names.",
+    question: "How should the request be changed?",
+    options: [
+      { id: 'A', text: "Set the domain parameter to phi so the service limits redaction to card and phone categories only." },
+      { id: 'B', text: "Pass the piiCategories parameter with only the credit card and phone number categories to detect and redact." },
+      { id: 'C', text: "Lower the confidence threshold on the request so the service skips names, which usually score below the limit." },
+      { id: 'D', text: "Switch to prebuilt named entity recognition and redact only the entities it returns in the Quantity category." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "The optional piiCategories parameter specifies which entity categories are detected and returned, so passing only credit card and phone number categories redacts exactly those while leaving names intact. The phi domain targets protected health information and broadens detection to health-related identifiers rather than narrowing it. General NER is not a PII redaction feature, and card and phone numbers are not reliably tagged as quantities. There is no request-level confidence threshold that selectively skips names; you filter by category.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/ai-services/language-service/personally-identifiable-information/how-to/redact-text-pii",
+    tags: ["PII detection", "Azure Language", "Redaction"]
+  },
+  {
+    id: "azure-ai-apps-agents-364",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d4",
+    domainName: "Implement text analysis solutions",
+    title: "Redacted text that analysts cannot follow",
+    scenario: "An HR analytics team redacts employee survey comments with Azure Language PII detection. The output replaces every detected value with asterisks, so analysts cannot tell whether a removed value was a person, a phone number or an email address, which matters for their theme analysis.",
+    question: "Which redaction setting should the team use?",
+    options: [
+      { id: 'A', text: "The characterMask policy with a hash symbol, which replaces each value while keeping its length and offset." },
+      { id: 'B', text: "The phi domain, which labels each redacted value with the person's health category that it removed." },
+      { id: 'C', text: "The entityMask policy, which replaces each detected value with its entity type, such as a PERSON tag." },
+      { id: 'D', text: "The noMask policy, which returns the detected entities in a list while leaving the comment text unchanged." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "The entityMask redaction policy replaces each detected PII value with its entity type, for example a numbered PERSON or PHONENUMBER placeholder, so analysts keep the meaning without seeing the data. characterMask, the behaviour they have now, masks with a character while preserving length and offsets, and changing the character does not reveal the type. noMask leaves the personal data visible in the text, which defeats redaction. The phi domain changes which categories are detected, not how redacted values appear.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/ai-services/language-service/personally-identifiable-information/how-to/redact-text-pii",
+    tags: ["PII detection", "Redaction policy"]
+  },
+  {
+    id: "azure-ai-apps-agents-365",
+    difficulty: "hard",
+    certId: "azure-ai-apps-agents",
+    domainId: "d4",
+    domainName: "Implement text analysis solutions",
+    title: "Health identifiers in referral letters",
+    scenario: "A telehealth provider must remove protected health information, such as medical record numbers and health plan identifiers, from referral letters before they are used to test a new triage model. A default Azure Language PII call catches names and addresses but misses several health-specific identifiers.",
+    question: "What should the developers change?",
+    options: [
+      { id: 'A', text: "Run the Content Safety text API with every category enabled, which flags medical record numbers as sensitive." },
+      { id: 'B', text: "Set the PII request's domain parameter to phi so detection covers protected health information categories." },
+      { id: 'C', text: "Call text analytics for health instead, which removes protected information such as record numbers as it extracts." },
+      { id: 'D', text: "Train a custom NER model on labelled letters, since Azure Language PII has no support for health identifiers." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "Azure Language PII detection supports a domain parameter; setting it to phi extends detection to protected health information categories so health-specific identifiers are found and redacted alongside general PII. Text analytics for health extracts clinical entities and relations; it is not a redaction service. Building a custom NER model is unnecessary when the PII feature already supports health identifiers. Content Safety classifies harmful content such as hate or violence, not personal data.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/ai-services/language-service/personally-identifiable-information/how-to/redact-text-pii",
+    tags: ["PII detection", "PHI", "Healthcare"]
+  },
+  {
+    id: "azure-ai-apps-agents-366",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d4",
+    domainName: "Implement text analysis solutions",
+    title: "Redacting personal data inside Word and PDF files",
+    scenario: "A law firm must share 12,000 case files, a mix of PDF and Word documents, with an external reviewer after removing personal data. The redacted files must remain documents in their original formats rather than plain text, and the firm keeps its files in Azure Blob Storage.",
+    question: "Which approach should the firm use?",
+    options: [
+      { id: 'A', text: "Run document-based PII detection as an asynchronous job that reads from and writes redacted files to Blob Storage." },
+      { id: 'B', text: "Translate each document with Translator using a glossary that maps every personal name to a masked placeholder." },
+      { id: 'C', text: "Run conversation PII detection on each file, treating every paragraph of the document as a separate turn." },
+      { id: 'D', text: "Extract text from each file in Blob Storage, run text PII redaction, and send the reviewer the redacted text files." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Document-based PII detection in Azure Language processes native documents such as PDF and Word files as an asynchronous job, reading source files from a Blob Storage container and writing redacted documents to a target container, so the output stays in document form. Extracting text and redacting it loses the original format the reviewer needs. Conversation PII is designed for chat and transcript turns. A translation glossary cannot know every personal name and does not detect other personal data such as addresses or account numbers.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/ai-services/language-service/personally-identifiable-information/document-based-pii-overview",
+    tags: ["PII detection", "Documents", "Azure Language"]
+  },
+  {
+    id: "azure-ai-apps-agents-367",
+    difficulty: "easy",
+    certId: "azure-ai-apps-agents",
+    domainId: "d4",
+    domainName: "Implement text analysis solutions",
+    title: "Moderating chat in a multiplayer game",
+    scenario: "A game studio must screen player chat for hateful, sexual, violent and self-harm content, with thresholds its community team can tune, and must also catch a list of game-specific slurs and scam phrases that general models do not recognise.",
+    question: "Which two capabilities should the studio combine? (Choose two.)",
+    options: [
+      { id: 'A', text: "Azure Language PII detection, blocking game-specific chat that contains a person's name or nickname." },
+      { id: 'B', text: "Prompt Shields for user prompt attacks, which classifies scam phrases and slurs between players." },
+      { id: 'C', text: "The Content Safety Analyze Text API, comparing each harm category's severity with the team's thresholds." },
+      { id: 'D', text: "A custom blocklist in Content Safety holding the game-specific slurs and scam phrases the models miss." },
+      { id: 'E', text: "Azure Language sentiment models, blocking content whenever sentiment passes negative thresholds." }
+    ],
+    correctAnswers: ['C', 'D'],
+    type: "multiple",
+    explanation: "The Analyze Text API returns a severity for hate, sexual, violence and self-harm that the studio can compare with tunable thresholds, and a custom blocklist catches exact terms specific to the game that the classifiers do not know. Negative sentiment includes ordinary frustration and would block harmless messages. PII detection finds personal data, not abuse, and blocking names would stop normal chat. Prompt Shields detect attempts to manipulate a language model, not harassment between people.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/ai-services/content-safety/how-to/use-blocklist",
+    tags: ["Content Safety", "Text moderation", "Blocklists"]
+  },
+  {
+    id: "azure-ai-apps-agents-368",
+    difficulty: "hard",
+    certId: "azure-ai-apps-agents",
+    domainId: "d4",
+    domainName: "Implement text analysis solutions",
+    title: "Assistant answers leaking customer phone numbers",
+    scenario: "An internal assistant built on a Foundry model deployment answers questions over CRM notes. Testers found that it sometimes includes customers' phone numbers and email addresses in its answers. Security wants the platform to detect personal data in the model's responses and block them, without changing application code.",
+    question: "What should the team configure?",
+    options: [
+      { id: 'A', text: "Add Azure Language PII redaction on each user prompt before it reaches the deployment, leaving answers unchanged." },
+      { id: 'B', text: "Add a protected material for text control on output, which blocks answers that reproduce records from the CRM." },
+      { id: 'C', text: "Add a personally identifiable information control at the output intervention point of the deployment's guardrail." },
+      { id: 'D', text: "Add a groundedness control on output, which blocks any answer that contains facts taken from the CRM notes." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "Foundry guardrails include a personally identifiable information risk (preview) that can be applied at the output intervention point, so completions containing personal data are detected and blocked by the platform with no code change. Redacting the user's prompt does nothing about personal data the model pulls from CRM notes into its answer. Protected material detection looks for known copyrighted text such as lyrics or articles, not customer records. Groundedness checks whether answers are supported by sources, and answers grounded in CRM notes are exactly what the assistant should produce.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/guardrails/guardrails-overview",
+    tags: ["Guardrails", "PII", "Output filtering"]
+  },
+  {
+    id: "azure-ai-apps-agents-369",
+    difficulty: "easy",
+    certId: "azure-ai-apps-agents",
+    domainId: "d4",
+    domainName: "Implement text analysis solutions",
+    title: "One product description into five languages",
+    scenario: "An e-commerce platform translates each new product description into French, German, Italian, Spanish and Dutch as soon as a seller publishes it, using Azure Translator text translation v3. The current code makes five separate calls per description and the team wants fewer round trips.",
+    question: "How should the translation call be made?",
+    options: [
+      { id: 'A', text: "Translate to French first, then chain the French result through the other four languages one call at a time." },
+      { id: 'B', text: "Send five requests in parallel, one per language, since each translate call can target only one language." },
+      { id: 'C', text: "Send one request that lists all five target languages, receiving the five translations in a single response." },
+      { id: 'D', text: "Send the description through document translation, which is the only method that handles several languages." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "The Translator translate method accepts several target languages in one request, repeating the to parameter in v3 or listing entries in the targets array in API version 2026-06-06, and returns all translations together. Document translation is for files rather than short text fields. Chaining through French compounds errors because each hop translates a translation. Parallel single-language calls still make five round trips, based on a limit that does not exist.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/ai-services/translator/text-translation/reference/v3/translate",
+    tags: ["Translator", "Text translation"]
+  },
+  {
+    id: "azure-ai-apps-agents-370",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d4",
+    domainName: "Implement text analysis solutions",
+    title: "Translating an HTML newsletter safely",
+    scenario: "A bank translates its monthly HTML newsletter with Translator v3. The translated output has broken markup in places, and the product names \"SmartSaver\" and \"FlexiLoan\" are being translated into odd local phrases. Both problems must be fixed without post-editing every issue.",
+    question: "Which two changes should the developers make? (Choose two.)",
+    options: [
+      { id: 'A', text: "Set profanityAction to Marked so product names that resemble slang are flagged instead of being translated." },
+      { id: 'B', text: "Keep textType as plain and strip all HTML tags before translation, then paste the text back into the layout." },
+      { id: 'C', text: "Set textType to html so the service translates the text while keeping the HTML tags and structure intact." },
+      { id: 'D', text: "Wrap each product name in an element with the notranslate class so the service leaves those names as they are." },
+      { id: 'E', text: "Set includeAlignment to true so the service maps product names back to their original English wording." }
+    ],
+    correctAnswers: ['C', 'D'],
+    type: "multiple",
+    explanation: "Setting textType to html tells Translator that the input is HTML, so it translates the text content while preserving well-formed markup. Marking content with the notranslate class (or translate=\"no\") prevents specific words such as product names from being translated. Stripping tags and pasting text back is fragile manual work that the html setting avoids. profanityAction deals with profanity, not brand names. includeAlignment returns alignment information between source and translation but does not stop the names being translated.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/ai-services/translator/text-translation/how-to/prevent-translation",
+    tags: ["Translator", "HTML", "Prevent translation"]
+  },
+  {
+    id: "azure-ai-apps-agents-371",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d4",
+    domainName: "Implement text analysis solutions",
+    title: "One approved rendering for a product name",
+    scenario: "A software company translates English release notes into Japanese with Translator v3. Its marketing team has approved a specific Japanese rendering for the product name \"CloudVault\" that differs from what the service produces, and wants that rendering used every time without training a custom model.",
+    question: "What should the developers use?",
+    options: [
+      { id: 'A', text: "The notranslate class around the name, which substitutes the approved Japanese rendering for the product." },
+      { id: 'B', text: "The dynamic dictionary markup around the name, supplying the approved Japanese rendering in each request." },
+      { id: 'C', text: "The profanityAction parameter set to Deleted, which removes the unapproved rendering from the translation." },
+      { id: 'D', text: "A Custom Translator project trained on parallel release notes, then referenced by category ID in every call." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "Translator's dynamic dictionary lets you supply the exact translation of a phrase inline with mstrans:dictionary markup, which is intended for compound nouns such as product and personal names; it requires English as the source or target, which fits English to Japanese. A Custom Translator model needs parallel training data and training time for what is a single term. notranslate keeps the English name unchanged rather than inserting an approved Japanese form. profanityAction only handles profanity.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/ai-services/translator/text-translation/how-to/use-dynamic-dictionary",
+    tags: ["Translator", "Dynamic dictionary", "Terminology"]
+  },
+  {
+    id: "azure-ai-apps-agents-372",
+    difficulty: "hard",
+    certId: "azure-ai-apps-agents",
+    domainId: "d4",
+    domainName: "Implement text analysis solutions",
+    title: "Formal German for a private bank's clients",
+    scenario: "A private bank sends client letters in German that must use the formal register consistently and gender-neutral wording where the recipient's gender is unknown. Standard neural machine translation often slips into informal forms. The bank has a Microsoft Foundry resource with a supported GPT deployment.",
+    question: "What should the developers use?",
+    options: [
+      { id: 'A', text: "Translator v3 with a Custom Translator category trained on informal copy that ignored the gender of readers." },
+      { id: 'B', text: "Translator API version 2026-06-06 with an LLM selected, the tone set to formal and gender set to neutral." },
+      { id: 'C', text: "Translator API version 2026-06-06 with standard NMT selected and textType set to html for formal output." },
+      { id: 'D', text: "Translator v3 with profanityAction set to Marked, which forces formal pronouns throughout the German text." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "Translator text translation 2026-06-06 lets each request choose a supported large language model instead of standard NMT, and LLM-based translation accepts tone (formal, informal or neutral) and gender (male, female or neutral) controls; it requires a Microsoft Foundry resource, which the bank has. A model trained on informal copy would push output towards the wrong register. profanityAction handles profanity only. The html text type preserves markup and has no effect on register, and tone controls apply to LLM translation rather than NMT.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/ai-services/translator/text-translation/how-to/migrate-to-2026-06-06",
+    tags: ["Translator", "LLM translation", "Tone"]
+  },
+  {
+    id: "azure-ai-apps-agents-373",
+    difficulty: "hard",
+    certId: "azure-ai-apps-agents",
+    domainId: "d4",
+    domainName: "Implement text analysis solutions",
+    title: "Approved legal phrasing, ready this afternoon",
+    scenario: "A law firm has 3,000 approved English-Spanish sentence pairs from past contracts and wants LLM-based translation through Azure Translator to follow that terminology and style. It wants the customisation usable within minutes rather than after a model training cycle, and each request is too short to carry all the examples.",
+    question: "Which approach fits?",
+    options: [
+      { id: 'A', text: "Pass all 3,000 pairs as reference translation pairs inside each request so the LLM can imitate their phrasing." },
+      { id: 'B', text: "Build an adaptive custom translation dataset from the pairs and pass its index ID with each translation call." },
+      { id: 'C', text: "Fine-tune a GPT deployment on the 3,000 pairs and point Translator at the fine-tuned deployment for requests." },
+      { id: 'D', text: "Train a Custom Translator model on the 3,000 pairs and wait for training to finish before deploying the model." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "Adaptive custom translation accepts 5 to 10,000 prealigned segment pairs and builds a custom bilingual index in minutes; passing the adaptive dataset index ID with each request guides supported LLMs toward the firm's terminology and style. Custom Translator training builds a separate NMT model and takes a training cycle the firm wants to avoid. Translator does not accept arbitrary fine-tuned deployments as a customisation mechanism. A request can carry at most five reference translation pairs, far fewer than 3,000.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/ai-services/translator/foundry/adaptive-custom-translation",
+    tags: ["Translator", "Adaptive custom translation", "LLM translation"]
+  },
+  {
+    id: "azure-ai-apps-agents-374",
+    difficulty: "easy",
+    certId: "azure-ai-apps-agents",
+    domainId: "d4",
+    domainName: "Implement text analysis solutions",
+    title: "Translated chat for a children's learning app",
+    scenario: "A language-learning app for children translates messages between pen pals in different countries using Translator v3. Any profanity in a message must be removed entirely from the translated text rather than shown or marked, and the rest of the message should still be delivered.",
+    question: "Which request setting meets the requirement?",
+    options: [
+      { id: 'A', text: "Set textType to html so that profane words are wrapped in tags the app hides from children on display." },
+      { id: 'B', text: "Set profanityAction to Marked so profane words are replaced with asterisks rather than removed entirely." },
+      { id: 'C', text: "Set allowFallback to false so the service refuses to return a translated message containing profanity." },
+      { id: 'D', text: "Set profanityAction to Deleted so that profane words are removed from the translated output entirely." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "The profanityAction parameter accepts NoAction (the default), Marked or Deleted; Deleted removes profanities from the translation while the rest of the message is delivered. Marked keeps a marked version, with asterisks or tags depending on the profanity marker, which the app would still display or have to process. textType html governs markup handling, not profanity. allowFallback controls whether a general system may be used when a requested custom system does not exist.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/ai-services/translator/text-translation/reference/v3/translate",
+    tags: ["Translator", "Profanity filtering"]
+  },
+  {
+    id: "azure-ai-apps-agents-375",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d4",
+    domainName: "Implement text analysis solutions",
+    title: "Adapting slogans rather than translating them",
+    scenario: "A sportswear brand localises campaign slogans for Brazil, Japan and Germany. Literal translations fall flat, and the brand wants each slogan adapted to local idiom while keeping a playful voice, respecting a list of words the brand never uses, and returning three alternatives per market for a copywriter to choose from.",
+    question: "Which approach should the developers build?",
+    options: [
+      { id: 'A', text: "Document translation with a glossary of banned words, run as a batch job over a file containing all the slogans." },
+      { id: 'B', text: "Translator v3 with a dynamic dictionary entry for every slogan word, returning three alternatives per market." },
+      { id: 'C', text: "A chat model prompted with brand voice, banned words and market, returning three alternatives in a JSON schema." },
+      { id: 'D', text: "Translator v3 with the notranslate class around the slogan so the brand's playful voice is kept in every market." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "Adapting a slogan to local idiom with a defined voice, banned words and several options is transcreation, which an LLM-powered flow handles well: the prompt carries brand guidelines and market context, and a structured output returns three alternatives for human selection. notranslate leaves the English slogan untranslated. Forcing word-by-word dictionary entries produces the literal translations that fall flat, and dynamic dictionary is meant for names, not whole phrases. A glossary maps terms to fixed translations; it cannot avoid banned words creatively or return alternatives.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/structured-outputs",
+    tags: ["LLM translation", "Transcreation", "Structured outputs"]
+  }
+];
+
+export default AZURE_AI_APPS_AGENTS_QUESTIONS_15;

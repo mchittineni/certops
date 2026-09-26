@@ -1,0 +1,532 @@
+export const AZURE_AI_APPS_AGENTS_QUESTIONS_18 = [
+  {
+    id: "azure-ai-apps-agents-426",
+    difficulty: "easy",
+    certId: "azure-ai-apps-agents",
+    domainId: "d5",
+    domainName: "Implement information extraction solutions",
+    title: "Scanned delivery notes that never match a search",
+    scenario: "A wholesaler indexes a Blob Storage container of delivery notes into Azure AI Search with a blob indexer. Half the files are phone photos saved as JPG and scanned PDFs with no text layer, and queries for consignment numbers printed on them return nothing, while born-digital PDFs are found correctly.",
+    question: "Which two changes make the text in the images searchable? (Choose two.)",
+    options: [
+      { id: 'A', text: "Set imageAction to generateNormalizedImages in the indexer configuration parameters." },
+      { id: 'B', text: "Set dataToExtract to allMetadata so the indexer reads the text stored in image headers." },
+      { id: 'C', text: "Add the OCR skill to the skillset and merge its output into the main content field." },
+      { id: 'D', text: "Add the Image Analysis skill so each photo is described with captions and visual tags." },
+      { id: 'E', text: "Add the Key Phrase Extraction skill so the consignment numbers are pulled out as phrases." }
+    ],
+    correctAnswers: ['A', 'C'],
+    type: "multiple",
+    explanation: "Text in images only becomes searchable when the indexer extracts the images, which the imageAction setting generateNormalizedImages does, and a skill then reads the text in them: the OCR skill returns the recognized text, which is usually merged with any document text into the field that is searched. Image Analysis produces captions and tags describing the picture, not the printed consignment numbers. allMetadata skips content extraction and only returns metadata. Key Phrase Extraction works on text that already exists, so it has nothing to work with until OCR has run.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/search/cognitive-search-concept-image-scenarios",
+    tags: ["Azure AI Search", "OCR", "Image extraction"]
+  },
+  {
+    id: "azure-ai-apps-agents-427",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d5",
+    domainName: "Implement information extraction solutions",
+    title: "Nightly refresh of a product table",
+    scenario: "A kitchenware brand keeps 80,000 product descriptions in an Azure SQL Database table that merchandisers edit throughout the day. An indexer loads the table into Azure AI Search for a shopping assistant, but a full reload each night takes hours and deleted rows linger in the index. The database team can enable features on the table.",
+    question: "How should the developer configure change handling on the data source?",
+    options: [
+      { id: 'A', text: "Enable native blob soft delete on the table's storage account and add it as the deletion policy." },
+      { id: 'B', text: "Enable SQL integrated change tracking on the table and use it as the data source's change policy." },
+      { id: 'C', text: "Reset the indexer every night so it reloads the whole table and drops rows missing from the source." },
+      { id: 'D', text: "Export the table to CSV in Blob Storage nightly and index the files with delimitedText parsing." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "SQL integrated change tracking lets the Azure SQL indexer pick up only rows inserted, updated or deleted since the last run, including deletions, so the nightly run is incremental and removed products leave the index. Resetting the indexer reprocesses everything, which is the slow reload the team wants to end. Native blob soft delete is a Blob Storage feature and does not apply to a SQL table. Exporting to CSV adds a pipeline and still gives no way to detect deleted rows.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/search/search-how-to-index-sql-database",
+    tags: ["Azure AI Search", "Azure SQL indexer", "Change tracking"]
+  },
+  {
+    id: "azure-ai-apps-agents-428",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d5",
+    domainName: "Implement information extraction solutions",
+    title: "One search document per chunk, not per file",
+    scenario: "A developer's skillset splits each policy PDF into chunks and embeds them, but the index still holds one document per PDF with an array of chunks, so the agent retrieves whole files. The team wants every chunk to become its own search document carrying the parent file's title and URL, and does not need the parent documents indexed.",
+    question: "What should the developer configure?",
+    options: [
+      { id: 'A', text: "Index projections in the skillset that map each chunk to a chunk index and skip the parent documents." },
+      { id: 'B', text: "Output field mappings that flatten the chunk array into a single collection field on the parent document." },
+      { id: 'C', text: "A knowledge store object projection that writes each chunk to Blob Storage as a separate JSON file." },
+      { id: 'D', text: "A second indexer over the same container with parsingMode set to jsonLines so each line is a chunk." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Index projections define a one-to-many mapping from the enrichment tree to a target index, so each chunk becomes its own search document with fields such as the parent's title, URL and key; setting the projection mode to skip indexing parent documents leaves only the chunks. Output field mappings still write to the parent document, just into a different field. Knowledge store projections write to Azure Storage, not to the search index the agent queries. The PDFs are not JSON Lines files, so that parsing mode does not apply.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/search/index-projections-concept-intro",
+    tags: ["Azure AI Search", "Index projections", "Chunking"]
+  },
+  {
+    id: "azure-ai-apps-agents-429",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d5",
+    domainName: "Implement information extraction solutions",
+    title: "Letting the search service embed the question",
+    scenario: "A developer's chat app embeds every user question with its own call to a text-embedding-3-small deployment before sending a vector query to Azure AI Search. The team wants to remove that client-side step and have the query text vectorized with the same model that embedded the documents.",
+    question: "What should the developer configure?",
+    options: [
+      { id: 'A', text: "Add an Azure OpenAI Embedding skill for the deployment so the indexer also embeds each incoming query." },
+      { id: 'B', text: "Switch the vector field to use the Azure Vision multimodal embeddings skill for the query text." },
+      { id: 'C', text: "Set queryType to semantic so the semantic ranker converts the question text into a query vector." },
+      { id: 'D', text: "Define a vectorizer for the deployment on the vector profile and send text-kind vector queries." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "A vectorizer assigned to the field's vector profile tells the search service which embedding model to call at query time, so a vector query of kind text is embedded by the service with the same deployment used for indexing. Skills run only during indexing and never see queries. The semantic ranker reranks results; it does not produce query vectors. Switching to a multimodal embedding model would put queries and documents in different vector spaces and break similarity.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/search/vector-search-how-to-configure-vectorizer",
+    tags: ["Azure AI Search", "Vectorizer", "Vector search"]
+  },
+  {
+    id: "azure-ai-apps-agents-430",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d5",
+    domainName: "Implement information extraction solutions",
+    title: "Facts split across two adjacent chunks",
+    scenario: "A pensions provider chunks its scheme rules with the Text Split skill into 2,000-character pages with no overlap. Evaluation shows that answers about contribution limits are often incomplete because the limit and its conditions fall on either side of a chunk boundary, even though the correct chunks are retrieved.",
+    question: "Which change most directly addresses this?",
+    options: [
+      { id: 'A', text: "Switch textSplitMode from pages to sentences so each chunk holds exactly one sentence from the rules." },
+      { id: 'B', text: "Enable semantic captions so the passage most relevant to the question is extracted from every chunk." },
+      { id: 'C', text: "Raise k on the vector query from 5 to 50 so many more chunks are passed to the model for each question." },
+      { id: 'D', text: "Set pageOverlapLength so that consecutive chunks repeat a portion of the text around every break." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Chunk overlap repeats a portion of text between consecutive chunks, so a rule and its conditions that straddle a boundary appear together in at least one chunk; the Text Split skill exposes this as pageOverlapLength. Sentence mode makes chunks smaller and separates related sentences even more. Sending many more chunks raises cost and noise without guaranteeing both halves are included together. Captions pick a passage within each chunk and cannot join text across chunks.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/search/cognitive-search-skill-textsplit",
+    tags: ["Azure AI Search", "Chunking", "Text Split"]
+  },
+  {
+    id: "azure-ai-apps-agents-431",
+    difficulty: "hard",
+    certId: "azure-ai-apps-agents",
+    domainId: "d5",
+    domainName: "Implement information extraction solutions",
+    title: "Updating a status flag without losing vectors",
+    scenario: "A news agency pushes article chunks, each with a 3,072-dimension embedding, into Azure AI Search from its own pipeline. Editors can retract an article, and the pipeline must set an isRetracted field to true on that article's chunks within seconds. The first attempt sent documents holding only the key and isRetracted, and afterward those chunks returned no vector matches.",
+    question: "Which indexing action should the pipeline use for the retraction update?",
+    options: [
+      { id: 'A', text: "delete followed by upload of the full chunk, including its embedding and the updated flag." },
+      { id: 'B', text: "merge, sending the key and isRetracted so only that field changes on each existing chunk." },
+      { id: 'C', text: "upload, sending the key and isRetracted so the service replaces only the fields supplied." },
+      { id: 'D', text: "mergeOrUpload, sending every field of the chunk except the embedding to avoid resending it." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "The merge action updates only the fields present in the request on an existing document, so sending the key and isRetracted flips the flag while the embedding and other fields stay intact. The upload action replaces the whole document, which is why the first attempt left chunks with no embedding and no vector matches. Deleting and re-uploading every chunk with its vector works but costs far more and opens a window where the chunk is missing. mergeOrUpload behaves like merge for existing documents, so resending every other field is unnecessary work.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/search/search-how-to-load-search-index",
+    tags: ["Azure AI Search", "Push API", "Indexing actions"]
+  },
+  {
+    id: "azure-ai-apps-agents-432",
+    difficulty: "hard",
+    certId: "azure-ai-apps-agents",
+    domainId: "d5",
+    domainName: "Implement information extraction solutions",
+    title: "Fewer results than requested after filtering",
+    scenario: "A multi-brand retailer's assistant runs vector queries with k set to 10 and a filter restricting results to one brand, which covers under 2% of the index. The filtering mode was set to postFilter during early testing, and users now often receive only two or three results even though many matching products exist.",
+    question: "What should the developer change?",
+    options: [
+      { id: 'A', text: "Enable exhaustive search on the query so every vector is compared before the brand filter is applied." },
+      { id: 'B', text: "Move the brand into the query text so keyword matching handles it instead of the filter expression." },
+      { id: 'C', text: "Switch the vector query to preFilter so the brand filter is applied during the vector search itself." },
+      { id: 'D', text: "Raise k from 10 to 50 while keeping postFilter, so more candidates survive the brand filter afterward." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "With postfiltering, the nearest neighbors are found first and the filter is applied afterward, so a highly selective filter can remove most of the k results; prefiltering applies the filter during the vector search, so the k results returned all satisfy it, maximizing recall for selective filters. Raising k with postFilter reduces the gap but still cannot guarantee ten results and costs more. Exhaustive search changes how neighbors are found but, with postfiltering, still filters afterward. Moving the brand into query text makes a hard constraint a soft relevance signal and returns other brands.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/search/vector-search-filters",
+    tags: ["Azure AI Search", "Vector filters", "Recall"]
+  },
+  {
+    id: "azure-ai-apps-agents-433",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d5",
+    domainName: "Implement information extraction solutions",
+    title: "Measuring how much recall HNSW gives up",
+    scenario: "A search team wants to quantify how many true nearest neighbors its HNSW-configured vector field misses for a set of 500 benchmark queries, before deciding whether to tune the index. The index has two million vectors and must keep serving production traffic with HNSW.",
+    question: "How can the team obtain ground-truth neighbors for comparison?",
+    options: [
+      { id: 'A', text: "Run the benchmark queries with the semantic ranker enabled so it reorders results into true order." },
+      { id: 'B', text: "Rebuild the field with an exhaustive KNN profile and rerun the queries against the rebuilt index." },
+      { id: 'C', text: "Run the benchmark queries with exhaustive set to true so each one scans every vector in the field." },
+      { id: 'D', text: "Run the benchmark queries as hybrid queries so keyword matches reveal the neighbors HNSW skipped." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "Setting exhaustive to true on a vector query forces a brute-force comparison against every vector in the field, even when the field uses HNSW, which returns the true nearest neighbors for that query without changing the index; comparing those with the normal HNSW results measures recall. Rebuilding with an exhaustive profile would disrupt production and is unnecessary. Keyword matches in a hybrid query are a different retrieval method and say nothing about missed vector neighbors. The semantic ranker only reorders the results it receives and cannot add neighbors HNSW did not return.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/search/vector-search-how-to-query",
+    tags: ["Azure AI Search", "Exhaustive KNN", "Vector search"]
+  },
+  {
+    id: "azure-ai-apps-agents-434",
+    difficulty: "easy",
+    certId: "azure-ai-apps-agents",
+    domainId: "d5",
+    domainName: "Implement information extraction solutions",
+    title: "French plurals and verb forms not matching",
+    scenario: "A Quebec government agency indexes French-language service pages in Azure AI Search for a grounding pipeline. Keyword searches for 'formulaire' miss pages that only contain 'formulaires', and searches for 'renouveler' miss 'renouvellement', because the content field was created with default settings.",
+    question: "What should the developer change on the content field?",
+    options: [
+      { id: 'A', text: "Add a synonym map listing every French plural and verb form next to its singular form." },
+      { id: 'B', text: "Enable fuzzy search with an edit distance of two on every query sent by the assistant." },
+      { id: 'C', text: "Add the Text Translation skill so the pages are indexed in English instead of French." },
+      { id: 'D', text: "Assign the fr.microsoft language analyzer so French words are reduced to their base forms." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Language analyzers such as fr.microsoft or fr.lucene apply French-specific lemmatization or stemming, so plurals and related word forms match at query time; the default standard analyzer only tokenizes and lowercases. A synonym map for every inflection is unmaintainable. Fuzzy search catches small spelling differences but not related forms such as renouvellement, and it applies per query. Translating the pages to English changes the content the agency must ground on and does not help French queries.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/search/index-add-language-analyzers",
+    tags: ["Azure AI Search", "Language analyzers", "Full-text search"]
+  },
+  {
+    id: "azure-ai-apps-agents-435",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d5",
+    domainName: "Implement information extraction solutions",
+    title: "Favoring recent guidance in keyword results",
+    scenario: "A tax advisory firm's index holds guidance notes from the last fifteen years, each with a publishedDate field. When several notes match a query, advisers want the most recent ones ranked higher, but older notes must still be returned when they are the only good match.",
+    question: "What should the developer add to the index?",
+    options: [
+      { id: 'A', text: "A scoring profile with a freshness function on publishedDate that boosts newer documents over a set period." },
+      { id: 'B', text: "A semantic configuration that lists publishedDate as a prioritized field for the semantic reranker." },
+      { id: 'C', text: "An orderby clause on publishedDate descending so results are sorted strictly by publication date." },
+      { id: 'D', text: "A filter on publishedDate in every query that excludes notes older than two years from results." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "A scoring profile with a freshness function raises the relevance score of newer documents over a chosen boosting duration while still letting older, highly relevant notes rank, which is a soft preference. A filter removes older notes entirely, breaking the requirement. Sorting by date ignores relevance, so a recent but weak match would outrank the only good answer. The semantic ranker reasons over text fields and does not treat a date field as a recency boost.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/search/index-add-scoring-profiles",
+    tags: ["Azure AI Search", "Scoring profiles", "Relevance"]
+  },
+  {
+    id: "azure-ai-apps-agents-436",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d5",
+    domainName: "Implement information extraction solutions",
+    title: "Finding diagrams by what they depict",
+    scenario: "An HVAC manufacturer's service manuals contain wiring diagrams and exploded-view drawings with few printed words. Technicians ask the RAG assistant questions such as 'show me where the condensate pump connects', and the answer is often only in a diagram. Text chunks are already vectorized during indexing.",
+    question: "Which two skillset changes make the diagrams retrievable by such questions? (Choose two.)",
+    options: [
+      { id: 'A', text: "Add the Key Phrase Extraction skill to the image files so each diagram gets a list of topic phrases." },
+      { id: 'B', text: "Add the Language Detection skill so each diagram is routed to the analyzer for its own language." },
+      { id: 'C', text: "Embed the generated image descriptions with the Azure OpenAI Embedding skill into a vector field." },
+      { id: 'D', text: "Add the OCR skill to each extracted image so the few printed labels become the diagram's content." },
+      { id: 'E', text: "Add a GenAI Prompt skill that asks a vision-capable chat model to describe each extracted image." }
+    ],
+    correctAnswers: ['C', 'E'],
+    type: "multiple",
+    explanation: "Image verbalization uses the GenAI Prompt skill to send each extracted image to a vision-capable chat model that writes a description of what it shows, and embedding those descriptions with the existing Azure OpenAI Embedding skill puts them in the same vector space as text questions, so a question about the condensate pump can match the diagram. OCR only captures the few printed labels, not the relationships the diagram shows. Key phrase extraction and language detection operate on text and cannot interpret a drawing.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/search/cognitive-search-skill-genai-prompt",
+    tags: ["Azure AI Search", "Multimodal search", "GenAI Prompt skill"]
+  },
+  {
+    id: "azure-ai-apps-agents-437",
+    difficulty: "hard",
+    certId: "azure-ai-apps-agents",
+    domainId: "d5",
+    domainName: "Implement information extraction solutions",
+    title: "Customers searching with a photo of a part",
+    scenario: "A spare-parts retailer wants customers to upload a photo of a broken part and get visually similar catalog items, as well as search the same catalog with text such as 'brass elbow fitting'. The catalog images and descriptions are indexed in Azure AI Search, and the team wants embeddings generated by the search pipeline rather than custom code.",
+    question: "Which configuration fits both query types?",
+    options: [
+      { id: 'A', text: "Store the photos as base64 strings in a searchable field and run full-text queries against them." },
+      { id: 'B', text: "Embed the product pictures with the Azure Vision multimodal skill and pair it with a matching vectorizer." },
+      { id: 'C', text: "Use the Image Analysis skill to tag each image, and match uploaded photos by comparing their tags." },
+      { id: 'D', text: "Embed descriptions with text-embedding-3-large and run the OCR skill on photos to match any printed text." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "The Azure Vision multimodal embeddings skill places images and text in one shared vector space, and pairing it with the matching Azure Vision vectorizer lets the service embed both uploaded photos and text queries at query time, so image-to-image and text-to-image searches work against the same field. A text embedding model cannot embed photos, and OCR only reads printed text. Tag matching is coarse and loses visual similarity. Base64 strings are not meaningful to full-text search.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/search/cognitive-search-skill-vision-vectorize",
+    tags: ["Azure AI Search", "Multimodal embeddings", "Image search"]
+  },
+  {
+    id: "azure-ai-apps-agents-438",
+    difficulty: "easy",
+    certId: "azure-ai-apps-agents",
+    domainId: "d5",
+    domainName: "Implement information extraction solutions",
+    title: "Adding an in-house classifier to enrichment",
+    scenario: "An insurer has a proprietary risk classifier, written in Python and hosted in Azure Functions, that labels each claim document as low, medium or high risk. The team wants the label added to every document during Azure AI Search indexing so agents can filter on it.",
+    question: "How should the classifier be added to the enrichment pipeline?",
+    options: [
+      { id: 'A', text: "As a Sentiment skill whose negative, neutral and positive labels are remapped to the three risk levels." },
+      { id: 'B', text: "As a Custom Web API skill in the skillset that calls the function's HTTPS endpoint for each record." },
+      { id: 'C', text: "As a Custom Entity Lookup skill whose dictionary lists the words that indicate each level of risk." },
+      { id: 'D', text: "As a scoring profile that runs the Python code at query time to reorder claims by their risk level." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "The Custom Web API skill calls an external HTTPS endpoint, such as an Azure Function, with records in a defined JSON interface and maps the response into the enrichment tree, so the classifier's label can be written to a filterable field. Sentiment scores opinion, not claim risk, and remapping it would produce meaningless labels. Scoring profiles are declarative relevance rules and cannot run code. Custom Entity Lookup finds listed words in text; it cannot run the proprietary model.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/search/cognitive-search-custom-skill-web-api",
+    tags: ["Azure AI Search", "Custom skill", "Enrichment"]
+  },
+  {
+    id: "azure-ai-apps-agents-439",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d5",
+    domainName: "Implement information extraction solutions",
+    title: "Tagging documents with a product catalogue",
+    scenario: "A medical device company wants each indexed support ticket tagged with the device models it mentions. The official list has 5,000 model names, tickets often contain small misspellings such as 'Cardiopace 30O', and the team does not have labeled data to train a model.",
+    question: "Which built-in skill should the developer use?",
+    options: [
+      { id: 'A', text: "Entity Linking, which connects each mention in a ticket to the matching Wikipedia article for the device." },
+      { id: 'B', text: "Entity Recognition, restricted to the Product category so device names are returned for each ticket." },
+      { id: 'C', text: "Key Phrase Extraction, followed by an exact-match filter against the 5,000 names in a later query step." },
+      { id: 'D', text: "Custom Entity Lookup, with the catalogue as its dictionary and a fuzzy edit distance for typing errors." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Custom Entity Lookup matches text against a user-defined list of words and phrases, supplied inline or as a file, and supports fuzzy matching through an edit-distance setting, so misspelled model names are still tagged without any training data. Prebuilt Entity Recognition's Product category is generic and will not reliably know the company's 5,000 model names. Entity Linking resolves well-known entities to Wikipedia, where these devices mostly do not exist. Key phrases followed by exact matching would miss the misspellings.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/search/cognitive-search-skill-custom-entity-lookup",
+    tags: ["Azure AI Search", "Custom Entity Lookup", "Enrichment"]
+  },
+  {
+    id: "azure-ai-apps-agents-440",
+    difficulty: "easy",
+    certId: "azure-ai-apps-agents",
+    domainId: "d5",
+    domainName: "Implement information extraction solutions",
+    title: "Masking personal data before it reaches the index",
+    scenario: "A telecom indexes customer complaint letters for a grounding pipeline. Privacy rules say phone numbers, email addresses and names must never be stored in the search index in readable form, but the rest of each letter must remain searchable.",
+    question: "What should the developer add to the skillset?",
+    options: [
+      { id: 'A', text: "The Text Translation skill, so personal data is converted into another language before indexing." },
+      { id: 'B', text: "The Entity Recognition skill, then remove the Person category from the list of fields in the index." },
+      { id: 'C', text: "The Custom Entity Lookup skill, with a dictionary of customer names exported from the CRM system." },
+      { id: 'D', text: "The PII Detection skill with masking enabled, mapping its masked text to the indexed content field." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "The PII Detection skill recognizes personal information such as phone numbers, email addresses and names, and can return a masked version of the text with those entities replaced by a masking character; indexing the masked text keeps the rest of the letter searchable. Entity Recognition only lists entities and leaves the original text, with the personal data, in the content field. Translation does not remove personal data. A CRM export would miss unknown names and does nothing for phone numbers or emails.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/search/cognitive-search-skill-pii-detection",
+    tags: ["Azure AI Search", "PII detection", "Privacy"]
+  },
+  {
+    id: "azure-ai-apps-agents-441",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d5",
+    domainName: "Implement information extraction solutions",
+    title: "OCR text that lands at the end of the document",
+    scenario: "An engineering consultancy indexes Word reports with embedded photos of site signage. The OCR skill reads the signage correctly, but the recognized text is appended after the report body, so chunks separate each photo's text from the paragraph that discusses it.",
+    question: "Which skill should the developer add to keep OCR text next to its surrounding paragraph?",
+    options: [
+      { id: 'A', text: "The Shaper skill, combining the report text and the OCR output into one complex field per image." },
+      { id: 'B', text: "The Document Extraction skill, re-cracking each report so images are rendered inline as text." },
+      { id: 'C', text: "The Conditional skill, choosing between the report text and the OCR text for each chunk in turn." },
+      { id: 'D', text: "The Text Merge skill, inserting each image's OCR text into the content at the image's offset." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "The Text Merge skill takes the document text, the items to insert such as each image's OCR output, and the offsets where the images appeared, and produces merged text with the recognized words in their original position, so chunking keeps each photo's text with the paragraph about it. The Shaper skill builds complex types but does not interleave text by position. The Conditional skill picks one value or another and would discard content. Document Extraction cracks files into text and images; it does not run OCR or place recognized text inline.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/search/cognitive-search-skill-textmerger",
+    tags: ["Azure AI Search", "Text Merge", "OCR"]
+  },
+  {
+    id: "azure-ai-apps-agents-442",
+    difficulty: "easy",
+    certId: "azure-ai-apps-agents",
+    domainId: "d5",
+    domainName: "Implement information extraction solutions",
+    title: "Indexer stalls after twenty documents a day",
+    scenario: "A developer built a skillset with the OCR, Key Phrase Extraction and Entity Recognition skills and pointed an indexer at 12,000 documents. Each day the indexer processes about 20 documents with enrichment and then reports errors about exceeding the free enrichment allowance.",
+    question: "What should the developer do?",
+    options: [
+      { id: 'A', text: "Attach a billable Microsoft Foundry resource to the skillset so the skills are billed for use." },
+      { id: 'B', text: "Upgrade the search service from the Basic tier to Standard S1 to raise its indexing limits." },
+      { id: 'C', text: "Replace the built-in skills with the Shaper skill, which runs the same models without charges." },
+      { id: 'D', text: "Split the documents across 20 indexers so each one stays within its own free daily allowance." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Built-in skills backed by Foundry Tools include a small free allowance of about 20 documents per indexer per day; beyond that you attach a billable Microsoft Foundry resource to the skillset, and processing is charged to it. Upgrading the search tier does not change the enrichment allowance. Multiplying indexers to game the allowance is not a supported approach. The Shaper skill only reshapes data in the enrichment tree and performs no OCR or entity extraction.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/search/cognitive-search-attach-cognitive-services",
+    tags: ["Azure AI Search", "Skillset billing", "Foundry Tools"]
+  },
+  {
+    id: "azure-ai-apps-agents-443",
+    difficulty: "hard",
+    certId: "azure-ai-apps-agents",
+    domainId: "d5",
+    domainName: "Implement information extraction solutions",
+    title: "Billing skills without a stored resource key",
+    scenario: "A bank's security policy forbids API keys for service-to-service calls. Its skillset uses built-in OCR and PII Detection skills billed to a Microsoft Foundry resource, and the current definition embeds the resource key. The search service has a system-assigned managed identity.",
+    question: "What should the developer do to bill the skills keylessly?",
+    options: [
+      { id: 'A', text: "Use an identity-based Foundry connection and grant the search identity Cognitive Services User on it." },
+      { id: 'B', text: "Store the Foundry key in Azure Key Vault and reference the secret URI from the skillset definition." },
+      { id: 'C', text: "Remove the Foundry resource from the skillset so the skills fall back to the search service's own billing." },
+      { id: 'D', text: "Grant the Foundry resource's identity Search Index Data Contributor on the search service instead." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "A skillset can reference its billing resource through an identity-based connection, specifying the Foundry resource's subdomain URL and optionally a user-assigned identity; the search service's managed identity then needs the Cognitive Services User role on the Foundry resource, and no key is stored. Moving the key to Key Vault still uses a key. Granting the Foundry identity a role on the search service reverses the direction of the call. Removing the resource limits enrichment to the small free daily allowance.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/search/cognitive-search-attach-cognitive-services",
+    tags: ["Azure AI Search", "Managed identity", "Keyless"]
+  },
+  {
+    id: "azure-ai-apps-agents-444",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d5",
+    domainName: "Implement information extraction solutions",
+    title: "Analysts want the enrichments in Power BI",
+    scenario: "A retailer's skillset extracts key phrases, entities and sentiment from product reviews during indexing. Besides the search index used by its shopping assistant, the analytics team wants the same enrichments in tables it can load into Power BI, without running the reviews through the models a second time.",
+    question: "What should the developer add?",
+    options: [
+      { id: 'A', text: "A knowledge store in Azure Storage with table projections of the enriched review data." },
+      { id: 'B', text: "An enrichment cache, which analysts can read directly as a set of tables in Power BI." },
+      { id: 'C', text: "An output field mapping that writes the enrichments to an Azure SQL Database table." },
+      { id: 'D', text: "A second index with the same schema that analysts query through the REST search API." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "A knowledge store persists enriched content from a skillset into Azure Storage, and table projections shape it into rows in Table Storage that tools such as Power BI can load, using the enrichments produced in the same indexer run. A second search index duplicates indexing and is awkward for analytics tools to consume. The enrichment cache is an internal format for incremental enrichment, not a reporting source. Output field mappings only target fields in the search index.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/search/knowledge-store-concept-intro",
+    tags: ["Azure AI Search", "Knowledge store", "Analytics"]
+  },
+  {
+    id: "azure-ai-apps-agents-445",
+    difficulty: "easy",
+    certId: "azure-ai-apps-agents",
+    domainId: "d5",
+    domainName: "Implement information extraction solutions",
+    title: "Defining the field that holds embeddings",
+    scenario: "A developer is adding a field to an Azure AI Search index to store 1,536-dimension embeddings from a text-embedding-3-small deployment, so an agent can run vector queries. The index already has a vector profile named default-hnsw that uses the HNSW algorithm.",
+    question: "How should the new field be defined?",
+    options: [
+      { id: 'A', text: "As Edm.String with the standard analyzer, marked searchable and retrievable for the agent." },
+      { id: 'B', text: "As Edm.ComplexType holding 1,536 numeric subfields, each assigned the default-hnsw profile." },
+      { id: 'C', text: "As Collection(Edm.Single), searchable, with dimensions of 1536 and the default-hnsw profile." },
+      { id: 'D', text: "As Collection(Edm.Double), marked filterable and sortable so vectors can be compared by value." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "A vector field is a collection of a numeric type, typically Collection(Edm.Single), marked searchable, with dimensions equal to the embedding model's output and a vector search profile that selects the algorithm, here default-hnsw. A string field with an analyzer is for full-text search. Vector fields cannot be filterable or sortable, and Edm.Double is not how vector fields are sized. A complex type with numeric subfields is not a vector field and cannot be used for vector queries.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/search/vector-search-how-to-create-index",
+    tags: ["Azure AI Search", "Vector fields", "Index schema"]
+  },
+  {
+    id: "azure-ai-apps-agents-446",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d5",
+    domainName: "Implement information extraction solutions",
+    title: "Supplier documents arriving in six languages",
+    scenario: "A car maker indexes supplier quality reports written in German, Czech, Spanish, Japanese, Korean and English. Its engineers search and chat only in English, and the team wants a single English field that supports English analyzers and filters on detected language, built during indexing.",
+    question: "Which skills should the skillset include?",
+    options: [
+      { id: 'A', text: "OCR followed by Text Merge, which normalizes each report's text into English as it merges the pages." },
+      { id: 'B', text: "Language Detection followed by Text Translation with English as the target, writing to an English field." },
+      { id: 'C', text: "Entity Linking followed by Key Phrase Extraction, which produces English phrases for every document." },
+      { id: 'D', text: "Language Detection followed by six language-specific analyzers applied to the same content field." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "Language Detection records each document's language for filtering, and the Text Translation skill translates the text into a target language such as English for normalization, so an English field with an English analyzer can serve every report. Entity Linking and key phrases do not translate documents. OCR reads text from images and Text Merge concatenates text; neither translates. A single field can have only one analyzer, and multiple language analyzers would not let engineers search in English.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/search/cognitive-search-skill-text-translation",
+    tags: ["Azure AI Search", "Text Translation skill", "Multilingual"]
+  },
+  {
+    id: "azure-ai-apps-agents-447",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d5",
+    domainName: "Implement information extraction solutions",
+    title: "One JSON file holding thousands of records",
+    scenario: "A recipe platform exports its catalog nightly as JSON files in Blob Storage, each containing a top-level array of about 5,000 recipe objects. The first indexer run produced one search document per file, so the assistant retrieves entire files instead of individual recipes.",
+    question: "How should the developer configure the indexer?",
+    options: [
+      { id: 'A', text: "Set parsingMode to text and use the Text Split skill to cut each file into recipe-sized pages." },
+      { id: 'B', text: "Set parsingMode to json and add field mappings that point each index field at an array element." },
+      { id: 'C', text: "Set dataToExtract to storageMetadata so the indexer reads each recipe from the blob's metadata." },
+      { id: 'D', text: "Set parsingMode to jsonArray so each element of the array in a file is indexed separately." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "The jsonArray parsing mode tells a blob indexer that each file holds an array and to create one search document per element, which gives one document per recipe; jsonLines serves the related case of one object per line. The json mode treats each file as a single document, and field mappings cannot fan it out. Plain text parsing with fixed-size splitting would cut recipes at arbitrary points and lose their structure. Storage metadata holds blob properties, not the recipes.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/search/search-howto-index-json-blobs",
+    tags: ["Azure AI Search", "Blob indexer", "JSON parsing"]
+  },
+  {
+    id: "azure-ai-apps-agents-448",
+    difficulty: "hard",
+    certId: "azure-ai-apps-agents",
+    domainId: "d5",
+    domainName: "Implement information extraction solutions",
+    title: "Charts drawn as vector graphics in PDFs",
+    scenario: "An investment bank indexes research PDFs whose charts are drawn as vector graphics rather than embedded images. Image verbalization with the GenAI Prompt skill works for embedded photos, but the charts never reach the skill, so questions about chart trends go unanswered.",
+    question: "Which indexer setting ensures the charts are passed to the image skills?",
+    options: [
+      { id: 'A', text: "Set imageAction to generateNormalizedImagePerPage so each PDF page is rendered to one image." },
+      { id: 'B', text: "Set imageAction to generateNormalizedImages so that every embedded image in each PDF is extracted." },
+      { id: 'C', text: "Set allowSkillsetToReadFileData to true so the GenAI Prompt skill receives the original PDF bytes." },
+      { id: 'D', text: "Set dataToExtract to contentAndMetadata so vector drawings are converted into extracted text." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "generateNormalizedImagePerPage renders each PDF page to an image, so graphics drawn as vectors, which are not embedded image objects, still appear in the normalized images passed to the verbalization skill; it costs more processing because every page becomes an image. generateNormalizedImages only extracts embedded images, which is why the charts are missing today. allowSkillsetToReadFileData exposes the raw file to skills that accept file data, but the GenAI Prompt skill here expects images. contentAndMetadata extracts text and metadata and cannot describe a chart.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/search/cognitive-search-concept-image-scenarios",
+    tags: ["Azure AI Search", "Image extraction", "Multimodal search"]
+  },
+  {
+    id: "azure-ai-apps-agents-449",
+    difficulty: "hard",
+    certId: "azure-ai-apps-agents",
+    domainId: "d5",
+    domainName: "Implement information extraction solutions",
+    title: "Trading latency for recall in an HNSW index",
+    scenario: "A benchmark shows that a news archive's HNSW vector field returns about 92% of the true nearest neighbors, and editors are missing relevant stories. Query latency is currently well under budget, and the team is willing to spend some of that headroom to find more of the true neighbors at query time.",
+    question: "Which HNSW parameter change most directly achieves this?",
+    options: [
+      { id: 'A', text: "Change the metric from cosine to dotProduct so normalized vectors are compared with a cheaper formula." },
+      { id: 'B', text: "Decrease efConstruction so the index is rebuilt with a shorter candidate list per inserted vector." },
+      { id: 'C', text: "Increase efSearch so a larger dynamic candidate list is explored for each vector query as it runs." },
+      { id: 'D', text: "Decrease m so each node keeps fewer bidirectional links and the graph is traversed more quickly." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "efSearch sets the size of the dynamic candidate list HNSW keeps while searching; raising it explores more of the graph per query, improving recall at the cost of latency, which matches the available headroom. Lowering m reduces graph connectivity and tends to lower recall. Lowering efConstruction builds a lower-quality graph, also hurting recall. For normalized embeddings, cosine and dot product produce the same ranking, so changing the metric does not recover missed neighbors.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/search/vector-search-ranking",
+    tags: ["Azure AI Search", "HNSW", "Recall"]
+  },
+  {
+    id: "azure-ai-apps-agents-450",
+    difficulty: "easy",
+    certId: "azure-ai-apps-agents",
+    domainId: "d5",
+    domainName: "Implement information extraction solutions",
+    title: "Highlighted passages and a direct answer on top",
+    scenario: "A university help desk portal queries Azure AI Search with semantic ranking already enabled. Staff want each result to show the most relevant sentence with key terms highlighted, and, for question-style searches, a short direct answer at the top of the page.",
+    question: "Which two query parameters should the developer add? (Choose two.)",
+    options: [
+      { id: 'A', text: "answers set to extractive with a count of the answers to return for the query." },
+      { id: 'B', text: "highlight set to the content field so the keyword engine marks each match there." },
+      { id: 'C', text: "searchMode set to all so every term must appear in each highlighted sentence." },
+      { id: 'D', text: "queryLanguage set to the portal's locale so the ranker returns its own summary." },
+      { id: 'E', text: "captions set to extractive with highlighting turned on for the matched passages." }
+    ],
+    correctAnswers: ['A', 'E'],
+    type: "multiple",
+    explanation: "With queryType set to semantic, the captions parameter set to extractive returns the most relevant passage from each result, optionally with highlighting of key terms, and the answers parameter set to extractive returns direct answers extracted verbatim from top documents when the query looks like a question. Keyword hit highlighting marks term matches but does not select the most relevant sentence. searchMode controls whether all or any terms must match and does not produce captions. The semantic ranker does not generate summaries, whatever the query language.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/search/semantic-answers",
+    tags: ["Azure AI Search", "Semantic answers", "Captions"]
+  }
+];
+
+export default AZURE_AI_APPS_AGENTS_QUESTIONS_18;

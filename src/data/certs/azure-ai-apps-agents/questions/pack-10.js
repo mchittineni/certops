@@ -1,0 +1,532 @@
+export const AZURE_AI_APPS_AGENTS_QUESTIONS_10 = [
+  {
+    id: "azure-ai-apps-agents-226",
+    difficulty: "easy",
+    certId: "azure-ai-apps-agents",
+    domainId: "d2",
+    domainName: "Implement generative AI and agentic solutions",
+    title: "Product blurbs that repeat the same adjective",
+    scenario: "A furniture retailer generates 150-word product descriptions with gpt-4.1. Editors complain that words such as \"stunning\" and \"timeless\" appear three or four times in a single description. The overall content and tone are otherwise fine, and the team wants a request-level adjustment.",
+    question: "Which parameter change best addresses the problem?",
+    options: [
+      { id: 'A', text: "Raise frequency_penalty so tokens are penalized more the more often they have already appeared." },
+      { id: 'B', text: "Lower max_tokens to 80 so that descriptions have less room in which to repeat the same adjectives." },
+      { id: 'C', text: "Set temperature to 0 so the model always chooses its single most likely word for each position." },
+      { id: 'D', text: "Add a stop sequence for the word stunning so generation ends the first time the word is produced." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "frequency_penalty lowers the likelihood of a token in proportion to how many times it has already appeared in the output, which directly discourages the same adjective recurring. Cutting max_tokens truncates descriptions below the required length. Temperature 0 makes output more deterministic and often more repetitive, not less. A stop sequence on the word would end the description at its first use instead of preventing repetition.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/openai/reference",
+    tags: ["Model parameters", "frequency_penalty", "Generation tuning"]
+  },
+  {
+    id: "azure-ai-apps-agents-227",
+    difficulty: "easy",
+    certId: "azure-ai-apps-agents",
+    domainId: "d2",
+    domainName: "Implement generative AI and agentic solutions",
+    title: "Generation that keeps going past the answer",
+    scenario: "A developer prompts a chat model to produce a single SQL statement followed by the marker ### END. The model writes the statement and marker correctly but then continues with an explanation and a second example query, which the app must strip out, wasting tokens.",
+    question: "What should the developer set on the request?",
+    options: [
+      { id: 'A', text: "A stop sequence of ### END so that generation halts as soon as the model produces that marker." },
+      { id: 'B', text: "A presence_penalty of 2 so the model avoids introducing new topics once the query is complete." },
+      { id: 'C', text: "A seed value so the model produces the same short output, without the explanation, on every call." },
+      { id: 'D', text: "A top_p of 0.1 so the model samples only from its most likely tokens and stops sooner overall." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Stop sequences end generation when the model emits one of the specified strings (the stop string itself is not returned), which cuts off everything after the marker and saves output tokens. presence_penalty nudges topic diversity but does not end generation. A low top_p narrows token choice without providing a stopping point. A seed improves reproducibility; a reproducibly long answer is still long.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/openai/reference",
+    tags: ["Model parameters", "Stop sequences"]
+  },
+  {
+    id: "azure-ai-apps-agents-228",
+    difficulty: "easy",
+    certId: "azure-ai-apps-agents",
+    domainId: "d2",
+    domainName: "Implement generative AI and agentic solutions",
+    title: "JSON answers cut off mid-object",
+    scenario: "A reporting job asks gpt-4.1-mini for a detailed JSON summary of each account. Most responses parse, but for large accounts the JSON ends abruptly mid-array. Inspection of those responses shows finish_reason set to length.",
+    question: "What is the cause, and how should the developer fix it?",
+    options: [
+      { id: 'A', text: "The model hit its rate limit mid-response, so retry after the delay in the retry-after header." },
+      { id: 'B', text: "The content filter blocked the output, so relax the guardrail severity for the deployment." },
+      { id: 'C', text: "The model encountered a stop sequence, so remove every stop value configured on the request." },
+      { id: 'D', text: "The output token limit was reached, so raise the limit or ask for a more compact summary." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "finish_reason length means generation stopped because the maximum output tokens were reached (or the context window was exhausted), so the JSON was simply truncated; raise the cap or reduce the requested detail. A content filter intervention reports finish_reason content_filter. Rate limiting returns HTTP 429 before generation, not a truncated completion. Hitting a stop sequence reports finish_reason stop.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/openai/reference",
+    tags: ["Model parameters", "finish_reason", "Output length"]
+  },
+  {
+    id: "azure-ai-apps-agents-229",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d2",
+    domainName: "Implement generative AI and agentic solutions",
+    title: "Brainstorms that circle one idea",
+    scenario: "A product team uses a model to brainstorm ten feature ideas per prompt. The lists are fluent but keep returning to variations of the same theme, such as notifications, instead of covering different areas. Word-level repetition is not the issue; the team wants the model nudged toward introducing new subjects.",
+    question: "Which parameter should the team raise?",
+    options: [
+      { id: 'A', text: "max_tokens, which gives the model more room to reach additional areas later in the list." },
+      { id: 'B', text: "logprobs, which returns token probabilities so the model can see which ideas are overused." },
+      { id: 'C', text: "presence_penalty, which penalizes any token that has already appeared, encouraging new topics." },
+      { id: 'D', text: "frequency_penalty, which penalizes tokens by how often they appear, reducing verbatim repeats." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "presence_penalty applies a flat penalty to any token that has appeared at all, which pushes the model toward words and therefore subjects it has not yet used, the documented lever for topic diversity. frequency_penalty scales with repetition count and mainly suppresses verbatim repeats, which the team says is not the problem. More tokens do not change the tendency to cluster around one theme. logprobs only reports probabilities back to the caller; it does not change generation.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/openai/reference",
+    tags: ["Model parameters", "presence_penalty", "Creativity"]
+  },
+  {
+    id: "azure-ai-apps-agents-230",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d2",
+    domainName: "Implement generative AI and agentic solutions",
+    title: "Repeatable outputs for a prompt regression suite",
+    scenario: "A team runs a nightly regression suite that compares a gpt-4.1 deployment's answers to 400 prompts with the previous night's answers, flagging any change. Too many answers differ from run to run even when nothing was changed, which floods the report with noise.",
+    question: "Which two request settings will make outputs most repeatable? (Choose two.)",
+    options: [
+      { id: 'A', text: "Set a fixed seed on every request and compare system_fingerprint between the runs." },
+      { id: 'B', text: "Set presence_penalty to 2 so the model avoids varying its phrasing from run to run." },
+      { id: 'C', text: "Set top_p to 1 and temperature to 1 so the full distribution is sampled consistently." },
+      { id: 'D', text: "Set temperature to 0 so sampling concentrates on the most likely token at each step." },
+      { id: 'E', text: "Enable streaming so tokens are delivered in the same order they are generated each time." }
+    ],
+    correctAnswers: ['A', 'D'],
+    type: "multiple",
+    explanation: "Low or zero temperature removes most sampling randomness, and a fixed seed asks the service to sample deterministically on a best-effort basis; system_fingerprint changes when the backend configuration changes, which explains residual differences. Determinism is still not guaranteed, but these two settings minimize noise. presence_penalty alters word choice, not run-to-run consistency. Streaming changes delivery, not content. Temperature 1 with top_p 1 maximizes variation.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/openai/reference",
+    tags: ["Model parameters", "seed", "Reproducibility"]
+  },
+  {
+    id: "azure-ai-apps-agents-231",
+    difficulty: "hard",
+    certId: "azure-ai-apps-agents",
+    domainId: "d2",
+    domainName: "Implement generative AI and agentic solutions",
+    title: "Keeping one word out of every response",
+    scenario: "A classification endpoint on gpt-4.1-mini must answer only Approve, Reject or Refer, but the model sometimes answers Maybe, which downstream systems cannot handle. The team cannot change the prompt template, which is owned by another department, but can change request parameters.",
+    question: "Which request-level control can prevent the model from producing that word?",
+    options: [
+      { id: 'A', text: "Set frequency_penalty to 2, which blocks any token after it has been generated once in the output." },
+      { id: 'B', text: "Set logit_bias to -100 for the token IDs that make up Maybe, which effectively bans those tokens." },
+      { id: 'C', text: "Set stop to Maybe, which prevents the model from ever generating that word anywhere in its reply." },
+      { id: 'D', text: "Set presence_penalty to 2, which blocks any token that has not appeared earlier in the prompt text." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "logit_bias maps token IDs to a bias from -100 to 100 that is added to their logits before sampling; -100 effectively bans a token, so biasing the tokens for Maybe (found with the model's tokenizer) removes that output. It is not supported on reasoning models, and structured outputs with an enum would be a cleaner fix if the request format could change. presence_penalty and frequency_penalty only adjust probabilities for tokens already used. A stop sequence ends generation when the word appears, yielding an empty or partial answer rather than a valid label.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/openai/reference",
+    tags: ["Model parameters", "logit_bias", "Classification"]
+  },
+  {
+    id: "azure-ai-apps-agents-232",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d2",
+    domainName: "Implement generative AI and agentic solutions",
+    title: "Instructions forgotten after a long contract",
+    scenario: "A legal app sends a system message with formatting rules, then 60,000 tokens of contract text, then the user's question. Answers are accurate but often ignore the formatting rules, such as listing clause numbers, that the system message set out at the very beginning.",
+    question: "Which prompt change is most likely to help?",
+    options: [
+      { id: 'A', text: "Remove the system message and rely on the model's default style, which lists clauses by habit." },
+      { id: 'B', text: "Increase temperature so the model explores more of the prompt and notices the earlier instructions." },
+      { id: 'C', text: "Move the formatting rules into the middle of the contract so the model encounters them mid-read." },
+      { id: 'D', text: "Repeat the key instructions after the contract text, close to the question, with clear delimiters." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Models can show recency bias with long inputs, so Microsoft's prompt engineering guidance recommends repeating important instructions at the end of the prompt, near the question, and separating instructions from content with clear delimiters. Burying rules in the middle of the contract makes them easier to miss and confuses rules with content. Removing the system message loses the rules entirely. Higher temperature adds randomness, not attention to instructions.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/prompt-engineering",
+    tags: ["Prompt engineering", "Long context", "Recency bias"]
+  },
+  {
+    id: "azure-ai-apps-agents-233",
+    difficulty: "easy",
+    certId: "azure-ai-apps-agents",
+    domainId: "d2",
+    domainName: "Implement generative AI and agentic solutions",
+    title: "Explanations pitched at the wrong reader",
+    scenario: "A children's science museum uses a model to answer visitors' questions on an in-gallery kiosk. Answers are accurate but read like textbook passages, full of technical terms, and staff say most visitors are about ten years old. The prompt currently says only \"Answer the visitor's question.\"",
+    question: "Which prompt change should the developer make first?",
+    options: [
+      { id: 'A', text: "Raise the temperature so the model varies its vocabulary and drifts toward simpler, more playful words." },
+      { id: 'B', text: "State the audience and reading level, such as explaining for a ten-year-old in short everyday sentences." },
+      { id: 'C', text: "Lower max_tokens so answers are shorter, which forces the model to leave out most of the technical terms." },
+      { id: 'D', text: "Add a stop sequence for common technical terms so that the answer ends before any jargon is produced." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "Being specific about the audience, reading level and style, for example short sentences, everyday words and a relatable example for a ten-year-old, is a basic prompt engineering technique that directly shapes vocabulary and tone. Higher temperature adds randomness rather than simplicity. Shorter answers can still be dense with jargon. A stop sequence on technical terms would cut answers off mid-explanation instead of rephrasing them.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/prompt-engineering",
+    tags: ["Prompt engineering", "Audience", "Tone"]
+  },
+  {
+    id: "azure-ai-apps-agents-234",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d2",
+    domainName: "Implement generative AI and agentic solutions",
+    title: "Shorter answers from gpt-5 without truncation",
+    scenario: "A field-service app switched to a gpt-5 deployment and technicians say answers are thorough but far too long to read on a phone. Capping output tokens produces answers that end mid-sentence. The team wants the model to plan shorter complete answers while keeping the same reasoning quality.",
+    question: "Which setting should the developer adjust first?",
+    options: [
+      { id: 'A', text: "Set verbosity to low, so the model writes more concise complete answers at the same reasoning effort." },
+      { id: 'B', text: "Set temperature to 0.2, so the model samples fewer optional sentences and ends its answers sooner." },
+      { id: 'C', text: "Set reasoning_effort to minimal, so the model spends fewer tokens thinking and writes briefer replies." },
+      { id: 'D', text: "Set max_output_tokens to 150, so the model sees a smaller budget and plans shorter answers around it." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "gpt-5 models support a verbosity parameter (low, medium, high) that controls how expansive the final answer is, independently of reasoning effort, so low verbosity yields shorter but complete answers. Lowering reasoning effort reduces thinking and can hurt quality, which the team wants to keep. An output token cap is a hard cut-off, which is what produced the mid-sentence endings. Reasoning models do not support temperature.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/reasoning",
+    tags: ["gpt-5", "Verbosity", "Generation tuning"]
+  },
+  {
+    id: "azure-ai-apps-agents-235",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d2",
+    domainName: "Implement generative AI and agentic solutions",
+    title: "Sluggish intent classification on a reasoning model",
+    scenario: "A contact center routes calls by asking a gpt-5-mini deployment to classify each caller's first sentence into one of twelve intents. Accuracy is excellent, but average latency is several seconds, mostly spent generating reasoning tokens, and the IVR needs a response in well under a second.",
+    question: "Which change best cuts latency while keeping the same model?",
+    options: [
+      { id: 'A', text: "Set reasoning_effort to minimal so the model spends few or no reasoning tokens on this simple task." },
+      { id: 'B', text: "Set verbosity to high so the model states the intent label early and streams the rest afterwards." },
+      { id: 'C', text: "Raise max_completion_tokens so the model finishes its reasoning faster within a roomier budget." },
+      { id: 'D', text: "Add \"think step by step before answering\" to the prompt so the model reasons more efficiently." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Reasoning effort controls how many reasoning tokens the model generates before answering; minimal (supported by gpt-5 models) or low effort suits simple classification, cutting latency and cost while the model stays the same. High verbosity lengthens the visible answer. A larger token cap does not make reasoning faster. Asking a reasoning model to think step by step adds nothing useful and can increase the tokens it generates.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/reasoning",
+    tags: ["Reasoning models", "reasoning_effort", "Latency"]
+  },
+  {
+    id: "azure-ai-apps-agents-236",
+    difficulty: "easy",
+    certId: "azure-ai-apps-agents",
+    domainId: "d2",
+    domainName: "Implement generative AI and agentic solutions",
+    title: "Release notes in a predictable shape",
+    scenario: "A developer asks a model to \"summarize these commits for customers.\" The output varies wildly, sometimes one paragraph and sometimes twenty bullet points. Marketing wants exactly three bullet points of no more than 20 words each, under the headings New, Improved and Fixed.",
+    question: "What should the developer do?",
+    options: [
+      { id: 'A', text: "Set max_tokens to 90 so the output is always short enough to fit three bullets of 20 words each." },
+      { id: 'B', text: "State the required structure explicitly in the prompt: the headings, bullet count and word limits." },
+      { id: 'C', text: "Set temperature to 1.5 so the model explores formats until it happens to produce the right shape." },
+      { id: 'D', text: "Set a stop sequence of Fixed so the model ends as soon as it reaches the final section heading." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "Specifying the output structure precisely, including headings, number of items and length limits, often with a short example, is a core prompt engineering technique for consistent formats. A token cap truncates rather than shapes and gives no guarantee of structure. A very high temperature makes output less predictable. Stopping at the Fixed heading would cut off that section entirely.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/prompt-engineering",
+    tags: ["Prompt engineering", "Output structure"]
+  },
+  {
+    id: "azure-ai-apps-agents-237",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d2",
+    domainName: "Implement generative AI and agentic solutions",
+    title: "Taglines that all sound alike",
+    scenario: "A marketing team generates 20 tagline candidates per campaign with gpt-4.1 at temperature 0.2. The candidates are grammatical but nearly interchangeable, reusing the same structure and themes, and the creative director wants a much wider spread of ideas to choose from.",
+    question: "Which two changes should the developer make? (Choose two.)",
+    options: [
+      { id: 'A', text: "Lower top_p to 0.1 so that sampling is restricted to the smallest set of likely next tokens." },
+      { id: 'B', text: "Raise temperature, for example to around 0.9, so that less likely words are sampled more often." },
+      { id: 'C', text: "Set a fixed seed on each request so every campaign's candidates start from the same point." },
+      { id: 'D', text: "Raise presence_penalty so the model is pushed toward words and themes it has not used yet." },
+      { id: 'E', text: "Set frequency_penalty to a negative value so the model repeats its strongest phrases more." }
+    ],
+    correctAnswers: ['B', 'D'],
+    type: "multiple",
+    explanation: "Higher temperature flattens the probability distribution so the model samples more varied words, and a positive presence penalty discourages reusing tokens already produced, encouraging new themes across a long list of candidates. A fixed seed increases repeatability, the opposite of the goal. Lowering top_p narrows sampling to the most likely tokens, reducing variety. A negative frequency penalty rewards repetition.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/prompt-engineering",
+    tags: ["Model parameters", "Temperature", "Creativity"]
+  },
+  {
+    id: "azure-ai-apps-agents-238",
+    difficulty: "hard",
+    certId: "azure-ai-apps-agents",
+    domainId: "d2",
+    domainName: "Implement generative AI and agentic solutions",
+    title: "Reasoning model output with no Markdown",
+    scenario: "A documentation assistant migrated from gpt-4.1 to an o3-mini deployment. The app renders Markdown, but the new model's answers arrive as plain paragraphs with no headings, lists or code fences, even though the developer message asks for Markdown formatting.",
+    question: "What should the developer do?",
+    options: [
+      { id: 'A', text: "Set reasoning_effort to high so the model has enough reasoning budget left over to format its answers." },
+      { id: 'B', text: "Set the response format to json_object and convert the returned fields into Markdown on the client side." },
+      { id: 'C', text: "Move the formatting request into a system message, because reasoning models ignore developer messages." },
+      { id: 'D', text: "Start the developer message with the string Formatting re-enabled, then give the Markdown instructions." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "By default, some reasoning models such as o3-mini and o1 avoid Markdown in API responses; Azure's reasoning model guidance is to include the string Formatting re-enabled at the start of the developer message to turn Markdown output back on. Reasoning models accept developer messages, and system messages are treated as developer messages, so moving the text changes nothing. JSON mode sidesteps formatting with a bespoke rendering layer. Reasoning effort affects thinking depth, not output formatting.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/reasoning",
+    tags: ["Reasoning models", "Developer messages", "Markdown"]
+  },
+  {
+    id: "azure-ai-apps-agents-239",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d2",
+    domainName: "Implement generative AI and agentic solutions",
+    title: "Checking facts in a biography draft",
+    scenario: "A publisher's app drafts short author biographies. Drafts are fluent, but about one in ten contains a wrong date or award. The team wants a self-correction step that makes the model scrutinize the individual factual claims in its own draft, rather than just asking it whether the draft looks good.",
+    question: "Which approach fits best?",
+    options: [
+      { id: 'A', text: "Append \"make sure everything is accurate\" to the drafting prompt so the model self-corrects as it writes." },
+      { id: 'B', text: "Generate the biography at temperature 0 twice and accept it whenever the two drafts turn out to be identical." },
+      { id: 'C', text: "Have the model list verification questions for each claim, answer each one separately, then revise the draft." },
+      { id: 'D', text: "Ask the model once, after drafting, to rate its confidence in the biography from 1 to 10 and keep it above 7." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "A verification pass that turns each claim into a question, answers those questions independently of the draft (ideally against a source or tool), and then revises the draft, often called chain of verification, targets individual factual errors. A single self-rated confidence score is poorly calibrated and does not examine claims. Two identical deterministic drafts can be identically wrong. A generic accuracy reminder does not create any checking step.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/prompt-engineering",
+    tags: ["Self-critique", "Verification", "Hallucination"]
+  },
+  {
+    id: "azure-ai-apps-agents-240",
+    difficulty: "hard",
+    certId: "azure-ai-apps-agents",
+    domainId: "d2",
+    domainName: "Implement generative AI and agentic solutions",
+    title: "Unstable answers to multistep word problems",
+    scenario: "A tutoring app uses gpt-4.1-mini with chain-of-thought prompting to solve multistep math word problems. Asking the same problem several times yields the right answer most of the time but a different wrong answer now and then. The team can afford extra calls per problem to improve reliability and does not want to change models.",
+    question: "Which technique should the team apply?",
+    options: [
+      { id: 'A', text: "Ask the model after each answer whether it is sure, and regenerate once whenever it replies that it is not." },
+      { id: 'B', text: "Raise frequency_penalty so the model avoids repeating the same arithmetic steps that led to the errors." },
+      { id: 'C', text: "Set temperature to 0 and a fixed seed so the model always returns the same answer for a given problem text." },
+      { id: 'D', text: "Sample several reasoning paths at a moderate temperature and return the final answer that most paths agree on." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Self-consistency samples multiple independent chain-of-thought solutions with some randomness and selects the most common final answer; because errors tend to scatter while correct reasoning converges, majority voting improves accuracy at the cost of extra calls. Deterministic settings make the answer repeatable, including when it is wrong. Asking the model whether it is sure is weakly calibrated. frequency_penalty penalizes repeated tokens, and correct arithmetic often needs repeated numbers.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/prompt-engineering",
+    tags: ["Self-consistency", "Chain of thought", "Reliability"]
+  },
+  {
+    id: "azure-ai-apps-agents-241",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d2",
+    domainName: "Implement generative AI and agentic solutions",
+    title: "Reasoning helps, but users should not see it",
+    scenario: "A mortgage-eligibility assistant built on gpt-4.1 answers more accurately when prompted to reason step by step, but customers find the long working confusing, and compliance wants the reasoning stored for audit rather than shown. The app renders only what it chooses from the model output.",
+    question: "How should the developer structure the output?",
+    options: [
+      { id: 'A', text: "Keep the step-by-step instruction and cap max_tokens so the reasoning is cut off before it reaches the user." },
+      { id: 'B', text: "Remove the step-by-step instruction entirely and accept the lower accuracy in return for shorter replies." },
+      { id: 'C', text: "Ask the model to reason silently without writing anything down, which gives the same accuracy benefit." },
+      { id: 'D', text: "Request structured output with separate reasoning and final_answer fields, log the reasoning, show the answer." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "For non-reasoning models, the accuracy benefit of chain-of-thought comes from the model actually writing out its reasoning; putting it in a separate field of a structured output lets the app log it for audit and display only the final answer. Dropping the instruction throws away the accuracy gain. Capping tokens would cut off the answer, which comes after the reasoning. A non-reasoning model asked to reason silently does not gain the benefit of written reasoning.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/prompt-engineering",
+    tags: ["Chain of thought", "Structured outputs", "Auditing"]
+  },
+  {
+    id: "azure-ai-apps-agents-242",
+    difficulty: "hard",
+    certId: "azure-ai-apps-agents",
+    domainId: "d2",
+    domainName: "Implement generative AI and agentic solutions",
+    title: "Convincing rationale, wrong conclusion",
+    scenario: "An auditing team reviews a model's written chain-of-thought for tax-calculation answers and approves any answer whose reasoning looks sound. A spot check finds several approved answers where the reasoning reads plausibly but the final figure does not follow from it, and a few where the figure is right despite flawed reasoning.",
+    question: "How should the team evaluate these answers instead?",
+    options: [
+      { id: 'A', text: "Verify final figures independently, recomputing with code or checking against known results, not the rationale." },
+      { id: 'B', text: "Require longer and more detailed reasoning in every answer so reviewers can spot flaws more easily." },
+      { id: 'C', text: "Switch to a reasoning model and approve answers based on its full hidden chain of thought instead." },
+      { id: 'D', text: "Have the same model rate its own reasoning on a 1 to 5 scale and approve any answer scoring 4 or above." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Written chain-of-thought is not guaranteed to be a faithful account of how the model reached its answer, so a plausible rationale is weak evidence of correctness; checking the outcome itself, by recomputing with code or comparing with trusted results, is the reliable evaluation, with the reasoning used only as a diagnostic. Longer reasoning adds more text to trust without fixing the faithfulness gap. Reasoning models do not expose their raw chain of thought, only summaries. Self-rating shares the model's blind spots.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/reasoning",
+    tags: ["Chain of thought", "Evaluation", "Faithfulness"]
+  },
+  {
+    id: "azure-ai-apps-agents-243",
+    difficulty: "hard",
+    certId: "azure-ai-apps-agents",
+    domainId: "d2",
+    domainName: "Implement generative AI and agentic solutions",
+    title: "Raising temperature changed nothing",
+    scenario: "A greeting-card app generates verses with gpt-4.1. To get more varied verses, a developer raised temperature from 0.7 to 1.3, but the outputs remain nearly identical from call to call. The request, inherited from an earlier extraction use case, also sets top_p to 0.05.",
+    question: "What explains the behavior, and what should the developer change?",
+    options: [
+      { id: 'A', text: "gpt-4.1 ignores temperature when top_p is set at all, so remove temperature and raise frequency_penalty." },
+      { id: 'B', text: "Temperatures above 1 are clamped back to 1 by the service, so set temperature to exactly 1 and keep top_p." },
+      { id: 'C', text: "The deployment caches identical prompts, so add a random seed value to each request to bypass the cache." },
+      { id: 'D', text: "top_p 0.05 limits sampling to a tiny set of most likely tokens, so restore top_p toward 1 and tune temperature." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "top_p (nucleus sampling) restricts sampling to the smallest set of tokens whose cumulative probability reaches the threshold; at 0.05 that set is usually one or two tokens, so raising temperature has almost nothing to reshuffle. Restoring top_p toward 1 and adjusting temperature alone, as guidance suggests (change one, not both), brings back variety. Temperature is accepted up to 2 and is not clamped to 1. Prompt caching reuses computation for repeated prefixes but does not return identical outputs. The model applies both parameters; neither is ignored.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/prompt-engineering",
+    tags: ["Model parameters", "top_p", "Temperature"]
+  },
+  {
+    id: "azure-ai-apps-agents-244",
+    difficulty: "easy",
+    certId: "azure-ai-apps-agents",
+    domainId: "d2",
+    domainName: "Implement generative AI and agentic solutions",
+    title: "A list of don'ts that keeps being ignored",
+    scenario: "A banking chatbot's system message is a long list of prohibitions such as \"Don't ask for the full card number\" and \"Don't use jargon.\" The model still sometimes asks for card numbers and uses jargon. The team wants to rewrite the instructions to be more effective.",
+    question: "What should the rewritten instructions emphasize?",
+    options: [
+      { id: 'A', text: "Specific positive instructions on what to do, such as asking only for the last four card digits." },
+      { id: 'B', text: "A shorter message with the prohibitions removed so that the model relies on its default behavior." },
+      { id: 'C', text: "A higher temperature so the model is more likely to consider alternatives to asking for the number." },
+      { id: 'D', text: "The same prohibitions written in capital letters and repeated three times throughout the message." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Prompt engineering guidance favors being specific and telling the model what to do instead of only what not to do, for example ask only for the last four digits, explain terms in plain language, which gives it a concrete alternative behavior. Capitals and repetition are unreliable and make prompts harder to maintain. Removing the rules loses the requirements. Temperature adds randomness and makes rule-breaking more likely, not less.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/prompt-engineering",
+    tags: ["Prompt engineering", "System message"]
+  },
+  {
+    id: "azure-ai-apps-agents-245",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d2",
+    domainName: "Implement generative AI and agentic solutions",
+    title: "Keyword lists with chatty preambles",
+    scenario: "A search-tagging job asks a chat model for comma-separated keywords for each article. Many responses begin with sentences such as \"Sure! Here are some keywords for this article:\", which breaks the parser. The team cannot use structured outputs on this legacy completion path but can change the prompt.",
+    question: "Which prompt technique most directly addresses the preamble?",
+    options: [
+      { id: 'A', text: "Add the phrase please be concise at the start of the prompt so the model shortens its introduction a little." },
+      { id: 'B', text: "Ask the model to think step by step about which keywords apply before writing the comma-separated list." },
+      { id: 'C', text: "Prime the output by ending the prompt with a cue such as Keywords: so the model continues straight into the list." },
+      { id: 'D', text: "Raise presence_penalty so the model avoids the words it usually uses when introducing an answer like this." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "Priming the output, ending the prompt with the start of the desired response such as \"Keywords:\", cues the model to continue directly in that format, a documented prompt engineering technique that suppresses preambles. A vague request for concision reduces length but not reliably the preamble. presence_penalty changes token choice broadly and can degrade the keywords. Step-by-step reasoning adds more text before the list, not less.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/prompt-engineering",
+    tags: ["Prompt engineering", "Output priming"]
+  },
+  {
+    id: "azure-ai-apps-agents-246",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d2",
+    domainName: "Implement generative AI and agentic solutions",
+    title: "Answering from a long policy with mixed results",
+    scenario: "An HR assistant receives a 12-page leave policy and a question such as \"How much parental leave does a part-time employee in Ontario get?\" in one prompt. Answers are often vague or mix up rules for different provinces. The team wants a single-call prompt change, not a new pipeline.",
+    question: "Which change is most likely to improve accuracy?",
+    options: [
+      { id: 'A', text: "Ask the model to answer in one short sentence so there is less opportunity for it to mix up provincial rules." },
+      { id: 'B', text: "Place the question before the policy and remove the instructions so the model reads the policy with the goal." },
+      { id: 'C', text: "Raise frequency_penalty so the model avoids repeating province names that it has already written once before." },
+      { id: 'D', text: "Ask the model first to extract the passages relevant to the question, then answer using only those passages." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Breaking the task down within the prompt, first extracting the relevant facts or passages and then answering from them, is a documented technique that focuses the model on the right rules and reduces mix-ups. Forcing a one-sentence answer hides errors rather than preventing them. Removing instructions loses guidance, and question placement alone does not provide structure. frequency_penalty would discourage the repeated province names a correct answer may need.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/prompt-engineering",
+    tags: ["Prompt engineering", "Task decomposition"]
+  },
+  {
+    id: "azure-ai-apps-agents-247",
+    difficulty: "hard",
+    certId: "azure-ai-apps-agents",
+    domainId: "d2",
+    domainName: "Implement generative AI and agentic solutions",
+    title: "Empty answers from a high-effort reasoning call",
+    scenario: "A developer calls an o4-mini deployment with reasoning_effort set to high and max_completion_tokens set to 500 for complex scheduling puzzles. Many responses come back with empty content, a finish_reason of length, and a usage block showing about 500 reasoning tokens.",
+    question: "What should the developer do?",
+    options: [
+      { id: 'A', text: "Switch from max_completion_tokens back to max_tokens, which reserves separate room for the visible answer." },
+      { id: 'B', text: "Set temperature to 0 so the model stops exploring alternatives and spends fewer reasoning tokens overall." },
+      { id: 'C', text: "Add a system message that tells the model to keep its reasoning under 100 tokens for every single puzzle." },
+      { id: 'D', text: "Raise max_completion_tokens well above 500, since the cap covers reasoning tokens as well as the answer." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "For reasoning models, max_completion_tokens bounds reasoning tokens plus visible output; at high effort the model used the whole budget reasoning and had nothing left for the answer, hence empty content with finish_reason length. Raising the cap substantially (or lowering effort) fixes it. Temperature is not supported on reasoning models. max_tokens is not accepted by these models. Instructions cannot reliably limit hidden reasoning length; reasoning effort is the control for that.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/reasoning",
+    tags: ["Reasoning models", "max_completion_tokens", "Troubleshooting"]
+  },
+  {
+    id: "azure-ai-apps-agents-248",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d2",
+    domainName: "Implement generative AI and agentic solutions",
+    title: "A small model fumbling multistep sums",
+    scenario: "A retail app uses gpt-4.1-nano to answer questions such as \"If I buy three of these at 12.50 each with 15 percent off, and pay 8 percent tax, what is the total?\" The model often jumps straight to a wrong total. Latency and cost matter, so the team first wants to try a prompting change on the same model.",
+    question: "Which prompting change should the team try first?",
+    options: [
+      { id: 'A', text: "Ask the model to give only the final number with no working so fewer tokens can go wrong." },
+      { id: 'B', text: "Ask the model to answer in a single JSON field so the total is parsed without any rounding." },
+      { id: 'C', text: "Ask the model to double its confidence before answering and to use the most precise figures." },
+      { id: 'D', text: "Ask the model to work through the calculation step by step before stating the final total." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Chain-of-thought prompting, asking a non-reasoning model to reason through intermediate steps before the answer, typically improves multistep arithmetic because each step conditions the next. Suppressing the working makes errors more likely. Exhortations about confidence do not add reasoning steps. Putting the total in JSON changes the format, not the calculation. For guaranteed arithmetic, a code tool is stronger still, but that is not a prompting change.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/prompt-engineering",
+    tags: ["Chain of thought", "Prompt engineering", "Small models"]
+  },
+  {
+    id: "azure-ai-apps-agents-249",
+    difficulty: "medium",
+    certId: "azure-ai-apps-agents",
+    domainId: "d2",
+    domainName: "Implement generative AI and agentic solutions",
+    title: "Few-shot examples skewing sentiment labels",
+    scenario: "A sentiment classifier prompt includes eight examples, six labeled positive, and all of them grouped with the positive ones last. Evaluation shows the model over-predicts positive, especially for ambiguous reviews. The team wants to fix the prompt's examples before considering fine-tuning.",
+    question: "Which two changes should the team make to the examples? (Choose two.)",
+    options: [
+      { id: 'A', text: "Remove the labels from the examples so the model infers sentiment without being biased by them." },
+      { id: 'B', text: "Add more positive examples so the model sees the most common label as often as it occurs in data." },
+      { id: 'C', text: "Balance the examples across labels and include ambiguous or borderline cases for each one." },
+      { id: 'D', text: "Move all the examples into the user turn after the review so they are the last thing the model reads." },
+      { id: 'E', text: "Shuffle the order of the examples so that labels are interleaved instead of grouped at the end." }
+    ],
+    correctAnswers: ['C', 'E'],
+    type: "multiple",
+    explanation: "Few-shot examples strongly shape outputs: a label imbalance biases predictions toward the majority label, and recency effects mean examples placed last carry extra weight, so balancing labels with representative edge cases and interleaving their order both reduce the skew. Unlabeled examples no longer demonstrate the task. Adding more positives worsens the bias. Moving examples after the review amplifies recency effects and mixes examples with the input.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/prompt-engineering",
+    tags: ["Few-shot learning", "Prompt engineering", "Bias"]
+  },
+  {
+    id: "azure-ai-apps-agents-250",
+    difficulty: "easy",
+    certId: "azure-ai-apps-agents",
+    domainId: "d2",
+    domainName: "Implement generative AI and agentic solutions",
+    title: "A consistent voice across every reply",
+    scenario: "A UK insurer's chatbot must always write in formal British English, address customers by title and surname, and avoid emojis. The developer currently appends these rules to each user message, which is messy and occasionally forgotten in new code paths.",
+    question: "Where should the developer define these rules?",
+    options: [
+      { id: 'A', text: "In logit_bias, raising the tokens for British spellings so the model prefers them on every reply." },
+      { id: 'B', text: "In the final assistant message, so the model copies its tone when it writes the next reply turn." },
+      { id: 'C', text: "In the system message, which sets persistent behavior, tone and style for the whole conversation." },
+      { id: 'D', text: "In the stop parameter, listing emoji characters and informal words so generation ends if they appear." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "The system (or developer) message is the place for persistent instructions about persona, tone and style that should apply to every turn, so the rules are defined once and cannot be forgotten by individual code paths. Stop sequences end generation rather than shaping style. Biasing tokens for spellings is brittle and does not cover forms of address. Relying on a previous assistant turn is indirect and fails on the first turn.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/prompt-engineering",
+    tags: ["System message", "Tone", "Prompt engineering"]
+  }
+];
+
+export default AZURE_AI_APPS_AGENTS_QUESTIONS_10;
