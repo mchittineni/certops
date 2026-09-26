@@ -6,7 +6,7 @@ how much the project needs them:
 1. **Fix a wrong question.** A wrong answer or a misleading explanation actively
    teaches someone the wrong thing before an exam they paid for. This is the
    highest-value contribution and the fastest to review.
-2. **Author content.** The 30 live certifications feature complete 500-question banks (15,000 questions repo-wide). Authoring contributions focus on the 62 planned roadmap certifications and community review of live packs. See [Authoring content](#authoring-content).
+2. **Author content.** The 37 live certifications feature complete 500-question banks (18,500 questions repo-wide). Authoring contributions focus on the 55 planned roadmap certifications and community review of live packs. See [Authoring content](#authoring-content).
 3. **Improve the app.** Bugs, accessibility, and the [open issues](../../issues).
 
 By contributing you agree that your code is licensed under [MIT](LICENSE) and
