@@ -1,0 +1,532 @@
+export const AZURE_AZ305_QUESTIONS_9 = [
+  {
+    id: "azure-az305-201",
+    difficulty: "easy",
+    certId: "azure-az305",
+    domainId: "d2",
+    domainName: "Design data storage solutions",
+    title: "Payroll files reachable only from the corporate network",
+    scenario: "A payroll provider stores employee pay files in a storage account. Security requires that the account be unreachable from the internet, that on-premises payroll servers connected over ExpressRoute private peering can still read and write files, and that the traffic use private addressing end to end.",
+    question: "Which design meets the requirement?",
+    options: [
+      { id: 'A', text: "Keep the public endpoint and restrict the storage firewall to the public IP ranges of the provider's offices." },
+      { id: 'B', text: "Use Microsoft peering instead of private peering so storage traffic reaches the account's public endpoint." },
+      { id: 'C', text: "Enable a service endpoint for Microsoft.Storage on the gateway subnet and allow that subnet in the storage firewall." },
+      { id: 'D', text: "Create a private endpoint for the blob service with private DNS, then disable public network access on the account." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "A private endpoint gives the blob service a private IP address in the provider's virtual network, which on-premises servers reach over ExpressRoute private peering with private DNS resolving the account name to that address, and disabling public network access removes the internet-facing endpoint entirely. Service endpoints secure traffic from Azure subnets to the public endpoint and cannot be used by on-premises clients. An IP-restricted firewall still leaves the account on a public endpoint and uses public addressing. Microsoft peering routes traffic to Microsoft public endpoints, so the account keeps a public address.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/storage/common/storage-private-endpoints",
+    tags: ["Private endpoint", "Storage security", "ExpressRoute"]
+  },
+  {
+    id: "azure-az305-202",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d2",
+    domainName: "Design data storage solutions",
+    title: "Stopping anonymous blob access across 400 accounts",
+    scenario: "An audit found three containers across a media company's 400 storage accounts that allowed anonymous public read access, and one exposed unreleased footage. Security wants anonymous access impossible on every existing account, and wants any new account that permits it to be blocked at creation, across all subscriptions.",
+    question: "What should the architect recommend?",
+    options: [
+      { id: 'A', text: "Set each container's access level to private and ask owners to review their container settings every quarter." },
+      { id: 'B', text: "Create a private endpoint for every account so anonymous requests from the internet cannot reach any container." },
+      { id: 'C', text: "Enable Defender for Storage on all accounts so that anonymous reads raise an alert for the security team." },
+      { id: 'D', text: "Disallow blob anonymous access on each account and assign an Azure Policy that denies accounts which allow it." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Setting AllowBlobPublicAccess to false on a storage account overrides every container's access level, so no container in the account can be read anonymously, and an Azure Policy assignment with the deny effect at management group scope blocks any new or updated account that permits anonymous access. Making containers private fixes today's three but lets an owner switch one back at any time. Defender for Storage can alert on suspicious access but does not prevent it. Private endpoints add a private path, but unless public network access is also disabled the public endpoint still serves anonymous requests, and hundreds of endpoints is heavy for this goal.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/storage/blobs/anonymous-read-access-prevent",
+    tags: ["Blob storage", "Anonymous access", "Azure Policy"]
+  },
+  {
+    id: "azure-az305-203",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d2",
+    domainName: "Design data storage solutions",
+    title: "Broker-dealer records under SEC Rule 17a-4",
+    scenario: "A broker-dealer must keep trade confirmations for six years in a non-rewriteable, non-erasable form that satisfies SEC Rule 17a-4(f). Nobody, including subscription owners and Microsoft support, may shorten the retention period or delete a record before it expires. New confirmations are added to one container every day.",
+    question: "What should the architect configure on the container?",
+    options: [
+      { id: 'A', text: "A legal hold with a tag for each year, removed by the compliance team once six years have passed for that year." },
+      { id: 'B', text: "A time-based retention policy of six years, locked after testing so that it can be extended but never shortened." },
+      { id: 'C', text: "Blob soft delete with a retention period of six years and a CanNotDelete lock on the storage account resource." },
+      { id: 'D', text: "A time-based retention policy of six years left unlocked so compliance can adjust it if the rule changes." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "A locked time-based retention policy puts blobs in a WORM state for the retention interval: they can be created and read but not modified or deleted, and the policy can be extended but not shortened or removed, which is the configuration assessed as compliant with SEC 17a-4(f). An unlocked policy is meant for testing and can be shortened or deleted, so it does not meet the requirement. A legal hold protects data until someone clears it, which lets the hold be removed early. Soft delete lets deleted data be recovered but does not prevent overwrites, and a resource lock does not protect the data itself.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/storage/blobs/immutable-time-based-retention-policy-overview",
+    tags: ["Immutable storage", "WORM", "Compliance"]
+  },
+  {
+    id: "azure-az305-204",
+    difficulty: "easy",
+    certId: "azure-az305",
+    domainId: "d2",
+    domainName: "Design data storage solutions",
+    title: "Preserving evidence for an open-ended lawsuit",
+    scenario: "A logistics firm has been served notice of litigation, and its lawyers need every blob in the shipping-records container preserved exactly as it is until the case is resolved. Nobody knows how long the case will run, and the firm must be able to release the data as soon as the court closes the matter.",
+    question: "What should be applied to the container?",
+    options: [
+      { id: 'A', text: "A CanNotDelete resource lock on the storage account, which blocks deletes until the lock is removed later." },
+      { id: 'B', text: "Blob versioning with soft delete, which keeps every earlier version and deleted blob until the case closes." },
+      { id: 'C', text: "A legal hold with a case tag, which keeps blobs immutable until the tag is cleared when the case is closed." },
+      { id: 'D', text: "A locked time-based retention policy of ten years, which covers the longest period a case like this could run." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "A legal hold makes the container's blobs immutable with no expiry: they cannot be modified or deleted until every hold tag is cleared, which fits a case of unknown length that should release data as soon as it ends. A locked ten-year policy cannot be shortened, so data would stay locked long after the case closes. A resource lock protects the storage account resource from deletion but does not stop blobs from being overwritten or deleted through the data plane. Versioning and soft delete keep recoverable copies, but they are subject to their own retention periods and do not make the current data immutable.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/storage/blobs/immutable-legal-hold-overview",
+    tags: ["Immutable storage", "Legal hold"]
+  },
+  {
+    id: "azure-az305-205",
+    difficulty: "hard",
+    certId: "azure-az305",
+    domainId: "d2",
+    domainName: "Design data storage solutions",
+    title: "Different retention periods inside one container",
+    scenario: "A pharmaceutical company writes clinical trial documents from dozens of studies into one container. Each study has its own regulatory retention period, from five to twenty-five years, set when the study closes, and the applications cannot be changed to write each study to a separate container. Each document must be WORM-protected for exactly its own study's period.",
+    question: "Which design meets the requirement?",
+    options: [
+      { id: 'A', text: "A container-level time-based retention policy of twenty-five years, covering the longest period for every study." },
+      { id: 'B', text: "A container-level legal hold with one tag per study, cleared for each study when its retention period ends." },
+      { id: 'C', text: "A lifecycle rule filtered on a study index tag that deletes each document when its retention period ends." },
+      { id: 'D', text: "Version-level immutability on the container, with a time-based retention policy set on each blob version." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Version-level immutability, which requires blob versioning, lets a time-based retention policy be set on each individual blob version, so every document can be locked for its own study's period even though all studies share one container. A single container policy of twenty-five years over-retains most documents, keeping them for far longer than required. Container legal hold tags apply to the whole container, so a hold for one study protects every blob in it and clearing one tag does not release anything while others remain. A lifecycle rule deletes data on schedule but does not make it immutable before then.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/storage/blobs/immutable-version-level-worm-policies",
+    tags: ["Immutable storage", "Version-level WORM", "Compliance"]
+  },
+  {
+    id: "azure-az305-206",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d2",
+    domainName: "Design data storage solutions",
+    title: "Revocable keys for a research data account",
+    scenario: "A university research group stores genomic data in a storage account and signs agreements that require the university to control the encryption keys, rotate them yearly, and be able to make the data unreadable immediately if an agreement is terminated. The team wants rotation to take effect without re-uploading data or updating application settings.",
+    question: "What should the architect recommend?",
+    options: [
+      { id: 'A', text: "Use customer-provided keys sent on each request, so the storage service never stores any key the university owns." },
+      { id: 'B', text: "Encrypt each file on the client with a key held in Key Vault before upload, rotating it yearly by re-encrypting files." },
+      { id: 'C', text: "Use customer-managed keys in Key Vault with a versionless key URI, and disable or revoke the key to cut off access." },
+      { id: 'D', text: "Keep Microsoft-managed keys and enable infrastructure encryption so the data is encrypted twice with separate keys." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "Customer-managed keys in Key Vault or Managed HSM wrap the account encryption key, so the university controls the key; with a versionless key URI, Azure Storage picks up a new key version automatically after rotation without rewriting data, and disabling or revoking access to the key makes the data unreadable. Infrastructure encryption adds a second layer but both keys stay Microsoft-managed. Client-side encryption gives control but rotation means re-encrypting and re-uploading every file. Customer-provided keys must be supplied on every read and write request, which changes every application and complicates rotation.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/storage/common/customer-managed-keys-overview",
+    tags: ["Storage encryption", "Customer-managed keys", "Key Vault"]
+  },
+  {
+    id: "azure-az305-207",
+    difficulty: "hard",
+    certId: "azure-az305",
+    domainId: "d2",
+    domainName: "Design data storage solutions",
+    title: "Separate keys for each tenant in a shared account",
+    scenario: "A SaaS provider stores documents for 200 customers in one storage account, one container per customer. Enterprise customers now require that their data be encrypted with a key they control and can revoke without affecting other customers, while smaller customers stay on Microsoft-managed keys. The provider does not want an account per customer.",
+    question: "What should the architect use?",
+    options: [
+      { id: 'A', text: "Encryption scopes, each with its own customer-managed or Microsoft-managed key, assigned as each container's default." },
+      { id: 'B', text: "Customer-provided keys, with each enterprise tenant's key sent on the requests that read or write its container." },
+      { id: 'C', text: "Infrastructure encryption on the account, with the second encryption layer keyed separately for every enterprise tenant." },
+      { id: 'D', text: "One account-level customer-managed key replacing the Microsoft-managed key, with a key version per enterprise tenant." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Encryption scopes let different containers or blobs in one account use different keys: each enterprise customer's scope can use a customer-managed key in a vault the customer controls, and revoking it affects only that scope, while other containers default to Microsoft-managed keys. An account-level customer-managed key protects the whole account with one key; key versions are rotations of that key, not per-tenant keys. Infrastructure encryption uses Microsoft-managed keys for its second layer. Customer-provided keys would make the provider hold and send each customer's key on every request, so the customer could not revoke access independently.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/storage/blobs/encryption-scope-overview",
+    tags: ["Encryption scopes", "Multi-tenancy", "Customer-managed keys"]
+  },
+  {
+    id: "azure-az305-208",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d2",
+    domainName: "Design data storage solutions",
+    title: "Upload links that can be cut off quickly",
+    scenario: "A property management firm gives contractors time-limited links to upload inspection photos to Blob storage. After a leaked link was abused last month, security wants every link tied to an identity that can be audited, the ability to invalidate outstanding links quickly, and the account keys removed from use entirely.",
+    question: "Which two actions should the architect take? (Choose two.)",
+    options: [
+      { id: 'A', text: "Issue service SAS tokens linked to a stored access policy so the policy can be deleted to revoke the links." },
+      { id: 'B', text: "Rotate the storage account keys every week so that any leaked SAS link stops working within seven days." },
+      { id: 'C', text: "Issue user delegation SAS tokens signed with a Microsoft Entra credential instead of the storage account key." },
+      { id: 'D', text: "Issue account SAS tokens scoped to the blob service only, with an expiry time of twenty-four hours on each." },
+      { id: 'E', text: "Set the storage account to disallow Shared Key authorization so account keys and key-signed SAS stop working." }
+    ],
+    correctAnswers: ['C', 'E'],
+    type: "multiple",
+    explanation: "A user delegation SAS is signed with a key obtained by a Microsoft Entra identity, so every link traces to that identity in logs, and outstanding links can be invalidated by revoking the user delegation keys or removing the identity's role. Disallowing Shared Key authorization then stops the account keys, and every SAS signed with them, from working at all. Service SAS with a stored access policy offers revocation but is signed with the account key, which security wants out of use. Weekly key rotation leaves leaked links usable for days and keeps keys in use. An account SAS is also key-signed and is not tied to any identity.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/storage/common/shared-key-authorization-prevent",
+    tags: ["Shared access signatures", "Microsoft Entra ID", "Storage security"]
+  },
+  {
+    id: "azure-az305-209",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d2",
+    domainName: "Design data storage solutions",
+    title: "Letting one analytics workspace through the storage firewall",
+    scenario: "A bank's data lake account allows traffic only from selected virtual networks. A newly created Azure Synapse workspace in the same tenant must read the lake using its managed identity, but security refuses any exception that would also admit other Synapse workspaces or other Azure services in the tenant.",
+    question: "How should the storage firewall be configured?",
+    options: [
+      { id: 'A', text: "Add the Synapse service tag for the region to the storage firewall so traffic from the workspace is permitted." },
+      { id: 'B', text: "Add a resource instance rule for the specific Synapse workspace and grant its managed identity a data role." },
+      { id: 'C', text: "Set the account's public network access to enabled from all networks and rely on RBAC to limit access." },
+      { id: 'D', text: "Enable the trusted Microsoft services exception so the workspace's managed identity passes the firewall." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "A resource instance rule lets a specific resource instance, identified by its resource ID, through the storage firewall, and what it can do is limited by the RBAC roles granted to its managed identity, so only this workspace is admitted. The trusted services exception admits every instance of the listed services registered in the subscription, which security rejected. Storage firewall rules accept IP ranges and virtual network subnets, not service tags, and a regional tag would cover every workspace anyway. Opening public access to all networks removes the network control altogether.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/storage/common/storage-network-security-resource-instances",
+    tags: ["Storage firewall", "Resource instance rules", "Synapse Analytics"]
+  },
+  {
+    id: "azure-az305-210",
+    difficulty: "easy",
+    certId: "azure-az305",
+    domainId: "d2",
+    domainName: "Design data storage solutions",
+    title: "Nightly loads from a SQL Server behind a firewall",
+    scenario: "A distributor wants Azure Data Factory to copy tables every night from a SQL Server 2019 instance in its own data centre into Data Lake Storage. The data centre allows no inbound connections from the internet, but servers can make outbound HTTPS connections.",
+    question: "What should the data integration design include?",
+    options: [
+      { id: 'A', text: "A self-hosted integration runtime installed on a server in the data centre that can reach the SQL Server." },
+      { id: 'B', text: "An Azure-SSIS integration runtime joined to a VNet, running a package that reads the on-premises tables." },
+      { id: 'C', text: "The Azure integration runtime in a managed virtual network, connecting to the on-premises SQL Server directly." },
+      { id: 'D', text: "A public IP on the data centre's SQL Server so the Azure integration runtime can connect to it over TLS." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "A self-hosted integration runtime runs on a machine inside the private network, makes only outbound HTTPS connections to Data Factory, and moves data between on-premises sources such as SQL Server and cloud stores, which fits a data centre that blocks inbound traffic. The Azure integration runtime, even in a managed virtual network, runs in Azure and cannot reach a server that accepts no inbound connections. An Azure-SSIS runtime is for running existing SSIS packages and still needs network connectivity to the source. Publishing SQL Server on a public IP breaks the data centre's inbound rule.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/data-factory/create-self-hosted-integration-runtime",
+    tags: ["Azure Data Factory", "Self-hosted integration runtime", "Hybrid"]
+  },
+  {
+    id: "azure-az305-211",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d2",
+    domainName: "Design data storage solutions",
+    title: "Visual transformations without writing Spark code",
+    scenario: "A retailer's data team needs to join sales files with product data, derive columns, aggregate by week and write the result to a curated zone every night. The team knows SQL but not Spark or Python and wants a visual, code-free design that still scales on a managed cluster. The pipeline already runs in Azure Data Factory.",
+    question: "Which Data Factory capability should the team use for the transformation?",
+    options: [
+      { id: 'A', text: "A Databricks notebook activity, which runs Spark code the team writes on a managed Databricks cluster." },
+      { id: 'B', text: "A mapping data flow, which is designed visually and runs as scaled-out Spark on managed compute." },
+      { id: 'C', text: "A stored procedure activity, which runs the joins and weekly aggregation inside an Azure SQL database." },
+      { id: 'D', text: "A copy activity with column mapping, which transforms and aggregates data while moving it between stores." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "Mapping data flows let a team design joins, derived columns and aggregations visually, and Data Factory executes them as Spark jobs on managed clusters, so the transformation scales without anyone writing Spark code. The copy activity moves data and maps columns but does not join or aggregate. A Databricks notebook needs Spark code in Python, Scala or SQL notebooks and a Databricks workspace, which the team wants to avoid. A stored procedure would require loading the files into a database first and pushes processing into a database that may not scale for the job.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/data-factory/concepts-data-flow-overview",
+    tags: ["Azure Data Factory", "Mapping data flows"]
+  },
+  {
+    id: "azure-az305-212",
+    difficulty: "hard",
+    certId: "azure-az305",
+    domainId: "d2",
+    domainName: "Design data storage solutions",
+    title: "Data Factory reaching stores with public access disabled",
+    scenario: "A bank has disabled public network access on its Data Lake Storage account and its Azure SQL Database, which accept connections only through private endpoints. Azure Data Factory must copy data between them. The platform team does not want to run and patch any integration runtime VMs.",
+    question: "Which two actions should the architect take? (Choose two.)",
+    options: [
+      { id: 'A', text: "Create managed private endpoints from Data Factory to the storage account and the SQL server." },
+      { id: 'B', text: "Allow trusted Microsoft services on each store so the Azure integration runtime can bypass the firewall." },
+      { id: 'C', text: "Install a self-hosted integration runtime on two VMs in a network peered with the private endpoints." },
+      { id: 'D', text: "Create the Azure integration runtime inside a Data Factory managed virtual network." },
+      { id: 'E', text: "Add the Azure integration runtime's regional service tag to the firewall rules of both data stores." }
+    ],
+    correctAnswers: ['A', 'D'],
+    type: "multiple",
+    explanation: "An Azure integration runtime in a Data Factory managed virtual network runs on Microsoft-managed compute isolated in that network, and managed private endpoints, approved by the owners of each store, give it private connectivity to the storage account and SQL server, so no VMs are needed and public access stays disabled. A self-hosted runtime works over private endpoints but means running and patching VMs. The trusted services exception and service tag rules both rely on the public endpoint, which has public network access disabled; SQL Database with public access disabled does not accept those connections at all.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/data-factory/managed-virtual-network-private-endpoint",
+    tags: ["Azure Data Factory", "Managed virtual network", "Private endpoints"]
+  },
+  {
+    id: "azure-az305-213",
+    difficulty: "easy",
+    certId: "azure-az305",
+    domainId: "d2",
+    domainName: "Design data storage solutions",
+    title: "Starting a pipeline when a partner file lands",
+    scenario: "A healthcare clearing house receives claim batch files from partners at unpredictable times throughout the day into a Blob container. Each file must be processed by an Azure Data Factory pipeline within a few minutes of arrival, and running the pipeline on a fixed schedule wastes runs when no file has arrived.",
+    question: "How should the pipeline be started?",
+    options: [
+      { id: 'A', text: "A Logic Apps workflow that polls the container each minute and calls the Data Factory pipeline REST API." },
+      { id: 'B', text: "A tumbling window trigger with five-minute windows that processes any files that arrived in each window." },
+      { id: 'C', text: "A storage event trigger that fires when a blob is created in the container and passes the file path." },
+      { id: 'D', text: "A schedule trigger that runs every five minutes and checks the container for any file that has arrived." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "A storage event trigger subscribes, through Event Grid, to blob-created events on the container and starts the pipeline for each new file, passing the folder and file name as parameters, so processing begins moments after arrival and no runs are wasted. Schedule and tumbling window triggers run on a clock whether or not a file arrived, which is the waste the scenario wants to remove. A polling Logic App reproduces the same waste in another service and adds another component to operate.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/data-factory/how-to-create-event-trigger",
+    tags: ["Azure Data Factory", "Storage event trigger", "Event Grid"]
+  },
+  {
+    id: "azure-az305-214",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d2",
+    domainName: "Design data storage solutions",
+    title: "Loading only changed rows from a large orders table",
+    scenario: "An e-commerce company copies a 900-million-row orders table from Azure SQL Database into its data lake every hour. Full copies now take longer than an hour. The table has a LastModified column that is updated on every insert and update, and deleted orders are soft-deleted with a flag.",
+    question: "Which approach should the architect recommend for the hourly load?",
+    options: [
+      { id: 'A', text: "Replace the hourly copy with a tumbling window trigger that copies the full table in hourly slices instead." },
+      { id: 'B', text: "Enable temporal tables so each LastModified change is kept, and copy the full history table every hour." },
+      { id: 'C', text: "Keep full copies but raise the data integration units so that each run takes less than an hour to complete." },
+      { id: 'D', text: "Copy only rows whose LastModified value is later than a stored high watermark, then advance the watermark." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "A watermark-based incremental load looks up the last high watermark, copies only rows with a LastModified value later than it, and stores the new watermark, so each run moves only the hour's changes; soft deletes arrive as updated rows. More data integration units speed up a copy but a full copy of 900 million rows keeps growing with the table. A tumbling window trigger still copies the whole table in each window. Temporal tables record history, but copying the whole history table every hour moves even more data than the full table.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/data-factory/tutorial-incremental-copy-overview",
+    tags: ["Azure Data Factory", "Incremental load", "Watermark"]
+  },
+  {
+    id: "azure-az305-215",
+    difficulty: "easy",
+    certId: "azure-az305",
+    domainId: "d2",
+    domainName: "Design data storage solutions",
+    title: "Moving 300 existing SSIS packages to the cloud",
+    scenario: "A manufacturer runs 300 SQL Server Integration Services packages on an on-premises server and is moving its data warehouse to Azure. The team wants to run the existing packages in a managed Azure service with minimal changes, keeping SSIS tooling for maintenance.",
+    question: "What should the architect recommend?",
+    options: [
+      { id: 'A', text: "Deploy the packages to an Azure-SSIS integration runtime in Data Factory and run them from pipelines." },
+      { id: 'B', text: "Install SQL Server with SSIS on an Azure VM and schedule the packages with SQL Server Agent on the VM." },
+      { id: 'C', text: "Run the packages as notebook jobs in Azure Databricks after converting the SSIS logic to PySpark." },
+      { id: 'D', text: "Rebuild each package as a Data Factory pipeline on the Azure integration runtime with mapping data flows." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "The Azure-SSIS integration runtime is a managed cluster in Data Factory that runs existing SSIS packages deployed to an SSIS catalog or file store, so the packages move with minimal changes and continue to be edited in SSIS tooling. Rebuilding 300 packages as pipelines or converting them to PySpark is a rewrite, not minimal change. An SSIS server on a VM runs the packages but leaves an operating system and SQL Server instance to manage rather than a managed service.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/data-factory/concepts-integration-runtime",
+    tags: ["Azure Data Factory", "SSIS", "Migration"]
+  },
+  {
+    id: "azure-az305-216",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d2",
+    domainName: "Design data storage solutions",
+    title: "Fraud signals from card swipes in seconds",
+    scenario: "A card issuer streams transaction events into Azure Event Hubs at 50,000 events per second. It needs to flag any card used in two countries within ten minutes and push alerts to a queue within seconds, using a SQL-like language its analysts already know, with no clusters to manage.",
+    question: "Which service should process the stream?",
+    options: [
+      { id: 'A', text: "Azure Functions reading the event stream, keeping each card's countries in memory and posting to a queue." },
+      { id: 'B', text: "Azure Data Factory with a tumbling window trigger every minute, running a data flow over the captured events." },
+      { id: 'C', text: "Azure Synapse serverless SQL pool querying the events captured to the data lake every ten minutes." },
+      { id: 'D', text: "Azure Stream Analytics with a windowed query over the event hub that outputs matches to a Service Bus queue." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Azure Stream Analytics is a fully managed real-time engine whose SQL-like query language supports sliding and hopping windows over Event Hubs input, so a query can detect a card seen in two countries within ten minutes and write matches to a Service Bus queue with latency of seconds. Data Factory and serverless SQL pools are batch tools, so alerts would lag by minutes at best. Functions can consume the stream, but keeping per-card state in instance memory breaks when events for one card land on different instances or an instance restarts.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/stream-analytics/stream-analytics-introduction",
+    tags: ["Azure Stream Analytics", "Event Hubs", "Real-time analytics"]
+  },
+  {
+    id: "azure-az305-217",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d2",
+    domainName: "Design data storage solutions",
+    title: "Landing every telemetry event in the data lake",
+    scenario: "A vehicle maker streams telemetry through Azure Event Hubs Standard for a live dashboard. Data scientists also want every event stored in Data Lake Storage in time-partitioned files for training models, and the team wants this without writing or running a consumer application.",
+    question: "What should the architect enable?",
+    options: [
+      { id: 'A', text: "The event hub's retention extended to the maximum period so data scientists read events directly later." },
+      { id: 'B', text: "A diagnostic setting on the Event Hubs namespace that archives event data to the data lake storage account." },
+      { id: 'C', text: "Event Hubs Capture on the event hub, writing batches of events to the data lake by time and size window." },
+      { id: 'D', text: "An Azure Functions consumer group that reads the hub, writing each event as a file in the data lake." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "Event Hubs Capture automatically writes streaming data to Blob storage or Data Lake Storage in files organised by namespace, hub, partition and time, triggered by a configurable time or size window, with no consumer code to write or run; it is available in the Standard tier and above. Longer retention keeps events in the hub for a limited period and still requires a reader to extract them. Diagnostic settings export the namespace's logs and metrics, not the event payloads. A Functions consumer is exactly the code the team wants to avoid, and one file per event creates millions of tiny files.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/event-hubs/event-hubs-capture-overview",
+    tags: ["Event Hubs", "Capture", "Data Lake Storage"]
+  },
+  {
+    id: "azure-az305-218",
+    difficulty: "hard",
+    certId: "azure-az305",
+    domainId: "d2",
+    domainName: "Design data storage solutions",
+    title: "Analytics on Cosmos DB without touching its RUs",
+    scenario: "A delivery platform keeps orders in a new Azure Cosmos DB for NoSQL account created this quarter. Analysts want near-real-time Power BI reports and SQL queries across all orders, but the operational containers are sized for the app and any analytical query that consumes request units risks throttling customers. The team wants no ETL pipelines to build or maintain.",
+    question: "What should the architect recommend?",
+    options: [
+      { id: 'A', text: "Point Power BI DirectQuery at the Cosmos DB account and raise the autoscale maximum for reporting hours." },
+      { id: 'B', text: "Build a change feed processor that writes every order into Azure SQL Database for analysts to query there." },
+      { id: 'C', text: "Mirror the Cosmos DB account into Microsoft Fabric and let analysts query the mirrored data from OneLake." },
+      { id: 'D', text: "Enable Azure Synapse Link with the analytical store on the account and query it from a Synapse serverless pool." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "Mirroring Azure Cosmos DB into Microsoft Fabric continuously replicates the data into OneLake in Delta format without consuming the containers' provisioned request units and without any ETL to maintain, and analysts query it with SQL and Power BI in near real time. Synapse Link offered similar zero-ETL analytics, but it is no longer supported for new projects and cannot be enabled on newly created accounts; Microsoft directs new designs to Fabric mirroring. DirectQuery runs analytical queries against the operational containers and consumes their request units. A change feed processor into SQL Database is an ETL pipeline to build and run.",
+    referenceUrl: "https://learn.microsoft.com/en-us/fabric/mirroring/azure-cosmos-db",
+    tags: ["Cosmos DB", "Microsoft Fabric", "Mirroring"]
+  },
+  {
+    id: "azure-az305-219",
+    difficulty: "easy",
+    certId: "azure-az305",
+    domainId: "d2",
+    domainName: "Design data storage solutions",
+    title: "Occasional SQL queries over Parquet in the lake",
+    scenario: "A logistics company's analysts want to run occasional exploratory T-SQL queries over Parquet files in Data Lake Storage, a few times a week, without loading the data anywhere. Finance wants no charges when nobody is querying and no infrastructure to size.",
+    question: "Which service should the analysts use?",
+    options: [
+      { id: 'A', text: "An Azure SQL Database serverless instance with the files imported into tables through a nightly pipeline." },
+      { id: 'B', text: "An Azure Databricks all-purpose cluster kept running for querying the Parquet files with Spark SQL." },
+      { id: 'C', text: "An Azure Synapse serverless SQL pool querying the files in place with OPENROWSET, billed per TB processed." },
+      { id: 'D', text: "An Azure Synapse dedicated SQL pool sized at DW100c, loading the Parquet files with the COPY statement." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "A Synapse serverless SQL pool queries Parquet, CSV and Delta files directly in the lake with T-SQL, has no infrastructure to provision, and charges only for data processed by each query, so an idle week costs nothing. A dedicated SQL pool is provisioned compute billed per hour while running and requires loading the data. SQL Database serverless still requires importing the files. A running Databricks cluster bills for its VMs whether or not anyone is querying.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/synapse-analytics/sql/on-demand-workspace-overview",
+    tags: ["Synapse Analytics", "Serverless SQL pool", "Data Lake Storage"]
+  },
+  {
+    id: "azure-az305-220",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d2",
+    domainName: "Design data storage solutions",
+    title: "Interactive analysis of billions of device logs",
+    scenario: "An IoT platform ingests 5 TB of semi-structured device logs and time-series metrics per day. Support engineers need ad hoc queries across the last 90 days that return in seconds, with time-series functions such as anomaly detection and trend analysis, and data should be queryable within seconds of arrival.",
+    question: "Which analytics service should the architect recommend?",
+    options: [
+      { id: 'A', text: "Azure Synapse dedicated SQL pool, loading the logs hourly into hash-distributed columnstore tables." },
+      { id: 'B', text: "Azure Data Explorer, ingesting from Event Hubs and querying the logs with KQL time-series functions." },
+      { id: 'C', text: "Azure Cosmos DB for NoSQL, storing each log as an item partitioned by device ID and queried with SQL." },
+      { id: 'D', text: "Azure SQL Database Hyperscale, storing logs as JSON and using its time-series functions on them." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "Azure Data Explorer is built for high-volume log and telemetry analytics: it ingests streaming data from Event Hubs with seconds of latency, indexes semi-structured data automatically, and KQL provides native time-series functions such as series decomposition and anomaly detection over billions of rows in seconds. A dedicated SQL pool suits structured warehousing with batch loads, so hourly loads miss the freshness requirement. Hyperscale is an OLTP database with no native time-series analysis functions, and it would struggle with ad hoc scans of 450 TB of logs. Cosmos DB is an operational store; scanning 90 days of logs would consume vast request units and lacks time-series analytics.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/data-explorer/data-explorer-overview",
+    tags: ["Azure Data Explorer", "Time series", "KQL"]
+  },
+  {
+    id: "azure-az305-221",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d2",
+    domainName: "Design data storage solutions",
+    title: "Lakehouse for data engineers and ML teams",
+    scenario: "A bank's data engineers write Python and Scala Spark jobs, and its data scientists train machine learning models on the same curated data. They need ACID transactions and time travel on lake tables, collaborative notebooks, MLflow experiment tracking, and job clusters that terminate when work finishes.",
+    question: "Which platform should the architect recommend?",
+    options: [
+      { id: 'A', text: "Azure HDInsight Spark clusters running continuously with Hive tables stored in Data Lake Storage." },
+      { id: 'B', text: "Azure Synapse serverless SQL pools over Parquet files, with notebooks run from Azure Data Studio." },
+      { id: 'C', text: "Azure Data Explorer clusters with KQL, ingesting the curated data from Data Lake Storage every hour." },
+      { id: 'D', text: "Azure Databricks with Delta Lake tables in Data Lake Storage and job clusters for scheduled workloads." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Azure Databricks provides collaborative Spark notebooks for Python and Scala, Delta Lake tables with ACID transactions and time travel on Data Lake Storage, managed MLflow for experiment tracking, and job clusters that start for a job and terminate when it ends. Serverless SQL pools run T-SQL, not Spark jobs or model training. Data Explorer is a log and telemetry analytics engine queried with KQL. HDInsight runs Spark but continuously running clusters bill all the time, and Hive tables do not provide Delta Lake's transactions and time travel out of the box.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/databricks/introduction/",
+    tags: ["Azure Databricks", "Delta Lake", "Machine learning"]
+  },
+  {
+    id: "azure-az305-222",
+    difficulty: "hard",
+    certId: "azure-az305",
+    domainId: "d2",
+    domainName: "Design data storage solutions",
+    title: "Slow joins in a dedicated SQL pool warehouse",
+    scenario: "A retailer's Synapse dedicated SQL pool holds a 4-billion-row sales fact table and a 20,000-row store dimension, both currently round-robin distributed. Queries joining sales to stores on StoreKey and aggregating by CustomerKey spend most of their time in data movement between distributions. CustomerKey has millions of evenly spread values.",
+    question: "Which two changes should the architect recommend? (Choose two.)",
+    options: [
+      { id: 'A', text: "Hash-distribute the sales fact table on the sale date instead of CustomerKey so each day stays on one node." },
+      { id: 'B', text: "Keep both tables round-robin, which holds rows spread evenly, and add a columnstore index to the dimension." },
+      { id: 'C', text: "Hash-distribute the sales fact table on CustomerKey so rows spread evenly and customer aggregations stay local." },
+      { id: 'D', text: "Hash-distribute the store dimension on StoreKey so it lines up with how the fact table is distributed." },
+      { id: 'E', text: "Change the store dimension to a replicated table so every compute node holds a full copy for local joins." }
+    ],
+    correctAnswers: ['C', 'E'],
+    type: "multiple",
+    explanation: "Hash-distributing a large fact table on a high-cardinality, evenly spread column used in aggregations keeps those aggregations within each distribution and avoids skew, and replicating a small dimension caches a full copy on each compute node so joins to it need no data movement. Distributing on a date concentrates each day's queries on one distribution and creates hot spots. Hash-distributing the dimension on StoreKey does not line up with a fact table distributed on CustomerKey, so joins would still shuffle. Round-robin tables force movement for joins, and a columnstore index on a 20,000-row table does not remove it.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-distribute",
+    tags: ["Synapse Analytics", "Dedicated SQL pool", "Distribution"]
+  },
+  {
+    id: "azure-az305-223",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d2",
+    domainName: "Design data storage solutions",
+    title: "Warehouse compute idle outside business hours",
+    scenario: "A regional bank's Synapse dedicated SQL pool at DW1000c serves reports between 07:00 and 19:00 on weekdays and is idle at night and at weekends. Nightly loads finish by 06:30. Finance wants to stop paying for idle warehouse compute while keeping all data and without migrating to another service.",
+    question: "What should the architect recommend?",
+    options: [
+      { id: 'A', text: "Delete the pool each evening and restore it from the latest restore point before the nightly load." },
+      { id: 'B', text: "Export the data to Parquet each evening and query it through a serverless SQL pool outside hours." },
+      { id: 'C', text: "Scale the pool down to DW100c at night and at weekends so compute charges fall to the smallest size." },
+      { id: 'D', text: "Pause the pool outside business hours on a schedule and resume it before the nightly load starts." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Pausing a dedicated SQL pool stops compute billing entirely while storage, and therefore all data, is kept and billed separately; resuming it on a schedule before the load brings it back for the working day. Scaling down to DW100c still bills compute every hour. Exporting to Parquet each evening adds a pipeline and duplicates data just to answer queries nobody runs at night. Deleting and restoring every day is slow, risks losing changes since the last restore point, and is far more disruptive than a pause.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-manage-compute-overview",
+    tags: ["Synapse Analytics", "Dedicated SQL pool", "Cost optimization"]
+  },
+  {
+    id: "azure-az305-224",
+    difficulty: "hard",
+    certId: "azure-az305",
+    domainId: "d2",
+    domainName: "Design data storage solutions",
+    title: "Adding double encryption to an existing account",
+    scenario: "A defence contractor's security policy now requires two layers of encryption at rest, with different algorithms and keys, for all data in a storage account that was created two years ago with Microsoft-managed keys. The account holds 80 TB and serves several applications through its blob endpoint.",
+    question: "What must the architect plan?",
+    options: [
+      { id: 'A', text: "Enable infrastructure encryption on the existing account, which re-encrypts the stored blobs in the background." },
+      { id: 'B', text: "Create a new account with infrastructure encryption enabled and migrate the 80 TB of data into it from the old one." },
+      { id: 'C', text: "Create an encryption scope on the existing account with infrastructure encryption and set it as the account default." },
+      { id: 'D', text: "Switch the existing account to customer-managed keys, which adds a second layer over Microsoft's service encryption." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "Infrastructure encryption adds a second layer of encryption at the infrastructure level with a different algorithm and key, but it can only be enabled when a storage account is created, so an existing account's data must be migrated into a new account created with it enabled. It cannot be switched on for an existing account afterwards. Customer-managed keys change who controls the key for the single service-level layer; they do not add a second layer. Encryption scopes can have infrastructure encryption, but only at scope creation, and scopes can be set as defaults on containers, not as an account-wide default, so existing blobs would not be re-encrypted.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/storage/common/infrastructure-encryption-enable",
+    tags: ["Storage encryption", "Infrastructure encryption"]
+  },
+  {
+    id: "azure-az305-225",
+    difficulty: "easy",
+    certId: "azure-az305",
+    domainId: "d2",
+    domainName: "Design data storage solutions",
+    title: "Daily copy of partner files from Amazon S3",
+    scenario: "A marketing firm's data partner drops campaign result files into an Amazon S3 bucket every night. The firm wants the new files copied into its Data Lake Storage account each morning, managed and monitored in Azure, with no code to maintain and no servers to run.",
+    question: "What should the architect recommend?",
+    options: [
+      { id: 'A', text: "AzCopy on an Azure VM, scheduled with cron to copy new objects from the S3 bucket into the lake each morning." },
+      { id: 'B', text: "An Azure Data Factory pipeline with a copy activity from an Amazon S3 source, run by a daily schedule trigger." },
+      { id: 'C', text: "An Azure Function on a timer trigger that uses the Amazon SDK to list the bucket and upload new files to the lake." },
+      { id: 'D', text: "An Azure Data Box order each month so the partner's files are shipped on a device and loaded into the lake." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "Data Factory has a built-in Amazon S3 connector, so a copy activity can read new files from the bucket, filtered by last modified time, and write them to Data Lake Storage on a daily schedule trigger, with monitoring in Azure and no code or servers. A timer-triggered function works but is custom code to maintain. AzCopy can read from S3, but scheduling it on a VM means running a server the firm does not want to operate. Data Box is an offline bulk transfer for large one-off migrations, not a nightly feed.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/data-factory/connector-amazon-simple-storage-service",
+    tags: ["Azure Data Factory", "Amazon S3", "Copy activity"]
+  }
+];
+
+export default AZURE_AZ305_QUESTIONS_9;

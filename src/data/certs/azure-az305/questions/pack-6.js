@@ -1,0 +1,532 @@
+export const AZURE_AZ305_QUESTIONS_6 = [
+  {
+    id: "azure-az305-126",
+    difficulty: "easy",
+    certId: "azure-az305",
+    domainId: "d2",
+    domainName: "Design data storage solutions",
+    title: "Moving an instance full of Agent jobs to PaaS",
+    scenario: "A distributor runs a SQL Server 2019 instance hosting six databases that query each other with three-part names, rely on 40 SQL Server Agent jobs and use Database Mail for alerts. It wants to stop patching operating systems and SQL Server, and to migrate with as few code changes as possible.",
+    question: "Which service should the architect recommend?",
+    options: [
+      { id: 'A', text: "Azure SQL Database single databases on a logical server" },
+      { id: 'B', text: "Azure SQL Managed Instance in the General Purpose tier" },
+      { id: 'C', text: "Azure Database for PostgreSQL flexible server with read replicas" },
+      { id: 'D', text: "SQL Server on an Azure virtual machine with automated patching" }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "Azure SQL Managed Instance is a PaaS service with near-complete SQL Server engine compatibility at instance scope, including cross-database queries, SQL Server Agent and Database Mail, so the six databases move with minimal change and Microsoft handles patching. Azure SQL Database single databases have no SQL Server Agent or Database Mail and cannot query each other with three-part names. SQL Server on a virtual machine keeps the operating system and SQL Server under the company's management. PostgreSQL would require rewriting the schema, T-SQL code and jobs.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-sql/managed-instance/sql-managed-instance-paas-overview",
+    tags: ["SQL Managed Instance", "Migration", "Relational data"]
+  },
+  {
+    id: "azure-az305-127",
+    difficulty: "easy",
+    certId: "azure-az305",
+    domainId: "d2",
+    domainName: "Design data storage solutions",
+    title: "A vendor that installs its agent on the database host",
+    scenario: "A hospital's pharmacy system is supported by its vendor only if the vendor's monitoring agent is installed on the Windows server that runs SQL Server and the vendor's staff hold sysadmin and local administrator rights. The hospital is moving the system out of its datacentre to Azure.",
+    question: "Which hosting option should the architect recommend?",
+    options: [
+      { id: 'A', text: "Azure SQL Managed Instance in the Business Critical tier" },
+      { id: 'B', text: "Azure SQL Database Hyperscale with a named replica for the vendor" },
+      { id: 'C', text: "Azure SQL Database serverless in the General Purpose tier" },
+      { id: 'D', text: "SQL Server on an Azure virtual machine" }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Only SQL Server on an Azure virtual machine gives access to the operating system, so the vendor can install its agent and hold local administrator rights alongside sysadmin. Managed Instance and every Azure SQL Database tier are platform services with no operating system access, so no agent can be installed on the host whatever the tier or compute model.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview",
+    tags: ["SQL Server on VMs", "IaaS", "Relational data"]
+  },
+  {
+    id: "azure-az305-128",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d2",
+    domainName: "Design data storage solutions",
+    title: "A database that sits idle most of the week",
+    scenario: "A property management firm is building a new tenant-portal database of about 40 GB. Usage is unpredictable: some days see bursts of several hundred users, while evenings and weekends often have no activity for many hours. The firm wants to pay as little as possible for compute when nobody is using it and can tolerate a short delay on the first connection after idle periods.",
+    question: "Which configuration should the architect recommend?",
+    options: [
+      { id: 'A', text: "General Purpose serverless compute with auto-pause enabled" },
+      { id: 'B', text: "Business Critical provisioned compute with read scale-out on" },
+      { id: 'C', text: "General Purpose provisioned compute sized for the busiest day" },
+      { id: 'D', text: "A Standard DTU database scaled by a runbook every evening" }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "The serverless compute tier scales vCores automatically between a minimum and maximum and bills per second of use; with auto-pause, compute is released after the configured idle delay and only storage is billed until the next connection resumes it, which suits intermittent, unpredictable use and the accepted first-connection delay. Provisioned compute sized for peaks bills that capacity around the clock. Business Critical is the most expensive tier and adds replicas the workload does not need. A runbook-scaled DTU database still bills compute continuously and scales on a clock rather than on demand.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-sql/database/serverless-tier-overview",
+    tags: ["Azure SQL Database", "Serverless", "Cost optimization"]
+  },
+  {
+    id: "azure-az305-129",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d2",
+    domainName: "Design data storage solutions",
+    title: "Latency-critical trading database with memory tables",
+    scenario: "A brokerage is moving an order-matching database of 900 GB to Azure SQL Database. The application uses memory-optimized tables for its hottest tables and needs the lowest possible storage latency for commits, plus fast failover to a replica in another availability zone.",
+    question: "Which service tier should the architect recommend?",
+    options: [
+      { id: 'A', text: "General Purpose serverless with a long auto-pause delay" },
+      { id: 'B', text: "General Purpose with zone redundancy enabled" },
+      { id: 'C', text: "Hyperscale with two high-availability replicas" },
+      { id: 'D', text: "Business Critical with zone redundancy enabled" }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Business Critical places data and log on local SSD for the lowest I/O latency, supports In-Memory OLTP including memory-optimized tables, and keeps hot standby replicas that can be spread across availability zones for fast failover. General Purpose uses remote premium storage with higher latency and does not support In-Memory OLTP, with or without serverless compute. Hyperscale supports only a subset of In-Memory OLTP objects; durable and non-durable memory-optimized tables are not supported there.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-sql/database/service-tiers-sql-database-vcore",
+    tags: ["Azure SQL Database", "Business Critical", "In-Memory OLTP"]
+  },
+  {
+    id: "azure-az305-130",
+    difficulty: "hard",
+    certId: "azure-az305",
+    domainId: "d2",
+    domainName: "Design data storage solutions",
+    title: "Tens of terabytes with restores in minutes",
+    scenario: "An IoT platform's single operational database is 18 TB and is projected to reach 70 TB within three years. The operations team needs point-in-time restores and database copies for testing to finish in minutes regardless of size, and wants to scale compute up for month-end without moving data.",
+    question: "Which option should the architect recommend?",
+    options: [
+      { id: 'A', text: "Azure SQL Database Business Critical at the largest available compute size" },
+      { id: 'B', text: "Azure SQL Managed Instance General Purpose with the maximum storage size" },
+      { id: 'C', text: "SQL Server on an Azure virtual machine with striped Premium SSD v2 disks" },
+      { id: 'D', text: "Azure SQL Database Hyperscale with the provisioned compute tier" }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Hyperscale separates compute from page-server storage that grows to 128 TB, takes file-snapshot backups so restores and copies complete in minutes regardless of size, and scales compute without data movement. Business Critical in Azure SQL Database tops out at 4 TB. Managed Instance storage stops well short of 70 TB and its backup and restore times grow with data size. A virtual machine can hold the data on striped disks, but restores of tens of terabytes take hours and scaling compute means resizing the machine.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-sql/database/service-tier-hyperscale",
+    tags: ["Azure SQL Database", "Hyperscale", "Large databases"]
+  },
+  {
+    id: "azure-az305-131",
+    difficulty: "easy",
+    certId: "azure-az305",
+    domainId: "d2",
+    domainName: "Design data storage solutions",
+    title: "Choosing compute and storage independently",
+    scenario: "A logistics start-up's route database needs few vCores but a lot of storage, and the team wants to choose compute size and storage size separately, pick a hardware configuration and apply reserved-capacity discounts later. A consultant has suggested buying performance levels in bundled units instead.",
+    question: "Which purchasing model should the architect recommend?",
+    options: [
+      { id: 'A', text: "The vCore model, sizing compute and storage independently" },
+      { id: 'B', text: "The DTU model, choosing a Standard performance level" },
+      { id: 'C', text: "The DTU model, choosing a Premium level with bundled storage" },
+      { id: 'D', text: "The eDTU model, placing the database in an elastic pool" }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "The vCore purchasing model lets you select vCores, hardware configuration and storage independently and is the model that supports reserved capacity and Azure Hybrid Benefit. The DTU and eDTU models bundle compute, memory, I/O and storage into fixed performance levels, so storage cannot be scaled independently of compute and hardware cannot be chosen; an elastic pool also addresses many databases with varying load, not one database's sizing.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-sql/database/purchasing-models",
+    tags: ["Azure SQL Database", "vCore", "DTU"]
+  },
+  {
+    id: "azure-az305-132",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d2",
+    domainName: "Design data storage solutions",
+    title: "Managed PostgreSQL with PostGIS and zone failover",
+    scenario: "A mapping company is moving a PostgreSQL 16 database that relies on the PostGIS and pg_cron extensions to Azure. It wants a managed service with zone-redundant high availability for production and the ability to stop development servers overnight to save money, without re-platforming to another engine.",
+    question: "Which service should the architect recommend?",
+    options: [
+      { id: 'A', text: "PostgreSQL installed on Azure virtual machines" },
+      { id: 'B', text: "Azure SQL Database with the spatial data types" },
+      { id: 'C', text: "Azure Database for PostgreSQL single server" },
+      { id: 'D', text: "Azure Database for PostgreSQL flexible server" }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Azure Database for PostgreSQL flexible server is the managed PostgreSQL service: it supports PostGIS, pg_cron and many other extensions, offers zone-redundant high availability, and lets you stop and start servers to pause compute billing. Single server was retired in March 2025 and cannot be deployed. Self-managed virtual machines work but leave patching, HA and backups to the company. Azure SQL Database has spatial types but would mean re-platforming away from PostgreSQL and its extensions.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/overview",
+    tags: ["PostgreSQL", "Flexible server", "Relational data"]
+  },
+  {
+    id: "azure-az305-133",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d2",
+    domainName: "Design data storage solutions",
+    title: "A dashboard database that mostly waits",
+    scenario: "A school district's attendance dashboard uses a small PostgreSQL flexible server. CPU averages under 10 percent, with short spikes when teachers submit registers at 09:00 and 13:00. There is no high-availability requirement and the district wants the cheapest compute that can absorb the spikes.",
+    question: "Which compute tier should the architect recommend?",
+    options: [
+      { id: 'A', text: "General Purpose, with zone-redundant HA" },
+      { id: 'B', text: "General Purpose, using D-series compute" },
+      { id: 'C', text: "Memory Optimized, using E-series compute" },
+      { id: 'D', text: "Burstable, using B-series compute" }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "The Burstable tier runs on B-series compute that accrues CPU credits while usage is low and spends them during short spikes, which makes it the cheapest fit for workloads with low average CPU and brief peaks; the lack of high availability in that tier does not matter here. General Purpose D-series gives steady full CPU and costs more for capacity that sits idle, and adding zone-redundant HA doubles compute for a requirement the district does not have. Memory Optimized E-series is for memory-heavy workloads and is the most expensive tier.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/concepts-compute",
+    tags: ["PostgreSQL", "Compute tiers", "Cost optimization"]
+  },
+  {
+    id: "azure-az305-134",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d2",
+    domainName: "Design data storage solutions",
+    title: "Rehoming a WordPress estate's MySQL databases",
+    scenario: "A digital agency hosts 60 WordPress sites whose MySQL 8.0 databases run on self-managed Linux servers. It wants a managed MySQL service with zone-redundant high availability for its biggest clients, automated backups and control over the maintenance window, while keeping MySQL compatibility for the WordPress plugins.",
+    question: "Which service should the architect recommend?",
+    options: [
+      { id: 'A', text: "Azure Database for MySQL flexible server with zone-redundant HA" },
+      { id: 'B', text: "Azure Database for MariaDB with zone-redundant backup storage" },
+      { id: 'C', text: "Azure Cosmos DB for NoSQL with the WordPress data held as JSON" },
+      { id: 'D', text: "Azure SQL Database with a compatibility layer for MySQL queries" }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Azure Database for MySQL flexible server is the managed MySQL service, supporting MySQL 8.0, zone-redundant high availability in the General Purpose and Business Critical tiers, automated backups and a custom maintenance window. Azure Database for MariaDB has been retired. Azure SQL Database is a SQL Server engine and does not run MySQL workloads unchanged. Cosmos DB is a NoSQL database and WordPress requires a relational MySQL backend.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/mysql/flexible-server/overview",
+    tags: ["MySQL", "Flexible server", "High availability"]
+  },
+  {
+    id: "azure-az305-135",
+    difficulty: "hard",
+    certId: "azure-az305",
+    domainId: "d2",
+    domainName: "Design data storage solutions",
+    title: "Exadata-dependent databases beside Azure apps",
+    scenario: "An airline's revenue-management system runs on Oracle Exadata with Real Application Clusters and cannot be rewritten for another engine. The airline is moving its application tier to Azure and needs the database to sit in the same Azure regions with low-latency private connectivity, keeping RAC and Exadata features and Oracle support.",
+    question: "What should the architect recommend?",
+    options: [
+      { id: 'A', text: "Migrate the schema to Azure SQL Managed Instance using SSMA" },
+      { id: 'B', text: "Oracle Database on Azure VMs using Data Guard in place of RAC and Exadata" },
+      { id: 'C', text: "Oracle Database@Azure running Exadata Database Service in Azure" },
+      { id: 'D', text: "Migrate to Azure Database for PostgreSQL with an Oracle extension" }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "Oracle Database@Azure runs Oracle Exadata Database Service on Oracle-managed infrastructure inside Azure datacentres, reachable from Azure virtual networks with low latency, and keeps RAC, Exadata features and Oracle support. Oracle RAC is not supported on Azure virtual machines, so self-managed VMs with Data Guard give up the RAC and Exadata features the system depends on. Migrating to Managed Instance or PostgreSQL means re-platforming the database, which the airline has ruled out.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/oracle/oracle-db/database-overview",
+    tags: ["Oracle Database@Azure", "Relational data", "Migration"]
+  },
+  {
+    id: "azure-az305-136",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d2",
+    domainName: "Design data storage solutions",
+    title: "Features that rule out single databases",
+    scenario: "A publisher is comparing Azure SQL Database with Azure SQL Managed Instance for an existing SQL Server application. The team lists the capabilities the application uses and wants to know which of them only Managed Instance can provide.",
+    question: "Which two capabilities are available in Managed Instance but not in Azure SQL Database? (Choose two.)",
+    options: [
+      { id: 'A', text: "Always Encrypted for columns holding card numbers" },
+      { id: 'B', text: "Active geo-replication to a readable secondary database" },
+      { id: 'C', text: "Transparent data encryption with a customer key" },
+      { id: 'D', text: "SQL Server Agent jobs scheduled inside the engine" },
+      { id: 'E', text: "Linked servers pointing to other SQL Server instances" }
+    ],
+    correctAnswers: ['D', 'E'],
+    type: "multiple",
+    explanation: "Managed Instance exposes instance-scoped SQL Server features including SQL Server Agent and linked servers; Azure SQL Database has neither, and uses elastic jobs or external schedulers instead of Agent. Transparent data encryption with customer-managed keys and Always Encrypted are available in both services. Active geo-replication is an Azure SQL Database feature; Managed Instance uses failover groups for geo-replication instead.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-sql/database/features-comparison",
+    tags: ["SQL Managed Instance", "Azure SQL Database", "Feature comparison"]
+  },
+  {
+    id: "azure-az305-137",
+    difficulty: "hard",
+    certId: "azure-az305",
+    domainId: "d2",
+    domainName: "Design data storage solutions",
+    title: "Morning errors from a paused database",
+    scenario: "An HR app uses a General Purpose serverless database with a 1-hour auto-pause delay. Each morning the first users see connection errors and a wait of up to a minute. The business wants that eliminated while keeping automatic vCore scaling between 1 and 8 vCores, and accepts paying for the minimum vCores overnight.",
+    question: "What should the architect change?",
+    options: [
+      { id: 'A', text: "Convert the serverless database to provisioned compute at 8 vCores" },
+      { id: 'B', text: "Disable auto-pause on the serverless database and keep its 1 to 8 vCores" },
+      { id: 'C', text: "Add a retry policy in the app and schedule a 07:00 warm-up connection" },
+      { id: 'D', text: "Lower the auto-pause delay to 15 minutes so resumes happen more often" }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "With auto-pause disabled the serverless database never pauses, so there is no resume delay, while compute still scales automatically between the minimum and maximum vCores; overnight it bills at least the minimum vCores and memory, which the business accepts. Provisioned compute at 8 vCores removes the delay but also the automatic scaling, and costs more. A shorter delay makes pauses more frequent. Retries and a warm-up connection hide the problem for some users but still leave errors for anyone arriving after an unplanned pause.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-sql/database/serverless-tier-overview",
+    tags: ["Azure SQL Database", "Serverless", "Auto-pause"]
+  },
+  {
+    id: "azure-az305-138",
+    difficulty: "easy",
+    certId: "azure-az305",
+    domainId: "d2",
+    domainName: "Design data storage solutions",
+    title: "Reusing SQL Server licences with Software Assurance",
+    scenario: "A manufacturer owns SQL Server Enterprise core licences with active Software Assurance for servers it is decommissioning. It is moving those workloads to Azure SQL Managed Instance in the Business Critical tier and wants the lowest compute price that its licences allow.",
+    question: "What should the architect recommend?",
+    options: [
+      { id: 'A', text: "Apply Azure Hybrid Benefit to the instances under the vCore model" },
+      { id: 'B', text: "Move the workloads to Hyperscale to use the licences at a better rate" },
+      { id: 'C', text: "Choose the DTU purchasing model so the licence cost is fully bundled" },
+      { id: 'D', text: "Buy a Dev/Test subscription and deploy the production instances in it" }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Azure Hybrid Benefit lets customers with Software Assurance apply existing SQL Server licences to vCore-based Azure SQL resources and pay only the base compute rate, removing the SQL licence component. Hyperscale has no SQL licence fee in its price and does not accept Hybrid Benefit for new databases, and Hyperscale is not a Managed Instance tier. Dev/Test pricing is restricted to non-production use. The DTU model includes licensing in its bundle and does not support Hybrid Benefit.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-sql/azure-hybrid-benefit",
+    tags: ["Azure Hybrid Benefit", "Licensing", "Cost optimization"]
+  },
+  {
+    id: "azure-az305-139",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d2",
+    domainName: "Design data storage solutions",
+    title: "Cutting the bill for a steady production fleet",
+    scenario: "A payroll provider runs 32 vCores of Azure SQL Database General Purpose provisioned compute across its production databases, and the usage has barely changed in two years. It has no SQL Server licences to bring and wants the biggest compute saving for a workload it is confident will run for at least three more years.",
+    question: "What should the architect recommend?",
+    options: [
+      { id: 'A', text: "Apply Azure Hybrid Benefit across the production databases" },
+      { id: 'B', text: "Purchase a three-year reservation for the 32 vCores of compute" },
+      { id: 'C', text: "Move the production databases into a Dev/Test subscription" },
+      { id: 'D', text: "Move every database to serverless compute with auto-pause on" }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "Reserved capacity for Azure SQL Database commits to a quantity of vCores for one or three years in exchange for a substantial discount on compute, the best lever for a stable, long-running workload; it is applied automatically to matching databases in scope. Azure Hybrid Benefit needs SQL Server licences with Software Assurance, which the provider does not have. Serverless auto-pause saves money only for intermittent workloads and costs more per vCore-second for constant use. Dev/Test pricing is not permitted for production workloads.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-sql/database/reserved-capacity-overview",
+    tags: ["Reservations", "Azure SQL Database", "Cost optimization"]
+  },
+  {
+    id: "azure-az305-140",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d2",
+    domainName: "Design data storage solutions",
+    title: "Cheaper databases for test environments",
+    scenario: "An insurer runs 45 Azure SQL databases for development, test and user acceptance environments in the same pay-as-you-go subscriptions as production, with no SQL Server licences to bring. Its engineers use Visual Studio subscriptions. Finance wants non-production databases billed at the lowest legitimate rate without reducing their size.",
+    question: "What should the architect recommend?",
+    options: [
+      { id: 'A', text: "Buy three-year reservations sized for the dev and test vCores" },
+      { id: 'B', text: "Move non-production databases into Dev/Test subscription offers" },
+      { id: 'C', text: "Switch non-production databases to the DTU Basic performance level" },
+      { id: 'D', text: "Apply Azure Hybrid Benefit only to the non-production databases" }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "Dev/Test subscription offers, available to Visual Studio subscribers, bill vCore-based Azure SQL resources without the SQL licence component and are intended exactly for non-production environments, so the databases keep their size at a lower rate. Hybrid Benefit needs licences with Software Assurance, which the insurer lacks. Reservations need a long-term commitment for environments that are often rebuilt and resized. Basic is limited to small databases and low performance, which reduces capacity rather than price.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-sql/database/service-tiers-sql-database-vcore",
+    tags: ["Dev/Test pricing", "Azure SQL Database", "Cost optimization"]
+  },
+  {
+    id: "azure-az305-141",
+    difficulty: "hard",
+    certId: "azure-az305",
+    domainId: "d2",
+    domainName: "Design data storage solutions",
+    title: "Zone failover for a small PostgreSQL workload",
+    scenario: "A clinic-booking start-up runs production on a PostgreSQL flexible server in the Burstable tier to save money. A new contract requires automatic failover to another availability zone with no data loss if a zone fails, and the start-up asks for the least expensive configuration that satisfies it.",
+    question: "What should the architect recommend?",
+    options: [
+      { id: 'A', text: "Move to the smallest General Purpose size and enable zone-redundant high availability" },
+      { id: 'B', text: "Keep the Burstable tier and rely on geo-redundant backups for restoring to a zone" },
+      { id: 'C', text: "Keep the Burstable tier and enable zone-redundant high availability on it" },
+      { id: 'D', text: "Keep the Burstable tier and add a read replica in a different availability zone" }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "High availability, including zone-redundant HA with a synchronous standby in another zone and automatic failover, is supported only in the General Purpose and Memory Optimized tiers, so the cheapest compliant design is the smallest General Purpose size with zone-redundant HA. The Burstable tier does not support high availability at all. Read replicas replicate asynchronously and are promoted manually, so failover is neither automatic nor free of data loss. Restoring from backups is manual and loses recent transactions.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/postgresql/high-availability/concepts-high-availability",
+    tags: ["PostgreSQL", "Compute tiers", "High availability"]
+  },
+  {
+    id: "azure-az305-142",
+    difficulty: "hard",
+    certId: "azure-az305",
+    domainId: "d2",
+    domainName: "Design data storage solutions",
+    title: "Huge database with unpredictable demand",
+    scenario: "A market-data company's 12 TB Azure SQL database is busy during trading hours and nearly idle at night, with sudden spikes after major announcements that need up to 40 vCores within seconds. It never needs to pause entirely, and the company wants to stop paying for peak compute around the clock.",
+    question: "Which configuration should the architect recommend?",
+    options: [
+      { id: 'A', text: "General Purpose serverless compute with a maximum of 40 vCores" },
+      { id: 'B', text: "Hyperscale provisioned compute permanently sized at 40 vCores" },
+      { id: 'C', text: "Business Critical provisioned compute scaled by a nightly runbook" },
+      { id: 'D', text: "Hyperscale serverless compute scaling up to a maximum of 40 vCores" }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Hyperscale supports the serverless compute tier, which scales vCores automatically within the configured range and bills for what is used, and Hyperscale storage easily holds 12 TB; the lack of auto-pause in Hyperscale serverless does not matter because the database never needs to pause. General Purpose is limited to 4 TB, so the database does not fit. Hyperscale provisioned at 40 vCores pays for peak capacity around the clock. Business Critical also tops out at 4 TB, and a scheduled runbook cannot react to sudden spikes.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-sql/database/serverless-tier-overview",
+    tags: ["Hyperscale", "Serverless", "Azure SQL Database"]
+  },
+  {
+    id: "azure-az305-143",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d2",
+    domainName: "Design data storage solutions",
+    title: "Disk layout for a reporting SQL Server VM",
+    scenario: "A retailer is building a new SQL Server reporting server on an Azure virtual machine whose size includes a local ephemeral SSD. The workload spills heavily to tempdb during month-end reports, and the data and log files will each sit on their own Premium SSD disks. The DBA wants the layout to follow Microsoft's storage guidance.",
+    question: "Which two placements should the architect recommend? (Choose two.)",
+    options: [
+      { id: 'A', text: "Set host caching to None on the transaction log disk" },
+      { id: 'B', text: "Put the transaction log on the VM's local ephemeral SSD" },
+      { id: 'C', text: "Set host caching to Read/write on the data file disks" },
+      { id: 'D', text: "Put tempdb on an Azure Files premium share over SMB" },
+      { id: 'E', text: "Put tempdb on the VM's local ephemeral SSD drive" }
+    ],
+    correctAnswers: ['A', 'E'],
+    type: "multiple",
+    explanation: "Microsoft recommends tempdb on the local ephemeral SSD for VM sizes that have one, because it offers low latency, does not count against remote disk limits, and tempdb is recreated at every restart anyway; transaction log disks should use no host caching because log writes are sequential and caching adds no benefit. Data file disks should use read-only caching, not read/write, which risks data integrity for SQL Server files. The transaction log must be durable, so placing it on an ephemeral disk risks losing committed transactions. An SMB share adds network latency and is not a recommended tempdb location.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-sql/virtual-machines/windows/performance-guidelines-best-practices-storage",
+    tags: ["SQL Server on VMs", "tempdb", "Storage performance"]
+  },
+  {
+    id: "azure-az305-144",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d2",
+    domainName: "Design data storage solutions",
+    title: "Portal management for self-built SQL Server VMs",
+    scenario: "A bank's teams deployed 80 SQL Server virtual machines from their own images. The platform team wants to switch licensing between pay-as-you-go and Azure Hybrid Benefit from the portal, configure automated backups, and run the best practices assessment across all of them, without rebuilding any machine.",
+    question: "What should the architect recommend?",
+    options: [
+      { id: 'A', text: "Register each machine with the SQL IaaS Agent extension" },
+      { id: 'B', text: "Install Azure Monitor Agent and enable SQL insights" },
+      { id: 'C', text: "Onboard each machine to Azure Arc as an SQL Server" },
+      { id: 'D', text: "Migrate each machine into Azure SQL Managed Instance" }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Registering an Azure VM with the SQL IaaS Agent extension creates the SQL virtual machine resource that enables licence-type changes, automated backup, the best practices assessment and other management features, and it works for SQL Server installed from custom images without rebuilding. Migrating to Managed Instance is a re-platforming project, not a management change. Azure Monitor Agent collects telemetry but adds none of these controls. Azure Arc-enabled SQL Server is for machines outside Azure; Azure VMs use the IaaS Agent extension instead.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-sql/virtual-machines/windows/sql-server-iaas-agent-extension-automate-management",
+    tags: ["SQL Server on VMs", "SQL IaaS Agent extension", "Management"]
+  },
+  {
+    id: "azure-az305-145",
+    difficulty: "easy",
+    certId: "azure-az305",
+    domainId: "d2",
+    domainName: "Design data storage solutions",
+    title: "Invoices, lines and payments with strict integrity",
+    scenario: "A wholesaler is building a new billing system that stores customers, invoices, invoice lines and payments. Reports join all four entities, and each payment must update several tables in one atomic transaction with enforced foreign keys. The team is deciding on the data store.",
+    question: "Which data store should the architect recommend?",
+    options: [
+      { id: 'A', text: "Azure SQL Database with the data in normalised relational form" },
+      { id: 'B', text: "Azure Table storage with invoices partitioned by customer" },
+      { id: 'C', text: "Azure Blob storage holding each invoice as a JSON file" },
+      { id: 'D', text: "Azure Cosmos DB for NoSQL with each invoice and its lines as one document" }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Relational data with joins across entities, enforced foreign keys and multi-table ACID transactions is the core strength of a relational database such as Azure SQL Database. Cosmos DB supports transactions only within one logical partition and has no foreign keys or cross-container joins. Table storage is a key-value store without joins, constraints or multi-entity transactions across partitions. Blob storage holds files and offers no query engine or transactions across objects.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/architecture/guide/technology-choices/data-store-overview",
+    tags: ["Relational data", "Data store selection"]
+  },
+  {
+    id: "azure-az305-146",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d2",
+    domainName: "Design data storage solutions",
+    title: "Two requirements that keep SQL Server on VMs",
+    scenario: "A records-management firm hoped to move its SQL Server estate to Azure SQL Managed Instance, but an assessment flags features in use that the service cannot provide. The architect must identify which of the flagged requirements truly force SQL Server on Azure virtual machines.",
+    question: "Which two requirements rule out Managed Instance? (Choose two.)",
+    options: [
+      { id: 'A', text: "Queries that join tables across several databases" },
+      { id: 'B', text: "Common language runtime assemblies marked as SAFE" },
+      { id: 'C', text: "Documents held in FILESTREAM and FileTable columns" },
+      { id: 'D', text: "Nightly jobs scheduled through SQL Server Agent" },
+      { id: 'E', text: "Reporting Services installed on the database server" }
+    ],
+    correctAnswers: ['C', 'E'],
+    type: "multiple",
+    explanation: "Managed Instance does not support FILESTREAM or FileTable, and as a platform service it cannot host SQL Server Reporting Services on the same server, so both push the workload to SQL Server on a virtual machine (or to redesigns such as Blob storage and Power BI Report Server). SQL Server Agent, cross-database queries within the instance and SAFE CLR assemblies are all supported by Managed Instance.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-sql/managed-instance/transact-sql-tsql-differences-sql-server",
+    tags: ["SQL Managed Instance", "SQL Server on VMs", "Feature comparison"]
+  },
+  {
+    id: "azure-az305-147",
+    difficulty: "hard",
+    certId: "azure-az305",
+    domainId: "d2",
+    domainName: "Design data storage solutions",
+    title: "Trialling Hyperscale with a way back",
+    scenario: "A retailer wants to try Hyperscale for its 2 TB General Purpose order database before committing, and requires a documented way to return to General Purpose if the trial disappoints. The DBA proposes creating a brand-new Hyperscale database and bulk-loading it from an export.",
+    question: "What should the architect recommend?",
+    options: [
+      { id: 'A', text: "Accept the DBA's plan, because any Hyperscale database can move back to General Purpose" },
+      { id: 'B', text: "Create a Hyperscale named replica of the General Purpose database to run the trial" },
+      { id: 'C', text: "Convert the existing database in place and reverse migrate within 45 days if needed" },
+      { id: 'D', text: "Restore the latest General Purpose backup as a Hyperscale database and trial that copy" }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "Reverse migration to General Purpose is supported only for a database that was converted to Hyperscale from another tier, and only within 45 days of that conversion; converting the existing database in place therefore gives the required way back. A database created directly in Hyperscale cannot be reverse migrated. Backups cannot be restored across the Hyperscale boundary in either direction. Named replicas can only be created from a Hyperscale primary, not from a General Purpose database.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-sql/database/reverse-migrate-from-hyperscale",
+    tags: ["Hyperscale", "Service tiers", "Azure SQL Database"]
+  },
+  {
+    id: "azure-az305-148",
+    difficulty: "easy",
+    certId: "azure-az305",
+    domainId: "d2",
+    domainName: "Design data storage solutions",
+    title: "The cheapest home for a tiny lookup database",
+    scenario: "A florist chain's store-locator app uses a 400 MB Azure SQL database that serves a few queries a minute around the clock. There is no SQL licence to bring, no high-availability requirement beyond the platform default, and the owner wants the lowest predictable monthly price.",
+    question: "Which option should the architect recommend?",
+    options: [
+      { id: 'A', text: "Business Critical with the smallest vCore size" },
+      { id: 'B', text: "Hyperscale serverless with a small vCore range" },
+      { id: 'C', text: "General Purpose provisioned with two vCores" },
+      { id: 'D', text: "A Basic database in the DTU purchasing model" }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "The DTU Basic level suits very small databases with light, steady load at a low fixed monthly price, and 400 MB is well within its size limit. Business Critical and General Purpose provisioned compute start at two vCores and cost many times more. Hyperscale serverless does not auto-pause and a database queried around the clock would bill continuously for its minimum vCores, still above the Basic price.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-sql/database/service-tiers-dtu",
+    tags: ["Azure SQL Database", "DTU", "Cost optimization"]
+  },
+  {
+    id: "azure-az305-149",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d2",
+    domainName: "Design data storage solutions",
+    title: "Vendor locked to SQL Server 2014 after support ended",
+    scenario: "A council's planning application is certified by its vendor only on SQL Server 2014, which is past the end of extended support, and the vendor will not certify a newer engine version for two more years. The council must move the server out of its closing datacentre and keep receiving security updates.",
+    question: "What should the architect recommend?",
+    options: [
+      { id: 'A', text: "Azure SQL Database with the database compatibility level set to 120 for the app" },
+      { id: 'B', text: "Azure SQL Managed Instance with the database compatibility level set to 120" },
+      { id: 'C', text: "SQL Server 2014 on a new on-premises host with paid extended security updates" },
+      { id: 'D', text: "SQL Server 2014 on an Azure virtual machine, which gets extended security updates" }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "SQL Server 2014 running on an Azure virtual machine receives Extended Security Updates at no extra charge, and the engine version stays exactly what the vendor certifies. Managed Instance and Azure SQL Database always run the current engine; a compatibility level changes query behaviour but not the engine version the vendor certified. A new on-premises host does not satisfy the need to leave the datacentre and requires buying the updates.",
+    referenceUrl: "https://learn.microsoft.com/en-us/sql/sql-server/end-of-support/sql-server-extended-security-updates",
+    tags: ["SQL Server on VMs", "Extended Security Updates", "Legacy workloads"]
+  },
+  {
+    id: "azure-az305-150",
+    difficulty: "easy",
+    certId: "azure-az305",
+    domainId: "d2",
+    domainName: "Design data storage solutions",
+    title: "Scaling one database on a shared logical server",
+    scenario: "A marketing agency hosts eight single databases on one Azure SQL logical server. Only the campaign-analytics database is running short of CPU. A junior engineer proposes upgrading the logical server so that every database gets more capacity.",
+    question: "What should the architect recommend?",
+    options: [
+      { id: 'A', text: "Change the service objective of the one database that needs more CPU" },
+      { id: 'B', text: "Scale the logical server to a larger size so every database gains compute" },
+      { id: 'C', text: "Add more vCores to the master database that the logical server hosts" },
+      { id: 'D', text: "Move all eight databases to a new logical server in a less busy region" }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "An Azure SQL logical server is an administrative container for logins, firewall rules and auditing; it has no compute of its own, and each single database has its own service tier and compute size, so only the analytics database's service objective needs to change. There is no server size to scale. Moving the databases to another server or region changes nothing about their resources. The master database holds server metadata and its size does not affect user databases.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-sql/database/logical-servers",
+    tags: ["Azure SQL Database", "Logical server", "Scaling"]
+  }
+];
+
+export default AZURE_AZ305_QUESTIONS_6;

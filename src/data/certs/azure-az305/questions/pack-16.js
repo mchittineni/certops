@@ -1,0 +1,532 @@
+export const AZURE_AZ305_QUESTIONS_16 = [
+  {
+    id: "azure-az305-376",
+    difficulty: "easy",
+    certId: "azure-az305",
+    domainId: "d4",
+    domainName: "Design infrastructure solutions",
+    title: "Reacting the moment a contract lands in storage",
+    scenario: "A law firm wants a function to extract metadata as soon as a scanned contract is uploaded to a Blob Storage container. Uploads are sporadic, the firm wants push-based notification rather than polling, and no custom code should be needed to publish the notifications.",
+    question: "Which service should deliver the notifications to the function?",
+    options: [
+      { id: 'A', text: "Azure Queue Storage, with a lifecycle management rule adding a message whenever a new blob is written." },
+      { id: 'B', text: "Azure Event Grid, using the storage account's system topic and a subscription for blob-created events." },
+      { id: 'C', text: "Azure Event Hubs, with the storage account streaming upload records into a hub the function reads." },
+      { id: 'D', text: "Azure Service Bus, with the uploading clients sending a message to a queue after each successful upload." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "Blob Storage publishes events such as BlobCreated to an Event Grid system topic, and an event subscription pushes them to the function within seconds with no publishing code. Event Hubs is a streaming ingestion service, and storage accounts do not stream upload records into it natively. A Service Bus queue would need every uploading client to send a message, which is custom publishing code. Lifecycle management tiers and deletes blobs; it cannot enqueue messages.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/storage/blobs/storage-blob-event-overview",
+    tags: ["Event Grid", "Blob Storage", "Event-driven"]
+  },
+  {
+    id: "azure-az305-377",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d4",
+    domainName: "Design infrastructure solutions",
+    title: "One telemetry stream for three independent readers",
+    scenario: "A wind farm operator streams turbine telemetry into Azure Event Hubs. A real-time alerting app, a data lake loader and a machine learning feature pipeline must each read the whole stream at their own pace, and each must resume from where it stopped after a restart without reprocessing everything.",
+    question: "Which two design elements should the architect use? (Choose two.)",
+    options: [
+      { id: 'A', text: "Checkpoints written by each app's event processor to a storage container." },
+      { id: 'B', text: "A separate consumer group for each of the three reading applications." },
+      { id: 'C', text: "A dead-letter queue on the event hub that holds events a reader has missed." },
+      { id: 'D', text: "Duplicate detection on the event hub so that restarted apps skip old events." },
+      { id: 'E', text: "Message sessions keyed by turbine ID so that each app gets its own copy." }
+    ],
+    correctAnswers: ['A', 'B'],
+    type: "multiple",
+    explanation: "Each consumer group is an independent view of the event stream, so the three applications read all events at their own pace without interfering, and the event processor client records checkpoints (offsets per partition) in Blob Storage so a restarted reader resumes from its last checkpoint. Sessions and duplicate detection are Service Bus features that Event Hubs does not have. Event Hubs retains events for the retention period rather than dead-lettering them, so there is no dead-letter queue for missed events.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/event-hubs/event-hubs-features",
+    tags: ["Event Hubs", "Consumer groups", "Checkpointing"]
+  },
+  {
+    id: "azure-az305-378",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d4",
+    domainName: "Design infrastructure solutions",
+    title: "Archiving every clickstream event without code",
+    scenario: "A media site sends clickstream events to an Event Hubs Standard namespace for real-time dashboards. The data science team also wants every event stored in its Data Lake Storage account in time-partitioned files for later analysis, and the platform team refuses to build or run another consumer application to do it.",
+    question: "What should the architect enable?",
+    options: [
+      { id: 'A', text: "Event Hubs Capture on the event hub, writing batches of events to the data lake on a time or size window." },
+      { id: 'B', text: "An Event Grid subscription on the namespace that forwards each clickstream event to the data lake account." },
+      { id: 'C', text: "A longer retention period on the event hub so that analysts can query events directly from the namespace." },
+      { id: 'D', text: "Geo-disaster recovery on the namespace, pairing it with a secondary namespace that stores events as files." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Event Hubs Capture automatically writes streaming data to Blob Storage or Data Lake Storage in time-partitioned Avro files, triggered by a configurable time or size window, with no consumer code to run. Longer retention keeps events in the hub for replay but does not produce files in the data lake, and retention is capped. Event Grid does not forward the event stream's contents to storage. Geo-disaster recovery replicates namespace metadata, not event data into files.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/event-hubs/event-hubs-capture-overview",
+    tags: ["Event Hubs", "Capture", "Data Lake Storage"]
+  },
+  {
+    id: "azure-az305-379",
+    difficulty: "easy",
+    certId: "azure-az305",
+    domainId: "d4",
+    domainName: "Design infrastructure solutions",
+    title: "Kafka producers moving to a managed service",
+    scenario: "A ride-hailing company runs a self-managed Apache Kafka cluster that dozens of microservices publish to with common Kafka client libraries. It wants to stop operating Kafka brokers and ZooKeeper, and the microservice teams will change only connection configuration, not code.",
+    question: "What should the architect recommend?",
+    options: [
+      { id: 'A', text: "Azure Service Bus Premium topics, pointing the Kafka clients at the namespace's AMQP endpoint." },
+      { id: 'B', text: "Azure Queue Storage queues, pointing the Kafka clients at the storage account's queue endpoint." },
+      { id: 'C', text: "Azure Event Hubs Standard or higher, pointing the Kafka clients at the namespace's Kafka endpoint." },
+      { id: 'D', text: "Azure Event Grid namespace topics, pointing the Kafka clients at the namespace's MQTT endpoint." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "Event Hubs exposes an Apache Kafka-compatible endpoint on the Standard, Premium and Dedicated tiers, so existing Kafka producers and consumers work by changing the bootstrap server and authentication settings, with no brokers to operate. Service Bus speaks AMQP, not the Kafka protocol. Event Grid namespaces offer MQTT and HTTP, not Kafka. Queue Storage uses its own REST API, so Kafka clients cannot connect to it.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/event-hubs/azure-event-hubs-apache-kafka-overview",
+    tags: ["Event Hubs", "Kafka", "Migration"]
+  },
+  {
+    id: "azure-az305-380",
+    difficulty: "hard",
+    certId: "azure-az305",
+    domainId: "d4",
+    domainName: "Design infrastructure solutions",
+    title: "Per-meter ordering with 32 parallel readers",
+    scenario: "A utility streams smart-meter readings into Event Hubs. Readings from any single meter must be processed in the order they were sent, and the processing service must run 32 instances in parallel to keep up with volume. The current event hub has four partitions and producers send without a partition key.",
+    question: "What should the architect recommend?",
+    options: [
+      { id: 'A', text: "Use an event hub with 32 partitions and send each reading with the meter ID as its partition key." },
+      { id: 'B', text: "Keep four partitions and create 32 consumer groups, assigning one processing instance per meter group." },
+      { id: 'C', text: "Use an event hub with 32 partitions and send readings round-robin so that load is spread evenly." },
+      { id: 'D', text: "Use one partition so that all readings stay in order, and scale up each processing instance instead." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Event Hubs orders events only within a partition, and a partition key sends every event for a meter to the same partition, so per-meter order is preserved; 32 partitions allow up to 32 processing instances in one consumer group to read in parallel. Extra consumer groups each receive the entire stream, so 32 groups would process every reading 32 times. A single partition keeps order but caps parallelism at one reader. Round-robin sends scatter a meter's readings across partitions, so their order is lost.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/event-hubs/event-hubs-scalability",
+    tags: ["Event Hubs", "Partitions", "Ordering"]
+  },
+  {
+    id: "azure-az305-381",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d4",
+    domainName: "Design infrastructure solutions",
+    title: "Keeping events that could not be delivered",
+    scenario: "A retailer's Event Grid subscription pushes order events to a partner's webhook. When the partner's endpoint is down for longer than the retry period, those events are lost, and the retailer wants them kept so they can be replayed to the partner later.",
+    question: "What should the architect configure on the event subscription?",
+    options: [
+      { id: 'A', text: "Batched delivery with a larger maximum batch size so fewer requests reach the partner at once." },
+      { id: 'B', text: "A longer event time to live on the custom topic so that events wait there until the partner is back online." },
+      { id: 'C', text: "An advanced filter that stops publishing events to the subscription while the partner is down." },
+      { id: 'D', text: "A dead-letter destination in a Blob Storage container for events that exhaust all of their retries." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "When dead-lettering is configured, Event Grid writes events that exhaust their retry policy or time to live to a Blob Storage container, where the retailer can inspect and replay them. Batching reduces request count but does not keep events that fail delivery. Filters match events by type or content and know nothing about endpoint availability. Event time to live is set on the subscription's retry policy and is capped at 24 hours, and events that exceed it are dropped unless dead-lettering is configured.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/event-grid/manage-event-delivery",
+    tags: ["Event Grid", "Dead-lettering", "Retry"]
+  },
+  {
+    id: "azure-az305-382",
+    difficulty: "hard",
+    certId: "azure-az305",
+    domainId: "d4",
+    domainName: "Design infrastructure solutions",
+    title: "Vehicles that publish and subscribe to each other",
+    scenario: "A fleet operator's 50,000 connected vehicles use MQTT v5. Each vehicle must publish its position to hierarchical topics and subscribe to topics that other vehicles and backend services publish to, such as road hazards near its location. Backend services must also receive the messages as events for further routing.",
+    question: "Which service should the architect recommend as the messaging hub?",
+    options: [
+      { id: 'A', text: "Azure Event Hubs with the Kafka endpoint, with each vehicle bridging MQTT to a hub per road segment." },
+      { id: 'B', text: "Azure IoT Hub, using device-to-cloud telemetry and cloud-to-device messages for each vehicle." },
+      { id: 'C', text: "Azure Event Grid namespaces with the MQTT broker, routing messages on to namespace topics." },
+      { id: 'D', text: "Azure Service Bus Premium topics, with each vehicle holding a subscription filtered by location for routing." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "Event Grid namespaces include an MQTT broker that supports MQTT v3.1.1 and v5 with hierarchical topics and many-to-many publish-subscribe between clients, and it can route MQTT messages into namespace topics for backend processing. IoT Hub supports MQTT for device-to-cloud and cloud-to-device messaging but is not a general broker where devices subscribe to each other's topics. Event Hubs ingests streams through AMQP or Kafka, not MQTT. Service Bus uses AMQP and is not designed for 50,000 MQTT clients subscribing to hierarchical topics.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/event-grid/mqtt-overview",
+    tags: ["Event Grid", "MQTT", "IoT"]
+  },
+  {
+    id: "azure-az305-383",
+    difficulty: "easy",
+    certId: "azure-az305",
+    domainId: "d4",
+    domainName: "Design infrastructure solutions",
+    title: "Managing and commanding industrial sensors",
+    scenario: "A water utility is connecting 8,000 pump controllers to Azure. Each controller needs its own identity and credentials, the operations team must push configuration changes and send reboot commands to individual controllers, and telemetry must flow to Azure for analysis.",
+    question: "Which service should the architect recommend?",
+    options: [
+      { id: 'A', text: "Azure Event Hubs, with each controller authenticating by using a shared access policy on the hub." },
+      { id: 'B', text: "Azure IoT Hub, with a registered device per controller, device twins and direct methods." },
+      { id: 'C', text: "Azure Event Grid system topics, with each controller subscribing to its own event type." },
+      { id: 'D', text: "Azure Service Bus queues, with one queue per controller for commands and one for telemetry." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "IoT Hub provides a per-device identity registry, device twins for desired and reported configuration, direct methods and cloud-to-device messages for commands, and scalable telemetry ingestion. Event Hubs ingests telemetry but has no device registry, twins or commands, and a shared policy gives every controller the same credentials. System topics publish events from Azure services, not from or to devices. Thousands of queues would be an unmanaged, custom device platform.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/iot-hub/iot-concepts-and-iot-hub",
+    tags: ["IoT Hub", "Device management"]
+  },
+  {
+    id: "azure-az305-384",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d4",
+    domainName: "Design infrastructure solutions",
+    title: "Triggering only on new CSV files in one folder",
+    scenario: "A supplier portal writes many kinds of files into one storage account. A processing function must be triggered only when a new file ending in .csv is created under the invoices/ path of the uploads container, and not for deletions, other folders or other file types.",
+    question: "Which two settings on the Event Grid subscription achieve this? (Choose two.)",
+    options: [
+      { id: 'A', text: "A partition key on the system topic derived from each file name." },
+      { id: 'B', text: "Subject filters for the invoices/ path prefix and the .csv suffix." },
+      { id: 'C', text: "A capture window on the system topic that groups CSV files hourly." },
+      { id: 'D', text: "An event type filter that includes only the BlobCreated event type." },
+      { id: 'E', text: "A session ID on the subscription set to the invoices/ path prefix." }
+    ],
+    correctAnswers: ['B', 'D'],
+    type: "multiple",
+    explanation: "Filtering the subscription to the BlobCreated event type excludes deletions, and subject filtering with a begins-with value covering the container and invoices/ path plus an ends-with value of .csv restricts events to the right folder and file type. Sessions and partition keys belong to Service Bus and Event Hubs, not to Event Grid subscriptions. Capture is an Event Hubs feature that writes streams to storage and has nothing to do with filtering blob events.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/event-grid/event-filtering",
+    tags: ["Event Grid", "Filtering", "Blob Storage"]
+  },
+  {
+    id: "azure-az305-385",
+    difficulty: "easy",
+    certId: "azure-az305",
+    domainId: "d4",
+    domainName: "Design infrastructure solutions",
+    title: "Five-minute averages over a live sensor stream",
+    scenario: "A cold-chain logistics firm streams container temperature readings into Event Hubs. It needs to compute a rolling five-minute average per container and raise an alert within seconds when the average exceeds a threshold, using SQL-like queries and no cluster to manage.",
+    question: "Which service should process the stream?",
+    options: [
+      { id: 'A', text: "Azure Data Factory, running a pipeline every five minutes that averages the readings in the hub." },
+      { id: 'B', text: "Azure Logic Apps, with a recurrence trigger that reads the event hub and calculates each average." },
+      { id: 'C', text: "Azure Batch, with a job that processes the stream's retained events on an autoscaled pool." },
+      { id: 'D', text: "Azure Stream Analytics, with a windowed query over the event hub input and a notification output." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Stream Analytics is a serverless real-time analytics service that reads from Event Hubs and uses a SQL-like language with tumbling, hopping and sliding windows, so a five-minute rolling average per container and an alert output take a single query. Data Factory runs batch pipelines, so alerts would lag by the schedule interval. Logic Apps is an integration workflow tool without windowed streaming aggregation. Batch processes parallel jobs over stored data and does not provide continuous low-latency stream queries.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/stream-analytics/stream-analytics-introduction",
+    tags: ["Stream Analytics", "Event Hubs", "Real-time analytics"]
+  },
+  {
+    id: "azure-az305-386",
+    difficulty: "easy",
+    certId: "azure-az305",
+    domainId: "d4",
+    domainName: "Design infrastructure solutions",
+    title: "One front door for a sprawl of partner APIs",
+    scenario: "A travel company exposes a dozen REST APIs hosted on App Service, Functions and AKS to 200 partner companies. It wants partners to use one consistent endpoint, sign up and test through a developer portal, and be subject to per-partner usage limits, without changing the backend services.",
+    question: "What should the architect recommend?",
+    options: [
+      { id: 'A', text: "Azure Application Gateway, with path-based routing rules that forward developer requests to each backend." },
+      { id: 'B', text: "Azure API Management, publishing the APIs through products with policies and a developer portal." },
+      { id: 'C', text: "Azure API Center, cataloguing the APIs so partners discover them in its portal and call backends directly." },
+      { id: 'D', text: "Azure Front Door, routing each API path to its backend and applying WAF rules for every partner." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "API Management places a gateway in front of backends wherever they run, groups APIs into products that partners subscribe to, enforces per-subscription limits through policies, and provides a developer portal for sign-up and testing. Front Door and Application Gateway route and protect HTTP traffic but have no API subscriptions, usage policies per partner or developer portal. API Center is an inventory and governance catalogue; it does not proxy calls or enforce limits.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/api-management/api-management-key-concepts",
+    tags: ["API Management", "API gateway", "Developer portal"]
+  },
+  {
+    id: "azure-az305-387",
+    difficulty: "hard",
+    certId: "azure-az305",
+    domainId: "d4",
+    domainName: "Design infrastructure solutions",
+    title: "A private API gateway serving three continents",
+    scenario: "A global bank needs its API gateway to run in East US, West Europe and Southeast Asia under one management plane, with the gateway itself injected into its virtual networks so that it is reachable only from private addresses. The gateway must survive a zone outage in each region and carry a production SLA.",
+    question: "Which API Management tier should the architect choose?",
+    options: [
+      { id: 'A', text: "The Developer tier, deploying one instance per region injected into each regional virtual network." },
+      { id: 'B', text: "The Premium tier, adding regional gateways and availability zones with virtual network injection." },
+      { id: 'C', text: "The Standard v2 tier, using outbound virtual network integration to reach the private backends." },
+      { id: 'D', text: "The Consumption tier, placing a private endpoint in each region in front of the serverless gateway." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "The Premium tier supports multi-region deployment with additional regional gateways managed from one instance, availability zones, and virtual network injection in internal mode so the gateway has only private addresses, all with a production SLA. The Developer tier has no SLA, no zone support and is intended for non-production use. Standard v2 integrates outbound with a virtual network to reach backends but is a single-region deployment without injection of the gateway. The Consumption tier does not support virtual network injection or multi-region gateways.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/api-management/api-management-features",
+    tags: ["API Management", "Tiers", "Multi-region"]
+  },
+  {
+    id: "azure-az305-388",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d4",
+    domainName: "Design infrastructure solutions",
+    title: "Local API traffic for factory systems",
+    scenario: "A manufacturer publishes APIs for its factory systems through Azure API Management. Some APIs are called by machines inside the factory and served by backends in the same building, and that traffic must stay on the factory network even though policies and APIs are managed centrally in Azure.",
+    question: "What should the architect recommend?",
+    options: [
+      { id: 'A', text: "Register the factory backends in Azure API Center so that machines discover and call them directly." },
+      { id: 'B', text: "Publish the factory APIs through Azure Relay hybrid connections from the managed gateway in Azure." },
+      { id: 'C', text: "Deploy an API Management self-hosted gateway as containers in the factory, connected to the Azure instance." },
+      { id: 'D', text: "Inject the Azure-hosted API Management instance into a virtual network connected to the factory by VPN." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "The self-hosted gateway is a containerised version of the API Management gateway that runs on premises, applies the centrally managed APIs and policies, and sends only configuration and telemetry traffic to Azure, so machine-to-backend calls stay inside the factory. VNet injection with a VPN still routes every call from the factory to Azure and back. Hybrid connections also send each call through Azure. API Center catalogues APIs but provides no gateway, so centrally managed policies would not apply.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/api-management/self-hosted-gateway-overview",
+    tags: ["API Management", "Self-hosted gateway", "Hybrid"]
+  },
+  {
+    id: "azure-az305-389",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d4",
+    domainName: "Design infrastructure solutions",
+    title: "Burst limits per calling application",
+    scenario: "A weather data provider publishes a forecast API through API Management. Calling applications authenticate with Entra ID tokens that carry an appid claim, and each calling application must be limited to 100 calls per minute to protect the backend from bursts, regardless of which subscription key it uses.",
+    question: "Which policy should the architect apply?",
+    options: [
+      { id: 'A', text: "A rate-limit policy on the product that limits each subscription to 100 calls per minute." },
+      { id: 'B', text: "An ip-filter policy that allows only the address ranges registered by each calling app." },
+      { id: 'C', text: "A rate-limit-by-key policy whose counter key comes from the token's appid claim." },
+      { id: 'D', text: "A quota-by-key policy counting calls per appid claim over a period of one calendar month." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "Rate-limit-by-key throttles calls over a short renewal period using any expression as the counter key, so keying it on the appid claim from the validated token limits each calling application to 100 calls per minute whatever subscription it uses. Quota-by-key caps total volume over long periods such as a month and does not stop bursts. An ip-filter policy allows or blocks addresses but does not count calls. The plain rate-limit policy counts per subscription, so an application with several keys could exceed its limit.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/api-management/rate-limit-by-key-policy",
+    tags: ["API Management", "Policies", "Rate limiting"]
+  },
+  {
+    id: "azure-az305-390",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d4",
+    domainName: "Design infrastructure solutions",
+    title: "Rejecting unauthorised calls at the gateway",
+    scenario: "A healthcare company's patient API sits behind API Management. Security wants every request rejected at the gateway unless it carries a valid Microsoft Entra access token issued for the API with a Patients.Read scope, so that invalid calls never reach the backend service.",
+    question: "What should the architect configure?",
+    options: [
+      { id: 'A', text: "Subscription keys required on the product, with the key issued only to approved client apps." },
+      { id: 'B', text: "Client certificate authentication between the gateway and the backend using a Key Vault certificate." },
+      { id: 'C', text: "A validate-jwt or validate-azure-ad-token policy checking the issuer, audience and required claims." },
+      { id: 'D', text: "A set-header policy that adds the gateway's managed identity token to each request to the backend." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "The validate-jwt policy, or the Entra-specific validate-azure-ad-token policy, checks the token's signature, issuer, audience and claims such as the required scope, and returns 401 before the request reaches the backend. Subscription keys identify the calling subscription but prove nothing about the user or the scopes granted. A client certificate between gateway and backend secures that hop but does not validate the caller. Adding the gateway's own token authenticates the gateway to the backend, not the caller to the API.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/api-management/validate-jwt-policy",
+    tags: ["API Management", "Policies", "OAuth"]
+  },
+  {
+    id: "azure-az305-391",
+    difficulty: "hard",
+    certId: "azure-az305",
+    domainId: "d4",
+    domainName: "Design infrastructure solutions",
+    title: "Spreading calls across throttled model endpoints",
+    scenario: "A legal tech firm calls three Azure OpenAI deployments in different regions through API Management. When one deployment starts returning HTTP 429 responses, the gateway should stop sending it traffic for a short period and spread requests across the remaining deployments, without any change to the client applications.",
+    question: "What should the architect configure in API Management?",
+    options: [
+      { id: 'A', text: "A load-balanced backend pool of the three deployments, with circuit breaker rules that trip on 429s." },
+      { id: 'B', text: "A cache-lookup policy that serves earlier responses from the internal cache while a deployment throttles." },
+      { id: 'C', text: "A retry policy on the API that resends each failed request to the same deployment up to five times." },
+      { id: 'D', text: "Azure Traffic Manager in front of the three deployments, with the gateway calling the profile's DNS name." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "API Management backends can be grouped into a load-balanced pool with round-robin, weighted or priority distribution, and a circuit breaker rule on each backend can trip on status codes such as 429 and honour Retry-After, removing the throttled deployment temporarily while the others take the traffic. Retrying against the same deployment adds load to the endpoint that is already throttling. Traffic Manager health probes do not see per-request 429 responses, and DNS caching slows any change. Cached answers suit repeated identical requests, not unique prompts.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/api-management/backends",
+    tags: ["API Management", "Backend pools", "Circuit breaker"]
+  },
+  {
+    id: "azure-az305-392",
+    difficulty: "easy",
+    certId: "azure-az305",
+    domainId: "d4",
+    domainName: "Design infrastructure solutions",
+    title: "An inventory of every API the company owns",
+    scenario: "A conglomerate has APIs spread across three API Management instances, an AWS API gateway and several unmanaged services. The enterprise architecture team wants a central catalogue of all APIs with metadata such as owner and lifecycle stage, design-time linting against company guidelines, and a portal where developers can discover them.",
+    question: "What should the architect recommend?",
+    options: [
+      { id: 'A', text: "Consolidating every API into one API Management instance and using its developer portal." },
+      { id: 'B', text: "API Management workspaces, creating one workspace per business unit in a single instance." },
+      { id: 'C', text: "Azure Resource Graph queries across subscriptions, exported into a shared workbook weekly." },
+      { id: 'D', text: "Azure API Center, registering every API from every platform and using its analysis and portal." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "API Center builds a central inventory of APIs regardless of the gateway or platform they run on, with custom metadata, API analysis (linting) against governance rules, and an API Center portal for discovery. Consolidating into one API Management instance is a large migration and cannot absorb the AWS gateway's APIs without moving them. Resource Graph queries Azure resources only and knows nothing about API definitions. Workspaces federate teams inside one API Management instance but do not catalogue APIs on other platforms.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/api-center/overview",
+    tags: ["API Center", "API governance"]
+  },
+  {
+    id: "azure-az305-393",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d4",
+    domainName: "Design infrastructure solutions",
+    title: "A low-volume API gateway billed per call",
+    scenario: "A start-up exposes a mobile back end built on Azure Functions and receives about 60,000 API calls a month, with long quiet periods and occasional spikes. It needs API keys, rate limiting and request transformation at a gateway, has no virtual network requirements, and wants the lowest possible fixed cost.",
+    question: "Which API Management tier should the architect choose?",
+    options: [
+      { id: 'A', text: "The Basic v2 tier, which offers a production SLA and fast deployment at an entry-level fixed price." },
+      { id: 'B', text: "The Consumption tier, which is serverless and billed per execution with a monthly free grant." },
+      { id: 'C', text: "The Developer tier, which has the lowest fixed monthly price of the dedicated API Management tiers." },
+      { id: 'D', text: "The Premium tier with a single unit, which includes the built-in cache and availability zones." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "The Consumption tier is a serverless gateway billed per call, with a free monthly allowance, supporting subscription keys and policies such as rate limiting and transformation, which suits spiky, low-volume traffic with no virtual network needs. The Developer tier has a fixed monthly cost and no SLA, so it is unsuitable for production. Basic v2 is an entry-level production tier but still carries a fixed monthly price. Premium is by far the most expensive tier and its features are not needed here.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/api-management/api-management-features",
+    tags: ["API Management", "Consumption tier", "Cost optimization"]
+  },
+  {
+    id: "azure-az305-394",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d4",
+    domainName: "Design infrastructure solutions",
+    title: "Vetted partner access to a premium API",
+    scenario: "A credit bureau publishes a scoring API through API Management. Partners must discover the API and read its documentation themselves, but they may call it only after the bureau's partner team has approved their request for access, and each approved partner receives its own key.",
+    question: "Which two elements should the architect configure? (Choose two.)",
+    options: [
+      { id: 'A', text: "A product containing the API that requires subscription approval." },
+      { id: 'B', text: "The developer portal, published so partners can browse and request." },
+      { id: 'C', text: "A workspace per partner so that each partner manages its own API copy." },
+      { id: 'D', text: "A backend circuit breaker that blocks partners until they are approved." },
+      { id: 'E', text: "A self-hosted gateway deployed in each partner's own environment." }
+    ],
+    correctAnswers: ['A', 'B'],
+    type: "multiple",
+    explanation: "Products bundle APIs for consumers, and a product that requires subscription approval holds each subscription request until an administrator approves it, after which the partner receives its own subscription key; the published developer portal lets partners browse documentation and request the subscription themselves. A self-hosted gateway changes where traffic is processed, not who may call. A circuit breaker reacts to backend failures and has nothing to do with authorisation. Workspaces let internal teams manage their own APIs, not external consumers.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/api-management/api-management-howto-add-products",
+    tags: ["API Management", "Products", "Developer portal"]
+  },
+  {
+    id: "azure-az305-395",
+    difficulty: "easy",
+    certId: "azure-az305",
+    domainId: "d4",
+    domainName: "Design infrastructure solutions",
+    title: "Relieving a database from repeated catalogue reads",
+    scenario: "An online bookshop's product pages read the same book details from Azure SQL Database thousands of times a minute, although each book record changes only a few times a day. Database CPU is saturated at peak, and the team wants reads served in under a millisecond while the database remains the source of truth.",
+    question: "What should the architect recommend?",
+    options: [
+      { id: 'A', text: "Store the book details in Azure Blob Storage and read the JSON file for each product page view." },
+      { id: 'B', text: "Add read replicas and spread every page request evenly across the primary and its replicas." },
+      { id: 'C', text: "Scale the database to a larger service objective so that it can handle the peak read volume." },
+      { id: 'D', text: "Use Azure Managed Redis with the cache-aside pattern, loading records on a miss with an expiry." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "With cache-aside, the application checks Azure Managed Redis first and, on a miss, reads the database and stores the record with an expiry, so repeated reads are served from memory in well under a millisecond and the database stays authoritative. Read replicas spread load but each read still costs database resources and millisecond-level latency. Scaling up the database treats the symptom at higher cost. Blob reads are slower than an in-memory cache and duplicate data without an invalidation strategy.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/architecture/patterns/cache-aside",
+    tags: ["Azure Managed Redis", "Cache-aside", "Caching"]
+  },
+  {
+    id: "azure-az305-396",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d4",
+    domainName: "Design infrastructure solutions",
+    title: "Shopping carts lost when an instance recycles",
+    scenario: "An e-commerce web app on App Service keeps shopping carts in in-process session state and relies on ARR affinity to send each user back to the same instance. When instances recycle or autoscale removes them, users lose their carts. The team wants carts to survive any instance change and to turn affinity off.",
+    question: "What should the architect recommend?",
+    options: [
+      { id: 'A', text: "Increase the minimum instance count so autoscale never removes instances that hold active carts." },
+      { id: 'B', text: "Move session state into a distributed cache on Azure Managed Redis that every app instance shares." },
+      { id: 'C', text: "Keep ARR affinity and enable App Service health checks so unhealthy instances are removed sooner." },
+      { id: 'D', text: "Store session state in the local file system of each instance so that it survives app restarts." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "Moving session state to a distributed cache such as Azure Managed Redis makes every instance able to serve every user, so affinity can be turned off and carts survive recycling, scale-in and deployments. Health checks remove unhealthy instances faster but the carts on them are still lost. A higher minimum count reduces scale-in but instances still recycle for maintenance. The local file system belongs to one instance, so it has the same problem as in-process state.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/redis/overview",
+    tags: ["Azure Managed Redis", "Session state", "App Service"]
+  },
+  {
+    id: "azure-az305-397",
+    difficulty: "hard",
+    certId: "azure-az305",
+    domainId: "d4",
+    domainName: "Design infrastructure solutions",
+    title: "A cache written to in two regions at once",
+    scenario: "A betting platform runs active-active in West Europe and UK South. Each region's app writes user session and odds data to a local Redis cache, and a user who is routed to the other region must see their latest session data within about a second. Either region must keep accepting cache writes if the other fails.",
+    question: "What should the architect recommend?",
+    options: [
+      { id: 'A', text: "Azure Cache for Redis Premium with passive geo-replication to a read-only secondary in UK South." },
+      { id: 'B', text: "One zone-redundant Azure Managed Redis instance in West Europe used by the apps in both regions." },
+      { id: 'C', text: "Two independent Azure Managed Redis instances, with the app writing every change to both of them." },
+      { id: 'D', text: "Azure Managed Redis instances in West Europe and UK South joined in an active geo-replication group." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Active geo-replication in Azure Managed Redis links instances in several regions so each accepts reads and writes locally, replicating changes asynchronously and resolving conflicts with conflict-free replicated data types, which suits an active-active design that must survive a region loss. Passive geo-replication gives a read-only secondary that must be unlinked before it accepts writes, and those tiers are retiring. Dual writes from the application are fragile and inconsistent on partial failures. A single cache in West Europe adds cross-region latency and fails with that region.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/redis/how-to-active-geo-replication",
+    tags: ["Azure Managed Redis", "Active geo-replication", "Multi-region"]
+  },
+  {
+    id: "azure-az305-398",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d4",
+    domainName: "Design infrastructure solutions",
+    title: "Reusing answers to similar chatbot questions",
+    scenario: "A telecom's support chatbot calls a large language model for every question, and many customers ask semantically similar questions worded differently. The team wants to store past answers with their embeddings and return a cached answer when a new question is close enough, with sub-millisecond lookups.",
+    question: "What should the architect recommend for the cache?",
+    options: [
+      { id: 'A', text: "Azure Managed Redis with the RediSearch module, storing question vectors in a similarity index." },
+      { id: 'B', text: "Azure Front Door caching of the chatbot API responses with query string caching enabled." },
+      { id: 'C', text: "Azure Blob Storage holding answers as files named after a hash of each question's text." },
+      { id: 'D', text: "The API Management built-in cache with cache-lookup policies keyed on the exact prompt." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Azure Managed Redis supports the RediSearch module, which provides vector indexes and similarity search, so embeddings of past questions can be matched against new ones in memory for a semantic cache. A cache keyed on the exact prompt, whether in API Management or elsewhere, misses whenever the wording changes. Front Door caches by URL and query string, not by meaning, and chatbot requests are usually POST requests. Hashing question text is another exact-match approach, and blob reads are far slower than in-memory lookups.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/redis/overview-vector-similarity",
+    tags: ["Azure Managed Redis", "Semantic caching", "Vector search"]
+  },
+  {
+    id: "azure-az305-399",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d4",
+    domainName: "Design infrastructure solutions",
+    title: "Response caching on a serverless API gateway",
+    scenario: "A transport authority publishes timetable APIs through an API Management instance on the Consumption tier. Timetable responses change only hourly, and the authority wants the gateway to serve repeated requests from a cache using cache-lookup and cache-store policies instead of calling the backend each time.",
+    question: "What must the architect add for the caching policies to work?",
+    options: [
+      { id: 'A', text: "An external Redis-compatible cache, such as Azure Managed Redis, configured in API Management." },
+      { id: 'B', text: "An Azure Front Door profile in front of the gateway with caching rules for the timetable paths." },
+      { id: 'C', text: "Nothing; the Consumption tier's built-in cache stores responses for each gateway automatically." },
+      { id: 'D', text: "A move to the Developer tier, whose built-in cache is shared by all of the instance's gateways." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "The Consumption tier does not include the built-in cache, so the cache-lookup and cache-store policies need an external Redis-compatible cache, such as Azure Managed Redis, configured on the instance. Assuming a built-in cache exists is exactly the mistake. Front Door caching might reduce calls but does not make the gateway's caching policies work. The Developer tier has a built-in cache but no SLA, so it is not suitable for a production timetable service.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/api-management/api-management-howto-cache-external",
+    tags: ["API Management", "Caching", "Consumption tier"]
+  },
+  {
+    id: "azure-az305-400",
+    difficulty: "hard",
+    certId: "azure-az305",
+    domainId: "d4",
+    domainName: "Design infrastructure solutions",
+    title: "Cutting request units spent on repeated reads",
+    scenario: "A gaming company's Azure Cosmos DB for NoSQL account serves player profile point reads, and the same profiles are read thousands of times a minute, consuming most of the provisioned request units. The data can be a few seconds stale, and the team wants a cache without writing cache-management code in the application.",
+    question: "What should the architect recommend?",
+    options: [
+      { id: 'A', text: "Increasing the Cosmos DB container's autoscale maximum throughput so the reads never throttle." },
+      { id: 'B', text: "Enabling the analytical store on the container and directing the profile reads to it instead." },
+      { id: 'C', text: "Azure Managed Redis with cache-aside logic in the application for every player profile read." },
+      { id: 'D', text: "The Cosmos DB integrated cache on a dedicated gateway, with session or eventual consistency." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "The Cosmos DB integrated cache runs in a dedicated gateway; point reads and queries served from it consume no request units, and the application only switches to the dedicated gateway connection string and uses session or eventual consistency, so no cache-management code is needed. Cache-aside with Redis also cuts request units but requires exactly the application code the team wants to avoid. Raising throughput pays for the repeated reads rather than eliminating them. The analytical store serves large analytical scans through Synapse Link or Fabric, not low-latency point reads.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/cosmos-db/integrated-cache",
+    tags: ["Cosmos DB", "Integrated cache", "Caching"]
+  }
+];
+
+export default AZURE_AZ305_QUESTIONS_16;

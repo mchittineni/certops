@@ -1,0 +1,533 @@
+export const AZURE_AZ305_QUESTIONS_10 = [
+  {
+    id: "azure-az305-226",
+    difficulty: "easy",
+    certId: "azure-az305",
+    domainId: "d3",
+    domainName: "Design business continuity solutions",
+    title: "Order system that can lose fifteen minutes at most",
+    scenario: "A wholesaler runs its order-processing application on six Azure VMs in North Europe. The business continuity plan states that after a regional disaster the application must be running again in another region within two hours and must lose no more than 15 minutes of orders. Nightly backups already exist.",
+    question: "Which solution meets these recovery objectives?",
+    options: [
+      { id: 'A', text: "Change the Azure Backup policy to an enhanced policy with backups every four hours and restore in the paired region." },
+      { id: 'B', text: "Replicate the VMs to another region with Azure Site Recovery and fail them over through a recovery plan." },
+      { id: 'C', text: "Keep the nightly backup plan and restore the VMs in the paired region with Azure Backup Cross Region Restore." },
+      { id: 'D', text: "Deploy the VMs across three availability zones in North Europe behind a zone-redundant load balancer." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "Azure Site Recovery replicates disk writes continuously to the target region, creating crash-consistent recovery points every few minutes, so the recovery point objective is measured in minutes and a failover brings the VMs up in well under two hours. Nightly backups restored with Cross Region Restore can lose up to a day of orders, and restoring six VMs from backup is slower. Backups every four hours still allow up to four hours of data loss. Availability zones protect against a datacentre failure but not against the loss of the whole region.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/site-recovery/azure-to-azure-architecture",
+    tags: ["Azure Site Recovery", "RPO", "RTO"]
+  },
+  {
+    id: "azure-az305-227",
+    difficulty: "easy",
+    certId: "azure-az305",
+    domainId: "d3",
+    domainName: "Design business continuity solutions",
+    title: "Where the vault goes for East US to West US replication",
+    scenario: "A media company is enabling Azure Site Recovery for 30 VMs that run in East US, with West US as the disaster recovery region. The team is unsure where to create the Recovery Services vault and what else the replication needs in each region.",
+    question: "Where should the Recovery Services vault be created?",
+    options: [
+      { id: 'A', text: "In East US, created next to the protected VMs so that the vault stays alongside the source machines." },
+      { id: 'B', text: "In East US, with a cache storage account in West US that receives the replicated disk changes first." },
+      { id: 'C', text: "In any third region such as Central US, so that neither the source nor the target outage affects it." },
+      { id: 'D', text: "In West US, the target region, with a cache storage account created in East US for replication traffic." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "For Azure-to-Azure replication, the Recovery Services vault is created in the target region so that it remains available to orchestrate failover when the source region is down, while a cache storage account in the source region stages disk changes before they are sent to managed disks in the target region. A vault in the source region could be lost in the very disaster it is meant to handle. A vault in an unrelated third region is not how Site Recovery is designed; the vault must be in the target region. The cache storage account sits in the source region, not the target.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/site-recovery/azure-to-azure-tutorial-enable-replication",
+    tags: ["Azure Site Recovery", "Recovery Services vault"]
+  },
+  {
+    id: "azure-az305-228",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d3",
+    domainName: "Design business continuity solutions",
+    title: "Bringing a three-tier app up in the right order",
+    scenario: "A travel agency protects its booking application with Azure Site Recovery: two SQL Server VMs, four application VMs and three web VMs. During the last drill, web servers started before the database was ready and had to be restarted by hand, and an engineer then updated a DNS record manually. The agency wants failover to run as one orchestrated action.",
+    question: "What should the architect configure?",
+    options: [
+      { id: 'A', text: "A recovery plan with separate groups for database, application and web tiers, plus a runbook to update DNS." },
+      { id: 'B', text: "A replication policy with application-consistent snapshots every hour for all nine VMs in the application." },
+      { id: 'C', text: "An availability set in the target region for each tier so the VMs restart in fault-domain order after failover." },
+      { id: 'D', text: "A multi-VM consistency group containing all nine VMs so they share a common recovery point on failover." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "A recovery plan groups replicated VMs so each group fails over and starts in sequence, database first, then application, then web, and it can include Azure Automation runbooks and manual actions, such as updating the DNS record, so the whole failover runs as one orchestrated action. Application-consistent snapshots change the quality of recovery points, not the start order. Multi-VM consistency gives VMs a shared recovery point but does not sequence their start-up. Availability sets place VMs across fault domains; they do not control boot order after failover.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/site-recovery/recovery-plan-overview",
+    tags: ["Azure Site Recovery", "Recovery plans", "Automation"]
+  },
+  {
+    id: "azure-az305-229",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d3",
+    domainName: "Design business continuity solutions",
+    title: "Quarterly DR drill without disturbing production",
+    scenario: "A regulator requires an insurer to prove every quarter that its claims platform, protected by Azure Site Recovery, can be recovered in the secondary region. The drill must not interrupt replication, must not affect production users, and the recovered VMs must not be able to reach the production network during testing.",
+    question: "How should the drill be run?",
+    options: [
+      { id: 'A', text: "Restore the latest Azure Backup recovery points into the secondary region and test the restored VMs there." },
+      { id: 'B', text: "Run a test failover of the recovery plan into an isolated virtual network, then clean up the test failover." },
+      { id: 'C', text: "Run a full failover to the secondary region on a weekend, then reprotect and fail back after the tests." },
+      { id: 'D', text: "Run an unplanned failover into the production target network and disable replication during the tests." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "A test failover creates VMs from a chosen recovery point in a virtual network you specify, typically an isolated one, while replication continues uninterrupted and production keeps running; cleaning up the test failover deletes the test VMs. A full failover moves production itself and requires failback, so users are affected. An unplanned failover into the production target network also moves the workload and risks conflicts with production. Restoring backups tests the backup solution, not the Site Recovery setup the regulator wants proven.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/site-recovery/azure-to-azure-tutorial-dr-drill",
+    tags: ["Azure Site Recovery", "Test failover", "DR drill"]
+  },
+  {
+    id: "azure-az305-230",
+    difficulty: "hard",
+    certId: "azure-az305",
+    domainId: "d3",
+    domainName: "Design business continuity solutions",
+    title: "Recovery point shared by a distributed ledger cluster",
+    scenario: "A payments firm runs a distributed ledger on five Azure VMs that write related records to each other's disks within the same transaction. After a failover all five must come back from the same point in time or the ledger is inconsistent. The firm protects the VMs with Azure Site Recovery to another region.",
+    question: "What should the architect enable?",
+    options: [
+      { id: 'A', text: "A capacity reservation group in the target region so that all five VMs are allocated together during failover." },
+      { id: 'B', text: "A recovery plan that puts all five VMs in one group so they start together at the same moment after failover." },
+      { id: 'C', text: "Application-consistent snapshots every hour on each VM so each machine has its own consistent recovery point." },
+      { id: 'D', text: "Multi-VM consistency, placing the five VMs in one replication group so they share recovery points on failover." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Multi-VM consistency puts VMs in a replication group, up to 16 VMs, so Site Recovery creates crash-consistent and application-consistent recovery points that are shared across all members, and a failover brings every VM back to the same point in time. Per-VM application-consistent snapshots are consistent within each VM but taken at different moments across VMs. Placing the VMs in one recovery plan group starts them together but from each VM's own latest point. A capacity reservation guarantees compute in the target region; it has no effect on which recovery point each VM uses.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/site-recovery/azure-to-azure-common-questions",
+    tags: ["Azure Site Recovery", "Multi-VM consistency"]
+  },
+  {
+    id: "azure-az305-231",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d3",
+    domainName: "Design business continuity solutions",
+    title: "Disaster recovery that must stay inside one country",
+    scenario: "A government agency runs VMs in a region with availability zones. Data sovereignty rules forbid replicating any data to another region, including the paired region, but the agency wants its VMs recoverable if the zone they run in suffers an extended outage. The VMs are single-instance and cannot be redesigned for clustering.",
+    question: "What should the architect recommend?",
+    options: [
+      { id: 'A', text: "Azure Site Recovery replication to the paired region, with the target disks encrypted using the agency's own keys." },
+      { id: 'B', text: "Azure Site Recovery zone-to-zone replication, copying each VM's disks to another zone in the same region." },
+      { id: 'C', text: "A zone-redundant Virtual Machine Scale Set that holds one instance per zone for each single-instance VM." },
+      { id: 'D', text: "Azure Backup with a zone-redundant vault, restoring the VMs into another zone if their zone has a long outage." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "Site Recovery zone-to-zone disaster recovery replicates VMs to another availability zone in the same region, so data never leaves the region and the VMs can be failed over with a recovery point measured in minutes when their zone is down. Replicating to the paired region breaks the sovereignty rule, whatever the encryption. Restoring from a zone-redundant backup vault keeps data in region but loses up to a day of changes and takes longer to recover. A scale set with one instance per zone runs several copies of the application, which requires the redesign the scenario rules out.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/site-recovery/azure-to-azure-how-to-enable-zone-to-zone-disaster-recovery",
+    tags: ["Azure Site Recovery", "Zone to zone", "Data residency"]
+  },
+  {
+    id: "azure-az305-232",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d3",
+    domainName: "Design business continuity solutions",
+    title: "Disaster recovery to Azure for a vSphere estate",
+    scenario: "A hospital runs 120 VMs on VMware vSphere in its only data centre. It wants Azure as the disaster recovery site with an RPO of minutes and the ability to fail back to vSphere after an incident, using the modernized Azure Site Recovery experience.",
+    question: "Which two components are required? (Choose two.)",
+    options: [
+      { id: 'A', text: "An Azure Backup Server on-premises to stage replicated disks before they reach Azure." },
+      { id: 'B', text: "The Site Recovery provider installed directly on each ESXi host that runs protected VMs." },
+      { id: 'C', text: "An ExpressRoute circuit, since replication from vSphere cannot use the public internet." },
+      { id: 'D', text: "An Azure Site Recovery replication appliance deployed on-premises in the vSphere estate." },
+      { id: 'E', text: "A Recovery Services vault in the Azure region chosen as the disaster recovery site." }
+    ],
+    correctAnswers: ['D', 'E'],
+    type: "multiple",
+    explanation: "VMware disaster recovery to Azure uses a Recovery Services vault in the target region and an on-premises replication appliance that discovers VMs through vCenter, pushes the Mobility service to them and sends replicated data to Azure; the same appliance handles failback to vSphere. The Site Recovery provider is installed on Hyper-V hosts, not ESXi hosts. Azure Backup Server is a backup product and plays no part in Site Recovery replication. Replication can run over the internet or a VPN as well as ExpressRoute, so a circuit is optional.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/site-recovery/vmware-azure-architecture-modernized",
+    tags: ["Azure Site Recovery", "VMware", "Hybrid DR"]
+  },
+  {
+    id: "azure-az305-233",
+    difficulty: "easy",
+    certId: "azure-az305",
+    domainId: "d3",
+    domainName: "Design business continuity solutions",
+    title: "Standalone Hyper-V hosts protected to Azure",
+    scenario: "A law firm runs 25 VMs on four standalone Hyper-V hosts that are not managed by System Center Virtual Machine Manager. It wants Azure as the disaster recovery site for these VMs using Azure Site Recovery and asks what must be installed on-premises.",
+    question: "What must be installed to replicate the VMs?",
+    options: [
+      { id: 'A', text: "The Site Recovery provider and the Recovery Services agent on each of the four Hyper-V hosts." },
+      { id: 'B', text: "The Azure Connected Machine agent on each of the four hosts so they are onboarded to Azure Arc first." },
+      { id: 'C', text: "System Center Virtual Machine Manager on the Hyper-V hosts, since Site Recovery protects only managed hosts." },
+      { id: 'D', text: "A Site Recovery replication appliance VM, with the Mobility service pushed to all 25 guest VMs." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "For Hyper-V hosts without VMM, the Site Recovery provider and the Microsoft Azure Recovery Services agent are installed on each host, which then replicates its VMs to Azure without any agent inside the guests. The replication appliance and Mobility service are used for VMware VMs and physical servers. VMM is optional: Site Recovery supports standalone Hyper-V hosts and clusters grouped into Hyper-V sites. Azure Arc onboarding is not a prerequisite for Hyper-V replication.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/site-recovery/hyper-v-azure-architecture",
+    tags: ["Azure Site Recovery", "Hyper-V", "Hybrid DR"]
+  },
+  {
+    id: "azure-az305-234",
+    difficulty: "easy",
+    certId: "azure-az305",
+    domainId: "d3",
+    domainName: "Design business continuity solutions",
+    title: "Offsite copies of branch file servers",
+    scenario: "A retail chain has a Windows Server file server in each of 60 stores. It wants the shared folders and system state of each server backed up to Azure every night for offsite protection. The stores have no spare hardware and IT does not want to run a backup server anywhere.",
+    question: "What should the architect recommend?",
+    options: [
+      { id: 'A', text: "Deploy Azure File Sync on each file server so every file is synchronised to an Azure file share each night." },
+      { id: 'B', text: "Replicate each file server to Azure with Azure Site Recovery and keep the replicated disks as the offsite copy." },
+      { id: 'C', text: "Install the Microsoft Azure Recovery Services agent on each file server, backing up to a Recovery Services vault." },
+      { id: 'D', text: "Install Microsoft Azure Backup Server in each store and send its protected data to a Recovery Services vault." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "The Microsoft Azure Recovery Services (MARS) agent installs directly on a Windows server and backs up files, folders and system state straight to a Recovery Services vault on a schedule, with no backup server or extra hardware. Azure Backup Server needs a dedicated server in each store, which IT refuses. Site Recovery is a disaster recovery service; its recovery points are kept for days, not as a long-term backup. File Sync synchronises files rather than keeping point-in-time backups, so deletions and corruption would synchronise too, and it does not protect system state.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/backup/backup-azure-about-mars",
+    tags: ["Azure Backup", "MARS agent", "Hybrid backup"]
+  },
+  {
+    id: "azure-az305-235",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d3",
+    domainName: "Design business continuity solutions",
+    title: "Fast local restores plus long-term cloud copies",
+    scenario: "A manufacturer backs up 40 Hyper-V VMs, three SQL Server instances and an Exchange server on-premises. It wants restores of the last few days to run at LAN speed from local disk, and older recovery points kept in Azure for seven years instead of on tape, without buying a System Center licence.",
+    question: "Which solution should the architect recommend?",
+    options: [
+      { id: 'A', text: "Install the MARS agent on each on-premises Hyper-V host and SQL Server, backing up directly to a vault in Azure." },
+      { id: 'B', text: "Deploy Microsoft Azure Backup Server on-premises, keeping recent points on local disk and older ones in a vault." },
+      { id: 'C', text: "Deploy System Center Data Protection Manager on local disk, archiving older points to tape offsite weekly." },
+      { id: 'D', text: "Replicate the VMs and SQL Servers to Azure with Site Recovery and set recovery point retention to seven years." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "Azure Backup Server runs on-premises, protects Hyper-V VMs, SQL Server and Exchange with application awareness, keeps short-term recovery points on local disk for fast restores, and sends long-term copies to a Recovery Services vault, without a System Center licence. The MARS agent backs up files, folders and system state; it does not protect Hyper-V VMs, SQL Server or Exchange at the application level, and it has no local restore tier. Site Recovery retains recovery points for days, not years. Data Protection Manager needs a System Center licence, and tapes are what the manufacturer wants to stop using.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/backup/backup-azure-microsoft-azure-backup",
+    tags: ["Azure Backup Server", "Hybrid backup", "Long-term retention"]
+  },
+  {
+    id: "azure-az305-236",
+    difficulty: "hard",
+    certId: "azure-az305",
+    domainId: "d3",
+    domainName: "Design business continuity solutions",
+    title: "Guaranteeing VM capacity in the DR region",
+    scenario: "A bank protects 200 VMs of large memory-optimised sizes with Azure Site Recovery. Its regulator asks how the bank can be sure those VM sizes will actually be available in the target region during a regional disaster, when many customers may be failing over at the same time.",
+    question: "What should the architect add to the design?",
+    options: [
+      { id: 'A', text: "Capacity reservation groups for the VM sizes in the target region, associated with the replicated VMs." },
+      { id: 'B', text: "A recovery plan that fails over the largest VMs first so they are allocated before other customers' VMs." },
+      { id: 'C', text: "Reserved VM instances for the target region, which guarantee that capacity is held for the bank's VM sizes." },
+      { id: 'D', text: "A second Recovery Services vault in a third region so failover can use another region's spare capacity." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "On-demand capacity reservation holds compute capacity for specific VM sizes in a region or zone, and Site Recovery can associate replicated VMs with a capacity reservation group in the target region, so the reserved capacity is used at failover regardless of demand from other customers. Reserved VM instances are a billing discount and do not guarantee capacity. Ordering failover within a recovery plan does not secure capacity against other tenants. A second vault in another region means a second replication to maintain and still has no guarantee of capacity there.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/virtual-machines/capacity-reservation-overview",
+    tags: ["Azure Site Recovery", "Capacity reservation"]
+  },
+  {
+    id: "azure-az305-237",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d3",
+    domainName: "Design business continuity solutions",
+    title: "Low-cost regional recovery for internal tools",
+    scenario: "A logistics company runs 40 internal reporting VMs that are already backed up daily with Azure Backup. For these tools the business accepts losing up to a day and a half of data and being down for up to three days after a regional disaster. Leadership wants the cheapest way to recover them in another region.",
+    question: "What should the architect recommend?",
+    options: [
+      { id: 'A', text: "Use a geo-redundant vault with Cross Region Restore and restore the VMs in the paired region when needed." },
+      { id: 'B', text: "Change the vault to zone-redundant storage so backups stay available if a datacentre in the region fails." },
+      { id: 'C', text: "Build a warm standby of the 40 VMs in the paired region and copy the latest backups onto them weekly." },
+      { id: 'D', text: "Enable Azure Site Recovery for the 40 VMs to the paired region and run a test failover every quarter." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "A geo-redundant Recovery Services vault replicates backup data to the paired region, and Cross Region Restore lets the company restore VMs there at any time, including during a regional outage, which meets a tolerance of a day and a half of data loss and three days of downtime at far lower cost than continuous replication. Site Recovery replication charges per protected VM for recovery objectives much tighter than required. A warm standby runs extra VMs full time. Zone-redundant vault storage protects against a datacentre failure but keeps all backup data in the one region.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/backup/backup-create-recovery-services-vault",
+    tags: ["Azure Backup", "Cross Region Restore", "Cost optimization"]
+  },
+  {
+    id: "azure-az305-238",
+    difficulty: "hard",
+    certId: "azure-az305",
+    domainId: "d3",
+    domainName: "Design business continuity solutions",
+    title: "Switching a busy vault to geo-redundant storage",
+    scenario: "A retailer created a Recovery Services vault with locally redundant storage two years ago and now protects 300 VMs in it. A new policy requires backups to be restorable in the paired region. An engineer proposes simply changing the vault's storage replication type to geo-redundant this weekend.",
+    question: "What should the architect advise?",
+    options: [
+      { id: 'A', text: "Change the replication type to ZRS first and then to GRS, because a vault cannot move from LRS to GRS directly." },
+      { id: 'B', text: "Change the replication type to GRS in the vault properties; existing recovery points replicate in the background." },
+      { id: 'C', text: "Create a new vault with GRS and Cross Region Restore, move protection of the VMs to it, and retire the old vault." },
+      { id: 'D', text: "Enable Cross Region Restore on the existing vault, which switches its storage to GRS automatically when enabled." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "A Recovery Services vault's storage replication type can be changed only before any item is protected in it; once backups exist, the setting is locked, so the retailer needs a new GRS vault with Cross Region Restore enabled and must reconfigure protection of the VMs there, keeping the old vault until its recovery points age out. The replication type of a vault with protected items cannot be edited to GRS, directly or through ZRS. Cross Region Restore requires a vault that is already GRS and cannot be enabled on an LRS vault.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/backup/backup-create-recovery-services-vault",
+    tags: ["Azure Backup", "Recovery Services vault", "Storage redundancy"]
+  },
+  {
+    id: "azure-az305-239",
+    difficulty: "hard",
+    certId: "azure-az305",
+    domainId: "d3",
+    domainName: "Design business continuity solutions",
+    title: "Hard-coded IP addresses after failover",
+    scenario: "A manufacturer's legacy MES application uses hard-coded private IP addresses between its six VMs, and licence servers are bound to those addresses. The VMs are protected with Azure Site Recovery to a secondary region. After failover the VMs must keep the same private IP addresses without application changes.",
+    question: "How should the target network be designed?",
+    options: [
+      { id: 'A', text: "Peer the source and target VNets and let Site Recovery move the IP addresses across the peering at failover." },
+      { id: 'B', text: "Build the target VNet with the same address space and subnets as the source, so Site Recovery reuses each IP." },
+      { id: 'C', text: "Create the target VNet with a different address space and add a recovery plan script that updates the app's IPs." },
+      { id: 'D', text: "Assign public IPs to the VMs in the target region and map them to the same private IPs with a NAT gateway." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "When the target virtual network uses the same address space and subnet as the source, Site Recovery assigns each failed-over VM the same private IP address it had in the source, provided the address is free, so hard-coded addresses and licence bindings keep working. Two VNets with the same address space cannot be peered, and peering does not move addresses anyway. A different address space requires changing the application's configuration, which the scenario forbids. A NAT gateway provides outbound internet access and does not translate private addresses between VMs.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/site-recovery/azure-to-azure-network-mapping",
+    tags: ["Azure Site Recovery", "Networking", "IP retention"]
+  },
+  {
+    id: "azure-az305-240",
+    difficulty: "hard",
+    certId: "azure-az305",
+    domainId: "d3",
+    domainName: "Design business continuity solutions",
+    title: "Tiering recovery for critical and non-critical systems",
+    scenario: "A retailer has classified its Azure VM workloads. The e-commerce tier must recover in another region within one hour with at most 15 minutes of data loss. The HR reporting tier can lose a day of data and be down for three days after a regional disaster. Leadership wants each tier to meet its objectives at the lowest cost.",
+    question: "Which two actions should the architect take? (Choose two.)",
+    options: [
+      { id: 'A', text: "Protect both tiers with zone-redundant deployments across three availability zones in one region." },
+      { id: 'B', text: "Protect the e-commerce VMs with Azure Backup using an enhanced policy with backups every four hours." },
+      { id: 'C', text: "Protect the HR reporting VMs with Azure Backup in a GRS vault that has Cross Region Restore enabled." },
+      { id: 'D', text: "Protect the e-commerce VMs with Azure Site Recovery to the secondary region with a recovery plan." },
+      { id: 'E', text: "Protect the HR reporting VMs with Azure Site Recovery to the secondary region with a recovery plan." }
+    ],
+    correctAnswers: ['C', 'D'],
+    type: "multiple",
+    explanation: "Site Recovery gives the e-commerce tier an RPO of minutes and fast, orchestrated failover, meeting 15 minutes and one hour, while daily backups in a geo-redundant vault with Cross Region Restore meet the HR tier's one-day RPO and three-day RTO at far lower cost. Site Recovery for HR spends money on objectives far tighter than needed. Backups every four hours cannot meet a 15-minute RPO for e-commerce. Zone-redundant deployments protect against datacentre failures in one region but not against a regional disaster.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/reliability/disaster-recovery-overview",
+    tags: ["Azure Site Recovery", "Azure Backup", "Recovery objectives"]
+  },
+  {
+    id: "azure-az305-241",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d3",
+    domainName: "Design business continuity solutions",
+    title: "Replication traffic swamped by a scratch disk",
+    scenario: "A research institute protects analytics VMs with Azure Site Recovery. Each VM has a 2 TB data disk that holds a scratch area rewritten constantly during jobs, and the data churn regularly exceeds the replication limits, causing RPO alerts. The scratch contents can be regenerated after failover and do not need protection.",
+    question: "What should the architect recommend?",
+    options: [
+      { id: 'A', text: "Move the scratch data to a separate data disk and exclude that disk from Site Recovery replication." },
+      { id: 'B', text: "Raise the app-consistent snapshot frequency so that each recovery point captures less changed data." },
+      { id: 'C', text: "Switch the scratch data disk to Ultra Disk so that the higher throughput raises the replication limit." },
+      { id: 'D', text: "Replace Site Recovery for these VMs with Azure Backup so data churn no longer affects the recovery point." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Site Recovery lets specific disks be excluded from replication, so moving the regenerable scratch area to its own disk and excluding it removes that churn from replication, keeping the protected disks within limits and the RPO healthy, while the excluded disk is recreated after failover. More frequent app-consistent snapshots add work and do not reduce the volume of changed data to replicate. A faster disk type does not raise Site Recovery's churn limits. Azure Backup changes the recovery objective to daily points, which is a different and weaker recovery design.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/site-recovery/exclude-disks-replication",
+    tags: ["Azure Site Recovery", "Data churn", "Exclude disks"]
+  },
+  {
+    id: "azure-az305-242",
+    difficulty: "hard",
+    certId: "azure-az305",
+    domainId: "d3",
+    domainName: "Design business continuity solutions",
+    title: "A request for zero data loss across regions",
+    scenario: "The CFO of an insurer asks for its policy administration system, a set of Azure VMs running a proprietary database, to fail over to another region with zero data loss. The database has no built-in replication feature and the vendor supports only running it on a single VM with attached disks.",
+    question: "What should the architect tell the CFO?",
+    options: [
+      { id: 'A', text: "Geo-redundant disk snapshots copy each write to the paired region before acknowledging it, so no data is ever lost." },
+      { id: 'B', text: "Site Recovery replicates asynchronously, so a regional failover can lose the latest writes; zero RPO is not possible." },
+      { id: 'C', text: "Site Recovery replicates synchronously between regions, so failover to another region has zero data loss." },
+      { id: 'D', text: "Zone-redundant storage disks replicate to another region synchronously, so a failover of the VM loses no data." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "Site Recovery replicates disk writes asynchronously and creates recovery points every few minutes, so a regional failover can lose the writes made since the last replicated point; with no application-level synchronous replication available, cross-region zero RPO cannot be promised, and the business must accept a small RPO or change the database. Site Recovery is not synchronous between regions. Snapshots are point-in-time copies and are not replicated write by write. Zone-redundant disks replicate synchronously across zones within one region, not to another region.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/site-recovery/azure-to-azure-architecture",
+    tags: ["Azure Site Recovery", "RPO", "Asynchronous replication"]
+  },
+  {
+    id: "azure-az305-243",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d3",
+    domainName: "Design business continuity solutions",
+    title: "Choosing the right vault for mixed workloads",
+    scenario: "A software company is designing Azure Backup for Azure VMs, managed disks that need snapshot backups several times a day, Blob storage accounts, and Azure Database for PostgreSQL flexible servers that need long-term retention. The team assumed one Recovery Services vault would hold everything.",
+    question: "How should the vaults be designed?",
+    options: [
+      { id: 'A', text: "A Recovery Services vault for the VMs and PostgreSQL servers, and a Backup vault for the disks and blobs." },
+      { id: 'B', text: "One Backup vault for every workload, since Backup vaults have replaced Recovery Services vaults entirely." },
+      { id: 'C', text: "One Recovery Services vault for every workload, since it supports all Azure Backup datasource types." },
+      { id: 'D', text: "A Recovery Services vault for the VMs, and a Backup vault for the disks, blobs and PostgreSQL servers." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Azure VMs are protected in Recovery Services vaults, while newer datasources, including Azure Disk Backup, operational and vaulted Blob backup and Azure Database for PostgreSQL flexible server long-term retention, are protected in Backup vaults, so this estate needs one of each. A Recovery Services vault does not support disk, blob or PostgreSQL flexible server backups. Backup vaults have not replaced Recovery Services vaults and cannot protect Azure VMs. PostgreSQL flexible server backups belong in a Backup vault, not a Recovery Services vault.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/backup/backup-vault-overview",
+    tags: ["Azure Backup", "Backup vault", "Recovery Services vault"]
+  },
+  {
+    id: "azure-az305-244",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d3",
+    domainName: "Design business continuity solutions",
+    title: "Backups that ransomware operators cannot erase",
+    scenario: "After a peer company's attackers used stolen admin credentials to delete its backups before encrypting servers, a bank wants its Recovery Services vault hardened. Nobody, including a subscription Owner, should be able to shorten retention or disable protection alone, and backups must be impossible to delete before they expire.",
+    question: "Which two actions should the architect take? (Choose two.)",
+    options: [
+      { id: 'A', text: "Enable immutability on the vault and lock it so recovery points cannot be deleted before they expire." },
+      { id: 'B', text: "Place a CanNotDelete resource lock on the vault so recovery points cannot be deleted before they expire." },
+      { id: 'C', text: "Require Conditional Access with MFA for all Owners, so stolen passwords alone cannot sign in to Azure." },
+      { id: 'D', text: "Switch the vault's storage replication to geo-redundant so a second copy exists in the paired region." },
+      { id: 'E', text: "Enable multi-user authorization with a Resource Guard owned by a separate security team in another tenant." }
+    ],
+    correctAnswers: ['A', 'E'],
+    type: "multiple",
+    explanation: "A locked immutable vault prevents any operation that would delete recovery points before their retention expires, including reducing retention, and the lock itself cannot be undone. Multi-user authorization requires approval through a Resource Guard, ideally in another tenant owned by security, before critical operations such as disabling soft delete or stopping protection, so a single compromised Owner cannot act alone. A resource lock protects the vault resource but an Owner can remove it, and it does not govern recovery points. A geo-redundant copy is deleted along with the primary when an attacker deletes backup data. MFA reduces credential theft but does not stop an attacker already holding an Owner session.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/backup/immutable-vault-concept",
+    tags: ["Azure Backup", "Immutable vault", "Multi-user authorization"]
+  },
+  {
+    id: "azure-az305-245",
+    difficulty: "easy",
+    certId: "azure-az305",
+    domainId: "d3",
+    domainName: "Design business continuity solutions",
+    title: "Returning to the primary region after an outage",
+    scenario: "An e-learning company failed its Azure VMs over to West Europe with Azure Site Recovery during an outage in North Europe. North Europe is healthy again, and the company wants to move the application back to North Europe with minimal data loss while staying protected throughout.",
+    question: "What is the correct sequence?",
+    options: [
+      { id: 'A', text: "Run a test failover to North Europe and keep the test VMs as the production VMs once testing succeeds." },
+      { id: 'B', text: "Restore the VMs in North Europe from their last Azure Backup recovery point and redirect users to them." },
+      { id: 'C', text: "Reprotect the VMs so that they replicate from West Europe to North Europe, then fail over to North Europe." },
+      { id: 'D', text: "Delete the VMs in West Europe and re-enable replication from North Europe as if setting up protection anew." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "After failover, reprotecting reverses replication so the running VMs in West Europe replicate back to North Europe; a failover to North Europe then returns production with only the changes since the last recovery point at risk, and reprotecting again restores the original direction. Deleting the West Europe VMs discards the changes made since the outage. Restoring from backup loses everything since the last backup. Test failover VMs are meant to be cleaned up and are not a supported way to move production.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/site-recovery/azure-to-azure-tutorial-failback",
+    tags: ["Azure Site Recovery", "Failback", "Reprotect"]
+  },
+  {
+    id: "azure-az305-246",
+    difficulty: "easy",
+    certId: "azure-az305",
+    domainId: "d3",
+    domainName: "Design business continuity solutions",
+    title: "Internal wiki that can wait a day to come back",
+    scenario: "A consultancy runs an internal wiki on a single Azure VM. Management accepts that after any failure the wiki can be unavailable for up to a day and lose up to 24 hours of edits. They want the cheapest protection that still allows the VM to be recovered.",
+    question: "What should the architect recommend?",
+    options: [
+      { id: 'A', text: "Run a second VM in another availability zone with the wiki replicated to it by a scheduled task." },
+      { id: 'B', text: "Back up the VM daily with Azure Backup on a standard policy and restore it from a recovery point." },
+      { id: 'C', text: "Take a manual snapshot of the VM's disks each week and keep the latest four snapshots in the region." },
+      { id: 'D', text: "Replicate the VM to another region with Azure Site Recovery and keep recovery points for one day." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "A daily Azure Backup with a standard policy gives an RPO of up to 24 hours, and restoring the VM from a recovery point fits within a day of downtime at the lowest cost. Site Recovery provides minutes of RPO and fast failover, which costs more than needed. A second VM doubles compute cost and adds a replication task to maintain. Weekly snapshots allow up to a week of lost edits, which breaks the 24-hour tolerance.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/backup/backup-azure-vms-introduction",
+    tags: ["Azure Backup", "RPO", "Cost optimization"]
+  },
+  {
+    id: "azure-az305-247",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d3",
+    domainName: "Design business continuity solutions",
+    title: "Redirecting users to Azure after a site failover",
+    scenario: "A publisher protects its on-premises web servers with Azure Site Recovery, failing over to Azure if the data centre is lost. Customers reach the site through a public DNS name. The publisher wants users sent to the Azure copy automatically once it is running, without an engineer editing DNS records during the incident.",
+    question: "What should the architect add?",
+    options: [
+      { id: 'A', text: "An internal load balancer in the target VNet whose frontend IP is registered as the site's public record." },
+      { id: 'B', text: "A Traffic Manager profile with priority routing and health probes on the on-premises and Azure endpoints." },
+      { id: 'C', text: "An Azure Application Gateway in the target region, with the on-premises web servers in its backend pool." },
+      { id: 'D', text: "An Azure DNS private zone linked to the target VNet that resolves the public site name to the failed-over VMs." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "Traffic Manager with priority routing sends users to the on-premises endpoint while it is healthy and, when its health probes fail and the Azure endpoint answers, directs DNS responses to the Azure copy automatically. An Application Gateway in the target region is a regional load balancer and cannot route users away from a failed data centre that it depends on. A private DNS zone resolves names only inside linked virtual networks, not for internet customers. An internal load balancer has a private frontend that internet users cannot reach.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/site-recovery/concepts-traffic-manager-with-site-recovery",
+    tags: ["Azure Site Recovery", "Traffic Manager", "DNS failover"]
+  },
+  {
+    id: "azure-az305-248",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d3",
+    domainName: "Design business continuity solutions",
+    title: "Recovery region other than the paired one",
+    scenario: "A retailer runs VMs in East US 2 and wants disaster recovery for them, but its capacity planning team prefers North Central US to the paired region, Central US. The retailer asks whether Azure Site Recovery can target a region that is not its pair.",
+    question: "What should the architect answer?",
+    options: [
+      { id: 'A', text: "Site Recovery can replicate to another region in the same geographic cluster, so Central US is a valid target." },
+      { id: 'B', text: "Site Recovery can target any region worldwide, so the choice should rest on price rather than geography." },
+      { id: 'C', text: "Site Recovery needs a region with availability zones, so the target must be chosen from zonal regions only." },
+      { id: 'D', text: "Site Recovery replicates Azure VMs only to the paired region, so the retailer must use Central US instead." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Azure-to-Azure disaster recovery can replicate VMs to any region within the same geographic cluster, not only the paired region, so a US region such as North Central US is a valid target for VMs in East US 2. Site Recovery is not restricted to the paired region. Replication is limited to regions in the same geographic cluster, so not every region worldwide is available. Zone support is not required for the target region.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/site-recovery/azure-to-azure-support-matrix",
+    tags: ["Azure Site Recovery", "Region selection"]
+  },
+  {
+    id: "azure-az305-249",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d3",
+    domainName: "Design business continuity solutions",
+    title: "Both point-in-time restores and regional failover",
+    scenario: "A healthcare provider's patient portal runs on Azure VMs. Auditors require that any VM can be restored to its state on any day within the last 30 days after corruption or accidental deletion, and the continuity plan requires failover to another region within an hour with minutes of data loss.",
+    question: "Which two services should protect the VMs? (Choose two.)",
+    options: [
+      { id: 'A', text: "Azure Site Recovery replicating the VMs to a secondary region with a recovery plan for failover." },
+      { id: 'B', text: "Azure Backup with a daily policy retaining 30 days of recovery points in a Recovery Services vault." },
+      { id: 'C', text: "Azure Backup alone, using Cross Region Restore to recover VMs in the paired region within an hour." },
+      { id: 'D', text: "Azure Site Recovery alone in a recovery plan, with recovery point retention raised to cover 30 days." },
+      { id: 'E', text: "Managed disk snapshots taken daily and copied to the secondary region by an Azure Automation runbook." }
+    ],
+    correctAnswers: ['A', 'B'],
+    type: "multiple",
+    explanation: "Azure Backup and Site Recovery are complementary and can protect the same VMs: Backup keeps daily recovery points for 30 days to undo corruption or deletion, while Site Recovery replicates continuously to another region for failover with minutes of RPO within an hour. Site Recovery retains recovery points for at most 15 days, so it cannot provide 30 days of history. Cross Region Restore restores from backups that can be hours old and takes longer than an hour for a restore of this kind. Scripted snapshots copied between regions are custom tooling that provides neither the replication RPO nor a managed retention policy.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/site-recovery/site-recovery-overview",
+    tags: ["Azure Backup", "Azure Site Recovery", "Business continuity"]
+  },
+  {
+    id: "azure-az305-250",
+    difficulty: "easy",
+    certId: "azure-az305",
+    domainId: "d3",
+    domainName: "Design business continuity solutions",
+    title: "Recovering from an accidental stop of protection",
+    scenario: "An administrator at a charity stopped backup of a VM and chose to delete its backup data, then realised the VM held the only copy of the donor database. The Recovery Services vault uses default security settings and the deletion happened yesterday.",
+    question: "What can the charity do?",
+    options: [
+      { id: 'A', text: "Restore the VM from the instant restore snapshots, which are kept for 30 days after protection stops." },
+      { id: 'B', text: "Open a support request so Microsoft restores the deleted data from an internal copy, then resume backups." },
+      { id: 'C', text: "Nothing, because choosing to delete backup data removes all recovery points from the vault permanently." },
+      { id: 'D', text: "Undelete the backup item, which soft delete keeps for 14 days, then resume protection and restore the VM." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Soft delete is enabled by default on Recovery Services vaults and keeps deleted backup data for 14 additional days, so the item can be undeleted, protection resumed and the VM restored. Deleted backup data is not removed immediately while soft delete is on. Microsoft support has no separate copy to restore from; soft delete is the mechanism. Instant restore snapshots are kept for a few days by policy and are removed along with the backup data when it is deleted.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/backup/backup-azure-security-feature-cloud",
+    tags: ["Azure Backup", "Soft delete"]
+  }
+];
+
+export default AZURE_AZ305_QUESTIONS_10;

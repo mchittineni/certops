@@ -9,9 +9,9 @@ export const AZURE_AZ305_QUESTIONS_1 = [
     scenario: "A regional bank sends Azure SQL auditing and Key Vault logs to a Log Analytics workspace. Regulators require the records to be kept for seven years and to remain retrievable from Azure Monitor for occasional investigations, but analysts only run interactive queries against the most recent 90 days. The bank wants the lowest ongoing cost for the older data.",
     question: "What should the architect recommend for the audit tables?",
     options: [
-      { id: 'A', text: "Set interactive retention on the tables to seven years and grant investigators Log Analytics Reader so they can query any period directly without running a search job." },
+      { id: 'A', text: "Configure a data export rule that streams the tables to a Storage account in the archive tier and keep the workspace at 90-day retention." },
       { id: 'B', text: "Set interactive retention on the tables to 90 days and total retention to seven years, running a search job when an older period is needed." },
-      { id: 'C', text: "Configure a data export rule that streams the tables to a Storage account in the archive tier and keep the workspace at 90-day retention." },
+      { id: 'C', text: "Set interactive retention on the tables to seven years and grant investigators Log Analytics Reader so they can query any period directly without running a search job." },
       { id: 'D', text: "Create a second workspace with seven-year interactive retention and use a data export rule to copy the audit tables into it continuously." }
     ],
     correctAnswers: ['B'],
@@ -30,12 +30,12 @@ export const AZURE_AZ305_QUESTIONS_1 = [
     scenario: "A gaming studio's backend writes about 400 GB per day of verbose request traces from Container Apps into a custom table in Log Analytics. Engineers open the traces only during incident investigations, usually within a few days, and never build alerts or dashboards on them. Finance wants the ingestion charge for this table to fall sharply without any of the data being discarded.",
     question: "Which change meets the requirement?",
     options: [
-      { id: 'A', text: "Keep the table on the Analytics plan and enrol the workspace in the 100 GB per day commitment tier to lower the per-GB price." },
-      { id: 'B', text: "Set a daily cap of 100 GB on the workspace so that ingestion stops for the day once the agreed budget has been consumed." },
-      { id: 'C', text: "Switch the custom table to the Basic logs plan and keep running KQL queries against it during investigations." },
-      { id: 'D', text: "Reduce the table's interactive retention from 30 days to 8 days so that storage charges fall in proportion to the shorter window." }
+      { id: 'A', text: "Switch the custom table to the Basic logs plan and keep running KQL queries against it during investigations." },
+      { id: 'B', text: "Reduce the table's interactive retention from 30 days to 8 days so that storage charges fall in proportion to the shorter window." },
+      { id: 'C', text: "Set a daily cap of 100 GB on the workspace so that ingestion stops for the day once the agreed budget has been consumed." },
+      { id: 'D', text: "Keep the table on the Analytics plan and enrol the workspace in the 100 GB per day commitment tier to lower the per-GB price." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "The Basic logs plan is built for high-volume, low-touch data: ingestion is billed at a much lower rate than the Analytics plan, the table still accepts KQL queries for troubleshooting, and the trade-offs it imposes, such as no alert rules on the table and a per-query charge, do not matter for traces nobody alerts on. A 100 GB commitment tier lowers the unit price by a modest percentage and is far below the 400 GB the table alone produces, so it does not deliver a sharp reduction. A daily cap discards everything ingested after the cap is reached, which the requirement forbids. Interactive retention up to 31 days is included in the ingestion price, so shortening it to 8 days saves nothing.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-monitor/logs/logs-table-plans",
@@ -53,8 +53,8 @@ export const AZURE_AZ305_QUESTIONS_1 = [
     options: [
       { id: 'A', text: "Move the workspace to the 500 GB per day commitment tier and let the volume above it bill as overage at that tier's per-GB rate." },
       { id: 'B', text: "Move the workspace to the 1,000 GB per day commitment tier so that even the heaviest days stay inside the volume the tier reserves." },
-      { id: 'C', text: "Apply a 500 GB per day cap on the workspace and rely on the cap-reached alert to lift it on the heavier days of the month." },
-      { id: 'D', text: "Link the workspace to a dedicated cluster sized at 2,000 GB per day to obtain the lowest per-GB price available in the region." }
+      { id: 'C', text: "Link the workspace to a dedicated cluster sized at 2,000 GB per day to obtain the lowest per-GB price available in the region." },
+      { id: 'D', text: "Apply a 500 GB per day cap on the workspace and rely on the cap-reached alert to lift it on the heavier days of the month." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -72,12 +72,12 @@ export const AZURE_AZ305_QUESTIONS_1 = [
     scenario: "A hospital network keeps every subscription's logs in one Log Analytics workspace. First-line support analysts must run KQL queries against the Heartbeat, Event and Perf tables for all 900 virtual machines, but must never be able to read the SecurityEvent or SigninLogs tables held in the same workspace. The analysts hold no role assignments on the virtual machines themselves.",
     question: "Which access design meets the requirement with the least administrative effort?",
     options: [
-      { id: 'A', text: "Assign the analysts Log Analytics Reader on the workspace and move the SecurityEvent and SigninLogs tables to the Basic logs plan." },
-      { id: 'B', text: "Assign the analysts Reader on the resource groups holding the virtual machines so resource-context access returns only their machines' data." },
-      { id: 'C', text: "Create a second workspace, multi-home the Heartbeat, Event and Perf streams into it with a data collection rule, and grant Log Analytics Reader there." },
-      { id: 'D', text: "Assign the analysts a role that grants query access at the scope of the Heartbeat, Event and Perf tables, with no data-read role on the workspace." }
+      { id: 'A', text: "Assign the analysts a role that grants query access at the scope of the Heartbeat, Event and Perf tables, with no data-read role on the workspace." },
+      { id: 'B', text: "Create a second workspace, multi-home the Heartbeat, Event and Perf streams into it with a data collection rule, and grant Log Analytics Reader there." },
+      { id: 'C', text: "Assign the analysts Reader on the resource groups holding the virtual machines so resource-context access returns only their machines' data." },
+      { id: 'D', text: "Assign the analysts Log Analytics Reader on the workspace and move the SecurityEvent and SigninLogs tables to the Basic logs plan." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Azure RBAC can be assigned at the scope of an individual table in a workspace, so a role granting table query access on Heartbeat, Event and Perf, and nothing at workspace scope, limits the analysts to exactly those tables with three role assignments. Log Analytics Reader on the workspace reads every table, and a table's plan has no effect on who may read it. Resource-context access through Reader on the resource groups returns all tables that those machines emitted, which includes SecurityEvent. Multi-homing the three streams into a second workspace works but doubles ingestion cost and adds a workspace and collection rule to maintain, which is not the least effort.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-monitor/logs/manage-access",
@@ -93,13 +93,13 @@ export const AZURE_AZ305_QUESTIONS_1 = [
     scenario: "A European airline is building its monitoring landing zone. Resource logs from workloads in Germany West Central and Switzerland North must stay in the country where they were generated under contractual data-residency terms, while a central SRE team in Ireland needs to search across every workload's logs from one place. The design must not duplicate ingested data.",
     question: "Which two actions should the architect include in the design? (Choose two.)",
     options: [
-      { id: 'A', text: "Deploy a Log Analytics workspace in each residency-bound region and send each workload's logs to the workspace in its own region." },
-      { id: 'B', text: "Deploy one Log Analytics workspace in North Europe on a dedicated cluster with customer-managed keys and infrastructure encryption." },
-      { id: 'C', text: "Give the SRE team access to every workspace and build their views on cross-workspace queries using the workspace() expression." },
+      { id: 'A', text: "Enable an Azure Monitor Private Link Scope on the central workspace so regional traffic never traverses the public internet." },
+      { id: 'B', text: "Give the SRE team access to every workspace and build their views on cross-workspace queries using the workspace() expression." },
+      { id: 'C', text: "Deploy one Log Analytics workspace in North Europe on a dedicated cluster with customer-managed keys and infrastructure encryption." },
       { id: 'D', text: "Configure a data export rule on each regional workspace that streams all tables into the SRE team's workspace in North Europe." },
-      { id: 'E', text: "Enable an Azure Monitor Private Link Scope on the central workspace so regional traffic never traverses the public internet." }
+      { id: 'E', text: "Deploy a Log Analytics workspace in each residency-bound region and send each workload's logs to the workspace in its own region." }
     ],
-    correctAnswers: ['A', 'C'],
+    correctAnswers: ['B', 'E'],
     type: "multiple",
     explanation: "Log data is stored in the region of the workspace that receives it, so a workspace per residency-bound region keeps German and Swiss data in country, and cross-workspace queries let one team search all of them from a single query, workbook or alert without moving or copying any rows. A single workspace in North Europe stores everything in Ireland regardless of how it is encrypted, so encryption features do not address residency. Data export cannot target another workspace, and copying every table would duplicate the data the design forbids duplicating. A Private Link Scope controls the network path used to reach a workspace, not the region where data is stored.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-monitor/logs/workspace-design",
@@ -115,10 +115,10 @@ export const AZURE_AZ305_QUESTIONS_1 = [
     scenario: "An insurer must stream a continuous copy of the SecurityEvent, Syslog and a custom application table from its Log Analytics workspace to a SIEM hosted outside Azure with delivery latency measured in minutes. The SecurityEvent and Syslog rows arrive through Azure Monitor Agent from 1,200 VMs; the custom table is populated through the Logs Ingestion API. The workspace must keep the data for its own alert rules.",
     question: "Which design meets the requirement with the LEAST operational overhead?",
     options: [
-      { id: 'A', text: "Add a diagnostic setting on each virtual machine and on the ingestion endpoint that streams the same categories to an Event Hubs namespace read by the SIEM." },
+      { id: 'A', text: "Associate a second data collection rule with the agents that sends the SecurityEvent and Syslog streams to a Storage account the SIEM polls every hour." },
       { id: 'B', text: "Create a data export rule on the workspace for the three tables with an Event Hubs namespace as the destination and point the SIEM's collector at the hubs." },
-      { id: 'C', text: "Schedule a Logic App that runs a KQL query against the three tables every five minutes and posts each result set to the SIEM's HTTP collector endpoint." },
-      { id: 'D', text: "Associate a second data collection rule with the agents that sends the SecurityEvent and Syslog streams to a Storage account the SIEM polls every hour." }
+      { id: 'C', text: "Add a diagnostic setting on each virtual machine and on the ingestion endpoint that streams the same categories to an Event Hubs namespace read by the SIEM." },
+      { id: 'D', text: "Schedule a Logic App that runs a KQL query against the three tables every five minutes and posts each result set to the SIEM's HTTP collector endpoint." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -137,11 +137,11 @@ export const AZURE_AZ305_QUESTIONS_1 = [
     question: "What should the architect recommend?",
     options: [
       { id: 'A', text: "Route all resource and agent logs to a Storage account encrypted with the Key Vault key and query it through Azure Data Explorer external tables." },
-      { id: 'B', text: "Enable Customer Lockbox for Microsoft Azure on the subscription so that Microsoft engineers cannot open workspace data without approval." },
-      { id: 'C', text: "Create an Azure Monitor Private Link Scope for both workspaces so that ingestion and queries travel only over private endpoints." },
-      { id: 'D', text: "Create a dedicated cluster configured with customer-managed key encryption against the Key Vault and link both workspaces to it." }
+      { id: 'B', text: "Create a dedicated cluster configured with customer-managed key encryption against the Key Vault and link both workspaces to it." },
+      { id: 'C', text: "Enable Customer Lockbox for Microsoft Azure on the subscription so that Microsoft engineers cannot open workspace data without approval." },
+      { id: 'D', text: "Create an Azure Monitor Private Link Scope for both workspaces so that ingestion and queries travel only over private endpoints." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Customer-managed keys for Log Analytics are configured on a dedicated cluster, and every workspace linked to the cluster has its data encrypted with the key held in the company's Key Vault, which the company can revoke; the workspaces keep working with Azure Monitor and Sentinel unchanged, and 250 GB per day clears the cluster's minimum commitment. Storage with a customer key satisfies the encryption clause but moves the data out of Log Analytics, breaking the Sentinel and Azure Monitor queries the team relies on. Customer Lockbox governs Microsoft support access to data and does not change how the data is encrypted. A Private Link Scope secures the network path and has no bearing on encryption at rest.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-monitor/logs/customer-managed-keys",
@@ -157,12 +157,12 @@ export const AZURE_AZ305_QUESTIONS_1 = [
     scenario: "A public-sector agency must retain Azure Firewall resource logs and Application Gateway access logs for ten years under a records-management statute. The records will be produced on request to auditors, are not expected to be queried in normal operations, and the agency wants the lowest possible storage cost for the ten-year copy.",
     question: "Which diagnostic setting destination should the architect recommend for the ten-year copy?",
     options: [
-      { id: 'A', text: "A Storage account, with a lifecycle management policy that moves the log blobs to the archive access tier." },
-      { id: 'B', text: "A Log Analytics workspace with total retention set to ten years on the firewall and gateway tables." },
-      { id: 'C', text: "An Event Hubs namespace with Capture enabled, writing the captured Avro blobs to a Storage account container." },
-      { id: 'D', text: "A partner solution destination so that the logs land in the agency's SIEM vendor's long-term store." }
+      { id: 'A', text: "A Log Analytics workspace with total retention set to ten years on the firewall and gateway tables." },
+      { id: 'B', text: "An Event Hubs namespace with Capture enabled, writing the captured Avro blobs to a Storage account container." },
+      { id: 'C', text: "A partner solution destination so that the logs land in the agency's SIEM vendor's long-term store." },
+      { id: 'D', text: "A Storage account, with a lifecycle management policy that moves the log blobs to the archive access tier." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "A Storage account is the diagnostic settings destination intended for cheap, long-lived archival: blobs can be tiered to archive by a lifecycle policy, which is the lowest-cost storage Azure offers, and the agency can rehydrate a blob when an auditor asks. A Log Analytics workspace can hold data for up to twelve years, but even long-term retention is priced per gigabyte per month above archive storage and buys query capability the agency does not need. Event Hubs adds throughput-unit charges purely to land the same blobs in storage. A partner destination pays a vendor for retention that a Storage account provides directly.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-monitor/essentials/diagnostic-settings",
@@ -199,12 +199,12 @@ export const AZURE_AZ305_QUESTIONS_1 = [
     scenario: "A manufacturer runs 300 Windows Server virtual machines across two subscriptions. The security team needs Windows Security log events 4624, 4625 and 4688 in a Log Analytics workspace and nothing else from the Security log, to keep ingestion within budget. Machines built in future must be covered as soon as they are created.",
     question: "Which collection design should the architect recommend?",
     options: [
-      { id: 'A', text: "Enable a diagnostic setting on each virtual machine resource for the Security event category targeting the workspace, deployed with Azure Policy." },
-      { id: 'B', text: "Create a data collection rule whose Windows event data source filters the Security log to those event IDs with an XPath query, associated through Azure Policy." },
+      { id: 'A', text: "Create a data collection rule whose Windows event data source filters the Security log to those event IDs with an XPath query, associated through Azure Policy." },
+      { id: 'B', text: "Enable a diagnostic setting on each virtual machine resource for the Security event category targeting the workspace, deployed with Azure Policy." },
       { id: 'C', text: "Deploy Azure Monitor Agent with a data collection rule that collects the full Security log, then add a workspace transformation that drops every other event ID." },
       { id: 'D', text: "Install the Windows Azure Diagnostics extension configured for the Security log with a Storage account sink, and query the sink from the workspace." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Data collection rules for Azure Monitor Agent express Windows event collection as XPath queries, so a rule that selects only EventID 4624, 4625 and 4688 from the Security log filters on the machine before anything leaves it, and a built-in policy initiative installs the agent and associates the rule on every existing and future machine. Diagnostic settings apply to Azure resource logs and metrics; a virtual machine resource has no guest event log category. Collecting the whole Security log and dropping rows in a workspace transformation ships every event across the network and can incur a data processing charge when a transformation filters heavily. The Windows Azure Diagnostics extension writes to Storage, which the workspace cannot query directly.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-monitor/agents/data-collection-windows-events",
@@ -220,12 +220,12 @@ export const AZURE_AZ305_QUESTIONS_1 = [
     scenario: "A retailer's App Service applications write AppServiceHTTPLogs to a Log Analytics workspace through diagnostic settings. The privacy office has ruled that the client IP address column must not be stored anywhere in the workspace, while the remaining columns must keep feeding the existing alert rules and dashboards unchanged. The team wants the fix applied once, centrally.",
     question: "Which solution meets the requirement?",
     options: [
-      { id: 'A', text: "Run a scheduled purge request against the table each night that removes rows holding a client IP address value from the workspace." },
-      { id: 'B', text: "Send the diagnostic setting to a Storage account instead and have Azure Data Explorer drop the column as it ingests the blobs." },
-      { id: 'C', text: "Change the request logging middleware in each App Service application to strip the client address before the platform records the request." },
-      { id: 'D', text: "Add a workspace transformation data collection rule for the table with a KQL statement that projects away the client IP column." }
+      { id: 'A', text: "Change the request logging middleware in each App Service application to strip the client address before the platform records the request." },
+      { id: 'B', text: "Add a workspace transformation data collection rule for the table with a KQL statement that projects away the client IP column." },
+      { id: 'C', text: "Run a scheduled purge request against the table each night that removes rows holding a client IP address value from the workspace." },
+      { id: 'D', text: "Send the diagnostic setting to a Storage account instead and have Azure Data Explorer drop the column as it ingests the blobs." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "A workspace transformation is a data collection rule attached to the workspace that runs KQL against incoming rows for a supported table before they are stored, so a project-away on the client IP column removes it centrally for every App Service sending to that workspace and leaves the other columns, alerts and dashboards untouched. A nightly purge means the address has already been stored, and purge removes whole rows, taking the columns the dashboards need with them. Redirecting to Storage and Azure Data Explorer moves the data out of the workspace the alert rules and dashboards query. HTTP logs are generated by the App Service platform, not by application code, and a per-application change is not a single central fix.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-monitor/essentials/data-collection-transformations",
@@ -241,12 +241,12 @@ export const AZURE_AZ305_QUESTIONS_1 = [
     scenario: "A media company's central security team collects Windows Security events from 600 virtual machines into its own Log Analytics workspace. Application teams now want performance counters from the same machines delivered into workspaces they own, pay for and set retention on. The company has standardised on Azure Monitor Agent and will not install a second agent on the machines.",
     question: "What should the architect recommend?",
     options: [
-      { id: 'A', text: "Create separate data collection rules for the performance counters, each targeting an application team's workspace, and associate them with the machines alongside the security rule." },
-      { id: 'B', text: "Grant the application teams resource-context Reader on their virtual machines so they can query the counters in the central security workspace." },
-      { id: 'C', text: "Configure a data export rule on the central workspace that copies the Perf table into each application team's own workspace on a continuous basis." },
+      { id: 'A', text: "Configure a data export rule on the central workspace that copies the Perf table into each application team's own workspace on a continuous basis." },
+      { id: 'B', text: "Create separate data collection rules for the performance counters, each targeting an application team's workspace, and associate them with the machines alongside the security rule." },
+      { id: 'C', text: "Grant the application teams resource-context Reader on their virtual machines so they can query the counters in the central security workspace." },
       { id: 'D', text: "Install the legacy Log Analytics agent alongside Azure Monitor Agent on the machines and point it at the application team's workspace for performance data." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Azure Monitor Agent is multi-homed by design: a machine can be associated with several data collection rules, each naming its own destination workspace, so the security rule keeps sending Security events to the central workspace while a performance rule sends counters to the application team's workspace, billed and retained there. Resource-context access lets a team read data, but the data still lives in and is paid for by the security team's workspace with its retention. Data export delivers to Storage accounts and Event Hubs, not to another workspace. The legacy Log Analytics agent has been retired and is the second agent the company ruled out.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-monitor/agents/azure-monitor-agent-overview",
@@ -262,12 +262,12 @@ export const AZURE_AZ305_QUESTIONS_1 = [
     scenario: "A fintech routes resource logs from Azure SQL Database, Azure Firewall, API Management and roughly 40 other resource types into one Log Analytics workspace using the Azure diagnostics destination table mode. Analysts report that some fields for newer services appear only inside the dynamic AdditionalFields column and that queries against the shared table have become slow and costly. The platform team wants to keep a single workspace.",
     question: "Which change resolves the issue?",
     options: [
-      { id: 'A', text: "Move the AzureDiagnostics table to the Basic logs plan so that queries scan only the columns each analyst names in the query." },
+      { id: 'A', text: "Switch the diagnostic settings to resource-specific destination tables so each category writes to its own schema-bound table." },
       { id: 'B', text: "Create a workspace transformation on the AzureDiagnostics table that promotes the AdditionalFields properties into typed columns." },
-      { id: 'C', text: "Switch the diagnostic settings to resource-specific destination tables so each category writes to its own schema-bound table." },
+      { id: 'C', text: "Move the AzureDiagnostics table to the Basic logs plan so that queries scan only the columns each analyst names in the query." },
       { id: 'D', text: "Split the resource types across several workspaces so each AzureDiagnostics table holds fewer services, joined with cross-workspace queries." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "The AzureDiagnostics table is capped at 500 columns; once every service's fields have consumed them, further properties are packed into the dynamic AdditionalFields column, and one table holding 40 services' rows is scanned for every query. Resource-specific mode writes each log category to a dedicated table with its own schema, so fields appear as columns, queries touch only the relevant table, and older AzureDiagnostics rows remain queryable in place. The Basic plan changes pricing and query behaviour, not the column limit, and AzureDiagnostics is not a table that plan applies to. A transformation promoting properties into columns runs into the same 500-column ceiling. Splitting into several workspaces contradicts the single-workspace requirement.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-monitor/essentials/resource-logs",
@@ -284,9 +284,9 @@ export const AZURE_AZ305_QUESTIONS_1 = [
     question: "Which alert design meets the requirement?",
     options: [
       { id: 'A', text: "One metric alert rule on the Percentage CPU metric scoped to the subscription for the virtual machine resource type in East US 2." },
-      { id: 'B', text: "One log search alert rule on the Perf table in the Log Analytics workspace, evaluated every 15 minutes against the average value." },
-      { id: 'C', text: "One activity log alert rule watching for autoscale and virtual machine operations that indicate heavy load across the subscription." },
-      { id: 'D', text: "A metric alert rule per virtual machine, deployed from a Bicep module that the build pipeline runs whenever a machine is created." }
+      { id: 'B', text: "A metric alert rule per virtual machine, deployed from a Bicep module that the build pipeline runs whenever a machine is created." },
+      { id: 'C', text: "One log search alert rule on the Perf table in the Log Analytics workspace, evaluated every 15 minutes against the average value." },
+      { id: 'D', text: "One activity log alert rule watching for autoscale and virtual machine operations that indicate heavy load across the subscription." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -304,12 +304,12 @@ export const AZURE_AZ305_QUESTIONS_1 = [
     scenario: "A non-profit's platform team wants to be notified within minutes whenever a network security group is deleted in any of its three production subscriptions. The activity log is not exported to a Log Analytics workspace today, and the team would prefer not to add ingestion cost for this one requirement.",
     question: "Which alert type should the architect recommend?",
     options: [
-      { id: 'A', text: "A log search alert rule on the AzureActivity table filtering on the network security group delete operation name." },
-      { id: 'B', text: "An activity log alert rule on the Administrative category for the network security group delete operation, per subscription." },
-      { id: 'C', text: "A Resource Health alert rule scoped to the network security groups held in each of the production subscriptions." },
+      { id: 'A', text: "An activity log alert rule on the Administrative category for the network security group delete operation, per subscription." },
+      { id: 'B', text: "A Resource Health alert rule scoped to the network security groups held in each of the production subscriptions." },
+      { id: 'C', text: "A log search alert rule on the AzureActivity table filtering on the network security group delete operation name." },
       { id: 'D', text: "A Service Health alert rule for the Networking service in the regions where the production subscriptions run." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "An activity log alert evaluates the subscription's activity log directly as events arrive, so a rule on the Administrative category filtered to the delete operation for network security groups fires within minutes of a deletion with no workspace, agent or ingestion cost involved. A log search alert on AzureActivity only works once the activity log is exported to a workspace, which is the ingestion the team wants to avoid. Resource Health reports whether a resource is available or degraded because of platform events, not that it was deleted by an administrator. Service Health alerts announce Azure platform incidents and maintenance for a service, not tenant-side changes.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-monitor/alerts/alerts-types",
@@ -325,12 +325,12 @@ export const AZURE_AZ305_QUESTIONS_1 = [
     scenario: "A SaaS vendor patches the 60 virtual machines in its staging resource group every Sunday between 02:00 and 04:00 UTC, which floods the on-call engineer with CPU and heartbeat alerts. The 40 alert rules involved are managed in Bicep and the platform team will not change or redeploy them, yet the alerts must still be recorded for later review.",
     question: "What should the architect recommend?",
     options: [
-      { id: 'A', text: "Schedule an Automation runbook that disables the 40 alert rules at 02:00 and re-enables them at 04:00 every Sunday." },
+      { id: 'A', text: "Create a second action group with no notifications and repoint the staging rules at it from a pipeline step during the window." },
       { id: 'B', text: "Raise each rule's evaluation frequency to two hours so that a two-hour patch window cannot complete an evaluation period." },
-      { id: 'C', text: "Create a second action group with no notifications and repoint the staging rules at it from a pipeline step during the window." },
-      { id: 'D', text: "Create an alert processing rule scoped to the staging resource group that suppresses notifications on a weekly schedule for that window." }
+      { id: 'C', text: "Create an alert processing rule scoped to the staging resource group that suppresses notifications on a weekly schedule for that window." },
+      { id: 'D', text: "Schedule an Automation runbook that disables the 40 alert rules at 02:00 and re-enables them at 04:00 every Sunday." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Alert processing rules act on fired alerts after the alert rules have evaluated them, so a suppression rule scoped to the staging resource group with a weekly recurrence for Sunday 02:00 to 04:00 stops the action group from notifying while every alert is still created and visible for review, and nothing in the Bicep-managed rules changes. Disabling the rules from a runbook modifies the rules and means no alerts are recorded during the window. Changing the evaluation frequency also edits the rules and degrades detection for the rest of the week. Swapping the action group from a pipeline step is another change to the rules and drops the notification entirely rather than suppressing it for a period.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-monitor/alerts/alerts-processing-rules",
@@ -347,11 +347,11 @@ export const AZURE_AZ305_QUESTIONS_1 = [
     question: "Which change meets these requirements?",
     options: [
       { id: 'A', text: "Configure ingestion sampling on the Application Insights resource at a fixed percentage of the telemetry that arrives at the endpoint." },
-      { id: 'B', text: "Set a daily cap on the Application Insights resource so that telemetry stops being accepted once the day's budget has been reached." },
-      { id: 'C', text: "Re-enable adaptive sampling in the SDK configuration so that a correlated subset of operations is sent from the hosts and stored." },
+      { id: 'B', text: "Re-enable adaptive sampling in the SDK configuration so that a correlated subset of operations is sent from the hosts and stored." },
+      { id: 'C', text: "Set a daily cap on the Application Insights resource so that telemetry stops being accepted once the day's budget has been reached." },
       { id: 'D', text: "Reduce the interactive retention on the Application Insights tables in the workspace from 90 days to 30 days to cut storage charges." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Adaptive sampling runs inside the SDK on the App Service instances, decides per operation so that a kept request retains all of its dependency and trace telemetry, and adjusts the rate to a target volume, which lowers both the bill and the bytes leaving the hosts. Ingestion sampling discards data at the Application Insights endpoint, so it reduces stored volume and cost but every byte still leaves the App Service instances. A daily cap creates a blind spot for the rest of the day once reached rather than a representative subset. Retention on Application Insights tables is included for 90 days, so shortening it saves nothing and does not touch ingestion.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-monitor/app/sampling",
@@ -367,12 +367,12 @@ export const AZURE_AZ305_QUESTIONS_1 = [
     scenario: "A travel agency exposes a public booking API behind Azure Front Door. Product owners want the endpoint probed every five minutes from at least five geographic locations, an alert when three or more locations fail at the same time, and each response validated for an HTTP 200 status and a body string, with no code for the team to maintain.",
     question: "What should the architect recommend?",
     options: [
-      { id: 'A', text: "A Standard availability test in Application Insights with five test locations, content match enabled and the location-failure alert set to three." },
-      { id: 'B', text: "A Network Watcher Connection Monitor whose test group uses virtual machines in five regions as sources with an HTTP test configuration." },
-      { id: 'C', text: "A timer-triggered Azure Function deployed to five regions that calls the endpoint and reports results with TrackAvailability." },
-      { id: 'D', text: "Front Door health probes on the origin group at a 300-second interval, with a metric alert on the origin health percentage." }
+      { id: 'A', text: "A timer-triggered Azure Function deployed to five regions that calls the endpoint and reports results with TrackAvailability." },
+      { id: 'B', text: "Front Door health probes on the origin group at a 300-second interval, with a metric alert on the origin health percentage." },
+      { id: 'C', text: "A Network Watcher Connection Monitor whose test group uses virtual machines in five regions as sources with an HTTP test configuration." },
+      { id: 'D', text: "A Standard availability test in Application Insights with five test locations, content match enabled and the location-failure alert set to three." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "A Standard availability test is a configured probe, not code: it runs from the chosen Azure test locations on a schedule down to five minutes, checks the expected status code and can match a string in the response body, and its alert rule fires when the configured number of locations fail within the window. Connection Monitor tests connectivity from machines you run, so five regional virtual machines become infrastructure to operate and the probes originate from your own network rather than from independent locations. A timer-triggered Function reporting TrackAvailability works but is exactly the code the team does not want to maintain. Front Door probes check origin health from the edge and evaluate status codes only, without body matching or a multi-location failure threshold.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-monitor/app/availability",
@@ -389,11 +389,11 @@ export const AZURE_AZ305_QUESTIONS_1 = [
     question: "Which solution meets these requirements?",
     options: [
       { id: 'A', text: "Enable Container insights on each cluster with a Log Analytics workspace and rebuild the dashboards as Azure Monitor workbooks written in KQL." },
-      { id: 'B', text: "Enable the Managed Prometheus add-on on each cluster into an Azure Monitor workspace, define Prometheus rule groups, and connect Azure Managed Grafana." },
-      { id: 'C', text: "Deploy the kube-prometheus-stack Helm chart to each cluster with persistent volumes and expose Grafana through an internal load balancer." },
+      { id: 'B', text: "Deploy the kube-prometheus-stack Helm chart to each cluster with persistent volumes and expose Grafana through an internal load balancer." },
+      { id: 'C', text: "Enable the Managed Prometheus add-on on each cluster into an Azure Monitor workspace, define Prometheus rule groups, and connect Azure Managed Grafana." },
       { id: 'D', text: "Instrument the workloads with the Application Insights OpenTelemetry distro and recreate the alert rules in metrics explorer." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Azure Monitor managed service for Prometheus scrapes the clusters into an Azure Monitor workspace that speaks PromQL, so the existing recording rules and alert rules move over as Prometheus rule groups, and Azure Managed Grafana connects to that workspace so the dashboards import largely as they are, with Microsoft running both services. Container insights stores logs and some metrics in Log Analytics and is queried in KQL, which discards the PromQL investment. The Helm chart is a self-managed Prometheus and Grafana, which the team explicitly does not want to run. Application Insights targets application telemetry and its metrics explorer alerts are not PromQL rule groups.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-monitor/essentials/prometheus-metrics-overview",
@@ -410,12 +410,12 @@ export const AZURE_AZ305_QUESTIONS_1 = [
     question: "Which two actions should the team take? (Choose two.)",
     options: [
       { id: 'A', text: "Enable Managed Prometheus on the cluster so that metrics are stored in an Azure Monitor workspace instead of the Log Analytics workspace." },
-      { id: 'B', text: "Edit the Container insights data collection rule so that container logs are collected only from the application namespaces." },
+      { id: 'B', text: "Deploy a Fluent Bit DaemonSet in every namespace with a filter that drops records from kube-system before they leave the node." },
       { id: 'C', text: "Reduce the interactive retention on the ContainerLogV2 table from 30 days to 7 days so that storage charges fall in proportion." },
-      { id: 'D', text: "Deploy a Fluent Bit DaemonSet in every namespace with a filter that drops records from kube-system before they leave the node." },
+      { id: 'D', text: "Edit the Container insights data collection rule so that container logs are collected only from the application namespaces." },
       { id: 'E', text: "Move the ContainerLogV2 table to the Basic logs plan so the retained application logs are billed at the lower ingestion rate." }
     ],
-    correctAnswers: ['B', 'E'],
+    correctAnswers: ['D', 'E'],
     type: "multiple",
     explanation: "Container insights data collection settings let the platform team choose which namespaces' container logs are collected, so excluding kube-system and the ingress namespace removes the bulk of the 630 GB of daily log volume at the source without touching a workload. ContainerLogV2 supports the Basic logs plan, which bills the application logs that remain at a much lower ingestion rate while keeping them searchable for troubleshooting. Managed Prometheus handles metrics and leaves the log volume unchanged. Interactive retention up to 31 days is included in the ingestion price, so cutting it to 7 days saves nothing. A second log collector per namespace changes the cluster the workloads run on and duplicates the collection Container insights already performs.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-monitor/containers/container-insights-cost-config",
@@ -431,12 +431,12 @@ export const AZURE_AZ305_QUESTIONS_1 = [
     scenario: "A hospital group is planning a datacentre exit. Before moving 400 servers, half of them Azure virtual machines and half on-premises machines already connected through Azure Arc, the migration team must see which processes on each server communicate with which other servers and over which TCP ports, and it wants that picture kept current rather than captured once.",
     question: "What should the architect recommend?",
     options: [
-      { id: 'A', text: "Enable Network Watcher topology in each virtual network and export the diagram to complement the Azure Migrate discovery data." },
-      { id: 'B', text: "Create a Connection Monitor test group with all 400 servers as sources and destinations to record which ports are reachable between them." },
-      { id: 'C', text: "Run the Azure Migrate appliance's agentless dependency analysis against both the on-premises hosts and the Azure virtual machines." },
-      { id: 'D', text: "Enable VM insights with the processes and dependencies option so Azure Monitor Agent and the Dependency agent populate the Map view for both fleets." }
+      { id: 'A', text: "Enable VM insights with the processes and dependencies option so Azure Monitor Agent and the Dependency agent populate the Map view for both fleets." },
+      { id: 'B', text: "Run the Azure Migrate appliance's agentless dependency analysis against both the on-premises hosts and the Azure virtual machines." },
+      { id: 'C', text: "Create a Connection Monitor test group with all 400 servers as sources and destinations to record which ports are reachable between them." },
+      { id: 'D', text: "Enable Network Watcher topology in each virtual network and export the diagram to complement the Azure Migrate discovery data." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "VM insights with processes and dependencies enabled installs the Dependency agent alongside Azure Monitor Agent, collects the processes running on each machine and the inbound and outbound TCP connections they make, and renders them continuously in the Map view; it supports Azure virtual machines and Arc-enabled servers alike, so one configuration covers both halves of the estate. Network Watcher topology draws Azure network resources and their relationships, with no view of processes or on-premises machines. Connection Monitor runs synthetic reachability tests between chosen endpoints, which records what could connect rather than what does. The Azure Migrate appliance discovers on-premises servers; it does not analyse machines already running in Azure.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-monitor/vm/vminsights-overview",
@@ -453,11 +453,11 @@ export const AZURE_AZ305_QUESTIONS_1 = [
     question: "Which solution meets these requirements?",
     options: [
       { id: 'A', text: "Virtual network flow logs with Traffic Analytics on the application subnets, alerting from the workspace on flows to port 1433." },
-      { id: 'B', text: "An Application Insights Standard availability test targeting the managed instance's private endpoint address on port 1433 every 60 seconds." },
-      { id: 'C', text: "Network Watcher Connection Monitor with the Azure and Arc-enabled servers as sources, a TCP test on port 1433, and thresholds on failed checks and round-trip time." },
+      { id: 'B', text: "Network Watcher Connection Monitor with the Azure and Arc-enabled servers as sources, a TCP test on port 1433, and thresholds on failed checks and round-trip time." },
+      { id: 'C', text: "An Application Insights Standard availability test targeting the managed instance's private endpoint address on port 1433 every 60 seconds." },
       { id: 'D', text: "Network Watcher IP flow verify run against each application server's network interface for outbound traffic to the managed instance on port 1433." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Connection Monitor runs scheduled synthetic tests from source endpoints that can be Azure virtual machines and Arc-enabled on-premises servers, supports a TCP protocol test to a chosen port at a 60-second frequency, records checks failed and round-trip time, and raises metric alerts when either crosses the thresholds set in the test configuration, all without touching the application. Flow logs passively record which flows occurred and carry no latency measurement or synthetic probe. Standard availability tests run from public Azure locations and cannot reach a private endpoint in the customer's network. IP flow verify is a one-off check of whether network security rules would allow a packet, not a recurring measurement.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/network-watcher/connection-monitor-overview",
@@ -475,11 +475,11 @@ export const AZURE_AZ305_QUESTIONS_1 = [
     options: [
       { id: 'A', text: "A Service Health alert scoped to the production subscriptions for service issues and planned maintenance in UK South and UK West." },
       { id: 'B', text: "A log search alert on the Heartbeat table that fires when a production virtual machine has not reported for ten minutes." },
-      { id: 'C', text: "A metric alert with dynamic thresholds on Percentage CPU across the production virtual machines in both regions." },
-      { id: 'D', text: "A Resource Health alert on the production resource groups for virtual machines whose status becomes Unavailable with a platform-initiated reason." },
-      { id: 'E', text: "An Azure Advisor alert for new high-availability recommendations raised against the production subscriptions." }
+      { id: 'C', text: "An Azure Advisor alert for new high-availability recommendations raised against the production subscriptions." },
+      { id: 'D', text: "A metric alert with dynamic thresholds on Percentage CPU across the production virtual machines in both regions." },
+      { id: 'E', text: "A Resource Health alert on the production resource groups for virtual machines whose status becomes Unavailable with a platform-initiated reason." }
     ],
-    correctAnswers: ['A', 'D'],
+    correctAnswers: ['A', 'E'],
     type: "multiple",
     explanation: "Service Health alerts are activity log alerts on the Service Health category that can be filtered by subscription, service, region and event type, so one rule covers incidents and planned maintenance for the two UK regions and routes to the existing action group. Resource Health alerts are activity log alerts on the Resource Health category and can be filtered by current status and by reason type, so a rule for virtual machines becoming Unavailable with a platform-initiated reason separates platform faults from user-initiated shutdowns. A Heartbeat alert detects a silent machine but cannot tell a platform fault from an operator stopping the guest. CPU with dynamic thresholds reports load anomalies, not availability. Advisor alerts surface configuration recommendations rather than live incidents.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/service-health/overview",
@@ -496,11 +496,11 @@ export const AZURE_AZ305_QUESTIONS_1 = [
     question: "Which alert configuration should the architect recommend?",
     options: [
       { id: 'A', text: "A static-threshold metric alert on CPU percentage aggregated over a one-hour window with the threshold set at the observed weekend peak." },
-      { id: 'B', text: "A metric alert on CPU percentage using dynamic thresholds at medium sensitivity, requiring three violations out of the last four evaluations." },
-      { id: 'C', text: "A log search alert that runs series_decompose_anomalies over AzureMetrics rows exported to a Log Analytics workspace every five minutes." },
-      { id: 'D', text: "Smart detection failure anomalies in Application Insights configured against the dependency telemetry that references the database." }
+      { id: 'B', text: "Smart detection failure anomalies in Application Insights configured against the dependency telemetry that references the database." },
+      { id: 'C', text: "A metric alert on CPU percentage using dynamic thresholds at medium sensitivity, requiring three violations out of the last four evaluations." },
+      { id: 'D', text: "A log search alert that runs series_decompose_anomalies over AzureMetrics rows exported to a Log Analytics workspace every five minutes." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Dynamic thresholds use machine learning over the metric's own history to model hourly, daily and weekly seasonality and alert on deviations from the expected band, so a lunchtime peak is normal while an unusual 03:00 climb is not; sensitivity and the violations-to-trigger setting are the only tuning, and the rule reads platform metrics directly with no ingestion. A static threshold at the weekend peak stays quiet during a real slowdown on a quiet night. Exporting AzureMetrics to a workspace and running anomaly decomposition in a log search alert works but adds ingestion cost and a query to maintain. Smart detection failure anomalies analyses request failure rates in Application Insights, which requires application telemetry and does not watch database CPU.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-monitor/alerts/alerts-dynamic-thresholds",
@@ -516,12 +516,12 @@ export const AZURE_AZ305_QUESTIONS_1 = [
     scenario: "A fintech's platform team is creating about 50 alert rules across its production subscriptions. Every alert must page the on-call rotation in PagerDuty, send an SMS to the duty manager, and open an incident in ServiceNow through its secure webhook integration. The recipients change several times a year and must be updated in one place, with no custom code to maintain.",
     question: "What should the architect recommend?",
     options: [
-      { id: 'A', text: "Create one action group holding the webhook, SMS and secure webhook actions and reference it from every alert rule." },
-      { id: 'B', text: "Configure the notification actions on each alert rule individually so that recipients can differ by signal type when needed." },
-      { id: 'C', text: "Create one action group per alert rule so that each rule's notification history stays isolated in the action group's audit." },
-      { id: 'D', text: "Build a Logic App triggered by the common alert schema that every rule calls, with the recipients defined inside the workflow." }
+      { id: 'A', text: "Configure the notification actions on each alert rule individually so that recipients can differ by signal type when needed." },
+      { id: 'B', text: "Create one action group per alert rule so that each rule's notification history stays isolated in the action group's audit." },
+      { id: 'C', text: "Build a Logic App triggered by the common alert schema that every rule calls, with the recipients defined inside the workflow." },
+      { id: 'D', text: "Create one action group holding the webhook, SMS and secure webhook actions and reference it from every alert rule." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "An action group is the reusable notification and action bundle in Azure Monitor: it can hold a webhook for PagerDuty, an SMS receiver and a secure webhook for ServiceNow, and any number of alert rules across subscriptions reference it, so a change to the duty manager or the rotation is one edit. Per-rule notification settings mean the same recipient change in 50 places. One action group per rule multiplies the places to update in the same way and gains nothing, since alert history is recorded on the alerts themselves. A Logic App can fan out notifications, but it is custom workflow logic to build, secure and maintain, which the team ruled out.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-monitor/alerts/action-groups",

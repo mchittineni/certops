@@ -1,0 +1,532 @@
+export const AZURE_AZ305_QUESTIONS_19 = [
+  {
+    id: "azure-az305-451",
+    difficulty: "easy",
+    certId: "azure-az305",
+    domainId: "d4",
+    domainName: "Design infrastructure solutions",
+    title: "Three hundred terabytes over a thin link",
+    scenario: "A film archive must move 300 TB of digitized footage from its on-premises NAS into Azure Blob Storage within six weeks. Its only internet connection is 100 Mbps and is shared with daily operations. The footage does not change during the move.",
+    question: "What should the architect recommend for the transfer?",
+    options: [
+      { id: 'A', text: "Provision an ExpressRoute circuit to the region and copy the footage over private peering once it is live." },
+      { id: 'B', text: "Run AzCopy from a server beside the NAS with high concurrency so the transfer saturates the internet link." },
+      { id: 'C', text: "Deploy Azure Storage Mover agents beside the NAS and schedule copy jobs to run overnight until complete." },
+      { id: 'D', text: "Order Azure Data Box devices, copy the footage onto them locally, and ship them to the Azure datacentre." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "At 100 Mbps, 300 TB takes roughly nine months even with the whole link, so an online transfer cannot meet six weeks. Data Box devices are shipped to the site, loaded over the local network, and returned to Microsoft, which uploads the data into the storage account; this is the recommended path when data volume far exceeds what the network can carry in time. AzCopy and Storage Mover are both network transfers limited by the same link, and saturating it would also disrupt operations. An ExpressRoute circuit takes weeks to provision through a provider and is a large ongoing cost for a one-off move.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/storage/common/storage-choose-data-transfer-solution",
+    tags: ["Data Box", "Data transfer", "Blob Storage"]
+  },
+  {
+    id: "azure-az305-452",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d4",
+    domainName: "Design infrastructure solutions",
+    title: "Centrally managed moves of many NFS exports",
+    scenario: "A research institute is moving 60 NFS exports from several Linux NAS appliances into Azure Blob Storage containers. The storage team wants to define and monitor every migration job from the Azure portal, run repeated incremental passes before each cutover, and avoid maintaining custom scripts on individual servers.",
+    question: "What should the architect recommend?",
+    options: [
+      { id: 'A', text: "Install Azure File Sync on a server that mounts the exports and add the containers as cloud endpoints." },
+      { id: 'B', text: "Schedule AzCopy sync jobs with cron on each NAS host and define a log share for central review." },
+      { id: 'C', text: "Order Data Box devices for each appliance and repeat the orders before every incremental cutover pass." },
+      { id: 'D', text: "Deploy Azure Storage Mover agents on-premises and define a project with one job per export." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Azure Storage Mover is a managed migration service: agents run beside the source NAS, while projects, endpoints and job definitions are created and monitored centrally in Azure, and jobs can be rerun to copy only changes before cutover, including NFS shares into Blob containers. Cron-scheduled AzCopy jobs are exactly the per-server scripting the team wants to avoid. Azure File Sync works with Windows Server and SMB shares, syncing to Azure file shares rather than Blob containers. Data Box is an offline, one-shot transfer that cannot provide repeated incremental passes.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/storage-mover/service-overview",
+    tags: ["Storage Mover", "NFS", "Migration"]
+  },
+  {
+    id: "azure-az305-453",
+    difficulty: "hard",
+    certId: "azure-az305",
+    domainId: "d4",
+    domainName: "Design infrastructure solutions",
+    title: "Bulk offline seed with live changes afterwards",
+    scenario: "An engineering firm is moving 180 TB of project files from an on-premises file server into Azure Blob Storage. Its 200 Mbps link cannot carry the bulk data in time, but engineers keep changing a few hundred gigabytes of files every week until the cutover date, and those changes must reach Azure before users are switched over.",
+    question: "Which two actions should the architect include in the plan? (Choose two.)",
+    options: [
+      { id: 'A', text: "Enable geo-redundant storage on the target account so the changed files are copied from the file server." },
+      { id: 'B', text: "After the Data Box upload completes, run AzCopy sync against the account to copy only files changed since then." },
+      { id: 'C', text: "Order a second round of Data Box devices every week so each week's changed files are shipped to Azure too." },
+      { id: 'D', text: "Order Data Box devices, copy the full data set onto them, and ship them for upload into the target account." },
+      { id: 'E', text: "Enable object replication from the file server to the storage account so changes stream to Azure continuously." }
+    ],
+    correctAnswers: ['B', 'D'],
+    type: "multiple",
+    explanation: "The usual pattern for large data sets on constrained links is an offline seed followed by online deltas: Data Box moves the bulk 180 TB without touching the link, and once the data is in the account, AzCopy sync compares source and destination and transfers only new or modified files, which a 200 Mbps link handles easily for a few hundred gigabytes. Object replication copies blobs between two storage accounts and cannot read from an on-premises file server. Geo-redundant storage replicates an account to its paired region and has nothing to do with on-premises sources. Weekly Data Box orders add shipping delays of days per round and would always lag the changes.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/storage/common/storage-use-azcopy-blobs-synchronize",
+    tags: ["Data Box", "AzCopy", "Data transfer"]
+  },
+  {
+    id: "azure-az305-454",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d4",
+    domainName: "Design infrastructure solutions",
+    title: "Copying 50 TB of blobs without routing it through a laptop",
+    scenario: "After a reorganization, a marketing agency must copy 50 TB of blobs from a storage account in East US to a new account in West Europe owned by a different subscription. The only machine available to run the copy is an administrator's workstation on a home broadband connection, and the source account must remain in use during the copy.",
+    question: "What should the architect recommend?",
+    options: [
+      { id: 'A', text: "Run azcopy copy with the source and destination blob URLs so the storage service copies the data server-side." },
+      { id: 'B', text: "Order a Data Box export from the East US account and then a Data Box import into the West Europe account." },
+      { id: 'C', text: "Download the source blobs to the workstation with AzCopy, then copy them up to the destination account." },
+      { id: 'D', text: "Configure the East US account as geo-redundant and initiate a customer-managed failover towards West Europe." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "When both source and destination are storage accounts, AzCopy uses server-to-server APIs such as Put Block From URL, so the data flows directly between the storage services and the workstation only orchestrates the copy; its bandwidth is not a limit. Downloading and re-uploading would push 100 TB of traffic through home broadband. A Data Box export followed by an import works but adds weeks of shipping for data that can move online between regions. A geo-redundant failover moves the whole account to its paired region, which for East US is West US, not West Europe, and it would take the source out of use.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/storage/common/storage-use-azcopy-blobs-copy",
+    tags: ["AzCopy", "Blob Storage", "Server-side copy"]
+  },
+  {
+    id: "azure-az305-455",
+    difficulty: "easy",
+    certId: "azure-az305",
+    domainId: "d4",
+    domainName: "Design infrastructure solutions",
+    title: "Ten terabytes and a dedicated gigabit link",
+    scenario: "A design studio needs to upload 10 TB of image files from a local server to Azure Blob Storage within a week. It has a dedicated 1 Gbps internet connection that is idle outside business hours, and the IT administrator is comfortable with command-line tools.",
+    question: "What should the architect recommend?",
+    options: [
+      { id: 'A', text: "Order an Azure Data Box because any transfer larger than a few terabytes should be shipped offline." },
+      { id: 'B', text: "Provision an ExpressRoute circuit so the upload avoids the public internet and completes more quickly." },
+      { id: 'C', text: "Use Azure Import/Export with the studio's own disks so the files arrive without using the link in business hours." },
+      { id: 'D', text: "Upload the files with AzCopy over the internet connection outside business hours, across a few nights." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "At 1 Gbps, 10 TB takes roughly a day of transfer time, so a few nights of AzCopy uploads comfortably meet the one-week deadline with no shipping or extra services. Offline transfer is worth it when the network cannot carry the data in time, which is not the case here, and ordering and shipping a Data Box would take longer than the upload. An ExpressRoute circuit takes weeks to provision and costs far more than a one-off upload justifies. Import/Export with customer disks also involves shipping delays and preparation work that the link makes unnecessary.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/storage/common/storage-choose-data-transfer-solution",
+    tags: ["AzCopy", "Data transfer"]
+  },
+  {
+    id: "azure-az305-456",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d4",
+    domainName: "Design infrastructure solutions",
+    title: "Landing old scans straight in the cheapest tier",
+    scenario: "A county records office is uploading 120 TB of scanned deeds, dating back decades, that will almost never be read again but must be kept indefinitely. The storage account's default access tier is Hot for other workloads. The office wants to avoid paying Hot storage and early-deletion or tier-change charges on data it knows is archival from the start.",
+    question: "What should the architect recommend?",
+    options: [
+      { id: 'A', text: "Upload the scans to the Cool tier, then move each blob to Archive once the upload has completed." },
+      { id: 'B', text: "Upload the scans with AzCopy, setting the block blob tier option to Archive so each file lands there." },
+      { id: 'C', text: "Upload the scans to the Hot tier and add a lifecycle rule that moves blobs to Archive after one day." },
+      { id: 'D', text: "Change the account's default access tier to Cool, upload the scans, and then change it back to Hot." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "AzCopy's block blob tier option sets the access tier as each blob is written, so the scans land directly in Archive and never incur Hot or Cool storage, early-deletion or extra tier-change charges. Uploading to Hot with a one-day lifecycle rule pays Hot storage and an additional write operation per blob when it is re-tiered. Changing the account default affects every blob inferring the default tier, including other workloads, and the account default can never be set to Archive. Uploading to Cool and then moving to Archive incurs Cool's early-deletion charge for blobs moved within its minimum period.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/storage/common/storage-ref-azcopy-copy",
+    tags: ["AzCopy", "Access tiers", "Archive"]
+  },
+  {
+    id: "azure-az305-457",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d4",
+    domainName: "Design infrastructure solutions",
+    title: "Uploads that must not starve the branch link",
+    scenario: "A retail chain is uploading 40 TB of surveillance archives to Azure Blob Storage from its head office over a 2 Gbps connection that also carries point-of-sale traffic from its stores. The network team requires that the migration never uses more than 600 Mbps during trading hours, while the transfer should run as fast as possible overnight.",
+    question: "What should the architect recommend?",
+    options: [
+      { id: 'A', text: "Run AzCopy with a lower concurrency value so fewer connections are opened in trading hours and more overnight." },
+      { id: 'B', text: "Run AzCopy with the cap-mbps option set to 600 during trading hours and without a cap overnight." },
+      { id: 'C', text: "Enable the storage account firewall so that only the head office IP address is allowed to upload." },
+      { id: 'D', text: "Enable large file shares on the storage account to spread the upload across more storage partitions." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "AzCopy's cap-mbps option sets an explicit upper limit on transfer throughput, so running with a 600 Mbps cap in trading hours and no cap overnight enforces the network team's rule precisely. Large file shares change the capacity and performance limits of Azure file shares and do nothing to throttle a blob upload. Lowering concurrency reduces throughput indirectly but gives no guaranteed ceiling, since fewer connections can still exceed 600 Mbps on a fast link. The storage firewall controls who may connect, not how much bandwidth they consume.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/storage/common/storage-use-azcopy-optimize",
+    tags: ["AzCopy", "Bandwidth", "Data transfer"]
+  },
+  {
+    id: "azure-az305-458",
+    difficulty: "easy",
+    certId: "azure-az305",
+    domainId: "d4",
+    domainName: "Design infrastructure solutions",
+    title: "Fixed outbound addresses for a partner allow list",
+    scenario: "A payroll provider's batch VMs have no public IP addresses and must call a partner's API over the internet. The partner allows traffic only from a small set of static IP addresses, and the batch jobs open thousands of concurrent connections, which previously exhausted SNAT ports. No inbound connections from the internet are needed.",
+    question: "What should the architect recommend?",
+    options: [
+      { id: 'A', text: "Assign a static Standard public IP address to each batch VM and send the partner every address." },
+      { id: 'B', text: "Attach a NAT gateway with a static public IP address to the batch subnet and share that address." },
+      { id: 'C', text: "Rely on the default outbound access that Azure provides to VMs deployed without public addresses." },
+      { id: 'D', text: "Place the VMs behind a public Standard load balancer and rely on its default outbound SNAT ports." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "A NAT gateway gives every VM in the subnet outbound internet access through one or more static public IP addresses, allocating SNAT ports dynamically across the subnet (64,512 per address), which handles thousands of concurrent connections and gives the partner a short allow list; it permits no inbound connections. A public IP per VM exposes each VM for inbound traffic and grows the allow list with every VM. Load balancer default SNAT allocates a small fixed number of ports per instance, which is what ran out before. Default outbound access uses addresses Microsoft can change, is being retired for new virtual networks, and cannot be allow-listed reliably.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/nat-gateway/nat-overview",
+    tags: ["NAT gateway", "Outbound connectivity", "SNAT"]
+  },
+  {
+    id: "azure-az305-459",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d4",
+    domainName: "Design infrastructure solutions",
+    title: "Outbound traffic limited to a few update sites",
+    scenario: "A healthcare company's spoke virtual networks host Linux VMs that need outbound internet access only to its package repositories and one SaaS API, identified by their fully qualified domain names. Every other outbound destination must be blocked, and every allowed and denied request must be logged centrally for audit.",
+    question: "What should the architect recommend?",
+    options: [
+      { id: 'A', text: "Attach a NAT gateway to each spoke subnet and add NSG outbound rules that allow the repository names." },
+      { id: 'B', text: "Publish the repositories through Azure Front Door and let the VMs reach only the Front Door endpoint." },
+      { id: 'C', text: "Add NSG outbound rules that use the Internet service tag to allow traffic only on ports 80 and 443." },
+      { id: 'D', text: "Deploy Azure Firewall in the hub with application rules for the FQDNs and a 0.0.0.0/0 route to it." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Azure Firewall application rules allow or deny outbound HTTP and HTTPS traffic by fully qualified domain name, a user-defined route sending 0.0.0.0/0 from the spokes to the firewall forces all egress through it, and its diagnostic logs record every allowed and denied request centrally. A NAT gateway provides outbound connectivity but no filtering, and NSG rules match IP addresses, ports and service tags, not domain names. The Internet service tag on ports 80 and 443 would permit every website. Front Door publishes your own applications to users; it is not an egress proxy for third-party repositories.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/firewall/features",
+    tags: ["Azure Firewall", "Egress filtering", "FQDN"]
+  },
+  {
+    id: "azure-az305-460",
+    difficulty: "easy",
+    certId: "azure-az305",
+    domainId: "d4",
+    domainName: "Design infrastructure solutions",
+    title: "Administering VMs that have no public addresses",
+    scenario: "A school trust's IT staff need to sign in to Windows and Linux VMs over RDP and SSH from their laptops at home. Security policy forbids public IP addresses on the VMs and forbids opening RDP or SSH ports to the internet, and the trust does not want to deploy VPN clients to staff laptops.",
+    question: "What should the architect recommend?",
+    options: [
+      { id: 'A', text: "Enable just-in-time VM access so RDP and SSH open on the VMs' public addresses only when requested." },
+      { id: 'B', text: "Deploy a point-to-site VPN gateway and have staff connect with the Azure VPN Client before using RDP." },
+      { id: 'C', text: "Deploy Azure Bastion in the virtual network and have staff connect through the Azure portal over TLS." },
+      { id: 'D', text: "Publish the RDP and SSH ports through a public Standard load balancer with inbound NAT rules per VM." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "Azure Bastion is a managed service deployed into the virtual network that brokers RDP and SSH sessions to VMs over their private IP addresses; staff connect through the Azure portal over TLS on port 443, so the VMs need no public IPs and no RDP or SSH ports are exposed. A point-to-site VPN requires a client on every laptop, which the trust wants to avoid. Just-in-time access still opens RDP or SSH on public addresses, which policy forbids. Inbound NAT rules on a public load balancer expose the management ports to the internet.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/bastion/bastion-overview",
+    tags: ["Azure Bastion", "Remote access"]
+  },
+  {
+    id: "azure-az305-461",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d4",
+    domainName: "Design infrastructure solutions",
+    title: "Recording every administrator session to production VMs",
+    scenario: "A stock exchange already uses Azure Bastion to reach production VMs. A new regulation requires a video-style recording of every RDP and SSH session to production, kept in the company's own storage for review, and the Bastion host itself must have no public IP address, being reachable only over the company's ExpressRoute connection.",
+    question: "What should the architect recommend?",
+    options: [
+      { id: 'A', text: "Keep the current SKU and enable VM insights on each production VM to capture every interactive session." },
+      { id: 'B', text: "Keep the current SKU and stream Bastion diagnostic logs to Log Analytics as the recording of each session." },
+      { id: 'C', text: "Upgrade to the Bastion Standard SKU and enable native client support so sessions are logged on each laptop." },
+      { id: 'D', text: "Upgrade to the Bastion Premium SKU with session recording to a storage account and a private-only deployment." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "The Bastion Premium SKU adds graphical session recording, saved to a storage account container the customer controls, and a private-only deployment in which the Bastion host has no public IP and is reached over private connectivity such as ExpressRoute. The Standard SKU adds features such as native client support, host scaling and shareable links, but not recording, and native client sessions are not recorded on laptops. Bastion diagnostic logs capture connection metadata such as who connected when, not the session content. VM insights monitors performance and dependencies, not user sessions.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/bastion/session-recording",
+    tags: ["Azure Bastion", "Session recording", "Premium SKU"]
+  },
+  {
+    id: "azure-az305-462",
+    difficulty: "easy",
+    certId: "azure-az305",
+    domainId: "d4",
+    domainName: "Design infrastructure solutions",
+    title: "A public address that survives a zone failure",
+    scenario: "A ticketing company is deploying a new internet-facing load balancer across three availability zones. The frontend public IP address must stay the same forever so it can be published in partner firewalls, and it must keep working if any single zone fails.",
+    question: "Which public IP address configuration should the architect recommend?",
+    options: [
+      { id: 'A', text: "A Basic SKU public IP with static allocation, pinned to zone 1 where most instances run." },
+      { id: 'B', text: "A Standard SKU public IP with static allocation, deployed as zone-redundant across zones." },
+      { id: 'C', text: "A Standard SKU public IP with static allocation, deployed as zonal in zone 1 rather than across zones." },
+      { id: 'D', text: "A Basic SKU public IP with dynamic allocation, recreated in another zone after any outage." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "Standard SKU public IP addresses are always statically allocated and can be zone-redundant, meaning the single address is served from all zones and keeps working when one zone fails, which suits a zone-redundant Standard load balancer. Basic SKU public IPs have been retired, did not support availability zones, and cannot be used with a Standard load balancer. A zonal Standard address lives in one zone and goes down with it. A dynamic address can change, which breaks partner firewall rules.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/virtual-network/ip-services/public-ip-addresses",
+    tags: ["Public IP", "Availability zones", "Standard SKU"]
+  },
+  {
+    id: "azure-az305-463",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d4",
+    domainName: "Design infrastructure solutions",
+    title: "One allow-list entry for a growing set of endpoints",
+    scenario: "A logistics SaaS provider publishes several internet-facing services, each with its own public IP address, and adds new services every quarter. Its enterprise customers must allow-list the provider's addresses in their firewalls and refuse to update their rules every time a new service launches.",
+    question: "What should the architect recommend?",
+    options: [
+      { id: 'A', text: "Create each new service's public IP with a DNS name label and ask customers to allow-list the DNS names." },
+      { id: 'B', text: "Publish the AzureCloud service tag ranges for the region so customers allow every Azure address there." },
+      { id: 'C', text: "Put all services behind one NAT gateway so they share its static public IP address for inbound traffic." },
+      { id: 'D', text: "Reserve a public IP address prefix and create each service's static public IP from that contiguous range." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "A public IP address prefix reserves a contiguous block of static public addresses, such as a /28, from which new public IPs are created, so customers allow-list one range once and future services receive addresses inside it. Many enterprise firewalls filter by IP rather than DNS name, and names do not stop the underlying address list from growing. The AzureCloud service tag covers every Azure customer in the region, which would open customers' firewalls far too widely. A NAT gateway handles outbound traffic only and cannot receive inbound connections.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/virtual-network/ip-services/public-ip-address-prefix",
+    tags: ["Public IP prefix", "Allow listing"]
+  },
+  {
+    id: "azure-az305-464",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d4",
+    domainName: "Design infrastructure solutions",
+    title: "Inbound SFTP through the hub's central firewall",
+    scenario: "A bank runs a hub-and-spoke network in which all internet traffic must pass through Azure Firewall in the hub. External partners must upload files to an SFTP server VM in a spoke on TCP port 22 at a single public address, and the VM itself must keep no public IP address.",
+    question: "What should the architect configure?",
+    options: [
+      { id: 'A', text: "An NSG inbound rule on the spoke subnet allowing port 22 from the Internet service tag to the SFTP server." },
+      { id: 'B', text: "An Azure Front Door route that forwards TCP port 22 from the partners to the SFTP server's private address." },
+      { id: 'C', text: "A DNAT rule on the Azure Firewall that translates its public IP on port 22 to the VM's private address." },
+      { id: 'D', text: "An Application Gateway listener on port 22 beside the firewall, with the SFTP VM in its backend pool." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "Azure Firewall DNAT rules translate inbound traffic arriving at the firewall's public IP and port to a private IP and port, for any TCP or UDP protocol, so partners reach the SFTP VM through the hub firewall while the VM keeps only a private address. Application Gateway is a layer 7 HTTP and HTTPS load balancer and does not proxy SFTP. Front Door handles HTTP and HTTPS only. An NSG rule allows traffic but gives the VM no public address to receive it on, and it bypasses the firewall.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/firewall/tutorial-firewall-dnat",
+    tags: ["Azure Firewall", "DNAT", "Hub and spoke"]
+  },
+  {
+    id: "azure-az305-465",
+    difficulty: "hard",
+    certId: "azure-az305",
+    domainId: "d4",
+    domainName: "Design infrastructure solutions",
+    title: "AKS egress forced through a central firewall",
+    scenario: "An insurer is deploying an AKS cluster into a spoke virtual network. Security requires that all egress from the cluster go through the Azure Firewall in the hub, that the cluster create no public IP address for outbound traffic, and that only the destinations AKS needs to function, plus a container registry, be allowed.",
+    question: "Which two actions should the architect recommend? (Choose two.)",
+    options: [
+      { id: 'A', text: "Create the cluster with outbound type managedNATGateway so egress uses a NAT gateway's static public address." },
+      { id: 'B', text: "Create the cluster with outbound type loadBalancer so its load balancer IP is allow-listed on the firewall and registry." },
+      { id: 'C', text: "Add an NSG on the node subnet that denies all outbound traffic except to the AzureKubernetesService tag." },
+      { id: 'D', text: "Create the cluster with outbound type userDefinedRouting and a route table sending 0.0.0.0/0 to the firewall." },
+      { id: 'E', text: "Add a firewall application rule that uses the AzureKubernetesService FQDN tag, plus a rule for the registry." }
+    ],
+    correctAnswers: ['D', 'E'],
+    type: "multiple",
+    explanation: "With outbound type userDefinedRouting, AKS creates no public IP for egress and relies on the subnet's route table, so a default route to the hub firewall forces all cluster egress through it. On the firewall, the AzureKubernetesService FQDN tag allows the Microsoft endpoints the cluster needs, and an additional rule allows the registry, so everything else is blocked. The loadBalancer outbound type creates a public IP on the managed load balancer for egress. managedNATGateway also egresses through a public IP rather than the firewall. There is no AzureKubernetesService service tag for NSGs; the FQDN tag is an Azure Firewall feature, and NSGs cannot filter by domain.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/aks/limit-egress-traffic",
+    tags: ["AKS", "Azure Firewall", "Egress"]
+  },
+  {
+    id: "azure-az305-466",
+    difficulty: "easy",
+    certId: "azure-az305",
+    domainId: "d4",
+    domainName: "Design infrastructure solutions",
+    title: "Private, predictable 10 Gbps to Azure",
+    scenario: "A trading firm is moving risk systems to Azure. Traffic between its datacentre and Azure must not traverse the public internet, needs consistent low latency and a financially backed SLA on the connection, and will run at up to 10 Gbps during end-of-day calculations.",
+    question: "Which connectivity solution should the architect recommend?",
+    options: [
+      { id: 'A', text: "An ExpressRoute circuit through a connectivity provider, linked to an ExpressRoute gateway in the hub." },
+      { id: 'B', text: "A point-to-site VPN configuration that each risk server uses to connect to the Azure virtual network." },
+      { id: 'C', text: "A site-to-site VPN from the datacentre to an active-active VPN gateway on the highest gateway SKU." },
+      { id: 'D', text: "Virtual network peering between the datacentre's network and the Azure virtual network hosting the systems." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "ExpressRoute provides a private connection between the datacentre and Microsoft's network through a connectivity provider, bypassing the public internet, with predictable latency, bandwidths up to 10 Gbps on provider circuits (and higher with ExpressRoute Direct), and an SLA on the connection. Site-to-site VPN tunnels run over the public internet, so latency varies, and aggregate throughput of even the largest gateway is shared across tunnels. Point-to-site VPN is for individual clients. Virtual network peering connects Azure virtual networks to each other, not to on-premises networks.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/expressroute/expressroute-introduction",
+    tags: ["ExpressRoute", "Hybrid connectivity"]
+  },
+  {
+    id: "azure-az305-467",
+    difficulty: "hard",
+    certId: "azure-az305",
+    domainId: "d4",
+    domainName: "Design infrastructure solutions",
+    title: "Encrypting hybrid traffic over a provider circuit",
+    scenario: "A pharmaceutical company connects to Azure through a 1 Gbps ExpressRoute circuit from a connectivity provider, using private peering. A new data protection policy requires all traffic between the datacentre and Azure virtual networks to be encrypted in transit at the network layer, while keeping the private path and its predictable latency.",
+    question: "What should the architect recommend?",
+    options: [
+      { id: 'A', text: "Enable MACsec on the circuit's provider ports so private peering frames are encrypted between routers." },
+      { id: 'B', text: "Build IPsec tunnels over the ExpressRoute private peering to a VPN gateway using private IPs." },
+      { id: 'C', text: "Enable Microsoft peering on the circuit so that traffic to Azure uses public, encrypted endpoints." },
+      { id: 'D', text: "Replace the circuit with site-to-site VPN tunnels over the internet to an active-active gateway." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "Site-to-site IPsec tunnels can run over ExpressRoute private peering to a VPN gateway (or Virtual WAN hub) configured with private IP addresses, encrypting all traffic end to end while it still travels the private circuit. MACsec is available only on ExpressRoute Direct ports, not on circuits bought through a connectivity provider. Replacing the circuit with internet VPN encrypts traffic but gives up the private path and predictable latency. Microsoft peering reaches Microsoft public services such as Microsoft 365 and does not encrypt traffic to virtual networks.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/vpn-gateway/site-to-site-vpn-private-peering",
+    tags: ["ExpressRoute", "IPsec", "Encryption in transit"]
+  },
+  {
+    id: "azure-az305-468",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d4",
+    domainName: "Design infrastructure solutions",
+    title: "An affordable fallback for a single circuit",
+    scenario: "A distribution company reaches its Azure hub over one ExpressRoute circuit. Leadership wants connectivity to continue, even at reduced bandwidth and higher latency, if the circuit or the provider fails, but will not pay for a second circuit. The hub virtual network already has an ExpressRoute gateway.",
+    question: "What should the architect recommend?",
+    options: [
+      { id: 'A', text: "Add the ExpressRoute Premium add-on so the circuit can use a peering location in another geography." },
+      { id: 'B', text: "Add a VPN gateway to the hub with a site-to-site VPN that takes over automatically if ExpressRoute fails." },
+      { id: 'C', text: "Upgrade the ExpressRoute gateway to a zone-redundant SKU so the connection survives a provider failure." },
+      { id: 'D', text: "Enable ExpressRoute Global Reach so another circuit in the region carries traffic if the circuit fails." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "ExpressRoute and site-to-site VPN gateways can coexist in the same virtual network, and with BGP the VPN path takes over automatically when ExpressRoute routes disappear, giving an inexpensive failover path over the internet. Global Reach links on-premises sites through two ExpressRoute circuits; it does not create a backup for a single circuit. A zone-redundant gateway protects against a zone failure in Azure, not a circuit or provider failure. The Premium add-on extends reach across geographies and raises route limits, but the single circuit remains a single point of failure.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/expressroute/use-s2s-vpn-as-backup-for-expressroute-privatepeering",
+    tags: ["ExpressRoute", "VPN Gateway", "Resiliency"]
+  },
+  {
+    id: "azure-az305-469",
+    difficulty: "hard",
+    certId: "azure-az305",
+    domainId: "d4",
+    domainName: "Design infrastructure solutions",
+    title: "Datacentre-to-datacentre traffic over Microsoft's backbone",
+    scenario: "A car maker has datacentres in Frankfurt and Detroit, each connected to Azure by its own ExpressRoute circuit. Traffic between the two datacentres currently crosses an expensive leased MPLS line that is being cancelled. The company wants the two sites to exchange traffic privately over Microsoft's global network without routing it through a VM in Azure.",
+    question: "What should the architect recommend?",
+    options: [
+      { id: 'A', text: "Use global peering between the networks behind each circuit to route Frankfurt and Detroit traffic." },
+      { id: 'B', text: "Enable ExpressRoute Global Reach to link the Frankfurt and Detroit circuits for site-to-site traffic." },
+      { id: 'C', text: "Deploy an NVA in an Azure hub and advertise each datacentre's prefixes to the other circuit through it." },
+      { id: 'D', text: "Enable ExpressRoute FastPath on both circuits so traffic between datacentres bypasses the gateways." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "ExpressRoute Global Reach links two ExpressRoute circuits so that on-premises networks connected to them exchange traffic directly over Microsoft's backbone, which replaces a private WAN link between datacentres without any VM in Azure. Global virtual network peering connects virtual networks; on-premises traffic does not transit between two ExpressRoute gateways through peering. An NVA in a hub can route between circuits but is exactly the VM-based design the company wants to avoid, and adds cost and a bottleneck. FastPath improves the data path between on-premises and virtual network VMs; it does not connect circuits to each other.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/expressroute/expressroute-global-reach",
+    tags: ["ExpressRoute", "Global Reach"]
+  },
+  {
+    id: "azure-az305-470",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d4",
+    domainName: "Design infrastructure solutions",
+    title: "Gateway limits on a busy ExpressRoute data path",
+    scenario: "A video rendering studio pushes large files from on-premises storage to render VMs in Azure over a 10 Gbps ExpressRoute circuit. Monitoring shows the ExpressRoute virtual network gateway saturating on packets per second and adding latency, while the circuit itself still has spare capacity.",
+    question: "What should the architect recommend?",
+    options: [
+      { id: 'A', text: "Enable Accelerated Networking on the ExpressRoute gateway instances so that they can process more packets." },
+      { id: 'B', text: "Enable ExpressRoute Global Reach on the circuit so traffic takes a shorter path to the render VMs." },
+      { id: 'C', text: "Add a site-to-site VPN gateway beside the ExpressRoute gateway so traffic is split across both paths." },
+      { id: 'D', text: "Enable FastPath on the connection, with a supporting gateway SKU, so data bypasses the gateway." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "ExpressRoute FastPath sends data-path traffic directly from the Microsoft edge routers to VMs in the virtual network, bypassing the virtual network gateway, which then handles only route exchange; this removes the gateway's packets-per-second bottleneck. FastPath requires a supported gateway SKU, such as Ultra Performance or ErGw3AZ. Global Reach links on-premises sites to each other. A VPN gateway over the internet would add latency and has lower throughput. Accelerated Networking is a VM NIC feature and cannot be enabled on gateway instances.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/expressroute/about-fastpath",
+    tags: ["ExpressRoute", "FastPath", "Network performance"]
+  },
+  {
+    id: "azure-az305-471",
+    difficulty: "easy",
+    certId: "azure-az305",
+    domainId: "d4",
+    domainName: "Design infrastructure solutions",
+    title: "Remote staff reaching private apps with their work accounts",
+    scenario: "A consulting firm's 300 remote consultants need access to internal applications hosted in an Azure virtual network from their laptops. The firm wants them to sign in with their Microsoft Entra ID accounts, protected by the firm's Conditional Access MFA policy, without issuing or managing client certificates.",
+    question: "What should the architect recommend?",
+    options: [
+      { id: 'A', text: "A point-to-site VPN using IKEv2 with client certificates from an internal root CA instead of Entra ID." },
+      { id: 'B', text: "An ExpressRoute circuit with Microsoft peering so consultants reach the applications over Microsoft's backbone." },
+      { id: 'C', text: "A site-to-site VPN from each consultant's home router to a VPN gateway, authenticated with a pre-shared key." },
+      { id: 'D', text: "A point-to-site VPN using the OpenVPN protocol with Microsoft Entra ID authentication in the Azure VPN Client." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Point-to-site VPN with Microsoft Entra ID authentication uses the OpenVPN protocol and the Azure VPN Client; users sign in with their Entra accounts, Conditional Access and MFA apply, and no client certificates are needed. Site-to-site VPN connects networks, not individual laptops, and a pre-shared key per home router is unmanageable. IKEv2 with certificate authentication requires issuing and revoking client certificates, which the firm wants to avoid. Microsoft peering reaches Microsoft public services from on-premises networks, not virtual networks from remote laptops.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/vpn-gateway/point-to-site-entra-gateway",
+    tags: ["VPN Gateway", "Point-to-site", "Microsoft Entra ID"]
+  },
+  {
+    id: "azure-az305-472",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d4",
+    domainName: "Design infrastructure solutions",
+    title: "Forty branches, two regions and any-to-any routing",
+    scenario: "A retailer is connecting 40 stores with SD-WAN devices, two datacentres with ExpressRoute, and virtual networks in two Azure regions. It wants any-to-any connectivity between all of them, Microsoft-managed hub routing instead of self-built route tables and NVAs, and the ability to add stores without redesigning the network.",
+    question: "What should the architect recommend?",
+    options: [
+      { id: 'A', text: "Azure Virtual WAN Standard with a hub in each region, connecting the stores, datacentres and virtual networks." },
+      { id: 'B', text: "A customer-managed hub virtual network in each region with VPN and ExpressRoute gateways and UDRs for transit." },
+      { id: 'C', text: "Azure Virtual WAN Basic with a hub in each region, using site-to-site VPN for stores and datacentres alike." },
+      { id: 'D', text: "Global virtual network peering between every spoke network, with each store connected to its nearest spoke." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Azure Virtual WAN Standard provides Microsoft-managed hubs that interconnect site-to-site VPN and SD-WAN branches, ExpressRoute circuits and virtual networks with automatic any-to-any transit, including hub-to-hub across regions, and supports SD-WAN partner integration. A customer-managed hub needs route tables and NVAs for transit, which the retailer wants to avoid. Peering between spokes is not transitive and cannot terminate branch connections. The Basic tier supports only site-to-site VPN and lacks ExpressRoute, inter-hub and VNet-to-VNet transit.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/virtual-wan/virtual-wan-about",
+    tags: ["Virtual WAN", "SD-WAN", "Hybrid connectivity"]
+  },
+  {
+    id: "azure-az305-473",
+    difficulty: "hard",
+    certId: "azure-az305",
+    domainId: "d4",
+    domainName: "Design infrastructure solutions",
+    title: "Dynamic routes between an SD-WAN appliance and Azure",
+    scenario: "A manufacturer runs a third-party SD-WAN network virtual appliance in its hub virtual network, which learns hundreds of branch prefixes that change weekly. Today engineers update user-defined routes by hand whenever branches change, and the ExpressRoute gateway in the hub does not learn the branch prefixes at all. The company wants routes exchanged automatically.",
+    question: "What should the architect recommend?",
+    options: [
+      { id: 'A', text: "Enable gateway transit on the hub peering so the ExpressRoute gateway learns routes from the appliance." },
+      { id: 'B', text: "Replace the appliance's routes with a single 0.0.0.0/0 UDR on every spoke subnet pointing to the NVA." },
+      { id: 'C', text: "Enable BGP route propagation on every route table so SD-WAN branch prefixes are learned from the NVA." },
+      { id: 'D', text: "Deploy Azure Route Server in the hub and establish BGP peering between it and the SD-WAN appliance." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Azure Route Server peers with network virtual appliances over BGP and programs the routes they advertise into the virtual network and peered spokes; with branch-to-branch enabled it also exchanges routes with the ExpressRoute gateway, so branch prefixes flow automatically in both directions. Route propagation on route tables controls whether gateway-learned routes are applied; it does not make an NVA speak BGP to Azure. A default route to the NVA sends all traffic, including internet-bound traffic, through the appliance and still leaves the ExpressRoute gateway unaware of branch prefixes. Gateway transit shares a gateway with peered networks and does not learn routes from an NVA.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/route-server/overview",
+    tags: ["Route Server", "BGP", "Network virtual appliance"]
+  },
+  {
+    id: "azure-az305-474",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d4",
+    domainName: "Design infrastructure solutions",
+    title: "Site-to-site VPN that survives gateway and zone faults",
+    scenario: "A regional hospital group connects two datacentres to Azure with site-to-site VPN. During planned gateway maintenance last year, tunnels dropped for over a minute, and the group also wants the Azure side to survive the loss of an availability zone. Both datacentres have two VPN devices capable of BGP.",
+    question: "What should the architect recommend?",
+    options: [
+      { id: 'A', text: "Deploy a VPN gateway in active-standby mode with static routes to both devices and rely on instance failover." },
+      { id: 'B', text: "Deploy a policy-based VPN gateway so that each datacentre can build a separate tunnel to each instance." },
+      { id: 'C', text: "Deploy a zone-redundant VPN gateway SKU in active-active mode, with BGP tunnels from both devices at each site." },
+      { id: 'D', text: "Deploy a second VPN gateway in another virtual network and switch the tunnels to it during maintenance." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "A zone-redundant (AZ) VPN gateway SKU spreads its instances across availability zones, and active-active mode gives both instances a public IP and live tunnels; with BGP and two devices per site forming a full mesh of tunnels, traffic keeps flowing through maintenance or the loss of an instance or zone. Active-standby failover takes tens of seconds to over a minute, which is the interruption already seen. A second gateway in another virtual network does not serve the same address space and needs manual switching. Policy-based gateways support only one tunnel with static routing and cannot run active-active.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-highlyavailable",
+    tags: ["VPN Gateway", "Active-active", "Availability zones"]
+  },
+  {
+    id: "azure-az305-475",
+    difficulty: "hard",
+    certId: "azure-az305",
+    domainId: "d4",
+    domainName: "Design infrastructure solutions",
+    title: "Maximum resiliency for private connectivity",
+    scenario: "A payments processor's card authorization traffic between its datacentres and Azure runs over one ExpressRoute circuit at a single peering location. The board now requires that the private connection survive the loss of an entire peering location and the loss of an availability zone in the Azure region, without falling back to the internet.",
+    question: "Which two actions should the architect recommend? (Choose two.)",
+    options: [
+      { id: 'A', text: "Provision a second ExpressRoute circuit at a different peering location and connect both to the hub." },
+      { id: 'B', text: "Add the ExpressRoute Premium add-on so the circuit can fail over to peering locations in other geographies." },
+      { id: 'C', text: "Enable ExpressRoute Global Reach between the circuit and another circuit at the same peering location." },
+      { id: 'D', text: "Use a zone-redundant ExpressRoute gateway SKU in the hub so gateway instances span availability zones." },
+      { id: 'E', text: "Add a site-to-site VPN over the internet so traffic continues if a peering location or availability zone fails." }
+    ],
+    correctAnswers: ['A', 'D'],
+    type: "multiple",
+    explanation: "Microsoft's maximum-resiliency design for ExpressRoute uses two circuits at two different peering locations, so the loss of one location leaves the other circuit carrying traffic, and a zone-redundant gateway SKU spreads the gateway across availability zones so the Azure side survives a zone failure. Global Reach connects on-premises sites through circuits and a second circuit at the same location fails with it. A site-to-site VPN falls back to the internet, which the board has ruled out. The Premium add-on widens geographic reach and route limits but does not add a second physical path.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/expressroute/design-architecture-for-resiliency",
+    tags: ["ExpressRoute", "Resiliency", "Availability zones"]
+  }
+];
+
+export default AZURE_AZ305_QUESTIONS_19;

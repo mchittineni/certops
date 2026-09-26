@@ -1,0 +1,532 @@
+export const AZURE_AZ305_QUESTIONS_15 = [
+  {
+    id: "azure-az305-351",
+    difficulty: "easy",
+    certId: "azure-az305",
+    domainId: "d4",
+    domainName: "Design infrastructure solutions",
+    title: "Serverless functions that reach a private database",
+    scenario: "A charity is building new Python functions that process donation webhooks, which arrive in unpredictable bursts and sometimes not at all for days. The functions must reach an Azure SQL database that is only exposed through a private endpoint, and the charity wants to pay nothing for compute while no webhooks arrive.",
+    question: "Which Azure Functions hosting option should the architect choose?",
+    options: [
+      { id: 'A', text: "The Consumption plan, which scales to zero and bills only for executions and their memory use." },
+      { id: 'B', text: "The Flex Consumption plan, which scales to zero and supports virtual network integration." },
+      { id: 'C', text: "The Premium plan, which keeps prewarmed instances ready and supports virtual network integration." },
+      { id: 'D', text: "A Dedicated App Service plan on the Basic tier with virtual network integration configured." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "Flex Consumption is the recommended serverless plan for new apps: it scales to zero with pay-per-execution billing and supports virtual network integration, so the functions can reach the private endpoint. The legacy Consumption plan scales to zero but has no virtual network integration. The Premium plan integrates with virtual networks but always keeps at least one instance running and billed. A Dedicated plan bills for its instances continuously, whether or not webhooks arrive.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-functions/functions-scale",
+    tags: ["Azure Functions", "Flex Consumption", "Hosting plans"]
+  },
+  {
+    id: "azure-az305-352",
+    difficulty: "hard",
+    certId: "azure-az305",
+    domainId: "d4",
+    domainName: "Design infrastructure solutions",
+    title: "Report requests that time out after four minutes",
+    scenario: "A logistics firm exposes an HTTP-triggered function that builds a regulatory report, which takes 15 to 25 minutes. Callers receive errors after about four minutes even though the app runs on a Premium plan with the function timeout set to unbounded. The firm wants callers to submit a request and retrieve the finished report later, without adding servers.",
+    question: "What should the architect recommend?",
+    options: [
+      { id: 'A', text: "Move the function app to a Dedicated plan with Always On enabled so the HTTP connection stays open." },
+      { id: 'B', text: "Place Azure Front Door in front of the function and raise the origin response timeout to thirty minutes." },
+      { id: 'C', text: "Use the Durable Functions async HTTP pattern, returning 202 with a status URL the caller can poll." },
+      { id: 'D', text: "Increase functionTimeout in host.json to 45 minutes and set the Premium plan's minimum instances to two." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "Whatever the function timeout, an HTTP-triggered function must respond within about 230 seconds because of the platform load balancer's idle timeout, so long work should use the Durable Functions async HTTP pattern: the starter returns 202 Accepted with a status endpoint while an orchestration builds the report in the background. A Dedicated plan with Always On is subject to the same 230-second HTTP limit. Front Door cannot extend a limit imposed behind it by the function platform. Changing the timeout or instance count does not affect the HTTP response limit.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-functions/durable/durable-functions-http-features",
+    tags: ["Azure Functions", "Durable Functions", "Async HTTP"]
+  },
+  {
+    id: "azure-az305-353",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d4",
+    domainName: "Design infrastructure solutions",
+    title: "Validating thousands of files, then one summary",
+    scenario: "An insurer receives a nightly batch of about 5,000 claim files. Each file must be validated independently, as fast as possible in parallel, and once every validation has finished a single summary must be produced from all the results. The team writes C# and wants the platform to track progress and survive restarts.",
+    question: "Which Durable Functions pattern should the architect use?",
+    options: [
+      { id: 'A', text: "The human interaction pattern, waiting for an external event raised as each file's validation ends." },
+      { id: 'B', text: "Fan-out/fan-in, starting one validation activity per file and aggregating their outcomes when all complete." },
+      { id: 'C', text: "Function chaining, calling the validation activity for each file in turn and then the summary activity." },
+      { id: 'D', text: "The monitor pattern, polling a storage container on a timer until every validation result is present." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "Fan-out/fan-in has the orchestrator start many activity functions in parallel, wait for all their tasks, and then aggregate the results, with the Durable Task framework checkpointing progress so restarts do not lose work. Function chaining runs the activities one after another, which is far slower for 5,000 independent files. The monitor pattern suits polling an external process until a condition changes, not coordinating work the orchestration starts itself. The human interaction pattern waits for an external approval signal rather than parallel activity results.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-functions/durable/durable-functions-overview",
+    tags: ["Durable Functions", "Fan-out/fan-in"]
+  },
+  {
+    id: "azure-az305-354",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d4",
+    domainName: "Design infrastructure solutions",
+    title: "Approvals that escalate after three days",
+    scenario: "A bank's credit-limit increases need a manager's approval. The workflow must wait up to 72 hours for the manager's decision, escalate to a senior manager if none arrives, and cost nothing while it waits. The development team wants the whole workflow defined in C# code alongside its other functions.",
+    question: "What should the architect recommend?",
+    options: [
+      { id: 'A', text: "A long-running function that sleeps in a loop for 72 hours while polling for the manager's decision." },
+      { id: 'B', text: "A Durable Functions orchestration that listens for an external event while a durable timer runs." },
+      { id: 'C', text: "A Service Bus scheduled message sent for 72 hours later, which triggers escalation when it is received." },
+      { id: 'D', text: "A timer-triggered function that runs every hour and checks a table for pending approvals to escalate." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "The Durable Functions human interaction pattern has the orchestrator wait for an external event such as the approval while a durable timer runs in parallel; whichever finishes first decides the path, and the orchestration is unloaded while waiting, so no compute is consumed. An hourly timer function works but polls constantly, delays escalation by up to an hour and spreads state across a table. A scheduled message handles the escalation trigger but leaves correlating approvals and cancelling the message to custom code. A function sleeping for 72 hours consumes compute throughout and is lost on any restart.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-functions/durable/durable-functions-overview",
+    tags: ["Durable Functions", "Human interaction"]
+  },
+  {
+    id: "azure-az305-355",
+    difficulty: "easy",
+    certId: "azure-az305",
+    domainId: "d4",
+    domainName: "Design infrastructure solutions",
+    title: "Syncing a CRM with an ERP without writing code",
+    scenario: "A distributor wants new customers created in Salesforce to be added automatically to SAP and announced in a Microsoft Teams channel. The integration team consists of business analysts who prefer a visual designer, and the solution should use prebuilt connectors rather than custom API code.",
+    question: "Which service should the architect recommend?",
+    options: [
+      { id: 'A', text: "Azure Data Factory, copying records from Salesforce into SAP on a schedule with its connectors." },
+      { id: 'B', text: "Azure Logic Apps, building a workflow with the Salesforce, SAP and Teams connectors." },
+      { id: 'C', text: "Azure Functions, calling the Salesforce, SAP and Teams REST APIs from custom C# code." },
+      { id: 'D', text: "Azure Event Grid, subscribing SAP and Teams endpoints to Salesforce custom events." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "Logic Apps provides a visual designer and hundreds of prebuilt connectors, including Salesforce, SAP and Teams, so analysts can build the trigger and actions without writing API code. Functions would require developers to write and maintain the API integration code. Event Grid routes events but provides no connectors to create SAP records or post to Teams. Data Factory moves data in batch pipelines rather than reacting to each new customer with a sequence of actions.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/logic-apps/logic-apps-overview",
+    tags: ["Logic Apps", "Integration", "Connectors"]
+  },
+  {
+    id: "azure-az305-356",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d4",
+    domainName: "Design infrastructure solutions",
+    title: "Private workflows developed locally in VS Code",
+    scenario: "A healthcare provider is building 30 integration workflows that call services reachable only through its virtual network. Developers want to build and test workflows locally in Visual Studio Code, run several workflows in one app on dedicated compute, and use stateless workflows for high-throughput message handling.",
+    question: "Which Logic Apps option should the architect recommend?",
+    options: [
+      { id: 'A', text: "Logic Apps Consumption inside an integration service environment for private network access." },
+      { id: 'B', text: "Logic Apps Consumption, creating one multitenant logic app resource for each of the 30 workflows." },
+      { id: 'C', text: "Logic Apps Standard, hosting the workflows in single-tenant apps with virtual network integration." },
+      { id: 'D', text: "Power Automate cloud flows, with an on-premises data gateway on a virtual machine providing network access." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "Logic Apps Standard runs on single-tenant compute where one app can hold many workflows, supports virtual network integration and private endpoints, offers stateless as well as stateful workflows, and can be developed and run locally in Visual Studio Code. Consumption logic apps run in multitenant infrastructure with one workflow per resource and no stateless workflows. The integration service environment has been retired, with Standard as its replacement. Power Automate targets business-user automation and uses a gateway for on-premises data, not VNet-integrated enterprise workflows.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/logic-apps/single-tenant-overview-compare",
+    tags: ["Logic Apps", "Standard", "Virtual network"]
+  },
+  {
+    id: "azure-az305-357",
+    difficulty: "hard",
+    certId: "azure-az305",
+    domainId: "d4",
+    domainName: "Design infrastructure solutions",
+    title: "Event-driven functions that need Windows and a VNet",
+    scenario: "A manufacturer's functions use a vendor library that runs only on the .NET Framework on Windows. They process queue messages that arrive in bursts, must call an on-premises API through the company's hub virtual network, and must start processing a burst without cold-start delay.",
+    question: "Which hosting plan should the architect choose?",
+    options: [
+      { id: 'A', text: "The Premium plan on Windows, with always-ready instances and virtual network integration enabled." },
+      { id: 'B', text: "The Consumption plan on Windows, relying on its prewarmed placeholder workers to cut cold starts." },
+      { id: 'C', text: "Azure Container Apps hosting for Functions, packaging the library into a Windows container image." },
+      { id: 'D', text: "The Flex Consumption plan with always-ready instances and virtual network integration configured." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "The Premium plan supports Windows code deployments, event-driven scale-out, always-ready instances that remove cold starts, and virtual network integration, so it meets every constraint. Flex Consumption would be the first serverless choice, but it runs on Linux only, which excludes the Windows-only library. The Windows Consumption plan has no virtual network integration and still suffers cold starts. Functions on Container Apps supports Linux containers only, and Azure Functions does not support Windows containers.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-functions/functions-premium-plan",
+    tags: ["Azure Functions", "Premium plan", "Hosting plans"]
+  },
+  {
+    id: "azure-az305-358",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d4",
+    domainName: "Design infrastructure solutions",
+    title: "Blob-triggered processing that lags on a busy container",
+    scenario: "A photo-sharing app's function processes each image uploaded to a container that receives about 2 million blobs a day. With the default polling-based blob trigger, processing sometimes starts minutes after upload. The team wants lower latency and more reliable triggering without changing how clients upload images.",
+    question: "What should the architect recommend?",
+    options: [
+      { id: 'A', text: "Configure the blob trigger to use an Event Grid source so blob-created events push work to the function." },
+      { id: 'B', text: "Move the container to a premium block blob account so that the polling trigger scans it more quickly." },
+      { id: 'C', text: "Enable blob change feed on the account and have the function read the feed on the default polling trigger." },
+      { id: 'D', text: "Replace the blob trigger with a timer trigger that lists the container every thirty seconds for new blobs." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "A blob trigger that uses an Event Grid source is driven by blob-created events pushed from the storage account, which gives low latency and reliable triggering on high-volume containers, and it is the default approach for Flex Consumption. A timer that lists the container repeats the scanning problem at higher cost. Change feed is an ordered log for bulk processing and does not make the polling trigger fire faster. Premium storage speeds up reads and writes but does not change how the polling trigger discovers new blobs.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-functions/functions-event-grid-blob-trigger",
+    tags: ["Azure Functions", "Blob trigger", "Event Grid"]
+  },
+  {
+    id: "azure-az305-359",
+    difficulty: "easy",
+    certId: "azure-az305",
+    domainId: "d4",
+    domainName: "Design infrastructure solutions",
+    title: "Rendering 40,000 frames overnight",
+    scenario: "An animation studio must render about 40,000 independent frames of a film each night on Windows render nodes, each frame taking 5 to 30 minutes. It wants a managed service to create a pool of VMs, schedule the frames as tasks, retry failures and scale the pool down when the queue is empty.",
+    question: "Which service should the architect recommend?",
+    options: [
+      { id: 'A', text: "Azure Batch, with a pool of render VMs, one task per frame and an autoscale formula that shrinks the pool." },
+      { id: 'B', text: "Azure Logic Apps with a for-each loop that calls a render API for every frame in parallel." },
+      { id: 'C', text: "A virtual machine scale set with a custom script that pulls frame numbers from a shared file." },
+      { id: 'D', text: "Azure Functions on the Premium plan, triggering one function execution per frame from a queue." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Azure Batch manages pools of compute nodes, schedules jobs made of many independent tasks, retries failed tasks and scales pools with autoscale formulas, which is the classic fit for embarrassingly parallel rendering. Functions is designed for short event-driven code rather than managing heavyweight Windows render software across thousands of long tasks. A scale set with a custom script means building the scheduler, retries and scaling logic yourself. Logic Apps orchestrates integrations and has no pool of render nodes to run the work.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/batch/batch-technical-overview",
+    tags: ["Azure Batch", "Rendering", "Parallel processing"]
+  },
+  {
+    id: "azure-az305-360",
+    difficulty: "hard",
+    certId: "azure-az305",
+    domainId: "d4",
+    domainName: "Design infrastructure solutions",
+    title: "Tightly coupled MPI simulations on Batch",
+    scenario: "An automotive engineer runs computational fluid dynamics simulations that use MPI across 32 nodes, exchanging data between nodes continuously for up to 12 hours per run. Throughput is limited by internode latency, and a run that loses a node must restart from the beginning.",
+    question: "Which two design choices should the architect make for the Azure Batch pool? (Choose two.)",
+    options: [
+      { id: 'A', text: "Use a D-series general-purpose VM size with accelerated networking on each node." },
+      { id: 'B', text: "Use an HB-series VM size with InfiniBand networking for all of the compute nodes." },
+      { id: 'C', text: "Enable inter-node communication on the pool and run the job as multi-instance tasks." },
+      { id: 'D', text: "Split each simulation into 32 independent tasks with task dependencies between them." },
+      { id: 'E', text: "Fill the pool with Spot nodes, relying on Batch to requeue any preempted tasks." }
+    ],
+    correctAnswers: ['B', 'C'],
+    type: "multiple",
+    explanation: "HB-series HPC VMs provide low-latency InfiniBand for MPI traffic, and a pool with inter-node communication enabled lets Batch run multi-instance tasks that start the MPI job across the allocated nodes. Spot nodes can be preempted at any time, and a preemption forces a 12-hour MPI run to start over, so Batch guidance steers long MPI jobs away from Spot. D-series VMs with accelerated networking lack the RDMA interconnect that latency-bound MPI needs. Task dependencies sequence independent tasks; they do not provide the simultaneous, communicating processes an MPI job requires.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/batch/batch-mpi",
+    tags: ["Azure Batch", "HPC", "MPI"]
+  },
+  {
+    id: "azure-az305-361",
+    difficulty: "hard",
+    certId: "azure-az305",
+    domainId: "d4",
+    domainName: "Design infrastructure solutions",
+    title: "Bursting a Slurm cluster into Azure",
+    scenario: "A university's researchers submit jobs to an on-premises Slurm cluster using existing scripts and sbatch commands. The university wants to extend the cluster into Azure with nodes that are created when jobs queue and removed when idle, and researchers must not change how they submit jobs.",
+    question: "What should the architect recommend?",
+    options: [
+      { id: 'A', text: "A virtual machine scale set with CPU-based autoscale that joins each new node to the Slurm cluster." },
+      { id: 'B', text: "Azure CycleCloud, deploying and autoscaling a Slurm cluster whose compute VMs run in Azure." },
+      { id: 'C', text: "AKS with a batch scheduler add-on, converting each Slurm job into a Kubernetes Job manifest." },
+      { id: 'D', text: "Azure Batch, rewriting the job scripts as Batch jobs and tasks submitted through the Batch API." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "Azure CycleCloud orchestrates HPC clusters that use traditional schedulers such as Slurm, adding compute nodes when jobs queue and removing them when idle, so researchers keep using sbatch and their scripts. Batch is its own scheduler with its own API, so every script would change. Converting to Kubernetes Jobs also changes the submission model completely. A CPU-based scale set rule knows nothing about the Slurm queue, so it cannot add nodes when jobs are waiting on idle-looking nodes.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/cyclecloud/overview",
+    tags: ["Azure CycleCloud", "HPC", "Slurm"]
+  },
+  {
+    id: "azure-az305-362",
+    difficulty: "easy",
+    certId: "azure-az305",
+    domainId: "d4",
+    domainName: "Design infrastructure solutions",
+    title: "Merging results only after every chunk finishes",
+    scenario: "A genomics lab splits each sample into 200 alignment tasks in an Azure Batch job, and a final merge task must run only after all 200 alignment tasks have completed successfully. The lab wants Batch itself to enforce the ordering instead of a custom polling script.",
+    question: "What should the architect configure?",
+    options: [
+      { id: 'A', text: "A job schedule that starts the merge task a fixed number of hours after the job begins." },
+      { id: 'B', text: "A job preparation task that runs on each node before the alignment tasks start on it." },
+      { id: 'C', text: "A multi-instance task that runs the merge across every node that ran alignment tasks." },
+      { id: 'D', text: "Task dependencies on the job, with the merge task depending on all the alignment tasks." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "With task dependencies enabled on the job, a task can depend on other tasks or a range of task IDs, and Batch schedules it only when they complete successfully, so the merge waits for all 200 alignments. A job preparation task runs setup on each node before tasks, not after them. A schedule based on elapsed time guesses at completion and may run the merge too early or waste time. Multi-instance tasks run one task across several nodes simultaneously, typically for MPI, and do not sequence tasks.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/batch/batch-task-dependencies",
+    tags: ["Azure Batch", "Task dependencies"]
+  },
+  {
+    id: "azure-az305-363",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d4",
+    domainName: "Design infrastructure solutions",
+    title: "Cutting cost for flexible overnight Batch jobs",
+    scenario: "An actuarial team's Azure Batch jobs consist of thousands of short, restartable tasks that must finish by 07:00 but usually complete by 02:00. Finance wants the compute bill cut sharply, while keeping enough guaranteed capacity that the deadline is still met if discounted capacity disappears.",
+    question: "How should the pool be configured?",
+    options: [
+      { id: 'A', text: "A small baseline of dedicated nodes plus Spot nodes, with autoscale adding dedicated nodes if Spot is lost." },
+      { id: 'B', text: "Only dedicated nodes covered by a one-year reservation, scaled by an autoscale formula based on pending tasks." },
+      { id: 'C', text: "Only dedicated nodes on B-series burstable sizes, so that idle periods earn credits for the busy hours." },
+      { id: 'D', text: "Only Spot nodes with a maximum price set, so that nodes are evicted only when the price rises too high." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Batch pools can mix dedicated and Spot nodes, and an autoscale formula can watch preempted node counts and pending tasks to add dedicated capacity when Spot is scarce; short restartable tasks are automatically requeued after preemption, so the job gets deep discounts while the dedicated baseline protects the deadline. Reserved dedicated capacity alone saves far less than Spot. Spot VMs in Batch do not support a maximum price and are evicted for capacity only, and a Spot-only pool offers no guaranteed capacity. Burstable sizes do not suit sustained compute-bound work.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/batch/batch-spot-vms",
+    tags: ["Azure Batch", "Spot VMs", "Cost optimization"]
+  },
+  {
+    id: "azure-az305-364",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d4",
+    domainName: "Design infrastructure solutions",
+    title: "One container run per uploaded invoice",
+    scenario: "An accounting firm has containerised an OCR tool that processes one invoice per run and then exits. Invoices arrive as messages on a Service Bus queue at unpredictable times, and the firm wants a separate container execution per message, automatic scaling with the queue, and no cost when the queue is empty.",
+    question: "What should the architect recommend?",
+    options: [
+      { id: 'A', text: "An AKS CronJob that runs every minute and starts one pod for each message waiting in the Service Bus queue." },
+      { id: 'B', text: "A Logic App that creates an Azure Container Instances group for every message it receives." },
+      { id: 'C', text: "An Azure Container Apps app with a minimum of one replica that polls the queue in a loop." },
+      { id: 'D', text: "An Azure Container Apps job with an event-driven trigger that scales on the Service Bus queue." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Container Apps jobs run containers that execute and exit, and an event-driven job uses KEDA scale rules to start executions in proportion to queue messages, scaling to zero when the queue is empty. A container app with a minimum replica is a long-running service that bills continuously and is not designed for run-to-completion work. An AKS CronJob requires a cluster that runs constantly and adds up to a minute of latency. A Logic App creating container groups works but adds glue, per-group start-up time and cleanup logic that a job provides natively.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/container-apps/jobs",
+    tags: ["Container Apps", "Jobs", "Event-driven"]
+  },
+  {
+    id: "azure-az305-365",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d4",
+    domainName: "Design infrastructure solutions",
+    title: "Versioned solver binaries on every Batch node",
+    scenario: "An energy company's reservoir simulations in Azure Batch need a licensed solver, shipped as a zip file, present on each compute node before tasks run. New solver versions arrive quarterly and some jobs must stay on the previous version. The team does not want to maintain custom VM images.",
+    question: "What should the architect use to deliver the solver?",
+    options: [
+      { id: 'A', text: "A custom image in Azure Compute Gallery with the solver preinstalled, rebuilt and replicated for each new version." },
+      { id: 'B', text: "A job release task that copies the solver zip file onto each node after the job's tasks complete." },
+      { id: 'C', text: "A multi-instance task whose coordination command downloads the solver to every node before it runs." },
+      { id: 'D', text: "Batch application packages, uploading each solver version and referencing a version per pool or task." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Application packages store versioned zip files in the Batch account and deploy the specified version to compute nodes automatically, at pool or task level, so jobs can pin the previous solver while others use the new one. A custom image works but is the image maintenance the team wants to avoid. A job release task runs after the job's tasks, too late to supply the solver. A multi-instance task's coordination command is for MPI-style setup, not a general way to distribute versioned software to every job.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/batch/batch-application-packages",
+    tags: ["Azure Batch", "Application packages"]
+  },
+  {
+    id: "azure-az305-366",
+    difficulty: "easy",
+    certId: "azure-az305",
+    domainId: "d4",
+    domainName: "Design infrastructure solutions",
+    title: "A simple work queue that may grow very large",
+    scenario: "A mapping company queues tile-rendering requests for a pool of workers. Backlogs can reach hundreds of gigabytes during bulk re-renders, messages are small, order does not matter, and the team wants the cheapest option using the same storage account and SDK it already uses for blobs.",
+    question: "Which service should the architect recommend?",
+    options: [
+      { id: 'A', text: "Azure Event Grid, pushing each tile request from the storage account to workers through a webhook." },
+      { id: 'B', text: "Azure Event Hubs, with each rendering worker reading from its own dedicated partition of the event hub." },
+      { id: 'C', text: "Azure Service Bus Premium queues, sized with enough messaging units to hold the full backlog." },
+      { id: 'D', text: "Azure Queue Storage queues in the existing storage account, polled by the rendering workers." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Queue Storage is a low-cost queue inside a storage account whose total capacity follows the account's limits, so it can hold backlogs far larger than 80 GB, and it suits simple unordered work distribution with the storage SDK the team already uses. Service Bus queues have a maximum entity size of 80 GB and add cost for broker features the team does not need. Event Hubs is a streaming log where consumers read partitions rather than competing for individual work items. Event Grid pushes events to handlers and does not hold a backlog for workers to pull at their own pace.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted",
+    tags: ["Queue Storage", "Service Bus", "Messaging"]
+  },
+  {
+    id: "azure-az305-367",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d4",
+    domainName: "Design infrastructure solutions",
+    title: "Processing each account's transactions in order",
+    scenario: "A bank's ledger service receives transactions for millions of accounts through a queue. Transactions for any single account must be processed strictly in the order sent and by only one consumer at a time, while transactions for different accounts should be processed in parallel across many consumers.",
+    question: "What should the architect recommend?",
+    options: [
+      { id: 'A', text: "An Event Grid topic that pushes each transaction to a consumer webhook chosen by the account number." },
+      { id: 'B', text: "A Queue Storage queue per account, created on demand and read by whichever consumer is available." },
+      { id: 'C', text: "A Service Bus queue with sessions enabled, setting the session ID to the account number on each message." },
+      { id: 'D', text: "A Service Bus queue with duplicate detection enabled, using the account number as each message's ID." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "Service Bus sessions group messages by session ID, deliver them in order, and lock each session to one receiver at a time, while different sessions are processed in parallel by other receivers, which is exactly per-account FIFO. Millions of storage queues would be unmanageable and still give no exclusive consumer lock. Duplicate detection discards messages with a repeated message ID, so using the account number would drop every transaction after the first. Event Grid does not guarantee delivery order.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/service-bus-messaging/message-sessions",
+    tags: ["Service Bus", "Sessions", "Ordering"]
+  },
+  {
+    id: "azure-az305-368",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d4",
+    domainName: "Design infrastructure solutions",
+    title: "Orders resent after a network timeout",
+    scenario: "An e-commerce checkout service sends order messages to a Service Bus queue. When the send times out, the service retries, and occasionally the original send had in fact succeeded, so the same order is fulfilled twice. The team wants the broker to discard such repeats sent within a few minutes of each other.",
+    question: "What should the architect recommend?",
+    options: [
+      { id: 'A', text: "Enable sessions on the queue and set the session ID to the order number on every message sent." },
+      { id: 'B', text: "Enable partitioning on the queue so that each order number lands on a single partition." },
+      { id: 'C', text: "Enable dead-lettering on message expiration so that stale copies leave the queue early." },
+      { id: 'D', text: "Enable duplicate detection on the queue and set each message's ID to the order number it carries." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Duplicate detection makes Service Bus remember message IDs for a configurable time window and silently drop any message whose ID has already been seen, so a retried send with the same order-based ID is discarded. Sessions order messages and lock them to a receiver but still deliver both copies. Dead-lettering on expiration handles messages that outlive their time to live, not duplicates. Partitioning spreads load across message brokers and does nothing to remove repeats.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/service-bus-messaging/duplicate-detection",
+    tags: ["Service Bus", "Duplicate detection"]
+  },
+  {
+    id: "azure-az305-369",
+    difficulty: "hard",
+    certId: "azure-az305",
+    domainId: "d4",
+    domainName: "Design infrastructure solutions",
+    title: "Regional warehouses receiving only their orders",
+    scenario: "A retailer publishes every order once with a region property. Each of five regional warehouse systems must receive only the orders for its region, may be offline for hours and must find its orders waiting when it reconnects, and the finance system must receive every order. Publishers must not know which systems consume the orders.",
+    question: "Which two design elements should the architect use? (Choose two.)",
+    options: [
+      { id: 'A', text: "A Service Bus topic with one subscription for each consuming system." },
+      { id: 'B', text: "SQL filter rules on the warehouse subscriptions matching the region." },
+      { id: 'C', text: "Service Bus sessions on one queue, using the region as the session ID." },
+      { id: 'D', text: "An Event Hubs namespace with one partition allocated to each region." },
+      { id: 'E', text: "A Queue Storage queue per warehouse system that the publisher writes to." }
+    ],
+    correctAnswers: ['A', 'B'],
+    type: "multiple",
+    explanation: "A Service Bus topic decouples the publisher from consumers, and each subscription durably holds its own copy of matching messages until the consumer reconnects; SQL filter rules on the warehouse subscriptions select orders by the region property, while the finance subscription keeps the default rule that accepts everything. Event Hubs partitions are chosen by key for throughput, and every consumer group reads all events rather than a filtered set. Writing to a queue per region makes the publisher aware of its consumers. Sessions on a single queue give ordered, locked delivery but only one copy per message, so finance could not also receive every order.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/service-bus-messaging/topic-filters",
+    tags: ["Service Bus", "Topics", "Filters"]
+  },
+  {
+    id: "azure-az305-370",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d4",
+    domainName: "Design infrastructure solutions",
+    title: "Malformed messages that keep coming back",
+    scenario: "A claims intake service reads from a Service Bus queue. A few malformed messages cause the consumer to throw an exception every time, so they are redelivered repeatedly and waste processing capacity. The team wants such messages set aside automatically for later inspection without losing them.",
+    question: "What should the architect rely on?",
+    options: [
+      { id: 'A', text: "The queue's maximum delivery count, which moves a message that keeps failing to the dead-letter queue." },
+      { id: 'B', text: "A short message time to live on the queue, so failing messages expire and are removed automatically." },
+      { id: 'C', text: "Auto-forwarding from the queue to a second queue that a separate consumer drains for inspection." },
+      { id: 'D', text: "Peek-lock with a longer lock duration, so failing messages stay locked and are not redelivered." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Each Service Bus queue has a maximum delivery count, and once a message has been delivered and abandoned that many times it is moved to the queue's dead-letter subqueue, where it is kept for inspection and reprocessing instead of blocking consumers. A short time to live removes messages without keeping them unless dead-lettering on expiry is configured, and it would also expire good messages. Auto-forwarding moves every message, healthy or not, to the other queue. A longer lock only delays redelivery; the message returns once the lock expires.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/service-bus-messaging/service-bus-dead-letter-queues",
+    tags: ["Service Bus", "Dead-letter queue", "Poison messages"]
+  },
+  {
+    id: "azure-az305-371",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d4",
+    domainName: "Design infrastructure solutions",
+    title: "Engineering drawings sent as queue messages",
+    scenario: "A construction firm's design system sends messages containing engineering drawings of up to 40 MB to downstream services through a queue. The vendor's producer component cannot be modified to upload payloads elsewhere, and the firm needs predictable throughput isolated from other tenants.",
+    question: "Which messaging service should the architect choose?",
+    options: [
+      { id: 'A', text: "A Service Bus Premium namespace, which supports large messages on dedicated resources." },
+      { id: 'B', text: "An Event Grid namespace topic receiving the drawings as events over HTTP from the producer." },
+      { id: 'C', text: "A Queue Storage queue in a premium storage account with high throughput for large items." },
+      { id: 'D', text: "A Service Bus Standard namespace, whose queues support sessions, topics and transactions." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Service Bus Premium runs on dedicated messaging units for predictable, isolated performance and supports messages up to 100 MB, so 40 MB drawings can travel without changing the producer. Standard is multitenant and limits messages to 256 KB. Queue Storage messages are limited to 64 KB, which would force the claim-check pattern the producer cannot implement. Event Grid events are limited to 1 MB.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/service-bus-messaging/service-bus-premium-messaging",
+    tags: ["Service Bus", "Premium", "Large messages"]
+  },
+  {
+    id: "azure-az305-372",
+    difficulty: "hard",
+    certId: "azure-az305",
+    domainId: "d4",
+    domainName: "Design infrastructure solutions",
+    title: "Receive and forward as one atomic step",
+    scenario: "A payments processor reads a payment instruction from one Service Bus queue, validates it, and sends a settlement message to a second queue in the same namespace. If the process crashes midway, the instruction must not be lost and the settlement must not be sent twice or without the instruction being completed.",
+    question: "What should the architect recommend?",
+    options: [
+      { id: 'A', text: "Enable duplicate detection on the settlement queue and complete the instruction after it sends the settlement." },
+      { id: 'B', text: "Receive in receive-and-delete mode, then send the settlement message immediately after validation succeeds." },
+      { id: 'C', text: "Receive with peek-lock and use a transaction that completes the instruction and sends the settlement together." },
+      { id: 'D', text: "Configure auto-forwarding from the instruction queue to the settlement queue, validating in a filter rule." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "Service Bus transactions group operations on a received message, such as completing it, with sends to other entities in the same namespace (send-via), so either the instruction is completed and the settlement sent, or neither happens. Receive-and-delete removes the instruction before processing, so a crash loses it. Auto-forwarding moves messages without running validation logic, and queues have no filter rules. Duplicate detection prevents a second settlement only within its window, and a crash between sending and completing still leaves the instruction to be redelivered and reprocessed.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/service-bus-messaging/service-bus-transactions",
+    tags: ["Service Bus", "Transactions"]
+  },
+  {
+    id: "azure-az305-373",
+    difficulty: "easy",
+    certId: "azure-az305",
+    domainId: "d4",
+    domainName: "Design infrastructure solutions",
+    title: "Renewal reminders due in thirty days",
+    scenario: "An insurer wants to send a renewal reminder message to its notification service exactly 30 days before each policy expires. When a customer renews early, the pending reminder for that policy must be cancelled. The insurer already uses Azure Service Bus.",
+    question: "What should the architect recommend?",
+    options: [
+      { id: 'A', text: "Send each reminder with a time to live of thirty days so that it is delivered once the thirty days have elapsed." },
+      { id: 'B', text: "Send each reminder to a session named after the renewal date and open that session on the due day." },
+      { id: 'C', text: "Send each reminder to Queue Storage with a visibility timeout that delays delivery for thirty days." },
+      { id: 'D', text: "Send each reminder as a scheduled message and cancel it by its sequence number when no longer needed." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Service Bus scheduled messages are enqueued immediately but become visible only at the scheduled time, and the scheduling call returns a sequence number that can be used to cancel the message, which covers early renewals. A Queue Storage visibility timeout on insert can delay a message by at most seven days. Time to live controls when a message expires, not when it becomes available, so the reminder would be deliverable at once and removed after 30 days. Opening sessions by date means building a scheduler around the queue and still gives no simple way to cancel one reminder.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/service-bus-messaging/message-sequencing",
+    tags: ["Service Bus", "Scheduled messages"]
+  },
+  {
+    id: "azure-az305-374",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d4",
+    domainName: "Design infrastructure solutions",
+    title: "Requirements that push a namespace to Premium",
+    scenario: "A government agency is choosing the tier for a new Service Bus namespace. Its requirements list includes ordered message sessions, topics with filtered subscriptions, duplicate detection, access only through a private endpoint in its virtual network, and messages of up to 5 MB.",
+    question: "Which two requirements rule out the Standard tier? (Choose two.)",
+    options: [
+      { id: 'A', text: "Messages of up to 5 MB sent by producers to its queues and topics." },
+      { id: 'B', text: "Ordered processing of related messages through message sessions." },
+      { id: 'C', text: "Publish-subscribe delivery through topics with filtered subscriptions." },
+      { id: 'D', text: "Connectivity only over internal IP addresses, with the public interface turned off." },
+      { id: 'E', text: "Broker-side removal of repeated sends through duplicate detection." }
+    ],
+    correctAnswers: ['A', 'D'],
+    type: "multiple",
+    explanation: "Private endpoints for Service Bus are supported only in the Premium tier, and Standard limits messages to 256 KB while Premium supports messages up to 100 MB, so those two requirements force Premium. Sessions, topics with filters and duplicate detection are all available in the Standard tier, so they do not by themselves require Premium.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/service-bus-messaging/service-bus-premium-messaging",
+    tags: ["Service Bus", "Premium", "Tiers"]
+  },
+  {
+    id: "azure-az305-375",
+    difficulty: "easy",
+    certId: "azure-az305",
+    domainId: "d4",
+    domainName: "Design infrastructure solutions",
+    title: "Absorbing checkout spikes before a slow back end",
+    scenario: "A ticketing site's web tier calls an order back end that can safely process about 200 orders per second, but ticket launches bring bursts of 5,000 orders per second for a few minutes. Orders must not be lost during a burst, and customers can receive confirmation by email shortly afterwards.",
+    question: "What should the architect add between the web tier and the back end?",
+    options: [
+      { id: 'A', text: "Azure Front Door caching in front of the web tier so that repeated order submissions are served faster." },
+      { id: 'B', text: "An Event Grid topic that pushes each order to the back end as soon as the web tier publishes it." },
+      { id: 'C', text: "Autoscale on the web tier so it can accept more concurrent requests during a ticket launch." },
+      { id: 'D', text: "A Service Bus queue that buffers each checkout, with back-end workers pulling at a sustainable rate." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Queue-based load leveling places a durable queue between the tiers so the web tier enqueues orders at burst speed while back-end workers consume them at the rate they can sustain, and no order is lost. Event Grid pushes events to the handler at arrival rate, so the back end would still be overwhelmed, with retries rather than buffering. Scaling the web tier accepts more requests but passes the whole burst to the back end. Order submissions are unique POST requests that cannot be served from a cache.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/architecture/patterns/queue-based-load-leveling",
+    tags: ["Service Bus", "Load leveling", "Messaging patterns"]
+  }
+];
+
+export default AZURE_AZ305_QUESTIONS_15;

@@ -1,0 +1,533 @@
+export const AZURE_AZ305_QUESTIONS_4 = [
+  {
+    id: "azure-az305-76",
+    difficulty: "easy",
+    certId: "azure-az305",
+    domainId: "d1",
+    domainName: "Design identity, governance, and monitoring solutions",
+    title: "Customer-managed keys that no admin can destroy",
+    scenario: "A healthcare provider encrypts its Storage accounts and Azure SQL databases with customer-managed keys held in Key Vault. An internal risk review found that a rogue or compromised vault administrator could delete a key and then permanently erase it, making years of encrypted patient data unreadable. The provider wants deleted keys to stay recoverable for 90 days no matter who deletes them.",
+    question: "What should the architect recommend?",
+    options: [
+      { id: 'A', text: "Export each key with the backup operation to an immutable Storage account weekly and keep 90 days of copies" },
+      { id: 'B', text: "Assign vault administrators the Key Vault Reader role instead of Key Vault Administrator" },
+      { id: 'C', text: "Set soft-delete retention to 90 days and enable purge protection on the vault" },
+      { id: 'D', text: "Apply a CanNotDelete resource lock to the key vault and its resource group" }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "Soft delete keeps deleted keys recoverable for the configured retention period, and purge protection stops anyone, including subscription Owners, from permanently purging a soft-deleted key or vault until that period ends; once enabled it cannot be turned off. A CanNotDelete lock protects the vault resource through Resource Manager but does not stop data-plane deletion of individual keys. Key Vault Reader only reads metadata, so administrators could no longer manage keys at all, and a compromised identity with another role would still be a risk. A weekly key backup leaves a gap of up to a week and must be restored manually, while the vault itself would still allow purging.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/key-vault/general/soft-delete-overview",
+    tags: ["Key Vault", "Purge protection", "Customer-managed keys"]
+  },
+  {
+    id: "azure-az305-77",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d1",
+    domainName: "Design identity, governance, and monitoring solutions",
+    title: "Single-tenant HSM keys for Azure service encryption",
+    scenario: "A central bank's regulator requires that encryption keys for its Azure Storage and Azure SQL workloads live in hardware security modules dedicated to the bank alone, with the bank alone controlling the HSM's cryptographic boundary so that Microsoft cannot access key material. The keys must plug into the customer-managed key features of those Azure services.",
+    question: "Which key store should the architect recommend?",
+    options: [
+      { id: 'A', text: "Azure Dedicated HSM appliances provisioned into the bank's virtual network" },
+      { id: 'B', text: "Azure Payment HSM with the keys shared to Storage and SQL through a key block" },
+      { id: 'C', text: "Azure Key Vault Managed HSM with the bank downloading and holding the security domain" },
+      { id: 'D', text: "Azure Key Vault Premium with HSM-protected keys in the multitenant HSM pool" }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "Managed HSM is a fully managed, single-tenant HSM pool whose security domain is generated and held by the customer, and it integrates with the customer-managed key features of Azure Storage, Azure SQL and other services. Key Vault Premium protects keys in HSMs, but those HSMs are shared across tenants and Microsoft operates the security boundary. Dedicated HSM gives single-tenant appliances that the customer runs itself, but it does not integrate with Azure services' customer-managed key options. Payment HSM serves payment-processing operations such as PIN and card verification and is not a key source for Storage or SQL encryption.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/key-vault/managed-hsm/overview",
+    tags: ["Managed HSM", "Key management", "Compliance"]
+  },
+  {
+    id: "azure-az305-78",
+    difficulty: "easy",
+    certId: "azure-az305",
+    domainId: "d1",
+    domainName: "Design identity, governance, and monitoring solutions",
+    title: "Moving connection strings out of app settings",
+    scenario: "A charity's donation site runs on App Service and reads a payment gateway API key and a database connection string from application settings, where any Contributor on the subscription can read them in plain text. The developers want the values kept in Key Vault but cannot change the application code, which reads ordinary environment variables.",
+    question: "What should the architect recommend?",
+    options: [
+      { id: 'A', text: "Move the values to Azure App Configuration and point the app at its endpoint" },
+      { id: 'B', text: "Mount the vault into the app with the Secrets Store CSI driver as a volume" },
+      { id: 'C', text: "Mark the settings as deployment slot settings so they are hidden from the portal" },
+      { id: 'D', text: "Enable a managed identity and replace each value with a Key Vault reference" }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "A Key Vault reference in an application setting, resolved with the app's managed identity, lets App Service fetch the secret at runtime and expose it as the same environment variable, so the code is unchanged and the value no longer sits in the app's configuration. Slot settings only control whether a value swaps with the slot; they are still readable by anyone with configuration access. App Configuration would require code changes to read from its endpoint, and storing secrets there without Key Vault references does not solve the exposure. The Secrets Store CSI driver is a Kubernetes component and does not apply to App Service.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/app-service/app-service-key-vault-references",
+    tags: ["Key Vault references", "App Service", "Managed identities"]
+  },
+  {
+    id: "azure-az305-79",
+    difficulty: "easy",
+    certId: "azure-az305",
+    domainId: "d1",
+    domainName: "Design identity, governance, and monitoring solutions",
+    title: "One application, one secret, nothing more",
+    scenario: "A shared Key Vault using the Azure RBAC permission model holds 40 secrets for several applications. A new invoicing service must read exactly one of those secrets, its SMTP password, and must not be able to list or read any other secret in the vault.",
+    question: "What should the architect recommend?",
+    options: [
+      { id: 'A', text: "Add a vault access policy granting the service's identity Get permission on secrets" },
+      { id: 'B', text: "Assign Key Vault Secrets User to the service's identity at the scope of that single secret" },
+      { id: 'C', text: "Assign Key Vault Contributor to the service's identity at the scope of that one secret" },
+      { id: 'D', text: "Assign Key Vault Reader to the service's identity on the vault and share the secret URI" }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "Under the RBAC permission model, data-plane roles can be assigned at the scope of an individual secret, so Key Vault Secrets User on the SMTP secret lets the service read its value and nothing else. Access policies apply to every secret in the vault and are ignored when the vault uses the RBAC model. Key Vault Reader returns metadata only, never secret values. Key Vault Contributor is a management-plane role that manages the vault resource and grants no access to secret contents.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/key-vault/general/rbac-guide",
+    tags: ["Key Vault", "Azure RBAC", "Least privilege"]
+  },
+  {
+    id: "azure-az305-80",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d1",
+    domainName: "Design identity, governance, and monitoring solutions",
+    title: "Annual key rotation without touching storage",
+    scenario: "An insurer's policy requires every customer-managed key used for Storage account encryption to be rotated every twelve months. The platform team manages 150 Storage accounts and wants rotation to happen with no script, no manual key update on each account and no downtime.",
+    question: "What should the architect recommend?",
+    options: [
+      { id: 'A', text: "Use an Azure Policy remediation task every year to set a newly generated key on all the accounts" },
+      { id: 'B', text: "Configure a key rotation policy in Key Vault and point each account at the versionless key URI" },
+      { id: 'C', text: "Trigger a rotation Function from Event Grid that creates a new key version and updates each account" },
+      { id: 'D', text: "Pin each account to a specific key version and update the pinned version in a yearly change window" }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "A Key Vault key rotation policy generates a new key version on a schedule, and a Storage account configured with the key URI without a version automatically switches to the latest version, so rotation happens with no code or per-account change and data stays available. An Event Grid-triggered function works but is exactly the custom script the team wants to avoid. Pinning a version and updating it by hand requires touching 150 accounts each year. Azure Policy remediation deploys or modifies resource configuration; it does not generate key material or run on a schedule.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/key-vault/keys/how-to-configure-key-rotation",
+    tags: ["Key Vault", "Key rotation", "Storage encryption"]
+  },
+  {
+    id: "azure-az305-81",
+    difficulty: "hard",
+    certId: "azure-az305",
+    domainId: "d1",
+    domainName: "Design identity, governance, and monitoring solutions",
+    title: "Self-renewing wildcard certificate on the gateway",
+    scenario: "A travel company terminates TLS for *.contoso-travel.com on Application Gateway v2, and last year's certificate expired unnoticed and caused an outage. The company has an account with DigiCert and wants the certificate to be issued and renewed automatically, with the gateway picking up each renewal without anyone uploading files.",
+    question: "What should the architect recommend?",
+    options: [
+      { id: 'A', text: "Issue an App Service managed certificate for the wildcard domain and bind it to the gateway listener" },
+      { id: 'B', text: "Issue the certificate from Key Vault's DigiCert integration and reference its versionless secret ID" },
+      { id: 'C', text: "Store the certificate in Key Vault and reference a specific secret version from the listener config" },
+      { id: 'D', text: "Upload a DigiCert PFX to the gateway listener and create a Key Vault secret holding its expiry date for alerting" }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "Key Vault can act as the enrolment point for its integrated certificate authorities, DigiCert and GlobalSign, and renew certificates automatically according to the lifetime action, and Application Gateway v2 referencing the versionless secret ID through a user-assigned managed identity polls Key Vault and loads each new version without an upload. App Service managed certificates do not support wildcards and cannot be exported to other services. A PFX uploaded to the listener has to be replaced by hand at every renewal, and an expiry reminder does not automate anything. A reference to a specific version keeps serving the old certificate after Key Vault renews it.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/application-gateway/key-vault-certs",
+    tags: ["Certificates", "Key Vault", "Application Gateway"]
+  },
+  {
+    id: "azure-az305-82",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d1",
+    domainName: "Design identity, governance, and monitoring solutions",
+    title: "Throttling and sprawl in one shared vault",
+    scenario: "A retailer keeps secrets for 12 applications across development, test and production in a single Key Vault in West Europe, and is expanding to North Europe. During sales events the production apps receive HTTP 429 responses from the vault, and auditors object that a test engineer with vault-wide rights can read production secrets.",
+    question: "What vault design should the architect recommend?",
+    options: [
+      { id: 'A', text: "One vault per subscription, with Managed HSM added in front of it to absorb the request bursts" },
+      { id: 'B', text: "One vault per region shared by all applications, with access policies scoped to each secret" },
+      { id: 'C', text: "Keep the single vault and move it to the Premium tier to raise the transactions per second limit" },
+      { id: 'D', text: "One vault per application per environment per region, each with its own role assignments" }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Microsoft recommends a vault per application, per environment, per region: service limits are enforced per vault, so splitting spreads the load that causes throttling, and each vault is a separate security boundary so test engineers never hold rights on production vaults. Access policies cannot be scoped to an individual secret; they apply to the whole vault. Managed HSM stores keys, not application secrets, and does not front a vault. The Premium tier adds HSM-protected keys and does not remove the per-vault throttling limits for secret operations.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/key-vault/general/best-practices",
+    tags: ["Key Vault", "Throttling", "Security boundaries"]
+  },
+  {
+    id: "azure-az305-83",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d1",
+    domainName: "Design identity, governance, and monitoring solutions",
+    title: "Rotating a database password before it expires",
+    scenario: "A logistics firm stores the password of a SQL login used by a legacy integration as a Key Vault secret with a 60-day expiration date. It wants the password changed in SQL and a new secret version written automatically shortly before each expiry, with no one having to remember.",
+    question: "Which two components should the design include? (Choose two.)",
+    options: [
+      { id: 'A', text: "An Azure Policy assignment that audits secrets without an expiry date" },
+      { id: 'B', text: "An Azure Function that resets the SQL password and adds a secret version" },
+      { id: 'C', text: "A Key Vault rotation policy that creates a new version of the password secret" },
+      { id: 'D', text: "An Event Grid subscription to the vault's SecretNearExpiry event" },
+      { id: 'E', text: "A Defender for Key Vault alert rule that fires on unusual secret access" }
+    ],
+    correctAnswers: ['B', 'D'],
+    type: "multiple",
+    explanation: "Key Vault publishes a SecretNearExpiry event to Event Grid 30 days before a secret expires, and an Event Grid subscription can invoke an Azure Function that changes the password in SQL and writes the new value as a new secret version; this is the documented pattern for rotating secrets for resources that use one set of credentials. Rotation policies exist only for keys, not secrets. An Azure Policy audit reports secrets missing an expiry date but changes nothing. Defender for Key Vault detects suspicious access patterns and plays no part in rotation.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/key-vault/secrets/tutorial-rotation",
+    tags: ["Key Vault", "Secret rotation", "Event Grid"]
+  },
+  {
+    id: "azure-az305-84",
+    difficulty: "hard",
+    certId: "azure-az305",
+    domainId: "d1",
+    domainName: "Design identity, governance, and monitoring solutions",
+    title: "Customer keys for disks, caches and temp storage",
+    scenario: "A payments company runs general-purpose Dv5 virtual machines. Its auditors require that the OS and data disks be encrypted with keys the company controls in Key Vault, and that data on temporary disks and disk caches also be encrypted end to end. The operations team refuses any in-guest encryption agent or BitLocker configuration.",
+    question: "Which two capabilities should the architect include? (Choose two.)",
+    options: [
+      { id: 'A', text: "Double encryption at rest with two platform-managed keys on each disk" },
+      { id: 'B', text: "Encryption at host enabled on each virtual machine in the deployment" },
+      { id: 'C', text: "Confidential disk encryption bound to the virtual machine's virtual TPM" },
+      { id: 'D', text: "Server-side encryption with a customer-managed key through a disk encryption set" },
+      { id: 'E', text: "Azure Disk Encryption with a key encryption key stored in the same key vault" }
+    ],
+    correctAnswers: ['B', 'D'],
+    type: "multiple",
+    explanation: "A disk encryption set applies server-side encryption with the company's key from Key Vault to managed disks, and encryption at host extends encryption to temporary disks and to the disk caches on the host, with the data flowing encrypted to Storage; neither needs anything inside the guest. Azure Disk Encryption uses BitLocker or dm-crypt inside the guest, which the operations team refuses, and it is scheduled for retirement. Confidential disk encryption is available only on confidential VM sizes, not on Dv5. Double encryption with platform-managed keys uses Microsoft's keys, not keys the company controls.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/virtual-machines/disk-encryption-overview",
+    tags: ["Disk encryption", "Customer-managed keys", "Encryption at host"]
+  },
+  {
+    id: "azure-az305-85",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d1",
+    domainName: "Design identity, governance, and monitoring solutions",
+    title: "Vault secrets for pods without Kubernetes secrets",
+    scenario: "A fintech runs microservices on AKS and currently stores database passwords as Kubernetes Secret objects in its GitOps repository, base64-encoded. The security team wants the values kept only in Key Vault, delivered to pods as mounted files, and fetched with a per-workload Entra identity rather than a node-wide one.",
+    question: "What should the architect recommend?",
+    options: [
+      { id: 'A', text: "Encrypt the Kubernetes Secret objects with a KMS provider and keep them in the repository" },
+      { id: 'B', text: "Use the Secrets Store CSI driver's Key Vault provider with Microsoft Entra Workload ID" },
+      { id: 'C', text: "Grant the cluster's kubelet identity Key Vault Secrets User and inject values as env vars" },
+      { id: 'D', text: "Enable pod-managed identity with an Entra identity per pod and call Key Vault at startup" }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "The Secrets Store CSI driver with the Azure Key Vault provider mounts secrets from Key Vault into pods as files, and Microsoft Entra Workload ID federates each Kubernetes service account with its own identity so every workload gets only the access it needs. KMS encryption protects Secret objects in etcd but the values still live in the cluster and the repository. Pod-managed identity is deprecated in favour of Workload ID, and a startup script puts secret handling into application code. The kubelet identity is shared by every pod on the node, which the requirement rules out.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/aks/csi-secrets-store-driver",
+    tags: ["AKS", "Key Vault", "Workload identity"]
+  },
+  {
+    id: "azure-az305-86",
+    difficulty: "easy",
+    certId: "azure-az305",
+    domainId: "d1",
+    domainName: "Design identity, governance, and monitoring solutions",
+    title: "Signing documents with a key that never leaves hardware",
+    scenario: "A land registry digitally signs property deeds from an App Service application. Its security standard says the private signing key must be generated inside a hardware security module and must never be exported, while the application only needs to request signatures a few thousand times a day.",
+    question: "What should the architect recommend?",
+    options: [
+      { id: 'A', text: "Create an HSM-protected key in a Premium vault and call its sign operation" },
+      { id: 'B', text: "Create a software-protected key in a Standard vault and call its sign operation" },
+      { id: 'C', text: "Store the key as a PFX secret in a Standard vault and load it into the app" },
+      { id: 'D', text: "Keep the PFX in the App Service certificate store and sign in application code" }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "An HSM-protected key in a Key Vault Premium vault is generated and kept inside HSMs, and the application sends digests to the key's sign operation so the private key never leaves the hardware. Loading a PFX from a secret or the App Service certificate store brings the private key into application memory, violating the standard. A software-protected key in a Standard vault can be used for signing without export, but it is not protected by an HSM.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/key-vault/keys/about-keys",
+    tags: ["Key Vault", "HSM", "Signing"]
+  },
+  {
+    id: "azure-az305-87",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d1",
+    domainName: "Design identity, governance, and monitoring solutions",
+    title: "Placing a subscription that needs the corporate network",
+    scenario: "A manufacturer built its landing zones on the Cloud Adoption Framework reference hierarchy, with Platform and Landing Zones management groups, and Corp and Online beneath Landing Zones. A new ERP subscription must reach on-premises systems through the hub's ExpressRoute and must have no public endpoints.",
+    question: "Where should the architect place the new subscription?",
+    options: [
+      { id: 'A', text: "Under the Connectivity management group, beside the hub that Corp workloads use" },
+      { id: 'B', text: "Under the Online management group, peered to the hub by the application team" },
+      { id: 'C', text: "Under the Corp management group, inheriting its private-connectivity policies" },
+      { id: 'D', text: "Under the Sandbox management group until the ERP go-live has been approved" }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "In the Azure landing zone hierarchy, Corp holds workloads that need private connectivity to the hub and on-premises, and its policies deny public endpoints and support hub peering, so an ERP that must use ExpressRoute and stay private belongs there. Online is for internet-facing workloads that do not require hybrid connectivity. Connectivity, under Platform, is reserved for the shared networking subscription itself, not workloads. Sandbox subscriptions are deliberately cut off from corporate networks, so the ERP could not reach on-premises systems.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/landing-zone/design-area/resource-org-management-groups",
+    tags: ["Management groups", "Landing zones", "Cloud Adoption Framework"]
+  },
+  {
+    id: "azure-az305-88",
+    difficulty: "easy",
+    certId: "azure-az305",
+    domainId: "d1",
+    domainName: "Design identity, governance, and monitoring solutions",
+    title: "A hierarchy that mirrors the org chart",
+    scenario: "A conglomerate's cloud team has proposed a management group hierarchy with eight levels below the tenant root, mirroring divisions, business units, departments and teams, so that each level can carry its own policies. The deployment fails when the team tries to create the lowest levels.",
+    question: "What should the architect recommend?",
+    options: [
+      { id: 'A', text: "Open a support request to raise the management group depth limit for the tenant" },
+      { id: 'B', text: "Flatten the hierarchy to a few levels organised around platform and workload archetypes" },
+      { id: 'C', text: "Create a second tenant for the divisions whose hierarchy exceeds the depth limit" },
+      { id: 'D', text: "Replace the lower levels with resource groups nested inside each team subscription" }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "A management group tree supports six levels of depth below the root, not counting the subscription level, and Cloud Adoption Framework guidance is to keep the hierarchy reasonably flat, typically three or four levels, organised around platform and workload archetypes so that policies differ by need rather than by org chart. The depth limit is fixed and cannot be raised by support. Resource groups cannot be nested and do not replace management groups for policy inheritance across subscriptions. A second tenant splits identity and governance and adds far more complexity than it removes.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/governance/management-groups/overview",
+    tags: ["Management groups", "Limits", "Governance"]
+  },
+  {
+    id: "azure-az305-89",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d1",
+    domainName: "Design identity, governance, and monitoring solutions",
+    title: "Production and test sharing one subscription",
+    scenario: "A payroll software company runs its production, test and development resources in one subscription, separated only by resource group. Auditors want production governed by stricter policies than non-production, developers want freedom to create resources in test, and finance wants production costs reported separately without relying on tags.",
+    question: "What should the architect recommend?",
+    options: [
+      { id: 'A', text: "Create a separate Entra tenant for production and invite the operations team into it as guests" },
+      { id: 'B', text: "Assign stricter policies at the production resource groups and filter cost reports by resource group" },
+      { id: 'C', text: "Keep one subscription and require an Environment tag enforced by Azure Policy to split costs and rules" },
+      { id: 'D', text: "Move production into its own subscription under a management group with stricter policy assignments" }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Subscriptions are the natural boundary for billing, limits and management group policy inheritance, so placing production in its own subscription under a stricter management group applies the tougher policies automatically and yields separate cost reporting without tags. Resource group scoped policies must be repeated for every new production resource group and are easy to miss. A tag-based split depends on tags, which finance explicitly excluded. A separate tenant fragments identity and adds guest management for no benefit over a subscription boundary.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/landing-zone/design-area/resource-org-subscriptions",
+    tags: ["Subscriptions", "Governance", "Environments"]
+  },
+  {
+    id: "azure-az305-90",
+    difficulty: "hard",
+    certId: "azure-az305",
+    domainId: "d1",
+    domainName: "Design identity, governance, and monitoring solutions",
+    title: "Disaster recovery resources you cannot manage",
+    scenario: "During a regional outage in West Europe, a broadcaster's standby web tier in North Europe kept serving traffic, but engineers could not scale it out or change its configuration. The standby resources live in a resource group created in West Europe alongside the primary resources, because the team groups resources by application.",
+    question: "What should the architect change?",
+    options: [
+      { id: 'A', text: "Apply a ReadOnly lock to the primary resource group so failover changes cannot touch it" },
+      { id: 'B', text: "Move the standby resources into a resource group whose own location is North Europe" },
+      { id: 'C', text: "Enable zone redundancy on the resource group so its metadata survives a zone outage" },
+      { id: 'D', text: "Move the standby resources into a new subscription created in the North Europe region" }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "A resource group's location is where its metadata is stored; when that region is unavailable, resources in the group keep running but cannot be updated through Resource Manager, which is exactly what the engineers hit. Placing standby resources in a resource group located in the recovery region keeps them manageable during a primary-region outage. A ReadOnly lock blocks changes rather than enabling them. Subscriptions are not tied to a region, so a new subscription alone changes nothing unless the resource group location changes. Resource groups have no zone redundancy setting.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/manage-resource-groups-portal",
+    tags: ["Resource groups", "Disaster recovery", "Resource Manager"]
+  },
+  {
+    id: "azure-az305-91",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d1",
+    domainName: "Design identity, governance, and monitoring solutions",
+    title: "Cost centre tags that resources do not carry",
+    scenario: "A university tags every resource group with a CostCentre value, but finds that most resources inside the groups have no tags, so exported inventory and third-party chargeback tools cannot attribute them. It wants every existing and future resource to carry its resource group's CostCentre tag on the resource itself.",
+    question: "Which two actions should the architect recommend? (Choose two.)",
+    options: [
+      { id: 'A', text: "Create a remediation task for the policy assignment to fix existing resources" },
+      { id: 'B', text: "Assign the built-in policy that inherits a tag from the resource group if missing" },
+      { id: 'C', text: "Assign the built-in policy that requires a CostCentre tag on resource groups" },
+      { id: 'D', text: "Apply a CanNotDelete lock so the existing tags on each group cannot be removed" },
+      { id: 'E', text: "Enable tag inheritance in Cost Management so resources use the group's tags" }
+    ],
+    correctAnswers: ['A', 'B'],
+    type: "multiple",
+    explanation: "Tags on a resource group are not inherited by the resources in it. The built-in Inherit a tag from the resource group if missing policy uses the Modify effect to add the tag when resources are created or updated, and a remediation task applies it to resources that already exist. Cost Management tag inheritance applies group and subscription tags only to cost and usage records, not to the resources, so inventory and third-party tools still see untagged resources. A lock does not add tags. Requiring the tag on resource groups is already satisfied and does nothing for the resources inside them.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/tag-policies",
+    tags: ["Tagging", "Azure Policy", "Remediation"]
+  },
+  {
+    id: "azure-az305-92",
+    difficulty: "easy",
+    certId: "azure-az305",
+    domainId: "d1",
+    domainName: "Design identity, governance, and monitoring solutions",
+    title: "No resource without an owner's cost centre",
+    scenario: "A city council wants every new Azure resource to carry a CostCentre tag whose value is chosen by the person deploying it, and deployments without the tag must fail immediately so no untagged resource is ever created. Existing resources will be handled separately.",
+    question: "What should the architect recommend?",
+    options: [
+      { id: 'A', text: "An Azure Policy assignment with the Modify effect that adds CostCentre set to Unassigned" },
+      { id: 'B', text: "Cost Management tag inheritance so every resource picks up its subscription's CostCentre tag" },
+      { id: 'C', text: "An Azure Policy assignment with the Deny effect that requires the CostCentre tag on resources" },
+      { id: 'D', text: "An Azure Policy assignment with the Audit effect that reports resources missing the CostCentre tag" }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "A policy with the Deny effect evaluates the request before the resource is created and rejects any deployment that lacks the CostCentre tag, forcing the deployer to supply a value. Audit only flags non-compliant resources after they exist. Modify with a default value silently fills in Unassigned, so the deployer never chooses a value. Cost Management tag inheritance changes cost records, not deployments, and cannot make a deployment fail.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/governance/policy/concepts/effect-deny",
+    tags: ["Tagging", "Azure Policy", "Deny"]
+  },
+  {
+    id: "azure-az305-93",
+    difficulty: "hard",
+    certId: "azure-az305",
+    domainId: "d1",
+    domainName: "Design identity, governance, and monitoring solutions",
+    title: "New subscriptions landing outside governance",
+    scenario: "A bank discovered that subscriptions created by project teams land directly under the tenant root management group, where they escape the policies assigned to the Landing Zones group for weeks. It also found that any user could create new management groups beside its approved hierarchy.",
+    question: "Which two hierarchy settings should the architect configure? (Choose two.)",
+    options: [
+      { id: 'A', text: "Remove Owner from every user on the Landing Zones management group" },
+      { id: 'B', text: "Assign a Deny policy at the tenant root that blocks subscription creation" },
+      { id: 'C', text: "Apply a ReadOnly lock to the tenant root management group resource" },
+      { id: 'D', text: "Require write permission on the root to create new management groups" },
+      { id: 'E', text: "Set a quarantine management group as the default for new subscriptions" }
+    ],
+    correctAnswers: ['D', 'E'],
+    type: "multiple",
+    explanation: "Management group hierarchy settings let you choose the default management group that new subscriptions are placed in, so a restrictive quarantine or sandbox group catches them until they are moved, and require that users hold management group write permission at the root before they can create new management groups. A Deny policy cannot stop subscription creation, which happens through billing at tenant scope, and blocking creation is not the goal anyway. Management groups cannot be locked like ordinary resources. Removing Owner on Landing Zones does nothing about subscriptions placed under the root or groups created beside it.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/governance/management-groups/how-to/protect-resource-hierarchy",
+    tags: ["Management groups", "Hierarchy protection", "Subscriptions"]
+  },
+  {
+    id: "azure-az305-94",
+    difficulty: "hard",
+    certId: "azure-az305",
+    domainId: "d1",
+    domainName: "Design identity, governance, and monitoring solutions",
+    title: "Standard landing zones on request",
+    scenario: "A software group expects to create about 15 new application landing zones per month. Each must be a new subscription under the right management group, with a spoke network peered to the hub, a budget, and Contributor granted to the requesting team, delivered within a day and identically every time. The group holds a Microsoft Customer Agreement.",
+    question: "What should the architect recommend?",
+    options: [
+      { id: 'A', text: "Rely on a DeployIfNotExists policy at Landing Zones to create the subscription and its resources" },
+      { id: 'B', text: "Build a subscription vending pipeline with IaC modules that create and configure each subscription" },
+      { id: 'C', text: "Publish an Azure Blueprints definition at the Landing Zones group and assign it to each subscription" },
+      { id: 'D', text: "Have platform engineers create subscriptions in the portal and follow a written landing zone runbook" }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "Subscription vending automates the request-to-subscription process: an IaC pipeline using the Bicep or Terraform subscription vending modules creates the subscription against the billing scope, places it under the target management group, deploys and peers the spoke network, sets a budget and assigns roles, the same way every time. Azure Blueprints has been deprecated and retired in favour of template specs and deployment stacks. A manual runbook cannot guarantee identical results at 15 a month. DeployIfNotExists policies can configure resources inside existing subscriptions but cannot create subscriptions.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/landing-zone/design-area/subscription-vending",
+    tags: ["Subscription vending", "Landing zones", "Infrastructure as code"]
+  },
+  {
+    id: "azure-az305-95",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d1",
+    domainName: "Design identity, governance, and monitoring solutions",
+    title: "Safe experimentation for data scientists",
+    scenario: "A retail bank's data scientists want subscriptions where they can try any Azure service without waiting for approvals. The security team insists these environments must never connect to corporate networks or production data, and finance wants spending in each one capped at a monthly amount with alerts.",
+    question: "What should the architect recommend?",
+    options: [
+      { id: 'A', text: "Give each scientist a resource group in the Corp subscription with Contributor and a lock" },
+      { id: 'B', text: "Place the scientists' subscriptions under Online so that their workloads use public endpoints" },
+      { id: 'C', text: "Create sandbox subscriptions under a Sandbox group whose policies block hybrid connectivity" },
+      { id: 'D', text: "Grant the scientists Owner on the Landing Zones group and review what they deploy monthly" }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "The Cloud Adoption Framework's Sandbox management group holds subscriptions for unrestricted experimentation, with policies that deny peering, VPN and ExpressRoute connections to corporate networks, and a budget on each subscription gives finance its monthly cap alerts. A resource group in a Corp subscription sits on the corporate network, the one thing security forbids. Online landing zones are for production internet-facing workloads and still inherit landing zone controls that slow experimentation. Owner on Landing Zones gives unrestricted rights over every production workload.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/considerations/sandbox-environments",
+    tags: ["Sandbox", "Management groups", "Landing zones"]
+  },
+  {
+    id: "azure-az305-96",
+    difficulty: "easy",
+    certId: "azure-az305",
+    domainId: "d1",
+    domainName: "Design identity, governance, and monitoring solutions",
+    title: "Chargeback when departments share everything",
+    scenario: "A newspaper's editorial, advertising and print departments deploy into the same two subscriptions and often into the same resource groups. The finance director wants a monthly cost report broken down by department without reorganising any subscriptions or resource groups.",
+    question: "What should the architect recommend?",
+    options: [
+      { id: 'A', text: "Set a Cost Management budget per department on the subscriptions they deploy into" },
+      { id: 'B', text: "Create one resource group per department and move each resource into its own group" },
+      { id: 'C', text: "Tag each resource with a Department value and group cost analysis by that tag" },
+      { id: 'D', text: "Create a management group per department and move the subscriptions beneath them" }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "Tags are the mechanism for attributing cost below the subscription and resource group level: with a Department tag on each resource, Cost Management can group and filter cost by that tag without moving anything. Management groups hold whole subscriptions, and both departments share the same ones. Moving resources into per-department resource groups is the reorganisation the director wants to avoid. A budget tracks spending against a threshold for a scope; it does not break down shared costs by department.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/azure-best-practices/resource-tagging",
+    tags: ["Tagging", "Cost Management", "Chargeback"]
+  },
+  {
+    id: "azure-az305-97",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d1",
+    domainName: "Design identity, governance, and monitoring solutions",
+    title: "One allowed-regions rule for every subscription",
+    scenario: "An energy company must ensure no resource is ever deployed outside its three approved European regions. It has about 90 subscriptions spread across several management groups, some subscriptions still sit directly under the tenant root, and new ones are created weekly.",
+    question: "Where should the architect assign the allowed locations policy?",
+    options: [
+      { id: 'A', text: "On each subscription individually, including any under the tenant root, via a runbook" },
+      { id: 'B', text: "On the Platform and Landing Zones groups, exempting the sandbox subscriptions" },
+      { id: 'C', text: "On the tenant root management group so every subscription inherits it" },
+      { id: 'D', text: "On the Landing Zones management group, where most workload subscriptions sit" }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "Every management group and subscription in the tenant sits under the tenant root management group, so a policy assigned there applies to all 90 existing subscriptions, to those parked directly under the root and to new subscriptions as soon as they exist. Per-subscription assignments rely on a runbook step that can be missed. Assigning at Landing Zones leaves out the subscriptions under the root and in other branches. Assigning at the Platform and Landing Zones groups still misses the subscriptions under the root, and a sandbox exemption would open exactly the gap the company must close.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/governance/management-groups/overview",
+    tags: ["Management groups", "Azure Policy", "Allowed locations"]
+  },
+  {
+    id: "azure-az305-98",
+    difficulty: "hard",
+    certId: "azure-az305",
+    domainId: "d1",
+    domainName: "Design identity, governance, and monitoring solutions",
+    title: "Writing secrets while the primary region is down",
+    scenario: "A ticketing platform runs active-passive across two Azure regions with a recovery time objective of 15 minutes. During failover the secondary region must not only read its secrets but also create and rotate them, because the platform issues new partner API credentials continuously. Its Key Vault is in the primary region only.",
+    question: "What should the architect recommend?",
+    options: [
+      { id: 'A', text: "Rely on Key Vault's automatic replication and failover to the paired region" },
+      { id: 'B', text: "Deploy a second vault in the secondary region and write secrets to both vaults" },
+      { id: 'C', text: "Move the vault to the Premium tier so that it gains geo-redundant HSM storage" },
+      { id: 'D', text: "Back up all secrets nightly and restore them into a new secondary vault on failover" }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "A separate vault in the secondary region, kept in step by writing each secret to both vaults, lets the secondary create and rotate secrets during an outage. Key Vault's own cross-region failover, where it applies, serves the vault in read-only mode, so no secrets can be created or rotated until the primary returns. Restoring a nightly backup loses the day's credentials and a restore of many secrets is unlikely to meet 15 minutes. The Premium tier adds HSM-protected keys and does not change replication or writability during failover.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/key-vault/general/disaster-recovery-guidance",
+    tags: ["Key Vault", "Disaster recovery", "Multi-region"]
+  },
+  {
+    id: "azure-az305-99",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d1",
+    domainName: "Design identity, governance, and monitoring solutions",
+    title: "Encrypting a Storage account from its first byte",
+    scenario: "A genomics lab deploys each new Storage account from a Bicep template and its policy requires the account to use a customer-managed key from Key Vault from the moment it is created, with no period of Microsoft-managed encryption. The template currently enables a system-assigned identity on the account and fails at the encryption step.",
+    question: "What should the architect change in the template?",
+    options: [
+      { id: 'A', text: "Use a pre-created user-assigned identity with Key Vault Crypto Service Encryption User on the key" },
+      { id: 'B', text: "Deploy with Microsoft-managed keys, then switch to the customer-managed key in a second deployment" },
+      { id: 'C', text: "Enable infrastructure encryption on the account so that a second layer uses the customer's key" },
+      { id: 'D', text: "Grant the Storage account's system-assigned identity access before the account resource is deployed" }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "A system-assigned identity does not exist until the account is created, so it cannot already have access to the key; configuring customer-managed keys at creation requires a user-assigned identity that exists beforehand and holds Key Vault Crypto Service Encryption User on the key. Granting access to a system-assigned identity before the account exists is impossible. Deploying first with Microsoft-managed keys creates exactly the window the policy forbids. Infrastructure encryption adds a second layer with Microsoft-managed keys and does not supply the customer's key.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/storage/common/customer-managed-keys-configure-new-account",
+    tags: ["Customer-managed keys", "Storage", "Managed identities"]
+  },
+  {
+    id: "azure-az305-100",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d1",
+    domainName: "Design identity, governance, and monitoring solutions",
+    title: "A shared network deleted with an application",
+    scenario: "A travel agency decommissioned a booking app by deleting its resource group, which also held the virtual network and firewall used by three other apps, causing a day-long outage. The platform team wants a resource group layout that makes this kind of accident structurally unlikely while keeping app teams self-sufficient.",
+    question: "What should the architect recommend?",
+    options: [
+      { id: 'A', text: "Group resources by shared lifecycle, with shared networking in its own group" },
+      { id: 'B', text: "Group resources by type, with one group for all networks and one for all web apps" },
+      { id: 'C', text: "Place every app and the shared network in one group with a CanNotDelete lock" },
+      { id: 'D', text: "Group resources by region, with one resource group per Azure region in use" }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Resources that are deployed, updated and deleted together belong in the same resource group, so each app gets its own group while the shared network and firewall, which outlive any one app, sit in a separate networking group that app teams do not own. Grouping by type puts unrelated apps' resources together and blocks teams from managing their own app as a unit. A single locked group stops every team from deleting anything, which removes self-sufficiency. Grouping by region mixes apps with different lifecycles and repeats the original problem.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/overview",
+    tags: ["Resource groups", "Lifecycle", "Governance"]
+  }
+];
+
+export default AZURE_AZ305_QUESTIONS_4;

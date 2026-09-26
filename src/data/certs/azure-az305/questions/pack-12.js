@@ -1,0 +1,533 @@
+export const AZURE_AZ305_QUESTIONS_12 = [
+  {
+    id: "azure-az305-276",
+    difficulty: "easy",
+    certId: "azure-az305",
+    domainId: "d3",
+    domainName: "Design business continuity solutions",
+    title: "Raising a ticketing web tier to four nines",
+    scenario: "A logistics firm runs the web tier of its ticketing system on two virtual machines in an availability set in North Europe, which carries a 99.95 percent connectivity SLA. A new customer contract requires 99.99 percent for the virtual machine tier, and data residency rules keep the workload in North Europe.",
+    question: "What should the architect recommend for the web tier?",
+    options: [
+      { id: 'A', text: "Redeploy the tier as two or more virtual machines spread across availability zones behind a zone-redundant load balancer." },
+      { id: 'B', text: "Create a second availability set in North Europe and split the virtual machines evenly between the two sets." },
+      { id: 'C', text: "Place both virtual machines in a proximity placement group inside the availability set to shorten failover between them." },
+      { id: 'D', text: "Keep the availability set and move every disk on both virtual machines to Premium SSD v2 to raise the tier's SLA." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Two or more virtual machines deployed across two or more availability zones in the same region qualify for the 99.99 percent virtual machine connectivity SLA, and a zone-redundant Standard Load Balancer frontend keeps the entry point alive when a zone fails, all without leaving North Europe. Disk type changes the single-instance SLA only; an availability set is capped at 99.95 percent whatever disks it uses. A proximity placement group pulls machines closer together, which reduces resilience rather than adding it. Two availability sets in one datacenter still share the availability set SLA and give no zone isolation.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/virtual-machines/availability",
+    tags: ["Availability zones", "Virtual machines", "SLA"]
+  },
+  {
+    id: "azure-az305-277",
+    difficulty: "easy",
+    certId: "azure-az305",
+    domainId: "d3",
+    domainName: "Design business continuity solutions",
+    title: "SLA for a licence server that cannot be clustered",
+    scenario: "A design studio's CAD licence server is tied to one machine identity and the vendor does not support running a second node. The studio wants the highest connectivity SLA Azure offers for a single virtual machine while spending as little as possible on storage. The server has one OS disk and one small data disk.",
+    question: "Which disk configuration should the architect specify?",
+    options: [
+      { id: 'A', text: "Standard HDD for both disks, with the licence server placed in an availability set of its own." },
+      { id: 'B', text: "Premium SSD for the OS disk and an Ultra Disk for the data disk to secure the best single-VM SLA." },
+      { id: 'C', text: "Standard SSD for both the OS disk and the data disk, relying on the platform's automatic host healing." },
+      { id: 'D', text: "Premium SSD for both the OS disk and the data disk attached to the licence server virtual machine." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "A single-instance virtual machine earns the 99.9 percent SLA when every OS and data disk is Premium SSD, Premium SSD v2 or Ultra Disk, so Premium SSD on both disks meets the target at the lowest cost of the qualifying options. Standard SSD disks drop the single-instance SLA to 99.5 percent. Adding an Ultra Disk also qualifies but costs considerably more for a small data disk, so it fails the cost requirement. An availability set only raises the SLA when it holds two or more machines, and Standard HDD disks carry the lowest single-instance SLA of all.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/virtual-machines/disks-types",
+    tags: ["Virtual machines", "Managed disks", "SLA"]
+  },
+  {
+    id: "azure-az305-278",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d3",
+    domainName: "Design business continuity solutions",
+    title: "Production AKS cluster that must survive a zone loss",
+    scenario: "A payments start-up is moving its API from a development AKS cluster on the Free tier to production in West Europe. The production cluster must keep serving traffic through the loss of one availability zone, and procurement insists on a financially backed uptime commitment for the Kubernetes API server.",
+    question: "Which two design choices meet the requirements? (Choose two.)",
+    options: [
+      { id: 'A', text: "Keep the Free pricing tier, relying on the control plane's own replication for cluster uptime." },
+      { id: 'B', text: "Run the cluster on the Standard pricing tier so the cluster's API server is covered by an SLA." },
+      { id: 'C', text: "Create the user node pools with nodes spread across availability zones 1, 2 and 3 in the region." },
+      { id: 'D', text: "Place all node pools in one proximity placement group to keep pod-to-pod latency predictable." },
+      { id: 'E', text: "Enable virtual nodes so pods burst onto Azure Container Instances when zone capacity is lost." }
+    ],
+    correctAnswers: ['B', 'C'],
+    type: "multiple",
+    explanation: "The Standard tier adds the financially backed uptime SLA for the Kubernetes API server, which is higher when the cluster uses availability zones, and node pools created across zones 1, 2 and 3 keep worker capacity running when a single zone fails. The Free tier has no financially backed SLA, so it fails the procurement requirement regardless of how the control plane is built. A proximity placement group constrains nodes to one datacenter and works against zone spread. Virtual nodes are a burst mechanism with their own networking limits, not a zone resilience design, and they give the API server no SLA.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/aks/free-standard-pricing-tiers",
+    tags: ["AKS", "Availability zones", "SLA"]
+  },
+  {
+    id: "azure-az305-279",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d3",
+    domainName: "Design business continuity solutions",
+    title: "Zone resilience for a web app on a Standard plan",
+    scenario: "A council's citizen portal runs on an App Service plan in the Standard S2 tier with three instances in UK South. A resilience review found that the plan is not zone redundant, and the council wants the portal to keep serving through an availability zone outage. Data sovereignty rules keep all compute in UK South.",
+    question: "What should the architect recommend?",
+    options: [
+      { id: 'A', text: "Schedule App Service backups of the portal to a zone-redundant storage account in UK South every hour." },
+      { id: 'B', text: "Deploy a second Standard plan in UK West and put Azure Traffic Manager in front of the two web apps." },
+      { id: 'C', text: "Move the portal to a Premium v3 plan in UK South with zone redundancy enabled and two or more instances." },
+      { id: 'D', text: "Scale the Standard plan out to six instances so the extra workers land in different zones of UK South." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "Zone redundancy is available on the Premium v2, v3 and v4 plan types and needs at least two instances; when enabled, the platform spreads the plan's instances across zones and replaces those lost in a failed zone, keeping the portal in UK South. A Standard plan is nonzonal, so adding instances spreads them across fault domains but gives no zone guarantee. A second plan in UK West breaks the sovereignty rule that keeps compute in UK South. Backups help recover content but do nothing to keep the portal serving while a zone is down.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/reliability/reliability-app-service",
+    tags: ["App Service", "Zone redundancy"]
+  },
+  {
+    id: "azure-az305-280",
+    difficulty: "hard",
+    certId: "azure-az305",
+    domainId: "d3",
+    domainName: "Design business continuity solutions",
+    title: "Low latency and zone survival for a trading engine",
+    scenario: "A brokerage's order-matching engine runs on application and database virtual machines that exchange thousands of small messages per trade, so the round trip between them must stay within one datacenter. The service must also continue through the loss of an availability zone, and the team can promote standby capacity within a minute using its own orchestration.",
+    question: "Which deployment meets both requirements?",
+    options: [
+      { id: 'A', text: "One proximity placement group that spans zones 1 and 2, with the application and database VMs split across both zones." },
+      { id: 'B', text: "Application and database VMs spread across zones 1, 2 and 3 with accelerated networking enabled on every network interface." },
+      { id: 'C', text: "One availability set inside a proximity placement group holding the application and database VMs for the whole service." },
+      { id: 'D', text: "Two complete stacks, each in its own zone with its own proximity placement group, and failover from one stack to the other." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "A proximity placement group colocates resources in one datacenter, so it cannot span zones; the documented pattern is a separate placement group per zone, each holding a full stack, with the application failing over between stacks, which meets both the latency and the zone-loss requirement. A single placement group across two zones is not possible, because its purpose is to keep members physically together. An availability set inside one placement group protects against rack failure but not against losing the zone that holds it. Spreading the tiers across three zones with accelerated networking still puts inter-zone latency on every message, which breaks the single-datacenter latency requirement.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/virtual-machines/co-location",
+    tags: ["Proximity placement groups", "Availability zones", "Virtual machines"]
+  },
+  {
+    id: "azure-az305-281",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d3",
+    domainName: "Design business continuity solutions",
+    title: "Global entry point for a two-region storefront",
+    scenario: "An online retailer runs identical web tiers on App Service in East US 2 and Central US, with Central US serving only when East US 2 is unhealthy. Security requires a web application firewall at the edge and TLS termination close to shoppers, and failover must not wait for clients to refresh cached DNS answers.",
+    question: "Which service should be the entry point for the two regions?",
+    options: [
+      { id: 'A', text: "Azure Front Door Premium with both apps in one origin group using priorities and health probes." },
+      { id: 'B', text: "A cross-region Azure Load Balancer whose backend pool holds regional load balancers in both regions." },
+      { id: 'C', text: "Azure Traffic Manager with priority routing and HTTPS endpoint monitoring against both App Service apps." },
+      { id: 'D', text: "A zone-redundant Application Gateway v2 with WAF in East US 2 whose backend pool holds both apps." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Front Door is a global layer 7 entry point that terminates TLS at edge locations near users, carries a WAF policy, and shifts traffic between origins by priority as soon as health probes fail, without depending on client DNS caches. Traffic Manager is DNS-based, so failover waits on DNS TTLs and it offers no WAF or TLS termination. An Application Gateway lives in one region, so an outage of East US 2 takes out the entry point itself. A cross-region load balancer is layer 4 only and cannot apply WAF rules or terminate TLS.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/frontdoor/front-door-overview",
+    tags: ["Front Door", "Multi-region", "Failover"]
+  },
+  {
+    id: "azure-az305-282",
+    difficulty: "hard",
+    certId: "azure-az305",
+    domainId: "d3",
+    domainName: "Design business continuity solutions",
+    title: "One static address for a two-region TCP service",
+    scenario: "A payment switch accepts ISO 8583 messages over raw TCP from acquiring banks, which allow outbound connections only to IP addresses on a firewall allowlist. The switch runs behind regional Standard load balancers in two Azure regions. Banks refuse to update their allowlists during a regional failover, and many of their systems ignore DNS TTLs.",
+    question: "Which design keeps the banks connected through a regional outage?",
+    options: [
+      { id: 'A', text: "Azure Front Door with both regional load balancer frontends registered as origins in one origin group." },
+      { id: 'B', text: "Azure Traffic Manager priority routing that returns the secondary load balancer's IP when the primary fails." },
+      { id: 'C', text: "Zone-redundant public IP addresses on the regional load balancers, with both addresses shared with every bank." },
+      { id: 'D', text: "A cross-region load balancer with a global static frontend IP and both regional load balancers as backends." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "The global tier of Azure Load Balancer provides a static anycast frontend IP that stays the same when a region fails, balances layer 4 TCP traffic across regional Standard load balancers, and removes an unhealthy region without any DNS change, so allowlists never need updating. Front Door handles HTTP and HTTPS only and cannot carry raw TCP. Traffic Manager fails over by handing out a different IP through DNS, which both breaks the allowlist rule and depends on clients honouring TTLs. Sharing both regional addresses puts failover logic on every bank's systems, and zone redundancy on a regional IP does nothing when the whole region fails.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/load-balancer/cross-region-overview",
+    tags: ["Cross-region load balancer", "Multi-region", "Layer 4"]
+  },
+  {
+    id: "azure-az305-283",
+    difficulty: "easy",
+    certId: "azure-az305",
+    domainId: "d3",
+    domainName: "Design business continuity solutions",
+    title: "Internal load balancer that fell with zone 1",
+    scenario: "An insurer's claims API runs on six virtual machines spread across zones 1, 2 and 3 behind an internal Standard Load Balancer. During a zone 1 outage the API became unreachable even though four healthy machines were still running in zones 2 and 3. Investigation shows the load balancer's frontend IP configuration was created in zone 1.",
+    question: "What should the architect change?",
+    options: [
+      { id: 'A', text: "Add a second health probe on the application port so unhealthy backends are removed from rotation sooner." },
+      { id: 'B', text: "Replace the Standard Load Balancer with a Basic Load Balancer that fails over between zones automatically." },
+      { id: 'C', text: "Enable floating IP on the load-balancing rule so any healthy backend can answer on the frontend address." },
+      { id: 'D', text: "Recreate the frontend IP configuration as zone-redundant so it is served from every availability zone in the region." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "A zonal frontend lives in one zone and fails with it, whereas a zone-redundant frontend is served simultaneously from all zones, so traffic keeps flowing to the surviving backends. The frontend's zone setting is fixed at creation, so it has to be recreated. Extra health probes change how fast bad backends are removed but cannot help when the frontend itself is down. Floating IP changes how the destination address is presented to backends and has nothing to do with zone placement. The Basic SKU has been retired and never supported availability zones.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/load-balancer/load-balancer-standard-availability-zones",
+    tags: ["Load Balancer", "Availability zones"]
+  },
+  {
+    id: "azure-az305-284",
+    difficulty: "easy",
+    certId: "azure-az305",
+    domainId: "d3",
+    domainName: "Design business continuity solutions",
+    title: "Both VMs rebooted during host maintenance",
+    scenario: "A charity runs two identical web server virtual machines as two standalone deployments in an Azure region that has no availability zones. During a round of platform host maintenance both machines were restarted within the same window and the website went offline for several minutes. The charity wants the two machines never to be updated at the same time.",
+    question: "What should the architect recommend?",
+    options: [
+      { id: 'A', text: "Redeploy both virtual machines onto one Azure Dedicated Host so maintenance windows can be controlled." },
+      { id: 'B', text: "Place both virtual machines in a proximity placement group so the platform maintains them together." },
+      { id: 'C', text: "Enable automatic VM guest patching on both machines so updates are applied during off-peak hours." },
+      { id: 'D', text: "Redeploy both virtual machines into one availability set with separate fault and update domains." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "In a region without zones, an availability set spreads its machines across fault domains and update domains, and the platform only updates one update domain at a time during planned maintenance, so the two web servers are never restarted together. Putting both machines on one dedicated host concentrates them on a single physical server, so a host failure takes out both. A proximity placement group colocates the machines and offers no update domain separation. Automatic guest patching schedules operating system updates inside the VM, not the platform's host maintenance that caused the outage.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/virtual-machines/availability-set-overview",
+    tags: ["Availability sets", "Planned maintenance"]
+  },
+  {
+    id: "azure-az305-285",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d3",
+    domainName: "Design business continuity solutions",
+    title: "Replacing hung instances in a scale set",
+    scenario: "A ticket reseller's checkout service runs on a zone-spanning virtual machine scale set. Occasionally an instance's application process hangs: the VM stays running and its CPU stays low, but it returns errors on the health endpoint until someone deletes it by hand. The operations team wants such instances replaced without human action.",
+    question: "What should the architect configure on the scale set?",
+    options: [
+      { id: 'A', text: "An autoscale rule that adds two instances whenever average CPU across the scale set rises above 70 percent." },
+      { id: 'B', text: "Azure Site Recovery replication for the scale set so unhealthy instances fail over to a paired region." },
+      { id: 'C', text: "A Resource Health alert that starts a runbook to restart any instance reported as unavailable by the platform." },
+      { id: 'D', text: "The Application Health extension probing the app's health page, with automatic instance repairs turned on." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Automatic instance repairs deletes and recreates scale set instances that report unhealthy through the Application Health extension or a load balancer probe, which is exactly the hung-process case where the VM itself looks fine. A CPU-based autoscale rule never fires because CPU stays low, and adding capacity does not remove the bad instance. Resource Health reports platform-level availability, which remains healthy while the application hangs inside the VM, so the runbook would not be triggered. Site Recovery is a regional disaster recovery service, not a mechanism for replacing individual unhealthy instances.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-instance-repairs",
+    tags: ["Virtual Machine Scale Sets", "Automatic repairs"]
+  },
+  {
+    id: "azure-az305-286",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d3",
+    domainName: "Design business continuity solutions",
+    title: "Checkout replicas crowded into one zone",
+    scenario: "An AKS user node pool spans availability zones 1, 2 and 3, yet a zone drill showed that all six replicas of a retailer's checkout deployment had been scheduled onto nodes in zone 1, so checkout failed when that zone was isolated. The team wants the scheduler to keep the replicas evenly distributed across zones as the deployment scales.",
+    question: "What should the architect add to the checkout deployment?",
+    options: [
+      { id: 'A', text: "A topology spread constraint on the topology.kubernetes.io/zone label with a small maximum skew." },
+      { id: 'B', text: "A horizontal pod autoscaler that raises the replica count when checkout latency climbs above target." },
+      { id: 'C', text: "A PodDisruptionBudget that keeps at least four checkout replicas available during voluntary disruptions." },
+      { id: 'D', text: "A node affinity rule that requires nodes labelled topology.kubernetes.io/zone with the value 1." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Topology spread constraints tell the scheduler to balance matching pods across a topology domain such as the zone label, with the maximum skew limiting how uneven the distribution may become, so replicas land in all three zones as the deployment scales. A PodDisruptionBudget limits how many pods voluntary operations like node drains may evict; it does not influence where pods are placed. Requiring zone 1 through node affinity would pin every replica to exactly the zone that failed. An autoscaler changes how many replicas exist but not which zones they are scheduled into.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/aks/availability-zones",
+    tags: ["AKS", "Availability zones", "Kubernetes scheduling"]
+  },
+  {
+    id: "azure-az305-287",
+    difficulty: "hard",
+    certId: "azure-az305",
+    domainId: "d3",
+    domainName: "Design business continuity solutions",
+    title: "Shared storage for a zone-spanning SQL cluster",
+    scenario: "A manufacturer is moving a SQL Server 2019 failover cluster instance on Windows Server 2022 to Azure virtual machines. The two cluster nodes must sit in different availability zones so that the instance survives a zone outage, and the design must keep the single shared-storage model the DBAs already operate. FILESTREAM and MSDTC are not used.",
+    question: "Which two storage options support this design? (Choose two.)",
+    options: [
+      { id: 'A', text: "Premium SSD locally redundant managed disks attached to both nodes as Azure shared disks." },
+      { id: 'B', text: "Premium SSD zone-redundant managed disks attached to both nodes as Azure shared disks." },
+      { id: 'C', text: "Ultra Disks attached to both nodes as Azure shared disks for the database and log volumes." },
+      { id: 'D', text: "A premium SMB file share in Azure Files that both cluster nodes use as their shared storage." },
+      { id: 'E', text: "Storage Spaces Direct built from Premium SSD disks attached to each cluster node locally." }
+    ],
+    correctAnswers: ['B', 'D'],
+    type: "multiple",
+    explanation: "Premium SSD ZRS shared disks replicate synchronously across zones, so the two failover cluster nodes can sit in different zones and still attach the same disk, and premium file shares are a supported FCI storage option for virtual machines spread over multiple zones. Ultra Disks can be shared only by virtual machines in the same zone, which defeats the zone requirement. Storage Spaces Direct is supported for availability sets but not across availability zones. Premium SSD LRS shared disks support availability sets only, because the disk lives in a single zone.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-sql/virtual-machines/windows/failover-cluster-instance-overview",
+    tags: ["SQL Server on Azure VMs", "Failover cluster instance", "Shared disks"]
+  },
+  {
+    id: "azure-az305-288",
+    difficulty: "easy",
+    certId: "azure-az305",
+    domainId: "d3",
+    domainName: "Design business continuity solutions",
+    title: "Zone outage protection for a Business Critical database",
+    scenario: "A pharmacy chain's prescription database runs on Azure SQL Database in the Business Critical tier in a region with availability zones. An internal audit flagged that all replicas currently sit in one datacenter. The chain wants the database to stay writable through a zone outage without any change to application connection strings and without a second region.",
+    question: "What should the architect recommend?",
+    options: [
+      { id: 'A', text: "Configure long-term backup retention with weekly backups kept in geo-redundant backup storage." },
+      { id: 'B', text: "Configure active geo-replication to a secondary database in the paired region and fail over during outages." },
+      { id: 'C', text: "Enable the zone-redundant configuration on the database so its replicas are placed in several zones." },
+      { id: 'D', text: "Enable read scale-out so that reporting connections use the secondary replicas instead of the primary in an outage." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "Zone redundancy places the Business Critical tier's replicas in different availability zones of the same region, and automatic failover inside the region keeps the same server name, so the application needs no connection string change. Active geo-replication adds a second region and a different endpoint, which the requirement excludes. Read scale-out routes read-only connections to an existing replica but does not change where the replicas live. Long-term retention keeps backups for compliance and restores, which is recovery rather than continued availability.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-sql/database/high-availability-sla-local-zone-redundancy",
+    tags: ["Azure SQL Database", "Zone redundancy"]
+  },
+  {
+    id: "azure-az305-289",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d3",
+    domainName: "Design business continuity solutions",
+    title: "Regional failover without touching connection strings",
+    scenario: "A travel agency's booking platform uses four Azure SQL databases on one logical server in West Europe. The platform must move all four databases to North Europe together during a regional outage, and the application teams refuse to redeploy or edit connection strings when that happens.",
+    question: "Which solution should the architect recommend?",
+    options: [
+      { id: 'A', text: "Active geo-replication of each database to North Europe, with a runbook that updates app settings on failover." },
+      { id: 'B', text: "Zone-redundant configuration on all four databases, with the apps continuing to use the server name." },
+      { id: 'C', text: "Azure Traffic Manager in front of both logical servers, with the apps connecting to its DNS name." },
+      { id: 'D', text: "An auto-failover group holding the four databases, with the apps using the group's read-write listener." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "A failover group fails over its databases as a unit and exposes a read-write listener whose DNS name follows the current primary, so applications keep one connection string across a regional failover. Active geo-replication fails over databases individually and each secondary has its own server name, so connection strings must change, which is exactly what the runbook tries to paper over. Zone redundancy protects against a zone outage but not the loss of the whole region. Traffic Manager is not a supported way to route TDS connections between logical servers and knows nothing about which replica is writable.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-sql/database/failover-group-sql-db",
+    tags: ["Azure SQL Database", "Failover groups"]
+  },
+  {
+    id: "azure-az305-290",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d3",
+    domainName: "Design business continuity solutions",
+    title: "Readable copies of a pricing database in three regions",
+    scenario: "A commodities firm keeps a single Azure SQL database of reference prices in UK South. Analysts in the US, Japan and Australia need low-latency read access to a local copy, and any of those copies must be promotable to primary if UK South is lost. Other databases on the server are not part of this requirement.",
+    question: "What should the architect recommend?",
+    options: [
+      { id: 'A', text: "Active geo-replication of the database to readable secondaries in East US, Japan East and Australia East." },
+      { id: 'B', text: "One auto-failover group with secondary servers in East US, Japan East and Australia East holding the database." },
+      { id: 'C', text: "Read scale-out on the Business Critical tier with replicas pinned to East US, Japan East and Australia East." },
+      { id: 'D', text: "Azure SQL Data Sync with a hub in UK South and member databases in East US, Japan East and Australia East." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Active geo-replication works per database and supports up to four readable secondaries in any regions, each of which can be failed over to become the primary, so three regional copies are well within its limits. A failover group pairs a primary server with one secondary server, so it cannot place copies in three regions. Read scale-out uses the replica inside the primary's own region and cannot be moved to other regions. Data Sync is a bidirectional synchronisation feature with no failover capability, and it is not intended as a disaster recovery mechanism.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-sql/database/active-geo-replication-overview",
+    tags: ["Azure SQL Database", "Active geo-replication"]
+  },
+  {
+    id: "azure-az305-291",
+    difficulty: "hard",
+    certId: "azure-az305",
+    domainId: "d3",
+    domainName: "Design business continuity solutions",
+    title: "Cross-region resilience for a managed instance",
+    scenario: "A hospital group runs its patient administration databases on Azure SQL Managed Instance in the Business Critical tier in West US 2. A consultant's design proposes active geo-replication to a second instance in West Central US so that the databases can be failed over during a regional outage while applications keep a single connection endpoint.",
+    question: "What should the architect recommend instead?",
+    options: [
+      { id: 'A', text: "Create a failover group with a secondary instance in West Central US that shares the primary's DNS zone." },
+      { id: 'B', text: "Keep the West Central US design, adding an Azure DNS CNAME that the team repoints to whichever instance is primary." },
+      { id: 'C', text: "Configure Azure SQL Data Sync between the two instances and point applications at a Traffic Manager name." },
+      { id: 'D', text: "Enable zone redundancy on the Business Critical instance so its replicas cover every zone in West US 2." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "SQL Managed Instance does not support active geo-replication; its cross-region option is a failover group, and the secondary instance must be created as a DNS zone partner of the primary so the group's listener names resolve and certificates remain valid after failover. Zone redundancy only protects within West US 2. Data Sync does not support Managed Instance and provides no failover. Keeping the proposed design is impossible because the feature the consultant relies on is unavailable for Managed Instance, whatever DNS is layered on top.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-sql/managed-instance/failover-group-sql-mi",
+    tags: ["SQL Managed Instance", "Failover groups"]
+  },
+  {
+    id: "azure-az305-292",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d3",
+    domainName: "Design business continuity solutions",
+    title: "Who decides when a failover group switches",
+    scenario: "An e-commerce company protects its Azure SQL databases with a failover group between two regions. The business wants its own operations team to decide when a regional failover happens, within minutes of an alert, rather than waiting for a platform-wide decision. The team already has an alerting pipeline that can call automation.",
+    question: "How should the failover group be configured?",
+    options: [
+      { id: 'A', text: "Set the failover policy to Microsoft managed with a one-hour grace period so no alert needs handling by staff." },
+      { id: 'B', text: "Add a second secondary server to the failover group so the platform can choose the healthiest region itself." },
+      { id: 'C', text: "Enable zone redundancy on the primary databases so failures inside the region never need a regional failover." },
+      { id: 'D', text: "Set the failover policy to customer managed and trigger each failover from the existing alerts when needed." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "With a customer-managed failover policy the team triggers failover itself, planned or forced, whenever its own alerts and judgement say so, and Microsoft recommends this policy for most workloads. A Microsoft-managed policy fails over only when Microsoft declares a broad regional outage and after at least the grace period, so the timing is out of the company's hands. Zone redundancy protects against zone failures but not against losing the region. A failover group supports only one secondary server, so a second one cannot be added.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-sql/database/failover-group-sql-db",
+    tags: ["Azure SQL Database", "Failover groups", "Failover policy"]
+  },
+  {
+    id: "azure-az305-293",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d3",
+    domainName: "Design business continuity solutions",
+    title: "Automatic failover for a PostgreSQL order store",
+    scenario: "A food delivery platform is creating an Azure Database for PostgreSQL flexible server for its order store in a region with availability zones. The database must fail over automatically to a synchronously replicated standby if the zone hosting the primary fails, with no committed transactions lost. The team had planned to use the Burstable tier to save money.",
+    question: "Which two design decisions are required? (Choose two.)",
+    options: [
+      { id: 'A', text: "Enable high availability in zone-redundant mode, placing the standby in a different zone." },
+      { id: 'B', text: "Enable geo-redundant backup so the server can be restored to a zone that is still healthy." },
+      { id: 'C', text: "Choose the General Purpose or Memory Optimized compute tier instead of the Burstable tier." },
+      { id: 'D', text: "Create a read replica in another zone and promote it with a script if the primary fails." },
+      { id: 'E', text: "Keep the Burstable compute tier and enable same-zone high availability with a standby." }
+    ],
+    correctAnswers: ['A', 'C'],
+    type: "multiple",
+    explanation: "High availability on flexible server is not available on the Burstable tier, so the server must use General Purpose or Memory Optimized, and the zone-redundant mode places a synchronously replicated standby in another zone with automatic failover and no loss of committed data. Same-zone high availability puts the standby in the primary's zone, so a zone outage takes out both, and it still requires a non-Burstable tier. A read replica uses asynchronous replication, so promotion can lose recent transactions and is not automatic. Geo-redundant backup supports restore after the fact, which is slow and loses data written since the last backup.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/postgresql/high-availability/concepts-high-availability",
+    tags: ["PostgreSQL flexible server", "High availability"]
+  },
+  {
+    id: "azure-az305-294",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d3",
+    domainName: "Design business continuity solutions",
+    title: "MySQL high availability in a region without zones",
+    scenario: "A publisher must host its Azure Database for MySQL flexible server in a specific region to meet a contractual residency clause, and that region does not offer availability zones. The editors' content system needs automatic failover if the server's host or storage fails, and recovery from a backup is too slow.",
+    question: "What should the architect configure?",
+    options: [
+      { id: 'A', text: "Geo-redundant backup with a documented runbook to restore into the paired region on failure." },
+      { id: 'B', text: "A read replica in the same region with an application retry policy that switches to it on errors." },
+      { id: 'C', text: "Same-zone high availability, placing a standby server in the same location as the primary server." },
+      { id: 'D', text: "Zone-redundant high availability, letting the platform pick a second zone in the nearest region." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "Same-zone high availability provisions a synchronously replicated standby alongside the primary and fails over automatically on host or storage failure, and it is the high availability mode available where the region has no zones. Zone-redundant mode needs zones in the server's own region and never moves the standby to another region. A read replica replicates asynchronously and needs manual promotion, so failover is neither automatic nor lossless. Geo-restore into another region breaks the residency clause and is the slow backup-based recovery the editors rejected.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/mysql/flexible-server/concepts-high-availability",
+    tags: ["MySQL flexible server", "High availability"]
+  },
+  {
+    id: "azure-az305-295",
+    difficulty: "hard",
+    certId: "azure-az305",
+    domainId: "d3",
+    domainName: "Design business continuity solutions",
+    title: "Failover targets for a Hyperscale database",
+    scenario: "A SaaS analytics vendor runs a 40 TB Azure SQL Database in the Hyperscale tier with no replicas. It needs a warm replica that the platform fails over to automatically if the primary compute node fails, and separately a replica with its own compute size and security settings for customer-facing reporting that must never become the primary.",
+    question: "What should the architect add?",
+    options: [
+      { id: 'A', text: "A high availability replica for failover, plus a named replica for the reporting workload." },
+      { id: 'B', text: "A second Hyperscale database copied nightly, plus read scale-out on the primary for reports." },
+      { id: 'C', text: "Two named replicas: one sized like the primary for failover, and a smaller one for reporting." },
+      { id: 'D', text: "A geo-replica in the same region for failover, plus a high availability replica for reports." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Hyperscale high availability replicas share the page servers with the primary, act as hot standbys and are the targets of automatic failover, while named replicas can have their own compute size and logins but never participate in failover, which suits the reporting requirement exactly. Using a named replica for failover fails because the platform will not promote it. A geo-replica is a disaster recovery copy, and using a high availability replica for reports would let a reporting node become the primary. A nightly copy is stale and provides no automatic failover at all.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-sql/database/service-tier-hyperscale-replicas",
+    tags: ["Azure SQL Database", "Hyperscale", "Replicas"]
+  },
+  {
+    id: "azure-az305-296",
+    difficulty: "easy",
+    certId: "azure-az305",
+    domainId: "d3",
+    domainName: "Design business continuity solutions",
+    title: "Cheapest zone resilience for a small SQL database",
+    scenario: "A property agency's listing database is a 50 GB Azure SQL Database in the General Purpose tier using 4 vCores. The agency now wants it to survive an availability zone outage in its region at the lowest additional cost. It needs no readable replica and no second region.",
+    question: "What should the architect recommend?",
+    options: [
+      { id: 'A', text: "Move the database to the Business Critical tier with 4 vCores and enable zone redundancy." },
+      { id: 'B', text: "Enable zone redundancy on the existing General Purpose database and keep its 4 vCores." },
+      { id: 'C', text: "Create a failover group with a General Purpose secondary server in the paired region." },
+      { id: 'D', text: "Enable geo-redundant backup storage and document a geo-restore procedure for outages." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "The General Purpose tier supports zone redundancy, placing its compute and storage across availability zones, so enabling it on the existing database adds zone resilience without the much higher price of Business Critical. Business Critical also works but costs considerably more and adds a readable replica the agency does not need. A failover group introduces a second region the agency ruled out and a full secondary to pay for. Geo-restore is a slow backup-based recovery, not continued availability through a zone outage.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-sql/database/high-availability-sla-local-zone-redundancy",
+    tags: ["Azure SQL Database", "Zone redundancy", "Cost optimization"]
+  },
+  {
+    id: "azure-az305-297",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d3",
+    domainName: "Design business continuity solutions",
+    title: "Quorum and placement for an availability group",
+    scenario: "A retailer is building a two-replica SQL Server Always On availability group on Azure virtual machines with synchronous commit. The group must fail over automatically if either replica's availability zone fails, and the cluster must keep quorum without a third SQL Server virtual machine.",
+    question: "Which two design choices meet the requirements? (Choose two.)",
+    options: [
+      { id: 'A', text: "Switch both replicas to asynchronous commit so a zone failure never blocks transactions." },
+      { id: 'B', text: "Place the two SQL Server virtual machines in one availability set in a single zone." },
+      { id: 'C', text: "Use a file share witness for quorum hosted on the primary replica's own virtual machine." },
+      { id: 'D', text: "Use a cloud witness backed by a zone-redundant Azure storage account for quorum." },
+      { id: 'E', text: "Place the two SQL Server virtual machines in different availability zones of the region." }
+    ],
+    correctAnswers: ['D', 'E'],
+    type: "multiple",
+    explanation: "Placing the replicas in different zones means a zone outage removes only one of them, and a cloud witness in Azure Storage provides the third quorum vote without another virtual machine, independent of either replica's zone. An availability set in one zone does not survive the loss of that zone. A file share witness hosted on the primary's virtual machine disappears together with the primary, so the survivor cannot reach quorum. Asynchronous commit disables automatic failover, which breaks the requirement.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-sql/virtual-machines/windows/hadr-cluster-best-practices",
+    tags: ["SQL Server on Azure VMs", "Availability groups", "Quorum"]
+  },
+  {
+    id: "azure-az305-298",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d3",
+    domainName: "Design business continuity solutions",
+    title: "Read traffic that follows the secondary after failover",
+    scenario: "A bank's statement portal writes to an Azure SQL database protected by a failover group between Canada Central and Canada East. The portal's statement history pages are read-only and should always read from the current geo-secondary to offload the primary, including after the roles of the two regions have swapped.",
+    question: "How should the read-only pages connect?",
+    options: [
+      { id: 'A', text: "Use the Canada East server name in the read-only pages' connection string, as it hosts the secondary." },
+      { id: 'B', text: "Use the primary server name with ApplicationIntent=ReadOnly in the history pages' connection string." },
+      { id: 'C', text: "Use an elastic query from the primary database that reads remote tables in the secondary database." },
+      { id: 'D', text: "Use the failover group's read-only listener endpoint in the connection string for the history pages." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "The read-only listener of a failover group always resolves to the current secondary server, so after a failover it automatically follows the new secondary without any configuration change. ApplicationIntent=ReadOnly on the primary server name routes to a readable replica inside the primary's own region, not to the geo-secondary. Hard-coding the Canada East server name points the pages at the new primary once roles swap, putting read load back on it. Elastic query executes through the primary database, so it adds load there instead of offloading it.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-sql/database/failover-group-sql-db",
+    tags: ["Azure SQL Database", "Failover groups", "Read-only listener"]
+  },
+  {
+    id: "azure-az305-299",
+    difficulty: "easy",
+    certId: "azure-az305",
+    domainId: "d3",
+    domainName: "Design business continuity solutions",
+    title: "Zone-resilient web application firewall",
+    scenario: "A university exposes its student records portal through a single regional layer 7 gateway that terminates TLS and applies web application firewall rules in front of virtual machines in three zones. The gateway itself must remain available if one availability zone in the region fails.",
+    question: "What should the architect deploy?",
+    options: [
+      { id: 'A', text: "Application Gateway WAF v2 deployed in zone 1 only, with autoscaling set to a minimum of three." },
+      { id: 'B', text: "Application Gateway WAF v2 deployed across zones 1, 2 and 3 with a Standard public IP address." },
+      { id: 'C', text: "A zone-redundant NAT gateway that forwards inbound port 443 traffic to the backend VMs." },
+      { id: 'D', text: "A zone-redundant Standard Load Balancer with rules on port 443 forwarding to the backend VMs." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "Application Gateway v2 can be deployed across multiple availability zones, spreading its instances so the gateway survives the loss of a zone, and the WAF v2 SKU supplies the firewall rules and TLS termination the portal needs. Pinning the gateway to zone 1 makes every instance fail with that zone, however many instances autoscaling adds. A Standard Load Balancer is layer 4 and cannot inspect traffic with WAF rules or terminate TLS. A NAT gateway handles outbound connectivity only and does not accept inbound connections.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/application-gateway/application-gateway-autoscaling-zone-redundant",
+    tags: ["Application Gateway", "Availability zones", "WAF"]
+  },
+  {
+    id: "azure-az305-300",
+    difficulty: "hard",
+    certId: "azure-az305",
+    domainId: "d3",
+    domainName: "Design business continuity solutions",
+    title: "Contractual RPO and RTO for a trading ledger",
+    scenario: "A clearing house needs its trade ledger on Azure SQL Database to carry a financially backed commitment that a regional failover completes within 30 seconds and loses no more than 5 seconds of data. The ledger already sits in a region with availability zones, and budget is secondary to the contractual guarantee.",
+    question: "Which configuration provides that commitment?",
+    options: [
+      { id: 'A', text: "The Hyperscale tier with four high availability replicas spread across the region's zones." },
+      { id: 'B', text: "The Business Critical tier with geo-replication to a secondary database in another Azure region." },
+      { id: 'C', text: "The Business Critical tier with zone redundancy and geo-redundant backup storage enabled." },
+      { id: 'D', text: "The General Purpose tier with zone redundancy and a failover group to a secondary in another region." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "The Azure SQL Database SLA includes an RPO of 5 seconds and an RTO of 30 seconds, with service credits if missed, specifically for Business Critical (and Premium) databases configured with geo-replication. General Purpose with a failover group gives cross-region protection but no financially backed RPO and RTO. Hyperscale high availability replicas protect within one region, so a regional failover is not covered at all. Zone redundancy raises availability to 99.995 percent, and geo-redundant backup enables geo-restore, but neither carries an RPO or RTO commitment for regional failover.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-sql/database/business-continuity-high-availability-disaster-recover-hadr-overview",
+    tags: ["Azure SQL Database", "Business Critical", "RPO and RTO"]
+  }
+];
+
+export default AZURE_AZ305_QUESTIONS_12;
