@@ -13,7 +13,7 @@ export default {
   "title": "Microsoft Certified: Azure AI Apps and Agents Developer Associate",
   "category": "Cloud Engineering",
   "tier": "associate",
-  "status": "planned",
+  "status": "live",
   "priority": 18,
   "badgeClass": "badge-azure",
   "icon": "azure",
