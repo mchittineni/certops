@@ -1,0 +1,532 @@
+export const AWS_SOA_QUESTIONS_19 = [
+  {
+    id: "aws-soa-451",
+    difficulty: "easy",
+    certId: "aws-soa",
+    domainId: "d5",
+    domainName: "Networking and Content Delivery",
+    title: "Private bucket served only through the CDN",
+    scenario: "A publishing house serves e-book cover images through a CloudFront distribution whose origin is an S3 bucket. Security wants the bucket to stay fully private, with Block Public Access on, so that the images can be fetched only through CloudFront and never by calling S3 directly.",
+    question: "What should the CloudOps engineer configure?",
+    options: [
+      { id: 'A', text: "Create an origin access control and a bucket policy that allows CloudFront for this distribution only." },
+      { id: 'B', text: "Generate CloudFront signed URLs for every image and keep the bucket policy open to all anonymous readers." },
+      { id: 'C', text: "Add an S3 gateway endpoint to the distribution's VPC and restrict the bucket policy to that endpoint ID." },
+      { id: 'D', text: "Enable static website hosting on the bucket and use its website endpoint as a custom origin over HTTPS." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Origin access control signs CloudFront's requests to S3, and a bucket policy that allows the cloudfront.amazonaws.com service principal with a condition on the distribution's ARN lets only that distribution read objects while the bucket stays private with Block Public Access on. Website endpoints do not support HTTPS to the origin or OAC and require public read access. Signed URLs control which viewers can use CloudFront, but an open bucket policy still lets anyone call S3 directly. CloudFront does not run in a customer VPC, so a gateway endpoint condition would block the distribution rather than admit it.",
+    referenceUrl: "https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-s3.html",
+    tags: ["CloudFront", "S3", "Origin access control"]
+  },
+  {
+    id: "aws-soa-452",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d5",
+    domainName: "Networking and Content Delivery",
+    title: "Stopping visitors from bypassing the CDN",
+    scenario: "A sports site serves pages through CloudFront from an internet-facing Application Load Balancer, and AWS WAF is attached to the distribution. Attackers have discovered the ALB's DNS name and send requests to it directly, bypassing the WAF rules. The team wants the ALB to accept only requests that came through its own distribution.",
+    question: "Which two actions should the CloudOps engineer take? (Choose two.)",
+    options: [
+      { id: 'A', text: "Enable origin access control on the distribution for the ALB origin so that the load balancer verifies signatures." },
+      { id: 'B', text: "Associate a second AWS WAF web ACL with the ALB that blocks requests lacking CloudFront's Via header value." },
+      { id: 'C', text: "Configure a custom origin header with a secret value and add an ALB listener rule that forwards only when it matches." },
+      { id: 'D', text: "Subscribe the load balancer to AWS Shield Advanced so direct requests that skip CloudFront are dropped." },
+      { id: 'E', text: "Allow inbound HTTPS on the ALB's security group only from the CloudFront origin-facing managed prefix list." }
+    ],
+    correctAnswers: ['C', 'E'],
+    type: "multiple",
+    explanation: "The AWS-managed prefix list for CloudFront origin-facing servers limits the ALB's security group to CloudFront's address ranges, and a secret custom header added by the distribution, checked by an ALB listener rule, ensures requests came from this distribution rather than someone else's CloudFront setup. Origin access control applies to S3, MediaStore, Lambda function URL and similar origins, not to ALB origins. The Via header is added by every CloudFront distribution and is trivially forged, so it proves nothing. Shield Advanced protects against DDoS attacks; it does not distinguish legitimate direct requests from ones that came through CloudFront.",
+    referenceUrl: "https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/restrict-access-to-load-balancer.html",
+    tags: ["CloudFront", "ALB", "Prefix lists"]
+  },
+  {
+    id: "aws-soa-453",
+    difficulty: "easy",
+    certId: "aws-soa",
+    domainId: "d5",
+    domainName: "Networking and Content Delivery",
+    title: "Static addresses for a UDP game service",
+    scenario: "A multiplayer game runs UDP game servers behind Network Load Balancers in two Regions. Console manufacturers require the studio to publish a small set of fixed IP addresses for players, and players should be routed to the nearest healthy Region over the AWS backbone with fast failover.",
+    question: "Which service should the CloudOps engineer use?",
+    options: [
+      { id: 'A', text: "Amazon CloudFront, with an origin group containing both Regional NLBs." },
+      { id: 'B', text: "Route 53 latency records that alias to each Region's load balancer name." },
+      { id: 'C', text: "AWS Global Accelerator, with an endpoint group for each Region's NLB." },
+      { id: 'D', text: "Elastic IP addresses on each NLB, published together as one address list." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "Global Accelerator provides two static anycast IP addresses, supports TCP and UDP, carries traffic over the AWS global network from the nearest edge location, and fails over between endpoint groups in seconds based on health checks. CloudFront handles HTTP and HTTPS, not UDP game traffic. Route 53 records return changing addresses and depend on client DNS caching for failover. Elastic IPs on each NLB are fixed but Regional, so players would be stuck with whichever address they picked, with no automatic nearest-Region routing or failover.",
+    referenceUrl: "https://docs.aws.amazon.com/global-accelerator/latest/dg/what-is-global-accelerator.html",
+    tags: ["Global Accelerator", "UDP", "Static IP"]
+  },
+  {
+    id: "aws-soa-454",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d5",
+    domainName: "Networking and Content Delivery",
+    title: "Draining a Region behind an accelerator",
+    scenario: "A payments API uses AWS Global Accelerator with endpoint groups in us-east-1 and eu-west-1, each containing two Application Load Balancers. The team must patch the eu-west-1 stack and wants to move traffic away from it gradually over an hour, then return it, without changing DNS or the accelerator's IP addresses.",
+    question: "What should the CloudOps engineer adjust?",
+    options: [
+      { id: 'A', text: "Change the listener port range so eu-west-1 no longer matches incoming traffic." },
+      { id: 'B', text: "Set the weight of each eu-west-1 load balancer to 255 so that traffic spreads out." },
+      { id: 'C', text: "Lower the traffic dial on the eu-west-1 endpoint group in steps down to 0 percent." },
+      { id: 'D', text: "Disable client affinity on the listener so connections can drift to us-east-1." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "Each endpoint group has a traffic dial from 0 to 100 percent that controls the share of traffic it would otherwise receive, so stepping the eu-west-1 dial down moves users to us-east-1 gradually, and stepping it back up returns them, with the static IPs unchanged. Endpoint weights balance traffic among endpoints inside one group; 255 is the maximum and would not drain the Region. Client affinity controls whether a client sticks to the same endpoint, not where traffic goes. Listener port ranges apply to the whole accelerator, not to one Region.",
+    referenceUrl: "https://docs.aws.amazon.com/global-accelerator/latest/dg/about-endpoint-groups-traffic-dial.html",
+    tags: ["Global Accelerator", "Traffic dial", "Maintenance"]
+  },
+  {
+    id: "aws-soa-455",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d5",
+    domainName: "Networking and Content Delivery",
+    title: "Serving images when the primary bucket fails",
+    scenario: "A travel site's CloudFront distribution serves hotel photos from an S3 bucket in us-east-1, and a replica bucket in us-west-2 is kept current with S3 Replication. During a recent S3 disruption in us-east-1, viewers received 503 errors. The team wants CloudFront to retry failed image requests against the replica automatically.",
+    question: "What should the CloudOps engineer configure?",
+    options: [
+      { id: 'A', text: "Create an origin group with the us-east-1 bucket as primary and the replica as secondary, failing over on 5xx." },
+      { id: 'B', text: "Add the replica as a second origin with a cache behavior that routes a percentage of requests to it permanently." },
+      { id: 'C', text: "Create a Route 53 failover record for the bucket names and set the distribution's origin to that record name." },
+      { id: 'D', text: "Enable Origin Shield in us-west-2 so that cached objects stay available from the shield when the origin fails." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "A CloudFront origin group pairs a primary and a secondary origin, and when the primary returns one of the configured status codes, such as 500, 502, 503 or 504, or cannot be reached, CloudFront retries the request against the secondary, which covers GET and HEAD image requests. Cache behaviors route by path pattern, not by percentage, and permanently sending traffic to the replica is not failover. Origin Shield reduces origin load but serves only what it has already cached. S3 bucket endpoints must match the bucket name in the Host header, so a generic failover DNS name does not work as an S3 REST origin.",
+    referenceUrl: "https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/high_availability_origin_failover.html",
+    tags: ["CloudFront", "Origin failover", "S3"]
+  },
+  {
+    id: "aws-soa-456",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d5",
+    domainName: "Networking and Content Delivery",
+    title: "Rewriting URLs at the edge cheaply",
+    scenario: "A documentation site on CloudFront receives 50 million requests a day. Requests for paths ending in a slash must be rewritten to append index.html before CloudFront checks its cache, and legacy paths must return 301 redirects. The logic needs no network calls, and the team wants the lowest latency and cost.",
+    question: "What should the CloudOps engineer use?",
+    options: [
+      { id: 'A', text: "A CloudFront Function associated with the viewer request event of the default cache behavior." },
+      { id: 'B', text: "An AWS WAF rule on the distribution that rewrites the URI and returns redirects for legacy paths." },
+      { id: 'C', text: "A Lambda@Edge function associated with the origin request event of the default cache behavior." },
+      { id: 'D', text: "An S3 website routing rule on the origin bucket that appends index.html to every directory path." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "CloudFront Functions run lightweight JavaScript at edge locations on viewer request and response events with sub-millisecond startup and a much lower per-invocation price than Lambda@Edge, and they can rewrite the URI before the cache lookup and return redirects, which fits simple logic with no network access. Lambda@Edge on origin request runs only on cache misses, after the cache key is computed, and costs more per request. AWS WAF can block, allow, count or return custom responses but does not rewrite URIs. S3 website routing rules require the website endpoint and happen at the origin after the cache lookup.",
+    referenceUrl: "https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/edge-functions-choosing.html",
+    tags: ["CloudFront Functions", "Lambda@Edge", "URL rewrite"]
+  },
+  {
+    id: "aws-soa-457",
+    difficulty: "easy",
+    certId: "aws-soa",
+    domainId: "d5",
+    domainName: "Networking and Content Delivery",
+    title: "Honoring country licensing for video",
+    scenario: "A film distributor streams trailers through CloudFront. Its licensing agreements forbid serving the content to viewers in four specific countries, and viewers there should receive an HTTP 403 response. The team wants the simplest configuration with no custom code.",
+    question: "What should the CloudOps engineer configure?",
+    options: [
+      { id: 'A', text: "Add a CloudFront Function that reads the viewer's IP and rejects listed countries." },
+      { id: 'B', text: "Create Route 53 geolocation records returning no answer for the four countries." },
+      { id: 'C', text: "Add network ACL deny rules for the countries' address ranges on the origin subnet." },
+      { id: 'D', text: "Enable CloudFront geographic restrictions with a block list of the four countries." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "CloudFront's built-in geographic restrictions use a GeoIP database to block viewers from listed countries and return HTTP 403, with no code to maintain. Geolocation DNS records can be bypassed by resolvers in other countries or cached answers and do not return 403. A CloudFront Function would need custom code, which the team wants to avoid. Network ACLs at the origin see CloudFront's addresses, not the viewers', and cannot list whole countries anyway.",
+    referenceUrl: "https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/georestrictions.html",
+    tags: ["CloudFront", "Geo restriction"]
+  },
+  {
+    id: "aws-soa-458",
+    difficulty: "hard",
+    certId: "aws-soa",
+    domainId: "d5",
+    domainName: "Networking and Content Delivery",
+    title: "Paywall for a whole course library",
+    scenario: "An e-learning company serves each course as hundreds of HLS video segments through CloudFront from a private S3 origin. Only paying subscribers may watch, and the player requests segment URLs it builds itself, so the application cannot rewrite each URL. Keys must be managed without the AWS account root user.",
+    question: "How should the CloudOps engineer restrict access?",
+    options: [
+      { id: 'A', text: "Issue CloudFront signed cookies after login, signed with a key in a trusted key group on the behavior." },
+      { id: 'B', text: "Issue CloudFront signed URLs per segment, signed with a CloudFront key pair created by the root user." },
+      { id: 'C', text: "Generate S3 presigned URLs for each course folder and serve them through the CloudFront distribution." },
+      { id: 'D', text: "Attach an AWS WAF rule that allows requests only when a subscriber session header value is present." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Signed cookies grant access to many files, such as every segment matching a path pattern, without changing the URLs the player builds, and a trusted key group on the cache behavior uses public keys managed through IAM permissions rather than root-user CloudFront key pairs. Signed URLs would require the application to sign every segment URL and root key pairs are the legacy method the company must avoid. S3 presigned URLs are signed for direct S3 requests to one object at a time; CloudFront does not validate them, so they give no viewer access control at the edge. A static header check in WAF is easily copied and does not expire or authenticate subscribers.",
+    referenceUrl: "https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-choosing-signed-urls-cookies.html",
+    tags: ["CloudFront", "Signed cookies", "Private content"]
+  },
+  {
+    id: "aws-soa-459",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d5",
+    domainName: "Networking and Content Delivery",
+    title: "NAT gateway that forwards nothing",
+    scenario: "A new VPC's private instances cannot reach the internet. The private route table sends 0.0.0.0/0 to a NAT gateway, which is in the Available state with an Elastic IP. The NAT gateway was created in a subnet whose route table has only the local route. The public subnet routes 0.0.0.0/0 to the internet gateway.",
+    question: "What should the CloudOps engineer do?",
+    options: [
+      { id: 'A', text: "Associate a second Elastic IP address with the NAT gateway so that it can reach the internet." },
+      { id: 'B', text: "Recreate the NAT gateway in the public subnet and update the private route table to point to it." },
+      { id: 'C', text: "Add a 0.0.0.0/0 route to the NAT gateway itself in the route table of the NAT gateway's subnet." },
+      { id: 'D', text: "Disable the source/destination check on the NAT gateway's network interface to allow forwarding." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "A public NAT gateway forwards traffic to the internet through the internet gateway, so it must sit in a subnet whose route table sends 0.0.0.0/0 to the internet gateway; placed in a subnet with only the local route, it has no way out. Recreating it in the public subnet and repointing the private route fixes the path. A route to itself would create a loop. Extra Elastic IPs add port capacity, not a route. Source/destination checking is an EC2 instance setting relevant to NAT instances, not to managed NAT gateways.",
+    referenceUrl: "https://docs.aws.amazon.com/vpc/latest/userguide/nat-gateway-troubleshooting.html",
+    tags: ["NAT gateway", "Route tables", "Troubleshooting"]
+  },
+  {
+    id: "aws-soa-460",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d5",
+    domainName: "Networking and Content Delivery",
+    title: "Transit gateway routes present, traffic still fails",
+    scenario: "Two VPCs, 10.1.0.0/16 and 10.2.0.0/16, are attached to a transit gateway. Both attachments are associated with and propagate into the same transit gateway route table, which shows routes to both CIDRs. Security groups allow the traffic, yet instances in one VPC cannot reach instances in the other.",
+    question: "What is the most likely missing configuration?",
+    options: [
+      { id: 'A', text: "Appliance mode on both attachments so that the transit gateway keeps traffic in the same zone." },
+      { id: 'B', text: "Static routes in the transit gateway route table that duplicate the routes already propagated." },
+      { id: 'C', text: "A VPC peering connection between the two VPCs so the transit gateway can forward their traffic." },
+      { id: 'D', text: "Routes in each VPC's subnet route tables that send the other VPC's CIDR to the transit gateway." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Transit gateway route tables decide where traffic goes once it reaches the transit gateway, but each VPC's subnet route tables must also send the remote CIDR to the transit gateway attachment; without those routes, packets never leave the source VPC. A peering connection is a separate path and is not required for transit gateway routing. Appliance mode keeps flows symmetric for inspection appliances and does not create routes. Propagated routes already exist, so duplicating them as static routes changes nothing.",
+    referenceUrl: "https://docs.aws.amazon.com/vpc/latest/tgw/how-transit-gateways-work.html",
+    tags: ["Transit gateway", "Route tables", "Troubleshooting"]
+  },
+  {
+    id: "aws-soa-461",
+    difficulty: "hard",
+    certId: "aws-soa",
+    domainId: "d5",
+    domainName: "Networking and Content Delivery",
+    title: "Firewall drops return traffic across zones",
+    scenario: "A bank routes traffic between spoke VPCs through a central inspection VPC on a transit gateway, where stateful firewall appliances run in two Availability Zones. Some flows between spokes in different AZs fail: the firewall logs show the request passing through one AZ's appliance and the response arriving at the other AZ's appliance, which drops it.",
+    question: "What should the CloudOps engineer change?",
+    options: [
+      { id: 'A', text: "Enable cross-zone load balancing on the firewall target group so either appliance can accept the reply." },
+      { id: 'B', text: "Enable appliance mode on the inspection VPC's transit gateway attachment so both directions use one AZ." },
+      { id: 'C', text: "Enable security group referencing on the transit gateway so the appliances trust each other's flows." },
+      { id: 'D', text: "Disable route propagation for the spoke attachments and add static routes toward the inspection VPC." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "By default a transit gateway keeps traffic in the AZ where it entered, so a request and its response between spokes in different AZs can land on different appliances; appliance mode on the inspection VPC attachment makes the transit gateway pick one appliance network interface per flow, using a flow hash, for both directions, so stateful inspection sees the whole conversation. Cross-zone behavior on a load balancer does not share state between separate appliances. Static routes change which attachment traffic goes to, not the AZ selection within it. Security group referencing affects rule matching across VPCs, not firewall session state.",
+    referenceUrl: "https://docs.aws.amazon.com/vpc/latest/tgw/transit-gateway-appliance-scenario.html",
+    tags: ["Transit gateway", "Appliance mode", "Inspection"]
+  },
+  {
+    id: "aws-soa-462",
+    difficulty: "easy",
+    certId: "aws-soa",
+    domainId: "d5",
+    domainName: "Networking and Content Delivery",
+    title: "Instance answers SSH but cannot call out",
+    scenario: "An engineer tightened a web server's security group by deleting every outbound rule. Administrators can still connect over SSH, but the server now fails to call an external payment API over HTTPS. The subnet's network ACL allows all traffic in both directions.",
+    question: "What should the CloudOps engineer do?",
+    options: [
+      { id: 'A', text: "Attach a second network interface to the server with the default security group applied." },
+      { id: 'B', text: "Add an outbound network ACL rule allowing TCP 1024-65535 to the payment API's addresses." },
+      { id: 'C', text: "Add an inbound security group rule allowing TCP 443 from the payment API's addresses." },
+      { id: 'D', text: "Add an outbound security group rule allowing TCP 443 to the payment API's addresses." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Security groups are stateful: responses to allowed inbound SSH sessions leave freely, which is why SSH still works, but connections the server starts need an outbound rule, so an outbound rule for TCP 443 to the API restores the calls. An inbound rule would admit connections from the API, not let the server initiate them, and the replies to outbound connections are already allowed by state tracking. The network ACL already allows everything. A second interface with a different group is an unnecessary workaround that bypasses the intended hardening.",
+    referenceUrl: "https://docs.aws.amazon.com/vpc/latest/userguide/security-group-rules.html",
+    tags: ["Security groups", "Troubleshooting"]
+  },
+  {
+    id: "aws-soa-463",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d5",
+    domainName: "Networking and Content Delivery",
+    title: "Finding the blocking hop without sending traffic",
+    scenario: "An application instance cannot connect to an RDS instance on port 3306 in another subnet of the same VPC. The path involves two security groups, two network ACLs and custom route tables, all edited recently by different teams. The CloudOps engineer wants to identify the exact component that blocks the path without generating any test traffic.",
+    question: "Which tool should the engineer use?",
+    options: [
+      { id: 'A', text: "VPC flow logs on both network interfaces, filtered for REJECT records on port 3306 entries." },
+      { id: 'B', text: "VPC Reachability Analyzer, analyzing a path from the instance to the database on port 3306." },
+      { id: 'C', text: "CloudWatch Internet Monitor, configured with the VPC and its database endpoint as resources." },
+      { id: 'D', text: "Traffic Mirroring from the instance's network interface to a packet capture appliance target." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "Reachability Analyzer performs static analysis of the network configuration between a source and destination and, when the path is not reachable, names the blocking component, such as a specific security group rule, network ACL rule or missing route, without sending packets. Flow logs only record traffic that is actually attempted, so they require test connections and do not identify which rule blocked it. Traffic Mirroring captures real packets and again needs traffic. Internet Monitor measures internet performance for end users reaching AWS, not paths within a VPC.",
+    referenceUrl: "https://docs.aws.amazon.com/vpc/latest/reachability/what-is-reachability-analyzer.html",
+    tags: ["Reachability Analyzer", "Troubleshooting"]
+  },
+  {
+    id: "aws-soa-464",
+    difficulty: "hard",
+    certId: "aws-soa",
+    domainId: "d5",
+    domainName: "Networking and Content Delivery",
+    title: "Connection failures to one busy destination",
+    scenario: "A price-comparison service's workers in private subnets open tens of thousands of concurrent connections through one NAT gateway to a single partner API endpoint. During peaks, some connections fail and the NAT gateway's ErrorPortAllocation metric rises, although total bandwidth is far below the gateway's limits.",
+    question: "What should the CloudOps engineer do?",
+    options: [
+      { id: 'A', text: "Increase the NAT gateway's bandwidth by moving it to a larger size in the gateway's configuration." },
+      { id: 'B', text: "Replace the NAT gateway with an egress-only internet gateway, which has no port allocation limit." },
+      { id: 'C', text: "Reduce the idle timeout on the NAT gateway to 60 seconds so that its ports are recycled far more quickly." },
+      { id: 'D', text: "Associate additional secondary Elastic IP addresses with the NAT gateway to add ports per destination." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "A NAT gateway supports about 55,000 simultaneous connections to each unique destination per IP address, and ErrorPortAllocation shows that limit being hit; associating secondary Elastic IP addresses (up to eight IPs in total) multiplies the available ports for that destination. NAT gateways have no selectable size, and bandwidth is not the constraint. The NAT gateway's idle timeout of 350 seconds is fixed and cannot be configured. An egress-only internet gateway handles IPv6 only, and the partner API is reached over IPv4.",
+    referenceUrl: "https://docs.aws.amazon.com/vpc/latest/userguide/nat-gateway-troubleshooting.html",
+    tags: ["NAT gateway", "Port allocation", "Troubleshooting"]
+  },
+  {
+    id: "aws-soa-465",
+    difficulty: "easy",
+    certId: "aws-soa",
+    domainId: "d5",
+    domainName: "Networking and Content Delivery",
+    title: "VPC-connected function cannot reach the internet",
+    scenario: "A developer attached a Lambda function to a VPC so it can query an RDS database, placing it in the VPC's public subnets, which route 0.0.0.0/0 to an internet gateway. The function now times out when calling a third-party webhook on the internet, although the database queries succeed.",
+    question: "What should the CloudOps engineer do?",
+    options: [
+      { id: 'A', text: "Attach an Elastic IP address to the function in the Lambda VPC configuration page." },
+      { id: 'B', text: "Enable auto-assign public IPv4 on the public subnets for the function's interfaces." },
+      { id: 'C', text: "Add an interface VPC endpoint for Lambda so the function can reach external hosts." },
+      { id: 'D', text: "Move the function to private subnets whose default route points to a NAT gateway." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Lambda's network interfaces in a VPC never receive public IP addresses, so an internet gateway route alone gives them no internet access; placing the function in private subnets with a default route to a NAT gateway provides outbound internet while keeping database access. Auto-assign public IPv4 applies to EC2 launches, not Lambda's managed interfaces. The Lambda VPC configuration has no option to attach an Elastic IP. A Lambda interface endpoint provides private access to the Lambda API, not to third-party internet hosts.",
+    referenceUrl: "https://docs.aws.amazon.com/lambda/latest/dg/configuration-vpc-internet.html",
+    tags: ["Lambda", "NAT gateway", "Troubleshooting"]
+  },
+  {
+    id: "aws-soa-466",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d5",
+    domainName: "Networking and Content Delivery",
+    title: "Public names stop resolving after a DHCP change",
+    scenario: "To support domain joins, an engineer replaced a VPC's DHCP options set with one whose domain-name-servers value is the IP address of a new Active Directory domain controller in the VPC. Instances now resolve the AD domain but fail to resolve public names and interface endpoint names. The domain controller's DNS service has no forwarders configured.",
+    question: "What should the CloudOps engineer do to restore resolution while keeping the domain controller as the instances' DNS server?",
+    options: [
+      { id: 'A', text: "Add an inbound network ACL rule for UDP 53 to the controller's subnet so that answers can return to instances." },
+      { id: 'B', text: "Add a Resolver outbound endpoint and a forwarding rule for all domains that targets the domain controller." },
+      { id: 'C', text: "Configure the domain controller's DNS service to forward other queries to the VPC resolver at base plus two." },
+      { id: 'D', text: "Enable the VPC's DNS hostnames attribute so instances fall back to AWS DNS when the controller cannot answer." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "With the DHCP options set pointing instances at the domain controller, every query goes there first; configuring the controller to forward queries it is not authoritative for to the VPC resolver at the base address plus two lets it answer public names, private hosted zones and endpoint names. A forwarding rule to the controller affects only queries sent to the VPC resolver, which instances no longer use, and forwarding everything to the controller would not add answers it lacks. The DNS hostnames attribute does not create a fallback resolver. The controller already answers AD queries, so the network path works; the gap is missing forwarders.",
+    referenceUrl: "https://docs.aws.amazon.com/vpc/latest/userguide/DHCPOptionSet.html",
+    tags: ["DHCP options", "VPC DNS", "Troubleshooting"]
+  },
+  {
+    id: "aws-soa-467",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d5",
+    domainName: "Networking and Content Delivery",
+    title: "New spoke cannot reach the data center",
+    scenario: "A company's transit gateway has a Site-to-Site VPN attachment to its data center and uses separate transit gateway route tables for production and development. A new production VPC was attached, but its attachment is associated with the default route table, which contains only development VPC routes. The VPC's subnets route 10.0.0.0/8 to the transit gateway.",
+    question: "Which two actions will let the new VPC reach the data center? (Choose two.)",
+    options: [
+      { id: 'A', text: "Make sure the production route table has a route to the data center through the VPN attachment, via propagation." },
+      { id: 'B', text: "Enable DNS support on the new VPC attachment so the transit gateway can resolve the data center's addresses." },
+      { id: 'C', text: "Add the VPN attachment's CIDRs as static routes in each subnet route table of the new VPC pointing at the gateway." },
+      { id: 'D', text: "Associate the new VPC attachment with the production transit gateway route table instead of the default one." },
+      { id: 'E', text: "Propagate the new VPC attachment into the development route table so development VPCs can forward its traffic." }
+    ],
+    correctAnswers: ['A', 'D'],
+    type: "multiple",
+    explanation: "A transit gateway looks up traffic from an attachment in the route table the attachment is associated with, so the new VPC must be associated with the production route table, and that table must contain a route to the data center, normally by propagating the VPN attachment's routes; the VPN side also needs the new VPC's CIDR, typically by propagating the VPC attachment into the table the VPN uses. The subnets already send 10.0.0.0/8 to the transit gateway, so more subnet routes add nothing. DNS support on an attachment affects public hostname resolution, not routing. Propagating into the development table does not help traffic that is looked up in another table and breaks the environment separation.",
+    referenceUrl: "https://docs.aws.amazon.com/vpc/latest/tgw/tgw-route-tables.html",
+    tags: ["Transit gateway", "Route tables", "Site-to-Site VPN"]
+  },
+  {
+    id: "aws-soa-468",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d5",
+    domainName: "Networking and Content Delivery",
+    title: "Reading an ACCEPT then REJECT in flow logs",
+    scenario: "Users cannot reach a web server on TCP 443. The server's VPC flow logs show an ACCEPT record for the inbound flow from a client to port 443, followed by a REJECT record for the outbound flow from port 443 back to the client's port 51544. The security group allows 443 inbound from anywhere.",
+    question: "What is the most likely cause?",
+    options: [
+      { id: 'A', text: "The subnet's network ACL does not allow outbound traffic to the client's ephemeral port range." },
+      { id: 'B', text: "The server's operating system firewall is dropping the inbound request on the port 443 listener." },
+      { id: 'C', text: "The subnet route table lacks a route back to the client through the VPC's internet gateway." },
+      { id: 'D', text: "The security group does not have an outbound rule allowing the response to the client's port." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Security groups are stateful, so a response to an accepted inbound connection is never rejected by the security group; an outbound REJECT for the reply therefore points at the stateless network ACL, which lacks an outbound rule for the client's ephemeral port. Security group outbound rules do not apply to return traffic of allowed inbound flows. Flow logs record accept or reject decisions by security groups and ACLs, not missing routes, and a missing internet gateway route would not appear as REJECT. An OS firewall drop happens after the ACCEPT decision and would not generate the REJECT record for the outbound direction.",
+    referenceUrl: "https://docs.aws.amazon.com/vpc/latest/userguide/flow-logs-records-examples.html",
+    tags: ["VPC flow logs", "Network ACL", "Troubleshooting"]
+  },
+  {
+    id: "aws-soa-469",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d5",
+    domainName: "Networking and Content Delivery",
+    title: "Load balancer access logs never arrive",
+    scenario: "A CloudOps engineer enabled access logs on an Application Load Balancer in eu-west-1, choosing an existing S3 bucket owned by the same account. The console reports an access denied error when validating the bucket, and no log files appear. The bucket was created in us-east-1 with no bucket policy.",
+    question: "Which two changes are required? (Choose two.)",
+    options: [
+      { id: 'A', text: "Enable CloudTrail data events on the bucket so the load balancer's writes are allowed and audited." },
+      { id: 'B', text: "Use a bucket located in the same Region as the load balancer for the access log destination." },
+      { id: 'C', text: "Enable S3 versioning and Object Lock on the bucket so log objects can be written by the service." },
+      { id: 'D', text: "Add a bucket policy granting Elastic Load Balancing log delivery permission to write objects." },
+      { id: 'E', text: "Attach an IAM role to the load balancer that grants s3:PutObject permission on the log bucket." }
+    ],
+    correctAnswers: ['B', 'D'],
+    type: "multiple",
+    explanation: "ALB access logs must be written to a bucket in the same Region as the load balancer, and the bucket policy must allow Elastic Load Balancing to put objects, using the Region's ELB account or the log delivery service principal depending on the Region. Versioning and Object Lock are unrelated to delivery permissions. Load balancers do not assume IAM roles for log delivery; access is granted in the bucket policy. CloudTrail data events record object-level API calls and grant no permissions.",
+    referenceUrl: "https://docs.aws.amazon.com/elasticloadbalancing/latest/application/enable-access-logging.html",
+    tags: ["ELB access logs", "S3", "Troubleshooting"]
+  },
+  {
+    id: "aws-soa-470",
+    difficulty: "hard",
+    certId: "aws-soa",
+    domainId: "d5",
+    domainName: "Networking and Content Delivery",
+    title: "Whose 502s are these?",
+    scenario: "An ALB in front of a Node.js fleet returns intermittent 502 errors. In the access logs, the affected entries show elb_status_code 502, target_status_code as a dash, target_processing_time of -1, and a target address. The application team insists their service never returns 502.",
+    question: "What do these log fields indicate?",
+    options: [
+      { id: 'A', text: "The load balancer generated the 502 because the target closed or reset the connection without responding." },
+      { id: 'B', text: "AWS WAF blocked the request before it was routed, and the load balancer converted the block into a 502." },
+      { id: 'C', text: "The client disconnected before the target finished, so the load balancer recorded a 502 for the attempt." },
+      { id: 'D', text: "The target returned a 502 status of its own, which the load balancer passed through to clients unchanged." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "When elb_status_code is 502 and target_status_code is a dash with a processing time of -1, the load balancer sent the request to the target but received no valid response, so the ALB itself produced the 502; a common cause is the target closing idle keep-alive connections sooner than the ALB's idle timeout, which is why Node.js keepAliveTimeout should exceed it. A target-generated 502 would appear in target_status_code. WAF blocks are logged with a 403 by default and the actions_executed field shows waf. Client disconnects are logged with a 460 status.",
+    referenceUrl: "https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-troubleshooting.html",
+    tags: ["ELB access logs", "HTTP 502", "Troubleshooting"]
+  },
+  {
+    id: "aws-soa-471",
+    difficulty: "hard",
+    certId: "aws-soa",
+    domainId: "d5",
+    domainName: "Networking and Content Delivery",
+    title: "Flow logs that hide the original source",
+    scenario: "A security analyst reviews VPC flow logs captured on a NAT gateway's network interface to see which private instances contacted a suspicious IP address. Every record shows the NAT gateway's private address as the source, so the analyst cannot tell which instance started each connection. The logs use the default format.",
+    question: "What should the CloudOps engineer change?",
+    options: [
+      { id: 'A', text: "Create a flow log with a custom format that includes the pkt-srcaddr and pkt-dstaddr fields." },
+      { id: 'B', text: "Change the flow log's maximum aggregation interval from 10 minutes to 1 minute for detail." },
+      { id: 'C', text: "Send the flow log to CloudWatch Logs instead of S3 so the records include instance IDs." },
+      { id: 'D', text: "Change the flow log's traffic type from ALL to REJECT so the suspicious flows are isolated." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "The default flow log fields srcaddr and dstaddr show the addresses on the interface being logged, which for a NAT gateway is its own address; the pkt-srcaddr and pkt-dstaddr fields in a custom format record the packet-level original source and destination, revealing the private instance behind each connection. A shorter aggregation interval adds granularity in time, not the original address. Filtering to REJECT would drop the accepted connections the analyst needs. The destination of the flow log does not change which fields each record contains.",
+    referenceUrl: "https://docs.aws.amazon.com/vpc/latest/userguide/flow-logs-records-examples.html",
+    tags: ["VPC flow logs", "NAT gateway", "Custom format"]
+  },
+  {
+    id: "aws-soa-472",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d5",
+    domainName: "Networking and Content Delivery",
+    title: "CDN request data within seconds",
+    scenario: "A live-sports streaming company wants to detect viewer error spikes on its CloudFront distribution within seconds during matches and feed a custom dashboard. It needs only a subset of fields, such as status code, edge location and time taken, for a sample of requests. Standard access logs arrive too late for this purpose.",
+    question: "What should the CloudOps engineer configure?",
+    options: [
+      { id: 'A', text: "A CloudTrail trail with data events for the distribution, sent to CloudWatch Logs with a metric filter." },
+      { id: 'B', text: "VPC flow logs on the origin's network interfaces, filtered by the edge location addresses that CloudFront uses." },
+      { id: 'C', text: "CloudFront standard logging to an S3 bucket in the same Region, queried every minute with Amazon Athena." },
+      { id: 'D', text: "CloudFront real-time logs with the selected fields and a sampling rate, delivered to Kinesis Data Streams." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "CloudFront real-time logs deliver chosen fields for a configurable sample of requests to a Kinesis data stream within seconds, where consumers can drive dashboards. Standard logs are delivered periodically and can lag by many minutes or more, so frequent Athena queries still see stale data. CloudTrail records CloudFront API calls, not viewer requests. Origin flow logs see only cache misses at layer 3 and 4 and contain no HTTP status or edge location details.",
+    referenceUrl: "https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html",
+    tags: ["CloudFront", "Real-time logs", "Kinesis"]
+  },
+  {
+    id: "aws-soa-473",
+    difficulty: "easy",
+    certId: "aws-soa",
+    domainId: "d5",
+    domainName: "Networking and Content Delivery",
+    title: "Container output for a Fargate proxy",
+    scenario: "A team runs an NGINX reverse proxy as an ECS service on Fargate and needs its access and error output, which the container writes to stdout and stderr, available in CloudWatch Logs for troubleshooting connection problems. No logs are currently collected.",
+    question: "What should the CloudOps engineer configure?",
+    options: [
+      { id: 'A', text: "Install the CloudWatch agent on the Fargate host instance that runs the proxy task." },
+      { id: 'B', text: "Enable VPC flow logs on the task's elastic network interface for all traffic." },
+      { id: 'C', text: "Set the awslogs log driver in the task definition's container logConfiguration." },
+      { id: 'D', text: "Enable ELB access logs on the load balancer in front of the ECS proxy service." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "On Fargate, the awslogs log driver in the container definition's logConfiguration sends stdout and stderr to a CloudWatch Logs group, with the task execution role providing permission to create streams and put events. Fargate gives no access to the underlying host, so no agent can be installed there. Flow logs record IP traffic metadata, not NGINX output. ELB access logs describe requests at the load balancer and go to S3, not the container's own access and error messages.",
+    referenceUrl: "https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_awslogs.html",
+    tags: ["ECS", "Fargate", "Container logs"]
+  },
+  {
+    id: "aws-soa-474",
+    difficulty: "easy",
+    certId: "aws-soa",
+    domainId: "d5",
+    domainName: "Networking and Content Delivery",
+    title: "Finer time detail in flow log records",
+    scenario: "While investigating short bursts of rejected connections, an engineer notices that each VPC flow log record covers a window of up to ten minutes, making it hard to line the records up with application errors that last under a minute. The flow log was created with default settings.",
+    question: "What should the engineer change?",
+    options: [
+      { id: 'A', text: "Create a flow log whose maximum aggregation interval is set to 1 minute." },
+      { id: 'B', text: "Switch the flow log destination from CloudWatch Logs to Firehose streams." },
+      { id: 'C', text: "Enable detailed monitoring on the instances so records arrive each minute." },
+      { id: 'D', text: "Change the flow log to capture only REJECT records so it flushes faster." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Flow logs aggregate packets into records over a maximum aggregation interval that defaults to 10 minutes; creating the flow log with a 1-minute interval produces records covering at most a minute. The interval cannot be edited on an existing flow log, so a new one is created. EC2 detailed monitoring changes CloudWatch metric frequency, not flow logs. The destination affects delivery, not the capture window. Filtering to rejected traffic changes which records exist, not how much time each covers.",
+    referenceUrl: "https://docs.aws.amazon.com/vpc/latest/userguide/flow-logs.html",
+    tags: ["VPC flow logs", "Aggregation interval"]
+  },
+  {
+    id: "aws-soa-475",
+    difficulty: "hard",
+    certId: "aws-soa",
+    domainId: "d5",
+    domainName: "Networking and Content Delivery",
+    title: "Packet contents for an intrusion detection system",
+    scenario: "A healthcare company must feed full packet contents from a group of Nitro-based EC2 instances to an intrusion detection appliance fleet behind a Network Load Balancer, to detect attack signatures in payloads. The instances' own software must not change, and the copy must not add latency to production traffic.",
+    question: "What should the CloudOps engineer configure?",
+    options: [
+      { id: 'A', text: "A Gateway Load Balancer placed inline in front of the instances so the appliances inspect every packet." },
+      { id: 'B', text: "VPC flow logs with every available field, delivered to Firehose streams that feed the appliance fleet." },
+      { id: 'C', text: "VPC Traffic Mirroring sessions from the instances' interfaces to the NLB as the mirror target, with filters." },
+      { id: 'D', text: "GuardDuty Runtime Monitoring on the instances with findings forwarded to the appliances through EventBridge." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "Traffic Mirroring copies packets, including payloads, from the network interfaces of Nitro-based instances to a mirror target such as a Network Load Balancer fronting an appliance fleet, with filters to select traffic, outside the production path and with no software change on the instances. Flow logs contain only metadata about flows, never payloads. An inline Gateway Load Balancer puts the appliances in the traffic path, adding latency and a dependency on them. GuardDuty Runtime Monitoring uses an agent on the instances and produces findings, not packet copies.",
+    referenceUrl: "https://docs.aws.amazon.com/vpc/latest/mirroring/what-is-traffic-mirroring.html",
+    tags: ["Traffic Mirroring", "Intrusion detection"]
+  }
+];
+
+export default AWS_SOA_QUESTIONS_19;

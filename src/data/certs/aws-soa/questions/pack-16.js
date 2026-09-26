@@ -1,0 +1,532 @@
+export const AWS_SOA_QUESTIONS_16 = [
+  {
+    id: "aws-soa-376",
+    difficulty: "easy",
+    certId: "aws-soa",
+    domainId: "d4",
+    domainName: "Security and Compliance",
+    title: "Certificate missing from the CloudFront console",
+    scenario: "A travel agency hosts its booking site in eu-west-1 behind a CloudFront distribution. An engineer requested a public certificate for www.example-travel.com in ACM in eu-west-1 and validated it with DNS, but the certificate does not appear in the custom SSL certificate list when editing the distribution. The site must serve the custom domain over HTTPS.",
+    question: "What should the engineer do so the distribution can use a certificate for the domain?",
+    options: [
+      { id: 'A', text: "Upload the certificate to the IAM certificate store in eu-west-1 so CloudFront can read it from the origin's Region." },
+      { id: 'B', text: "Request or import the certificate in ACM in the us-east-1 Region and then select it in the distribution settings." },
+      { id: 'C', text: "Attach the eu-west-1 certificate to an Application Load Balancer and set that load balancer as the distribution's origin." },
+      { id: 'D', text: "Switch the eu-west-1 certificate to email validation so that ACM marks it as eligible for use by global services." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "CloudFront only reads ACM certificates from the US East (N. Virginia) Region, so a certificate for the viewer-facing custom domain must be requested or imported in us-east-1 before it can be chosen on the distribution. The validation method has no bearing on which Region a certificate lives in, so changing to email validation leaves it invisible to CloudFront. Putting the eu-west-1 certificate on an ALB origin encrypts the origin leg, but viewers still connect to CloudFront, which needs its own certificate for the domain. The IAM certificate store is global rather than per-Region, and certificates for CloudFront uploaded there must use the /cloudfront/ path; placing one in a Region is not how the store works.",
+    referenceUrl: "https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cnames-and-https-requirements.html",
+    tags: ["ACM", "CloudFront", "TLS"]
+  },
+  {
+    id: "aws-soa-377",
+    difficulty: "easy",
+    certId: "aws-soa",
+    domainId: "d4",
+    domainName: "Security and Compliance",
+    title: "Refusing plain HTTP calls to a document bucket",
+    scenario: "An insurance company stores claim documents in an S3 bucket that is read by several internal applications. An audit found that one legacy client still calls the S3 REST endpoint over HTTP. Policy now requires that every request to the bucket, from any principal, is rejected unless it arrives over TLS.",
+    question: "Which control enforces the requirement?",
+    options: [
+      { id: 'A', text: "Create a gateway VPC endpoint for S3 and attach an endpoint policy that allows access to the claims bucket only." },
+      { id: 'B', text: "Add a bucket policy statement that denies all S3 actions when the aws:SecureTransport condition key is false." },
+      { id: 'C', text: "Turn on S3 Block Public Access for the bucket and the account so no request can arrive from outside the organization." },
+      { id: 'D', text: "Enable default encryption on the bucket with SSE-KMS and require a bucket key so objects are always encrypted on write." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "The aws:SecureTransport condition key is false when a request is made over plain HTTP, so an explicit Deny on that condition in the bucket policy rejects any unencrypted request regardless of the caller's own permissions. Default encryption with SSE-KMS protects objects at rest and does nothing about the transport the request uses. Block Public Access stops public grants but authenticated HTTP requests from internal principals still succeed. A gateway endpoint changes the network path for traffic from one VPC and its policy controls which buckets are reachable, not whether TLS is used, and clients outside that VPC are unaffected.",
+    referenceUrl: "https://docs.aws.amazon.com/AmazonS3/latest/userguide/security-best-practices.html",
+    tags: ["S3", "Encryption in transit", "Bucket policy"]
+  },
+  {
+    id: "aws-soa-378",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d4",
+    domainName: "Security and Compliance",
+    title: "Managed renewal stuck after a DNS cleanup",
+    scenario: "A media company's ACM public certificate for api.example-media.com was issued with DNS validation and is attached to an Application Load Balancer. Two months before expiry, ACM reports the renewal status as Pending validation. The change log shows that the network team removed several unexplained CNAME records from the Route 53 hosted zone during a cleanup last quarter.",
+    question: "What should the CloudOps engineer do so ACM can renew the certificate automatically?",
+    options: [
+      { id: 'A', text: "Add the certificate's validation CNAME record back to the hosted zone exactly as ACM shows it for the domain." },
+      { id: 'B', text: "Detach the certificate from the load balancer and reattach it so ACM rechecks the hosted zone and retries renewal." },
+      { id: 'C', text: "Re-import the same certificate body and private key into ACM so renewal no longer depends on a CNAME record." },
+      { id: 'D', text: "Request a new certificate with email validation and replace the listener certificate once the approval is received." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "ACM managed renewal for a DNS-validated certificate succeeds only while the certificate is in use and the validation CNAME record that ACM generated is still resolvable; restoring that record lets ACM revalidate the domain and renew in place with no listener change. ACM-issued certificates cannot be re-imported, and importing a certificate turns off managed renewal anyway. A new email-validated certificate works once, but it needs a manual approval at every renewal and swaps the certificate the team would otherwise keep renewing automatically. Detaching and reattaching does not supply the missing proof of domain control, so renewal stays pending.",
+    referenceUrl: "https://docs.aws.amazon.com/acm/latest/userguide/troubleshooting-renewal.html",
+    tags: ["ACM", "Route 53", "Certificate renewal"]
+  },
+  {
+    id: "aws-soa-379",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d4",
+    domainName: "Security and Compliance",
+    title: "Early warning for third-party certificates",
+    scenario: "A payments company imports extended-validation certificates from a commercial CA into ACM and attaches them to Network Load Balancer TLS listeners. Last year one expired unnoticed and caused an outage. The team wants an email to the security mailbox well before any imported certificate expires, using AWS-native features and no custom code.",
+    question: "Which approach meets the requirement?",
+    options: [
+      { id: 'A', text: "Create an EventBridge rule for the ACM Certificate Approaching Expiration event and target an SNS topic with the mailbox." },
+      { id: 'B', text: "Enable a CloudTrail trail with data events for ACM and create a metric filter that matches the certificate NotAfter field." },
+      { id: 'C', text: "Turn on managed renewal for the imported certificates so ACM renews them through the commercial CA before they lapse." },
+      { id: 'D', text: "Create a CloudWatch alarm on the NLB's TLS negotiation error metric and send the alarm state change to an SNS topic." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "ACM emits an ACM Certificate Approaching Expiration event to EventBridge daily for certificates nearing expiry, starting 45 days out by default and configurable with the account's DaysBeforeExpiry setting, and it covers imported certificates; routing that event to an SNS topic emails the team without code. ACM cannot renew imported certificates, because it has no relationship with the issuing CA. A TLS negotiation error alarm fires only after clients start failing, which is the outage the team wants to prevent. CloudTrail records API calls, not certificate validity dates, so there is no NotAfter field for a metric filter to match as expiry approaches.",
+    referenceUrl: "https://docs.aws.amazon.com/acm/latest/userguide/supported-events.html",
+    tags: ["ACM", "EventBridge", "Imported certificates"]
+  },
+  {
+    id: "aws-soa-380",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d4",
+    domainName: "Security and Compliance",
+    title: "Dropping legacy TLS versions at the load balancer",
+    scenario: "A healthcare portal runs behind an internet-facing Application Load Balancer with an HTTPS listener that still uses the ELBSecurityPolicy-2016-08 policy. A penetration test flagged that clients can negotiate TLS 1.0 and 1.1. The compliance team requires TLS 1.2 or later for every viewer connection, with TLS 1.3 preferred when clients support it.",
+    question: "What change satisfies the requirement?",
+    options: [
+      { id: 'A', text: "Set the HTTPS listener's security policy to ELBSecurityPolicy-TLS13-1-2-2021-06 so only TLS 1.2 and 1.3 are offered." },
+      { id: 'B', text: "Associate an AWS WAF web ACL with the load balancer that blocks requests whose negotiated TLS version is below 1.2." },
+      { id: 'C', text: "Enable mutual TLS on the listener in verify mode so that each client must present a certificate signed for TLS 1.2." },
+      { id: 'D', text: "Replace the ACM certificate with one that uses an ECDSA P-384 key, which modern clients can only negotiate with TLS 1.3." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "The protocol versions and ciphers an ALB offers are set by the listener's security policy, and ELBSecurityPolicy-TLS13-1-2-2021-06 supports TLS 1.3 and TLS 1.2 only, so older handshakes fail at the load balancer. AWS WAF inspects HTTP requests after the TLS session is established and has no rule statement for the negotiated protocol version. Mutual TLS adds client certificate authentication but leaves the protocol versions untouched, and certificates are not issued per TLS version. The key algorithm of the server certificate does not restrict the protocol version; ECDSA certificates are negotiated over TLS 1.2 as well.",
+    referenceUrl: "https://docs.aws.amazon.com/elasticloadbalancing/latest/application/describe-ssl-policies.html",
+    tags: ["ALB", "TLS", "Security policy"]
+  },
+  {
+    id: "aws-soa-381",
+    difficulty: "hard",
+    certId: "aws-soa",
+    domainId: "d4",
+    domainName: "Security and Compliance",
+    title: "Encrypting the hop from the load balancer to targets",
+    scenario: "A bank's loan application runs on EC2 instances behind an Application Load Balancer that routes by URL path to three target groups. A new control requires traffic to be encrypted on every network hop, including between the load balancer and the instances. The team wants the smallest change and does not want to operate a public certificate on each instance.",
+    question: "How should the CloudOps engineer meet the control?",
+    options: [
+      { id: 'A', text: "Move the HTTPS listener to the TLS13-1-3 security policy, which also applies TLS 1.3 to connections the ALB opens to targets." },
+      { id: 'B', text: "Enable mutual TLS on the HTTPS listener in passthrough mode so the client's certificate chain is forwarded to the targets." },
+      { id: 'C', text: "Change the target groups to the HTTPS protocol and install a self-signed or private CA certificate on each instance's web server." },
+      { id: 'D', text: "Replace the load balancer with a Network Load Balancer whose TCP target groups pass TLS through to the instances." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "An ALB re-encrypts traffic to targets when the target group protocol is HTTPS, and it does not validate the target's certificate, so a self-signed or private CA certificate on each instance satisfies the control without buying public certificates, while path-based routing keeps working. A Network Load Balancer with TCP passthrough would encrypt end to end but cannot route by URL path, so the three target groups would need a redesign. Mutual TLS passthrough forwards the client certificate in an HTTP header; it authenticates clients and does not encrypt the ALB-to-target connection. A listener's security policy governs only the client-facing handshake, not the backend connection.",
+    referenceUrl: "https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-target-groups.html",
+    tags: ["ALB", "Encryption in transit", "Target groups"]
+  },
+  {
+    id: "aws-soa-382",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d4",
+    domainName: "Security and Compliance",
+    title: "Forcing TLS on a PostgreSQL 13 database",
+    scenario: "A retailer runs Amazon RDS for PostgreSQL 13 using a custom DB parameter group. Auditors discovered that some reporting tools connect without SSL, and a new policy states that the database must refuse any unencrypted client connection. Encryption at rest is already enabled on the instance.",
+    question: "What should the CloudOps engineer configure?",
+    options: [
+      { id: 'A', text: "Restrict the instance's security group so that it allows inbound connections only on the TLS port 5433 from the tools." },
+      { id: 'B', text: "Rotate the instance to the latest rds-ca-rsa2048-g1 certificate authority so that clients are required to validate it." },
+      { id: 'C', text: "Enable the SSL option in a custom option group instead of the parameter group and restart in the maintenance window." },
+      { id: 'D', text: "Set the rds.force_ssl parameter to 1 in the custom DB parameter group and reboot the instance if the change is pending." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "For RDS for PostgreSQL, rds.force_ssl set to 1 makes the engine reject connections that are not encrypted with SSL/TLS; earlier major versions default it to 0, so it has to be set in the custom parameter group. Option groups supply SSL for engines such as Oracle, not PostgreSQL. PostgreSQL serves SSL and plain connections on the same port, so there is no separate TLS port to filter with a security group. Rotating the CA changes which certificate the server presents; clients that connect without SSL never check it, so unencrypted sessions are still accepted.",
+    referenceUrl: "https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/PostgreSQL.Concepts.General.SSL.html",
+    tags: ["RDS", "PostgreSQL", "TLS"]
+  },
+  {
+    id: "aws-soa-383",
+    difficulty: "hard",
+    certId: "aws-soa",
+    domainId: "d4",
+    domainName: "Security and Compliance",
+    title: "TLS for internal-only service names",
+    scenario: "A logistics firm runs 40 internal Application Load Balancers whose DNS names are under corp.internal, a domain that exists only in a Route 53 private hosted zone. Security requires each listener to present a certificate from an organization-controlled CA, and operations wants certificates renewed without anyone installing or tracking them.",
+    question: "Which two actions meet the requirements? (Choose two.)",
+    options: [
+      { id: 'A', text: "Create a general-purpose CA in AWS Private CA and install its root in the trust stores of the internal client fleet." },
+      { id: 'B', text: "Generate self-signed certificates with OpenSSL, import them into ACM, and let ACM renew them ahead of expiration." },
+      { id: 'C', text: "Place the load balancers behind CloudFront with the default certificate so that viewers negotiate HTTPS on each name." },
+      { id: 'D', text: "Request public ACM certificates for each corp.internal name and validate them with records in the private hosted zone." },
+      { id: 'E', text: "Request private certificates through ACM, signed by the private CA, and attach them to the load balancer listeners." }
+    ],
+    correctAnswers: ['A', 'E'],
+    type: "multiple",
+    explanation: "AWS Private CA provides an organization-controlled CA whose root the clients can trust, and private certificates requested through ACM from that CA can be attached to ALB listeners with ACM handling renewal automatically, so no one tracks expiry. Public ACM certificates need domain validation that a public CA can see, and a name that resolves only in a private hosted zone cannot be validated. ACM does not renew imported certificates of any kind, self-signed ones included. CloudFront's default certificate covers only the cloudfront.net domain, and CloudFront is an internet-facing service that cannot front internal-only load balancers by their corp.internal names.",
+    referenceUrl: "https://docs.aws.amazon.com/acm/latest/userguide/gs-acm-request-private.html",
+    tags: ["AWS Private CA", "ACM", "Internal TLS"]
+  },
+  {
+    id: "aws-soa-384",
+    difficulty: "easy",
+    certId: "aws-soa",
+    domainId: "d4",
+    domainName: "Security and Compliance",
+    title: "Removing a database password from a config file",
+    scenario: "A school district's enrollment application on EC2 reads its MySQL username and password from a properties file on disk. The vendor library it uses supports only username and password authentication. Security wants the credential removed from the instance, retrieved at runtime through IAM permissions, and changed automatically every 30 days.",
+    question: "Which service should store the credential?",
+    options: [
+      { id: 'A', text: "AWS Secrets Manager, with a rotation schedule that changes the database password every 30 days." },
+      { id: 'B', text: "IAM database authentication, replacing the password with a token issued every 15 minutes." },
+      { id: 'C', text: "AWS KMS, with automatic key rotation turned on for the key that encrypts the properties file on disk." },
+      { id: 'D', text: "Systems Manager Parameter Store as a SecureString encrypted with a customer managed KMS key." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Secrets Manager stores the credential, grants access through IAM, and runs a rotation function on a schedule that updates the password in both the secret and the MySQL database, which covers every requirement. Parameter Store SecureString parameters are encrypted and IAM-controlled but have no built-in rotation, so the 30-day change would need custom automation. KMS key rotation replaces key material, not the database password, and the password would stay on disk. IAM database authentication replaces the password with a token, which the vendor library cannot use because it supports only username and password.",
+    referenceUrl: "https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotating-secrets.html",
+    tags: ["Secrets Manager", "Rotation", "RDS"]
+  },
+  {
+    id: "aws-soa-385",
+    difficulty: "easy",
+    certId: "aws-soa",
+    domainId: "d4",
+    domainName: "Security and Compliance",
+    title: "Parameter write rejected for size",
+    scenario: "A developer tries to store a 6 KB JSON configuration document containing an API signing key as a SecureString in Systems Manager Parameter Store. The PutParameter call fails with a validation error about the value's length. The team wants to keep using Parameter Store and the existing parameter hierarchy.",
+    question: "What should the developer do?",
+    options: [
+      { id: 'A', text: "Encrypt the parameter with a customer managed KMS key rather than the aws/ssm key." },
+      { id: 'B', text: "Raise the account's parameter throughput setting so larger PutParameter calls succeed." },
+      { id: 'C', text: "Create the parameter in the advanced tier, which accepts values up to 8 KB." },
+      { id: 'D', text: "Switch the parameter type from SecureString to StringList, which has a higher limit." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "Standard parameters hold values up to 4 KB, while advanced parameters accept up to 8 KB, so creating the parameter in the advanced tier stores the 6 KB document in the same hierarchy for a monthly charge. StringList has the same size limit as other types for its tier and is not encrypted, which would expose the signing key. The choice of KMS key affects who can decrypt the value, not how large it can be. Higher throughput raises the transactions-per-second limit for API calls and does not change the maximum value size.",
+    referenceUrl: "https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-advanced-parameters.html",
+    tags: ["Parameter Store", "Advanced parameters"]
+  },
+  {
+    id: "aws-soa-386",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d4",
+    domainName: "Security and Compliance",
+    title: "Rotation function timing out in private subnets",
+    scenario: "A fintech configured Secrets Manager rotation for an Aurora MySQL credential using the AWS-provided rotation function, placing the Lambda function in the same private subnets as the database. The VPC has no NAT gateway and no internet access by design. Every rotation attempt now fails after the function times out, and the function's logs show it never completes the createSecret step.",
+    question: "What should the CloudOps engineer do to make rotation succeed?",
+    options: [
+      { id: 'A', text: "Move the rotation function out of the VPC so it can reach both the Secrets Manager API and the database." },
+      { id: 'B', text: "Increase the rotation function's timeout to 15 minutes and raise its memory so the createSecret step can finish." },
+      { id: 'C', text: "Create an interface VPC endpoint for Secrets Manager in the subnets and allow HTTPS from the function to it." },
+      { id: 'D', text: "Add a gateway VPC endpoint for Secrets Manager to the private route tables used by the function's subnets." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "The rotation function calls the Secrets Manager API in the createSecret step, and from private subnets without a NAT gateway that call has no route, so it hangs until timeout; an interface VPC endpoint for Secrets Manager with private DNS, reachable on port 443 from the function's security group, gives it a private path. More time or memory does not create a network route. Gateway endpoints exist only for S3 and DynamoDB. A function outside the VPC could reach the public API but would lose its path to the Aurora cluster in private subnets, so the setPassword and testSecret steps would fail instead.",
+    referenceUrl: "https://docs.aws.amazon.com/secretsmanager/latest/userguide/troubleshoot_rotation.html",
+    tags: ["Secrets Manager", "VPC endpoints", "Lambda"]
+  },
+  {
+    id: "aws-soa-387",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d4",
+    domainName: "Security and Compliance",
+    title: "Fargate task cannot inject its secret",
+    scenario: "An ECS service on Fargate defines an environment variable in its task definition with valueFrom set to a Secrets Manager secret ARN. Tasks stop immediately with ResourceInitializationError: unable to pull secrets or registry auth. The task role grants secretsmanager:GetSecretValue on the secret, and the secret uses the default aws/secretsmanager key.",
+    question: "What is the most likely fix?",
+    options: [
+      { id: 'A', text: "Add kms:Decrypt for the aws/secretsmanager key to the task role alongside its existing permission." },
+      { id: 'B', text: "Move the secret into Parameter Store, which ECS can reference without any extra IAM permission." },
+      { id: 'C', text: "Grant secretsmanager:GetSecretValue on the secret to the task execution role for the definition." },
+      { id: 'D', text: "Attach a resource policy to the secret allowing the ECS service-linked role to call GetSecretValue." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "Secrets referenced in a task definition are fetched by the ECS agent before the container starts, using the task execution role, so that role needs secretsmanager:GetSecretValue on the secret (and kms:Decrypt only if a customer managed key is used). The task role is what the application code assumes after startup, so adding more to it, including KMS permissions, does not help the injection step. The service-linked role is not the identity that retrieves secrets for task injection. Parameter Store references also require ssm:GetParameters on the execution role, so moving the value changes nothing about the missing permission.",
+    referenceUrl: "https://docs.aws.amazon.com/AmazonECS/latest/developerguide/secrets-envvar-secrets-manager.html",
+    tags: ["ECS", "Secrets Manager", "IAM"]
+  },
+  {
+    id: "aws-soa-388",
+    difficulty: "hard",
+    certId: "aws-soa",
+    domainId: "d4",
+    domainName: "Security and Compliance",
+    title: "Sharing a secret with a partner account",
+    scenario: "A Lambda function in the analytics account must read a database credential stored as a secret in the shared-services account. The secret is currently encrypted with the aws/secretsmanager key. The function's execution role already allows secretsmanager:GetSecretValue and kms:Decrypt on the secret and key ARNs, yet calls fail with AccessDenied.",
+    question: "Which two changes are required in the shared-services account? (Choose two.)",
+    options: [
+      { id: 'A', text: "Replicate the secret to the analytics account so the function's role can read a local copy in its Region." },
+      { id: 'B', text: "Create an interface VPC endpoint for Secrets Manager in the shared-services VPC for the analytics function." },
+      { id: 'C', text: "Re-encrypt the secret with a customer managed KMS key whose key policy allows the analytics role to decrypt." },
+      { id: 'D', text: "Attach a resource-based policy to the secret that allows the analytics role to call GetSecretValue on it." },
+      { id: 'E', text: "Edit the key policy of the aws/secretsmanager key so that it grants kms:Decrypt to the analytics account." }
+    ],
+    correctAnswers: ['C', 'D'],
+    type: "multiple",
+    explanation: "Cross-account access to a secret needs permission on both the secret and its key from the owning account: a resource-based policy on the secret naming the analytics role, and a customer managed KMS key whose key policy lets that role decrypt, because the AWS managed aws/secretsmanager key can be used only within its own account. AWS managed key policies cannot be edited. Secrets Manager replication copies a secret to other Regions within the same account, not to another account. A VPC endpoint in the owner's VPC affects network paths there and does nothing about an authorization failure raised for the caller in another account.",
+    referenceUrl: "https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_examples_cross.html",
+    tags: ["Secrets Manager", "Cross-account", "KMS"]
+  },
+  {
+    id: "aws-soa-389",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d4",
+    domainName: "Security and Compliance",
+    title: "Credential availability in the recovery Region",
+    scenario: "A ticketing company runs its primary stack in us-east-1 with a warm standby in us-west-2. The database credential lives in Secrets Manager in us-east-1 and rotates every 14 days. During a DR test the standby application could not start because it had no way to read the credential while us-east-1 was treated as unavailable.",
+    question: "What should the CloudOps engineer configure?",
+    options: [
+      { id: 'A', text: "Schedule an EventBridge rule that runs a Lambda function to copy the secret value into a new us-west-2 secret nightly." },
+      { id: 'B', text: "Replicate the secret to us-west-2 so a replica with the same name stays in sync with the primary through rotation." },
+      { id: 'C', text: "Store a copy of the credential in Parameter Store in us-west-2 and update it by hand after each rotation completes." },
+      { id: 'D', text: "Include the secret in an AWS Backup plan with a copy rule so a recovery point is kept in a us-west-2 backup vault." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "Secrets Manager multi-Region replication creates a read-only replica in us-west-2 that keeps the same name and is updated whenever the primary changes, including after each rotation, and the replica can be promoted to a standalone secret during a disaster. A nightly copy leaves up to a day in which the standby holds a rotated-out password. Manual updates after each rotation are error-prone and will drift. A backup copy is a point-in-time recovery point that must be restored on demand and does not follow each rotation, so the standby could come up with a stale password and extra recovery steps.",
+    referenceUrl: "https://docs.aws.amazon.com/secretsmanager/latest/userguide/create-manage-multi-region-secrets.html",
+    tags: ["Secrets Manager", "Multi-Region", "Disaster recovery"]
+  },
+  {
+    id: "aws-soa-390",
+    difficulty: "easy",
+    certId: "aws-soa",
+    domainId: "d4",
+    domainName: "Security and Compliance",
+    title: "Undoing an accidental secret deletion",
+    scenario: "An engineer cleaning up unused resources deleted a Secrets Manager secret that a payroll batch job still reads. The deletion used the default 30-day recovery window and was performed two days ago. The job now fails, and the team wants the original secret back with its ARN and versions intact.",
+    question: "What should the team do?",
+    options: [
+      { id: 'A', text: "Replay the DeleteSecret event from CloudTrail history to reverse the scheduled deletion." },
+      { id: 'B', text: "Cancel the scheduled deletion by restoring the secret during its recovery window." },
+      { id: 'C', text: "Create a new secret with the same name and value and point the payroll job at it." },
+      { id: 'D', text: "Move AWSCURRENT back to the prior version with UpdateSecretVersionStage." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "A deleted secret is only scheduled for deletion until its recovery window ends, and the RestoreSecret operation cancels the deletion and returns the secret with its original ARN, versions and metadata. A secret's name cannot be reused while the old secret is pending deletion, and a new secret would have a new ARN anyway. Staging labels cannot be moved on a secret that is scheduled for deletion, because Secrets Manager rejects operations on it until it is restored. CloudTrail records API calls for audit; it cannot replay or reverse them.",
+    referenceUrl: "https://docs.aws.amazon.com/secretsmanager/latest/userguide/manage_restore-secret.html",
+    tags: ["Secrets Manager", "Recovery"]
+  },
+  {
+    id: "aws-soa-391",
+    difficulty: "hard",
+    certId: "aws-soa",
+    domainId: "d4",
+    domainName: "Security and Compliance",
+    title: "Login failures every time the password rotates",
+    scenario: "A SaaS provider rotates an RDS for SQL Server application credential weekly with single-user rotation. Each rotation causes about a minute of login failures because long-running application servers hold connection pools opened with the old password while others have already fetched the new one. The team has a separate superuser secret it can use to manage database users.",
+    question: "Which change removes the login failures during rotation?",
+    options: [
+      { id: 'A', text: "Enable automatic rotation of the customer managed KMS key that encrypts the application credential secret." },
+      { id: 'B', text: "Have the application request the AWSPENDING version of the secret so it picks up new passwords early." },
+      { id: 'C', text: "Switch the secret to the alternating users rotation strategy, with the superuser secret managing the two users." },
+      { id: 'D', text: "Rotate the secret daily rather than weekly so that the window between versions is always much shorter." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "With alternating users, the rotation function uses the superuser secret to change the password of a second, cloned database user and then moves AWSCURRENT to it, so the previous user and password remain valid and clients holding them keep working until they refresh. Rotating more often does not change the single-user behavior, where the old password stops working the moment the database is updated, and it multiplies the failures. KMS key rotation affects encryption of the secret, not the database password. AWSPENDING exists only during rotation and has not yet been tested against the database, so reading it can return a password that does not work.",
+    referenceUrl: "https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotation-strategy.html",
+    tags: ["Secrets Manager", "Rotation strategy", "RDS"]
+  },
+  {
+    id: "aws-soa-392",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d4",
+    domainName: "Security and Compliance",
+    title: "Throttled secret reads from a busy function",
+    scenario: "A Lambda function that validates coupon codes handles about 3,000 invocations per second at peak and calls GetSecretValue on every invocation to read an API key. The function is seeing ThrottlingException errors from Secrets Manager and the API call costs are rising. The key changes only when it is rotated monthly.",
+    question: "What should the CloudOps engineer recommend?",
+    options: [
+      { id: 'A', text: "Enable provisioned concurrency so fewer execution environments start up and make the GetSecretValue call." },
+      { id: 'B', text: "Request a Secrets Manager quota increase for GetSecretValue calls per second through Service Quotas." },
+      { id: 'C', text: "Add the AWS Parameters and Secrets Lambda Extension and read the key from its local cache with a set TTL." },
+      { id: 'D', text: "Place the API key in a plain environment variable on the function and redeploy after each monthly rotation." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "The AWS Parameters and Secrets Lambda Extension caches secret values inside the execution environment and refreshes them after a configurable TTL, so thousands of invocations share a handful of API calls, which removes the throttling and the per-call cost while still picking up rotations. A plain environment variable exposes the key in the function configuration and requires a manual redeploy that can lag behind rotation. A higher quota addresses the throttling but keeps paying for every call. Provisioned concurrency reduces cold starts, but the code still calls the API on every invocation, so the call rate is unchanged.",
+    referenceUrl: "https://docs.aws.amazon.com/secretsmanager/latest/userguide/retrieving-secrets_lambda.html",
+    tags: ["Secrets Manager", "Lambda", "Caching"]
+  },
+  {
+    id: "aws-soa-393",
+    difficulty: "easy",
+    certId: "aws-soa",
+    domainId: "d4",
+    domainName: "Security and Compliance",
+    title: "One pane for findings and best-practice checks",
+    scenario: "A startup has enabled GuardDuty, Inspector and AWS Config in its production account, and the security lead must open three consoles each morning. She wants their findings normalized into one view, prioritized by severity, and also wants automated checks of the account against the AWS Foundational Security Best Practices standard.",
+    question: "Which service meets these needs?",
+    options: [
+      { id: 'A', text: "AWS Audit Manager, which collects evidence from AWS services and maps it to compliance frameworks." },
+      { id: 'B', text: "AWS Trusted Advisor, which runs security checks against the account and shows results in one dashboard." },
+      { id: 'C', text: "AWS Security Hub, which aggregates findings and runs security standard controls against the account." },
+      { id: 'D', text: "Amazon Detective, which builds behavior graphs from findings and log sources for investigations." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "Security Hub ingests findings from GuardDuty, Inspector, Config and other integrations in a common format, ranks them by severity, and evaluates the account against security standards such as AWS Foundational Security Best Practices. Detective helps investigate the root cause of a finding but is not a findings aggregator or a standards checker. Trusted Advisor runs its own checks and does not import findings from other security services. Audit Manager gathers evidence for audits against frameworks; it does not consolidate operational security findings for daily triage.",
+    referenceUrl: "https://docs.aws.amazon.com/securityhub/latest/userguide/what-is-securityhub.html",
+    tags: ["Security Hub", "Findings"]
+  },
+  {
+    id: "aws-soa-394",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d4",
+    domainName: "Security and Compliance",
+    title: "Closing SSH to the world without a human",
+    scenario: "A media company's AWS Config rule restricted-ssh regularly flags security groups that developers open to 0.0.0.0/0 on port 22. The security team wants each noncompliant group corrected within minutes of detection, without writing or maintaining code, and wants every correction recorded against the rule.",
+    question: "What should the CloudOps engineer configure?",
+    options: [
+      { id: 'A', text: "Create an EventBridge rule on AuthorizeSecurityGroupIngress calls that sends the event to an SNS topic for the on-call team." },
+      { id: 'B', text: "Add an SCP that denies ec2:AuthorizeSecurityGroupIngress for every account in the organization's development OU." },
+      { id: 'C', text: "Attach an automatic remediation to the rule using the AWS-DisablePublicAccessForSecurityGroup Automation runbook." },
+      { id: 'D', text: "Enable Trusted Advisor's security group check and have it refresh automatically every hour across the accounts." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "Config rules can invoke a Systems Manager Automation runbook as an automatic remediation, and the AWS-managed AWS-DisablePublicAccessForSecurityGroup runbook removes open SSH and RDP ingress from the flagged group; Config tracks each remediation execution against the rule, with an IAM role passed for the runbook to assume. Sending events to SNS notifies people but corrects nothing. An SCP denying all ingress changes would stop developers from making any security group change, far more than the requirement, and SCPs apply to member accounts rather than rule evaluations. Trusted Advisor only reports unrestricted ports; it has no remediation action.",
+    referenceUrl: "https://docs.aws.amazon.com/config/latest/developerguide/remediation.html",
+    tags: ["AWS Config", "Auto remediation", "Systems Manager"]
+  },
+  {
+    id: "aws-soa-395",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d4",
+    domainName: "Security and Compliance",
+    title: "Quieting findings from the approved scanner",
+    scenario: "A bank runs an approved vulnerability scanner from two fixed Elastic IP addresses every night, and GuardDuty raises Recon:EC2/Portscan findings each time. The on-call team wants these findings to stop appearing in their active queue, but internal auditors insist that GuardDuty must still record the scanner's activity as findings they can review later.",
+    question: "What should the CloudOps engineer do?",
+    options: [
+      { id: 'A', text: "Create a GuardDuty suppression rule matching the finding type and the scanner's IP addresses to auto-archive them." },
+      { id: 'B', text: "Disable the GuardDuty runtime and VPC flow log data sources in the account during the scanner's nightly window." },
+      { id: 'C', text: "Upload the two addresses as a GuardDuty trusted IP list so traffic from the scanner is excluded from analysis." },
+      { id: 'D', text: "Add a network ACL rule that blocks the two scanner addresses so their probes never reach any of the scanned instances." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "A suppression rule automatically archives new findings that match its filter, such as the Portscan finding type from the scanner's addresses, so they leave the active queue but remain stored and reviewable, which is what the auditors require. A trusted IP list stops GuardDuty from generating findings for those addresses at all, so no record would exist. Foundational data sources such as VPC flow logs cannot be switched off in GuardDuty, and turning off analysis would also blind the team to real attacks. Blocking the scanner defeats the purpose of the approved scan.",
+    referenceUrl: "https://docs.aws.amazon.com/guardduty/latest/ug/findings_suppression-rule.html",
+    tags: ["GuardDuty", "Suppression rules"]
+  },
+  {
+    id: "aws-soa-396",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d4",
+    domainName: "Security and Compliance",
+    title: "Instances Inspector reports as unmanaged",
+    scenario: "A university enabled Amazon Inspector EC2 scanning in agent-based mode. The coverage page lists 60 instances with the status Unmanaged EC2 instance, and no vulnerability findings exist for them. The instances run Amazon Linux 2023 with the SSM Agent installed but were launched without an instance profile. Policy rules out snapshot-based scanning.",
+    question: "What should the CloudOps engineer do so Inspector scans these instances?",
+    options: [
+      { id: 'A', text: "Attach an instance profile with the AmazonSSMManagedInstanceCore policy so they become SSM managed nodes." },
+      { id: 'B', text: "Change the Inspector scan mode to hybrid so that instances the agent cannot reach are scanned from volumes." },
+      { id: 'C', text: "Create an Inspector suppression rule that removes the Unmanaged status from the coverage list for the fleet." },
+      { id: 'D', text: "Install the CloudWatch agent with an instance profile that publishes package inventory to CloudWatch Logs." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Agent-based Inspector scanning relies on Systems Manager to collect software inventory, so an instance must be an SSM managed node; attaching an instance profile with AmazonSSMManagedInstanceCore lets the installed agent register, after which Inspector begins scanning. The CloudWatch agent publishes metrics and logs and is not what Inspector reads inventory from. Suppression rules hide findings; they do not change coverage status or cause scans. Hybrid mode scans unmanaged instances from EBS snapshots, which the policy prohibits.",
+    referenceUrl: "https://docs.aws.amazon.com/inspector/latest/user/scanning-ec2.html",
+    tags: ["Amazon Inspector", "Systems Manager", "EC2"]
+  },
+  {
+    id: "aws-soa-397",
+    difficulty: "hard",
+    certId: "aws-soa",
+    domainId: "d4",
+    domainName: "Security and Compliance",
+    title: "Analyst-triggered isolation from the findings list",
+    scenario: "A security operations team triages findings in Security Hub. For EC2 findings they judge to be genuine compromises, they want to select the findings in the console and trigger an existing Lambda function that swaps the instance's security groups for a quarantine group. Findings they have not reviewed must never trigger the function automatically.",
+    question: "How should the CloudOps engineer build this workflow?",
+    options: [
+      { id: 'A', text: "Attach an AWS Config remediation to the ec2-security-group-attached-to-eni rule that runs the quarantine function." },
+      { id: 'B', text: "Create a Security Hub automation rule that sets the workflow status to NOTIFIED and invokes the quarantine function." },
+      { id: 'C', text: "Create an EventBridge rule on Security Hub Findings - Imported events for EC2 resources and target the Lambda function." },
+      { id: 'D', text: "Create a Security Hub custom action and an EventBridge rule matching its Custom Action events that targets the function." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "A Security Hub custom action lets an analyst select findings and send them to EventBridge as a Security Hub Findings - Custom Action event carrying the action's ARN, and an EventBridge rule matching that event invokes the Lambda function only for findings the analyst chose. A rule on Imported events fires for every new or updated finding, which is the automatic trigger the team forbids. Automation rules update finding fields such as severity or workflow status; they cannot invoke functions. A Config remediation acts on Config rule evaluations, not on Security Hub findings an analyst has reviewed.",
+    referenceUrl: "https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-cwe-custom-actions.html",
+    tags: ["Security Hub", "EventBridge", "Incident response"]
+  },
+  {
+    id: "aws-soa-398",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d4",
+    domainName: "Security and Compliance",
+    title: "Central security findings across accounts and Regions",
+    scenario: "A retailer has 35 accounts in AWS Organizations and workloads in four Regions. The security team operates from a dedicated security tooling account and wants to see and manage Security Hub findings for every member account and every Region from that account in a single Region, with new accounts included automatically.",
+    question: "Which two actions should the CloudOps engineer take? (Choose two.)",
+    options: [
+      { id: 'A', text: "Configure cross-Region aggregation in the security tooling account with one aggregation Region and linked Regions." },
+      { id: 'B', text: "Enable GuardDuty in every Region of each account and invite the tooling account as a GuardDuty member account." },
+      { id: 'C', text: "Create an AWS Config aggregator in the security tooling account covering the organization and all Regions." },
+      { id: 'D', text: "Export findings from each account to an S3 bucket in the tooling account and query them with Amazon Athena." },
+      { id: 'E', text: "Designate the security tooling account as the delegated administrator for Security Hub in the organization." }
+    ],
+    correctAnswers: ['A', 'E'],
+    type: "multiple",
+    explanation: "Making the security tooling account the Security Hub delegated administrator lets it manage every member account, including new accounts enrolled automatically, and cross-Region aggregation replicates findings from linked Regions into a single aggregation Region, so the team works from one account and one Region. A Config aggregator centralizes configuration and compliance data, not Security Hub findings. An S3 export with Athena is a reporting copy that cannot be used to update or manage findings. GuardDuty is one finding source; enabling it does not centralize Security Hub, and inviting the tooling account as a member reverses the administrator relationship.",
+    referenceUrl: "https://docs.aws.amazon.com/securityhub/latest/userguide/finding-aggregation.html",
+    tags: ["Security Hub", "Organizations", "Cross-Region aggregation"]
+  },
+  {
+    id: "aws-soa-399",
+    difficulty: "hard",
+    certId: "aws-soa",
+    domainId: "d4",
+    domainName: "Security and Compliance",
+    title: "Instance credentials used from outside AWS",
+    scenario: "GuardDuty raises a high-severity UnauthorizedAccess:IAMUser/InstanceCredentialExfiltration.OutsideAWS finding showing that temporary credentials from a web server's instance role are being used from an external IP address. The instance must keep serving traffic while the team investigates, but the stolen credentials must stop working immediately.",
+    question: "What should the CloudOps engineer do first?",
+    options: [
+      { id: 'A', text: "Deactivate and rotate the access keys attached to the instance role and then update the instance profile." },
+      { id: 'B', text: "Detach the instance profile from the instance and wait for the existing credentials to reach expiration." },
+      { id: 'C', text: "Use the role's Revoke active sessions action so tokens issued before now are denied by an inline policy." },
+      { id: 'D', text: "Stop and start the instance so that the metadata service issues it a fresh set of role credentials at boot." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "Revoke active sessions attaches an inline policy to the role that denies any request signed with credentials issued before the revocation time, so the exfiltrated tokens stop working at once while the instance soon retrieves new credentials from the metadata service and keeps serving. Stopping and starting the instance takes it out of service and does not invalidate credentials that were already issued. IAM roles have no long-term access keys to deactivate. Detaching the profile breaks the application's AWS access and leaves the stolen tokens valid until they expire, which can be hours away.",
+    referenceUrl: "https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_revoke-sessions.html",
+    tags: ["GuardDuty", "IAM", "Incident response"]
+  },
+  {
+    id: "aws-soa-400",
+    difficulty: "easy",
+    certId: "aws-soa",
+    domainId: "d4",
+    domainName: "Security and Compliance",
+    title: "Rescanning images when new CVEs appear",
+    scenario: "A game studio stores container images in Amazon ECR with basic scanning on push. Security wants images rescanned automatically whenever a new vulnerability is published, and wants findings to include vulnerable Python and Node.js packages inside the images, not just operating system packages.",
+    question: "What should the CloudOps engineer configure?",
+    options: [
+      { id: 'A', text: "Enable tag immutability on each repository so that new pushes always trigger a fresh basic image scan." },
+      { id: 'B', text: "Enable Amazon GuardDuty Runtime Monitoring for the clusters that run the images to detect vulnerable packages." },
+      { id: 'C', text: "Keep basic scanning and schedule a nightly EventBridge rule that calls StartImageScan for each repository." },
+      { id: 'D', text: "Switch the registry to enhanced scanning, which uses Amazon Inspector with continuous scanning of images." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "ECR enhanced scanning is powered by Amazon Inspector, detects vulnerabilities in both operating system and programming language packages, and in continuous mode rescans images automatically when new CVEs are added to its database. Scheduled StartImageScan calls still use basic scanning, which covers operating system packages only. Tag immutability prevents tags from being overwritten; it does not change what a scan examines or when it runs. GuardDuty Runtime Monitoring detects suspicious runtime behavior in workloads and does not inventory package vulnerabilities in images.",
+    referenceUrl: "https://docs.aws.amazon.com/AmazonECR/latest/userguide/image-scanning-enhanced.html",
+    tags: ["Amazon ECR", "Amazon Inspector", "Vulnerability scanning"]
+  }
+];
+
+export default AWS_SOA_QUESTIONS_16;

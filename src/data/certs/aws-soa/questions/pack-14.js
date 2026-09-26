@@ -1,0 +1,532 @@
+export const AWS_SOA_QUESTIONS_14 = [
+  {
+    id: "aws-soa-326",
+    difficulty: "easy",
+    certId: "aws-soa",
+    domainId: "d4",
+    domainName: "Security and Compliance",
+    title: "Console passwords that meet the audit standard",
+    scenario: "An accounting firm still has 40 IAM users who sign in to the console with passwords. Its auditor requires passwords of at least 14 characters with mixed character types, a change every 90 days, and no reuse of the last 24 passwords.",
+    question: "How should the CloudOps engineer enforce these rules?",
+    options: [
+      { id: 'A', text: "Attach an SCP that denies iam:ChangePassword unless the new password meets the character and reuse rules." },
+      { id: 'B', text: "Set the IAM account password policy with a 14-character minimum, 90-day expiry and reuse prevention of 24." },
+      { id: 'C', text: "Add a permissions boundary to every IAM user that requires strong passwords and rotation every 90 days." },
+      { id: 'D', text: "Create an AWS Config rule for the password requirements and enable automatic remediation on the users." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "The IAM account password policy sets minimum length, required character types, maximum password age and how many previous passwords cannot be reused, and IAM enforces it whenever users set passwords. SCP conditions cannot inspect the content of a new password. The iam-password-policy Config rule reports whether the account policy meets a standard but is not how the rules are enforced. Permissions boundaries limit what actions an identity can perform; they have no password settings.",
+    referenceUrl: "https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_passwords_account-policy.html",
+    tags: ["IAM", "Password policy"]
+  },
+  {
+    id: "aws-soa-327",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d4",
+    domainName: "Security and Compliance",
+    title: "No work until a user signs in with MFA",
+    scenario: "A startup's security lead wants every IAM user to be unable to do anything except manage their own MFA device and password until they have signed in with MFA. Users who authenticate with MFA should keep all the permissions their groups grant today.",
+    question: "Which policy approach should the engineer attach to all users' groups?",
+    options: [
+      { id: 'A', text: "An Allow on all actions with a condition that aws:MultiFactorAuthPresent is true, replacing the group policies." },
+      { id: 'B', text: "A Deny on all actions except MFA and password self-service when aws:MultiFactorAuthPresent is false or absent." },
+      { id: 'C', text: "An account-level MFA requirement in the IAM password policy that blocks sign-in until a device is registered." },
+      { id: 'D', text: "A Deny on all actions when aws:MultiFactorAuthAge is greater than zero, to force a fresh MFA sign-in." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "The standard pattern is a Deny with NotAction listing the IAM actions needed to register and manage one's own MFA device and password, conditioned with BoolIfExists on aws:MultiFactorAuthPresent being false, so it also matches requests where the key is missing. Explicit denies override the existing allows until MFA is used, after which the group permissions apply unchanged. Replacing group policies with a single broad Allow would grant everything to everyone who uses MFA. MultiFactorAuthAge greater than zero is true for every MFA session, so that deny would block exactly the users who complied. The password policy has no MFA setting.",
+    referenceUrl: "https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_examples_iam_mfa-selfmanage.html",
+    tags: ["IAM", "MFA", "Policy conditions"]
+  },
+  {
+    id: "aws-soa-328",
+    difficulty: "easy",
+    certId: "aws-soa",
+    domainId: "d4",
+    domainName: "Security and Compliance",
+    title: "Access keys in an application's config file",
+    scenario: "A reporting application on EC2 reads objects from an S3 bucket using an IAM user's access key stored in a configuration file on the instance. A security review has flagged the long-lived key. The application uses the AWS SDK and must keep reading the bucket.",
+    question: "What should the engineer do?",
+    options: [
+      { id: 'A', text: "Encrypt the configuration file with a KMS key and restrict file permissions to the application's user." },
+      { id: 'B', text: "Add a bucket policy that allows the instance's private IP address, and remove the key from the file." },
+      { id: 'C', text: "Move the access key into Secrets Manager and rotate it every 30 days with a Lambda rotation function." },
+      { id: 'D', text: "Attach an IAM role with S3 read access through an instance profile, then delete the key." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "An IAM role attached through an instance profile gives the instance temporary credentials from the instance metadata service, which the SDK picks up and refreshes automatically, so no long-lived key exists anywhere. Secrets Manager rotation shortens the key's life but keeps an IAM user key in use. Encrypting the file still leaves a long-lived key that can leak. Requests reaching S3 over the public endpoint carry the instance's public or NAT address, not its private one, and an address condition without authentication is a weak control.",
+    referenceUrl: "https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2.html",
+    tags: ["IAM roles", "EC2", "Credentials"]
+  },
+  {
+    id: "aws-soa-329",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d4",
+    domainName: "Security and Compliance",
+    title: "Giving a monitoring vendor safe read access",
+    scenario: "A SaaS monitoring vendor needs read-only access to CloudWatch metrics in a customer's account. The vendor serves thousands of customers from its own AWS account and has supplied a unique identifier for this customer, to protect against being tricked into accessing the wrong account.",
+    question: "Which two elements should the customer's CloudOps engineer configure on the new IAM role? (Choose two.)",
+    options: [
+      { id: 'A', text: "A trust condition requiring sts:ExternalId to match the vendor's identifier." },
+      { id: 'B', text: "A permissions boundary that allows cloudwatch:* for anyone who assumes the role." },
+      { id: 'C', text: "A trust condition requiring aws:PrincipalOrgID to match the vendor's organization." },
+      { id: 'D', text: "A trust policy that allows the vendor's AWS account to assume the role." },
+      { id: 'E', text: "An IAM user for the vendor with an access key shared through a secure channel." }
+    ],
+    correctAnswers: ['A', 'D'],
+    type: "multiple",
+    explanation: "Cross-account access for a third party uses a role whose trust policy names the vendor's account as principal, with a condition on sts:ExternalId set to the value the vendor supplied; this prevents the confused deputy problem, where another of the vendor's customers could trick the vendor into using this role. A read-only permissions policy on the role then limits what it can do. An IAM user with a shared key reintroduces long-lived credentials. Matching the vendor's organization ID does not distinguish between the vendor's customers, which is the purpose of the external ID. A boundary never grants permissions, and cloudwatch:* would exceed read-only access anyway.",
+    referenceUrl: "https://docs.aws.amazon.com/IAM/latest/UserGuide/confused-deputy.html",
+    tags: ["IAM roles", "External ID", "Cross-account"]
+  },
+  {
+    id: "aws-soa-330",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d4",
+    domainName: "Security and Compliance",
+    title: "Shared artifacts bucket for every account in the company",
+    scenario: "A central build account publishes software packages to an S3 bucket. All 150 current accounts in the company's AWS Organization, plus accounts created in future, must be able to read the packages, and no principal outside the organization should be able to. The team does not want to update the bucket policy whenever accounts are added.",
+    question: "Which bucket policy approach meets the requirement?",
+    options: [
+      { id: 'A', text: "List all 150 account IDs as principals and have an automation add new account IDs as they are created." },
+      { id: 'B', text: "Make the bucket public and require that requests include an aws:Referer header set to the company domain." },
+      { id: 'C', text: "Allow s3:GetObject to any principal with a condition that aws:SourceAccount equals the build account." },
+      { id: 'D', text: "Allow s3:GetObject to any principal with a condition that aws:PrincipalOrgID equals the organization ID." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "The aws:PrincipalOrgID condition key matches the organization of the calling principal, so one statement covers every current and future member account and excludes everyone else. Listing account IDs requires maintenance, which the team wants to avoid. aws:SourceAccount identifies the resource owner behind a service-to-service request, not the calling principal's account, so it would not admit member accounts. The Referer header is set by the client and trivially spoofed, and a public bucket exposes the packages to everyone.",
+    referenceUrl: "https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html",
+    tags: ["S3", "Bucket policy", "aws:PrincipalOrgID"]
+  },
+  {
+    id: "aws-soa-331",
+    difficulty: "hard",
+    certId: "aws-soa",
+    domainId: "d4",
+    domainName: "Security and Compliance",
+    title: "Office IP condition blocks traffic from inside the VPC",
+    scenario: "A bucket policy denies all S3 actions unless aws:SourceIp is within the corporate office's public range. Staff in the office can still reach the bucket, but EC2 instances in a private subnet that reach S3 through a gateway VPC endpoint are now denied, and the application must keep working.",
+    question: "What should the engineer change in the bucket policy?",
+    options: [
+      { id: 'A', text: "Add the NAT gateway's Elastic IP address to the aws:SourceIp condition used by the deny statement." },
+      { id: 'B', text: "Exempt requests whose aws:SourceVpce equals the gateway endpoint's ID from the existing deny statement." },
+      { id: 'C', text: "Replace the gateway endpoint with an interface endpoint so that aws:SourceIp carries a public address." },
+      { id: 'D', text: "Add the VPC's private CIDR block to the aws:SourceIp condition so that the instances' addresses match." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "Requests that arrive through a VPC endpoint carry a private source address, which aws:SourceIp cannot match, so the deny applies. The endpoint-specific condition key aws:SourceVpce (or aws:SourceVpc) identifies that traffic, and adding it as an exception, for example with a NotIpAddress plus StringNotEquals combination, keeps both the office and the instances working. aws:SourceIp does not evaluate private VPC addresses for endpoint traffic. The instances do not use the NAT gateway to reach S3 when a gateway endpoint is in the route table. Interface endpoint traffic is also private and has the same limitation.",
+    referenceUrl: "https://docs.aws.amazon.com/AmazonS3/latest/userguide/example-bucket-policies-vpc-endpoint.html",
+    tags: ["S3", "Policy conditions", "VPC endpoints"]
+  },
+  {
+    id: "aws-soa-332",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d4",
+    domainName: "Security and Compliance",
+    title: "Letting developers create roles without escalating",
+    scenario: "Developers need to create IAM roles for their Lambda functions without a ticket to the platform team. Security is concerned that a developer could create a role more powerful than their own permissions, for example one with AdministratorAccess, and then use it.",
+    question: "Which control allows self-service role creation while preventing privilege escalation?",
+    options: [
+      { id: 'A', text: "Allow iam:CreateRole only when iam:PermissionsBoundary is set to an approved boundary policy." },
+      { id: 'B', text: "Attach an SCP to the account that denies iam:CreateRole for every principal except the platform team." },
+      { id: 'C', text: "Allow iam:CreateRole and iam:AttachRolePolicy, then review new roles weekly with IAM Access Analyzer." },
+      { id: 'D', text: "Allow iam:CreateRole only with a condition that the role name starts with the developer's own username." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Requiring the iam:PermissionsBoundary condition key to equal an approved boundary means every role developers create is capped by that boundary, whatever policies they attach, so they cannot build a role more powerful than intended; the developers' own policy should also block editing or removing the boundary. Weekly reviews detect escalation after the fact. Denying role creation to everyone but the platform team removes the self-service the developers need. A name prefix organizes roles but does nothing to limit their permissions.",
+    referenceUrl: "https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html",
+    tags: ["IAM", "Permissions boundaries", "Delegation"]
+  },
+  {
+    id: "aws-soa-333",
+    difficulty: "easy",
+    certId: "aws-soa",
+    domainId: "d4",
+    domainName: "Security and Compliance",
+    title: "Checking a policy change before a user hits it",
+    scenario: "A support engineer reports that she cannot terminate instances in a test account. The CloudOps engineer has drafted a change to her group's policy and wants to confirm, before applying it, whether ec2:TerminateInstances would then be allowed and which statement makes the decision, without testing against real instances.",
+    question: "Which tool should the engineer use?",
+    options: [
+      { id: 'A', text: "The IAM credential report, which lists the permissions and last activity of every user in the account." },
+      { id: 'B', text: "IAM Access Analyzer external access findings for the account, filtered to the user's group." },
+      { id: 'C', text: "CloudTrail Lake, testing recent TerminateInstances events against the user to find the denying statement." },
+      { id: 'D', text: "The IAM policy simulator, testing the user plus the draft policy against ec2:TerminateInstances." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "The IAM policy simulator evaluates a principal's existing policies, plus draft policies pasted in, against chosen actions and resources and shows whether each request would be allowed and which statement caused the result, all without making real API calls. CloudTrail Lake records past calls and their error codes but cannot evaluate a policy that has not been applied. External access findings report resources shared outside a zone of trust, not what one user can do. The credential report lists credential status such as passwords, keys and MFA, not permissions.",
+    referenceUrl: "https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_testing-policies.html",
+    tags: ["IAM policy simulator", "Troubleshooting"]
+  },
+  {
+    id: "aws-soa-334",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d4",
+    domainName: "Security and Compliance",
+    title: "Which resources are reachable from outside the company",
+    scenario: "After a partner integration project, a security manager wants a continuously updated list of S3 buckets, KMS keys, IAM roles and Lambda functions in the organization whose resource policies grant access to principals outside the organization. Access among member accounts is expected and should not be reported.",
+    question: "What should the engineer set up?",
+    options: [
+      { id: 'A', text: "An IAM Access Analyzer external access analyzer with each account as its own zone of trust." },
+      { id: 'B', text: "A Trusted Advisor organizational view report of the S3 bucket permissions check in every account." },
+      { id: 'C', text: "An AWS Config rule for S3 public read access, deployed to every account in the organization." },
+      { id: 'D', text: "An IAM Access Analyzer external access analyzer with the organization as the zone of trust." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "An external access analyzer created for the organization, from the management account or a delegated administrator, treats the whole organization as the zone of trust and generates findings for supported resources, including S3 buckets, KMS keys, IAM role trust policies and Lambda functions, that grant access to principals outside it, updating as policies change. Account-level zones of trust would report the expected cross-account access among member accounts. The Config rule and the Trusted Advisor check focus on public S3 access and do not cover partner-account access or the other resource types.",
+    referenceUrl: "https://docs.aws.amazon.com/IAM/latest/UserGuide/what-is-access-analyzer.html",
+    tags: ["IAM Access Analyzer", "External access", "AWS Organizations"]
+  },
+  {
+    id: "aws-soa-335",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d4",
+    domainName: "Security and Compliance",
+    title: "Trimming a role that was given PowerUserAccess",
+    scenario: "A data pipeline's role was created with the PowerUserAccess managed policy two months ago. CloudTrail management and data events have been logged to a trail since then. The team wants a least-privilege policy based on what the pipeline has actually called, with minimal manual analysis.",
+    question: "What should the engineer use?",
+    options: [
+      { id: 'A', text: "IAM Access Analyzer external access findings for the role, to see which permissions leave the account." },
+      { id: 'B', text: "The IAM policy simulator, running every action in PowerUserAccess against the role to see what is used." },
+      { id: 'C', text: "IAM Access Analyzer policy generation for the role, using the trail's activity for the last 60 days." },
+      { id: 'D', text: "The IAM credential report for the account, to see which services the role accessed in the period." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "Access Analyzer policy generation reads the role's activity from a CloudTrail trail over a chosen period, up to 90 days, and produces a policy template containing the actions and, where available, the resources the role used, which the team then reviews and applies. The simulator tells you what would be allowed, not what was used. External access findings concern resource policies shared outside the zone of trust. The credential report covers users' passwords, access keys and MFA, not role activity.",
+    referenceUrl: "https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-policy-generation.html",
+    tags: ["IAM Access Analyzer", "Least privilege", "CloudTrail"]
+  },
+  {
+    id: "aws-soa-336",
+    difficulty: "hard",
+    certId: "aws-soa",
+    domainId: "d4",
+    domainName: "Security and Compliance",
+    title: "Administrator denied in one member account",
+    scenario: "An administrator role with AdministratorAccess works in every member account except one, where creating a NAT gateway fails with AccessDenied. The role's policies, trust policy and permissions boundary are identical across accounts. The CloudTrail record for the failed call shows an error message stating the request was denied with an explicit deny in a service control policy.",
+    question: "What should the engineer investigate and change?",
+    options: [
+      { id: 'A', text: "The permissions boundary in that account; attach a boundary that allows ec2:CreateNatGateway." },
+      { id: 'B', text: "The SCPs attached to that account, its parent OUs and the root; adjust the denying policy or its scope." },
+      { id: 'C', text: "The VPC endpoint policy for EC2 in that account; add ec2:CreateNatGateway to the allowed actions." },
+      { id: 'D', text: "The role's session policy in that account; remove it so the full AdministratorAccess applies again." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "The enhanced access-denied message in CloudTrail identifies the policy type that caused the denial, here a service control policy, and SCPs apply to an account through attachments on the account itself, every parent OU and the root. Reviewing those attachments locates the deny, which can then be narrowed or the account moved. The message rules out session policies and permissions boundaries, and the boundary is identical everywhere. Nothing points to an endpoint policy, and endpoint policy denials are reported as such rather than as SCP denials.",
+    referenceUrl: "https://docs.aws.amazon.com/IAM/latest/UserGuide/troubleshoot_access-denied.html",
+    tags: ["SCP", "CloudTrail", "Troubleshooting"]
+  },
+  {
+    id: "aws-soa-337",
+    difficulty: "hard",
+    certId: "aws-soa",
+    domainId: "d4",
+    domainName: "Security and Compliance",
+    title: "Blocking policy changes that widen access",
+    scenario: "Engineers change IAM policies through pull requests to a CloudFormation repository. Security wants the pipeline to fail automatically when a changed policy grants any access that the currently deployed version does not, and when any policy allows iam:PassRole, without a human reviewing every diff.",
+    question: "Which approach meets the requirement?",
+    options: [
+      { id: 'A', text: "Run the IAM policy simulator in the pipeline for every action in each changed policy and fail when any new action returns allowed." },
+      { id: 'B', text: "Run Access Analyzer custom policy checks: check-no-new-access against the deployed policy and check-access-not-granted for iam:PassRole." },
+      { id: 'C', text: "Enable an Access Analyzer unused access analyzer and fail the pipeline when it reports unused permissions on any role in the account." },
+      { id: 'D', text: "Run IAM Access Analyzer policy validation on the deployed and new policies and fail on any SECURITY_WARNING, such as for iam:PassRole." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "Access Analyzer custom policy checks use automated reasoning: CheckNoNewAccess compares a new policy with a reference policy and fails if the new one grants more, and CheckAccessNotGranted fails if a policy allows specified actions such as iam:PassRole; both run from the CLI or API in a pipeline. Policy validation flags grammar issues and general best-practice warnings, but it does not compare versions or check for a named action. Simulating every action is slow and can miss access through wildcards and conditions. Unused access findings describe permissions nobody has used, not whether a change widened access.",
+    referenceUrl: "https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-custom-policy-checks.html",
+    tags: ["IAM Access Analyzer", "Custom policy checks", "CI/CD"]
+  },
+  {
+    id: "aws-soa-338",
+    difficulty: "easy",
+    certId: "aws-soa",
+    domainId: "d4",
+    domainName: "Security and Compliance",
+    title: "Removing services a role never touches",
+    scenario: "A legacy application role has policies granting access to 18 AWS services. The team suspects most are unused and wants to see, for each service, when the role last accessed it, so they can remove permissions for services not used in the last year.",
+    question: "Where can the engineer find this information most directly?",
+    options: [
+      { id: 'A', text: "The CloudTrail event history, filtered to the role, which keeps management events for a year." },
+      { id: 'B', text: "The Last Accessed tab for the role in the IAM console, which shows service last accessed data." },
+      { id: 'C', text: "The IAM credential report, which shows each role's last use for every service in the account." },
+      { id: 'D', text: "An AWS Config advanced query of the role's configuration history over the previous 12 months." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "IAM last accessed information shows, for each service a principal's policies allow, when it was last accessed (and for some services, which actions), based on a tracking window of over a year, which is exactly what is needed to prune unused services. The credential report covers IAM users only and reports password and access key usage, not per-service activity. CloudTrail event history keeps 90 days of management events, not a year. AWS Config records changes to the role's configuration, not its use of services.",
+    referenceUrl: "https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_last-accessed.html",
+    tags: ["IAM", "Last accessed information", "Least privilege"]
+  },
+  {
+    id: "aws-soa-339",
+    difficulty: "easy",
+    certId: "aws-soa",
+    domainId: "d4",
+    domainName: "Security and Compliance",
+    title: "Accounts that must never leave the organization",
+    scenario: "A holding company's security policy says that no member account may leave the AWS Organization, even if someone gains full administrator access inside that account. The control must apply to every existing and future member account.",
+    question: "How should the CloudOps engineer enforce this?",
+    options: [
+      { id: 'A', text: "Attach an SCP to the root denying organizations:LeaveOrganization in member accounts." },
+      { id: 'B', text: "Remove organizations:LeaveOrganization from AdministratorAccess in each account through a customer policy." },
+      { id: 'C', text: "Add an AWS Config rule that detects accounts leaving the organization and re-invites them automatically." },
+      { id: 'D', text: "Attach a permissions boundary that denies organizations:LeaveOrganization to every administrator role." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "An SCP attached to the root applies to every member account, present and future, and no identity inside a member account, not even its root user, can override an SCP deny. AWS managed policies cannot be edited, and new customer policies in each account can be changed by the account's own administrators. A detect-and-reinvite approach lets the account leave first and depends on the account accepting the invitation. Permissions boundaries must be attached to each identity and can be removed by an administrator of the account.",
+    referenceUrl: "https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scps_examples_general.html",
+    tags: ["SCP", "AWS Organizations"]
+  },
+  {
+    id: "aws-soa-340",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d4",
+    domainName: "Security and Compliance",
+    title: "SCP allows the action, yet the user is denied",
+    scenario: "A new member account's OU has an SCP that allows ec2:* and s3:* and nothing else. An IAM user in that account, created by a script with no policies attached, reports AccessDenied on s3:ListBucket. The team expected the SCP to grant S3 access.",
+    question: "Why is the user denied?",
+    options: [
+      { id: 'A', text: "SCPs only set maximum permissions; the user also needs an IAM policy allowing the action." },
+      { id: 'B', text: "The SCP must be attached directly to the account, because an SCP attached to an OU affects only its OUs." },
+      { id: 'C', text: "SCPs never apply to IAM users, only to roles, so the SCP's allow for s3:* does not reach this user." },
+      { id: 'D', text: "S3 requires a bucket policy naming the user whenever an SCP is in place, so the bucket policy is missing." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "SCPs define the maximum permissions for principals in member accounts but grant nothing themselves; an action is allowed only when an identity-based or resource-based policy also allows it. The user has no policies, so the request is implicitly denied. SCPs do apply to IAM users and roles in member accounts. An SCP attached to an OU applies to all accounts beneath it. Same-account access to a bucket works through identity policies alone, so no bucket policy is required.",
+    referenceUrl: "https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scps.html",
+    tags: ["SCP", "Policy evaluation"]
+  },
+  {
+    id: "aws-soa-341",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d4",
+    domainName: "Security and Compliance",
+    title: "Workforce sign-in across 60 accounts",
+    scenario: "A retailer has 60 AWS accounts and its staff identities in Okta. Today each account has its own IAM users. The company wants employees to sign in once with their Okta credentials, see only the accounts and roles their Okta group allows, and have joiners and leavers reflected automatically.",
+    question: "Which two steps should the engineer take? (Choose two.)",
+    options: [
+      { id: 'A', text: "Create permission sets and assign the synchronized Okta groups to the relevant accounts." },
+      { id: 'B', text: "Enable Amazon Cognito user pools federated with Okta and grant them the AWS console access." },
+      { id: 'C', text: "Create IAM users for all staff in a central account and let them switch roles into the others." },
+      { id: 'D', text: "In IAM Identity Center, set Okta as the external identity provider with SCIM provisioning." },
+      { id: 'E', text: "Create an IAM SAML identity provider for Okta in all 60 accounts and a role in each for each group." }
+    ],
+    correctAnswers: ['A', 'D'],
+    type: "multiple",
+    explanation: "IAM Identity Center connects to Okta as an external identity provider for SAML sign-in, and SCIM provisioning keeps users and groups synchronized so joiners and leavers flow through automatically. Permission sets assigned to groups for specific accounts become roles in those accounts, and users see only what their groups are assigned in the access portal. Per-account SAML providers and roles work but multiply configuration by 60 and lack a central portal. Central IAM users duplicate identities outside Okta. Cognito user pools serve application end users, not workforce access to the AWS console.",
+    referenceUrl: "https://docs.aws.amazon.com/singlesignon/latest/userguide/gs-okta.html",
+    tags: ["IAM Identity Center", "Federation", "Multi-account"]
+  },
+  {
+    id: "aws-soa-342",
+    difficulty: "hard",
+    certId: "aws-soa",
+    domainId: "d4",
+    domainName: "Security and Compliance",
+    title: "Guardrail with a break-glass exception",
+    scenario: "An SCP on the Production OU must deny deleting VPC flow logs and modifying CloudTrail trails for everyone, except a single BreakGlassAdmin role that exists with the same name in every production account and is used during audited emergencies.",
+    question: "How should the engineer write the SCP statement?",
+    options: [
+      { id: 'A', text: "Deny the actions with a condition that aws:PrincipalArn is not like arn:aws:iam::*:role/BreakGlassAdmin." },
+      { id: 'B', text: "Deny the actions with a condition that aws:username does not equal BreakGlassAdmin in each account." },
+      { id: 'C', text: "Deny the actions for all principals, and attach a second SCP that allows them for BreakGlassAdmin." },
+      { id: 'D', text: "Allow the actions only for arn:aws:iam::*:role/BreakGlassAdmin in the Principal element of the SCP." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "A Deny statement conditioned with ArnNotLike on aws:PrincipalArn matching the break-glass role's ARN pattern blocks everyone except that role, in every account under the OU. SCPs do not support the Principal element for allow-based exceptions of this kind. An explicit deny in one SCP cannot be overridden by an allow in another, so a second policy does nothing. aws:username exists only for IAM users, so a role session would never match it and the exception would not work.",
+    referenceUrl: "https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scps_syntax.html",
+    tags: ["SCP", "Policy conditions", "Break-glass"]
+  },
+  {
+    id: "aws-soa-343",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d4",
+    domainName: "Security and Compliance",
+    title: "Stopping any bucket in the org from being shared out",
+    scenario: "A healthcare company wants an organization-wide guardrail so that no S3 bucket in any member account can be accessed by principals outside the organization, even if a bucket owner writes a permissive bucket policy. AWS services acting on the company's behalf must keep working.",
+    question: "Which control should the engineer implement?",
+    options: [
+      { id: 'A', text: "An IAM Access Analyzer analyzer for the organization that archives findings for S3 buckets automatically." },
+      { id: 'B', text: "A resource control policy denying S3 access to principals outside the organization, except AWS services." },
+      { id: 'C', text: "A service control policy that denies s3:PutBucketPolicy for every principal in every member account." },
+      { id: 'D', text: "A service control policy that denies S3 access when aws:PrincipalOrgID differs from the organization ID." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "Resource control policies set the maximum permissions on resources in member accounts, whoever the caller is, so an RCP denying S3 access to principals outside the organization, with an exception such as aws:PrincipalIsAWSService for service principals, overrides any permissive bucket policy. SCPs restrict principals inside the organization; external principals are not subject to them, so an SCP cannot stop an outside account from using a bucket policy's grant. Denying PutBucketPolicy stops all legitimate bucket policy management. Access Analyzer detects external access but does not prevent it, and archiving findings hides them.",
+    referenceUrl: "https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_rcps.html",
+    tags: ["Resource control policies", "S3", "Data perimeter"]
+  },
+  {
+    id: "aws-soa-344",
+    difficulty: "hard",
+    certId: "aws-soa",
+    domainId: "d4",
+    domainName: "Security and Compliance",
+    title: "Allow-list SCP that locks out an entire OU",
+    scenario: "To move to an allow-list strategy, an engineer detached FullAWSAccess from the Workloads OU and attached an SCP allowing only ec2:*, s3:* and cloudwatch:*. The accounts under Workloads/Prod, which still have FullAWSAccess attached directly, now report that S3 calls succeed but every IAM and CloudFormation call is denied.",
+    question: "What explains the behavior?",
+    options: [
+      { id: 'A', text: "SCPs attached directly to an account are ignored whenever the parent OU has any SCP other than FullAWSAccess." },
+      { id: 'B', text: "An SCP must allow an action at every level from the root down to the account, so the OU's allow list caps its children." },
+      { id: 'C', text: "IAM and CloudFormation are global services, which SCPs block by default unless the root has a policy naming them." },
+      { id: 'D', text: "The allow-list SCP needs an explicit deny for everything else before FullAWSAccess on the child accounts stops applying." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "For an action to be permitted in an account, an SCP must allow it at the root, at every OU on the path and at the account itself. With only ec2, s3 and cloudwatch allowed at the Workloads OU, nothing beneath it can use IAM or CloudFormation, regardless of FullAWSAccess lower down. Account-level SCPs are not ignored; they are evaluated along with every parent. No explicit deny is needed for the cap to take effect, because an action not allowed at a level is implicitly denied. SCPs treat global services like any other; they are blocked here only because the OU's allow list omits them.",
+    referenceUrl: "https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scps_evaluation.html",
+    tags: ["SCP", "Policy evaluation", "Allow list"]
+  },
+  {
+    id: "aws-soa-345",
+    difficulty: "easy",
+    certId: "aws-soa",
+    domainId: "d4",
+    domainName: "Security and Compliance",
+    title: "Trusted Advisor flags open database ports",
+    scenario: "Trusted Advisor shows a red Security Groups - Specific Ports Unrestricted result for a group attached to a MySQL database instance, with port 3306 open to 0.0.0.0/0. The database should only be reachable from the application servers, which share their own security group.",
+    question: "How should the engineer remediate the finding?",
+    options: [
+      { id: 'A', text: "Replace the 0.0.0.0/0 rule with an inbound rule on 3306 whose source is the app servers' security group." },
+      { id: 'B', text: "Exclude the security group from the check in Trusted Advisor so the finding no longer appears as red." },
+      { id: 'C', text: "Add a network ACL deny rule for 0.0.0.0/0 on port 3306 and keep the security group rule for simplicity." },
+      { id: 'D', text: "Move the database's port from 3306 to a non-standard port and keep the rule open to 0.0.0.0/0 as before." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Referencing the application servers' security group as the source allows only instances in that group to reach port 3306 and removes the unrestricted access the check flagged. A network ACL deny for 0.0.0.0/0 would also block the application servers, since that range includes them, and leaves the flagged rule in place. Changing the port only hides the service. Excluding the resource suppresses the warning while the database stays exposed.",
+    referenceUrl: "https://docs.aws.amazon.com/awssupport/latest/user/security-checks.html",
+    tags: ["Trusted Advisor", "Security groups"]
+  },
+  {
+    id: "aws-soa-346",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d4",
+    domainName: "Security and Compliance",
+    title: "Access key found in a public repository",
+    scenario: "Trusted Advisor's Exposed Access Keys check reports that an IAM user's access key was found in a public code repository, and AWS has attached a quarantine policy to the user. The key belongs to a build tool that is being moved to role-based credentials anyway.",
+    question: "Which two actions should the engineer take first? (Choose two.)",
+    options: [
+      { id: 'A', text: "Deactivate and then delete the exposed access key on that IAM user." },
+      { id: 'B', text: "Make the repository private so the exposed key is no longer public." },
+      { id: 'C', text: "Review CloudTrail for activity by that key to find any unauthorized use." },
+      { id: 'D', text: "Remove the quarantine policy so the build tool can keep working for now." },
+      { id: 'E', text: "Enable IAM access key rotation reminders in the account password policy." }
+    ],
+    correctAnswers: ['A', 'C'],
+    type: "multiple",
+    explanation: "An exposed key must be treated as compromised: deactivate it immediately, delete it once dependencies are handled, and search CloudTrail for calls made with that access key ID to find and clean up anything an attacker created, such as new users or instances. Removing the quarantine policy would restore access for whoever holds the leaked key. Making the repository private does not revoke copies already harvested. The password policy has no access key settings, and rotation reminders do not address a key that is already leaked.",
+    referenceUrl: "https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html",
+    tags: ["Trusted Advisor", "Access keys", "Incident response"]
+  },
+  {
+    id: "aws-soa-347",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d4",
+    domainName: "Security and Compliance",
+    title: "Bucket permissions warnings across a whole account",
+    scenario: "Trusted Advisor's Amazon S3 Bucket Permissions check shows several buckets in a marketing account with open access through ACLs and bucket policies. None of the account's buckets is meant to be public, and the team wants to prevent any bucket from becoming public again, including new buckets.",
+    question: "What should the engineer do?",
+    options: [
+      { id: 'A', text: "Edit each flagged bucket's ACL and policy by hand to remove the public grants one bucket at a time." },
+      { id: 'B', text: "Turn on all four S3 Block Public Access settings at the account level for the whole marketing account." },
+      { id: 'C', text: "Enable S3 Versioning on each flagged bucket so public changes to objects can be rolled back later." },
+      { id: 'D', text: "Enable default encryption with SSE-S3 on every bucket so that objects are protected from public readers." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "Account-level S3 Block Public Access overrides public ACLs and public bucket policies on all existing and future buckets in the account, which both remediates the findings and prevents recurrence. Fixing buckets one by one clears today's findings but does not stop a new bucket from being made public. SSE-S3 decrypts transparently for any request the bucket policy or ACL authorizes, so encryption does not stop public reads. Versioning protects against overwrites and deletions, not exposure.",
+    referenceUrl: "https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-control-block-public-access.html",
+    tags: ["Trusted Advisor", "S3 Block Public Access"]
+  },
+  {
+    id: "aws-soa-348",
+    difficulty: "hard",
+    certId: "aws-soa",
+    domainId: "d4",
+    domainName: "Security and Compliance",
+    title: "Reacting automatically to Trusted Advisor changes",
+    scenario: "An enterprise with Business Support wants a Lambda function to run whenever a Trusted Advisor security check in its account changes to red, for example when a new security group opens SSH to the world. Its workloads and existing automation all run in eu-west-2, where the engineer created an EventBridge rule that never fires.",
+    question: "What should the engineer change?",
+    options: [
+      { id: 'A', text: "Create the EventBridge rule in us-east-1, where Trusted Advisor check status events are delivered." },
+      { id: 'B', text: "Enable Trusted Advisor organizational view so that check status events reach eu-west-2 as well." },
+      { id: 'C', text: "Point the EventBridge rule at Trusted Advisor's weekly email notification received through Amazon SES." },
+      { id: 'D', text: "Upgrade to Enterprise Support, since check status events are only sent to Enterprise customers." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Trusted Advisor publishes check status change events to EventBridge in the US East (N. Virginia) Region only, so the rule must live in us-east-1; it can invoke a function there or forward events to a bus in eu-west-2. Organizational view aggregates reports across accounts but does not change where events are delivered. The weekly email is a digest for people and cannot drive automation. Business Support already includes the full set of checks and their events.",
+    referenceUrl: "https://docs.aws.amazon.com/awssupport/latest/user/cloudwatch-events-ta.html",
+    tags: ["Trusted Advisor", "EventBridge", "Automation"]
+  },
+  {
+    id: "aws-soa-349",
+    difficulty: "easy",
+    certId: "aws-soa",
+    domainId: "d4",
+    domainName: "Security and Compliance",
+    title: "Root user without a second factor",
+    scenario: "A newly acquired company's account shows a red MFA on Root Account result in Trusted Advisor. The root user's password is known only to the finance director, who signs in once a year for billing tasks. The CloudOps team must remediate the finding.",
+    question: "What should the engineer arrange?",
+    options: [
+      { id: 'A', text: "Register an MFA device such as a FIDO2 security key for the root user and keep it stored securely." },
+      { id: 'B', text: "Attach an IAM policy to the root user that denies all actions unless the session includes MFA." },
+      { id: 'C', text: "Create root user access keys for the finance director and enable MFA on those keys through the CLI." },
+      { id: 'D', text: "Delete the root user's password so the account can no longer be signed in to with root credentials." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Registering an MFA device, for example a FIDO2 security key or authenticator app, on the root user resolves the check and protects the account's most powerful identity; the device is kept in a secure location with documented access. Removing root credentials is possible only for member accounts under centralized root access management, and the director still needs root sign-in for billing tasks. Root access keys increase risk and cannot carry MFA in the way described. IAM policies cannot be attached to the root user.",
+    referenceUrl: "https://docs.aws.amazon.com/IAM/latest/UserGuide/enable-mfa-for-root.html",
+    tags: ["Trusted Advisor", "Root user", "MFA"]
+  },
+  {
+    id: "aws-soa-350",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d4",
+    domainName: "Security and Compliance",
+    title: "Security check results for every account at once",
+    scenario: "A company with 45 accounts, all on Business Support, wants one report every week showing Trusted Advisor security check results for every member account, delivered to an S3 bucket in the management account, instead of signing in to each account.",
+    question: "What should the engineer configure?",
+    options: [
+      { id: 'A', text: "Enable the Trusted Advisor weekly email in each member account and forward the messages to the bucket." },
+      { id: 'B', text: "Enable trusted access for Trusted Advisor in Organizations and create organizational view reports." },
+      { id: 'C', text: "Share each account's Trusted Advisor dashboard with the management account through AWS RAM." },
+      { id: 'D', text: "Enable AWS Config in every account and build an aggregator for Trusted Advisor check results." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "Trusted Advisor organizational view, enabled from the management account through trusted access in AWS Organizations, creates reports of check results across all member accounts and saves them to an S3 bucket; all accounts need Business, Enterprise On-Ramp or Enterprise Support. Trusted Advisor dashboards are not a resource type shared through RAM. AWS Config aggregators collect Config data, not Trusted Advisor results. Weekly emails go to people per account and do not produce a consolidated report in S3.",
+    referenceUrl: "https://docs.aws.amazon.com/awssupport/latest/user/organizational-view.html",
+    tags: ["Trusted Advisor", "Organizational view", "AWS Organizations"]
+  }
+];
+
+export default AWS_SOA_QUESTIONS_14;

@@ -1,0 +1,532 @@
+export const AWS_SOA_QUESTIONS_15 = [
+  {
+    id: "aws-soa-351",
+    difficulty: "easy",
+    certId: "aws-soa",
+    domainId: "d4",
+    domainName: "Security and Compliance",
+    title: "Keeping workloads inside two European Regions",
+    scenario: "A European insurer's data-residency policy says that no workload may be created outside eu-central-1 and eu-west-1 in any account of its AWS Organization. Engineers in member accounts have broad administrator permissions, and the control must hold for accounts created later.",
+    question: "Which control should the CloudOps engineer implement?",
+    options: [
+      { id: 'A', text: "Disable the unapproved Regions in each account's settings so that they no longer appear in the console." },
+      { id: 'B', text: "An AWS Config rule in each Region that flags resources created outside the two approved Regions." },
+      { id: 'C', text: "An SCP on the root denying actions when aws:RequestedRegion is not one of the two approved Regions." },
+      { id: 'D', text: "An IAM policy in each account denying actions when aws:RequestedRegion is outside the approved list." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "An SCP attached to the root applies to every current and future member account, and a deny conditioned on aws:RequestedRegion prevents actions in other Regions no matter what administrators grant themselves. IAM policies in each account can be edited or removed by those administrators and do not cover new accounts automatically. A Config rule detects violations after resources exist rather than preventing them. Default Regions such as us-east-1 cannot be disabled, and hiding Regions does not stop API calls in enabled ones.",
+    referenceUrl: "https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scps_examples_general.html",
+    tags: ["SCP", "Data residency", "aws:RequestedRegion"]
+  },
+  {
+    id: "aws-soa-352",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d4",
+    domainName: "Security and Compliance",
+    title: "One PCI rule set evaluated in every account",
+    scenario: "A payments company must continuously evaluate every account in its organization against a set of AWS Config rules aligned to PCI DSS, and new accounts must receive the same rules automatically. The security tooling account is already a delegated administrator for AWS Config, and recorders run in every account.",
+    question: "What should the engineer deploy?",
+    options: [
+      { id: 'A', text: "A StackSet that creates each PCI rule separately in every account, updated whenever a rule changes." },
+      { id: 'B', text: "Security Hub's PCI DSS standard in the security account only, without enabling it in member accounts." },
+      { id: 'C', text: "A conformance pack in the security account only, with a Config aggregator reading the other accounts." },
+      { id: 'D', text: "An organization conformance pack from the security account based on the PCI DSS sample template." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "An organization conformance pack, deployed from the management account or a Config delegated administrator, installs the same packaged set of rules, here from the Operational Best Practices for PCI DSS sample template, into every member account and into accounts that join later. A conformance pack in one account evaluates only that account; an aggregator collects results but does not deploy rules. A StackSet of individual rules can work but loses the pack-level compliance score and adds maintenance. A Security Hub standard evaluates only the accounts where it is enabled.",
+    referenceUrl: "https://docs.aws.amazon.com/config/latest/developerguide/conformance-pack-organization-apis.html",
+    tags: ["AWS Config", "Conformance packs", "AWS Organizations"]
+  },
+  {
+    id: "aws-soa-353",
+    difficulty: "easy",
+    certId: "aws-soa",
+    domainId: "d4",
+    domainName: "Security and Compliance",
+    title: "Continuous check for unencrypted volumes",
+    scenario: "An auditor asks for continuous evidence that no EBS volume attached to an EC2 instance in a production account is unencrypted, with any violation visible within minutes of the volume being attached. AWS Config is already recording all resource types in the account.",
+    question: "What should the engineer add?",
+    options: [
+      { id: 'A', text: "A Trusted Advisor refresh schedule that reports unencrypted EBS volumes to the auditor every morning." },
+      { id: 'B', text: "The encrypted-volumes AWS Config managed rule, which evaluates volumes whenever their configuration changes." },
+      { id: 'C', text: "An Amazon Inspector scan configuration for the account that includes EBS volume encryption checks." },
+      { id: 'D', text: "A CloudTrail trail with data events for EBS so the auditor can search for unencrypted CreateVolume calls." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "The encrypted-volumes managed rule is triggered by configuration changes, so a newly attached unencrypted volume is marked noncompliant shortly after Config records it, and the rule's history provides continuous evidence. Trusted Advisor has no EBS encryption check of this kind and runs on refresh, not on change. Amazon Inspector scans for software vulnerabilities and network reachability, not volume encryption. Searching trail records is manual investigation rather than continuous evaluation, and CreateVolume is a management event, not a data event.",
+    referenceUrl: "https://docs.aws.amazon.com/config/latest/developerguide/encrypted-volumes.html",
+    tags: ["AWS Config", "EBS", "Compliance"]
+  },
+  {
+    id: "aws-soa-354",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d4",
+    domainName: "Security and Compliance",
+    title: "One compliance view for 70 accounts and four Regions",
+    scenario: "Config rules run in 70 accounts across four Regions. The compliance team wants a single place to see which accounts and resources are noncompliant with each rule and to run SQL-style queries such as listing every noncompliant security group, without signing in to each account.",
+    question: "What should the engineer set up?",
+    options: [
+      { id: 'A', text: "A Config aggregator in the delegated administrator account covering the organization and its Regions." },
+      { id: 'B', text: "A CloudWatch cross-account dashboard showing all four Regions' Config compliance metrics side by side." },
+      { id: 'C', text: "An organization trail in CloudTrail whose log files record every Config rule evaluation in each account." },
+      { id: 'D', text: "Config delivery channels in each account that write snapshots to one bucket, queried in each Region." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "An AWS Config aggregator collects configuration and compliance data from all accounts in an organization and all chosen Regions into one account, where the aggregated view shows compliance per rule and account and advanced queries can run across the collected data. CloudWatch dashboards show metrics but not resource-level compliance or queries. CloudTrail records API activity rather than rule evaluation results. Delivering snapshots to a bucket centralizes raw files, but the team would have to build its own querying and compliance view.",
+    referenceUrl: "https://docs.aws.amazon.com/config/latest/developerguide/aggregate-data.html",
+    tags: ["AWS Config", "Aggregator", "Multi-account"]
+  },
+  {
+    id: "aws-soa-355",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d4",
+    domainName: "Security and Compliance",
+    title: "Violations found a day late",
+    scenario: "A custom AWS Config rule backed by Lambda checks that S3 buckets have access logging enabled. The rule is configured with a periodic trigger every 24 hours, so a bucket created without logging can stay noncompliant for up to a day before anyone knows. The team wants violations detected when buckets change.",
+    question: "What should the engineer change?",
+    options: [
+      { id: 'A', text: "Add a Config aggregator so evaluations from the account are collected and refreshed more often." },
+      { id: 'B', text: "Change the rule to a configuration change trigger, scoped to the AWS::S3::Bucket resource type." },
+      { id: 'C', text: "Shorten the periodic trigger to one hour, which evaluates each bucket shortly after it changes." },
+      { id: 'D', text: "Enable CloudTrail data events for S3 so that the rule is invoked on every object-level operation." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "A configuration change trigger scoped to AWS::S3::Bucket invokes the rule whenever Config records a change to a bucket, including creation, so noncompliance appears within minutes. An hourly periodic trigger still lags by up to an hour and runs even when nothing changed. Data events record object-level API calls in CloudTrail and do not trigger Config rules. Aggregators collect results; they do not change how often rules evaluate.",
+    referenceUrl: "https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config-rules.html",
+    tags: ["AWS Config", "Config rules", "Triggers"]
+  },
+  {
+    id: "aws-soa-356",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d4",
+    domainName: "Security and Compliance",
+    title: "Evidence binders for an annual SOC 2 audit",
+    scenario: "Every year the compliance team spends weeks taking screenshots and exporting settings to prove to SOC 2 auditors that controls operated throughout the period. They want AWS to collect evidence automatically from Config, CloudTrail and Security Hub, map it to the framework's controls and produce an assessment report.",
+    question: "Which service should the engineer set up?",
+    options: [
+      { id: 'A', text: "AWS Audit Manager, with an assessment based on its SOC 2 framework and the accounts in scope." },
+      { id: 'B', text: "AWS Config conformance packs, exporting each pack's compliance history as the audit binder." },
+      { id: 'C', text: "Amazon Macie, running classification jobs so auditors can see which buckets hold sensitive data." },
+      { id: 'D', text: "AWS Artifact, downloading the AWS SOC 2 report and attaching it to the framework assessment." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "AWS Audit Manager continuously collects evidence from sources such as Config, CloudTrail and Security Hub, maps it to controls in prebuilt frameworks like SOC 2, and generates assessment reports for auditors. AWS Artifact provides AWS's own compliance reports, which describe AWS's controls, not how the company operated its own. Conformance pack history is useful input but is not organized by framework control or packaged as an assessment. Macie classifies sensitive data and does not collect audit evidence.",
+    referenceUrl: "https://docs.aws.amazon.com/audit-manager/latest/userguide/what-is.html",
+    tags: ["Audit Manager", "Compliance", "Evidence"]
+  },
+  {
+    id: "aws-soa-357",
+    difficulty: "hard",
+    certId: "aws-soa",
+    domainId: "d4",
+    domainName: "Security and Compliance",
+    title: "Region lock that broke IAM and Route 53",
+    scenario: "An engineer attached an SCP that denies all actions when aws:RequestedRegion is not eu-west-1. Workloads in eu-west-1 run, but administrators can no longer manage IAM roles, Route 53 records or CloudFront distributions, and AWS Support cases fail to open. The Region restriction must stay in place.",
+    question: "Which two changes to the SCP fix the problem while keeping the restriction? (Choose two.)",
+    options: [
+      { id: 'A', text: "Attach FullAWSAccess to the accounts again so the global services are re-allowed." },
+      { id: 'B', text: "Use NotAction to exempt global services like IAM, Route 53, CloudFront and Support." },
+      { id: 'C', text: "Keep the StringNotEquals condition on aws:RequestedRegion for the remaining actions." },
+      { id: 'D', text: "Add us-east-1 so IAM, Route 53 and CloudFront actions are allowed in that Region." },
+      { id: 'E', text: "Replace aws:RequestedRegion with aws:SourceIp ranges belonging to eu-west-1 offices." }
+    ],
+    correctAnswers: ['B', 'C'],
+    type: "multiple",
+    explanation: "Requests to global services are made to endpoints in us-east-1, so a blanket Region deny blocks them. AWS's example SCP combines a Deny using NotAction, listing global services such as IAM, Route 53, CloudFront, Organizations and Support, with a StringNotEquals condition on aws:RequestedRegion, so global services keep working while everything else is limited to the approved Region. Approving us-east-1 wholesale would allow any regional workload there, breaking residency. Source IP says nothing about the target Region. An allow in FullAWSAccess cannot override an explicit deny.",
+    referenceUrl: "https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scps_examples_general.html",
+    tags: ["SCP", "Global services", "aws:RequestedRegion"]
+  },
+  {
+    id: "aws-soa-358",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d4",
+    domainName: "Security and Compliance",
+    title: "Tracking progress on a best-practices pack",
+    scenario: "Leadership wants a single percentage for each account showing how compliant it is with the company's security baseline, which is deployed as a Config conformance pack, and wants to see that number trend over time on a dashboard.",
+    question: "Which feature provides this most directly?",
+    options: [
+      { id: 'A', text: "The conformance pack compliance score, which Config publishes as a CloudWatch metric for dashboards." },
+      { id: 'B', text: "The Config recorder's configuration item count, which rises as resources become compliant over time." },
+      { id: 'C', text: "The Trusted Advisor security score, which combines every conformance pack rule into one value." },
+      { id: 'D', text: "The IAM Access Analyzer finding count for the account, graphed over time as a compliance percentage." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "AWS Config calculates a compliance score for each conformance pack, the percentage of compliant rule and resource combinations, and emits it to CloudWatch, where it can be graphed over time. Trusted Advisor has no score built from Config rules. Access Analyzer findings measure external or unused access, not baseline compliance. Configuration item counts reflect how many changes were recorded and say nothing about compliance.",
+    referenceUrl: "https://docs.aws.amazon.com/config/latest/developerguide/conformance-pack-compliance-score.html",
+    tags: ["AWS Config", "Conformance packs", "Compliance score"]
+  },
+  {
+    id: "aws-soa-359",
+    difficulty: "easy",
+    certId: "aws-soa",
+    domainId: "d4",
+    domainName: "Security and Compliance",
+    title: "Where do customer records live in 300 buckets?",
+    scenario: "A retailer has 300 S3 buckets created by many teams over several years. Before a privacy audit, it needs to find which buckets contain personal data such as names, addresses and credit card numbers, without writing its own scanners.",
+    question: "Which service should the engineer use?",
+    options: [
+      { id: 'A', text: "Amazon GuardDuty S3 Protection, which analyzes object contents for personal information." },
+      { id: 'B', text: "Amazon Inspector, which scans bucket contents for vulnerabilities and personal data." },
+      { id: 'C', text: "AWS Config, whose managed rules inspect the objects in each bucket for card numbers." },
+      { id: 'D', text: "Amazon Macie, using managed data identifiers to find sensitive data in objects." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Amazon Macie inventories S3 buckets and inspects objects with managed data identifiers for many types of sensitive data, including names, addresses and credit card numbers, producing findings per object and bucket. GuardDuty S3 Protection analyzes access patterns in CloudTrail data events for threats; it does not read object contents. Inspector scans compute workloads and images for vulnerabilities. Config evaluates resource configurations such as bucket settings, never object contents.",
+    referenceUrl: "https://docs.aws.amazon.com/macie/latest/user/what-is-macie.html",
+    tags: ["Amazon Macie", "Data classification", "S3"]
+  },
+  {
+    id: "aws-soa-360",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d4",
+    domainName: "Security and Compliance",
+    title: "Ongoing sensitive-data coverage without job scheduling",
+    scenario: "After an initial Macie review, the security team wants continuous, cost-controlled visibility into which buckets across 40 accounts are likely to contain sensitive data, including new buckets, without designing and scheduling classification jobs for each account.",
+    question: "What should the engineer configure?",
+    options: [
+      { id: 'A', text: "A Macie delegated administrator for the organization, with automated discovery turned on." },
+      { id: 'B', text: "A one-time Macie classification job in each account, repeated manually whenever buckets are created." },
+      { id: 'C', text: "A Macie delegated administrator with a daily job that fully scans every object in every bucket." },
+      { id: 'D', text: "Amazon Detective for the organization, which builds behavior graphs of sensitive-data locations." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "With a delegated administrator managing Macie for the organization, automated sensitive data discovery continually selects and analyzes representative samples of objects across all member accounts' buckets, including new ones, and scores each bucket's sensitivity while keeping costs predictable. One-time jobs need repeated manual effort. Fully scanning every object daily can be very expensive and is more than the goal requires. Detective investigates security findings and relationships between entities; it does not classify data.",
+    referenceUrl: "https://docs.aws.amazon.com/macie/latest/user/discovery-asdd.html",
+    tags: ["Amazon Macie", "Automated discovery", "AWS Organizations"]
+  },
+  {
+    id: "aws-soa-361",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d4",
+    domainName: "Security and Compliance",
+    title: "Enforcing a data-classification tag on new buckets",
+    scenario: "A company's classification scheme requires every S3 bucket to carry a DataClass tag with one of Public, Internal, Confidential or Restricted, spelled exactly. Teams currently create buckets with no tag or with values such as confidential and CONF. The rule must apply across the organization.",
+    question: "Which two controls together enforce the scheme? (Choose two.)",
+    options: [
+      { id: 'A', text: "A tag policy defining the DataClass key and its four allowed values, enforced for S3 buckets." },
+      { id: 'B', text: "An SCP denying s3:CreateBucket when the request has no DataClass tag in aws:RequestTag." },
+      { id: 'C', text: "A Macie job that adds the DataClass tag to each bucket based on the data found inside it." },
+      { id: 'D', text: "A lifecycle rule that deletes objects in buckets whose DataClass tag is missing or invalid." },
+      { id: 'E', text: "A tag policy alone, since it blocks creating any bucket that lacks the DataClass tag." }
+    ],
+    correctAnswers: ['A', 'B'],
+    type: "multiple",
+    explanation: "A tag policy standardizes the DataClass key and its allowed values, and with enforcement enabled for the bucket resource type it blocks noncompliant tagging operations such as a misspelled value. Tag policies do not require a tag to be present, so an SCP that denies bucket creation when aws:RequestTag/DataClass is null closes that gap. Deleting objects in untagged buckets destroys data instead of enforcing a scheme. Macie reports sensitive data findings but does not tag buckets for you.",
+    referenceUrl: "https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_tag-policies.html",
+    tags: ["Tag policies", "SCP", "Data classification"]
+  },
+  {
+    id: "aws-soa-362",
+    difficulty: "hard",
+    certId: "aws-soa",
+    domainId: "d4",
+    domainName: "Security and Compliance",
+    title: "Detecting employee numbers and ignoring test cards",
+    scenario: "Macie findings must include the company's internal employee numbers, formatted EMP- followed by seven digits and usually near the word badge. Meanwhile a QA bucket contains the well-known test card number 4111 1111 1111 1111, which generates hundreds of false credit card findings that must stop appearing.",
+    question: "What should the engineer configure in Macie?",
+    options: [
+      { id: 'A', text: "An allow list containing the EMP- pattern so Macie reports it, and a custom data identifier that ignores the test card number." },
+      { id: 'B', text: "A custom data identifier for EMP- and seven digits near the keyword badge, plus an allow list holding the test card." },
+      { id: 'C', text: "A managed data identifier for employee numbers near badge, and a suppression rule deleting all card findings in QA." },
+      { id: 'D', text: "A custom data identifier with a regex for EMP- and seven digits, and an exclusion of the whole QA bucket from all Macie analysis." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "Custom data identifiers define organization-specific sensitive data with a regular expression and optional keywords that must appear nearby, so EMP- plus seven digits near badge is detected. Allow lists specify text or patterns Macie should not report, so the known test card number stops producing findings while real card numbers elsewhere, including in the QA bucket, are still found. No managed identifier covers a company's own employee format, and suppression rules archive findings by criteria rather than recognizing a specific value. Excluding the whole QA bucket would hide real sensitive data there too. Allow lists suppress matches; they do not create detections.",
+    referenceUrl: "https://docs.aws.amazon.com/macie/latest/user/custom-data-identifiers.html",
+    tags: ["Amazon Macie", "Custom data identifiers", "Allow lists"]
+  },
+  {
+    id: "aws-soa-363",
+    difficulty: "hard",
+    certId: "aws-soa",
+    domainId: "d4",
+    domainName: "Security and Compliance",
+    title: "Access that follows the data's classification",
+    scenario: "Objects in a shared S3 data lake carry a classification object tag with values Internal, Confidential or Restricted. Analysts' roles carry a clearance principal tag. The security team wants a single policy so analysts can read only objects whose classification is at or below their clearance, without per-team policies as new analysts join.",
+    question: "Which approach meets the requirement?",
+    options: [
+      { id: 'A', text: "ABAC: allow s3:GetObject only when s3:ExistingObjectTag/classification is a value permitted by the principal's clearance tag." },
+      { id: 'B', text: "Bucket-level default encryption with a different KMS key per classification, granting each clearance level decrypt access to its key." },
+      { id: 'C', text: "A separate IAM policy per clearance level listing the prefixes that level may read, attached to each principal by team leads." },
+      { id: 'D', text: "S3 Object Lock in governance mode on Restricted objects so that only principals with the bypass permission are able to read them." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "ABAC compares tags on the principal with tags on the resource: conditions on s3:ExistingObjectTag/classification against aws:PrincipalTag/clearance, expressed as a few statements, one per clearance level, grant access by matching attributes, so new analysts only need the right tag. Prefix-based policies per level do not follow object tags and grow with the data layout. Object Lock controls deletion and overwrite, not reads. Default encryption applies one key per bucket, so per-classification keys would require splitting the data lake or managing keys object by object.",
+    referenceUrl: "https://docs.aws.amazon.com/IAM/latest/UserGuide/introduction_attribute-based-access-control.html",
+    tags: ["ABAC", "S3", "Data classification"]
+  },
+  {
+    id: "aws-soa-364",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d4",
+    domainName: "Security and Compliance",
+    title: "Routing Macie findings to the data owners",
+    scenario: "Macie produces sensitive data findings for buckets owned by many teams. The data governance lead wants each high-severity finding to open a ticket automatically in the owning team's queue within minutes, using the bucket's Owner tag to decide the team.",
+    question: "How should the engineer integrate the findings?",
+    options: [
+      { id: 'A', text: "Create an EventBridge rule for high-severity Macie findings that invokes a function to open the ticket." },
+      { id: 'B', text: "Subscribe each team to Macie's email notifications, which are routed automatically by the Owner tag." },
+      { id: 'C', text: "Export Macie findings to S3 once a week and have each team open tickets for its own buckets from the export." },
+      { id: 'D', text: "Enable AWS Config recording for Macie and create a rule that opens tickets for each sensitive object." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Macie publishes findings to EventBridge, so a rule filtering on severity can invoke a function that reads the bucket's Owner tag and opens a ticket in the right queue within minutes. Weekly exports are neither automatic nor timely. Macie does not route email notifications by resource tags. AWS Config records resource configurations, not Macie findings, and does not evaluate object contents.",
+    referenceUrl: "https://docs.aws.amazon.com/macie/latest/user/findings-monitor-events-eb.html",
+    tags: ["Amazon Macie", "EventBridge", "Findings"]
+  },
+  {
+    id: "aws-soa-365",
+    difficulty: "easy",
+    certId: "aws-soa",
+    domainId: "d4",
+    domainName: "Security and Compliance",
+    title: "Reporting resources missing classification tags",
+    scenario: "A company requires DataClass and Owner tags on its EC2 instances, RDS databases and S3 buckets. Before enforcing anything, the governance team wants a continuously updated report in each account of which of these resources lack either tag.",
+    question: "What should the engineer set up?",
+    options: [
+      { id: 'A', text: "The required-tags Config managed rule, checking DataClass and Owner on those resource types." },
+      { id: 'B', text: "An AWS Budgets report grouped by the DataClass tag so that untagged resources show up as unassigned." },
+      { id: 'C', text: "A Trusted Advisor check refreshed daily that lists every resource without DataClass or Owner tags." },
+      { id: 'D', text: "A cost allocation tag activation for DataClass and Owner so that the tags become mandatory on creation." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "The required-tags managed rule evaluates chosen resource types for up to six required tag keys, and optional values, and continuously reports each resource as compliant or noncompliant. Budgets and cost reports group spend by tag but do not list resources or cover free resources. Trusted Advisor has no general required-tags check. Activating cost allocation tags only makes them appear in billing data; it never makes tags mandatory.",
+    referenceUrl: "https://docs.aws.amazon.com/config/latest/developerguide/required-tags.html",
+    tags: ["AWS Config", "Tagging", "Data classification"]
+  },
+  {
+    id: "aws-soa-366",
+    difficulty: "easy",
+    certId: "aws-soa",
+    domainId: "d4",
+    domainName: "Security and Compliance",
+    title: "Every new volume encrypted without asking",
+    scenario: "Security requires that every new EBS volume in the account's two Regions be encrypted, including volumes created by Auto Scaling, CloudFormation and by hand, even when the person or template forgets to request encryption.",
+    question: "What should the engineer do?",
+    options: [
+      { id: 'A', text: "Add an Encrypted: true property to every launch template and CloudFormation template in the account." },
+      { id: 'B', text: "Enable default encryption on the account's S3 buckets, which also applies to snapshots and new EBS volumes." },
+      { id: 'C', text: "Create an AWS Config rule that deletes any unencrypted volume it finds and alerts the volume's creator." },
+      { id: 'D', text: "Turn on EBS encryption by default in each of the two Regions, optionally choosing a customer managed KMS key." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "EBS encryption by default is a per-Region account setting that forces all new volumes and snapshot copies to be encrypted, with the AWS managed key or a chosen customer managed key, regardless of how they are created. Editing templates misses manual creation and any template someone forgets to update. S3 default encryption applies only to S3 objects. Deleting volumes after the fact disrupts workloads and does not prevent unencrypted creation.",
+    referenceUrl: "https://docs.aws.amazon.com/ebs/latest/userguide/encryption-by-default.html",
+    tags: ["EBS", "Encryption by default"]
+  },
+  {
+    id: "aws-soa-367",
+    difficulty: "easy",
+    certId: "aws-soa",
+    domainId: "d4",
+    domainName: "Security and Compliance",
+    title: "Encrypting a database that was created in the clear",
+    scenario: "An audit found that a production RDS for PostgreSQL instance was created without storage encryption years ago. It must be encrypted with a customer managed KMS key. A short maintenance window is available for the cutover.",
+    question: "How should the engineer encrypt the database?",
+    options: [
+      { id: 'A', text: "Modify the instance and enable storage encryption with the key, applying it in the next window." },
+      { id: 'B', text: "Enable encryption on the instance's automated backups so that the storage becomes encrypted too." },
+      { id: 'C', text: "Snapshot it, copy the snapshot encrypted with the key, restore a new instance, and cut over." },
+      { id: 'D', text: "Create an encrypted read replica of the unencrypted instance and promote it after it catches up." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "RDS encryption can only be chosen at creation, so the supported path is to snapshot the instance, copy the snapshot with encryption enabled using the customer managed key, restore a new encrypted instance and switch the application to it during the window. Storage encryption cannot be turned on by modifying an existing instance. A read replica of an unencrypted instance cannot be encrypted. Backups inherit the instance's encryption state and cannot be encrypted separately in place.",
+    referenceUrl: "https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.Encryption.html",
+    tags: ["Amazon RDS", "Encryption at rest", "KMS"]
+  },
+  {
+    id: "aws-soa-368",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d4",
+    domainName: "Security and Compliance",
+    title: "Key rotation every 180 days without breaking data",
+    scenario: "A bank's policy requires the cryptographic material of its customer managed KMS keys to change every 180 days. Applications and existing ciphertext encrypted over many years must keep working without re-encrypting data or changing key IDs in code.",
+    question: "What should the engineer configure?",
+    options: [
+      { id: 'A', text: "Enable automatic key rotation on each key with a rotation period of 180 days." },
+      { id: 'B', text: "Schedule each key for deletion after 180 days and rely on AWS to issue a new one." },
+      { id: 'C', text: "Enable rotation on the AWS managed keys, which rotate on any period you choose." },
+      { id: 'D', text: "Create a new key every 180 days and update applications to use the new key ID." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Automatic rotation on a symmetric customer managed key generates new key material on a configurable period between 90 and 2,560 days, while the key ID, ARN and policies stay the same; KMS keeps older material to decrypt existing ciphertext, so nothing needs re-encrypting. Creating new keys forces code changes and leaves old data under old keys. Deleting keys makes data encrypted under them unrecoverable. AWS managed keys rotate yearly on a schedule that customers cannot change.",
+    referenceUrl: "https://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html",
+    tags: ["KMS", "Key rotation"]
+  },
+  {
+    id: "aws-soa-369",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d4",
+    domainName: "Security and Compliance",
+    title: "IAM policies that do nothing for one key",
+    scenario: "An administrator created a customer managed key with a key policy that lists only two named IAM roles as key users and administrators. Later, an IAM policy granting kms:Decrypt on the key was attached to a batch job role, but the job still receives AccessDenied from KMS.",
+    question: "Why does the IAM policy have no effect, and what fixes it?",
+    options: [
+      { id: 'A', text: "KMS requires a grant for every role; create a grant for the job role instead of relying on the IAM policy." },
+      { id: 'B', text: "The key policy does not delegate to IAM; add the job role to it, or add the account root statement." },
+      { id: 'C', text: "The job role needs kms:CreateGrant in its IAM policy before kms:Decrypt can be used with the key." },
+      { id: 'D', text: "IAM policies for KMS apply only after 24 hours of propagation; wait a day and run the batch job again." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "Every KMS key's access starts from its key policy. IAM policies take effect only if the key policy includes a statement giving the account (the root principal) access, which delegates authorization to IAM; this key policy lists only two roles, so IAM grants are ignored. Adding the job role to the key policy, or adding the account statement so IAM policies apply, fixes it. Grants are an alternative mechanism, not a requirement for every role. IAM changes propagate within seconds or minutes, not a day. CreateGrant is unrelated to direct Decrypt calls.",
+    referenceUrl: "https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-default.html",
+    tags: ["KMS", "Key policy", "IAM"]
+  },
+  {
+    id: "aws-soa-370",
+    difficulty: "hard",
+    certId: "aws-soa",
+    domainId: "d4",
+    domainName: "Security and Compliance",
+    title: "KMS throttling from a busy SSE-KMS bucket",
+    scenario: "A log-ingestion pipeline writes about 12,000 small objects per second to an S3 bucket with default encryption set to SSE-KMS with a customer managed key. PUT requests are failing intermittently, CloudTrail shows ThrottlingException on kms:GenerateDataKey, and the KMS bill has become significant.",
+    question: "Which change best addresses both the throttling and the cost?",
+    options: [
+      { id: 'A', text: "Create a second customer managed key and alternate uploads between the two keys by object prefix." },
+      { id: 'B', text: "Move the key to an AWS CloudHSM custom key store, which removes the KMS request rate quota entirely." },
+      { id: 'C', text: "Enable an S3 Bucket Key so S3 uses a bucket-level key and makes far fewer KMS requests." },
+      { id: 'D', text: "Switch the customer managed key to a multi-Region key so requests are spread across several Regions." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "An S3 Bucket Key lets S3 generate a short-lived bucket-level data key from KMS and use it to create object keys locally, reducing KMS requests by up to 99 percent, which relieves the throttling and cuts request costs while keeping SSE-KMS. Multi-Region keys replicate key material to other Regions but requests from this bucket still go to the local key. Custom key stores backed by CloudHSM have their own, typically lower, throughput limits and add cost. Splitting traffic across two keys does not raise the account's shared per-Region request quota for cryptographic operations.",
+    referenceUrl: "https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucket-key.html",
+    tags: ["S3", "KMS", "Bucket Keys"]
+  },
+  {
+    id: "aws-soa-371",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d4",
+    domainName: "Security and Compliance",
+    title: "Analytics account reading an encrypted bucket",
+    scenario: "A data bucket in account A uses SSE-KMS with a customer managed key in account A. An analytics role in account B has been added to the bucket policy with s3:GetObject, yet it receives AccessDenied when reading objects. The role's IAM policy in account B allows s3:GetObject on the bucket.",
+    question: "What else is required for the analytics role to read the objects?",
+    options: [
+      { id: 'A', text: "Add s3:GetObjectAcl to the role's IAM policy so that the object owner check passes for account B." },
+      { id: 'B', text: "Allow account B in the key policy and give the role an IAM policy allowing kms:Decrypt on the key." },
+      { id: 'C', text: "Share the KMS key with account B through AWS RAM and accept the resource share in account B." },
+      { id: 'D', text: "Change the bucket's default encryption to SSE-S3, since SSE-KMS objects cannot be read cross-account." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "Reading an SSE-KMS object requires kms:Decrypt on its key as well as S3 permissions. Cross-account KMS access needs both halves: the key policy in account A must allow account B (or the specific role), and the role's IAM policy in account B must allow kms:Decrypt on the key's ARN. KMS keys are not shared through RAM. SSE-KMS objects can be read across accounts once key permissions are in place, and switching to SSE-S3 weakens the key controls the design chose. Object ACL permissions are unrelated to decryption.",
+    referenceUrl: "https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-modifying-external-accounts.html",
+    tags: ["KMS", "Cross-account", "S3"]
+  },
+  {
+    id: "aws-soa-372",
+    difficulty: "hard",
+    certId: "aws-soa",
+    domainId: "d4",
+    domainName: "Security and Compliance",
+    title: "Key scheduled for deletion by mistake",
+    scenario: "During a cleanup, an engineer scheduled a customer managed KMS key for deletion with a 30-day waiting period, not realizing it encrypts a production DynamoDB table and several EBS volumes. Three days later, applications start failing with KMS errors stating that the key is pending deletion.",
+    question: "Which two actions restore service? (Choose two.)",
+    options: [
+      { id: 'A', text: "Cancel the key's scheduled deletion while still in the waiting period." },
+      { id: 'B', text: "Import the old key material into a new key to decrypt the existing data." },
+      { id: 'C', text: "Enable the key, because cancelling deletion leaves it in the Disabled state." },
+      { id: 'D', text: "Create a new key with the same alias, scheduled to replace the old key." },
+      { id: 'E', text: "Restore the key from the AWS Backup vault that holds its key material." }
+    ],
+    correctAnswers: ['A', 'C'],
+    type: "multiple",
+    explanation: "A key pending deletion cannot be used for cryptographic operations, but deletion can be cancelled at any time during the 7 to 30-day waiting period; after cancellation the key is in the Disabled state and must be enabled before applications can use it again. A new key with the same alias cannot decrypt data encrypted under the old key's material. KMS-generated key material cannot be exported, so there is nothing to import. AWS Backup does not back up KMS keys.",
+    referenceUrl: "https://docs.aws.amazon.com/kms/latest/developerguide/deleting-keys-scheduling-key-deletion.html",
+    tags: ["KMS", "Key deletion", "Recovery"]
+  },
+  {
+    id: "aws-soa-373",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d4",
+    domainName: "Security and Compliance",
+    title: "Old objects still under the retired key",
+    scenario: "A team changed an S3 bucket's default encryption from SSE-S3 to SSE-KMS with a new customer managed key. Months later, an audit finds that the 40 million objects uploaded before the change are still encrypted with SSE-S3, and compliance requires all objects to use the new key.",
+    question: "What is the most efficient way to re-encrypt the existing objects?",
+    options: [
+      { id: 'A', text: "Enable an S3 Bucket Key on the bucket so existing objects are re-encrypted under the bucket-level key." },
+      { id: 'B', text: "Wait for the default encryption setting to rewrite each existing object during the bucket's next maintenance." },
+      { id: 'C', text: "Run an S3 Batch Operations Copy job over an S3 Inventory manifest, copying objects in place with the new key." },
+      { id: 'D', text: "Add a lifecycle rule transitioning all objects to Standard-IA, which re-encrypts them with the default key." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "Default encryption applies only to objects written after it is set. Copying each object onto itself with the new SSE-KMS settings re-encrypts it, and S3 Batch Operations runs that copy across millions of objects from an Inventory report with tracking and a completion report. S3 has no maintenance process that rewrites existing objects. A Bucket Key changes how new SSE-KMS objects obtain data keys and does not touch existing objects. Lifecycle transitions change the storage class but keep each object's existing encryption.",
+    referenceUrl: "https://docs.aws.amazon.com/AmazonS3/latest/userguide/batch-ops-copy-object.html",
+    tags: ["S3", "Batch Operations", "Encryption at rest"]
+  },
+  {
+    id: "aws-soa-374",
+    difficulty: "hard",
+    certId: "aws-soa",
+    domainId: "d4",
+    domainName: "Security and Compliance",
+    title: "Letting EBS use a key without broad decrypt rights",
+    scenario: "An operations role launches EC2 instances with EBS volumes encrypted under a customer managed key. Security wants the role unable to call kms:Decrypt directly on arbitrary data with that key, while EC2 must still be able to use the key for the role's volumes.",
+    question: "Which key policy statement for the role best meets this requirement?",
+    options: [
+      { id: 'A', text: "Allow kms:Decrypt and kms:GenerateDataKey with a condition that aws:SourceIp is in the VPC's range." },
+      { id: 'B', text: "Allow kms:Encrypt only, since EBS decrypts volumes with the AWS managed aws/ebs key during launch." },
+      { id: 'C', text: "Allow kms:* on the key for the role, relying on an SCP to block direct Decrypt calls from the console." },
+      { id: 'D', text: "Allow kms:CreateGrant with the kms:GrantIsForAWSResource condition set to true, plus the kms:DescribeKey action." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "EBS uses KMS grants to decrypt volume data keys on the role's behalf. Allowing kms:CreateGrant only when kms:GrantIsForAWSResource is true lets the role create grants for AWS services integrated with KMS, such as EC2 and EBS, but not grants for itself, and without kms:Decrypt the role cannot decrypt arbitrary ciphertext directly. Source IP conditions do not apply to calls EC2 makes on the role's behalf and still allow direct decryption. kms:* grants direct decryption, and SCPs are not a precise tool for this. Volumes encrypted with a customer managed key are never decrypted with aws/ebs.",
+    referenceUrl: "https://docs.aws.amazon.com/kms/latest/developerguide/conditions-kms.html",
+    tags: ["KMS", "Grants", "EBS"]
+  },
+  {
+    id: "aws-soa-375",
+    difficulty: "easy",
+    certId: "aws-soa",
+    domainId: "d4",
+    domainName: "Security and Compliance",
+    title: "A shared file system created unencrypted",
+    scenario: "An Amazon EFS file system holding engineering documents was created without encryption at rest two years ago. Policy now requires encryption at rest with a customer managed key for all file systems, and a brief write freeze is acceptable for the cutover.",
+    question: "How should the engineer meet the requirement?",
+    options: [
+      { id: 'A', text: "Edit the existing file system and turn on encryption at rest with the key, which applies within minutes." },
+      { id: 'B', text: "Enable encryption in transit on the mount helper so that data written to the file system is encrypted." },
+      { id: 'C', text: "Create a new EFS file system encrypted with the key, copy the data with AWS DataSync, then switch the mounts." },
+      { id: 'D', text: "Turn on EBS encryption by default in the Region so that the file system's underlying storage is encrypted." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "EFS encryption at rest can only be enabled when a file system is created, so the data has to move to a new encrypted file system; DataSync copies it efficiently, and clients are remounted during the freeze. The setting cannot be changed on an existing file system. Encryption in transit protects data on the network between clients and EFS, not stored data. EBS encryption by default applies to EBS volumes and snapshots, not to EFS.",
+    referenceUrl: "https://docs.aws.amazon.com/efs/latest/ug/encryption-at-rest.html",
+    tags: ["Amazon EFS", "Encryption at rest"]
+  }
+];
+
+export default AWS_SOA_QUESTIONS_15;

@@ -1,0 +1,532 @@
+export const AWS_SOA_QUESTIONS_1 = [
+  {
+    id: "aws-soa-1",
+    difficulty: "easy",
+    certId: "aws-soa",
+    domainId: "d1",
+    domainName: "Monitoring, Logging, Analysis, Remediation, and Performance Optimization",
+    title: "Auditing object downloads from a payroll bucket",
+    scenario: "A payroll provider already runs a multi-Region CloudTrail trail that records management events to a central S3 bucket. Auditors now want every GetObject and PutObject call against one payroll bucket recorded with the caller's IAM identity, in the same trail and log format as the existing events.",
+    question: "What should the CloudOps engineer configure?",
+    options: [
+      { id: 'A', text: "Enable network activity events on the trail for the S3 gateway endpoint so each object request through the endpoint is captured." },
+      { id: 'B', text: "Enable CloudTrail Insights events on the trail so that read and write activity against the payroll bucket is written to the log files automatically." },
+      { id: 'C', text: "Rely on CloudTrail event history, which keeps 90 days of object-level API calls for every bucket in the account at no extra charge." },
+      { id: 'D', text: "Add an S3 data event selector to the existing trail that is scoped to the payroll bucket so object-level API calls are logged." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Object-level operations such as GetObject and PutObject are data events, which trails do not record by default; adding a data event selector (optionally narrowed with advanced event selectors to one bucket ARN) makes the existing trail deliver them in the same format with full userIdentity details. CloudTrail Insights detects unusual rates of management API calls or errors and does not log individual object requests. Network activity events record API calls that traverse VPC endpoints, which would miss requests made over the public endpoint and is not the object-level audit record the auditors want. Event history holds only management events for 90 days, never data events.",
+    referenceUrl: "https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html",
+    tags: ["CloudTrail","Data events","S3"]
+  },
+  {
+    id: "aws-soa-2",
+    difficulty: "easy",
+    certId: "aws-soa",
+    domainId: "d1",
+    domainName: "Monitoring, Logging, Analysis, Remediation, and Performance Optimization",
+    title: "Memory pressure invisible on an EC2 fleet",
+    scenario: "An e-commerce team runs a Java application on 40 Amazon Linux EC2 instances. During a sale the application slowed down, and the engineers suspect heap and memory exhaustion, but the CloudWatch console shows only CPU, network, disk, and status check metrics for the instances.",
+    question: "What must the CloudOps engineer do to start collecting memory utilization for the fleet?",
+    options: [
+      { id: 'A', text: "Install the CloudWatch agent on the instances with a configuration that collects the mem_used_percent metric from the OS." },
+      { id: 'B', text: "Enable the EC2 instance status check alarms, which report memory exhaustion on the guest OS as an impaired instance status." },
+      { id: 'C', text: "Turn on detailed monitoring for each instance so that CloudWatch publishes all EC2 metrics, memory included, at one-minute granularity." },
+      { id: 'D', text: "Opt the instances into AWS Compute Optimizer so that it records memory utilization and publishes the readings to CloudWatch." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "The hypervisor cannot see inside the guest operating system, so memory and disk-space figures are not part of the default EC2 metrics; the CloudWatch agent reads them from the OS and publishes them to the CWAgent namespace. Detailed monitoring only raises the frequency of the existing hypervisor metrics to one minute and adds no memory metric. Compute Optimizer consumes memory metrics that the CloudWatch agent publishes; it does not collect them itself. The instance status check can fail on exhausted memory, but it is a pass or fail signal, not a utilization metric that shows the trend.",
+    referenceUrl: "https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/metrics-collected-by-CloudWatch-agent.html",
+    tags: ["CloudWatch agent","EC2","Metrics"]
+  },
+  {
+    id: "aws-soa-3",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d1",
+    domainName: "Monitoring, Logging, Analysis, Remediation, and Performance Optimization",
+    title: "Cold starts and memory use in a payments Lambda",
+    scenario: "A payments company runs 60 Lambda functions behind API Gateway. Engineers want per-function memory utilization, CPU time, and initialization duration for cold starts in CloudWatch so they can right-size memory settings. The change must not require any modification to the function code.",
+    question: "Which approach meets the requirement?",
+    options: [
+      { id: 'A', text: "Install the CloudWatch agent through a Lambda layer and point it at a configuration that collects memory and CPU from the execution environment." },
+      { id: 'B', text: "Add the Lambda Insights extension layer to each function and grant the execution role the Lambda Insights execution policy for publishing." },
+      { id: 'C', text: "Emit the figures with the CloudWatch embedded metric format from each handler so that CloudWatch extracts them into custom metrics." },
+      { id: 'D', text: "Enable AWS X-Ray active tracing on each function and read memory utilization and cold start timing from the service map for every function." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "Lambda Insights runs as a Lambda extension added through a layer; it collects system-level figures such as memory_utilization, cpu_total_time, and init_duration and publishes them to the LambdaInsights namespace with no code changes, needing only the CloudWatchLambdaInsightsExecutionRolePolicy on the execution role. X-Ray traces show the initialization segment and request timing but not memory or CPU utilization. The embedded metric format works but requires code in every handler, which the requirement rules out. The CloudWatch agent is built for EC2, on-premises servers, and container clusters and is not supported inside the Lambda execution environment.",
+    referenceUrl: "https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Lambda-Insights.html",
+    tags: ["Lambda Insights","Lambda","Serverless monitoring"]
+  },
+  {
+    id: "aws-soa-4",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d1",
+    domainName: "Monitoring, Logging, Analysis, Remediation, and Performance Optimization",
+    title: "Keeping PromQL dashboards after moving to EKS",
+    scenario: "A media company is moving microservices to Amazon EKS. Its SRE team has years of Grafana dashboards and alerting rules written in PromQL and does not want to run, patch, or scale Prometheus servers or their storage. Metrics must be scraped from the pods without installing a collector in the cluster.",
+    question: "Which monitoring setup should the CloudOps engineer implement?",
+    options: [
+      { id: 'A', text: "Deploy the CloudWatch agent as a collector in the cluster so that the scraped pod metrics are stored in CloudWatch custom namespaces." },
+      { id: 'B', text: "Create an Amazon Managed Service for Prometheus workspace and attach an AWS managed collector that scrapes the EKS cluster's pods." },
+      { id: 'C', text: "Run a self-managed Prometheus server on EC2 with a large gp3 volume that scrapes the pods and serves the existing Grafana dashboards." },
+      { id: 'D', text: "Enable Container Insights with enhanced observability through the CloudWatch add-on and rebuild the dashboards on its CloudWatch pod metrics." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "Amazon Managed Service for Prometheus is PromQL-compatible and fully managed, and its AWS managed collector scrapes the EKS cluster agentlessly, so the existing Grafana dashboards and rules keep working with no Prometheus servers or in-cluster collector to operate. A self-managed Prometheus server on EC2 is exactly the patching and scaling burden the team wants to avoid. Container Insights is built around CloudWatch's own curated metrics and dashboards, so adopting it means rebuilding the team's Grafana estate rather than keeping it. The CloudWatch agent's Prometheus support stores scraped data as CloudWatch metrics and itself runs inside the cluster, breaking both constraints.",
+    referenceUrl: "https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-collector.html",
+    tags: ["Amazon Managed Service for Prometheus","EKS","PromQL"]
+  },
+  {
+    id: "aws-soa-5",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d1",
+    domainName: "Monitoring, Logging, Analysis, Remediation, and Performance Optimization",
+    title: "One agent configuration for 300 instances",
+    scenario: "A logistics company runs 300 EC2 instances managed by Systems Manager. Every instance must run the CloudWatch agent with an identical configuration, and when the configuration changes the operations team wants to edit it once and roll it out without logging in to any instance or rebuilding AMIs.",
+    question: "How should the CloudOps engineer manage the agent configuration?",
+    options: [
+      { id: 'A', text: "Keep the configuration in an S3 bucket and add a cron job on each instance that downloads the file and restarts the agent every hour." },
+      { id: 'B', text: "Store the configuration in a Parameter Store parameter and run the AmazonCloudWatch-ManageAgent document to fetch it on every instance." },
+      { id: 'C', text: "Place the configuration in an AppConfig profile and let each agent poll AppConfig for changes and reload itself once one is deployed." },
+      { id: 'D', text: "Bake the agent configuration file into the golden AMI and replace the instances through an Auto Scaling instance refresh after each edit." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "The CloudWatch agent can load its configuration straight from a Parameter Store parameter (fetch-config with an ssm: source), and the AmazonCloudWatch-ManageAgent Systems Manager document, run through Run Command or a State Manager association, installs, configures, and restarts the agent across the whole fleet from one place. Baking the file into an AMI forces an image rebuild and instance replacement for every edit, which the team wants to avoid. A per-instance cron job is fragile, restarts the agent whether or not anything changed, and gives no fleet-wide status. The CloudWatch agent has no built-in integration that polls AppConfig for its configuration.",
+    referenceUrl: "https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/installing-cloudwatch-agent-ssm.html",
+    tags: ["CloudWatch agent","Parameter Store","Systems Manager"]
+  },
+  {
+    id: "aws-soa-6",
+    difficulty: "hard",
+    certId: "aws-soa",
+    domainId: "d1",
+    domainName: "Monitoring, Logging, Analysis, Remediation, and Performance Optimization",
+    title: "Agent running but no metrics arriving",
+    scenario: "A CloudOps engineer installed the CloudWatch agent on a new EC2 instance, and the agent reports as running. No CWAgent metrics appear, and the agent log repeatedly shows AccessDeniedException for cloudwatch:PutMetricData. The instance's IAM role has only the AmazonSSMManagedInstanceCore policy, and the instance reaches public AWS endpoints through a NAT gateway.",
+    question: "What is the least-privilege fix?",
+    options: [
+      { id: 'A', text: "Attach the CloudWatchAgentServerPolicy managed policy to the instance role that the instance profile already delivers to the agent." },
+      { id: 'B', text: "Attach the CloudWatchAgentAdminPolicy managed policy to the instance role so the agent may publish metrics and write its configuration." },
+      { id: 'C', text: "Reconfigure the agent to run in onPremise mode with an access key for an IAM user that holds the CloudWatchFullAccess managed policy." },
+      { id: 'D', text: "Create an interface VPC endpoint for the monitoring service so that the agent's PutMetricData calls stop leaving the VPC through the NAT gateway." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "AccessDeniedException means the request reached CloudWatch and was rejected on permissions, and CloudWatchAgentServerPolicy grants exactly what a running agent needs: PutMetricData, CloudWatch Logs writes, a few EC2 describe calls, and reading AmazonCloudWatch- parameters. A VPC endpoint changes the network path, but connectivity is not the problem; a network fault would show timeouts, not an authorization error. CloudWatchAgentAdminPolicy also allows writing the configuration to Parameter Store, which is meant for the one instance used to author a configuration, so it exceeds least privilege. Long-term IAM user keys on an EC2 instance, with full CloudWatch access, are both less secure and far broader than necessary.",
+    referenceUrl: "https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/create-iam-roles-for-cloudwatch-agent.html",
+    tags: ["CloudWatch agent","IAM","Troubleshooting"]
+  },
+  {
+    id: "aws-soa-7",
+    difficulty: "easy",
+    certId: "aws-soa",
+    domainId: "d1",
+    domainName: "Monitoring, Logging, Analysis, Remediation, and Performance Optimization",
+    title: "Paging only when both signals are bad",
+    scenario: "An online learning platform has one alarm on API Gateway 5XXError and another on p99 Latency for the same API. Either metric occasionally spikes alone for harmless reasons, and the on-call engineer is paged for each spike. The team wants a single page only when both alarms are in the ALARM state at the same time, while keeping both existing alarms.",
+    question: "What should the CloudOps engineer create?",
+    options: [
+      { id: 'A', text: "A change to both alarms so that they require 5 of 5 datapoints to breach, which filters out the brief spikes before anyone is paged." },
+      { id: 'B', text: "A composite alarm whose rule expression combines the two existing alarms with AND and notifies the on-call SNS topic." },
+      { id: 'C', text: "An SNS subscription filter policy on the on-call topic that delivers a message only when two alarm notifications arrive together." },
+      { id: 'D', text: "An anomaly detection alarm on the 5XXError metric, with a wider band so that the harmless spikes stay inside the expected range." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "A composite alarm evaluates the states of other alarms through a rule expression such as ALARM(api-5xx) AND ALARM(api-latency), so it pages only when both conditions hold, and the underlying alarms can have their own actions removed to cut the noise. An anomaly detection band changes how one metric is judged but never ties the page to the second signal. Requiring more breaching datapoints delays alerts on a genuine incident and still pages for a sustained spike in just one metric. SNS filter policies match attributes on individual messages; they cannot correlate two separate notifications.",
+    referenceUrl: "https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Create_Composite_Alarm.html",
+    tags: ["Composite alarms","CloudWatch alarms","Alert noise"]
+  },
+  {
+    id: "aws-soa-8",
+    difficulty: "hard",
+    certId: "aws-soa",
+    domainId: "d1",
+    domainName: "Monitoring, Logging, Analysis, Remediation, and Performance Optimization",
+    title: "Restarting a web server from a composite alarm",
+    scenario: "A ticketing company built a composite alarm that goes into ALARM when both the StatusCheckFailed_Instance alarm and a custom health-check alarm fire for a legacy web server. The team tried to add an EC2 reboot action to the composite alarm and the console did not offer it. They still want the instance restarted automatically when the composite alarm fires.",
+    question: "Which approach achieves this?",
+    options: [
+      { id: 'A', text: "Attach the EC2 reboot action to the custom health-check child alarm, so that a breach of that alarm alone restarts the web server." },
+      { id: 'B', text: "Replace the composite alarm with a metric math alarm that sums both metrics, and attach the EC2 reboot action to that combined alarm." },
+      { id: 'C', text: "Create an EventBridge rule for the composite alarm's state change event that starts the AWS-RestartEC2Instance Automation runbook." },
+      { id: 'D', text: "Add an Auto Scaling action to the composite alarm that sets the group's desired capacity to zero and then back to one to cycle the server." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "Composite alarms cannot perform EC2 or Auto Scaling actions, but every alarm state change is emitted to EventBridge, so a rule matching the CloudWatch Alarm State Change event for this composite alarm can invoke the AWS-RestartEC2Instance Automation runbook as a target. Auto Scaling actions are equally unavailable on a composite alarm, and the server is not in a group. EC2 actions require an alarm on a single EC2 per-instance metric, so a metric math alarm combining a custom metric cannot carry the reboot action either. Putting the action on one child alarm restarts the server when only that signal fires, which defeats the reason the composite alarm exists.",
+    referenceUrl: "https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch-and-eventbridge.html",
+    tags: ["Composite alarms","EventBridge","Systems Manager Automation"]
+  },
+  {
+    id: "aws-soa-9",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d1",
+    domainName: "Monitoring, Logging, Analysis, Remediation, and Performance Optimization",
+    title: "Noticing when a nightly job silently stops",
+    scenario: "A reinsurance firm's nightly reconciliation job publishes a custom metric, RecordsReconciled, only when it runs. Last month the job's scheduler broke and the job did not run for four nights, and the existing alarm, which fires when the metric is below 1, stayed in INSUFFICIENT_DATA. The team wants the alarm to go into ALARM when the job does not report.",
+    question: "How should the alarm's missing-data behavior be set?",
+    options: [
+      { id: 'A', text: "Treat missing data as breaching, so that each evaluation period without a datapoint counts toward moving the alarm into ALARM." },
+      { id: 'B', text: "Treat missing data as ignore, so that the alarm holds its current state until the job publishes a new datapoint to evaluate." },
+      { id: 'C', text: "Treat missing data as notBreaching, so that each night without a datapoint counts as a normal night for the alarm evaluation." },
+      { id: 'D', text: "Treat missing data as missing, and raise the evaluation periods so the alarm has enough history before it changes state." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "When a metric is published only on success, the absence of a datapoint is itself the failure signal, so treating missing data as breaching makes empty periods count against the threshold and moves the alarm into ALARM. notBreaching would read every silent night as healthy, the opposite of what is wanted. ignore keeps the previous state, so an alarm sitting in OK would stay in OK for as long as the job was down. missing is the default behavior that produced INSUFFICIENT_DATA in the first place, and adding evaluation periods only lengthens the delay.",
+    referenceUrl: "https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/alarms-and-missing-data.html",
+    tags: ["CloudWatch alarms","Missing data","Custom metrics"]
+  },
+  {
+    id: "aws-soa-10",
+    difficulty: "easy",
+    certId: "aws-soa",
+    domainId: "d1",
+    domainName: "Monitoring, Logging, Analysis, Remediation, and Performance Optimization",
+    title: "Recovering an instance after host hardware fails",
+    scenario: "A small SaaS vendor runs its license server on a single EC2 instance with an Elastic IP address and EBS volumes only. When the underlying host hardware fails, the vendor wants the instance moved to healthy hardware automatically, keeping its instance ID, private IP address, and Elastic IP address.",
+    question: "Which alarm configuration should the CloudOps engineer create?",
+    options: [
+      { id: 'A', text: "An alarm on CPUUtilization with an Auto Scaling action that launches a replacement instance from the latest AMI in a new subnet." },
+      { id: 'B', text: "An alarm on StatusCheckFailed_System with the EC2 recover action, which migrates the instance to a new host with the same identity." },
+      { id: 'C', text: "An alarm on StatusCheckFailed_Instance with a reboot action, so that the guest operating system is restarted on the current host." },
+      { id: 'D', text: "An alarm on StatusCheckFailed_System with the EC2 terminate action, followed by a launch template that restores the last snapshot." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "The system status check reflects failures of the underlying AWS host, and the recover action moves the instance to new hardware while preserving the instance ID, private IP addresses, Elastic IP addresses, and instance metadata, which is exactly the requirement for an EBS-backed instance. A reboot on the instance status check restarts the guest on the same failed host and addresses OS-level problems rather than hardware. An Auto Scaling replacement produces a new instance ID and IP address. Terminating and relaunching from a snapshot also changes the instance identity and risks losing data written since the snapshot.",
+    referenceUrl: "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-recover.html",
+    tags: ["CloudWatch alarms","EC2 recover","Status checks"]
+  },
+  {
+    id: "aws-soa-11",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d1",
+    domainName: "Monitoring, Logging, Analysis, Remediation, and Performance Optimization",
+    title: "Ignoring single-minute queue spikes",
+    scenario: "A food delivery app alarms when the ApproximateAgeOfOldestMessage of its orders queue exceeds 120 seconds, with a 1-minute period and 1 evaluation period. Brief single-minute spikes during lunch trigger pages even though the queue drains on its own, but a backlog that persists for about three minutes out of five is a real incident that must still page quickly.",
+    question: "How should the alarm evaluation be changed?",
+    options: [
+      { id: 'A', text: "Set evaluation periods to 5 and datapoints to alarm to 5, so the alarm fires only after five consecutive breaching one-minute periods." },
+      { id: 'B', text: "Set evaluation periods to 5 and datapoints to alarm to 3, so the alarm fires when any 3 of the last 5 one-minute periods breach." },
+      { id: 'C', text: "Set the period to 5 minutes with 1 evaluation period, so that the average age across five minutes smooths away the brief spikes." },
+      { id: 'D', text: "Switch the alarm statistic from Maximum to Minimum, so the lowest reading in each one-minute period decides whether it breaches." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "An M out of N alarm with 3 of 5 datapoints tolerates isolated one-minute spikes but fires as soon as three of the last five minutes breach, matching the stated definition of a real incident. A single 5-minute average can hide a serious backlog behind a few quiet minutes and still fires only after the period completes. Requiring all 5 consecutive datapoints misses a backlog that breaches three or four minutes out of five and delays every page. Using the Minimum statistic changes what each datapoint means and would miss backlogs that fluctuate within the minute.",
+    referenceUrl: "https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html",
+    tags: ["CloudWatch alarms","M out of N","SQS"]
+  },
+  {
+    id: "aws-soa-12",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d1",
+    domainName: "Monitoring, Logging, Analysis, Remediation, and Performance Optimization",
+    title: "Tamper-evident trail for every member account",
+    scenario: "A healthcare group with 45 accounts in AWS Organizations must record management events from every current and future account into a log archive bucket. Its auditors also require proof that no delivered log file was modified or deleted after CloudTrail wrote it.",
+    question: "Which two actions meet these requirements? (Choose two.)",
+    options: [
+      { id: 'A', text: "Enable CloudTrail Insights on the trail so that abnormal write activity against each delivered log file is flagged for the auditors." },
+      { id: 'B', text: "Create a separate management events trail in each member account with a CloudFormation StackSet and let each account choose its own bucket for delivery." },
+      { id: 'C', text: "Enable S3 Transfer Acceleration on the log archive bucket so that log files from distant Regions are delivered without any loss in transit." },
+      { id: 'D', text: "Create an organization trail from the management account or a delegated administrator account that delivers to the log archive bucket." },
+      { id: 'E', text: "Enable CloudTrail log file integrity validation on the trail so that signed digest files allow each delivered log file to be verified." }
+    ],
+    correctAnswers: ['D', 'E'],
+    type: "multiple",
+    explanation: "An organization trail created from the management account or a delegated administrator applies automatically to every existing and newly joined member account and cannot be modified or deleted by those members. Log file integrity validation writes hourly digest files signed with SHA-256 and RSA, which lets auditors prove whether any log file was altered or removed after delivery. CloudTrail Insights measures unusual API call and error rates; it does not verify log files. Per-account trails built with StackSets leave each account's administrators able to stop or reroute them, and letting each choose a bucket breaks centralization. Transfer Acceleration speeds client uploads and plays no part in CloudTrail delivery or integrity.",
+    referenceUrl: "https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-log-file-validation-intro.html",
+    tags: ["CloudTrail","Organization trail","Log file validation"]
+  },
+  {
+    id: "aws-soa-13",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d1",
+    domainName: "Monitoring, Logging, Analysis, Remediation, and Performance Optimization",
+    title: "Alerting on any root user sign-in",
+    scenario: "A fintech startup sends its CloudTrail trail to a CloudWatch Logs log group. The security lead wants an SNS notification within minutes whenever the account's root user is used for any API call or console sign-in, and wants to build it with native CloudWatch features rather than custom code.",
+    question: "What should the CloudOps engineer implement?",
+    options: [
+      { id: 'A', text: "Schedule an hourly Athena query over the trail's S3 bucket that looks for root activity and sends any matching rows to the SNS topic." },
+      { id: 'B', text: "Enable CloudTrail Insights on the trail and subscribe the SNS topic to the Insights events that the trail writes for the account." },
+      { id: 'C', text: "Create a metric filter on the log group matching userIdentity.type of Root, then an alarm on the resulting metric that notifies SNS." },
+      { id: 'D', text: "Configure an S3 event notification on the trail's bucket that publishes to the SNS topic whenever a new CloudTrail log file arrives." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "A CloudWatch Logs metric filter with a pattern such as { $.userIdentity.type = \"Root\" } turns each matching CloudTrail event into a metric datapoint, and an alarm with a threshold of 1 on that metric notifies SNS within minutes, entirely with native features. CloudTrail Insights flags unusual call volumes or error rates, not specific identities, so a single root sign-in would not register. An S3 event notification fires for every log file delivered, which would page constantly regardless of who made the calls. A scheduled Athena query needs custom glue to publish results and adds up to an hour of delay.",
+    referenceUrl: "https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/MonitoringLogData.html",
+    tags: ["Metric filters","CloudTrail","CloudWatch Logs"]
+  },
+  {
+    id: "aws-soa-14",
+    difficulty: "hard",
+    certId: "aws-soa",
+    domainId: "d1",
+    domainName: "Monitoring, Logging, Analysis, Remediation, and Performance Optimization",
+    title: "A new metric filter shows no history",
+    scenario: "During an incident review, a CloudOps engineer creates a metric filter that counts OutOfMemoryError lines in an application log group, hoping to chart how often the errors occurred during the past two weeks. The new metric shows no datapoints at all, although the engineer can see many matching lines from last week in the log group.",
+    question: "What explains the empty metric, and how can the engineer get the historical count?",
+    options: [
+      { id: 'A', text: "The filter pattern needs quoting because it contains no spaces; add double quotes and the filter will backfill the past two weeks." },
+      { id: 'B', text: "Metric filters apply only to events ingested after creation; run a CloudWatch Logs Insights query to count the historical matches." },
+      { id: 'C', text: "The metric was published with a one-minute resolution; switch the graph to a one-week period to see the historical count." },
+      { id: 'D', text: "The log group uses the Infrequent Access log class, which blocks metric filters; move it to Standard and history will be processed." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "Metric filters evaluate log events as they are ingested and never process data already stored, so a filter created today cannot produce datapoints for last week; a Logs Insights query using filter and stats count(*) by bin() gives the historical counts immediately. Quoting a single-word term changes nothing, and no quoting makes a filter retroactive. The Infrequent Access log class does not support metric filters, but that would block the filter from working at all, and changing a log group's class is not possible after creation. Changing the graph period cannot display datapoints that were never published.",
+    referenceUrl: "https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/MonitoringPolicyExamples.html",
+    tags: ["Metric filters","CloudWatch Logs Insights","Troubleshooting"]
+  },
+  {
+    id: "aws-soa-15",
+    difficulty: "easy",
+    certId: "aws-soa",
+    domainId: "d1",
+    domainName: "Monitoring, Logging, Analysis, Remediation, and Performance Optimization",
+    title: "Log storage growing without limit",
+    scenario: "A retail company notices that its CloudWatch Logs storage charge has grown every month for three years. Its policy requires application logs to be kept for 90 days only, but nobody ever changed any setting on the 200 log groups created by its Lambda functions and ECS services.",
+    question: "What change addresses the growing storage cost?",
+    options: [
+      { id: 'A', text: "Reduce the Lambda functions' log level to ERROR, because the service deletes log events once the log group reaches its quota." },
+      { id: 'B', text: "Enable the Infrequent Access log class on the existing log groups, because that class expires any event older than 90 days." },
+      { id: 'C', text: "Create a daily export task that moves each log group's events to S3, because exported events are removed from the log group." },
+      { id: 'D', text: "Set a 90-day retention period on each log group, because by default a log group keeps its events indefinitely." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "CloudWatch Logs log groups default to Never expire, so three years of events have accumulated; a retention setting of 90 days deletes older events automatically and caps the storage bill. Export tasks copy events to S3 and leave the originals in place, so storage keeps growing. The log class is chosen when a log group is created and does not impose any retention period; Infrequent Access lowers ingestion price, not the age of stored data. Lowering log verbosity reduces future ingestion, but there is no quota at which CloudWatch Logs discards stored events.",
+    referenceUrl: "https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.html",
+    tags: ["CloudWatch Logs","Retention","Cost"]
+  },
+  {
+    id: "aws-soa-16",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d1",
+    domainName: "Monitoring, Logging, Analysis, Remediation, and Performance Optimization",
+    title: "Task-level metrics for Fargate services",
+    scenario: "A travel booking company runs 25 ECS services on AWS Fargate in one cluster. Operations wants CPU, memory, network, and storage metrics per cluster, service, and task, plus automatic dashboards, without managing any additional containers in the task definitions.",
+    question: "What should the CloudOps engineer configure?",
+    options: [
+      { id: 'A', text: "Switch every task definition to the awslogs log driver so that CPU and memory statistics are written into CloudWatch Logs streams." },
+      { id: 'B', text: "Enable Container Insights on the ECS cluster, which collects task and service metrics for Fargate and adds curated performance views." },
+      { id: 'C', text: "Enable detailed monitoring on the cluster so ECS publishes its CPUUtilization and MemoryUtilization metrics every minute per task." },
+      { id: 'D', text: "Deploy the CloudWatch agent as an ECS daemon service in the cluster so a copy runs beside every Fargate task and reports its usage." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "Container Insights, enabled as a cluster or account setting, collects cluster, service, and task-level CPU, memory, network, and storage metrics from Fargate using the platform's own telemetry and provides automatic dashboards, with no sidecars to manage. The daemon scheduling strategy is not supported on Fargate, so an agent daemon service cannot run there. The awslogs driver ships container stdout and stderr, not resource metrics. ECS has no detailed monitoring switch, and its default CPUUtilization and MemoryUtilization metrics are published at cluster and service level, not per task.",
+    referenceUrl: "https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/ContainerInsights.html",
+    tags: ["Container Insights","ECS","Fargate"]
+  },
+  {
+    id: "aws-soa-17",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d1",
+    domainName: "Monitoring, Logging, Analysis, Remediation, and Performance Optimization",
+    title: "Bringing an EKS cluster into CloudWatch",
+    scenario: "A bank's platform team runs an Amazon EKS cluster on managed node groups. It wants node, pod, and container metrics with Container Insights, and container logs in CloudWatch Logs, installed and upgraded as a supported component rather than through hand-maintained manifests.",
+    question: "Which approach should the CloudOps engineer take?",
+    options: [
+      { id: 'A', text: "Turn on detailed monitoring in the managed node group's launch template so that each node publishes pod metrics every minute." },
+      { id: 'B', text: "Enable EKS control plane logging for the api, audit, and scheduler components so that node and pod metrics reach CloudWatch." },
+      { id: 'C', text: "Install the Amazon CloudWatch Observability EKS add-on, which deploys the CloudWatch agent and Fluent Bit for metrics and logs." },
+      { id: 'D', text: "Install the AWS Distro for OpenTelemetry add-on and send the pod metrics to an Amazon Managed Service for Prometheus workspace." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "The Amazon CloudWatch Observability EKS add-on is managed through the EKS add-on lifecycle and installs the CloudWatch agent and Fluent Bit, enabling Container Insights with enhanced observability for node, pod, and container metrics and shipping container logs to CloudWatch Logs. The ADOT add-on to Managed Service for Prometheus is a valid pipeline, but it produces Prometheus metrics rather than Container Insights and does not ship logs to CloudWatch Logs. Control plane logging sends API server, audit, and scheduler logs only, with no workload metrics. EC2 detailed monitoring raises hypervisor metric frequency and knows nothing about pods.",
+    referenceUrl: "https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/install-CloudWatch-Observability-EKS-addon.html",
+    tags: ["EKS","Container Insights","CloudWatch agent"]
+  },
+  {
+    id: "aws-soa-18",
+    difficulty: "hard",
+    certId: "aws-soa",
+    domainId: "d1",
+    domainName: "Monitoring, Logging, Analysis, Remediation, and Performance Optimization",
+    title: "Watching one daemon and its error log",
+    scenario: "A publishing company runs nginx on EC2 instances that already use the CloudWatch agent for memory and disk metrics. The team now wants the CPU and memory consumed specifically by the nginx processes, and wants /var/log/nginx/error.log shipped to a log group, all by editing the existing agent configuration file.",
+    question: "Which two changes to the agent configuration are needed? (Choose two.)",
+    options: [
+      { id: 'A', text: "Set metrics_collection_interval to 1 in the agent section so that the agent publishes per-process metrics at high resolution." },
+      { id: 'B', text: "Add a procstat entry under metrics_collected that matches the nginx executable and lists the cpu_usage and memory_rss measurements." },
+      { id: 'C', text: "Add a collectd section under metrics_collected so that the agent reads the nginx error log file from the collectd socket." },
+      { id: 'D', text: "Add a files entry under logs_collected with the error log's file_path and the destination log_group_name for the agent to use." },
+      { id: 'E', text: "Add a statsd section under metrics_collected so that the agent listens on UDP port 8125 for nginx process CPU and memory figures." }
+    ],
+    correctAnswers: ['B', 'D'],
+    type: "multiple",
+    explanation: "The procstat plugin collects metrics for individual processes selected by exe, pattern, or pid_file, so an entry matching nginx with cpu_usage and memory_rss reports what the nginx processes consume. Log files are shipped by a files entry under logs_collected that names the file_path and the log_group_name. StatsD is a listener for metrics that applications push to it; nginx does not emit process metrics over StatsD. collectd is likewise a metrics protocol and never carries log lines. A one-second collection interval changes resolution and cost but does not add per-process metrics.",
+    referenceUrl: "https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Agent-procstat-process-metrics.html",
+    tags: ["CloudWatch agent","procstat","Log collection"]
+  },
+  {
+    id: "aws-soa-19",
+    difficulty: "hard",
+    certId: "aws-soa",
+    domainId: "d1",
+    domainName: "Monitoring, Logging, Analysis, Remediation, and Performance Optimization",
+    title: "Fleet-wide memory for an Auto Scaling group",
+    scenario: "An analytics company's CloudWatch agent configuration publishes mem_used_percent with the InstanceId and AutoScalingGroupName dimensions appended. Because instances are replaced constantly, the team cannot build a stable alarm across per-instance series and wants one metric showing the group's average memory to drive a scaling alarm.",
+    question: "What change to the agent configuration provides that metric?",
+    options: [
+      { id: 'A', text: "Remove InstanceId from append_dimensions so that each instance publishes mem_used_percent with only AutoScalingGroupName." },
+      { id: 'B', text: "Add the group name as a global_dimensions entry so that CloudWatch adds up every instance's mem_used_percent into one series." },
+      { id: 'C', text: "Set force_flush_interval to 60 in the agent section so the agent sends the group's combined memory reading once every minute." },
+      { id: 'D', text: "Add aggregation_dimensions containing AutoScalingGroupName so the agent also publishes mem_used_percent rolled up per group." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "aggregation_dimensions tells the agent to publish additional series rolled up by the listed dimensions, so [[\"AutoScalingGroupName\"]] produces a per-group mem_used_percent that stays stable as instances come and go, while the per-instance series remain for troubleshooting. Dropping InstanceId would make every instance publish to the same series, which works only by accident and loses per-instance visibility. force_flush_interval controls how often buffered data is sent and does not aggregate anything. global_dimensions attaches a fixed dimension value to every metric but does not combine series; aggregation is what the rollup requires.",
+    referenceUrl: "https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Agent-Configuration-File-Details.html",
+    tags: ["CloudWatch agent","Dimensions","Auto Scaling"]
+  },
+  {
+    id: "aws-soa-20",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d1",
+    domainName: "Monitoring, Logging, Analysis, Remediation, and Performance Optimization",
+    title: "Auditing prompts sent to a foundation model",
+    scenario: "An insurance company's claims assistant calls Amazon Bedrock foundation models. CloudWatch already shows invocation counts and latency for the models, but the compliance team now needs the full request and response payloads for every call kept for one year, with the model ID and the calling identity.",
+    question: "What should the CloudOps engineer enable?",
+    options: [
+      { id: 'A', text: "Enable Bedrock model invocation logging with delivery to an S3 bucket and set a one-year lifecycle expiration on the bucket." },
+      { id: 'B', text: "Increase the retention of the AWS/Bedrock invocation metrics to one year so that the request payloads are kept with the counts." },
+      { id: 'C', text: "Enable CloudTrail data events for Amazon Bedrock on the account trail so that every prompt and model response is written to the trail." },
+      { id: 'D', text: "Enable Amazon CloudWatch Application Signals on the claims assistant so that each model's inputs and outputs are traced." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Model invocation logging, which is off by default, captures the input and output of each Bedrock call along with metadata such as the model ID and identity, and delivers it to CloudWatch Logs, S3, or both; an S3 lifecycle rule enforces the one-year retention cheaply. CloudTrail records Bedrock API calls for auditing but not the prompt and response bodies. The AWS/Bedrock runtime metrics are numeric counts and latencies, and metric retention is fixed by CloudWatch rather than configurable. Application Signals measures application latency, errors, and SLOs, not model payloads.",
+    referenceUrl: "https://docs.aws.amazon.com/bedrock/latest/userguide/model-invocation-logging.html",
+    tags: ["Amazon Bedrock","Invocation logging","AI monitoring"]
+  },
+  {
+    id: "aws-soa-21",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d1",
+    domainName: "Monitoring, Logging, Analysis, Remediation, and Performance Optimization",
+    title: "Execution logs missing for a REST API",
+    scenario: "A developer enabled CloudWatch execution logging at the INFO level on the prod stage of a newly created API Gateway REST API. Saving the stage failed with an error saying that no CloudWatch Logs role ARN is set. This is the first REST API in the account and Region.",
+    question: "What must the CloudOps engineer do to allow the logging?",
+    options: [
+      { id: 'A', text: "Attach the CloudWatchLogsFullAccess policy to the developer's own IAM role so the stage can write execution logs on behalf of that user." },
+      { id: 'B', text: "Create a role that API Gateway can assume with the push-to-CloudWatch-Logs policy and set it as the CloudWatch log role ARN in the account settings." },
+      { id: 'C', text: "Enable X-Ray tracing on the prod stage, which creates the execution log group automatically and grants API Gateway write access to it." },
+      { id: 'D', text: "Add a resource policy to the account's log group that allows the lambda.amazonaws.com principal to create streams and put log events in it." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "REST API execution and access logging write through a single IAM role per Region, set in the API Gateway account settings; the role trusts apigateway.amazonaws.com and carries the AmazonAPIGatewayPushToCloudWatchLogs managed policy. The developer's own permissions are irrelevant because API Gateway writes the logs itself. X-Ray tracing produces traces, not execution logs, and does not supply the role. A log group resource policy for the Lambda service principal addresses the wrong service, and REST API logging requires the account-level role in any case.",
+    referenceUrl: "https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html",
+    tags: ["API Gateway","CloudWatch Logs","Serverless monitoring"]
+  },
+  {
+    id: "aws-soa-22",
+    difficulty: "hard",
+    certId: "aws-soa",
+    domainId: "d1",
+    domainName: "Monitoring, Logging, Analysis, Remediation, and Performance Optimization",
+    title: "Reacting to ten-second pressure bursts",
+    scenario: "A trading firm's order router publishes a custom QueueDepth metric once every second. Surges that last 15 to 20 seconds cause rejected orders, but the current alarm, with a 60-second period on standard-resolution data, catches them late or not at all. The team accepts a higher alarm charge for faster detection.",
+    question: "What should the CloudOps engineer change?",
+    options: [
+      { id: 'A', text: "Publish QueueDepth as a high-resolution metric with a storage resolution of 1 second and create an alarm with a 10-second period." },
+      { id: 'B', text: "Keep QueueDepth at standard resolution and set the alarm to evaluate a 10-second period, because alarm periods do not depend on resolution." },
+      { id: 'C', text: "Enable detailed monitoring on the router's instances and keep the alarm period at 60 seconds, since that refreshes custom metrics every minute." },
+      { id: 'D', text: "Publish the metric every second as an embedded metric format log and alarm on a metric filter with a one-minute evaluation period." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Alarm periods below 60 seconds are allowed only on high-resolution metrics, so the metric must be published with a StorageResolution of 1, and a high-resolution alarm with a 10-second period then detects a 15-second surge within one or two periods, at the higher high-resolution alarm price. Detailed monitoring affects EC2's own metrics, not custom metrics, and leaves the 60-second period in place. A standard-resolution metric stores one-minute data, so a 10-second alarm has nothing to evaluate. Converting the data through logs and a metric filter still produces one-minute evaluation, which is the problem being solved.",
+    referenceUrl: "https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/publishingMetrics.html",
+    tags: ["High-resolution metrics","CloudWatch alarms","Custom metrics"]
+  },
+  {
+    id: "aws-soa-23",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d1",
+    domainName: "Monitoring, Logging, Analysis, Remediation, and Performance Optimization",
+    title: "An alarm fires but nobody is emailed",
+    scenario: "A CloudOps engineer's new alarm on an RDS instance's FreeStorageSpace shows ALARM in its history, with the state change recorded at the expected time. The alarm's action points to an SNS topic with one email endpoint, yet the database administrator received no email, and the SNS topic shows no deliveries for the period.",
+    question: "Which two conditions could explain the missing email? (Choose two.)",
+    options: [
+      { id: 'A', text: "The FreeStorageSpace metric is standard resolution, so the alarm action cannot run until a later one-minute period is evaluated." },
+      { id: 'B', text: "The alarm's actions are disabled, so it changes state normally but never runs the SNS notification action it is configured with." },
+      { id: 'C', text: "The alarm treats missing data as notBreaching, so periods without data prevented the action from running after the state change." },
+      { id: 'D', text: "The subscription is still pending confirmation, so SNS has no confirmed destination to which it can deliver the notification." },
+      { id: 'E', text: "The alarm requires 3 of 5 datapoints to breach, so it waited for more breaching datapoints before it would send a notification." }
+    ],
+    correctAnswers: ['B', 'D'],
+    type: "multiple",
+    explanation: "An email subscription that was never confirmed stays in PendingConfirmation, and SNS delivers nothing to it. An alarm whose actions were turned off with DisableAlarmActions still evaluates and records state changes in its history but runs no actions, so nothing reaches the topic. The M out of N setting, missing-data treatment, and metric resolution all affect whether and when the alarm enters ALARM; the history already shows the transition happened, so none of them can stop the action from running afterwards.",
+    referenceUrl: "https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/alarm-troubleshooting.html",
+    tags: ["CloudWatch alarms","SNS","Troubleshooting"]
+  },
+  {
+    id: "aws-soa-24",
+    difficulty: "easy",
+    certId: "aws-soa",
+    domainId: "d1",
+    domainName: "Monitoring, Logging, Analysis, Remediation, and Performance Optimization",
+    title: "Who stopped the build server last week",
+    scenario: "A design agency has never created a CloudTrail trail. On Monday a build server EC2 instance was found stopped, and the manager wants to know which IAM user stopped it sometime during the previous week, without setting anything up in advance.",
+    question: "Where can the CloudOps engineer find this information?",
+    options: [
+      { id: 'A', text: "In the CloudWatch metrics for the instance, where the StatusCheckFailed series is tagged with the principal who stopped it." },
+      { id: 'B', text: "In CloudTrail event history for the Region, which lists the past 90 days of management events such as StopInstances without any setup." },
+      { id: 'C', text: "In the EC2 instance's system log from the console, which records the name of the IAM principal that sent the stop request to it." },
+      { id: 'D', text: "In the instance's AWS Config configuration timeline, which records the IAM user who changed the instance state on every change." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "CloudTrail event history is available in every account without configuration and holds 90 days of management events per Region, including StopInstances with the userIdentity of the caller. AWS Config records configuration state over time, and it was not enabled; even when it is, it links to CloudTrail for the identity rather than recording the user itself. The instance's system log contains console output from the guest operating system, not API caller identities. CloudWatch metrics carry no information about which principal performed an action.",
+    referenceUrl: "https://docs.aws.amazon.com/awscloudtrail/latest/userguide/view-cloudtrail-events.html",
+    tags: ["CloudTrail","Event history","Auditing"]
+  },
+  {
+    id: "aws-soa-25",
+    difficulty: "easy",
+    certId: "aws-soa",
+    domainId: "d1",
+    domainName: "Monitoring, Logging, Analysis, Remediation, and Performance Optimization",
+    title: "Top error messages across three services",
+    scenario: "During an outage call, a CloudOps engineer needs the ten most frequent error messages from the last hour across three log groups belonging to the checkout, cart, and payment services. The answer is needed within minutes, and nothing has been set up in advance for this analysis.",
+    question: "Which approach gives the answer fastest?",
+    options: [
+      { id: 'A', text: "Run a CloudWatch Logs Insights query that targets all three log groups that filters errors and uses stats count by message." },
+      { id: 'B', text: "Add a subscription filter that streams the three log groups to an OpenSearch domain and build a visualization there." },
+      { id: 'C', text: "Create an export task for each log group to S3 and run an Athena query that groups the exported error messages by count." },
+      { id: 'D', text: "Create a metric filter on each log group that counts ERROR lines and graph the three metrics side by side on a dashboard." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "CloudWatch Logs Insights queries several log groups at once with no setup, and a query such as filter @message like /ERROR/ | stats count(*) by @message | sort by count desc | limit 10 returns the ranking in seconds. Metric filters count only events ingested after they are created and do not break counts down by message text. Export tasks can take hours to complete, and Athena would still need a table defined over the output. Streaming to OpenSearch only affects new events and requires a domain to be provisioned first.",
+    referenceUrl: "https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/AnalyzingLogData.html",
+    tags: ["CloudWatch Logs Insights","Troubleshooting","Log analysis"]
+  }
+];
+
+export default AWS_SOA_QUESTIONS_1;

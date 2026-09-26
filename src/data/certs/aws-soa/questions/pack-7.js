@@ -1,0 +1,532 @@
+export const AWS_SOA_QUESTIONS_7 = [
+  {
+    id: "aws-soa-151",
+    difficulty: "easy",
+    certId: "aws-soa",
+    domainId: "d2",
+    domainName: "Reliability and Business Continuity",
+    title: "Every target unhealthy after a login redirect",
+    scenario: "A law firm deployed a document portal behind an Application Load Balancer, and every target in the target group shows as unhealthy even though users who reach an instance directly can sign in. The target group checks the path / with a success code of 200, and the application answers unauthenticated requests to / with a 302 redirect to its sign-in page.",
+    question: "What should the CloudOps engineer change so the health checks reflect the application's real state?",
+    options: [
+      { id: 'A', text: "Switch the health check protocol from HTTP to HTTPS so the unauthenticated check reaches the sign-in page securely." },
+      { id: 'B', text: "Enable sticky sessions on the target group so that health check requests reuse an authenticated session cookie." },
+      { id: 'C', text: "Raise the unhealthy threshold count to 10 so that targets are not marked unhealthy after a few redirect responses." },
+      { id: 'D', text: "Point the health check at an unauthenticated endpoint such as /health that returns 200 when the app works." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "The load balancer treats any response outside the configured success codes as a failure, so a 302 from / fails every check. A dedicated unauthenticated health endpoint that returns 200 when the application and its dependencies are working gives an accurate signal (adding 302 to the matcher would also pass, but would report healthy for any redirect). Stickiness cookies apply to client traffic, not to health check requests. Changing the protocol still hits the same redirecting path. A higher unhealthy threshold only delays the same result, because every check fails.",
+    referenceUrl: "https://docs.aws.amazon.com/elasticloadbalancing/latest/application/target-group-health-checks.html",
+    tags: ["ALB", "Health checks", "Target groups"]
+  },
+  {
+    id: "aws-soa-152",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d2",
+    domainName: "Reliability and Business Continuity",
+    title: "Health checks on a separate management port",
+    scenario: "A streaming company's service listens for traffic on port 443 and exposes its health endpoint on port 8080. The ALB target group is configured to health check on port 8080. Client traffic reaches the instances correctly, but all targets are reported unhealthy with the reason Target.Timeout. The instances' security group allows port 443 from the load balancer's security group.",
+    question: "What is the most likely fix?",
+    options: [
+      { id: 'A', text: "Add an inbound rule to the instances' security group that allows port 8080 from the load balancer's own group." },
+      { id: 'B', text: "Add an inbound rule to the subnet network ACL that allows port 8080 from the Route 53 health checker ranges." },
+      { id: 'C', text: "Change the target group so health checks use the traffic port, keeping the health endpoint listening on 8080." },
+      { id: 'D', text: "Add an outbound rule on the instances' security group allowing port 8080 to the load balancer's security group." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Health checks originate from the load balancer nodes and must be allowed by the targets' security group on the health check port. Only 443 is allowed, so checks to 8080 are silently dropped and time out. Security groups are stateful, so an outbound rule for the response is unnecessary. Route 53 health checkers are not involved in ALB target health. Switching to the traffic port would send checks to 443, where the health endpoint does not listen, so the result would be a failed check instead of a working one.",
+    referenceUrl: "https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-troubleshooting.html",
+    tags: ["ALB", "Health checks", "Security groups"]
+  },
+  {
+    id: "aws-soa-153",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d2",
+    domainName: "Reliability and Business Continuity",
+    title: "DNS failover that never triggers",
+    scenario: "A charity's donation site uses Route 53 failover routing. The primary record is an alias to an Application Load Balancer, and the secondary record is an alias to an S3 static website that shows a maintenance page. During a recent incident every target behind the load balancer was unhealthy, yet Route 53 kept returning the primary record. No Route 53 health check is associated with the primary record.",
+    question: "What should the CloudOps engineer change?",
+    options: [
+      { id: 'A', text: "Change both records to weighted routing, with a weight of 255 on the primary and a weight of 0 on the secondary." },
+      { id: 'B', text: "Set Evaluate target health to Yes on the primary alias record so Route 53 uses the load balancer's target health." },
+      { id: 'C', text: "Lower the TTL of the primary alias record to 10 seconds so resolvers ask Route 53 again more frequently than now." },
+      { id: 'D', text: "Set Evaluate target health to Yes on the secondary alias record so Route 53 validates the S3 site before using it." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "An alias record with no health check is always treated as healthy unless Evaluate target health is enabled; with it on, Route 53 considers an ALB alias unhealthy when the load balancer has no healthy targets, and failover routing then answers with the secondary. Alias records do not have a configurable TTL; Route 53 uses the target's TTL. Weighted routing with a zero weight does not provide failover semantics without health checks. Evaluating health on the secondary does not change how the primary is judged.",
+    referenceUrl: "https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-complex-configs.html",
+    tags: ["Route 53", "Failover routing", "Alias records"]
+  },
+  {
+    id: "aws-soa-154",
+    difficulty: "hard",
+    certId: "aws-soa",
+    domainId: "d2",
+    domainName: "Reliability and Business Continuity",
+    title: "Health-checking a service with no public endpoint",
+    scenario: "A manufacturer runs an order-routing service on instances in private subnets, reachable only inside the VPC through an internal Network Load Balancer. The company wants Route 53 failover between this Region and a standby Region, driven by the health of the primary service. Security policy forbids exposing any endpoint of the service to the internet.",
+    question: "How should the CloudOps engineer provide the health signal for the failover records?",
+    options: [
+      { id: 'A', text: "Create a Route 53 HTTP health check that targets the private IP address of the internal Network Load Balancer node." },
+      { id: 'B', text: "Create a CloudWatch alarm on the load balancer's HealthyHostCount metric and a Route 53 health check that monitors it." },
+      { id: 'C', text: "Create a Route 53 HTTPS health check with string matching that points at the internal load balancer's DNS name." },
+      { id: 'D', text: "Create a calculated health check with no child health checks and a healthy threshold of one for the primary record." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "Route 53 health checkers run on the internet and cannot reach private IP addresses or internal load balancer names. A health check can instead monitor the state of a CloudWatch alarm, so an alarm on the internal NLB's HealthyHostCount becomes the health signal without exposing anything. A health check against a private IP cannot connect. A calculated health check aggregates other health checks, and with no children it has nothing to evaluate. String matching still needs the checkers to reach the endpoint, which an internal load balancer does not allow.",
+    referenceUrl: "https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-private-hosted-zones.html",
+    tags: ["Route 53", "Health checks", "CloudWatch alarms"]
+  },
+  {
+    id: "aws-soa-155",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d2",
+    domainName: "Reliability and Business Continuity",
+    title: "Health checks blocked by the network ACL",
+    scenario: "A publisher added Route 53 health checks against the public IP addresses of two web servers in a public subnet. Both health checks report the endpoints as unhealthy, although the site loads normally from the office. The subnet's network ACL was recently tightened to allow HTTP only from the company's own IP ranges and a partner CDN.",
+    question: "What should the CloudOps engineer do?",
+    options: [
+      { id: 'A', text: "Change the health checks to monitor the servers by their private IP addresses so that the traffic stays inside the VPC." },
+      { id: 'B', text: "Allow inbound HTTP in the instance security groups from the VPC CIDR range where the Route 53 Resolver endpoints run." },
+      { id: 'C', text: "Allow inbound HTTP in the network ACL from the ROUTE53 IP ranges that AWS publishes for authoritative name servers." },
+      { id: 'D', text: "Allow inbound HTTP in the network ACL from the ROUTE53_HEALTHCHECKS IP ranges that AWS publishes in ip-ranges.json." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Route 53 health checkers connect from specific address ranges that AWS publishes in ip-ranges.json under the ROUTE53_HEALTHCHECKS service, and the network ACL must allow them (return traffic on ephemeral ports too, because network ACLs are stateless). The ROUTE53 ranges belong to the name servers that answer DNS queries, not to the health checkers. Resolver endpoints handle DNS resolution for VPCs and never perform health checks. Health checkers cannot reach private IP addresses.",
+    referenceUrl: "https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/route-53-ip-addresses.html",
+    tags: ["Route 53", "Health checks", "Network ACLs"]
+  },
+  {
+    id: "aws-soa-156",
+    difficulty: "easy",
+    certId: "aws-soa",
+    domainId: "d2",
+    domainName: "Reliability and Business Continuity",
+    title: "Healthy while two of three endpoints respond",
+    scenario: "A weather data provider exposes its API through three regional endpoints, each already monitored by its own Route 53 health check. The provider wants a single health status for the service as a whole that reports healthy as long as at least two of the three endpoints are healthy, so it can alert on that status and use it in DNS failover.",
+    question: "Which Route 53 feature should the CloudOps engineer use?",
+    options: [
+      { id: 'A', text: "A health check that monitors a CloudWatch composite alarm combining three separate latency alarms for the endpoints." },
+      { id: 'B', text: "A multivalue answer record set that returns up to three healthy endpoint IP addresses for every DNS query received." },
+      { id: 'C', text: "A calculated health check that uses the three endpoint checks as children and reports healthy when two are healthy." },
+      { id: 'D', text: "An HTTP health check on the busiest endpoint, with its failure threshold raised to three consecutive failed requests." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "A calculated health check combines the status of other health checks and reports healthy when at least the specified number of children are healthy, which is exactly a two-of-three rule, and it can be alarmed on and associated with records. Multivalue answers return healthy records but produce no single status. A composite alarm on latency would test different conditions from the existing health checks and adds needless moving parts. Watching one endpoint ignores the other two.",
+    referenceUrl: "https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/health-checks-types.html",
+    tags: ["Route 53", "Calculated health checks"]
+  },
+  {
+    id: "aws-soa-157",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d2",
+    domainName: "Reliability and Business Continuity",
+    title: "New instances killed during a slow startup",
+    scenario: "A bank's Java application takes about six minutes to start. Its Auto Scaling group uses ELB health checks with a 60-second grace period, and the target group checks every 10 seconds with an unhealthy threshold of 2. New instances are repeatedly marked unhealthy and replaced before they finish starting, so the group never stabilises.",
+    question: "Which changes will let new instances finish starting before they are judged? (Choose two.)",
+    options: [
+      { id: 'A', text: "Enable slow start mode on the target group so that new targets are health checked less often at first." },
+      { id: 'B', text: "Increase the Auto Scaling group's health check grace period to cover the application's six-minute startup." },
+      { id: 'C', text: "Reduce the deregistration delay of the target group so failing instances leave the load balancer sooner." },
+      { id: 'D', text: "Use a launch lifecycle hook that completes only when the application reports ready, before it joins the group." },
+      { id: 'E', text: "Enable cross-zone load balancing so health check requests are spread over targets in all Availability Zones." }
+    ],
+    correctAnswers: ['B', 'D'],
+    type: "multiple",
+    explanation: "The group replaces an instance when ELB health checks fail after the grace period, so a grace period longer than the startup time stops premature replacement. A launch lifecycle hook keeps the instance in Pending:Wait until a script signals that the application is ready, and only then does it enter service and register with the target group, so failing checks during startup never count. Slow start ramps traffic to new targets gradually; it does not change health check timing. The deregistration delay governs connection draining for removed targets. Cross-zone load balancing affects traffic distribution, not how targets are health checked.",
+    referenceUrl: "https://docs.aws.amazon.com/autoscaling/ec2/userguide/health-check-grace-period.html",
+    tags: ["EC2 Auto Scaling", "Health checks", "Lifecycle hooks"]
+  },
+  {
+    id: "aws-soa-158",
+    difficulty: "hard",
+    certId: "aws-soa",
+    domainId: "d2",
+    domainName: "Reliability and Business Continuity",
+    title: "Large uploads cut off during scale-in",
+    scenario: "A video-sharing site behind an Application Load Balancer lets users upload files that take up to 40 minutes on slow connections. When the Auto Scaling group scales in, uploads in progress on the terminating instance fail roughly five minutes after the scale-in starts. The group already uses ELB health checks.",
+    question: "What should the CloudOps engineer change?",
+    options: [
+      { id: 'A', text: "Enable slow start mode for 3,600 seconds on the target group so the instance sheds new requests more gradually." },
+      { id: 'B', text: "Enable duration-based stickiness on the target group so every upload keeps returning to the instance it began on." },
+      { id: 'C', text: "Raise the target group's deregistration delay to 3,600 seconds so in-flight uploads finish before termination." },
+      { id: 'D', text: "Raise the load balancer's connection idle timeout to 3,600 seconds so long uploads are not closed as idle ones." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "When Auto Scaling terminates an instance behind a load balancer, it first deregisters the target and waits for the deregistration delay (default 300 seconds, maximum 3,600) so in-flight requests can finish; the five-minute failure matches the default. Raising it to 3,600 seconds lets 40-minute uploads complete. The idle timeout closes connections with no data flowing; an active upload is not idle. Stickiness routes new requests from the same client and does not stop the instance being deregistered. Slow start applies to newly registered targets, not to ones being removed.",
+    referenceUrl: "https://docs.aws.amazon.com/elasticloadbalancing/latest/application/edit-target-group-attributes.html",
+    tags: ["ALB", "Deregistration delay", "EC2 Auto Scaling"]
+  },
+  {
+    id: "aws-soa-159",
+    difficulty: "easy",
+    certId: "aws-soa",
+    domainId: "d2",
+    domainName: "Reliability and Business Continuity",
+    title: "A TCP check that misses application errors",
+    scenario: "A game studio runs a matchmaking API behind a Network Load Balancer. The target group uses the default TCP health check, and during a recent incident the application returned HTTP 500 errors for every request while all targets stayed healthy. The API exposes GET /status, which returns 200 only when the service can reach its datastore.",
+    question: "How should the CloudOps engineer reconfigure the health check?",
+    options: [
+      { id: 'A', text: "Keep the TCP health check but lower its interval to 10 seconds so failures are noticed sooner by the load balancer." },
+      { id: 'B', text: "Replace the Network Load Balancer with a Gateway Load Balancer, which supports HTTP health checks for its targets." },
+      { id: 'C', text: "Add a Route 53 TCP health check on each target so DNS stops returning the addresses of instances that fail it." },
+      { id: 'D', text: "Change the target group health check to HTTP on the /status path, keeping 200 as the success code for the check." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Network Load Balancer target groups support HTTP and HTTPS health checks as well as TCP, so pointing an HTTP check at /status makes a target unhealthy when the application cannot serve requests. A TCP check only confirms that the port accepts connections, so a faster TCP check is still blind to 500 errors. Gateway Load Balancers are for inline virtual appliances, not API traffic. A Route 53 TCP check has the same blindness and would act on DNS rather than on load balancer routing.",
+    referenceUrl: "https://docs.aws.amazon.com/elasticloadbalancing/latest/network/target-group-health-checks.html",
+    tags: ["NLB", "Health checks"]
+  },
+  {
+    id: "aws-soa-160",
+    difficulty: "hard",
+    certId: "aws-soa",
+    domainId: "d2",
+    domainName: "Reliability and Business Continuity",
+    title: "A status page that always returns 200",
+    scenario: "A payments company uses a Route 53 HTTPS health check against its public status page to drive DNS failover to a second Region. The page is served by a third-party framework that always returns HTTP 200, but when the database is unavailable the body contains the text DB_UNAVAILABLE instead of ALL_SYSTEMS_OK near the top of the page. The page cannot be changed.",
+    question: "How should the CloudOps engineer configure the health check?",
+    options: [
+      { id: 'A', text: "Enable latency graphs on the health check and alarm when the response time rises above normal for the page." },
+      { id: 'B', text: "Enable string matching on the health check with the search string ALL_SYSTEMS_OK, which must appear in the body." },
+      { id: 'C', text: "Enable string matching on the health check with the search string DB_UNAVAILABLE, which must appear in the body." },
+      { id: 'D', text: "Lower the request interval to 10 seconds and the failure threshold to 1 so errors on the page are caught sooner." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "With string matching, Route 53 considers the endpoint healthy only if the search string appears in the first 5,120 bytes of the response body, so searching for ALL_SYSTEMS_OK turns the unhealthy page into a failed check even though the status code is 200. Searching for DB_UNAVAILABLE inverts the logic, marking the endpoint healthy only during outages. Latency graphs measure timing and do not detect the content change. A shorter interval and threshold detect a failing check faster, but this check never fails on status code alone.",
+    referenceUrl: "https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-determining-health-of-endpoints.html",
+    tags: ["Route 53", "Health checks", "String matching"]
+  },
+  {
+    id: "aws-soa-161",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d2",
+    domainName: "Reliability and Business Continuity",
+    title: "Paging when a health check turns unhealthy",
+    scenario: "A retailer's operations team works in eu-west-1, where all of its CloudWatch alarms live. They created a Route 53 health check for their checkout endpoint and now want an SNS notification to the on-call channel whenever the health check reports the endpoint as unhealthy. They cannot find the health check's metric in the eu-west-1 CloudWatch console.",
+    question: "What should the CloudOps engineer do?",
+    options: [
+      { id: 'A', text: "Create the alarm in eu-west-1 on the ChildHealthCheckHealthyCount metric, which Route 53 publishes to every Region." },
+      { id: 'B', text: "Create the alarm in us-east-1 on the HealthCheckStatus metric in the AWS/Route53 namespace and notify an SNS topic there." },
+      { id: 'C', text: "Enable health check metrics for eu-west-1 in the Route 53 console and create the alarm on HealthCheckStatus in that Region." },
+      { id: 'D', text: "Create an EventBridge rule in eu-west-1 that matches Route 53 health check state changes and sends them to SNS there." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "Route 53 publishes health check metrics to CloudWatch only in US East (N. Virginia), so the alarm on HealthCheckStatus, and the SNS topic it notifies, must be created in us-east-1 regardless of where the team normally works. There is no setting that publishes these metrics to other Regions. Route 53 health checks do not emit state-change events for an EventBridge rule to match in eu-west-1. ChildHealthCheckHealthyCount applies to calculated health checks and is also published only in us-east-1.",
+    referenceUrl: "https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/monitoring-health-check-status.html",
+    tags: ["Route 53", "CloudWatch alarms", "Health checks"]
+  },
+  {
+    id: "aws-soa-162",
+    difficulty: "easy",
+    certId: "aws-soa",
+    domainId: "d2",
+    domainName: "Reliability and Business Continuity",
+    title: "Uneven load across zones behind an NLB",
+    scenario: "A fintech firm runs a Network Load Balancer with nodes in two Availability Zones. After an Auto Scaling event, one zone has two registered targets and the other has six. The two targets in the smaller zone are overloaded because each zone's load balancer node receives about half of the traffic and routes it only to targets in its own zone.",
+    question: "Which setting should the CloudOps engineer turn on?",
+    options: [
+      { id: 'A', text: "Cross-zone load balancing on the load balancer so each node spreads traffic across targets in all zones." },
+      { id: 'B', text: "Zonal shift in Amazon Application Recovery Controller so that traffic moves out of the smaller zone for a while." },
+      { id: 'C', text: "Client IP preservation on the target group so that the load balancer hashes requests evenly across the targets." },
+      { id: 'D', text: "Connection draining on the target group so that the overloaded targets finish in-flight requests before removal." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Cross-zone load balancing is off by default for Network Load Balancers, so each node sends traffic only to targets in its own zone; turning it on lets every node distribute across all eight targets. Connection draining, the deregistration delay, affects targets being removed. Client IP preservation controls whether targets see the client's source address and does not change distribution. A zonal shift moves traffic away from an impaired zone and is meant for incidents, not for balancing an uneven target count.",
+    referenceUrl: "https://docs.aws.amazon.com/elasticloadbalancing/latest/network/network-load-balancers.html",
+    tags: ["NLB", "Cross-zone load balancing"]
+  },
+  {
+    id: "aws-soa-163",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d2",
+    domainName: "Reliability and Business Continuity",
+    title: "Targets in one zone showing as unused",
+    scenario: "A logistics company expanded its Auto Scaling group from two to three Availability Zones. The instances in the new zone register with the ALB target group but show a health status of unused with the reason Target.NotInUse, and they receive no traffic. Instances in the original two zones are healthy.",
+    question: "What should the CloudOps engineer do?",
+    options: [
+      { id: 'A', text: "Register the new instances by IP address instead of instance ID so the load balancer can route across zones." },
+      { id: 'B', text: "Increase the health check grace period on the group so the new instances are given time to pass their checks." },
+      { id: 'C', text: "Enable the new Availability Zone on the Application Load Balancer by adding one of that zone's subnets to it." },
+      { id: 'D', text: "Enable cross-zone load balancing on the target group so traffic from other zones can reach the new targets." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "Target.NotInUse means the target is in an Availability Zone that is not enabled for the load balancer, so the ALB has no node there and never routes to it. Adding a subnet from the new zone to the load balancer enables the zone, and the targets start receiving health checks and traffic. Cross-zone load balancing only distributes traffic among enabled zones. The grace period affects when Auto Scaling acts on health, not whether the load balancer uses a zone. Registering by IP does not bypass the requirement that the zone be enabled.",
+    referenceUrl: "https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-subnets.html",
+    tags: ["ALB", "Availability Zones", "Target health"]
+  },
+  {
+    id: "aws-soa-164",
+    difficulty: "easy",
+    certId: "aws-soa",
+    domainId: "d2",
+    domainName: "Reliability and Business Continuity",
+    title: "Automatic database failover within a Region",
+    scenario: "A dental practice group runs its booking system on a Single-AZ Amazon RDS for PostgreSQL instance. After an Availability Zone disruption took the system down for hours, the owners asked that the database fail over automatically to another zone in the same Region with no data loss and no change to the connection string.",
+    question: "What should the CloudOps engineer do?",
+    options: [
+      { id: 'A', text: "Copy automated snapshots to another Region every hour so a replacement instance can be restored after a failure." },
+      { id: 'B', text: "Create a read replica in another Availability Zone and promote it if the primary instance becomes unavailable." },
+      { id: 'C', text: "Modify the instance to a Multi-AZ deployment so a synchronous standby is kept in a different Availability Zone." },
+      { id: 'D', text: "Enable automated backups with a 35-day retention period so the instance can be restored in any zone quickly." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "A Multi-AZ deployment keeps a synchronously replicated standby in another zone and fails over automatically by repointing the instance's DNS endpoint, so there is no data loss and the connection string does not change. A read replica replicates asynchronously, needs a manual promotion, and has a different endpoint. Automated backups and snapshot copies support restore, which takes time, creates a new endpoint and loses changes since the last backup or log upload.",
+    referenceUrl: "https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.MultiAZ.html",
+    tags: ["RDS", "Multi-AZ", "Failover"]
+  },
+  {
+    id: "aws-soa-165",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d2",
+    domainName: "Reliability and Business Continuity",
+    title: "Faster failover and readable standbys",
+    scenario: "A stock-trading platform runs Amazon RDS for MySQL as a Multi-AZ DB instance deployment. Failovers take one to two minutes, which is too long, and the standby sits idle while reporting queries compete with trading writes on the primary. The platform must stay on RDS for MySQL rather than migrate to Aurora.",
+    question: "Which deployment option should the CloudOps engineer move to?",
+    options: [
+      { id: 'A', text: "A Multi-AZ DB instance deployment plus RDS Proxy, which lets the idle standby serve reporting queries as well." },
+      { id: 'B', text: "A Multi-AZ DB cluster deployment, which has two readable standbys and typically fails over in under 35 seconds." },
+      { id: 'C', text: "A Single-AZ instance with three cross-Region read replicas that can each be promoted to a primary if needed." },
+      { id: 'D', text: "A Multi-AZ DB instance deployment on a larger instance class, which makes the standby promote more quickly." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "A Multi-AZ DB cluster for RDS for MySQL or PostgreSQL has a writer and two readable standbys in different zones, uses semisynchronous replication, typically fails over in under 35 seconds, and exposes a reader endpoint for reporting queries. A larger instance class does not make DB instance failover materially faster, and its standby still serves no reads. Cross-Region replicas require manual promotion and give up automatic in-Region failover. RDS Proxy can shorten failover time as seen by clients, but it cannot send reads to a DB instance standby, which accepts no connections.",
+    referenceUrl: "https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html",
+    tags: ["RDS", "Multi-AZ DB cluster"]
+  },
+  {
+    id: "aws-soa-166",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d2",
+    domainName: "Reliability and Business Continuity",
+    title: "Application stuck on the old primary after failover",
+    scenario: "An insurance firm tested failover on its Multi-AZ Amazon RDS for Oracle instance. RDS reported the failover complete within two minutes, but the firm's Java application servers kept failing to connect for more than 15 minutes until they were restarted. The application uses the instance endpoint name, not an IP address.",
+    question: "What is the most likely cause, and what should the CloudOps engineer change?",
+    options: [
+      { id: 'A', text: "The standby's security group differs from the primary's; copy the primary rules onto the standby instance." },
+      { id: 'B', text: "The endpoint's DNS TTL is too long; lower the TTL on the RDS instance endpoint to five seconds in Route 53." },
+      { id: 'C', text: "The standby is in another subnet group; move both instances into a single subnet so the IP does not change." },
+      { id: 'D', text: "The JVM caches DNS lookups for too long; set networkaddress.cache.ttl to 60 seconds or less on the servers." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Multi-AZ failover works by changing the DNS record of the endpoint to point at the new primary, so clients must resolve the name again. A JVM that caches DNS results indefinitely or for a long time keeps connecting to the old address; AWS recommends a networkaddress.cache.ttl of no more than 60 seconds. The RDS endpoint record is managed by AWS and its TTL cannot be edited in Route 53. The instance has one set of security groups that applies after failover. A Multi-AZ deployment spans zones, and therefore subnets, by design.",
+    referenceUrl: "https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.MultiAZSingleStandby.html",
+    tags: ["RDS", "Multi-AZ", "DNS caching"]
+  },
+  {
+    id: "aws-soa-167",
+    difficulty: "hard",
+    certId: "aws-soa",
+    domainId: "d2",
+    domainName: "Reliability and Business Continuity",
+    title: "Choosing which Aurora replica gets promoted",
+    scenario: "A SaaS company's Aurora MySQL cluster has a db.r6g.4xlarge writer and two replicas: a db.r6g.large used for ad hoc analytics and a db.r6g.4xlarge sized to take over production. All three instances are in the same Availability Zone, and both replicas are in promotion tier 1. The company needs the cluster to survive a zone failure and to fail over to the large replica.",
+    question: "Which actions should the CloudOps engineer take? (Choose two.)",
+    options: [
+      { id: 'A', text: "Enable backtracking on the cluster so that it can rewind to a healthy point if the writer's zone fails." },
+      { id: 'B', text: "Replace the db.r6g.4xlarge replica with one of the same class in a different Availability Zone." },
+      { id: 'C', text: "Set the db.r6g.4xlarge replica to promotion tier 0 and move the small replica to a higher-numbered tier." },
+      { id: 'D', text: "Set the db.r6g.4xlarge replica to promotion tier 15 so that it has the highest priority during failover." },
+      { id: 'E', text: "Add the db.r6g.4xlarge replica to a custom endpoint so applications keep connecting to it after failover." }
+    ],
+    correctAnswers: ['B', 'C'],
+    type: "multiple",
+    explanation: "Aurora promotes the replica in the lowest-numbered promotion tier, breaking ties by choosing the largest instance, so tier 0 for the large replica and a higher tier for the small one make it the failover target. Aurora storage already spans three zones, but compute does not; with every instance in one zone, a zone failure leaves nothing to promote, so the takeover replica must live in another zone. Tier 15 is the lowest priority. Backtracking rewinds data to an earlier time and does not provide compute in another zone. A custom endpoint groups instances for connections; it does not control which one becomes the writer.",
+    referenceUrl: "https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Concepts.AuroraHighAvailability.html",
+    tags: ["Aurora", "Failover", "Promotion tiers"]
+  },
+  {
+    id: "aws-soa-168",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d2",
+    domainName: "Reliability and Business Continuity",
+    title: "A fleet that lives in one zone",
+    scenario: "A school district's learning platform runs on an Auto Scaling group that was created with a single private subnet in us-east-1a. An Availability Zone event in us-east-1a took the platform offline for three hours even though the Application Load Balancer itself stayed up in two zones. The district wants the compute tier to survive the loss of one zone.",
+    question: "What should the CloudOps engineer do?",
+    options: [
+      { id: 'A', text: "Add private subnets from at least two more Availability Zones to the group and let it balance instances across them." },
+      { id: 'B', text: "Enable EC2 automatic recovery on each instance so that failed instances are restarted on healthy hardware." },
+      { id: 'C', text: "Launch the instances into a cluster placement group in the private subnet so they sit on distinct racks." },
+      { id: 'D', text: "Move the instances to Dedicated Hosts spread across two racks in us-east-1a so no shared host fails them all." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "An Auto Scaling group places instances only in the subnets it is given; adding subnets in other zones lets it spread capacity and relaunch in healthy zones when one fails. A cluster placement group packs instances close together in one zone, the opposite of zone resilience. Automatic recovery handles underlying hardware failure for a single instance within the same zone. Dedicated Hosts in one zone still share that zone's fate.",
+    referenceUrl: "https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-availability-zone-balanced.html",
+    tags: ["EC2 Auto Scaling", "Availability Zones", "High availability"]
+  },
+  {
+    id: "aws-soa-169",
+    difficulty: "easy",
+    certId: "aws-soa",
+    domainId: "d2",
+    domainName: "Reliability and Business Continuity",
+    title: "Shared uploads for a Linux web fleet across zones",
+    scenario: "A recipe website runs Linux web servers in an Auto Scaling group across three Availability Zones. Users upload photos that every server must be able to read immediately, and the storage must remain available if one zone fails. The team wants a managed POSIX file system that grows automatically.",
+    question: "Which storage should the CloudOps engineer use?",
+    options: [
+      { id: 'A', text: "An Amazon EFS file system using the One Zone type, mounted by the web servers in all three Availability Zones." },
+      { id: 'B', text: "The instance store volumes of each web server, synchronised between the servers every minute with a cron job." },
+      { id: 'C', text: "An Amazon EFS file system using the Regional (Standard) type, with a mount target in each Availability Zone." },
+      { id: 'D', text: "An io2 EBS volume with Multi-Attach enabled, attached to every web server in the Auto Scaling group at launch." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "A Regional EFS file system stores data redundantly across multiple zones, scales automatically, and is mounted over NFS from a mount target in each zone, so every server sees uploads immediately and the file system survives a zone failure. EBS Multi-Attach works only for instances in the same zone as the volume and needs a cluster-aware file system. One Zone EFS keeps data in a single zone, so losing that zone loses access. Instance store is ephemeral and a cron sync is neither immediate nor durable.",
+    referenceUrl: "https://docs.aws.amazon.com/efs/latest/ug/availability-durability.html",
+    tags: ["EFS", "Multi-AZ", "Shared storage"]
+  },
+  {
+    id: "aws-soa-170",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d2",
+    domainName: "Reliability and Business Continuity",
+    title: "A cache replica that is never promoted",
+    scenario: "A food-delivery app uses an ElastiCache for Redis OSS replication group with cluster mode disabled, one primary node in eu-west-1a and one replica in eu-west-1b. When the primary's node failed last week, the application could not write to the cache for more than an hour until an engineer promoted the replica by hand.",
+    question: "What should the CloudOps engineer configure?",
+    options: [
+      { id: 'A', text: "Enable Multi-AZ with automatic failover on the replication group so a replica is promoted when the primary fails." },
+      { id: 'B', text: "Add a Global Datastore secondary cluster in another Region so writes can continue there if the primary fails." },
+      { id: 'C', text: "Enable automatic backups on the replication group so that the primary can be restored from a recent snapshot." },
+      { id: 'D', text: "Add two more replicas in eu-west-1a so the primary's own zone holds a replica that can be promoted faster." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "With Multi-AZ and automatic failover enabled, ElastiCache detects a failed primary, promotes a replica, and updates the primary endpoint so the application keeps writing with little interruption; it requires at least one replica, which the group already has. Backups restore data into a new cluster, which takes far longer than promotion. A Global Datastore secondary is read-only until it is promoted manually, and it addresses Regional disasters. Extra replicas are not promoted automatically without Multi-AZ, and placing them in the primary's zone reduces zone resilience.",
+    referenceUrl: "https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/AutoFailover.html",
+    tags: ["ElastiCache", "Multi-AZ", "Automatic failover"]
+  },
+  {
+    id: "aws-soa-171",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d2",
+    domainName: "Reliability and Business Continuity",
+    title: "Shoppers logged out when an instance fails",
+    scenario: "An online bookstore keeps shopping cart and login session data in memory on each web server, and the Application Load Balancer uses sticky sessions to send each shopper back to the same server. Whenever an instance fails or is scaled in, its shoppers lose their carts and are signed out. The bookstore wants instance failures to be invisible to shoppers.",
+    question: "What should the CloudOps engineer recommend?",
+    options: [
+      { id: 'A', text: "Move the web servers to larger instance types so each server fails less often and carries more sessions in memory." },
+      { id: 'B', text: "Change stickiness from duration-based to application-based cookies so that sessions survive the loss of a server." },
+      { id: 'C', text: "Keep session and cart data in an external store such as DynamoDB or ElastiCache so any server can serve anyone." },
+      { id: 'D', text: "Increase the stickiness duration to seven days so each shopper's session and cart stay pinned to one server." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "Keeping session state off the instances makes the web tier stateless: any server can read a shopper's session from DynamoDB or ElastiCache, so losing a server loses nothing and stickiness is no longer needed. Application-based cookies change how stickiness is tracked, but the data still lives in the failed server's memory. A longer stickiness duration pins shoppers more firmly to a server that can still fail. Larger instances do not make failures or scale-in events disappear.",
+    referenceUrl: "https://docs.aws.amazon.com/wellarchitected/latest/reliability-pillar/rel_mitigate_interaction_failure_stateless.html",
+    tags: ["High availability", "Session state", "Stateless design"]
+  },
+  {
+    id: "aws-soa-172",
+    difficulty: "hard",
+    certId: "aws-soa",
+    domainId: "d2",
+    domainName: "Reliability and Business Continuity",
+    title: "Rehearsing a database failover from the CLI",
+    scenario: "Auditors asked a hospital's operations team to demonstrate that its Amazon RDS for SQL Server Multi-AZ DB instance fails over correctly and that the application reconnects on its own. The team wants to trigger a real failover from a runbook with a single AWS CLI command during a maintenance window.",
+    question: "Which command should the runbook use?",
+    options: [
+      { id: 'A', text: "aws rds reboot-db-instance with the --force-failover option, targeting the Multi-AZ DB instance being tested." },
+      { id: 'B', text: "aws rds promote-read-replica against the standby, then aws rds modify-db-instance to restore the Multi-AZ setup." },
+      { id: 'C', text: "aws rds failover-db-cluster with the --target-db-instance-identifier option set to the standby's identifier." },
+      { id: 'D', text: "aws rds stop-db-instance followed by aws rds start-db-instance, so the standby is brought up as the new primary." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Rebooting a Multi-AZ DB instance with --force-failover makes RDS fail over to the standby, which is the documented way to test failover for a DB instance deployment. failover-db-cluster applies to Aurora clusters and Multi-AZ DB clusters, not to a Multi-AZ DB instance. Stopping and starting the instance takes it fully offline and does not exercise failover. The standby of a Multi-AZ DB instance is not a read replica and cannot be promoted with promote-read-replica.",
+    referenceUrl: "https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_RebootInstance.html",
+    tags: ["RDS", "Multi-AZ", "Failover testing"]
+  },
+  {
+    id: "aws-soa-173",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d2",
+    domainName: "Reliability and Business Continuity",
+    title: "Removing single-zone weak points from a web app",
+    scenario: "A travel agency's booking application runs on EC2 instances behind an Application Load Balancer and stores data in Amazon RDS for MySQL. A resilience review found that the instances all run in one Availability Zone and the database is a Single-AZ instance in that same zone. The agency wants the application to keep working if any single zone fails.",
+    question: "Which changes should the CloudOps engineer make? (Choose two.)",
+    options: [
+      { id: 'A', text: "Add an RDS for MySQL read replica in the same zone to take over reads if the primary instance fails." },
+      { id: 'B', text: "Schedule hourly EBS snapshots of every instance with Data Lifecycle Manager for use in another zone." },
+      { id: 'C', text: "Place the instances in a cluster placement group so they share low-latency networking and fail as one." },
+      { id: 'D', text: "Convert the RDS for MySQL instance to a Multi-AZ deployment with a standby in a different zone." },
+      { id: 'E', text: "Run the instances in an Auto Scaling group that spans at least two zones enabled on the load balancer." }
+    ],
+    correctAnswers: ['D', 'E'],
+    type: "multiple",
+    explanation: "Spreading the instances across several zones behind the load balancer removes the compute single point of failure, and a Multi-AZ database fails over automatically to a standby in another zone. A cluster placement group concentrates instances in one zone, which increases shared fate. Hourly snapshots enable recovery, but restoring instances takes time and loses recent changes, so the application would not keep working. A replica in the same zone fails with the primary and must be promoted manually.",
+    referenceUrl: "https://docs.aws.amazon.com/wellarchitected/latest/reliability-pillar/rel_fault_isolation_multiaz_region_system.html",
+    tags: ["High availability", "Multi-AZ", "EC2 Auto Scaling"]
+  },
+  {
+    id: "aws-soa-174",
+    difficulty: "hard",
+    certId: "aws-soa",
+    domainId: "d2",
+    domainName: "Reliability and Business Continuity",
+    title: "Surviving a zone loss without scaling first",
+    scenario: "A payment gateway needs 12 instances to serve its peak load and runs in an Auto Scaling group across three Availability Zones. Its reliability standard requires that losing any one zone must not degrade service at peak, even for the minutes it would take to launch replacements, and it must not depend on launching new capacity during a zone event.",
+    question: "How should the CloudOps engineer size the group?",
+    options: [
+      { id: 'A', text: "Run 16 instances, 4 per zone plus 4 spare in one zone, so that one extra zone's worth of capacity is always running." },
+      { id: 'B', text: "Run 12 instances, 4 per zone, with a warm pool of 4 stopped instances that start in whichever zones remain healthy." },
+      { id: 'C', text: "Run 12 instances, 4 per zone, and rely on target tracking to relaunch the lost 4 instances in the remaining zones." },
+      { id: 'D', text: "Run 18 instances, 6 per zone, so that the two zones that remain after any zone failure still provide 12 instances." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Static stability means pre-provisioning so that no scaling action is needed when a zone fails. With three zones, each remaining pair must carry the full 12, so each zone needs 6 instances, for 18 in total. Relaunching through target tracking takes minutes and depends on capacity being available during the event, which the standard forbids. A warm pool still requires launching capacity during the event. Putting the four spares in a single zone fails if that is the zone lost, leaving only 8 instances.",
+    referenceUrl: "https://docs.aws.amazon.com/whitepapers/latest/aws-fault-isolation-boundaries/static-stability.html",
+    tags: ["Static stability", "Availability Zones", "Capacity"]
+  },
+  {
+    id: "aws-soa-175",
+    difficulty: "easy",
+    certId: "aws-soa",
+    domainId: "d2",
+    domainName: "Reliability and Business Continuity",
+    title: "Resilient SMB shares for Windows users",
+    scenario: "An architecture practice moves its Windows file server to AWS. Staff access project folders over SMB with Active Directory permissions, and the partners require the file shares to stay available through the loss of an Availability Zone with automatic failover. They want a fully managed service.",
+    question: "Which solution should the CloudOps engineer deploy?",
+    options: [
+      { id: 'A', text: "Amazon EFS with the Regional file system type, mounted on each Windows workstation over the SMB protocol." },
+      { id: 'B', text: "FSx for Windows File Server Single-AZ 2, joined to the practice's Active Directory, with daily backups." },
+      { id: 'C', text: "An EC2 Windows instance with an EBS volume, protected by EC2 automatic recovery and hourly snapshots." },
+      { id: 'D', text: "Amazon FSx for Windows File Server with a Multi-AZ deployment joined to the practice's Active Directory." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "FSx for Windows File Server Multi-AZ keeps a standby file server in another zone with synchronous replication and fails over automatically, while providing SMB shares with Active Directory permissions as a managed service. Single-AZ 2 runs in one zone, so a zone loss means restoring from backup. EFS serves NFS to Linux clients and does not support SMB or Windows. A self-managed instance is not fully managed, and automatic recovery does not protect against a zone failure.",
+    referenceUrl: "https://docs.aws.amazon.com/fsx/latest/WindowsGuide/high-availability-multiAZ.html",
+    tags: ["FSx for Windows", "Multi-AZ"]
+  }
+];
+
+export default AWS_SOA_QUESTIONS_7;

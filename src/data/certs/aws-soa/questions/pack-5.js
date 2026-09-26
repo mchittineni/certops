@@ -1,0 +1,532 @@
+export const AWS_SOA_QUESTIONS_5 = [
+  {
+    id: "aws-soa-101",
+    difficulty: "easy",
+    certId: "aws-soa",
+    domainId: "d1",
+    domainName: "Monitoring, Logging, Analysis, Remediation, and Performance Optimization",
+    title: "Shared uploads directory for a Linux web fleet",
+    scenario: "A news site runs a PHP application on Linux EC2 instances in an Auto Scaling group across three Availability Zones. Every instance must read and write the same uploads directory with POSIX permissions, and the storage must grow automatically without anyone provisioning capacity.",
+    question: "Which storage service should the CloudOps engineer use?",
+    options: [
+      { id: 'A', text: "An Amazon FSx for Windows File Server file system, mounted on the Linux instances as an SMB share at boot." },
+      { id: 'B', text: "An Amazon EFS file system with mount targets in each Availability Zone, mounted on every instance over NFS." },
+      { id: 'C', text: "An EBS io2 volume with Multi-Attach enabled, attached to every instance in the group and formatted with ext4." },
+      { id: 'D', text: "An S3 bucket mounted on each instance with S3 Transfer Acceleration so it behaves like a local POSIX directory." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "Amazon EFS is a Regional, elastic NFS file system with POSIX semantics; mount targets in each Availability Zone let instances across all three zones share one directory, and capacity grows and shrinks automatically. EBS Multi-Attach works only within one Availability Zone, requires a cluster-aware file system rather than ext4, and has a fixed size. FSx for Windows File Server is designed for SMB clients with Windows ACLs, not POSIX permissions for Linux. Transfer Acceleration speeds transfers to a bucket and does not make S3 a mountable POSIX file system.",
+    referenceUrl: "https://docs.aws.amazon.com/efs/latest/ug/whatisefs.html",
+    tags: ["Amazon EFS","Shared storage"]
+  },
+  {
+    id: "aws-soa-102",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d1",
+    domainName: "Monitoring, Logging, Analysis, Remediation, and Performance Optimization",
+    title: "Cooling off old project files on EFS",
+    scenario: "An architecture firm keeps 40 TB of project files on Amazon EFS Standard. Most files are untouched a month after a project closes, but when a client reopens a project its files are used heavily again for weeks. The firm wants storage costs cut automatically without harming performance on reopened projects.",
+    question: "Which two lifecycle settings should the CloudOps engineer configure on the file system? (Choose two.)",
+    options: [
+      { id: 'A', text: "A transition out of Infrequent Access policy that moves a file back to EFS Standard on its first access after being moved." },
+      { id: 'B', text: "A change of the file system to EFS One Zone, which moves project files that are not accessed for 30 days into cheaper storage." },
+      { id: 'C', text: "A daily AWS Backup plan that moves files older than 30 days from EFS Standard to cold storage and deletes them from the source file system." },
+      { id: 'D', text: "A transition into Infrequent Access policy that moves files not accessed for 30 days into the EFS Infrequent Access class." },
+      { id: 'E', text: "An S3 Lifecycle rule on the file system's bucket that transitions project files to S3 Glacier Flexible Retrieval after 30 days." }
+    ],
+    correctAnswers: ['A', 'D'],
+    type: "multiple",
+    explanation: "EFS lifecycle management uses a transition into Infrequent Access (or Archive) policy to move files that have not been accessed for a set number of days to lower-cost storage, and a transition out of IA policy to move a file back to Standard on first access, so reopened projects regain Standard performance for their weeks of heavy use. AWS Backup copies data for protection and does not tier or remove files from the live file system. EFS data is not held in a customer S3 bucket, so S3 Lifecycle rules cannot act on it. EFS One Zone changes durability and zonal placement rather than tiering files by access, and it requires creating a new file system.",
+    referenceUrl: "https://docs.aws.amazon.com/efs/latest/ug/lifecycle-management-efs.html",
+    tags: ["Amazon EFS","Lifecycle management","Cost optimization"]
+  },
+  {
+    id: "aws-soa-103",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d1",
+    domainName: "Monitoring, Logging, Analysis, Remediation, and Performance Optimization",
+    title: "EFS throughput collapsing on a small file system",
+    scenario: "A marketing agency's 80 GiB EFS file system, created years ago with the Bursting throughput mode, serves a render queue that reads heavily for several hours each day. CloudWatch shows BurstCreditBalance falling to zero midway through each run, after which throughput drops to a trickle and jobs stall.",
+    question: "What should the CloudOps engineer change?",
+    options: [
+      { id: 'A', text: "Add 2 TiB of dummy files to the file system so that its baseline rate under Bursting mode rises in line with the stored size." },
+      { id: 'B', text: "Switch the file system to Elastic throughput, which scales with the workload's demand and bills for what is used." },
+      { id: 'C', text: "Change the performance mode to Max I/O, which removes the burst credit mechanism and gives unlimited throughput to clients." },
+      { id: 'D', text: "Enable lifecycle management to Infrequent Access so that fewer bytes count against the burst credits during each render run." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "In Bursting mode, throughput and credits scale with stored size, so a small file system cannot sustain hours of heavy reads; Elastic throughput scales automatically with demand and charges for data transferred, removing the credit limit, which suits spiky workloads. Padding the file system with dummy data raises the baseline but pays for storage nobody uses. Performance mode is chosen at creation and does not govern throughput credits. Lifecycle tiering reduces storage cost and actually adds a per-access charge for data read from IA; it does not restore credits.",
+    referenceUrl: "https://docs.aws.amazon.com/efs/latest/ug/performance.html",
+    tags: ["Amazon EFS","Throughput modes","Troubleshooting"]
+  },
+  {
+    id: "aws-soa-104",
+    difficulty: "easy",
+    certId: "aws-soa",
+    domainId: "d1",
+    domainName: "Monitoring, Logging, Analysis, Remediation, and Performance Optimization",
+    title: "Windows home drives with Active Directory permissions",
+    scenario: "An accounting firm is moving user home drives and departmental shares from an aging Windows file server to AWS. Users connect with SMB from domain-joined Windows desktops, and access is controlled by NTFS ACLs tied to the firm's Active Directory groups, which must keep working unchanged.",
+    question: "Which service should the CloudOps engineer choose?",
+    options: [
+      { id: 'A', text: "Amazon FSx for Windows File Server joined to the existing Active Directory, with the shares and NTFS ACLs migrated to it." },
+      { id: 'B', text: "Amazon EFS with access points per department, mounted on the Windows desktops over NFS with NTFS ACLs mapped from Active Directory." },
+      { id: 'C', text: "Amazon FSx for Lustre linked to an S3 bucket, with each department's shares placed in a directory under the Lustre mount point." },
+      { id: 'D', text: "Amazon S3 with a bucket per department, reached from the desktops like a file server through S3 Transfer Acceleration." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "FSx for Windows File Server provides fully managed Windows file shares over SMB, joins Microsoft Active Directory, and enforces NTFS ACLs, so existing permissions and user workflows carry over. EFS is an NFS file system for Linux clients and does not support SMB or NTFS ACLs. FSx for Lustre is a high-performance file system for Linux compute clusters, not Windows desktops. S3 is object storage with IAM-based policies and cannot present SMB shares or NTFS ACLs.",
+    referenceUrl: "https://docs.aws.amazon.com/fsx/latest/WindowsGuide/what-is.html",
+    tags: ["Amazon FSx for Windows File Server","SMB","Active Directory"]
+  },
+  {
+    id: "aws-soa-105",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d1",
+    domainName: "Monitoring, Logging, Analysis, Remediation, and Performance Optimization",
+    title: "Feeding an HPC cluster from a data lake",
+    scenario: "An energy company runs seismic simulations on hundreds of Linux EC2 instances for a few days at a time. Input data lives in an S3 bucket, the jobs need hundreds of GB/s of aggregate throughput with sub-millisecond latency, and results must be written back to S3 when the run ends. The file system is not needed between runs.",
+    question: "Which storage solution should the CloudOps engineer deploy for each run?",
+    options: [
+      { id: 'A', text: "An EBS io2 volume attached to each instance with Multi-Attach, filled from the bucket at startup by a script on each node." },
+      { id: 'B', text: "A scratch FSx for Lustre file system linked to the bucket with a data repository association for import and export." },
+      { id: 'C', text: "An FSx for NetApp ONTAP file system with a FlexCache volume that pulls the input data from the S3 bucket as needed." },
+      { id: 'D', text: "An Amazon EFS file system in Elastic throughput mode, loaded from the bucket with DataSync before each run begins." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "FSx for Lustre delivers the very high aggregate throughput and sub-millisecond latency of a parallel file system, and a data repository association presents S3 objects as files, loading them on demand and exporting results back; a scratch deployment is the low-cost choice for short-lived runs where data persists in S3. EFS cannot reach the throughput a large HPC cluster needs and requires a separate copy step. ONTAP FlexCache caches other ONTAP volumes, not S3 buckets. Multi-Attach is limited to 16 instances in one Availability Zone and needs a cluster-aware file system, so it cannot serve hundreds of nodes.",
+    referenceUrl: "https://docs.aws.amazon.com/fsx/latest/LustreGuide/create-dra-linked-data-repo.html",
+    tags: ["Amazon FSx for Lustre","HPC","S3"]
+  },
+  {
+    id: "aws-soa-106",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d1",
+    domainName: "Monitoring, Logging, Analysis, Remediation, and Performance Optimization",
+    title: "One volume for Linux and Windows clients",
+    scenario: "A chip design firm is migrating from an on-premises NetApp array. The same project volumes are accessed by Linux compute servers over NFS and by Windows workstations over SMB, and the storage team relies on NetApp snapshots and SnapMirror replication that it wants to keep using.",
+    question: "Which AWS storage service best fits?",
+    options: [
+      { id: 'A', text: "Amazon S3 with Mountpoint for Amazon S3 on the Linux servers and S3 File Gateway shares for the Windows workstations." },
+      { id: 'B', text: "Amazon FSx for NetApp ONTAP, which serves the same volume over NFS and SMB and supports snapshots and SnapMirror." },
+      { id: 'C', text: "Amazon FSx for OpenZFS, which serves the volumes over SMB and replicates with NetApp SnapMirror and snapshots." },
+      { id: 'D', text: "Amazon EFS for the Linux servers and Amazon FSx for Windows File Server for the workstations, synced by a DataSync task." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "FSx for NetApp ONTAP runs the ONTAP file system as a managed service, offering multiprotocol access to the same data over NFS and SMB (plus iSCSI and NVMe/TCP) together with NetApp snapshots, FlexClone, and SnapMirror, so the existing practices continue. Two separate services synced by DataSync would split the data and break simultaneous access to one volume. FSx for OpenZFS serves NFS clients and does not provide SMB or SnapMirror. Mountpoint and File Gateway give object-backed access with different semantics and none of the NetApp features.",
+    referenceUrl: "https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/what-is-fsx-ontap.html",
+    tags: ["Amazon FSx for NetApp ONTAP","Multiprotocol","Migration"]
+  },
+  {
+    id: "aws-soa-107",
+    difficulty: "hard",
+    certId: "aws-soa",
+    domainId: "d1",
+    domainName: "Monitoring, Logging, Analysis, Remediation, and Performance Optimization",
+    title: "File access to a data lake without copying it",
+    scenario: "A research hospital keeps imaging data in an S3 bucket used by analytics jobs through the S3 API. A newly licensed Linux analysis tool on EC2 needs shared file-system access to the same data with file locking, in-place edits, and low latency for active files, and the hospital does not want to maintain a second copy of the data.",
+    question: "Which solution should the CloudOps engineer implement?",
+    options: [
+      { id: 'A', text: "Deploy an S3 File Gateway appliance on EC2 and mount its NFS share on the instances to reach the bucket through its cache." },
+      { id: 'B', text: "Copy the bucket to an Amazon EFS file system with a scheduled DataSync task and point the analysis tool at the EFS mount." },
+      { id: 'C', text: "Create an S3 file system for the bucket with Amazon S3 Files and mount it on the instances over NFS through mount targets." },
+      { id: 'D', text: "Mount the bucket on the instances with Mountpoint for Amazon S3 so that the tool reads and edits files through the mount." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "Amazon S3 Files presents an S3 bucket as a shared NFS file system built on Amazon EFS, with file-system semantics such as file locking and POSIX permissions and roughly millisecond latency for active data, while the data remains in the bucket for the existing S3 API workloads. Mountpoint for Amazon S3 is optimized for high-throughput reads and sequential writes of new objects and does not support file locking or modifying existing files in place. A DataSync copy to EFS creates the second copy the hospital wants to avoid. File Gateway is intended for on-premises access through a local cache and adds an appliance to operate.",
+    referenceUrl: "https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-files.html",
+    tags: ["Amazon S3 Files","Shared storage","S3"]
+  },
+  {
+    id: "aws-soa-108",
+    difficulty: "easy",
+    certId: "aws-soa",
+    domainId: "d1",
+    domainName: "Monitoring, Logging, Analysis, Remediation, and Performance Optimization",
+    title: "A cheaper shared file system for test environments",
+    scenario: "A software company runs short-lived test environments, each confined to a single Availability Zone, that need a shared NFS file system for build artifacts. The artifacts can be regenerated from source control, and the company wants the lowest EFS storage price for these environments.",
+    question: "Which option should the CloudOps engineer choose?",
+    options: [
+      { id: 'A', text: "An EFS One Zone file system in the test environment's Availability Zone, accepting single-zone durability for the artifacts." },
+      { id: 'B', text: "An EFS Regional file system with Provisioned throughput, so that it has no dependency on the size of the stored artifacts." },
+      { id: 'C', text: "An FSx for Windows File Server Multi-AZ file system, mounted by the Linux test servers over NFS for their build artifacts." },
+      { id: 'D', text: "An EFS Regional file system with replication to a second Region, so that artifacts survive the loss of the whole Region." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "EFS One Zone file systems store data within a single Availability Zone at a significantly lower price than Regional file systems, which fits environments already confined to one zone whose data can be regenerated. Provisioned throughput adds a throughput charge and does not reduce storage price. Replication to another Region doubles storage cost for disposable data. FSx for Windows File Server serves SMB, not NFS, and Multi-AZ adds cost.",
+    referenceUrl: "https://docs.aws.amazon.com/efs/latest/ug/features.html",
+    tags: ["Amazon EFS","EFS One Zone","Cost optimization"]
+  },
+  {
+    id: "aws-soa-109",
+    difficulty: "easy",
+    certId: "aws-soa",
+    domainId: "d1",
+    domainName: "Monitoring, Logging, Analysis, Remediation, and Performance Optimization",
+    title: "Finding the query behind a database slowdown",
+    scenario: "A ticketing company's RDS for MySQL instance shows high CPU every evening, and response times suffer. The DBA wants to see which SQL statements and wait events account for most of the database load during those periods, and to drill into the time window when it started.",
+    question: "Which tool should the CloudOps engineer use?",
+    options: [
+      { id: 'A', text: "AWS CloudTrail data events for RDS, which record each SQL statement that clients send to the database with its duration." },
+      { id: 'B', text: "CloudWatch Database Insights, successor to the Performance Insights console, to split DB load by SQL and waits." },
+      { id: 'C', text: "RDS Enhanced Monitoring, which lists the SQL statements that each operating system process was running every second." },
+      { id: 'D', text: "The RDS CPUUtilization metric in CloudWatch, whose dimensions show the SQL text responsible for each spike in the graph." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "Database load analysis, first offered as Performance Insights and now presented in CloudWatch Database Insights, measures DB load in average active sessions and slices it by top SQL, wait events, users, and hosts over any time window, showing exactly which statements drive the evening peaks. Enhanced Monitoring reports OS metrics and processes, not SQL text. CloudTrail records RDS API calls such as ModifyDBInstance, not SQL executed inside the engine. The CPUUtilization metric carries only instance dimensions and cannot identify statements.",
+    referenceUrl: "https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.html",
+    tags: ["RDS","Performance Insights","Database Insights"]
+  },
+  {
+    id: "aws-soa-110",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d1",
+    domainName: "Monitoring, Logging, Analysis, Remediation, and Performance Optimization",
+    title: "Reports showing stale figures from a replica",
+    scenario: "A logistics company sends its reporting queries to an RDS for PostgreSQL read replica. Some mornings, reports show order totals that are several minutes behind the primary, and the business wants the operations team alerted whenever the reports could be more than 60 seconds out of date.",
+    question: "Which CloudWatch alarm should the CloudOps engineer create?",
+    options: [
+      { id: 'A', text: "An alarm on the replica's FreeStorageSpace metric that fires when less than 60 GB remains for the replicated data set." },
+      { id: 'B', text: "An alarm on the replica's ReplicaLag metric with a threshold of 60 seconds, notifying the operations team's SNS topic." },
+      { id: 'C', text: "An alarm on the replica's DatabaseConnections metric that fires when more than 60 reporting sessions are open at once." },
+      { id: 'D', text: "An alarm on the primary's WriteLatency metric with a threshold of 0.06 seconds, notifying the operations team's topic." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "ReplicaLag reports, in seconds, how far a read replica is behind its source, so a 60-second threshold directly measures whether reports could be stale beyond the business limit. WriteLatency on the primary measures storage write latency per operation, not replication delay. Connection count and free storage can contribute to problems but do not measure staleness. The lag alarm is the direct signal.",
+    referenceUrl: "https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReadRepl.Monitoring.html",
+    tags: ["RDS","Read replicas","CloudWatch alarms"]
+  },
+  {
+    id: "aws-soa-111",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d1",
+    domainName: "Monitoring, Logging, Analysis, Remediation, and Performance Optimization",
+    title: "Which process is eating the database host's CPU",
+    scenario: "An RDS for Oracle instance shows CPUUtilization near 90 percent, but DB load analysis shows little SQL activity at those times. The DBA suspects an operating system process, such as a backup agent or log archiving, and wants per-process CPU and memory at one-second granularity.",
+    question: "What should the CloudOps engineer enable?",
+    options: [
+      { id: 'A', text: "CloudTrail data events for the instance, which record the host's processes along with their CPU and memory consumption." },
+      { id: 'B', text: "Detailed monitoring on the DB instance, which publishes the standard RDS metrics at one-second granularity to CloudWatch." },
+      { id: 'C', text: "Enhanced Monitoring with a one-second granularity, which reports OS metrics and the process list from an agent on the host." },
+      { id: 'D', text: "Database activity streams, whose agent sends a near real-time record of every OS process on the host to an Amazon Kinesis stream." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "Enhanced Monitoring uses an agent on the DB instance to collect OS-level metrics, including a per-process list with CPU and memory, at granularities as fine as one second, published to CloudWatch Logs; this shows non-SQL processes that hypervisor CPU metrics cannot explain. RDS has no detailed monitoring option that publishes one-second standard metrics. Database activity streams record database activity such as SQL for auditing, not OS processes. CloudTrail records API calls, not processes.",
+    referenceUrl: "https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.OS.html",
+    tags: ["RDS","Enhanced Monitoring"]
+  },
+  {
+    id: "aws-soa-112",
+    difficulty: "hard",
+    certId: "aws-soa",
+    domainId: "d1",
+    domainName: "Monitoring, Logging, Analysis, Remediation, and Performance Optimization",
+    title: "Shortening the outage during Multi-AZ failover",
+    scenario: "A payments service on ECS connects to an RDS for MySQL Multi-AZ DB instance. During a recent failover, the service was down for several minutes because its JVM cached the old DNS address and thousands of connections had to be re-established. The team wants failovers to be much less disruptive without changing application code beyond the endpoint.",
+    question: "What should the CloudOps engineer implement?",
+    options: [
+      { id: 'A', text: "Convert the deployment to a Multi-AZ DB cluster and point the service's connections at the cluster's reader endpoint." },
+      { id: 'B', text: "Add a cross-Region read replica and configure the service to switch to it when it loses its connection to the primary." },
+      { id: 'C', text: "Lower the TTL on the instance's DNS endpoint to 1 second so that clients resolve the new primary as soon as it is promoted." },
+      { id: 'D', text: "Put an RDS Proxy in front of the database and point the service at the proxy endpoint, which keeps client connections open." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "RDS Proxy pools and maintains connections to the database; during a failover it detects the new primary and routes to it while client connections to the proxy stay open, bypassing DNS propagation and caching and cutting failover disruption substantially. A reader endpoint serves read-only traffic, so writes would fail. A cross-Region replica requires custom failover logic and promotion, adding complexity and data loss risk. RDS endpoint TTLs are managed by AWS and cannot be set by customers, and the JVM's own cache ignores DNS TTLs anyway.",
+    referenceUrl: "https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-proxy.html",
+    tags: ["RDS Proxy","Multi-AZ","Failover"]
+  },
+  {
+    id: "aws-soa-113",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d1",
+    domainName: "Monitoring, Logging, Analysis, Remediation, and Performance Optimization",
+    title: "Proactive recommendations that never appear",
+    scenario: "A CloudOps engineer turned on database load monitoring for an RDS for PostgreSQL instance and left its data-keeping period at the no-cost seven days. Colleagues on another team receive proactive recommendations in the RDS console that flag metrics trending toward problems, but this instance never shows any.",
+    question: "What must the engineer change to receive proactive recommendations?",
+    options: [
+      { id: 'A', text: "Enable database activity streams on the instance, because proactive recommendations analyze the streamed SQL activity." },
+      { id: 'B', text: "Enable Enhanced Monitoring at one-second granularity, because proactive recommendations are built from OS process metrics." },
+      { id: 'C', text: "Create CloudWatch anomaly detection alarms on every RDS metric, because recommendations are generated from those alarms." },
+      { id: 'D', text: "Choose a paid retention setting beyond the free tier, because proactive recommendations require paid-tier retention." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Performance Insights proactive recommendations are generated when monitored metrics cross automatically derived thresholds, and AWS documents that they are available only when database load monitoring is turned on with a paid-tier retention period rather than the free seven days. Enhanced Monitoring supplies OS metrics but is not the prerequisite. Anomaly detection alarms are a separate CloudWatch feature and do not produce RDS recommendations. Activity streams serve auditing and compliance, not performance recommendations.",
+    referenceUrl: "https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.InsightsRecommendationViewDetails.html",
+    tags: ["RDS","Performance Insights","Recommendations"]
+  },
+  {
+    id: "aws-soa-114",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d1",
+    domainName: "Monitoring, Logging, Analysis, Remediation, and Performance Optimization",
+    title: "Reporting load crowding out order processing",
+    scenario: "An online retailer's RDS for MySQL Multi-AZ DB instance runs at 85 percent CPU during business hours. Database load analysis shows that 70 percent of the load comes from read-only reporting queries, while order writes are light. The team wants to relieve the primary with minimal application change beyond connection settings.",
+    question: "Which two actions should the CloudOps engineer take? (Choose two.)",
+    options: [
+      { id: 'A', text: "Enable RDS Proxy connection pooling so that the reporting queries are executed on the proxy instead of the database." },
+      { id: 'B', text: "Increase the allocated storage of the DB instance so that its baseline IOPS rise and relieve the primary's high CPU load." },
+      { id: 'C', text: "Change the reporting application's connection string to use a read replica endpoint instead of the primary's." },
+      { id: 'D', text: "Point the reporting application at the Multi-AZ standby instance, which serves read traffic while it replicates." },
+      { id: 'E', text: "Create one or more read replicas of the DB instance so that reporting queries can run on copies of the data." }
+    ],
+    correctAnswers: ['C', 'E'],
+    type: "multiple",
+    explanation: "Read replicas receive asynchronous copies of the data and can serve read-only queries, so creating replicas and pointing the reporting application at a replica endpoint moves 70 percent of the load off the primary with only a connection change. In a Multi-AZ DB instance deployment, the standby cannot serve reads; only Multi-AZ DB clusters have readable standbys. More storage raises IOPS but does not relieve CPU consumed by query processing. RDS Proxy pools connections but executes nothing itself; every query still runs on the database.",
+    referenceUrl: "https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReadRepl.html",
+    tags: ["RDS","Read replicas","Performance"]
+  },
+  {
+    id: "aws-soa-115",
+    difficulty: "hard",
+    certId: "aws-soa",
+    domainId: "d1",
+    domainName: "Monitoring, Logging, Analysis, Remediation, and Performance Optimization",
+    title: "Disk queues on an RDS instance at steady CPU",
+    scenario: "An RDS for SQL Server instance with 500 GiB of gp2 storage shows DiskQueueDepth climbing into the dozens and read latency above 20 ms during nightly ETL. ReadIOPS plus WriteIOPS hold flat at about 1,500, while CPU stays below 40 percent and FreeableMemory is ample.",
+    question: "What change most directly resolves the bottleneck?",
+    options: [
+      { id: 'A', text: "Enable Performance Insights with long-term retention so that RDS can tune the storage automatically during the ETL." },
+      { id: 'B', text: "Add a read replica and move the nightly ETL's reads to it so that the primary's storage stays within its gp2 baseline." },
+      { id: 'C', text: "Scale the DB instance class up to a larger size so that it has more vCPUs available to process the nightly ETL queries." },
+      { id: 'D', text: "Modify the storage to gp3 or Provisioned IOPS with IOPS sized for the ETL, applied as an online storage modification." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "A 500 GiB gp2 volume has a baseline of 1,500 IOPS (3 IOPS per GiB), and the flat 1,500 IOPS with growing queue depth and latency shows the storage is saturated while CPU and memory are fine; moving to gp3 or io1/io2 with enough provisioned IOPS removes the limit, and RDS applies storage changes without downtime in most cases. More vCPUs do not raise storage IOPS. ETL jobs typically write heavily, and a read replica cannot take writes, so the primary would stay saturated. Performance Insights diagnoses load and never changes storage settings.",
+    referenceUrl: "https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html",
+    tags: ["RDS","Storage","IOPS"]
+  },
+  {
+    id: "aws-soa-116",
+    difficulty: "easy",
+    certId: "aws-soa",
+    domainId: "d1",
+    domainName: "Monitoring, Logging, Analysis, Remediation, and Performance Optimization",
+    title: "A parameter change that has not taken effect",
+    scenario: "A DBA changed the max_connections and shared_buffers parameters in the custom parameter group attached to an RDS for PostgreSQL instance. A day later, max_connections still shows the old value on the database, and the instance's parameter group status reads pending-reboot.",
+    question: "What should the CloudOps engineer do?",
+    options: [
+      { id: 'A', text: "Run the modify-db-instance command with the apply immediately flag, which applies static parameters without a reboot." },
+      { id: 'B', text: "Take a snapshot of the instance and restore it, because parameter changes apply only to newly created DB instances." },
+      { id: 'C', text: "Reattach the default parameter group and then the custom group so that RDS pushes every changed value immediately." },
+      { id: 'D', text: "Reboot the DB instance in a maintenance window so the static parameter changes are applied to the engine." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Static parameters such as max_connections and shared_buffers in PostgreSQL take effect only after the DB instance reboots, which is what the pending-reboot status indicates; dynamic parameters apply without one. Swapping parameter groups also requires a reboot to take effect and adds risk. Restoring from a snapshot is unnecessary because a reboot applies the change to the existing instance. Apply immediately affects when a modification is scheduled, but static parameter values still wait for a reboot.",
+    referenceUrl: "https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_WorkingWithParamGroups.html",
+    tags: ["RDS","Parameter groups"]
+  },
+  {
+    id: "aws-soa-117",
+    difficulty: "easy",
+    certId: "aws-soa",
+    domainId: "d1",
+    domainName: "Monitoring, Logging, Analysis, Remediation, and Performance Optimization",
+    title: "Lowest latency between simulation nodes",
+    scenario: "An automotive company runs a tightly coupled crash simulation across 16 compute-optimized EC2 instances that constantly exchange small messages. Node-to-node latency is the main performance constraint, and the job does not need to survive the loss of an Availability Zone.",
+    question: "How should the CloudOps engineer place the instances?",
+    options: [
+      { id: 'A', text: "In a partition placement group with one partition per node so that no two simulation nodes share the same network rack." },
+      { id: 'B', text: "In a spread placement group across three Availability Zones so that each node runs on distinct hardware in the Region." },
+      { id: 'C', text: "In an Auto Scaling group spread evenly across subnets in three Availability Zones for balanced capacity and redundancy." },
+      { id: 'D', text: "In a cluster placement group in a single Availability Zone so the nodes sit close together on a low-latency network segment." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "A cluster placement group packs instances close together inside one Availability Zone, giving the lowest latency and highest per-flow throughput between them, which is exactly what tightly coupled HPC traffic needs. Spread placement groups deliberately separate instances onto distinct racks and, across zones, add latency. Partition placement groups isolate groups of instances on separate racks to limit correlated failures, not to reduce latency. Spreading across Availability Zones increases inter-node latency.",
+    referenceUrl: "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-strategies.html",
+    tags: ["EC2","Placement groups","HPC"]
+  },
+  {
+    id: "aws-soa-118",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d1",
+    domainName: "Monitoring, Logging, Analysis, Remediation, and Performance Optimization",
+    title: "Keeping critical controllers off shared hardware",
+    scenario: "A utility runs five license controller instances that must never fail together because of a single hardware or rack failure. All five must stay in one Availability Zone because of licensing, and the team may add a sixth and seventh controller later.",
+    question: "Which placement strategy should the CloudOps engineer use?",
+    options: [
+      { id: 'A', text: "A cluster placement group, which places the controllers on one network segment so they can monitor each other closely." },
+      { id: 'B', text: "A partition placement group with two partitions, which places half the controllers on each of two separate racks in the zone." },
+      { id: 'C', text: "Dedicated Hosts for the controllers, which guarantee that each controller runs on its own rack within the Availability Zone." },
+      { id: 'D', text: "A spread placement group, which places each instance on distinct racks, allowing up to seven running instances per zone." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "A spread placement group places each instance on a distinct rack with its own network and power source, and allows up to seven running instances per Availability Zone per group, which accommodates the five current and two future controllers while keeping them in one zone. A cluster placement group concentrates instances on shared infrastructure, increasing correlated failure risk. Two partitions would leave several controllers sharing a rack. Dedicated Hosts give physical server isolation for licensing but do not guarantee separate racks for each host.",
+    referenceUrl: "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-strategies.html",
+    tags: ["EC2","Placement groups","Spread"]
+  },
+  {
+    id: "aws-soa-119",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d1",
+    domainName: "Monitoring, Logging, Analysis, Remediation, and Performance Optimization",
+    title: "Rack awareness for a large Cassandra ring",
+    scenario: "A messaging company runs a 60-node Apache Cassandra cluster on EC2 in one Availability Zone per ring. Cassandra's replication should place replicas on different failure domains, so the operations team needs to control which nodes share underlying racks and expose that grouping to Cassandra's topology settings.",
+    question: "Which placement strategy should the CloudOps engineer use?",
+    options: [
+      { id: 'A', text: "A cluster placement group for all 60 nodes, which keeps the ring on one low-latency segment for faster replication." },
+      { id: 'B', text: "A spread placement group for all 60 nodes, which places every node on separate racks in the Availability Zone." },
+      { id: 'C', text: "Three Auto Scaling groups in three Availability Zones, each representing one rack for Cassandra's topology settings." },
+      { id: 'D', text: "A partition placement group, with nodes assigned to partitions that map to separate racks and are visible in metadata." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Partition placement groups divide instances into logical partitions, each on its own set of racks, and expose the partition number through instance metadata so that topology-aware systems such as Cassandra, HDFS, and Kafka can place replicas on separate failure domains; they support hundreds of instances. Spread placement groups allow only seven running instances per zone, far fewer than 60. A cluster placement group puts nodes on shared infrastructure, increasing the risk of correlated failure. The requirement keeps each ring in one zone, so zones cannot serve as racks.",
+    referenceUrl: "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-strategies.html",
+    tags: ["EC2","Placement groups","Partition"]
+  },
+  {
+    id: "aws-soa-120",
+    difficulty: "hard",
+    certId: "aws-soa",
+    domainId: "d1",
+    domainName: "Monitoring, Logging, Analysis, Remediation, and Performance Optimization",
+    title: "Capacity errors when growing a cluster group",
+    scenario: "A research lab has 8 instances running in a cluster placement group and tries to launch 8 more of the same type into the group for a larger job. The launch fails with InsufficientInstanceCapacity, although the same instance type launches fine outside the placement group in that Availability Zone.",
+    question: "What should the CloudOps engineer do to have all 16 instances in the group?",
+    options: [
+      { id: 'A', text: "Stop the 8 existing instances, then start all 16 in one launch request so they are placed together on available capacity." },
+      { id: 'B', text: "Retry the launch with a different instance type for the new instances, because mixing types increases available capacity." },
+      { id: 'C', text: "Change the placement group's strategy from cluster to spread so that the new instances can be placed on any rack in the zone." },
+      { id: 'D', text: "Launch the additional 8 instances into a second cluster placement group in another Availability Zone and link the groups." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "A cluster placement group must find capacity close to the instances already running; if adding instances fails, AWS recommends stopping all instances in the group and starting them again together in a single launch request, which lets EC2 place the whole set where capacity exists. Placement groups cannot span Availability Zones or be linked, and a cross-zone split defeats the low-latency goal. A placement group's strategy cannot be changed, and spread groups allow only seven instances per zone. Mixing instance types in a cluster group reduces the chance of obtaining capacity, which is why a single type is recommended.",
+    referenceUrl: "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups-limitations-cluster.html",
+    tags: ["EC2","Placement groups","Troubleshooting"]
+  },
+  {
+    id: "aws-soa-121",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d1",
+    domainName: "Monitoring, Logging, Analysis, Remediation, and Performance Optimization",
+    title: "OS-bypass networking for MPI jobs",
+    scenario: "A weather agency's MPI-based forecast model scales poorly beyond 64 nodes because inter-node communication latency dominates. The nodes already use a cluster placement group and ENA enhanced networking. The agency wants lower and more consistent latency for its MPI traffic on supported instance types.",
+    question: "What should the CloudOps engineer add?",
+    options: [
+      { id: 'A', text: "An Elastic IP address on each node, so the MPI traffic flows over public addresses that avoid internal VPC routing." },
+      { id: 'B', text: "An Elastic Fabric Adapter on each node, so the MPI library bypasses the OS kernel for low-latency inter-node traffic." },
+      { id: 'C', text: "An additional ENA network interface on each node, doubling the aggregate inter-node bandwidth that MPI can use." },
+      { id: 'D', text: "A Transit Gateway attachment for the cluster subnet, so the MPI traffic between nodes is routed through the gateway." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "Elastic Fabric Adapter is a network interface for HPC and ML workloads that provides OS-bypass through libfabric, giving MPI and NCCL applications lower and more consistent latency than TCP over ENA, and it works within a cluster placement group on supported instance types. Additional ENA interfaces add bandwidth but keep the kernel TCP stack and its latency. Public addresses do not bypass anything and add hops. Routing node-to-node traffic through Transit Gateway adds latency and cost within a single subnet.",
+    referenceUrl: "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/efa.html",
+    tags: ["EC2","Elastic Fabric Adapter","HPC"]
+  },
+  {
+    id: "aws-soa-122",
+    difficulty: "easy",
+    certId: "aws-soa",
+    domainId: "d1",
+    domainName: "Monitoring, Logging, Analysis, Remediation, and Performance Optimization",
+    title: "Fast scratch space for a transcoding job",
+    scenario: "A video platform's transcoding instances need very high random I/O for temporary working files that are discarded when each job finishes. The source and output files are stored in S3, so losing the temporary files if an instance stops or fails is acceptable.",
+    question: "Which storage should the CloudOps engineer use for the working files?",
+    options: [
+      { id: 'A', text: "An Amazon EFS file system in Elastic throughput mode, shared by all transcoding instances for their temporary files." },
+      { id: 'B', text: "NVMe instance store volumes on an instance type that includes them, used as local scratch space for each transcoding job." },
+      { id: 'C', text: "An EBS io2 volume with high provisioned IOPS attached to each instance and retained after the instance is terminated." },
+      { id: 'D', text: "An S3 Express One Zone directory bucket used as the working directory by mounting it on each instance as a disk volume." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "Instance store volumes are physically attached NVMe disks that deliver very high random IOPS at no additional cost beyond the instance, and their data is lost when the instance stops or terminates, which is acceptable for disposable scratch files. io2 can provide high IOPS but costs extra and retaining volumes wastes money on temporary data. EFS is network storage with higher latency than local NVMe and is unnecessary when files need not be shared. S3 Express One Zone is object storage and cannot be attached as a block device.",
+    referenceUrl: "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html",
+    tags: ["EC2","Instance store"]
+  },
+  {
+    id: "aws-soa-123",
+    difficulty: "hard",
+    certId: "aws-soa",
+    domainId: "d1",
+    domainName: "Monitoring, Logging, Analysis, Remediation, and Performance Optimization",
+    title: "More throughput on a single replication stream",
+    scenario: "A bank replicates a database between two EC2 instances in the same Availability Zone over a single TCP connection, which tops out at about 5 Gbps even though both instance types support 50 Gbps. The replication software cannot open multiple streams, and the instances currently run in no placement group.",
+    question: "Which two actions can raise the single-flow throughput between the instances? (Choose two.)",
+    options: [
+      { id: 'A', text: "Enable EBS optimization on both instances so that dedicated storage bandwidth is also made available to network flows." },
+      { id: 'B', text: "Attach Elastic IP addresses to both instances so replication traffic travels over public addresses with a higher single-flow limit." },
+      { id: 'C', text: "Route the replication traffic through a NAT gateway in the subnet, which aggregates flows into a 100 Gbps path." },
+      { id: 'D', text: "Enable ENA Express on the network interfaces of both supported instances, which uses SRD to increase single-flow bandwidth." },
+      { id: 'E', text: "Place both instances in a cluster placement group, which raises the per-flow limit above the 5 Gbps that applies outside one." }
+    ],
+    correctAnswers: ['D', 'E'],
+    type: "multiple",
+    explanation: "Outside a cluster placement group, a single flow between instances is limited to 5 Gbps, and inside one it can reach 10 Gbps; ENA Express uses the AWS Scalable Reliable Datagram protocol to raise single-flow bandwidth further, up to 25 Gbps between supported instances in the same Availability Zone. Public Elastic IP addresses do not increase flow limits and add hops. A NAT gateway is for outbound internet access and would add a bottleneck. EBS optimization dedicates bandwidth to storage traffic and does nothing for network flows.",
+    referenceUrl: "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ena-express.html",
+    tags: ["EC2","ENA Express","Network performance"]
+  },
+  {
+    id: "aws-soa-124",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d1",
+    domainName: "Monitoring, Logging, Analysis, Remediation, and Performance Optimization",
+    title: "A custom AMI that will not start on Nitro",
+    scenario: "A CloudOps engineer is moving a legacy application from an m4 instance to an m7i instance by launching its custom AMI, which was built years ago from a very old Linux distribution. The launch fails with an error stating that enhanced networking with ENA is required for the m7i instance type.",
+    question: "What should the engineer do?",
+    options: [
+      { id: 'A', text: "Install the ENA driver in the image, set the enaSupport attribute on the AMI, and launch the m7i instance from the updated AMI." },
+      { id: 'B', text: "Enable detailed monitoring in the launch request, because m7i instances need it before they can attach any network interface." },
+      { id: 'C', text: "Attach an Elastic Fabric Adapter to the m7i instance instead of an ENA interface, since EFA works with any Linux distribution." },
+      { id: 'D', text: "Launch the AMI on an m7i instance in a cluster placement group, which provides enhanced networking through the placement group." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Nitro-based instance types such as m7i require the Elastic Network Adapter, so the operating system must include the ENA driver and the AMI or instance must have the enaSupport attribute set; installing the driver on the m4, creating a new AMI with ENA support, and launching from it resolves the error. Detailed monitoring has nothing to do with network interfaces. EFA is an additional HPC interface and also relies on ENA-capable instances and drivers. Placement groups control physical placement and do not supply a network driver.",
+    referenceUrl: "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/enhanced-networking-ena.html",
+    tags: ["EC2","Enhanced networking","ENA"]
+  },
+  {
+    id: "aws-soa-125",
+    difficulty: "hard",
+    certId: "aws-soa",
+    domainId: "d1",
+    domainName: "Monitoring, Logging, Analysis, Remediation, and Performance Optimization",
+    title: "Intermittent packet loss on a busy proxy",
+    scenario: "A streaming company's forward proxy runs on a c6i.xlarge instance rated at up to 12.5 Gbps. After about 20 minutes of heavy traffic each evening, clients see retransmits and timeouts, yet the NetworkOut metric looks unremarkable at one-minute granularity and CPU stays below 50 percent.",
+    question: "How should the CloudOps engineer confirm the cause?",
+    options: [
+      { id: 'A', text: "Run Reachability Analyzer between the clients and the proxy, which reports when a path is dropping packets because of bandwidth." },
+      { id: 'B', text: "Enable detailed monitoring on the instance and alarm on NetworkPacketsOut, whose one-minute values show when the drops begin." },
+      { id: 'C', text: "Collect the ENA driver's allowance-exceeded counters, such as bw_out_allowance_exceeded, with the CloudWatch agent's ethtool plugin." },
+      { id: 'D', text: "Enable VPC Flow Logs on the instance's network interface and look for REJECT records, which show packets dropped by the instance limit." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "Instances rated at up to a bandwidth figure can burst above their baseline only for a limited time, and when shaping begins the ENA driver increments counters such as bw_out_allowance_exceeded, pps_allowance_exceeded, and conntrack_allowance_exceeded; the CloudWatch agent's ethtool plugin publishes them so the shaping is visible and a larger instance can be justified. Flow log REJECT records reflect security group and network ACL decisions, not bandwidth shaping. One-minute packet metrics average away microbursts and do not show shaping directly. Reachability Analyzer checks configuration-level reachability and never measures traffic or drops.",
+    referenceUrl: "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitoring-network-performance-ena.html",
+    tags: ["EC2","ENA","Network performance"]
+  }
+];
+
+export default AWS_SOA_QUESTIONS_5;

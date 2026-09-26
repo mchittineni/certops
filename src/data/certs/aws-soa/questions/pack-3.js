@@ -1,0 +1,532 @@
+export const AWS_SOA_QUESTIONS_3 = [
+  {
+    id: "aws-soa-51",
+    difficulty: "easy",
+    certId: "aws-soa",
+    domainId: "d1",
+    domainName: "Monitoring, Logging, Analysis, Remediation, and Performance Optimization",
+    title: "A report at 08:00 Berlin time all year round",
+    scenario: "A German logistics firm needs a Lambda function to generate a depot report at exactly 08:00 local time in Berlin every weekday. Last year's scheduled job ran an hour early for half the year because of daylight saving time changes, and operations wants no manual adjustments when the clocks change.",
+    question: "Which scheduling option should the CloudOps engineer use?",
+    options: [
+      { id: 'A', text: "A Systems Manager maintenance window with a UTC cron expression and a Lambda task, updated by a script at each Berlin clock change." },
+      { id: 'B', text: "An EventBridge Scheduler schedule with a cron expression and the Europe/Berlin time zone, which adjusts for daylight saving." },
+      { id: 'C', text: "A CloudWatch alarm on a heartbeat metric that invokes the function at 08:00 by using the alarm's configured Lambda action." },
+      { id: 'D', text: "An EventBridge scheduled rule with a cron expression of 08:00, because scheduled rules follow the Region's local time and daylight saving." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "EventBridge Scheduler accepts a time zone with each cron or rate schedule and handles daylight saving transitions automatically, so the function always runs at 08:00 Berlin time. EventBridge scheduled rules evaluate cron expressions in UTC only, which is what produced last year's one-hour drift. A CloudWatch alarm fires on metric thresholds, not at a time of day. A maintenance window can in fact take a time zone, but keeping it on UTC and rewriting it with a script at each clock change is exactly the manual adjustment operations wants to avoid.",
+    referenceUrl: "https://docs.aws.amazon.com/scheduler/latest/UserGuide/schedule-types.html",
+    tags: ["EventBridge Scheduler","Scheduling"]
+  },
+  {
+    id: "aws-soa-52",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d1",
+    domainName: "Monitoring, Logging, Analysis, Remediation, and Performance Optimization",
+    title: "A state-change rule that never matches",
+    scenario: "A CloudOps engineer wrote an EventBridge rule on the default bus to notify a team when any EC2 instance stops. The pattern is {\"source\": [\"ec2\"], \"detail-type\": [\"EC2 Instance State-change Notification\"], \"detail\": {\"state\": [\"stopped\"]}}. Instances stop several times a day, but the rule's MatchedEvents metric stays at zero.",
+    question: "What should the engineer change?",
+    options: [
+      { id: 'A', text: "Change the detail block to a top-level state field, because EC2 puts the instance state outside the detail object of the event." },
+      { id: 'B', text: "Enable a CloudTrail trail for management events, because EC2 state-change events reach EventBridge only through a trail." },
+      { id: 'C', text: "Change the source value to aws.ec2, because events from AWS services always carry the aws. prefix in their source field." },
+      { id: 'D', text: "Move the rule to a custom event bus, because EC2 state-change events are delivered only to custom buses that the account creates." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "Events emitted by AWS services use a source made of aws. followed by the service name, so EC2 state-change notifications carry \"source\": \"aws.ec2\"; a pattern asking for \"ec2\" can never match, which is why MatchedEvents stays at zero. AWS service events are delivered to the default event bus, not to custom buses. The state field sits inside detail in this event, so the rest of the pattern is correct. EC2 Instance State-change Notification is a native service event and does not depend on CloudTrail.",
+    referenceUrl: "https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-event-patterns.html",
+    tags: ["EventBridge","Event patterns","Troubleshooting"]
+  },
+  {
+    id: "aws-soa-53",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d1",
+    domainName: "Monitoring, Logging, Analysis, Remediation, and Performance Optimization",
+    title: "Collecting events on one central bus",
+    scenario: "A media group wants every Security Hub and GuardDuty finding from 30 member accounts in its organization delivered to a custom event bus named sec-central in the security account, where rules route them to the SOC's tooling. The CloudOps engineer must configure delivery across accounts.",
+    question: "Which two actions are required? (Choose two.)",
+    options: [
+      { id: 'A', text: "Share the sec-central bus with the organization through AWS Resource Access Manager so they can publish to it like a local bus." },
+      { id: 'B', text: "Create a rule in each member account that matches the findings and targets the sec-central bus ARN, using a role allowed to put events." },
+      { id: 'C', text: "Create an interface VPC endpoint for EventBridge in each member account so that events can cross from each account into the security account." },
+      { id: 'D', text: "Add a resource-based policy to the sec-central bus that allows events:PutEvents from principals in the organization by aws:PrincipalOrgID." },
+      { id: 'E', text: "Create an EventBridge archive on the sec-central bus in each member account so the findings are replayed into the security account." }
+    ],
+    correctAnswers: ['B', 'D'],
+    type: "multiple",
+    explanation: "Cross-account delivery needs both sides: the receiving bus's resource-based policy must permit PutEvents from the sending accounts, and conditioning on aws:PrincipalOrgID covers every current and future member; each sending account then needs a rule whose target is the central bus ARN, with an IAM role that allows events:PutEvents on it. Archives replay events into the bus they were archived from, in the same account. Event buses are not shared through Resource Access Manager. EventBridge delivers between buses inside the service, so no VPC endpoint is involved.",
+    referenceUrl: "https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-cross-account.html",
+    tags: ["EventBridge","Cross-account","Event buses"]
+  },
+  {
+    id: "aws-soa-54",
+    difficulty: "easy",
+    certId: "aws-soa",
+    domainId: "d1",
+    domainName: "Monitoring, Logging, Analysis, Remediation, and Performance Optimization",
+    title: "Readable alerts instead of raw event JSON",
+    scenario: "An EventBridge rule sends AWS Health events to an SNS topic with an email subscription. The operations team complains that each email is a large block of raw JSON. They want a short sentence naming the affected service, the event type, and the start time, with no additional code to run.",
+    question: "What should the CloudOps engineer configure on the rule's target?",
+    options: [
+      { id: 'A', text: "A constant JSON input on the target that replaces the event with a fixed message, so every email body looks the same." },
+      { id: 'B', text: "A Lambda function between the rule and the topic that parses each event and publishes a short sentence to the SNS topic for email." },
+      { id: 'C', text: "An SNS subscription filter policy that removes every field except service, event type, and start time from each message." },
+      { id: 'D', text: "An input transformer that maps the needed fields into variables and uses them in an input template that forms the sentence." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "An input transformer extracts fields from the event with an input paths map, such as $.detail.service and $.detail.eventTypeCode, and places them in an input template, so the target receives a readable sentence without any code. A Lambda function would work but adds code to build and maintain, which the team wants to avoid. Filter policies decide whether a subscriber receives a message; they never edit its content. A constant input discards the event entirely, so the emails would lose the service and time details.",
+    referenceUrl: "https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-transform-target-input.html",
+    tags: ["EventBridge","Input transformer"]
+  },
+  {
+    id: "aws-soa-55",
+    difficulty: "hard",
+    certId: "aws-soa",
+    domainId: "d1",
+    domainName: "Monitoring, Logging, Analysis, Remediation, and Performance Optimization",
+    title: "Adding customer details to queue messages in flight",
+    scenario: "An insurer's SQS queue receives claim messages that contain only a customer ID. A Step Functions workflow must start for each message, but it needs the customer's tier from an internal HTTP API added to the input first. Only claims above 10,000 dollars should start the workflow, and the team wants as little glue code as possible.",
+    question: "Which solution meets the requirements?",
+    options: [
+      { id: 'A', text: "An SNS topic subscribed to the queue with a filter policy on the claim amount and a Step Functions subscription that calls the customer API." },
+      { id: 'B', text: "An EventBridge rule on the default bus that matches the SQS messages and uses an input transformer to call the customer API." },
+      { id: 'C', text: "A Lambda function polling the queue on a schedule, calling the customer API, and starting the workflow for each message by SDK." },
+      { id: 'D', text: "An EventBridge pipe from the queue with a filter on the claim amount, an API destination enrichment step, and the workflow as target." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "EventBridge Pipes connect a point-to-point source such as SQS to a target, with an optional filter to drop claims below the threshold and an enrichment step, here an API destination, whose response becomes the target's input, so the workflow receives the customer tier without custom code. Rules on an event bus do not consume SQS messages, and an input transformer only reshapes data already in the event. SNS cannot subscribe to a queue, and Step Functions is not an SNS subscription protocol. A polling Lambda function is the glue code the team wants to avoid.",
+    referenceUrl: "https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes.html",
+    tags: ["EventBridge Pipes","Enrichment","Step Functions"]
+  },
+  {
+    id: "aws-soa-56",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d1",
+    domainName: "Monitoring, Logging, Analysis, Remediation, and Performance Optimization",
+    title: "Events lost while a target was throttling",
+    scenario: "An EventBridge rule sends order events to a Lambda function. During a traffic surge the function hit its concurrency limit for several hours, and the rule's FailedInvocations metric shows that thousands of events were never delivered after EventBridge gave up. The team wants such events kept for reprocessing next time.",
+    question: "What should the CloudOps engineer configure?",
+    options: [
+      { id: 'A', text: "A higher reserved concurrency on the function, which removes throttling and lets EventBridge deliver every event first time." },
+      { id: 'B', text: "An EventBridge archive on the bus with a one-day retention, replaying the whole bus each time a delivery failure is detected." },
+      { id: 'C', text: "An SQS dead-letter queue on the rule's target, with a retry policy whose maximum event age suits how long outages last." },
+      { id: 'D', text: "A Lambda destination for failed asynchronous invocations, which captures events that EventBridge could not deliver at all." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "Each rule target can have a retry policy (maximum event age and retry attempts) and an SQS dead-letter queue; events that still cannot be delivered when the policy runs out are sent to the queue with error details, so they can be reprocessed. An archive can replay events, but replaying the whole bus re-sends every event to every rule, including ones that succeeded, and it is not tied to delivery failures. Raising concurrency helps but does not guarantee delivery in the next outage. Lambda on-failure destinations handle invocations that Lambda accepted and then failed; events EventBridge could never hand to Lambda never reach them.",
+    referenceUrl: "https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-rule-dlq.html",
+    tags: ["EventBridge","Dead-letter queues","Retry policy"]
+  },
+  {
+    id: "aws-soa-57",
+    difficulty: "easy",
+    certId: "aws-soa",
+    domainId: "d1",
+    domainName: "Monitoring, Logging, Analysis, Remediation, and Performance Optimization",
+    title: "Application events that no rule ever sees",
+    scenario: "A retail developer publishes OrderPlaced events with PutEvents to a custom event bus named orders. The CloudOps engineer created a rule matching source retail.orders on the default event bus, but it never triggers, although PutEvents calls succeed and the pattern matches the sample events exactly.",
+    question: "What is the problem?",
+    options: [
+      { id: 'A', text: "PutEvents delivers custom events to the default bus only after the orders bus's archive has stored them for replay." },
+      { id: 'B', text: "Rules on the default bus match custom events only after their event schema is registered by EventBridge schema discovery." },
+      { id: 'C', text: "Custom events must use a source that begins with aws. before any rule on any bus matches them, including this rule." },
+      { id: 'D', text: "The rule was created on the default bus, but a rule matches only events sent to the bus it belongs to, here the orders bus." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "A rule is attached to one event bus and evaluates only events delivered to that bus, so events sent to the orders bus are invisible to a rule on the default bus; the rule must be created on the orders bus. The aws. prefix is reserved for AWS services, and custom applications cannot use it. Archives store events for replay and do not forward them to other buses. Schema discovery is an optional feature for generating code bindings and has no effect on rule matching.",
+    referenceUrl: "https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-event-bus.html",
+    tags: ["EventBridge","Custom event buses","Troubleshooting"]
+  },
+  {
+    id: "aws-soa-58",
+    difficulty: "hard",
+    certId: "aws-soa",
+    domainId: "d1",
+    domainName: "Monitoring, Logging, Analysis, Remediation, and Performance Optimization",
+    title: "Reacting to new IAM users from a European Region",
+    scenario: "A bank's platform runs entirely in eu-west-2. The CloudOps engineer created an EventBridge rule there matching detail-type AWS API Call via CloudTrail with source aws.iam and eventName CreateUser, targeting a Lambda function that reviews new users. The account has an active multi-Region trail, yet the rule never fires when users are created.",
+    question: "What should the engineer do?",
+    options: [
+      { id: 'A', text: "Enable CloudTrail data events for IAM on the trail, because CreateUser is recorded as a data event that EventBridge receives." },
+      { id: 'B', text: "Enable IAM Access Analyzer in eu-west-2, which forwards user creation events to that Region's default event bus for rules." },
+      { id: 'C', text: "Create the rule in us-east-1, because events for global services such as IAM are delivered to EventBridge in that Region." },
+      { id: 'D', text: "Change the source in the pattern to aws.cloudtrail, because every API call event carries CloudTrail as its source value." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "IAM is a global service whose API calls are recorded in us-east-1, and the corresponding AWS API Call via CloudTrail events are delivered to EventBridge in us-east-1, so the rule (and, if desired, a cross-Region bus target back to eu-west-2) must exist there. CreateUser is a management event, not a data event. API call events keep the originating service's source, here aws.iam, so the pattern is already correct. IAM Access Analyzer produces findings about external access and does not forward CloudTrail events between Regions.",
+    referenceUrl: "https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-service-event-cloudtrail.html",
+    tags: ["EventBridge","CloudTrail","IAM"]
+  },
+  {
+    id: "aws-soa-59",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d1",
+    domainName: "Monitoring, Logging, Analysis, Remediation, and Performance Optimization",
+    title: "Reprocessing yesterday's events after a bug fix",
+    scenario: "A payment processor discovered that a bug in its fraud-scoring consumer silently dropped events on a custom bus for six hours yesterday. The fix is deployed, and the team wants those six hours of events delivered again to the fraud rule only, without asking producers to resend anything. An archive has existed on the bus for months.",
+    question: "What should the CloudOps engineer do?",
+    options: [
+      { id: 'A', text: "Create a new archive on the bus with an event pattern that matches yesterday's six-hour window, then start it to resend them." },
+      { id: 'B', text: "Query the fraud events in CloudTrail event history and republish them to the fraud-scoring rule only with a PutEvents script." },
+      { id: 'C', text: "Use the rule's dead-letter queue to redrive the six hours of events, because dropped events are always sent to the queue." },
+      { id: 'D', text: "Start a replay from the bus's archive for the six-hour window and limit the replay to the fraud-scoring rule as its only rule." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "An EventBridge replay reads events from an archive for a chosen start and end time and sends them back to the source bus, and it can be restricted to specific rules so other consumers do not receive duplicates. A new archive captures only events arriving after it is created, never past ones. The dead-letter queue receives events that EventBridge failed to deliver; these events were delivered successfully and then dropped by buggy code, so they are not in any queue. CloudTrail event history does not hold the payloads of custom events published with PutEvents, so it cannot rebuild them.",
+    referenceUrl: "https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-replay-archived-event.html",
+    tags: ["EventBridge","Archive and replay"]
+  },
+  {
+    id: "aws-soa-60",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d1",
+    domainName: "Monitoring, Logging, Analysis, Remediation, and Performance Optimization",
+    title: "Posting events to a partner's HTTPS endpoint",
+    scenario: "A travel company must send each BookingConfirmed event to a partner's HTTPS webhook that requires an OAuth client-credentials token and accepts no more than 20 requests per second. The CloudOps engineer wants retries and authorization handled by the service, with no code to maintain.",
+    question: "Which EventBridge feature should the engineer use as the rule target?",
+    options: [
+      { id: 'A', text: "An SNS topic with an HTTPS subscription to the partner webhook and a delivery policy that throttles SNS to 20 per second." },
+      { id: 'B', text: "An EventBridge pipe from the bus to the partner webhook, with an OAuth enrichment step that obtains the token for each event." },
+      { id: 'C', text: "A Lambda function that fetches the OAuth token, calls the webhook, and sleeps between calls to respect the partner rate limit." },
+      { id: 'D', text: "An API destination with a connection that holds the OAuth client credentials, and an invocation rate limit of 20 per second." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "API destinations call HTTP endpoints directly from a rule; the associated connection stores Basic, API key, or OAuth client-credentials settings in Secrets Manager and refreshes tokens automatically, and the destination's invocation rate limit caps requests per second, with EventBridge retrying failures. A Lambda function would work but is the code the team wants to avoid. SNS HTTPS subscriptions do not obtain OAuth tokens. Pipes take point-to-point sources such as queues and streams, not an event bus, and an enrichment step is not how pipes authenticate to a target.",
+    referenceUrl: "https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-api-destinations.html",
+    tags: ["EventBridge","API destinations"]
+  },
+  {
+    id: "aws-soa-61",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d1",
+    domainName: "Monitoring, Logging, Analysis, Remediation, and Performance Optimization",
+    title: "Invoice uploads that never reach EventBridge",
+    scenario: "An accounting firm created an EventBridge rule matching source aws.s3 and detail-type Object Created, filtered on the key prefix invoices/ in its billing bucket, to start a processing workflow. Files are uploaded all day, but the rule's MatchedEvents metric is zero and no S3 events appear on the default bus at all.",
+    question: "What should the CloudOps engineer do?",
+    options: [
+      { id: 'A', text: "Enable CloudTrail data events for the bucket, because S3 Object Created events reach EventBridge only through data events." },
+      { id: 'B', text: "Turn on the bucket's setting to send notifications to Amazon EventBridge, which is off by default for every bucket." },
+      { id: 'C', text: "Add an S3 event notification for the invoices/ prefix that targets the default event bus as its destination directly." },
+      { id: 'D', text: "Change the pattern to match detail-type AWS API Call via CloudTrail, because S3 publishes only API call events to buses." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "S3 sends its native events, such as Object Created, to EventBridge only when the bucket's Amazon EventBridge notification setting is enabled; with it off, nothing arrives on the bus regardless of the rule. CloudTrail data events are an older, indirect route that produces API call events, not the Object Created detail-type the rule expects. Classic S3 event notifications target SNS, SQS, and Lambda and cannot name an event bus as a destination. S3 publishes native events to EventBridge once enabled, so switching to API call events is unnecessary.",
+    referenceUrl: "https://docs.aws.amazon.com/AmazonS3/latest/userguide/enable-event-notifications-eventbridge.html",
+    tags: ["EventBridge","S3","Troubleshooting"]
+  },
+  {
+    id: "aws-soa-62",
+    difficulty: "easy",
+    certId: "aws-soa",
+    domainId: "d1",
+    domainName: "Monitoring, Logging, Analysis, Remediation, and Performance Optimization",
+    title: "Two minutes to drain a Spot worker",
+    scenario: "A genomics lab runs batch workers on EC2 Spot Instances. When AWS is about to reclaim an instance, the lab wants a Lambda function to deregister the worker from its job scheduler and checkpoint the current task during the warning period, without polling from every instance.",
+    question: "What should the CloudOps engineer create?",
+    options: [
+      { id: 'A', text: "An EventBridge rule matching EC2 Spot Instance Interruption Warning events, with the Lambda function configured as the target." },
+      { id: 'B', text: "An Auto Scaling lifecycle hook on instance launch that invokes the Lambda function to register each worker for interruption notices." },
+      { id: 'C', text: "A CloudWatch alarm on the StatusCheckFailed metric of each Spot Instance with an action that invokes the Lambda function." },
+      { id: 'D', text: "An EventBridge rule matching EC2 Instance State-change Notification for the shutting-down state, treating it as the warning." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "EC2 emits an EC2 Spot Instance Interruption Warning event to EventBridge two minutes before reclaiming a Spot Instance, so a rule targeting the Lambda function runs the drain and checkpoint logic within the warning period without polling instance metadata. Status checks do not reflect planned Spot interruptions. A launch lifecycle hook runs when instances start, not when they are about to be reclaimed. A shutting-down state event is emitted only once termination has already begun, too late to drain and checkpoint reliably.",
+    referenceUrl: "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-instance-termination-notices.html",
+    tags: ["EventBridge","EC2 Spot","Lambda"]
+  },
+  {
+    id: "aws-soa-63",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d1",
+    domainName: "Monitoring, Logging, Analysis, Remediation, and Performance Optimization",
+    title: "A CLI-built rule whose function stays idle",
+    scenario: "A CloudOps engineer created an EventBridge rule and its Lambda target with the AWS CLI using put-rule and put-targets. The rule's MatchedEvents and Invocations metrics rise as expected, but FailedInvocations rises by the same amount and the function's own metrics show no invocations at all.",
+    question: "What is the most likely fix?",
+    options: [
+      { id: 'A', text: "Add a statement to the function's resource-based policy allowing the events.amazonaws.com principal to invoke it for this rule." },
+      { id: 'B', text: "Attach the AWSLambdaRole managed policy to the function's execution role so that the role itself permits invocation from EventBridge." },
+      { id: 'C', text: "Recreate the rule on a custom event bus, because Lambda targets are invoked only from rules that belong to custom event buses." },
+      { id: 'D', text: "Enable an SQS dead-letter queue on the target, because EventBridge will not invoke Lambda targets until a DLQ is configured." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "When a Lambda target is added in the console, EventBridge adds the invoke permission automatically, but with the CLI or SDK the engineer must call lambda add-permission so the function's resource-based policy allows events.amazonaws.com, scoped with the rule's ARN; without it every invocation fails with an authorization error. The execution role controls what the function can call, not who can invoke it. Lambda targets work from any bus. A dead-letter queue is optional and would only capture the failures, not stop them.",
+    referenceUrl: "https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-use-resource-based.html",
+    tags: ["EventBridge","Lambda","Resource-based policies"]
+  },
+  {
+    id: "aws-soa-64",
+    difficulty: "easy",
+    certId: "aws-soa",
+    domainId: "d1",
+    domainName: "Monitoring, Logging, Analysis, Remediation, and Performance Optimization",
+    title: "Weekly images of a legacy application server",
+    scenario: "A manufacturer runs a legacy MES application on one EC2 instance that cannot be rebuilt from code. The operations team wants an AMI of the instance created every Sunday at 02:00 by using a runbook that AWS already publishes, with no custom scripting.",
+    question: "What should the CloudOps engineer configure?",
+    options: [
+      { id: 'A', text: "An AWS Backup plan with a Sunday rule for EBS volumes only, which produces a launchable AMI of the instance after each backup." },
+      { id: 'B', text: "A maintenance window for Sundays at 02:00 with an Automation task running the AWS-CreateImage runbook against the instance." },
+      { id: 'C', text: "A maintenance window for Sundays at 02:00 with a Run Command task running AWS-RunShellScript to call the EC2 CLI from the instance." },
+      { id: 'D', text: "A lifecycle hook on the instance's Auto Scaling group that creates an image every time the group scales in on Sunday mornings." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "AWS-CreateImage is an AWS-owned Automation runbook that creates an AMI from an instance, and a maintenance window can run it as an Automation task on a Sunday 02:00 schedule with no custom code. Running a shell script that calls the EC2 CLI is custom scripting and needs extra permissions on the instance itself. The instance is not in an Auto Scaling group, and scale-in events do not happen on a schedule anyway. An AWS Backup plan that protects only EBS volumes produces volume snapshots, not an AMI; an EC2 resource backup would be needed for that.",
+    referenceUrl: "https://docs.aws.amazon.com/systems-manager-automation-runbooks/latest/userguide/automation-aws-createimage.html",
+    tags: ["Systems Manager Automation","Maintenance windows","AMI"]
+  },
+  {
+    id: "aws-soa-65",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d1",
+    domainName: "Monitoring, Logging, Analysis, Remediation, and Performance Optimization",
+    title: "Restarting 600 servers without a big bang",
+    scenario: "A telecom must run a restart runbook against about 600 EC2 instances tagged Tier=app. Operations wants no more than 10 percent of the instances processed at a time, and the whole run must halt automatically if more than 5 percent of the executions fail.",
+    question: "How should the CloudOps engineer run the Automation runbook?",
+    options: [
+      { id: 'A', text: "Start 60 separate Automation executions by hand in waves, checking each wave in the console before starting the next one." },
+      { id: 'B', text: "Run the runbook through Run Command with the Tier=app tag and a timeout of 10 minutes on every instance in the fleet." },
+      { id: 'C', text: "Start the Automation in simple mode with the instance IDs listed, and set the runbook's own timeout to limit the failures." },
+      { id: 'D', text: "Start a rate-controlled Automation targeting the Tier=app tag, with maximum concurrency of 10% and maximum errors of 5%." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Rate control lets one Automation execution fan out over targets selected by tag, resource group, or parameter values, with MaxConcurrency limiting how many child executions run at once and MaxErrors stopping the run when the failure threshold is reached. Starting waves by hand is slow and error-prone and gives no automatic halt. Run Command executes Command documents, not Automation runbooks, and a timeout neither limits concurrency nor stops on errors. A simple execution with listed IDs runs without the concurrency and error controls the requirement needs.",
+    referenceUrl: "https://docs.aws.amazon.com/systems-manager/latest/userguide/running-automations-scale.html",
+    tags: ["Systems Manager Automation","Rate control"]
+  },
+  {
+    id: "aws-soa-66",
+    difficulty: "hard",
+    certId: "aws-soa",
+    domainId: "d1",
+    domainName: "Monitoring, Logging, Analysis, Remediation, and Performance Optimization",
+    title: "One runbook across accounts and Regions",
+    scenario: "A retail group needs to run the same remediation runbook against resources in 20 accounts and three Regions from a central operations account, with results visible in one place. The CloudOps engineer wants to use the native Systems Manager capability rather than looping over accounts in a script.",
+    question: "What should the engineer set up?",
+    options: [
+      { id: 'A', text: "Enable Systems Manager Quick Setup in each account so that it runs every Automation runbook created in the central account." },
+      { id: 'B', text: "Share the runbook with the 20 accounts, then sign in to each account and Region to start the runbook locally from the console." },
+      { id: 'C', text: "Create the Automation administration role centrally and an execution role in each target account, then start one multi-account Automation." },
+      { id: 'D', text: "Create a StackSet that deploys a Lambda function to each account and Region, which then starts the runbook locally when the stack is created." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "Multi-account and multi-Region Automation runs from a central account (or the management or delegated administrator account) using the AWS-SystemsManager-AutomationAdministrationRole there and an AWS-SystemsManager-AutomationExecutionRole in each target account, with the targets, Regions, and rate controls given at start and the combined results shown centrally. Signing in to each account and Region is the manual loop the team wants to avoid. Quick Setup deploys recommended configurations; it does not run arbitrary runbooks from another account. A StackSet-deployed Lambda function is custom glue that runs once at deployment and reports nowhere central.",
+    referenceUrl: "https://docs.aws.amazon.com/systems-manager/latest/userguide/running-automations-multiple-accounts-regions.html",
+    tags: ["Systems Manager Automation","Multi-account","Multi-Region"]
+  },
+  {
+    id: "aws-soa-67",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d1",
+    domainName: "Monitoring, Logging, Analysis, Remediation, and Performance Optimization",
+    title: "Logic that no predefined runbook provides",
+    scenario: "A media company needs a runbook that lists unattached EBS volumes older than 30 days, skips any tagged Retain=true, snapshots the rest, and writes a summary to an S3 bucket. No AWS-owned runbook does this, and the steps involve loops and date calculations that would be awkward to express one API call at a time.",
+    question: "Which runbook design should the CloudOps engineer use?",
+    options: [
+      { id: 'A', text: "A custom runbook of aws:executeAwsApi steps, one per volume, generated by hand each time the cleanup needs to be run." },
+      { id: 'B', text: "A custom runbook of aws:runCommand steps that clean up the volumes with a shell script on one of the company's EC2 instances." },
+      { id: 'C', text: "The AWS-DeleteEbsVolumeSnapshots runbook with a parameter for the age, which also handles the tag exclusion and summary." },
+      { id: 'D', text: "A custom runbook with an aws:executeScript step that runs Python to filter the volumes, snapshot them, and write the summary." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "aws:executeScript runs a Python or PowerShell script inside the Automation service with the runbook's role, so loops, date arithmetic, tag checks, snapshot calls, and the S3 write can live in one step with no instance involved. Running the script through aws:runCommand works but requires a managed instance with the right role, adding infrastructure to maintain. AWS-DeleteEbsVolumeSnapshots deletes snapshots rather than creating them and has no tag or summary logic. Hand-generating one API step per volume each time is not automation.",
+    referenceUrl: "https://docs.aws.amazon.com/systems-manager/latest/userguide/automation-action-executeScript.html",
+    tags: ["Systems Manager Automation","Custom runbooks","aws:executeScript"]
+  },
+  {
+    id: "aws-soa-68",
+    difficulty: "easy",
+    certId: "aws-soa",
+    domainId: "d1",
+    domainName: "Monitoring, Logging, Analysis, Remediation, and Performance Optimization",
+    title: "A human sign-off before production rollback",
+    scenario: "A bank's rollback runbook restores a production database from a snapshot. Operations wants the runbook to pause just before the restore step and wait until a named change manager approves it, notifying that manager when the pause begins, and to stop if nobody approves.",
+    question: "Which runbook step should the CloudOps engineer add before the restore?",
+    options: [
+      { id: 'A', text: "An aws:sleep step that waits 30 minutes, giving the change manager time to cancel the execution from the console." },
+      { id: 'B', text: "An aws:assertAwsResourceProperty step that checks the snapshot's status before allowing the execution to continue." },
+      { id: 'C', text: "An aws:pause step that pauses the execution until any operator with ssm:SendAutomationSignal permission resumes it." },
+      { id: 'D', text: "An aws:approve step that lists the change manager as approver and names an SNS topic used to notify the approver." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "aws:approve halts the execution until the designated IAM principals approve or reject it, sends a notification to the configured SNS topic, and fails the step on rejection or timeout, so nothing proceeds without the named manager's sign-off. A sleep continues automatically unless someone intervenes, which reverses the required default. aws:pause can be resumed by anyone with permission to signal the execution and does not name an approver or notify anyone. Asserting the snapshot's state is a useful safety check but involves no human.",
+    referenceUrl: "https://docs.aws.amazon.com/systems-manager/latest/userguide/automation-action-approve.html",
+    tags: ["Systems Manager Automation","Approvals"]
+  },
+  {
+    id: "aws-soa-69",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d1",
+    domainName: "Monitoring, Logging, Analysis, Remediation, and Performance Optimization",
+    title: "Monthly patched images without a build server",
+    scenario: "A healthcare company launches Amazon Linux instances from a golden AMI and wants a new AMI produced each month that includes the latest OS updates, created from the current golden AMI. The team does not want to maintain a build server or write the build steps itself.",
+    question: "Which Systems Manager capability meets the requirement?",
+    options: [
+      { id: 'A', text: "Run the AWS-RunPatchBaseline document monthly against the golden AMI itself so that the image is patched in place." },
+      { id: 'B', text: "Use Patch Manager with a patch baseline assigned to the golden AMI so that the image receives the updates automatically." },
+      { id: 'C', text: "Run the AWS-UpdateLinuxAmi Automation runbook monthly, which launches the source AMI, applies updates, and creates a new AMI." },
+      { id: 'D', text: "Run the AWS-CreateImage runbook monthly against the source AMI, which launches it and picks up updates during image creation." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "AWS-UpdateLinuxAmi launches a temporary instance from the source AMI, applies OS package updates (and optional scripts), creates a new AMI, and terminates the instance, so a monthly schedule produces patched images without a build server. AWS-RunPatchBaseline runs on managed nodes, and an AMI is not a node that can be patched in place. Patch baselines apply to managed instances, not to images. AWS-CreateImage snapshots an existing instance as it is and installs nothing.",
+    referenceUrl: "https://docs.aws.amazon.com/systems-manager-automation-runbooks/latest/userguide/automation-aws-updatelinuxami.html",
+    tags: ["Systems Manager Automation","AMI","Patching"]
+  },
+  {
+    id: "aws-soa-70",
+    difficulty: "hard",
+    certId: "aws-soa",
+    domainId: "d1",
+    domainName: "Monitoring, Logging, Analysis, Remediation, and Performance Optimization",
+    title: "Letting junior operators run privileged runbooks",
+    scenario: "A logistics company wants junior operators to run a custom runbook that modifies security groups and restarts instances. The operators themselves must not hold EC2 modify permissions, and every run should use the same well-defined permissions regardless of who starts it.",
+    question: "How should the CloudOps engineer set up permissions?",
+    options: [
+      { id: 'A', text: "Grant the operators ssm:StartAutomationExecution only, so that the runbook runs under the permissions of the Systems Manager service itself." },
+      { id: 'B', text: "Give the runbook an AutomationAssumeRole with the EC2 permissions; grant operators only ssm:StartAutomationExecution and iam:PassRole." },
+      { id: 'C', text: "Grant the operators the AmazonEC2FullAccess policy for the duration of each run and remove it once the runbook finishes its steps." },
+      { id: 'D', text: "Create an IAM user with EC2 permissions, store its keys in Parameter Store, and have the runbook read them in its first step." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "When a runbook specifies an AutomationAssumeRole, Automation performs its actions as that service role, so operators need only permission to start the execution and to pass that specific role; the EC2 permissions stay with the role and are identical for every run. Temporarily granting full EC2 access gives operators exactly the permissions they must not hold. Without an assume role, Automation runs with the permissions of the user who started it, so the runbook would fail for operators who lack EC2 rights. Storing long-term user keys in Parameter Store is insecure and unnecessary.",
+    referenceUrl: "https://docs.aws.amazon.com/systems-manager/latest/userguide/automation-setup.html",
+    tags: ["Systems Manager Automation","IAM","Least privilege"]
+  },
+  {
+    id: "aws-soa-71",
+    difficulty: "easy",
+    certId: "aws-soa",
+    domainId: "d1",
+    domainName: "Monitoring, Logging, Analysis, Remediation, and Performance Optimization",
+    title: "Giving a sister company the same runbook",
+    scenario: "A holding company's operations team wrote a custom Automation runbook for rotating application logs to S3. A sister company operating in a separate AWS account, outside the holding company's organization, wants to run exactly the same runbook without copying and maintaining its own version.",
+    question: "What should the CloudOps engineer do?",
+    options: [
+      { id: 'A', text: "Publish the runbook to AWS Marketplace so that the sister company can subscribe to it and run the runbook from its own account." },
+      { id: 'B', text: "Make the runbook public so that every AWS account can see it, since documents cannot be shared with specific account IDs." },
+      { id: 'C', text: "Store the runbook's YAML in an S3 bucket and ask the sister company to create a copy in its account after each change is made." },
+      { id: 'D', text: "Share the Systems Manager document privately with the sister company's account ID so it can run the runbook from its account." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Systems Manager documents, including Automation runbooks, can be shared privately with specific AWS account IDs, and the recipient runs the shared version directly, so updates made by the owner are available without copying. AWS Marketplace is for commercial listings, not sharing internal runbooks between two accounts. Public sharing is possible but unnecessary and exposes the document to everyone, and private sharing with account IDs is fully supported. Copying from S3 recreates the separate versions the sister company wants to avoid.",
+    referenceUrl: "https://docs.aws.amazon.com/systems-manager/latest/userguide/documents-ssm-sharing.html",
+    tags: ["Systems Manager","Document sharing"]
+  },
+  {
+    id: "aws-soa-72",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d1",
+    domainName: "Monitoring, Logging, Analysis, Remediation, and Performance Optimization",
+    title: "A runbook that races ahead of its instance",
+    scenario: "A custom runbook starts a stopped EC2 instance with aws:executeAwsApi and immediately runs a configuration command on it with aws:runCommand. The run command step fails intermittently because the instance has not finished starting. The CloudOps engineer wants the runbook to proceed only after the instance reports the running state.",
+    question: "Which step should the engineer insert between the two existing steps?",
+    options: [
+      { id: 'A', text: "An aws:branch step that jumps back to the start instance step whenever the command step reports a failure to the runbook." },
+      { id: 'B', text: "An aws:waitForAwsResourceProperty step that polls DescribeInstances until the instance state name equals running." },
+      { id: 'C', text: "An aws:assertAwsResourceProperty step that checks the instance state once and fails the runbook when it is not running." },
+      { id: 'D', text: "An aws:sleep step of 60 seconds, which gives every instance enough time to finish starting before the next step runs." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "aws:waitForAwsResourceProperty repeatedly calls an API, here DescribeInstances, and waits until a property such as State.Name matches a desired value, so the next step runs as soon as the instance is running, however long that takes. A fixed sleep is either wasteful or too short on a slow start. An assert checks once and fails immediately if the instance is still pending, which is the current problem in a different form. aws:branch evaluates conditions on outputs; it cannot retry a failed step and would loop by restarting an instance that is already starting.",
+    referenceUrl: "https://docs.aws.amazon.com/systems-manager/latest/userguide/automation-action-waitForAwsResourceProperty.html",
+    tags: ["Systems Manager Automation","Runbook actions"]
+  },
+  {
+    id: "aws-soa-73",
+    difficulty: "hard",
+    certId: "aws-soa",
+    domainId: "d1",
+    domainName: "Monitoring, Logging, Analysis, Remediation, and Performance Optimization",
+    title: "Running a runbook every Sunday at 02:00",
+    scenario: "An insurer has a custom Automation runbook that compacts log volumes on its reporting fleet. Operations wants it to run automatically every Sunday at 02:00 against instances tagged Role=reporting, with the run history kept in Systems Manager.",
+    question: "Which two native options can schedule the runbook this way? (Choose two.)",
+    options: [
+      { id: 'A', text: "A Session Manager preference that starts the runbook in every session opened on the reporting fleet on Sunday mornings." },
+      { id: 'B', text: "An AppConfig deployment strategy that deploys the runbook to the tagged instances in a weekly bake window on Sundays." },
+      { id: 'C', text: "A Run Command invocation of the Automation runbook with a rate schedule of 7 days, run against the instances tagged Role=reporting." },
+      { id: 'D', text: "A State Manager association that runs the Automation runbook against the tagged instances with a cron expression for Sunday 02:00." },
+      { id: 'E', text: "A maintenance window with a Sunday 02:00 schedule and an Automation task that runs the runbook against the tagged instances." }
+    ],
+    correctAnswers: ['D', 'E'],
+    type: "multiple",
+    explanation: "Maintenance windows run Automation, Run Command, Lambda, and Step Functions tasks on a cron or rate schedule against registered targets, and State Manager associations can run Automation runbooks against tag-selected targets on a cron schedule; both record execution history in Systems Manager. Run Command has no scheduling of its own and executes Command documents, not Automation runbooks. Session Manager preferences configure interactive sessions and cannot trigger runbooks. AppConfig deploys application configuration data, not runbooks.",
+    referenceUrl: "https://docs.aws.amazon.com/systems-manager/latest/userguide/maintenance-windows.html",
+    tags: ["Maintenance windows","State Manager","Systems Manager Automation"]
+  },
+  {
+    id: "aws-soa-74",
+    difficulty: "hard",
+    certId: "aws-soa",
+    domainId: "d1",
+    domainName: "Monitoring, Logging, Analysis, Remediation, and Performance Optimization",
+    title: "A runbook that treats Windows and Linux differently",
+    scenario: "A consultancy is writing a custom runbook that must look up an instance's platform with the EC2 API and then run a different cleanup command for Windows and Linux instances. The engineer wants the platform lookup done by the service itself without any script, and the choice of path made inside the runbook.",
+    question: "Which two runbook actions should the engineer use? (Choose two.)",
+    options: [
+      { id: 'A', text: "aws:changeInstanceState, switching the instance into a platform-specific state that later steps can then detect." },
+      { id: 'B', text: "aws:executeAwsApi, calling DescribeInstances and capturing the platform details as a step output for later steps to read." },
+      { id: 'C', text: "aws:branch, evaluating the platform output and choosing the Windows or Linux command step as the next step to run." },
+      { id: 'D', text: "aws:createStack, deploying a CloudFormation stack that records the platform in its outputs for the runbook to check." },
+      { id: 'E', text: "aws:approve, asking an operator to pick Windows or Linux so that the runbook continues down the correct command path." }
+    ],
+    correctAnswers: ['B', 'C'],
+    type: "multiple",
+    explanation: "aws:executeAwsApi calls any AWS API, here DescribeInstances, and its outputs selector can capture a field such as PlatformDetails for use in later steps; aws:branch then evaluates that output with choices and jumps to the Windows or Linux step. An approval step makes a human do what the API already reveals. Creating a CloudFormation stack to hold a value is heavy and unrelated. aws:changeInstanceState starts, stops, or terminates instances; there is no platform-specific state.",
+    referenceUrl: "https://docs.aws.amazon.com/systems-manager/latest/userguide/automation-action-branch.html",
+    tags: ["Systems Manager Automation","aws:branch","aws:executeAwsApi"]
+  },
+  {
+    id: "aws-soa-75",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d1",
+    domainName: "Monitoring, Logging, Analysis, Remediation, and Performance Optimization",
+    title: "Turning versioning back on automatically",
+    scenario: "An architecture firm's policy requires versioning on every S3 bucket. An AWS Config managed rule already flags buckets where versioning is disabled, but engineers fix them by hand days later. The team wants noncompliant buckets fixed automatically within minutes with an AWS-provided runbook.",
+    question: "What should the CloudOps engineer configure?",
+    options: [
+      { id: 'A', text: "A Service Control Policy denying s3:PutBucketVersioning, which re-enables versioning on the buckets that were already changed." },
+      { id: 'B', text: "A daily State Manager association that runs AWS-RunShellScript on an instance to list buckets and enable versioning on them." },
+      { id: 'C', text: "An automatic remediation action on the Config rule that runs the AWS-ConfigureS3BucketVersioning runbook with the bucket name." },
+      { id: 'D', text: "An S3 Lifecycle rule on every bucket that switches versioning on again whenever the Config rule marks the bucket noncompliant." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "AWS Config rules can have automatic remediation that runs a Systems Manager Automation runbook for each noncompliant resource, passing the resource ID as a parameter; AWS-ConfigureS3BucketVersioning enables versioning, so buckets are fixed within minutes of evaluation. S3 Lifecycle rules manage object transitions and expiration and cannot change bucket versioning. An SCP can prevent future suspension of versioning but cannot fix buckets that are already noncompliant. A daily shell script on an instance is slower, custom, and needs infrastructure.",
+    referenceUrl: "https://docs.aws.amazon.com/config/latest/developerguide/remediation.html",
+    tags: ["AWS Config","Automatic remediation","Systems Manager Automation"]
+  }
+];
+
+export default AWS_SOA_QUESTIONS_3;

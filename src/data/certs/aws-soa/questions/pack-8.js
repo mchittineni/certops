@@ -1,0 +1,532 @@
+export const AWS_SOA_QUESTIONS_8 = [
+  {
+    id: "aws-soa-176",
+    difficulty: "easy",
+    certId: "aws-soa",
+    domainId: "d2",
+    domainName: "Reliability and Business Continuity",
+    title: "One backup schedule for four kinds of resource",
+    scenario: "A mid-sized accounting firm protects EC2 instances, RDS databases, EFS file systems and DynamoDB tables with a mix of cron scripts, RDS automated backups and occasional manual snapshots. The IT manager wants daily backups of every production resource kept for 35 days, managed from one place, with new resources picked up automatically when they are tagged env=prod.",
+    question: "What should the CloudOps engineer implement?",
+    options: [
+      { id: 'A', text: "RDS automated backups at 35 days plus DynamoDB point-in-time recovery, and scripts for EC2 and for EFS." },
+      { id: 'B', text: "An Amazon Data Lifecycle Manager policy that targets the env=prod tag with a daily schedule for 35 days." },
+      { id: 'C', text: "An EventBridge Scheduler job that calls each service's snapshot API daily for resources tagged env=prod." },
+      { id: 'D', text: "An AWS Backup plan with a daily rule and 35-day retention, assigning resources by the env=prod tag." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "AWS Backup centrally schedules and retains backups for EC2, RDS, EFS, DynamoDB and many other services, and a tag-based resource assignment automatically includes any new resource tagged env=prod. Data Lifecycle Manager handles only EBS snapshots and EBS-backed AMIs, so RDS, EFS and DynamoDB would be left out. A scheduler calling snapshot APIs recreates the scripted approach and still needs custom retention clean-up. Mixing native features and scripts is exactly the fragmented setup the manager wants to replace.",
+    referenceUrl: "https://docs.aws.amazon.com/aws-backup/latest/devguide/assigning-resources.html",
+    tags: ["AWS Backup", "Backup plans", "Tagging"]
+  },
+  {
+    id: "aws-soa-177",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d2",
+    domainName: "Reliability and Business Continuity",
+    title: "Backup plans for 60 accounts at once",
+    scenario: "A media group has 60 AWS accounts in AWS Organizations, split into Production and Development OUs. Every production account must have the same AWS Backup plan, account administrators must not be able to weaken it, and new accounts moved into the Production OU must receive it with no manual steps.",
+    question: "Which approach meets these requirements?",
+    options: [
+      { id: 'A', text: "Create the backup plan in the management account and share it with the Production OU using AWS Resource Access Manager." },
+      { id: 'B', text: "Create an AWS Backup policy in Organizations and attach it to the Production OU from the management account." },
+      { id: 'C', text: "Deploy the plan to each production account in Organizations with a StackSet that uses self-managed permissions." },
+      { id: 'D', text: "Create an AWS Config conformance pack for the Production OU that includes a rule requiring a backup plan in every account." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "Backup policies are an Organizations policy type: attached to an OU, they create an immutable backup plan in every member account, including accounts that join later, and member account administrators cannot edit the policy-managed plan. A StackSet with self-managed permissions does not deploy automatically to new accounts, and local administrators could change the resulting plan. Backup plans cannot be shared through AWS RAM. A conformance pack reports whether a plan exists but does not create or protect one.",
+    referenceUrl: "https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_backup.html",
+    tags: ["AWS Backup", "AWS Organizations", "Backup policies"]
+  },
+  {
+    id: "aws-soa-178",
+    difficulty: "hard",
+    certId: "aws-soa",
+    domainId: "d2",
+    domainName: "Reliability and Business Continuity",
+    title: "Backups that even the root user cannot delete",
+    scenario: "A regulated lender must keep recovery points in its AWS Backup vault for seven years, and auditors require that no one, including the account root user and AWS Backup administrators, can delete them early or shorten their retention. The lender is willing to have a short period after setup during which the configuration can still be corrected.",
+    question: "How should the CloudOps engineer protect the vault?",
+    options: [
+      { id: 'A', text: "Apply AWS Backup Vault Lock in compliance mode with a grace time, and a minimum retention of seven years." },
+      { id: 'B', text: "Apply AWS Backup Vault Lock in governance mode with a minimum retention of seven years on the vault." },
+      { id: 'C', text: "Enable S3 Object Lock in compliance mode on the bucket that AWS Backup uses to hold the recovery points." },
+      { id: 'D', text: "Attach a vault access policy that denies backup:DeleteRecoveryPoint to every principal in the account." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Vault Lock in compliance mode becomes immutable when its grace time (at least three days) ends: after that no user, including root, can delete recovery points before their retention ends or remove the lock, which is the auditors' requirement, while the grace time allows corrections. Governance mode can be removed by principals with sufficient IAM permissions. A vault access policy can be edited or deleted by an administrator. AWS Backup stores recovery points in its own managed storage, not in a customer S3 bucket, so S3 Object Lock does not apply.",
+    referenceUrl: "https://docs.aws.amazon.com/aws-backup/latest/devguide/vault-lock.html",
+    tags: ["AWS Backup", "Vault Lock", "Compliance"]
+  },
+  {
+    id: "aws-soa-179",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d2",
+    domainName: "Reliability and Business Continuity",
+    title: "A second copy of every backup in another Region",
+    scenario: "A travel company backs up RDS, EFS and DynamoDB resources in eu-west-1 with an AWS Backup plan. A new continuity standard requires that a copy of every daily recovery point also exists in eu-central-1, kept for 90 days there, without building separate replication for each service.",
+    question: "What should the CloudOps engineer do?",
+    options: [
+      { id: 'A', text: "Enable S3 Cross-Region Replication from the AWS Backup storage bucket to a bucket in eu-central-1." },
+      { id: 'B', text: "Configure Data Lifecycle Manager cross-Region copy rules that send each daily snapshot to eu-central-1." },
+      { id: 'C', text: "Add a copy action to the backup rule targeting a vault in eu-central-1, with a 90-day retention period." },
+      { id: 'D', text: "Enable RDS cross-Region automated backups and DynamoDB global tables that replicate to eu-central-1." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "A backup rule can include copy actions that copy each recovery point to a vault in another Region (or account) with its own lifecycle, so one setting covers RDS, EFS and DynamoDB alike. Data Lifecycle Manager copies only EBS snapshots and AMIs. RDS cross-Region backups and global tables are service-specific mechanisms, and global tables provide live replication rather than retained recovery points. AWS Backup does not expose its storage as a customer bucket that could be replicated.",
+    referenceUrl: "https://docs.aws.amazon.com/aws-backup/latest/devguide/cross-region-backup.html",
+    tags: ["AWS Backup", "Cross-Region copy"]
+  },
+  {
+    id: "aws-soa-180",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d2",
+    domainName: "Reliability and Business Continuity",
+    title: "Snapshots that restore at full speed",
+    scenario: "A trading firm's EC2 instances use large gp3 data volumes. The firm wants a snapshot every four hours for volumes tagged tier=critical, keeping the latest 12, and wants fast snapshot restore enabled automatically on the newest snapshots in us-east-1a so replacement volumes perform fully from the moment they are created.",
+    question: "Which service should the CloudOps engineer use to automate this?",
+    options: [
+      { id: 'A', text: "An Amazon Data Lifecycle Manager snapshot policy that targets tier=critical and enables fast snapshot restore." },
+      { id: 'B', text: "An AWS Backup plan with a four-hour rule for tier=critical and a retention of the 12 latest recovery points." },
+      { id: 'C', text: "A Systems Manager maintenance window that runs AWS-CreateSnapshot every four hours against tier=critical." },
+      { id: 'D', text: "An EventBridge Scheduler schedule that calls CreateSnapshots every four hours and a script enabling fast restore." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "A Data Lifecycle Manager snapshot policy targets volumes by tag, runs on a fixed interval, retains snapshots by count, and can enable fast snapshot restore in chosen Availability Zones for the snapshots it creates, covering every requirement natively. AWS Backup can schedule and retain the snapshots but has no setting to enable fast snapshot restore, and its retention is time-based rather than count-based. A maintenance window or a scheduler can create snapshots but leaves retention and fast snapshot restore to custom code.",
+    referenceUrl: "https://docs.aws.amazon.com/ebs/latest/userguide/snapshot-lifecycle.html",
+    tags: ["Data Lifecycle Manager", "EBS snapshots", "Fast snapshot restore"]
+  },
+  {
+    id: "aws-soa-181",
+    difficulty: "easy",
+    certId: "aws-soa",
+    domainId: "d2",
+    domainName: "Reliability and Business Continuity",
+    title: "Consistent backups of a Windows SQL Server instance",
+    scenario: "An engineering consultancy runs Microsoft SQL Server on an EC2 Windows instance and backs it up with AWS Backup. A test restore showed that the databases needed recovery on startup because the backups were only crash-consistent. The consultancy wants application-consistent backups without writing custom scripts.",
+    question: "What should the CloudOps engineer change?",
+    options: [
+      { id: 'A', text: "Turn on multi-volume crash-consistent snapshots so all volumes of the Windows instance are captured at once." },
+      { id: 'B', text: "Turn on EBS Fast Snapshot Restore for the SQL Server volumes so that restores start without any recovery." },
+      { id: 'C', text: "Turn on continuous backup in the AWS Backup rule so that SQL Server can be restored to any second in time." },
+      { id: 'D', text: "Turn on the Windows VSS option in the AWS Backup plan so the SSM Agent quiesces SQL Server during backups." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "AWS Backup supports Windows Volume Shadow Copy Service for EC2: with the VSS option enabled in the plan's advanced settings (and the SSM Agent and VSS components on the instance), SQL Server is quiesced so the recovery point is application-consistent. Multi-volume snapshots are simultaneous but still only crash-consistent. Continuous backup applies to services such as RDS, Aurora and S3, not EC2. Fast snapshot restore affects volume performance after restore, not the consistency of the data captured.",
+    referenceUrl: "https://docs.aws.amazon.com/aws-backup/latest/devguide/windows-backups.html",
+    tags: ["AWS Backup", "Windows VSS", "Application consistency"]
+  },
+  {
+    id: "aws-soa-182",
+    difficulty: "hard",
+    certId: "aws-soa",
+    domainId: "d2",
+    domainName: "Reliability and Business Continuity",
+    title: "Proving backups exist and actually restore",
+    scenario: "An insurance company uses AWS Backup across its accounts. Its auditors now want continuous evidence that every in-scope resource is backed up at the required frequency and retention, plus periodic proof that recovery points can really be restored within the stated recovery time, with as little custom tooling as possible.",
+    question: "Which AWS Backup features should the CloudOps engineer use? (Choose two.)",
+    options: [
+      { id: 'A', text: "S3 Storage Lens dashboards that show how much backup data each account is storing per Region." },
+      { id: 'B', text: "AWS Backup Audit Manager frameworks with controls for backup frequency, retention and coverage." },
+      { id: 'C', text: "AWS Trusted Advisor fault tolerance checks exported weekly to an S3 bucket for the auditors." },
+      { id: 'D', text: "AWS Backup restore testing plans that restore recovery points on a schedule and record the results." },
+      { id: 'E', text: "Amazon Inspector coverage reports that list which EC2 instances and images have been scanned." }
+    ],
+    correctAnswers: ['B', 'D'],
+    type: "multiple",
+    explanation: "AWS Backup Audit Manager evaluates backup activity against frameworks of controls, such as minimum frequency and retention or resources protected by a plan, and generates compliance reports continuously. Restore testing runs scheduled restores of selected recovery points, can validate the restored resource, and records restore duration, which is the evidence of recoverability. Trusted Advisor gives general fault tolerance checks, not per-resource backup compliance. Inspector reports vulnerability scanning coverage. Storage Lens covers S3 usage and says nothing about backup policy compliance or restores.",
+    referenceUrl: "https://docs.aws.amazon.com/aws-backup/latest/devguide/restore-testing.html",
+    tags: ["AWS Backup", "Audit Manager", "Restore testing"]
+  },
+  {
+    id: "aws-soa-183",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d2",
+    domainName: "Reliability and Business Continuity",
+    title: "Restoring a table to the second before a bad deploy",
+    scenario: "A delivery app's orders live in a DynamoDB table that is backed up nightly with on-demand backups. Last week a faulty deployment corrupted items at 15:42, and the restore from the previous night lost most of a day of orders. The team now wants to be able to restore the table to any second in the recent past.",
+    question: "What should the CloudOps engineer enable?",
+    options: [
+      { id: 'A', text: "DynamoDB Streams on the table, with a Lambda function that writes every change to an S3 bucket." },
+      { id: 'B', text: "Hourly on-demand backups from an AWS Backup plan, retained for 35 days in the default vault." },
+      { id: 'C', text: "Point-in-time recovery on the table, with a recovery period of up to 35 days as the team requires." },
+      { id: 'D', text: "A DynamoDB global table replica in another Region that could be used as the source of a restore." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "Point-in-time recovery continuously backs up the table and lets it be restored to any second within the recovery period, configurable up to 35 days, into a new table. A stream-to-S3 pipeline captures changes but provides no restore mechanism without significant custom work. A global table replica receives the corrupting writes within seconds, so it offers no earlier point to restore. Hourly backups still lose up to an hour of orders.",
+    referenceUrl: "https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Point-in-time-recovery.html",
+    tags: ["DynamoDB", "Point-in-time recovery"]
+  },
+  {
+    id: "aws-soa-184",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d2",
+    domainName: "Reliability and Business Continuity",
+    title: "Backup jobs for a bucket that keep failing",
+    scenario: "A legal records firm added an S3 bucket to its existing AWS Backup plan so that client documents are backed up with the rest of its resources. Every backup job for the bucket fails immediately, while jobs for the firm's EBS volumes and RDS instances in the same plan succeed. The IAM role used by the plan already includes the AWS managed policies for S3 backup and restore.",
+    question: "What is the most likely cause?",
+    options: [
+      { id: 'A', text: "The bucket lacks a Cross-Region Replication rule, which AWS Backup uses to copy the object data." },
+      { id: 'B', text: "The bucket does not have S3 Versioning enabled, which AWS Backup requires for S3 backups to run." },
+      { id: 'C', text: "The bucket uses SSE-S3 encryption, which AWS Backup cannot read when it creates a recovery point." },
+      { id: 'D', text: "The bucket has S3 Object Lock disabled, which AWS Backup requires before it protects any objects." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "AWS Backup for Amazon S3 requires versioning to be enabled on the source bucket for both periodic and continuous backups, so jobs fail at once on an unversioned bucket even with the right role. SSE-S3 encrypted buckets are supported. Backups do not depend on replication rules. Object Lock is an optional retention feature and is not a prerequisite for AWS Backup.",
+    referenceUrl: "https://docs.aws.amazon.com/aws-backup/latest/devguide/s3-backups.html",
+    tags: ["AWS Backup", "S3", "Versioning"]
+  },
+  {
+    id: "aws-soa-185",
+    difficulty: "easy",
+    certId: "aws-soa",
+    domainId: "d2",
+    domainName: "Reliability and Business Continuity",
+    title: "Month-end database copies kept for seven years",
+    scenario: "A pension fund's finance database runs on Amazon RDS for PostgreSQL with automated backups kept for 14 days. A new regulation requires a backup taken on the first day of every month to be kept for seven years, and the fund wants this to happen and expire automatically.",
+    question: "What should the CloudOps engineer configure?",
+    options: [
+      { id: 'A', text: "Create a read replica each month and stop it, keeping the stopped replica as the long-term archive." },
+      { id: 'B', text: "Add an AWS Backup plan rule that runs on the first of each month with a seven-year retention period." },
+      { id: 'C', text: "Raise the RDS automated backup retention period on the instance to seven years for the monthly backup." },
+      { id: 'D', text: "Enable cross-Region automated backups on the instance and set their retention period to seven years." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "An AWS Backup rule with a monthly cron schedule and a seven-year lifecycle creates the snapshot and deletes it automatically when retention ends. RDS automated backups can be retained for at most 35 days, and the same limit applies to replicated cross-Region automated backups. A stopped RDS instance starts again automatically after seven days, and replicas are not an archive mechanism.",
+    referenceUrl: "https://docs.aws.amazon.com/aws-backup/latest/devguide/creating-a-backup-plan.html",
+    tags: ["AWS Backup", "RDS", "Retention"]
+  },
+  {
+    id: "aws-soa-186",
+    difficulty: "easy",
+    certId: "aws-soa",
+    domainId: "d2",
+    domainName: "Reliability and Business Continuity",
+    title: "New databases missing from the backup plan",
+    scenario: "A software company's AWS Backup plan was set up two years ago by selecting the ARNs of its RDS instances one by one. Several RDS instances created since then have never been backed up, and developers create new databases most weeks. Every production database is tagged backup=gold by the company's provisioning templates.",
+    question: "What should the CloudOps engineer change?",
+    options: [
+      { id: 'A', text: "Create a second backup vault and direct the recovery points of new instances to it." },
+      { id: 'B', text: "Add a monthly reminder for the team to append new backup=gold database ARNs to the plan." },
+      { id: 'C', text: "Enable RDS automated backups on each new instance and extend the retention to 35 days." },
+      { id: 'D', text: "Change the plan's resource assignment to select resources that have the tag backup=gold." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "A tag-based resource assignment includes every resource carrying the tag at the time each job runs, so newly provisioned databases tagged backup=gold are protected automatically. Automated backups are per-instance and do not bring the new instances under the central plan. A reminder leaves a gap every time a database is created before the next update. A second vault only changes where recovery points are stored, not which resources are selected.",
+    referenceUrl: "https://docs.aws.amazon.com/aws-backup/latest/devguide/assigning-resources.html",
+    tags: ["AWS Backup", "Resource assignment"]
+  },
+  {
+    id: "aws-soa-187",
+    difficulty: "hard",
+    certId: "aws-soa",
+    domainId: "d2",
+    domainName: "Reliability and Business Continuity",
+    title: "Cross-account copies of encrypted database backups",
+    scenario: "A healthcare company copies AWS Backup recovery points from its production account to an isolated backup account in the same organization. Cross-account backup is enabled and the destination vault's access policy allows the production account. Copies of EFS recovery points succeed, but copies of RDS recovery points fail; the RDS instances are encrypted with the AWS managed key aws/rds.",
+    question: "What should the CloudOps engineer do so that RDS copies succeed?",
+    options: [
+      { id: 'A', text: "Turn off encryption on the destination vault so that it accepts the RDS recovery points unencrypted." },
+      { id: 'B', text: "Encrypt the RDS instances with a customer managed key and allow the backup account to use that key." },
+      { id: 'C', text: "Add the production account's AWS Backup service role to the vault access policy in the backup account." },
+      { id: 'D', text: "Grant the backup account permission to use the aws/rds key by editing that key's policy in production." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "RDS snapshots take their encryption from the source database's key, and resources encrypted with an AWS managed key cannot be copied to another account, because an AWS managed key's policy cannot be changed to allow sharing. Moving the databases to a customer managed key, for example by restoring an encrypted copy of a snapshot under that key, and granting the backup account use of it lets AWS Backup copy the recovery points. The aws/rds key policy is not editable. Backup vaults are always encrypted, and turning encryption off is not an option. The vault access policy already allows the source account, so the failure is about the key.",
+    referenceUrl: "https://docs.aws.amazon.com/aws-backup/latest/devguide/create-cross-account-backup.html",
+    tags: ["AWS Backup", "Cross-account", "KMS"]
+  },
+  {
+    id: "aws-soa-188",
+    difficulty: "easy",
+    certId: "aws-soa",
+    domainId: "d2",
+    domainName: "Reliability and Business Continuity",
+    title: "An accidental DELETE at five past two",
+    scenario: "At 14:05 an analyst accidentally ran a DELETE without a WHERE clause against a customers table on an Amazon RDS for MySQL instance with automated backups enabled. The last manual snapshot was taken at 02:00. The company wants to recover the data as it was at 14:04 with as little data loss as possible.",
+    question: "What should the CloudOps engineer do?",
+    options: [
+      { id: 'A', text: "Promote the instance's read replica, which still holds the rows, and make it the new primary database." },
+      { id: 'B', text: "Restore the instance to a point in time of 14:04 as a new DB instance and recover the table from it." },
+      { id: 'C', text: "Roll the existing instance back in place to 14:04 using the restore-to-point-in-time action on it." },
+      { id: 'D', text: "Restore the 02:00 manual snapshot to a new instance and point the application at the restored instance." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "Automated backups plus transaction logs let RDS restore to any second within the retention period, up to the latest restorable time, into a new DB instance; the table can then be copied back or the application repointed. The 02:00 snapshot loses twelve hours of changes. A read replica applies the DELETE within seconds, so it holds no rows to recover. RDS point-in-time restore always creates a new instance; it cannot roll back the existing one in place.",
+    referenceUrl: "https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PIT.html",
+    tags: ["RDS", "Point-in-time restore"]
+  },
+  {
+    id: "aws-soa-189",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d2",
+    domainName: "Reliability and Business Continuity",
+    title: "Minutes, not hours, to undo a bad update",
+    scenario: "An e-learning platform runs Aurora MySQL with backtracking enabled and a target backtrack window of 24 hours. A migration script ran an incorrect UPDATE ten minutes ago, and the platform's RTO for this kind of error is 15 minutes. The whole database can safely return to the moment before the script ran.",
+    question: "Which recovery method should the CloudOps engineer use?",
+    options: [
+      { id: 'A', text: "Create an Aurora clone of the cluster and copy the affected rows back from it into the production tables." },
+      { id: 'B', text: "Restore the cluster to a point in time before the script ran, creating a new cluster to repoint to." },
+      { id: 'C', text: "Backtrack the existing cluster to a time just before the script ran, keeping the same endpoints in use." },
+      { id: 'D', text: "Restore the most recent automated snapshot of the cluster to a new cluster and swap its endpoint in." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "Backtracking rewinds an Aurora MySQL cluster in place to an earlier time within the backtrack window, usually in minutes, without creating a new cluster or changing endpoints, which fits a 15-minute RTO when the whole database can go back. Point-in-time restore and snapshot restore create a new cluster, which takes much longer and requires repointing the application. A clone taken now already contains the bad UPDATE, so it holds nothing to copy back.",
+    referenceUrl: "https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Managing.Backtrack.html",
+    tags: ["Aurora", "Backtrack", "RTO"]
+  },
+  {
+    id: "aws-soa-190",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d2",
+    domainName: "Reliability and Business Continuity",
+    title: "A production copy for forensics in minutes",
+    scenario: "A payments company's 8 TB Aurora PostgreSQL cluster may have been accessed by a compromised application credential. The security team needs a full, writable copy of the current database for forensic queries within minutes, without affecting production performance and without paying for another 8 TB of storage up front.",
+    question: "What should the CloudOps engineer do?",
+    options: [
+      { id: 'A', text: "Export the cluster snapshot to Amazon S3 in Parquet and query the exported data with Amazon Athena." },
+      { id: 'B', text: "Add an Aurora Replica to the cluster and give the forensics team the reader endpoint for their queries." },
+      { id: 'C', text: "Take a manual cluster snapshot and restore it to a new cluster in the same account for the forensics team." },
+      { id: 'D', text: "Create an Aurora clone of the cluster, which shares storage pages until either copy changes them." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Aurora cloning uses copy-on-write: the clone initially points at the same storage pages and only stores pages that change afterwards, so an 8 TB clone is available in minutes, is writable, and adds almost no storage cost or load on production. A snapshot restore of 8 TB takes much longer. An Aurora Replica is read-only and shares production's cluster, so heavy forensic queries run against production resources. A snapshot export takes hours for this size and is not a writable database.",
+    referenceUrl: "https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Managing.Clone.html",
+    tags: ["Aurora", "Cloning"]
+  },
+  {
+    id: "aws-soa-191",
+    difficulty: "hard",
+    certId: "aws-soa",
+    domainId: "d2",
+    domainName: "Reliability and Business Continuity",
+    title: "Regional recovery for a database on a budget",
+    scenario: "A property management company's Amazon RDS for PostgreSQL database in us-east-1 needs a disaster recovery option in us-west-2 with an RPO of about 10 minutes and an RTO of four hours. Cost must be as low as possible, and the company does not want to run any database instances in us-west-2 until a disaster is declared.",
+    question: "Which solution should the CloudOps engineer implement?",
+    options: [
+      { id: 'A', text: "A daily AWS Backup copy of the RDS snapshot to us-west-2, restored to a new instance during a disaster." },
+      { id: 'B', text: "Cross-Region automated backup replication to us-west-2, with point-in-time restore when disaster hits." },
+      { id: 'C', text: "An Aurora global database built from a migrated copy of the database, with a headless secondary Region." },
+      { id: 'D', text: "A cross-Region read replica in us-west-2 that is promoted to a standalone instance during a disaster." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "Cross-Region automated backup replication copies snapshots and transaction logs to the destination Region, where a point-in-time restore can recover to within minutes of the failure; nothing runs in us-west-2 until a restore, and a restore fits within a four-hour RTO. A cross-Region read replica meets the objectives but is a running instance billed continuously. A daily snapshot copy gives an RPO of up to a day. An Aurora global database means migrating engines and still runs cluster storage in the second Region.",
+    referenceUrl: "https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReplicateBackups.html",
+    tags: ["RDS", "Cross-Region backups", "RPO"]
+  },
+  {
+    id: "aws-soa-192",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d2",
+    domainName: "Reliability and Business Continuity",
+    title: "Slow first reads after restoring a volume",
+    scenario: "A genomics lab restores a 4 TB EBS data volume from a snapshot as part of its recovery runbook. The analysis job that runs after the restore is several times slower than usual for its first hour, which breaks the lab's recovery time objective. The lab restores from the same weekly snapshot in the same Availability Zone every time.",
+    question: "What should the CloudOps engineer do to meet the recovery time objective?",
+    options: [
+      { id: 'A', text: "Enable fast snapshot restore on the snapshot in the Availability Zone where restored volumes are created." },
+      { id: 'B', text: "Copy the snapshot within the Region before each restore so its blocks are staged in the Availability Zone." },
+      { id: 'C', text: "Move the snapshot to the EBS Snapshots Archive tier so that it can be restored as a full, local copy." },
+      { id: 'D', text: "Restore the snapshot to an io2 Block Express volume so that the first reads use the highest IOPS limit." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Volumes created from snapshots load blocks lazily from S3, so the first access to each block is slow until the volume is initialized. Fast snapshot restore pre-initializes volumes created from that snapshot in the chosen zone, so they deliver full performance immediately. A faster volume type does not remove the first-read penalty. Archived snapshots must first be restored to the standard tier, which takes hours and adds delay. Copying a snapshot within the Region produces another snapshot with the same lazy-loading behaviour.",
+    referenceUrl: "https://docs.aws.amazon.com/ebs/latest/userguide/ebs-fast-snapshot-restore.html",
+    tags: ["EBS", "Fast snapshot restore", "RTO"]
+  },
+  {
+    id: "aws-soa-193",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d2",
+    domainName: "Reliability and Business Continuity",
+    title: "What a restored DynamoDB table is missing",
+    scenario: "A fitness app restored its workouts table from DynamoDB point-in-time recovery into a new table and switched the application to it. Over the next day the team noticed that capacity no longer adjusted with traffic and that expired session items were no longer being removed automatically. They want a checklist for the next restore.",
+    question: "Which settings must be reconfigured manually on a table restored from point-in-time recovery? (Choose two.)",
+    options: [
+      { id: 'A', text: "The table's auto scaling policies for read and write capacity." },
+      { id: 'B', text: "The time to live setting and the attribute that it uses." },
+      { id: 'C', text: "The global secondary indexes defined on the source table." },
+      { id: 'D', text: "The local secondary indexes defined on the source table." },
+      { id: 'E', text: "The partition key and sort key of the table's primary key." }
+    ],
+    correctAnswers: ['A', 'B'],
+    type: "multiple",
+    explanation: "A restored table carries the data, key schema, indexes and capacity settings, but DynamoDB does not restore auto scaling policies, TTL settings, stream settings, IAM policies, tags, CloudWatch alarms or point-in-time recovery settings; those must be set again, which explains both symptoms. Global secondary indexes are restored with the table unless excluded during the restore, local secondary indexes are always restored, and the primary key schema is part of the table definition itself.",
+    referenceUrl: "https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/PointInTimeRecovery.Tutorial.html",
+    tags: ["DynamoDB", "Point-in-time recovery", "Restore"]
+  },
+  {
+    id: "aws-soa-194",
+    difficulty: "hard",
+    certId: "aws-soa",
+    domainId: "d2",
+    domainName: "Reliability and Business Continuity",
+    title: "Bringing back one deleted directory",
+    scenario: "A design studio stores project files on an Amazon EFS file system protected by daily AWS Backup recovery points. A user deleted the directory /projects/atlas yesterday afternoon. Other users have changed many files since last night's backup, so the studio wants only that directory recovered, without overwriting any other data or creating a separate file system.",
+    question: "How should the CloudOps engineer recover the directory?",
+    options: [
+      { id: 'A', text: "Fail over to the file system's EFS replication destination, where the deleted directory is still present." },
+      { id: 'B', text: "Run a full restore of last night's recovery point into the source file system, overwriting current files." },
+      { id: 'C', text: "Run an item-level restore of /projects/atlas from last night's recovery point into the source file system." },
+      { id: 'D', text: "Run a full restore of last night's recovery point to a new file system and copy /projects/atlas back from it." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "AWS Backup supports item-level restore for EFS: up to five paths can be restored into the existing file system, where they are placed in a new aws-backup-restore directory at the root, so nothing current is overwritten and the user can move the directory back. A full restore to a new file system works but creates the separate file system the studio wants to avoid. EFS replication copies the deletion to the destination within minutes, and failing over would redirect everyone. AWS Backup restores into a recovery directory rather than overwriting, and a whole-system rollback would discard the day's changes.",
+    referenceUrl: "https://docs.aws.amazon.com/aws-backup/latest/devguide/restoring-efs.html",
+    tags: ["AWS Backup", "EFS", "Item-level restore"]
+  },
+  {
+    id: "aws-soa-195",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d2",
+    domainName: "Reliability and Business Continuity",
+    title: "A restored database the app cannot reach",
+    scenario: "During a recovery drill, a CloudOps engineer restored an Amazon RDS for MySQL snapshot to a new DB instance using the console defaults. The application servers time out when connecting to the new endpoint, and query behaviour differs from production because custom settings such as max_allowed_packet appear to be missing.",
+    question: "What explains both problems, and how should the engineer fix them?",
+    options: [
+      { id: 'A', text: "The restored instance is still initializing its storage; wait for the lazy load to finish before connecting." },
+      { id: 'B', text: "The snapshot excluded the database users; recreate the application user and grant it the privileges again." },
+      { id: 'C', text: "The restore used default security and parameter groups; attach production's groups to the restored instance." },
+      { id: 'D', text: "The restore placed the instance in a different Region; restore the snapshot again in the production Region." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "Unless others are chosen, a restored DB instance is associated with the default VPC security group and the default DB parameter group, so the application servers' traffic is not allowed and custom parameters are missing; attaching the production security group and custom parameter group (then rebooting for static parameters) fixes both. Database users are part of the data and are restored with it. Lazy loading affects performance, not connectivity or parameter values. A snapshot restore happens in the Region where the snapshot exists.",
+    referenceUrl: "https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_RestoreFromSnapshot.html",
+    tags: ["RDS", "Snapshot restore", "Parameter groups"]
+  },
+  {
+    id: "aws-soa-196",
+    difficulty: "easy",
+    certId: "aws-soa",
+    domainId: "d2",
+    domainName: "Reliability and Business Continuity",
+    title: "Restoring a table into a different Region",
+    scenario: "A retailer's DynamoDB table in eu-west-1 has point-in-time recovery enabled. For a data-residency investigation, the analytics team needs a copy of the table as it existed at 09:00 yesterday, created in eu-central-1, without changing the production table or enabling replication.",
+    question: "What should the CloudOps engineer do?",
+    options: [
+      { id: 'A', text: "Add eu-central-1 as a global table replica, then remove the replica once it has caught up with the table." },
+      { id: 'B', text: "Export the table to S3 as of 09:00 yesterday, then import it into a new table using S3 Cross-Region Replication." },
+      { id: 'C', text: "Restore the table from point-in-time recovery to 09:00 yesterday, choosing eu-central-1 as the target." },
+      { id: 'D', text: "Take an on-demand backup of the table now, then restore the new backup to a table in the eu-central-1 Region." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "DynamoDB point-in-time recovery can restore a table to any second within the recovery period into a new table in a different Region, which gives the 09:00 state directly in eu-central-1. A global table replica copies the current data, not yesterday's, and enabling it is the replication the team wants to avoid. An export to S3 followed by an import can work but is a longer multi-step process that adds replication. A backup taken now reflects the current state, not 09:00 yesterday.",
+    referenceUrl: "https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/PointInTimeRecovery.Tutorial.html",
+    tags: ["DynamoDB", "Point-in-time recovery", "Cross-Region restore"]
+  },
+  {
+    id: "aws-soa-197",
+    difficulty: "hard",
+    certId: "aws-soa",
+    domainId: "d2",
+    domainName: "Reliability and Business Continuity",
+    title: "A 15-minute RPO for a database and a bucket",
+    scenario: "A logistics company protects an Amazon RDS for PostgreSQL instance and an S3 bucket of shipping documents with an AWS Backup plan that runs once a day. A new policy sets a recovery point objective of 15 minutes for both resources, managed through AWS Backup. The S3 bucket was created with default settings.",
+    question: "Which actions should the CloudOps engineer take? (Choose two.)",
+    options: [
+      { id: 'A', text: "Enable cold storage transition in the rule so older recovery points move to cheaper storage." },
+      { id: 'B', text: "Change the backup rule to run every hour with a 35-day retention for both resources." },
+      { id: 'C', text: "Enable continuous backup in the AWS Backup rule that covers the instance and the bucket." },
+      { id: 'D', text: "Enable S3 Versioning on the bucket so AWS Backup is able to take backups of its objects." },
+      { id: 'E', text: "Enable S3 Cross-Region Replication on the bucket to a second bucket in another Region." }
+    ],
+    correctAnswers: ['C', 'D'],
+    type: "multiple",
+    explanation: "Continuous backup in AWS Backup supports RDS and S3 and allows restore to any point within its retention window (up to 35 days), which meets a 15-minute RPO. AWS Backup requires S3 Versioning on the bucket, and a bucket created with default settings does not have it. Cross-Region Replication copies objects but is not an AWS Backup recovery point and does not protect against overwrites being replicated. An hourly schedule is the most frequent periodic option and still allows up to an hour of loss. Cold storage transition lowers cost but is not supported for continuous backups and does nothing for the RPO.",
+    referenceUrl: "https://docs.aws.amazon.com/aws-backup/latest/devguide/point-in-time-recovery.html",
+    tags: ["AWS Backup", "Continuous backup", "RPO"]
+  },
+  {
+    id: "aws-soa-198",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d2",
+    domainName: "Reliability and Business Continuity",
+    title: "Restoring one database from a multi-database instance",
+    scenario: "A school software vendor hosts 40 customer databases on one Amazon RDS for SQL Server instance. A customer asked for their single database to be rolled back to last night's state, while the other 39 databases must not be affected. RDS snapshots and point-in-time restore always restore the whole instance.",
+    question: "What should the CloudOps engineer set up so single databases can be restored in place?",
+    options: [
+      { id: 'A', text: "A read replica of the instance, from which the customer's database is promoted on its own when it is needed." },
+      { id: 'B', text: "AWS Backup item-level restore for the SQL Server instance, selecting the customer database to be restored." },
+      { id: 'C', text: "Aurora backtracking on the SQL Server instance, limited to the one customer database that needs rolling back." },
+      { id: 'D', text: "Native backup and restore through an option group with SQLSERVER_BACKUP_RESTORE, using .bak files in S3." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "RDS for SQL Server supports native backup and restore of individual databases to and from .bak files in S3 when the instance has an option group containing SQLSERVER_BACKUP_RESTORE and an IAM role for the bucket; a nightly native backup lets one database be restored without touching the others. AWS Backup restores an RDS recovery point as a whole instance. Read replicas are promoted as whole instances, not per database. Backtracking is an Aurora MySQL feature and cannot be applied to RDS for SQL Server.",
+    referenceUrl: "https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/SQLServer.Procedural.Importing.html",
+    tags: ["RDS for SQL Server", "Native backup", "Restore"]
+  },
+  {
+    id: "aws-soa-199",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d2",
+    domainName: "Reliability and Business Continuity",
+    title: "Ten-year table backups at the lowest cost",
+    scenario: "A utilities company must keep a yearly backup of several DynamoDB tables for ten years. The backups will almost certainly never be restored, and the company wants them stored as cheaply as possible while still managed through its existing AWS Backup plans.",
+    question: "What should the CloudOps engineer configure?",
+    options: [
+      { id: 'A', text: "Enable on-demand DynamoDB backups from the console each year and tag them for ten years of retention." },
+      { id: 'B', text: "Enable DynamoDB Streams on each table and archive the change records to S3 Glacier Deep Archive for ten years." },
+      { id: 'C', text: "Enable AWS Backup advanced DynamoDB features and add a lifecycle that moves the backups to cold storage." },
+      { id: 'D', text: "Enable point-in-time recovery on each table and set its recovery period to ten years for long-term retention." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "With AWS Backup's advanced features for DynamoDB enabled, backup plans can transition DynamoDB backups to cold storage, which costs far less for data kept for years and rarely restored, and the plan deletes them when retention ends. Point-in-time recovery covers at most 35 days. An archive of stream records is a change log, not a table backup, and restoring from it would need custom rebuilding. Console on-demand backups stay in warm storage and are managed by hand, and tags do not enforce expiry.",
+    referenceUrl: "https://docs.aws.amazon.com/aws-backup/latest/devguide/advanced-ddb-backup.html",
+    tags: ["AWS Backup", "DynamoDB", "Cold storage"]
+  },
+  {
+    id: "aws-soa-200",
+    difficulty: "easy",
+    certId: "aws-soa",
+    domainId: "d2",
+    domainName: "Reliability and Business Continuity",
+    title: "Point-in-time restore greyed out",
+    scenario: "A developer at a gaming studio tried to restore a staging Amazon RDS for MariaDB instance to a time earlier in the day after a bad schema change, but the console offers no point-in-time restore for it and no automated backups are listed. The instance was created from a template that set the backup retention period to 0 to save money.",
+    question: "What should the CloudOps engineer change so this recovery option is available in future?",
+    options: [
+      { id: 'A', text: "Create a read replica with delayed replication so that it can be used for a restore to any earlier time." },
+      { id: 'B', text: "Set the backup retention period to a value between 1 and 35 days so that automated backups are taken." },
+      { id: 'C', text: "Convert the instance to a Multi-AZ deployment so that the standby keeps the transaction logs for restore." },
+      { id: 'D', text: "Take a manual snapshot every evening, since manual snapshots also enable point-in-time restore for it." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "Point-in-time restore depends on automated backups, which a retention period of 0 disables; setting retention between 1 and 35 days enables daily snapshots plus transaction log uploads, and restores become possible to any time within the window. Manual snapshots restore only to the moment they were taken. A Multi-AZ standby provides failover, not restore points. MariaDB read replicas do not offer a delayed-replication restore feature through RDS, and a replica would not provide arbitrary point-in-time restore anyway.",
+    referenceUrl: "https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_WorkingWithAutomatedBackups.html",
+    tags: ["RDS", "Automated backups", "Point-in-time restore"]
+  }
+];
+
+export default AWS_SOA_QUESTIONS_8;
