@@ -10,7 +10,7 @@ export default {
   "title": "AWS Certified AI Practitioner",
   "category": "Cloud Engineering",
   "tier": "foundational",
-  "status": "planned",
+  "status": "live",
   "priority": null,
   "badgeClass": "badge-aws",
   "icon": "aws",
