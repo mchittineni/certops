@@ -75,15 +75,19 @@ CertOps features official digital certification badge tracks with comprehensive 
 
 #### ☁️ Hyperscaler Associate Tracks (AWS, Azure & Google Cloud)
 
-| [<img src="docs/badges/aws-saa.png" width="96" height="96" alt="AWS Certified Solutions Architect – Associate"/>](src/data/certs/aws-saa/cert.js) | [<img src="docs/badges/aws-dva.png" width="96" height="96" alt="AWS Certified Developer – Associate"/>](src/data/certs/aws-dva/cert.js) | [<img src="docs/badges/aws-dea.png" width="96" height="96" alt="AWS Certified Data Engineer – Associate"/>](src/data/certs/aws-dea/cert.js) | [<img src="docs/badges/aws-mla.png" width="96" height="96" alt="AWS Certified Machine Learning Engineer – Associate"/>](src/data/certs/aws-mla/cert.js) | [<img src="docs/badges/gcp-ace.png" width="96" height="96" alt="Google Cloud Associate Cloud Engineer"/>](src/data/certs/gcp-ace/cert.js) | [<img src="docs/badges/azure-az104.png" width="96" height="96" alt="Microsoft Certified: Azure Administrator Associate"/>](src/data/certs/azure-az104/cert.js) |
+| [<img src="docs/badges/aws-saa.png" width="96" height="96" alt="AWS Certified Solutions Architect – Associate"/>](src/data/certs/aws-saa/cert.js) | [<img src="docs/badges/aws-dva.png" width="96" height="96" alt="AWS Certified Developer – Associate"/>](src/data/certs/aws-dva/cert.js) | [<img src="docs/badges/aws-soa.png" width="96" height="96" alt="AWS Certified CloudOps Engineer – Associate"/>](src/data/certs/aws-soa/cert.js) | [<img src="docs/badges/aws-mla.png" width="96" height="96" alt="AWS Certified Machine Learning Engineer – Associate"/>](src/data/certs/aws-mla/cert.js) |
+| :---: | :---: | :---: | :---: |
+| **AWS Solutions Architect**<br>`SAA-C03` | **AWS Developer**<br>`DVA-C02` | **AWS CloudOps Engineer**<br>`SOA-C03` | **AWS ML Engineer**<br>`MLA-C02` |
+
+| [<img src="docs/badges/gcp-ace.png" width="96" height="96" alt="Google Cloud Associate Cloud Engineer"/>](src/data/certs/gcp-ace/cert.js) | [<img src="docs/badges/azure-az104.png" width="96" height="96" alt="Microsoft Certified: Azure Administrator Associate"/>](src/data/certs/azure-az104/cert.js) | [<img src="docs/badges/azure-ai-apps-agents.png" width="96" height="96" alt="Microsoft Certified: Azure AI Apps and Agents Developer Associate"/>](src/data/certs/azure-ai-apps-agents/cert.js) |
+| :---: | :---: | :---: |
+| **GCP Associate Engineer**<br>`GCP-ACE` | **Azure Administrator**<br>`AZ-104` | **Azure AI Apps & Agents Developer**<br>`AI-103` |
+
+#### ☸️ Cloud Native & Tooling Associates
+
+| [<img src="docs/badges/cncf-kcna.png" width="96" height="96" alt="Kubernetes and Cloud Native Associate"/>](src/data/certs/cncf-kcna/cert.js) | [<img src="docs/badges/cncf-kcsa.png" width="96" height="96" alt="Kubernetes and Cloud Native Security Associate"/>](src/data/certs/cncf-kcsa/cert.js) | [<img src="docs/badges/cncf-cgoa.png" width="96" height="96" alt="Certified GitOps Associate"/>](src/data/certs/cncf-cgoa/cert.js) | [<img src="docs/badges/cncf-otca.png" width="96" height="96" alt="OpenTelemetry Certified Associate"/>](src/data/certs/cncf-otca/cert.js) | [<img src="docs/badges/cncf-cba.png" width="96" height="96" alt="Certified Backstage Associate"/>](src/data/certs/cncf-cba/cert.js) | [<img src="docs/badges/cncf-cnpa.png" width="96" height="96" alt="Cloud Native Platform Associate"/>](src/data/certs/cncf-cnpa/cert.js) |
 | :---: | :---: | :---: | :---: | :---: | :---: |
-| **AWS Solutions Architect**<br>`SAA-C03` | **AWS Developer**<br>`DVA-C02` | **AWS Data Engineer**<br>`DEA-C01` | **AWS ML Engineer**<br>`MLA-C02` | **GCP Associate Engineer**<br>`GCP-ACE` | **Azure Administrator**<br>`AZ-104` |
-
-#### ☸️ Cloud Native, Linux & Tooling Associates
-
-| [<img src="docs/badges/linux-lfcs.png" width="96" height="96" alt="Linux Foundation Certified System Administrator"/>](src/data/certs/linux-lfcs/cert.js) | [<img src="docs/badges/cncf-cgoa.png" width="96" height="96" alt="Certified GitOps Associate"/>](src/data/certs/cncf-cgoa/cert.js) | [<img src="docs/badges/cncf-otca.png" width="96" height="96" alt="OpenTelemetry Certified Associate"/>](src/data/certs/cncf-otca/cert.js) | [<img src="docs/badges/cncf-cba.png" width="96" height="96" alt="Certified Backstage Associate"/>](src/data/certs/cncf-cba/cert.js) | [<img src="docs/badges/cncf-cnpa.png" width="96" height="96" alt="Cloud Native Platform Associate"/>](src/data/certs/cncf-cnpa/cert.js) |
-| :---: | :---: | :---: | :---: | :---: |
-| **Linux SysAdmin**<br>`LFCS` | **GitOps Associate**<br>`CGOA` | **OpenTelemetry Associate**<br>`OTCA` | **Backstage Associate**<br>`CBA` | **Platform Associate**<br>`CNPA` |
+| **Kubernetes & Cloud Native Associate**<br>`KCNA` | **Kubernetes Security Associate**<br>`KCSA` | **GitOps Associate**<br>`CGOA` | **OpenTelemetry Associate**<br>`OTCA` | **Backstage Associate**<br>`CBA` | **Platform Associate**<br>`CNPA` |
 
 | [<img src="docs/badges/hashicorp-tfa.png" width="96" height="96" alt="HashiCorp Certified: Terraform Associate"/>](src/data/certs/hashicorp-tfa/cert.js) | [<img src="docs/badges/hashicorp-vault.png" width="96" height="96" alt="HashiCorp Certified: Vault Associate"/>](src/data/certs/hashicorp-vault/cert.js) | [<img src="docs/badges/github-actions.png" width="96" height="96" alt="GitHub Actions"/>](src/data/certs/github-actions/cert.js) | [<img src="docs/badges/github-ghas.png" width="96" height="96" alt="GitHub Advanced Security"/>](src/data/certs/github-ghas/cert.js) |
 | :---: | :---: | :---: | :---: |
@@ -96,9 +100,9 @@ CertOps features official digital certification badge tracks with comprehensive 
 
 #### ☁️ Cloud Architects & DevOps Experts (AWS, Azure & Google Cloud)
 
-| [<img src="docs/badges/aws-sap.png" width="96" height="96" alt="AWS Certified Solutions Architect – Professional"/>](src/data/certs/aws-sap/cert.js) | [<img src="docs/badges/aws-dop.png" width="96" height="96" alt="AWS Certified DevOps Engineer – Professional"/>](src/data/certs/aws-dop/cert.js) | [<img src="docs/badges/aws-scs.png" width="96" height="96" alt="AWS Certified Security – Specialty"/>](src/data/certs/aws-scs/cert.js) | [<img src="docs/badges/azure-az400.png" width="96" height="96" alt="Microsoft Certified: Azure DevOps Engineer Expert"/>](src/data/certs/azure-az400/cert.js) |
-| :---: | :---: | :---: | :---: |
-| **AWS Solutions Architect Pro**<br>`SAP-C02` | **AWS DevOps Engineer Pro**<br>`DOP-C02` | **AWS Security Specialty**<br>`SCS-C03` | **Azure DevOps Engineer Expert**<br>`AZ-400` |
+| [<img src="docs/badges/aws-sap.png" width="96" height="96" alt="AWS Certified Solutions Architect – Professional"/>](src/data/certs/aws-sap/cert.js) | [<img src="docs/badges/aws-dop.png" width="96" height="96" alt="AWS Certified DevOps Engineer – Professional"/>](src/data/certs/aws-dop/cert.js) | [<img src="docs/badges/aws-scs.png" width="96" height="96" alt="AWS Certified Security – Specialty"/>](src/data/certs/aws-scs/cert.js) | [<img src="docs/badges/azure-az305.png" width="96" height="96" alt="Microsoft Certified: Azure Solutions Architect Expert"/>](src/data/certs/azure-az305/cert.js) | [<img src="docs/badges/azure-az400.png" width="96" height="96" alt="Microsoft Certified: Azure DevOps Engineer Expert"/>](src/data/certs/azure-az400/cert.js) |
+| :---: | :---: | :---: | :---: | :---: |
+| **AWS Solutions Architect Pro**<br>`SAP-C02` | **AWS DevOps Engineer Pro**<br>`DOP-C02` | **AWS Security Specialty**<br>`SCS-C03` | **Azure Solutions Architect Expert**<br>`AZ-305` | **Azure DevOps Engineer Expert**<br>`AZ-400` |
 
 | [<img src="docs/badges/gcp-pca.png" width="96" height="96" alt="Google Cloud Professional Cloud Architect"/>](src/data/certs/gcp-pca/cert.js) | [<img src="docs/badges/gcp-pcdoe.png" width="96" height="96" alt="Google Cloud Professional Cloud DevOps Engineer"/>](src/data/certs/gcp-pcdoe/cert.js) | [<img src="docs/badges/gcp-pmle.png" width="96" height="96" alt="Google Cloud Professional Machine Learning Engineer"/>](src/data/certs/gcp-pmle/cert.js) |
 | :---: | :---: | :---: |
