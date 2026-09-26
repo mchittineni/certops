@@ -16,12 +16,14 @@ npm run lint:pack -- --file <pack> --cert <id> --start <n> --end <m> --quota 7/1
 
 | Measure | Corpus | Banks clean |
 | --- | --- | --- |
-| Answer given away by option form | 22 of 30 live banks pass every threshold | 22 |
-| Content-free templated items | 2,000 questions and 2,000 flashcards across 8 banks | 22 |
-| Repeated content (shared option set or card back) | 70% of questions, 68% of cards | **1** |
+| Answer given away by option form | 29 of 37 live banks pass every threshold | 29 |
+| Content-free templated items | 2,000 questions and 2,000 flashcards across 8 banks | 29 |
+| Repeated content (shared option set or card back) | 58% of questions, 56% of cards | **8** |
 
 Run the commands for live numbers. The third row is the one that reframes the other two:
-**29 of the 30 live banks repeat themselves, and only `aws-sap` does not.**
+**29 of the 37 live banks repeat themselves. Only `aws-sap` and the seven banks authored in
+the 2026-09 wave (`azure-az305`, `azure-ai-apps-agents`, `aws-soa`, `aws-aif`, `cncf-kcna`,
+`cncf-kcsa`, `gcp-cdl`) do not.**
 
 ## The three defects, and why they need separate names
 
