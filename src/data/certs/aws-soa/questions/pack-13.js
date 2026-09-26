@@ -1,0 +1,532 @@
+export const AWS_SOA_QUESTIONS_13 = [
+  {
+    id: "aws-soa-301",
+    difficulty: "easy",
+    certId: "aws-soa",
+    domainId: "d3",
+    domainName: "Deployment, Provisioning, and Automation",
+    title: "SSM Agent versions scattered across the fleet",
+    scenario: "A company's 1,200 managed instances run SSM Agent versions ranging from two years old to current, and the oldest agents fail when engineers use newer Systems Manager features. The team wants every instance, including ones launched later, to update its agent automatically every two weeks without rebuilding any images.",
+    question: "What should the engineer configure?",
+    options: [
+      { id: 'A', text: "A Run Command invocation of AWS-UpdateSSMAgent against all managed instances, repeated by hand." },
+      { id: 'B', text: "An EC2 Image Builder pipeline that bakes the newest agent into AMIs and replaces instances fortnightly." },
+      { id: 'C', text: "A patch baseline that approves the agent package, applied by AWS-RunPatchBaseline's Scan operation." },
+      { id: 'D', text: "A State Manager association that runs AWS-UpdateSSMAgent on all of the managed nodes every 14 days." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "A State Manager association applies a document on a schedule to its targets, and targeting all managed instances includes instances registered later; running AWS-UpdateSSMAgent every 14 days keeps agents current with no image work. A Run Command invocation is a one-off, so repeating it depends on someone remembering. An Image Builder pipeline with instance replacement is exactly the image rebuilding the team wants to avoid. The Scan operation of AWS-RunPatchBaseline only reports compliance and installs nothing.",
+    referenceUrl: "https://docs.aws.amazon.com/systems-manager/latest/userguide/ssm-agent-automatic-updates.html",
+    tags: ["State Manager", "SSM Agent"]
+  },
+  {
+    id: "aws-soa-302",
+    difficulty: "easy",
+    certId: "aws-soa",
+    domainId: "d3",
+    domainName: "Deployment, Provisioning, and Automation",
+    title: "Security patches only on Sunday nights",
+    scenario: "A clinic group's Windows and Amazon Linux servers are managed nodes in Systems Manager. Policy says critical and important security updates approved for seven days must be installed, and servers may reboot only between 01:00 and 04:00 on Sundays. Today an administrator patches them by hand.",
+    question: "What should the CloudOps engineer set up?",
+    options: [
+      { id: 'A', text: "A State Manager association running AWS-RunPatchBaseline with the Scan operation every Sunday at 01:00." },
+      { id: 'B', text: "An EventBridge rule on Sunday at 01:00 that reboots every managed node so pending updates are applied." },
+      { id: 'C', text: "A patch baseline with seven-day auto-approval, installed by AWS-RunPatchBaseline in a Sunday maintenance window." },
+      { id: 'D', text: "A patch baseline with a seven-day auto-approval rule, installed by an Inspector scan every Sunday at 01:00." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "Patch Manager's patch baseline defines which updates are approved, including auto-approval after a set number of days for chosen classifications and severities, and a maintenance window runs AWS-RunPatchBaseline with the Install operation only during the allowed period, rebooting as needed. The Scan operation only reports missing patches and installs nothing. Rebooting instances does not install updates that were never downloaded and approved. Amazon Inspector finds vulnerabilities but does not install patches.",
+    referenceUrl: "https://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager.html",
+    tags: ["Patch Manager", "Maintenance windows"]
+  },
+  {
+    id: "aws-soa-303",
+    difficulty: "easy",
+    certId: "aws-soa",
+    domainId: "d3",
+    domainName: "Deployment, Provisioning, and Automation",
+    title: "Keeping an agent configured when people change it",
+    scenario: "A media company requires the CloudWatch agent to run with a standard configuration on every production instance. Engineers occasionally stop the agent or edit its file while troubleshooting and forget to restore it. The team wants any such change corrected automatically within 30 minutes, including on instances launched later.",
+    question: "Which Systems Manager capability should the engineer use?",
+    options: [
+      { id: 'A', text: "A Session Manager preference that runs the configuration script whenever a session is closed." },
+      { id: 'B', text: "A Run Command invocation that installs and configures the agent across the tagged instances once." },
+      { id: 'C', text: "A State Manager association that reapplies the agent configuration to the tag every 30 minutes." },
+      { id: 'D', text: "A Distributor package of the agent, installed once by each instance's user data at launch." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "State Manager associations apply a document to targets on a schedule and keep reapplying it, so a configuration that someone changes is restored at the next run, and tag-based targets automatically include instances launched later. A one-time Run Command invocation does not correct later changes. A Distributor package installed through user data only runs at launch and never re-enforces the configuration. Session Manager preferences control session behavior such as logging and shell profiles, and changes made outside sessions would go uncorrected.",
+    referenceUrl: "https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-state.html",
+    tags: ["State Manager", "CloudWatch agent", "Configuration drift"]
+  },
+  {
+    id: "aws-soa-304",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d3",
+    domainName: "Deployment, Provisioning, and Automation",
+    title: "Patched database servers reported non-compliant",
+    scenario: "Patch Manager runs AWS-RunPatchBaseline with the Install operation and RebootOption set to NoReboot on a database fleet, because the DBAs control restarts. A week later, the compliance dashboard shows most of these nodes as non-compliant, even though the command history shows the patches installed successfully.",
+    question: "What explains the report, and what should the engineer do?",
+    options: [
+      { id: 'A', text: "The auto-approval delay has not elapsed, so patches await approval and nodes stay non-compliant; set it to zero." },
+      { id: 'B', text: "The nodes left their patch group when patched, so the default baseline is applied; retag them and run Install again." },
+      { id: 'C', text: "Patches awaiting a restart are InstalledPendingReboot, which is non-compliant; agree reboots and rescan." },
+      { id: 'D', text: "Compliance data comes from Inventory, which is not collecting on these nodes; add an Inventory association and wait." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "With NoReboot, patches that need a restart are installed but reported as InstalledPendingReboot, and nodes with patches in that state are reported as non-compliant until they reboot. Coordinating reboots with the DBAs and then running a scan updates the report. Approval delay governs which patches are installed at all, and these installed successfully. Patch compliance is written by AWS-RunPatchBaseline itself, not by Inventory. Patching does not change a node's Patch Group tag.",
+    referenceUrl: "https://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-compliance-states.html",
+    tags: ["Patch Manager", "Compliance"]
+  },
+  {
+    id: "aws-soa-305",
+    difficulty: "hard",
+    certId: "aws-soa",
+    domainId: "d3",
+    domainName: "Deployment, Provisioning, and Automation",
+    title: "Registering new instances before they take traffic",
+    scenario: "Each instance launched by an Auto Scaling group must be registered in a third-party IP address management system before it serves traffic. An existing Lambda function performs the registration in about a minute. An instance must not reach InService until the function reports success, and failed registrations should lead to the instance being replaced.",
+    question: "Which two components should the engineer add? (Choose two.)",
+    options: [
+      { id: 'A', text: "A launch lifecycle hook on the group, so each new instance waits in the Pending:Wait state." },
+      { id: 'B', text: "A termination lifecycle hook that holds instances in Terminating:Wait until the function finishes." },
+      { id: 'C', text: "A five-minute health check grace period so registration finishes before health checks begin." },
+      { id: 'D', text: "An EventBridge rule for launch lifecycle actions that invokes the function to complete them." },
+      { id: 'E', text: "A CloudWatch alarm on GroupPendingInstances whose Lambda action runs the function at launch." }
+    ],
+    correctAnswers: ['A', 'D'],
+    type: "multiple",
+    explanation: "A launch lifecycle hook pauses each new instance in Pending:Wait, and Auto Scaling emits an EC2 Instance-launch Lifecycle Action event to EventBridge; a rule invoking the function lets it register the instance and call CompleteLifecycleAction with CONTINUE, or ABANDON so the instance is terminated and replaced. A termination hook acts when instances leave the group, not when they join. A grace period only delays health checks; the instance is still InService and receiving traffic. An alarm on a group metric carries no instance ID and does not hold the instance back from InService.",
+    referenceUrl: "https://docs.aws.amazon.com/autoscaling/ec2/userguide/lifecycle-hooks.html",
+    tags: ["EC2 Auto Scaling", "Lifecycle hooks", "EventBridge"]
+  },
+  {
+    id: "aws-soa-306",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d3",
+    domainName: "Deployment, Provisioning, and Automation",
+    title: "Organization-wide patching without per-account setup",
+    scenario: "A company with 90 accounts across three Regions wants every managed node scanned daily and patched weekly using consistent baselines. Accounts are added monthly, and the CloudOps team does not want to create patch baselines, maintenance windows and roles in each account by hand.",
+    question: "Which approach requires the least ongoing effort?",
+    options: [
+      { id: 'A', text: "Create a Quick Setup patch policy for the organization targeting the OUs and the Regions." },
+      { id: 'B', text: "Create a patch baseline and maintenance window in the management account and share both with RAM." },
+      { id: 'C', text: "Write a runbook that creates baselines and windows, then run it manually in each new account." },
+      { id: 'D', text: "Enable Amazon Inspector for the organization so vulnerable packages are patched as they are found." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "A Quick Setup patch policy configures Patch Manager across an organization's accounts and Regions from one place, with baselines and scan and install schedules, and it deploys to accounts that join the targeted OUs. A runbook run manually per account is the effort the team wants to avoid. Patch baselines and maintenance windows are not shared through AWS RAM. Amazon Inspector detects vulnerabilities but does not install patches.",
+    referenceUrl: "https://docs.aws.amazon.com/systems-manager/latest/userguide/quick-setup-patch-manager.html",
+    tags: ["Patch Manager", "Quick Setup", "AWS Organizations"]
+  },
+  {
+    id: "aws-soa-307",
+    difficulty: "easy",
+    certId: "aws-soa",
+    domainId: "d3",
+    domainName: "Deployment, Provisioning, and Automation",
+    title: "Rolling out a vendor monitoring agent package",
+    scenario: "A retailer must install a third-party monitoring agent, supplied as .rpm and .msi installers, on 700 Linux and Windows managed nodes, and upgrade it whenever the vendor releases a new version. The team wants versioned packages it can install or update with one Systems Manager operation.",
+    question: "Which Systems Manager capability fits best?",
+    options: [
+      { id: 'A', text: "Session Manager, with a shell profile that installs the installers when an administrator connects." },
+      { id: 'B', text: "Inventory, collecting the installed agent version from every node so the team knows which to upgrade." },
+      { id: 'C', text: "Parameter Store, holding the download URLs for the installers that nodes read to install at boot." },
+      { id: 'D', text: "Distributor, with a package that holds the installers per platform and install and uninstall scripts." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Distributor packages software as versioned bundles containing per-platform installers and install and uninstall scripts, and deploys them on demand through Run Command or on a schedule through State Manager, including upgrades to new versions. Parameter Store only stores values; the nodes would still need custom install logic that runs only at boot. Inventory reports what is installed but changes nothing. A shell profile runs only when someone opens a session and would not cover 700 nodes reliably.",
+    referenceUrl: "https://docs.aws.amazon.com/systems-manager/latest/userguide/distributor.html",
+    tags: ["Systems Manager", "Distributor"]
+  },
+  {
+    id: "aws-soa-308",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d3",
+    domainName: "Deployment, Provisioning, and Automation",
+    title: "Bringing data center servers under Systems Manager",
+    scenario: "A university runs 150 Linux servers in its own data center that must be patched and inventoried with the same Systems Manager tooling as its EC2 fleet. The servers have outbound HTTPS to AWS endpoints but, being outside EC2, cannot use instance profiles.",
+    question: "How should the engineer register the servers as managed nodes?",
+    options: [
+      { id: 'A', text: "Enable Default Host Management Configuration in the Region so the servers register themselves automatically." },
+      { id: 'B', text: "Attach the AmazonSSMManagedInstanceCore policy to a new IAM user and store its access keys on every server." },
+      { id: 'C', text: "Import each server as a VM with VM Import/Export so it becomes an EC2 instance with an instance profile." },
+      { id: 'D', text: "Create a hybrid activation with an IAM service role, then register SSM Agent on each server using its code and ID." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "A hybrid activation provides an activation code and ID; SSM Agent installed with them registers each on-premises server as a managed node (with an mi- prefix) that assumes the IAM service role named in the activation, with no long-term keys stored on the host. Placing IAM user access keys on 150 servers creates long-lived credentials to manage and rotate. Default Host Management Configuration applies only to EC2 instances. VM Import creates new EC2 instances rather than managing the servers where they run.",
+    referenceUrl: "https://docs.aws.amazon.com/systems-manager/latest/userguide/activations.html",
+    tags: ["Systems Manager", "Hybrid activation", "On-premises"]
+  },
+  {
+    id: "aws-soa-309",
+    difficulty: "hard",
+    certId: "aws-soa",
+    domainId: "d3",
+    domainName: "Deployment, Provisioning, and Automation",
+    title: "Event pattern that filters on instance tags",
+    scenario: "An EventBridge rule should trigger a Lambda function that stops EC2 instances entering the running state outside business hours, but only for instances tagged Environment=dev. The engineer added a detail.tags field for that tag to the event pattern, and since then the rule never matches, although dev instances start every evening.",
+    question: "What should the engineer do?",
+    options: [
+      { id: 'A', text: "Match RunInstances API calls recorded by CloudTrail instead, because those requests always include tags." },
+      { id: 'B', text: "Add an input transformer that adds the instance tags to the event before the pattern is evaluated." },
+      { id: 'C', text: "Match the running state plus a resources wildcard on Environment=dev, since resources lists the tags." },
+      { id: 'D', text: "Match only the running state and have the function check the instance's tags before it stops anything." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "EC2 instance state-change events carry the instance ID and state but no tags, so a pattern that requires a tag field can never match. Matching on the state alone and letting the function call DescribeTags or DescribeInstances to check Environment=dev applies the filter reliably. The resources field holds instance ARNs, not tags. RunInstances requests include tags only when they were set at launch, and instances restarted with StartInstances generate no RunInstances call at all. Input transformers reshape the event for the target after the rule has matched, so they cannot influence matching.",
+    referenceUrl: "https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-event-patterns.html",
+    tags: ["EventBridge", "Event patterns", "EC2"]
+  },
+  {
+    id: "aws-soa-310",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d3",
+    domainName: "Deployment, Provisioning, and Automation",
+    title: "No automated changes during the holiday freeze",
+    scenario: "A retailer's State Manager associations apply configuration changes to production instances every day. During a change freeze from late November to early January, these associations must not run, and they must resume automatically once the freeze ends. The freeze dates change each year.",
+    question: "What should the engineer configure?",
+    options: [
+      { id: 'A', text: "An EventBridge Scheduler job that deletes the associations at the freeze start and recreates them afterwards." },
+      { id: 'B', text: "A Change Calendar with the freeze as a closed period, referenced by the associations so they run only while it is open." },
+      { id: 'C', text: "A maintenance window whose schedule excludes the freeze dates, with the associations registered as tasks in it." },
+      { id: 'D', text: "A Change Calendar with the freeze as an open period, referenced by the associations so they run only when closed." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "Systems Manager Change Calendar defines periods in which changes are allowed (open) or blocked (closed); a State Manager association that references the calendar runs only while the calendar is open, so it pauses through the freeze and resumes automatically. Updating the calendar's events each year is the only yearly task. Associations cannot be registered as maintenance window tasks. Deleting and recreating associations loses their history and adds scripts that must be kept correct. Marking the freeze as open inverts the meaning of the calendar and would run changes only during the freeze.",
+    referenceUrl: "https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-change-calendar.html",
+    tags: ["Change Calendar", "State Manager"]
+  },
+  {
+    id: "aws-soa-311",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d3",
+    domainName: "Deployment, Provisioning, and Automation",
+    title: "Querying installed software across every account",
+    scenario: "After a vulnerability announcement, auditors want a single SQL query that lists every managed node running a particular OpenSSL version across 25 accounts and three Regions. SSM Agent on every node is already reporting installed-application metadata to Systems Manager in each account.",
+    question: "What should the engineer set up to support the query?",
+    options: [
+      { id: 'A', text: "An AWS Config aggregator for the organization and an advanced query of the EC2 instance resource type." },
+      { id: 'B', text: "A CloudWatch Logs subscription in each account forwarding agent logs to a central log group for Insights." },
+      { id: 'C', text: "A Run Command invocation in each account and Region that prints the OpenSSL version on every node." },
+      { id: 'D', text: "Resource data syncs sending Inventory from each account and Region to one S3 bucket, read by Athena." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "A resource data sync sends Systems Manager Inventory data from each account and Region to a central S3 bucket in a queryable format, where Amazon Athena can run SQL across all of it. CloudWatch Logs holds agent logs, not the structured application inventory. A Config aggregator can query recorded configuration items, but the EC2 instance resource type does not list installed software packages. Running a command in 75 account and Region combinations produces unstructured output that still has to be combined by hand.",
+    referenceUrl: "https://docs.aws.amazon.com/systems-manager/latest/userguide/inventory-create-resource-data-sync.html",
+    tags: ["Systems Manager", "Inventory", "Resource data sync"]
+  },
+  {
+    id: "aws-soa-312",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d3",
+    domainName: "Deployment, Provisioning, and Automation",
+    title: "Second maintenance task that never starts",
+    scenario: "A maintenance window opens Saturdays at 22:00 with a four-hour duration and a one-hour cutoff. Its priority 1 task patches 300 instances with Run Command at a concurrency of 10, and its priority 2 task runs an Automation runbook that creates AMIs. Lately the AMI task shows as never started, while the patch task finishes around 01:20.",
+    question: "What is the most likely cause, and how should it be fixed?",
+    options: [
+      { id: 'A', text: "The patch task runs past the cutoff, so the next task cannot start; raise concurrency or extend the window." },
+      { id: 'B', text: "The cutoff stopped the AMI task partway through; remove the cutoff so running tasks are allowed to finish." },
+      { id: 'C', text: "A window runs only one task type, so the Automation task is ignored; move it to its own maintenance window." },
+      { id: 'D', text: "Priority 2 tasks run only when a priority 1 task fails; give both priority 1 at the same concurrency." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Tasks with different priorities run in order, and no new task starts once the window reaches its cutoff, here 01:00. The patch task still running at 01:20 means the priority 2 task is never started. Raising concurrency to finish patching sooner, or lengthening the window, gives it time. A window can hold Run Command, Automation, Lambda and Step Functions tasks together. Lower-priority tasks run after higher-priority ones regardless of success. The cutoff prevents new tasks from starting but does not stop running ones, and the history shows the AMI task never started.",
+    referenceUrl: "https://docs.aws.amazon.com/systems-manager/latest/userguide/maintenance-windows-cli-tutorials-create.html",
+    tags: ["Maintenance windows", "Systems Manager"]
+  },
+  {
+    id: "aws-soa-313",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d3",
+    domainName: "Deployment, Provisioning, and Automation",
+    title: "Diagnostic output cut off in the console",
+    scenario: "An engineer uses Run Command to collect a long diagnostic report from 50 instances, but the output shown for each instance in the console ends abruptly and the rest is missing. The report must be retained for 90 days for the problem-management team.",
+    question: "What should the engineer change?",
+    options: [
+      { id: 'A', text: "Increase the command's maximum concurrency to 50 so each instance's output is captured in a single batch." },
+      { id: 'B', text: "Raise the command's execution timeout so the report has time to finish before the console captures it." },
+      { id: 'C', text: "Run the report through Session Manager instead, with session logging retained in the console for 90 days." },
+      { id: 'D', text: "Send the full command output to an S3 bucket or to CloudWatch Logs and keep it there for 90 days." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "The output Run Command returns in the console and API is truncated, so complete output for long reports should be sent to an S3 bucket or a CloudWatch Logs log group, both of which can keep it for 90 days through a lifecycle rule or retention setting. The command did finish, so a longer timeout does not affect how much output is displayed. Session Manager would require 50 interactive sessions and the console does not hold session logs; they also go to S3 or CloudWatch Logs. Concurrency changes how many instances run at once, not how much output is shown.",
+    referenceUrl: "https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-rc-setting-up-cwlogs.html",
+    tags: ["Run Command", "CloudWatch Logs", "S3"]
+  },
+  {
+    id: "aws-soa-314",
+    difficulty: "easy",
+    certId: "aws-soa",
+    domainId: "d3",
+    domainName: "Deployment, Provisioning, and Automation",
+    title: "Thumbnails whenever a photo is uploaded",
+    scenario: "A real estate site stores listing photos in an S3 bucket under the uploads/ prefix, alongside other files. A Lambda function must create thumbnails for each new .jpg in that prefix within seconds of upload, without scanning the bucket on a schedule.",
+    question: "What should the engineer configure?",
+    options: [
+      { id: 'A', text: "An S3 Lifecycle rule on the uploads/ prefix that transitions each .jpg to a thumbnail through the function." },
+      { id: 'B', text: "An S3 Event Notification for object-created events filtered to uploads/ and .jpg that invokes the function." },
+      { id: 'C', text: "An EventBridge Scheduler job that invokes the function every minute to list new objects under uploads/." },
+      { id: 'D', text: "S3 Replication from uploads/ to a second bucket, with the function reading from the replica on a schedule." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "S3 Event Notifications invoke a Lambda function when objects are created, and prefix and suffix filters limit them to .jpg files under uploads/, typically within seconds and without polling. A per-minute schedule still scans the bucket and adds delay. Lifecycle rules transition storage classes or expire objects and cannot invoke functions. Replication copies objects to another bucket, and reading the replica on a schedule is still polling.",
+    referenceUrl: "https://docs.aws.amazon.com/AmazonS3/latest/userguide/NotificationHowTo.html",
+    tags: ["S3 Event Notifications", "Lambda"]
+  },
+  {
+    id: "aws-soa-315",
+    difficulty: "easy",
+    certId: "aws-soa",
+    domainId: "d3",
+    domainName: "Deployment, Provisioning, and Automation",
+    title: "An instance locked out by its own network settings",
+    scenario: "After an engineer edited the network and SSH configuration on a Linux EC2 instance, it no longer responds over SSH and has dropped off Systems Manager as a managed node. The team wants an AWS-provided, automated way to diagnose and repair common operating system problems on its root volume.",
+    question: "What should the engineer use?",
+    options: [
+      { id: 'A', text: "The AWSSupport-ExecuteEC2Rescue runbook, which repairs the root volume from a helper instance." },
+      { id: 'B', text: "A stop and start of the instance, which moves it to new hardware and reapplies its original settings." },
+      { id: 'C', text: "Run Command with AWS-RunShellScript to put the original files back on the instance's root volume." },
+      { id: 'D', text: "A reboot from the EC2 console, which restores the last known good network configuration at boot." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "AWSSupport-ExecuteEC2Rescue stops the instance, attaches its root volume to a temporary helper instance, runs EC2Rescue to diagnose and fix common OS issues such as network and SSH configuration, then reattaches the volume and starts the instance. Run Command needs a working SSM Agent connection, which the instance has lost. A reboot keeps the broken configuration on disk. A stop and start moves the instance to new hardware but leaves its OS configuration unchanged.",
+    referenceUrl: "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Linux-Server-EC2Rescue.html",
+    tags: ["Automation", "EC2Rescue", "Troubleshooting"]
+  },
+  {
+    id: "aws-soa-316",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d3",
+    domainName: "Deployment, Provisioning, and Automation",
+    title: "Acting on scheduled instance retirement notices",
+    scenario: "A logistics company regularly receives AWS Health notices that EC2 instances backed by EBS are scheduled for retirement because of degraded hardware. The operations team wants each affected instance stopped and started automatically outside business hours, moving it to healthy hardware, without anyone reading the notices.",
+    question: "Which design meets the requirement?",
+    options: [
+      { id: 'A', text: "A Trusted Advisor check refreshed hourly whose findings are emailed to the team for manual restarts." },
+      { id: 'B', text: "An EventBridge rule for AWS Health instance retirement events that targets a reboot Automation runbook." },
+      { id: 'C', text: "A CloudWatch alarm on StatusCheckFailed_System with the EC2 recover action for each affected instance." },
+      { id: 'D', text: "An EventBridge rule for AWS Health retirement events that starts a stop-and-start Automation runbook." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "AWS Health publishes scheduled-change events to EventBridge, so a rule matching the EC2 retirement event can start an Automation runbook that stops and starts the instance; a stop and start on EBS-backed instances moves them to new hardware, and the runbook can include a wait until the allowed window. A recover alarm reacts only after a system status check fails, not to advance notice. A reboot keeps the instance on the same host, so it does not avoid the retirement. Emailing findings still depends on people acting.",
+    referenceUrl: "https://docs.aws.amazon.com/health/latest/ug/cloudwatch-events-health.html",
+    tags: ["AWS Health", "EventBridge", "Automation"]
+  },
+  {
+    id: "aws-soa-317",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d3",
+    domainName: "Deployment, Provisioning, and Automation",
+    title: "Nightly upload bursts overwhelming a partner API",
+    scenario: "Partners upload up to 50,000 small files within a few minutes each night. S3 Event Notifications invoke a Lambda function per file, and the function calls a partner API that accepts at most 100 concurrent requests, so the API returns throttling errors all night. Every file must eventually be processed.",
+    question: "Which change controls the processing rate most effectively?",
+    options: [
+      { id: 'A', text: "Raise the function's memory to its maximum so that each invocation completes and frees capacity sooner." },
+      { id: 'B', text: "Queue the notifications in SQS and consume them via an event source mapping with maximum concurrency." },
+      { id: 'C', text: "Send the notifications to EventBridge and route them from a rule directly to the function as its target." },
+      { id: 'D', text: "Send the notifications to an SNS topic subscribed by the function so that deliveries are spread out." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "An SQS queue buffers the burst durably, and an event source mapping's maximum concurrency setting caps how many function instances process the queue at once, keeping calls to the partner API under its limit while messages wait safely. SNS pushes each message to the function as soon as it arrives, so the burst passes straight through. More memory shortens each invocation but does not limit how many run in parallel. An EventBridge rule also invokes the function as events arrive, with no concurrency cap.",
+    referenceUrl: "https://docs.aws.amazon.com/lambda/latest/dg/services-sqs-scaling.html",
+    tags: ["S3 Event Notifications", "SQS", "Lambda"]
+  },
+  {
+    id: "aws-soa-318",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d3",
+    domainName: "Deployment, Provisioning, and Automation",
+    title: "Deletions missed in a versioned bucket",
+    scenario: "Compliance requires a Lambda function to record every deletion request made against a versioned S3 bucket. The bucket's notification configuration sends s3:ObjectRemoved:Delete events to the function, but it fires only occasionally, even though users delete objects many times a day without specifying version IDs.",
+    question: "What should the engineer change?",
+    options: [
+      { id: 'A', text: "Suspend versioning on the bucket so that each simple delete emits an ObjectRemoved:Delete event." },
+      { id: 'B', text: "Add s3:ObjectRemoved:DeleteMarkerCreated to the notification, or use s3:ObjectRemoved:* instead." },
+      { id: 'C', text: "Enable S3 server access logging and have the function parse each log file for DELETE operations." },
+      { id: 'D', text: "Add s3:ObjectCreated:* to the notification, because a delete marker is stored as a new object." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "In a versioned bucket, a DELETE without a version ID does not remove data; it creates a delete marker, which emits s3:ObjectRemoved:DeleteMarkerCreated. s3:ObjectRemoved:Delete fires only when an object version is permanently deleted, which is why it appears rarely. Subscribing to the delete-marker event, or to all ObjectRemoved events, captures both. Suspending versioning removes the protection versioning provides. Delete markers do not emit object-created events. Server access logs are delivered on a best-effort basis with delay, which is weaker than event notifications for this record.",
+    referenceUrl: "https://docs.aws.amazon.com/AmazonS3/latest/userguide/notification-how-to-event-types-and-destinations.html",
+    tags: ["S3 Event Notifications", "S3 Versioning"]
+  },
+  {
+    id: "aws-soa-319",
+    difficulty: "hard",
+    certId: "aws-soa",
+    domainId: "d3",
+    domainName: "Deployment, Provisioning, and Automation",
+    title: "Upload events vanish after queue encryption",
+    scenario: "A new policy requires SSE-KMS on every SQS queue. After the team switched an ingest queue to the AWS managed aws/sqs key, S3 object-created notifications stopped arriving in it, although the queue policy still allows s3.amazonaws.com to send messages with the bucket as source ARN.",
+    question: "Which two actions restore delivery while meeting the policy? (Choose two.)",
+    options: [
+      { id: 'A', text: "Switch the queue to SSE-SQS so that S3 needs no key permissions to send." },
+      { id: 'B', text: "Allow s3.amazonaws.com kms:GenerateDataKey and kms:Decrypt in that key's policy." },
+      { id: 'C', text: "Convert the queue to FIFO with content-based deduplication turned on." },
+      { id: 'D', text: "Grant the bucket owner's role kms:Encrypt on aws/sqs in an identity policy." },
+      { id: 'E', text: "Re-encrypt the queue with a customer managed key in place of aws/sqs." }
+    ],
+    correctAnswers: ['B', 'E'],
+    type: "multiple",
+    explanation: "S3 must be able to use the queue's KMS key to send encrypted messages, and the AWS managed aws/sqs key's policy cannot be edited to allow that, so the queue needs a customer managed key whose key policy grants the S3 service principal kms:GenerateDataKey and kms:Decrypt. SSE-SQS would work technically but does not satisfy the SSE-KMS requirement. Identity policies on the bucket owner's roles do not authorize the S3 service principal, and aws/sqs still cannot be used. FIFO queues are not supported as S3 notification destinations.",
+    referenceUrl: "https://docs.aws.amazon.com/AmazonS3/latest/userguide/grant-destinations-permissions-to-s3.html",
+    tags: ["S3 Event Notifications", "SQS", "KMS"]
+  },
+  {
+    id: "aws-soa-320",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d3",
+    domainName: "Deployment, Provisioning, and Automation",
+    title: "Capturing uploads the processor could not handle",
+    scenario: "A Lambda function invoked by S3 Event Notifications parses uploaded CSV files. When a file is malformed, the function throws an error; Lambda retries and then the event is lost, so nobody knows which files failed. The team wants failed events kept with their error details for later reprocessing.",
+    question: "What should the engineer configure?",
+    options: [
+      { id: 'A', text: "An on-failure destination in the function's asynchronous invocation settings that points to an SQS queue." },
+      { id: 'B', text: "A higher function timeout and memory so that malformed files have more time to parse before failing." },
+      { id: 'C', text: "An on-success destination on the function's asynchronous invocation settings pointing to an SQS queue." },
+      { id: 'D', text: "An event source mapping between the bucket and the function with a batch size of one and bisect on error." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "S3 invokes Lambda asynchronously; after the retries are exhausted, an on-failure destination receives the event together with the error details, so an SQS queue there holds every failed file for inspection and reprocessing. Event source mappings are for polled sources such as SQS, Kinesis and DynamoDB Streams, not S3. More time or memory does not make malformed files parse. An on-success destination records successful invocations, not failures.",
+    referenceUrl: "https://docs.aws.amazon.com/lambda/latest/dg/invocation-async-retain-records.html",
+    tags: ["Lambda", "Asynchronous invocation", "Destinations"]
+  },
+  {
+    id: "aws-soa-321",
+    difficulty: "hard",
+    certId: "aws-soa",
+    domainId: "d3",
+    domainName: "Deployment, Provisioning, and Automation",
+    title: "Runaway invocations after a resize function goes live",
+    scenario: "A function triggered by object-created events on an S3 bucket resizes images and writes the result back to the same bucket. Minutes after deployment, invocations and PUT requests are climbing steeply and the bill is spiking, even though uploads are normal. The resized images must stay in S3.",
+    question: "What should the engineer do to fix the design?",
+    options: [
+      { id: 'A', text: "Turn off Lambda retries for async invocations so failed resizes are not attempted a second time." },
+      { id: 'B', text: "Write the output to a separate bucket, or to a prefix excluded by the notification's filter." },
+      { id: 'C', text: "Set the function's reserved concurrency to 1 so the invocations are processed one at a time." },
+      { id: 'D', text: "Enable S3 Versioning on the bucket so rewritten objects become new versions, not new events." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "Each resized image written to the same bucket is itself an object-created event, which invokes the function again and creates an unbounded loop. Writing results to a different bucket, or to a prefix the notification's filter does not match, breaks the cycle. Reserved concurrency of 1 only slows the loop. With versioning, every PUT still emits an object-created event. The invocations are succeeding rather than failing, so retry settings are unrelated to the loop.",
+    referenceUrl: "https://docs.aws.amazon.com/lambda/latest/dg/with-s3.html",
+    tags: ["Lambda", "S3 Event Notifications", "Recursive loop"]
+  },
+  {
+    id: "aws-soa-322",
+    difficulty: "hard",
+    certId: "aws-soa",
+    domainId: "d3",
+    domainName: "Deployment, Provisioning, and Automation",
+    title: "Copying each snapshot to another Region on completion",
+    scenario: "A nightly script creates EBS snapshots in eu-west-1, encrypted with a customer managed key. Each snapshot must be copied to eu-north-1 as soon as it finishes and encrypted there with a key the team owns in eu-north-1. The team wants an event-driven design with no polling.",
+    question: "Which design meets the requirement?",
+    options: [
+      { id: 'A', text: "A rule in eu-west-1 on CreateSnapshot API calls recorded by CloudTrail, invoking a function that copies with the eu-north-1 key." },
+      { id: 'B', text: "A rule in eu-west-1 on createSnapshot succeeded notifications, invoking a function that copies with the eu-north-1 key." },
+      { id: 'C', text: "A rule in eu-west-1 on EBS Snapshot Notification createSnapshot succeeded events, copying with the source key's ID." },
+      { id: 'D', text: "A rule in eu-north-1 on EBS Snapshot Notification createSnapshot succeeded events, invoking a function that copies it locally." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "EBS emits an EBS Snapshot Notification event with result succeeded to EventBridge in the snapshot's Region when creation completes, so a rule in eu-west-1 can invoke a function that calls CopySnapshot to eu-north-1 and names the destination key. The CreateSnapshot API call is recorded when the snapshot starts, while it is still pending and cannot yet be copied. Events are delivered in the Region where the snapshot was created, so a rule in eu-north-1 never sees them. A single-Region KMS key cannot be used in another Region, so the copy must specify a key in eu-north-1.",
+    referenceUrl: "https://docs.aws.amazon.com/ebs/latest/userguide/ebs-cloud-watch-events.html",
+    tags: ["EventBridge", "EBS snapshots", "Multi-Region"]
+  },
+  {
+    id: "aws-soa-323",
+    difficulty: "hard",
+    certId: "aws-soa",
+    domainId: "d3",
+    domainName: "Deployment, Provisioning, and Automation",
+    title: "One malformed message replays a whole batch",
+    scenario: "A Lambda function consumes an SQS standard queue with a batch size of 10. When one message in a batch is malformed, the function throws, the whole batch becomes visible again, and the nine valid orders are processed repeatedly, creating duplicates, while the bad message never leaves the queue.",
+    question: "Which two changes fix this behavior? (Choose two.)",
+    options: [
+      { id: 'A', text: "Add an on-failure destination in the async invocation configuration." },
+      { id: 'B', text: "Turn on ReportBatchItemFailures and return only the failed message IDs." },
+      { id: 'C', text: "Raise the batch size and add a batching window so failures are rarer." },
+      { id: 'D', text: "Raise the visibility timeout to 12 hours so failed batches wait longer." },
+      { id: 'E', text: "Add a redrive policy sending messages to a DLQ after a few receives." }
+    ],
+    correctAnswers: ['B', 'E'],
+    type: "multiple",
+    explanation: "With ReportBatchItemFailures enabled on the event source mapping, the function returns the IDs of only the messages it could not process, so successfully processed messages are deleted and not replayed. A redrive policy on the source queue moves a message to a dead-letter queue after its maxReceiveCount is reached, removing the poison message for later inspection. Asynchronous invocation settings do not apply to SQS event source mappings. Larger batches put more good messages at risk per failure. A longer visibility timeout only delays each replay.",
+    referenceUrl: "https://docs.aws.amazon.com/lambda/latest/dg/services-sqs-errorhandling.html",
+    tags: ["Lambda", "SQS", "Error handling"]
+  },
+  {
+    id: "aws-soa-324",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d3",
+    domainName: "Deployment, Provisioning, and Automation",
+    title: "Multi-step recovery with waits and retries",
+    scenario: "When a critical batch instance fails, operations performs six steps by hand: snapshot the volume, wait for the snapshot, launch a replacement, wait for status checks, move an Elastic IP and notify the team, retrying any step that hits throttling. They want this automated as a serverless workflow with a visual execution history.",
+    question: "Which service is the best fit to orchestrate the steps?",
+    options: [
+      { id: 'A', text: "AWS Step Functions, using AWS SDK integrations with wait states and retry rules for each task." },
+      { id: 'B', text: "A single Lambda function that performs all six steps and waits between them until each finishes." },
+      { id: 'C', text: "Amazon SQS, with one message per step that each consumer deletes when its part is finished." },
+      { id: 'D', text: "An EventBridge rule for each step that fires on the previous step's CloudTrail event record." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Step Functions orchestrates multi-step workflows with built-in wait states, per-state retry and catch rules, direct SDK integrations with EC2 and SNS, and a visual execution history. A single Lambda function is limited to 15 minutes, which snapshot and status-check waits can exceed, and it would need hand-written retry logic. SQS decouples producers and consumers but provides no ordering of steps, waits or overall execution view. Chaining rules on CloudTrail events is fragile, delayed and offers no single view of an execution.",
+    referenceUrl: "https://docs.aws.amazon.com/step-functions/latest/dg/welcome.html",
+    tags: ["Step Functions", "Orchestration", "Automation"]
+  },
+  {
+    id: "aws-soa-325",
+    difficulty: "easy",
+    certId: "aws-soa",
+    domainId: "d3",
+    domainName: "Deployment, Provisioning, and Automation",
+    title: "Blocking one kernel version from weekly patching",
+    scenario: "A storage vendor has confirmed that one specific kernel package version breaks its driver. The Amazon Linux fleet is patched weekly by Patch Manager with a custom patch baseline. That version must never be installed, while all other approved updates continue to be applied on schedule.",
+    question: "What should the engineer change?",
+    options: [
+      { id: 'A', text: "Raise the baseline's auto-approval delay to 30 days so the kernel package is held back for a month." },
+      { id: 'B', text: "Add the package version to the baseline's rejected patches list, with its action set to Block." },
+      { id: 'C', text: "Remove the Security classification from the baseline's approval rules until the vendor ships a fix." },
+      { id: 'D', text: "Disable the weekly maintenance window until the vendor ships a driver that supports the new kernel." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "A patch baseline's rejected patches list names packages that must not be installed, and the Block action prevents them from being installed even as a dependency, while every other approved update keeps flowing. Removing the Security classification would stop all security updates. A longer approval delay only postpones the kernel, which would still install after 30 days. Disabling the maintenance window halts every update for the whole fleet.",
+    referenceUrl: "https://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-approved-rejected-package-name-formats.html",
+    tags: ["Patch Manager", "Patch baselines"]
+  }
+];
+
+export default AWS_SOA_QUESTIONS_13;

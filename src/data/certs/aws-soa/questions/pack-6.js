@@ -1,0 +1,532 @@
+export const AWS_SOA_QUESTIONS_6 = [
+  {
+    id: "aws-soa-126",
+    difficulty: "easy",
+    certId: "aws-soa",
+    domainId: "d2",
+    domainName: "Reliability and Business Continuity",
+    title: "Holding a web tier near half CPU",
+    scenario: "An online ticketing company runs its web tier in an Auto Scaling group behind an Application Load Balancer. Traffic rises and falls through the day with no fixed pattern, and the operations lead wants average CPU across the group to stay close to 50 percent. The team does not want to create or tune CloudWatch alarms by hand.",
+    question: "Which scaling configuration meets these requirements with the least operational effort?",
+    options: [
+      { id: 'A', text: "A target tracking scaling policy that uses the predefined ASGAverageCPUUtilization metric with a target value of 50." },
+      { id: 'B', text: "A step scaling policy with one CloudWatch alarm at 60 percent CPU that adds capacity and another at 40 percent that removes it." },
+      { id: 'C', text: "A simple scaling policy triggered by a CPU alarm at 50 percent, with a 300-second cooldown between scaling activities." },
+      { id: 'D', text: "A set of scheduled actions that raise desired capacity every morning and lower it again each evening at close of business." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Target tracking creates and manages the CloudWatch alarms itself and adjusts capacity to keep the chosen metric near the target value, so a predefined ASGAverageCPUUtilization target of 50 is exactly the requirement with no alarm tuning. Step scaling can approximate the same behaviour but requires the team to create and maintain both alarms and the step adjustments. Scheduled actions suit predictable patterns, and this traffic has none. A simple scaling policy also depends on a hand-built alarm, and it waits out the cooldown after each activity, so it reacts slowly and cannot track a value in both directions without a second policy.",
+    referenceUrl: "https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-scaling-target-tracking.html",
+    tags: ["EC2 Auto Scaling", "Target tracking", "CloudWatch"]
+  },
+  {
+    id: "aws-soa-127",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d2",
+    domainName: "Reliability and Business Continuity",
+    title: "Capacity that arrives before the morning rush",
+    scenario: "A payroll SaaS provider sees load climb steeply every weekday morning, but the start of the climb drifts by up to an hour depending on the customer mix that week. Instances take about eight minutes to become ready, so the existing target tracking policy leaves users waiting while capacity catches up. The group has several months of history, and finance will not accept a higher overnight minimum.",
+    question: "What should the CloudOps engineer add to the Auto Scaling group?",
+    options: [
+      { id: 'A', text: "A scheduled action that sets desired capacity to the daily peak at 07:00 each weekday and lowers it again after the morning ends." },
+      { id: 'B', text: "A predictive scaling policy in forecast-and-scale mode, kept alongside the target tracking policy that already exists." },
+      { id: 'C', text: "A higher minimum capacity that matches the typical morning peak so the instances are already running when users arrive." },
+      { id: 'D', text: "A step scaling policy with a lower CPU threshold so that the group starts adding instances earlier in the morning ramp." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "Predictive scaling analyses historical load to forecast the daily and weekly cycle and launches capacity ahead of the forecast demand, so it follows a ramp whose timing drifts better than a fixed schedule; used with target tracking, the reactive policy still handles anything the forecast misses. A 07:00 scheduled action fires at a fixed time and will be early or late when the ramp moves by an hour. A lower step scaling threshold still reacts only after load arrives and does not remove the eight-minute boot delay. Raising the minimum capacity keeps peak capacity running overnight, which finance has ruled out.",
+    referenceUrl: "https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-predictive-scaling.html",
+    tags: ["EC2 Auto Scaling", "Predictive scaling"]
+  },
+  {
+    id: "aws-soa-128",
+    difficulty: "hard",
+    certId: "aws-soa",
+    domainId: "d2",
+    domainName: "Reliability and Business Continuity",
+    title: "Twelve-minute bootstrap and sudden spikes",
+    scenario: "A media analytics firm's worker instances spend about 12 minutes at first boot installing packages and downloading reference files to their EBS volumes before they can take work. Traffic spikes arrive without warning after news events, and the spikes are over by the time new instances finish booting. The firm wants faster scale-out while paying as little as possible for idle capacity.",
+    question: "Which configuration should the CloudOps engineer implement?",
+    options: [
+      { id: 'A', text: "Add a warm pool to the Auto Scaling group with a pool state of Stopped, so that pre-initialized instances restart quickly on demand." },
+      { id: 'B', text: "Add a predictive scaling policy so that the group forecasts the spikes and launches the new worker instances ahead of demand." },
+      { id: 'C', text: "Add a warm pool to the Auto Scaling group with a pool state of Running, so that pre-initialized instances can join the group at once." },
+      { id: 'D', text: "Raise the minimum capacity of the group to the size of a typical spike and rely on target tracking to scale beyond that level." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "A warm pool holds instances that have already completed their initialization. In the Stopped state the firm pays only for the attached EBS volumes, and because the packages and reference files live on those volumes, a stopped instance starts and joins the group far faster than a fresh launch. A Running warm pool gives the same speed but bills full compute for every idle instance, which conflicts with the cost goal. Predictive scaling needs a recurring pattern to forecast, and news-driven spikes have none. Raising the minimum capacity keeps spike-sized capacity running all the time, which is the most expensive way to pre-provision.",
+    referenceUrl: "https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-warm-pools.html",
+    tags: ["EC2 Auto Scaling", "Warm pools", "Cost optimization"]
+  },
+  {
+    id: "aws-soa-129",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d2",
+    domainName: "Reliability and Business Continuity",
+    title: "Crashed app processes that are never replaced",
+    scenario: "A logistics company runs an order API on EC2 instances in an Auto Scaling group registered with an Application Load Balancer target group. When the application process crashes, the target group marks the instance unhealthy and stops routing to it, but the instance stays in service indefinitely and the group runs short of capacity until someone terminates it.",
+    question: "What should the CloudOps engineer change so that these instances are replaced automatically?",
+    options: [
+      { id: 'A', text: "Change the target group health check path to a deeper endpoint that exercises the application process and its database." },
+      { id: 'B', text: "Increase the health check grace period on the Auto Scaling group so that instances have more time to pass health checks." },
+      { id: 'C', text: "Turn on Elastic Load Balancing health checks for the Auto Scaling group in addition to the default EC2 status checks." },
+      { id: 'D', text: "Create a Route 53 health check against each instance and associate it with the record set that points at the load balancer." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "By default an Auto Scaling group judges health only from EC2 status checks, which still pass when the operating system is up and the application has crashed. Enabling Elastic Load Balancing health checks on the group makes it treat a target that the load balancer reports unhealthy as unhealthy and replace it. A Route 53 health check influences DNS answers, not Auto Scaling replacement. A longer grace period only delays when health checks start to count. A deeper target group health path changes what the load balancer tests, but the group would still ignore the result until it uses ELB health checks.",
+    referenceUrl: "https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-health-checks.html",
+    tags: ["EC2 Auto Scaling", "Health checks", "ALB"]
+  },
+  {
+    id: "aws-soa-130",
+    difficulty: "easy",
+    certId: "aws-soa",
+    domainId: "d2",
+    domainName: "Reliability and Business Continuity",
+    title: "Office-hours capacity for an internal portal",
+    scenario: "A university's HR portal runs on an Auto Scaling group and is used almost exclusively between 08:00 and 18:00 on weekdays. Outside those hours two instances are plenty, while during the day ten are needed. The pattern has been identical for years and the team wants capacity in place before staff log in.",
+    question: "Which approach should the CloudOps engineer use?",
+    options: [
+      { id: 'A', text: "Create a lifecycle hook on launch that holds new instances until the portal finishes loading before they receive traffic." },
+      { id: 'B', text: "Create a target tracking policy on average CPU so the group grows as staff log in and shrinks when they leave for the day." },
+      { id: 'C', text: "Create two scheduled actions with recurrence expressions, one raising capacity before 08:00 and one lowering it after 18:00." },
+      { id: 'D', text: "Create a warm pool of eight stopped instances so the group can add them quickly when load arrives during the morning." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "Scheduled actions with cron-style recurrence change minimum, maximum or desired capacity at set times, which fits a fixed, well-known pattern and guarantees capacity is ready before 08:00. Target tracking reacts only after load rises, so the first staff of the day would meet an undersized group. A warm pool speeds up launches but still waits for a scaling trigger to use them. A launch lifecycle hook controls when a new instance enters service; it does not decide when instances are launched.",
+    referenceUrl: "https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-scheduled-scaling.html",
+    tags: ["EC2 Auto Scaling", "Scheduled scaling"]
+  },
+  {
+    id: "aws-soa-131",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d2",
+    domainName: "Reliability and Business Continuity",
+    title: "Too many Spot interruptions in a render farm",
+    scenario: "An animation studio runs a render farm on an Auto Scaling group that uses Spot Instances only. The group launches a single instance type, c5.4xlarge, using the lowest-price allocation strategy, and the studio is losing large amounts of work to Spot interruptions each week. Render jobs can run on any compute-optimized or general-purpose instance with at least 16 vCPUs.",
+    question: "Which changes will reduce the interruptions? (Choose two.)",
+    options: [
+      { id: 'A', text: "Keep the lowest-price strategy but raise the number of Spot pools it draws from so that it spreads across them." },
+      { id: 'B', text: "Use a mixed instances policy that lists several instance families and sizes meeting the 16 vCPU requirement." },
+      { id: 'C', text: "Switch the group's Spot allocation strategy to price-capacity-optimized so launches favour the deepest capacity pools." },
+      { id: 'D', text: "Set the Spot maximum price for the group equal to the On-Demand price of c5.4xlarge so that capacity is never outbid." },
+      { id: 'E', text: "Suspend the AZRebalance process so the group stops terminating Spot Instances to even out Availability Zones." }
+    ],
+    correctAnswers: ['B', 'C'],
+    type: "multiple",
+    explanation: "Spot interruptions happen when EC2 needs capacity back in a pool, so the effective remedies are to draw from more pools and to prefer the pools least likely to be reclaimed. A mixed instances policy with many qualifying families and sizes gives the group many more pools, and the price-capacity-optimized strategy picks pools with the most spare capacity while still considering price. Spot prices no longer spike on bids, and interruptions are driven by capacity, so matching the On-Demand price does not prevent them. Suspending AZRebalance stops rebalancing terminations but does nothing about EC2 reclaiming capacity. The lowest-price strategy keeps choosing the cheapest pools, which are typically the most contended, regardless of how many pools it spreads across.",
+    referenceUrl: "https://docs.aws.amazon.com/autoscaling/ec2/userguide/allocation-strategies.html",
+    tags: ["EC2 Auto Scaling", "Spot Instances", "Mixed instances"]
+  },
+  {
+    id: "aws-soa-132",
+    difficulty: "hard",
+    certId: "aws-soa",
+    domainId: "d2",
+    domainName: "Reliability and Business Continuity",
+    title: "Losing application logs on scale-in",
+    scenario: "A fintech firm's Auto Scaling group writes transaction logs to local disk and ships them to Amazon S3 every 15 minutes. Auditors found that logs written since the last upload are lost whenever the group terminates an instance during scale-in. The firm wants every terminating instance to upload its remaining logs first, without preventing the group from scaling in.",
+    question: "What should the CloudOps engineer implement?",
+    options: [
+      { id: 'A', text: "Change the group's termination policy to OldestInstance so the instances chosen for termination are the ones with older logs." },
+      { id: 'B', text: "Add a termination lifecycle hook, run the upload through Systems Manager when the hook fires, then complete the lifecycle action." },
+      { id: 'C', text: "Enable instance scale-in protection on every instance and remove it from each one after its logs have finished uploading." },
+      { id: 'D', text: "Lengthen the group's default cooldown to 900 seconds so each scale-in waits one upload interval before it terminates anything." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "A lifecycle hook on autoscaling:EC2_INSTANCE_TERMINATING pauses the instance in the Terminating:Wait state. An EventBridge rule for that event can start a Systems Manager Run Command document that uploads the remaining logs, after which complete-lifecycle-action lets termination continue; the group still scales in. Scale-in protection stops the group from choosing those instances at all, so managing it per instance would block scale-in and needs custom tooling. A termination policy only changes which instance is chosen; that instance still loses its unsent logs. A cooldown delays the next scaling activity but does not delay or intercept the termination itself.",
+    referenceUrl: "https://docs.aws.amazon.com/autoscaling/ec2/userguide/lifecycle-hooks.html",
+    tags: ["EC2 Auto Scaling", "Lifecycle hooks", "Systems Manager"]
+  },
+  {
+    id: "aws-soa-133",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d2",
+    domainName: "Reliability and Business Continuity",
+    title: "Rolling a patched AMI through a live group",
+    scenario: "A healthcare portal runs 20 instances in an Auto Scaling group that uses a launch template. The security team has published a new launch template version that references a patched AMI and wants every running instance replaced with it this week. At least 90 percent of capacity must stay in service throughout the change.",
+    question: "What should the CloudOps engineer do?",
+    options: [
+      { id: 'A', text: "Suspend the Launch process, terminate two instances at a time by hand, and resume the process once all of them are replaced." },
+      { id: 'B', text: "Start an instance refresh on the group that targets the new version, with a minimum healthy percentage set to 90 percent." },
+      { id: 'C', text: "Set the new version as the launch template default and wait for normal scale-in and scale-out events to replace older instances." },
+      { id: 'D', text: "Create a second Auto Scaling group from the new version and move the load balancer target group to it once it is healthy." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "An instance refresh replaces instances in batches using the desired launch template version and keeps at least the configured minimum healthy percentage in service, which directly satisfies the 90 percent rule and completes on a known timeline. Changing the default version only affects instances launched later, so older instances could survive for weeks. Suspending Launch and terminating by hand is error-prone, and with Launch suspended the group cannot replace the terminated instances until it is resumed. A second group is a valid blue/green technique but duplicates capacity and adds manual cutover steps the built-in refresh avoids.",
+    referenceUrl: "https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-refresh.html",
+    tags: ["EC2 Auto Scaling", "Instance refresh", "Patching"]
+  },
+  {
+    id: "aws-soa-134",
+    difficulty: "easy",
+    certId: "aws-soa",
+    domainId: "d2",
+    domainName: "Reliability and Business Continuity",
+    title: "Cold starts at the start of the trading day",
+    scenario: "A brokerage runs a Node.js Lambda function behind API Gateway that must answer quote requests with consistently low latency between 09:30 and 16:00 on trading days. Monitoring shows cold starts adding several hundred milliseconds to the first requests each morning and during bursts. Outside market hours the function is barely used.",
+    question: "What should the CloudOps engineer configure?",
+    options: [
+      { id: 'A', text: "Lambda SnapStart on the published function versions so that the initialized execution environment is cached and reused." },
+      { id: 'B', text: "Provisioned concurrency on a function alias, scaled up and down on a market-hours schedule with Application Auto Scaling." },
+      { id: 'C', text: "A larger memory setting on the function so that it receives more CPU and completes its initialization code more quickly." },
+      { id: 'D', text: "Reserved concurrency on the function equal to the peak number of concurrent executions seen during market hours." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "Provisioned concurrency keeps a set number of execution environments initialized, which removes cold starts for requests they serve, and Application Auto Scaling can schedule it up for market hours and down afterwards so the firm does not pay for it overnight. Reserved concurrency only guarantees and caps concurrency; it does not pre-initialize anything. SnapStart supports Java, Python and .NET runtimes, not Node.js. More memory can shorten initialization somewhat but still leaves a cold start on every new environment.",
+    referenceUrl: "https://docs.aws.amazon.com/lambda/latest/dg/provisioned-concurrency.html",
+    tags: ["Lambda", "Provisioned concurrency", "Application Auto Scaling"]
+  },
+  {
+    id: "aws-soa-135",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d2",
+    domainName: "Reliability and Business Continuity",
+    title: "Booting instances that trigger more scale-out",
+    scenario: "A retail site's Auto Scaling group uses a target tracking policy on average CPU. New instances run a CPU-heavy cache warm-up for about four minutes after launch, and during that time their high CPU pushes the group average up, so the group launches even more instances and then scales in again shortly afterwards.",
+    question: "Which change stops the warm-up period from distorting scaling decisions?",
+    options: [
+      { id: 'A', text: "Raise the health check grace period to 300 seconds so that new instances are not judged during their cache warm-up phase." },
+      { id: 'B', text: "Add a 300-second cooldown to the target tracking policy so that the group pauses after every scale-out it performs." },
+      { id: 'C', text: "Lower the group's maximum capacity so that the extra launches caused by warm-up CPU cannot grow the group as far." },
+      { id: 'D', text: "Configure a default instance warmup of 300 seconds so new instances' metrics are excluded until the warm-up finishes." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Instance warmup tells Auto Scaling not to include a newly launched instance's metrics in the group's aggregated CloudWatch data until the warmup time has passed, so warm-up CPU no longer inflates the average that target tracking follows. The health check grace period delays health checks only; it has no effect on the metrics used for scaling. Target tracking policies do not use a cooldown setting the way simple scaling does, and pausing would not remove the distorted data anyway. Lowering maximum capacity only caps the damage and could prevent legitimate scale-out.",
+    referenceUrl: "https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-default-instance-warmup.html",
+    tags: ["EC2 Auto Scaling", "Instance warmup", "Target tracking"]
+  },
+  {
+    id: "aws-soa-136",
+    difficulty: "easy",
+    certId: "aws-soa",
+    domainId: "d2",
+    domainName: "Reliability and Business Continuity",
+    title: "Sub-millisecond reads for a product catalog",
+    scenario: "An e-commerce company's product pages run the same handful of SQL queries against an Amazon RDS for PostgreSQL instance thousands of times per second. The database CPU is saturated during sales, and the product team now requires sub-millisecond response times for catalog lookups. Catalog data changes a few times per day.",
+    question: "What should the CloudOps engineer add to the architecture?",
+    options: [
+      { id: 'A', text: "An Amazon RDS Proxy endpoint that pools application connections so the database spends less CPU handling sessions." },
+      { id: 'B', text: "An Amazon ElastiCache cluster that caches query results with a time to live, populated when a lookup misses the cache." },
+      { id: 'C', text: "An RDS read replica, with the application sending its catalog queries to the replica endpoint rather than the primary." },
+      { id: 'D', text: "A larger RDS instance class with more vCPUs and memory, applied during the next scheduled maintenance window." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "An in-memory cache such as ElastiCache, populated through lazy loading with a TTL, serves repeated identical lookups from memory in well under a millisecond and removes that read load from the database; data that changes a few times a day tolerates a short TTL. A read replica offloads reads but still executes each query on disk-backed PostgreSQL, so it cannot deliver sub-millisecond responses. RDS Proxy reduces connection overhead, not query work. A larger instance class adds headroom but still answers from the database engine at database latency.",
+    referenceUrl: "https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/Strategies.html",
+    tags: ["ElastiCache", "Caching", "RDS"]
+  },
+  {
+    id: "aws-soa-137",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d2",
+    domainName: "Reliability and Business Continuity",
+    title: "A CloudFront distribution with a poor hit ratio",
+    scenario: "A news publisher's CloudFront distribution reports a cache hit ratio below 20 percent for article pages. The origin only varies its response on the lang query string, but the distribution's cache behavior uses a cache policy that includes all query strings and all viewer headers, and analytics tags add unique tracking parameters to most links.",
+    question: "What should the CloudOps engineer do to raise the cache hit ratio?",
+    options: [
+      { id: 'A', text: "Raise the default TTL to one day, keeping lang and every other query string in the key so pages stay cached longer." },
+      { id: 'B', text: "Create a cache invalidation for the path /* after each publishing run so that edges start again with fresh copies." },
+      { id: 'C', text: "Key the cache on the lang query string only, and forward anything else the origin needs through an origin request policy." },
+      { id: 'D', text: "Turn on Origin Shield in the Region closest to the origin so that more requests are answered from a central cache layer." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "Every query string and header in the cache key creates a separate cached copy, so unique tracking parameters and viewer headers make nearly every request a miss. A cache policy that keys only on lang collapses those variants into one object per language, and an origin request policy can still forward other values to the origin without fragmenting the cache. A longer TTL keeps fragmented copies longer but does not make requests share them. Origin Shield reduces origin load for misses but the cache key would still be unique per request. Invalidating everything lowers the hit ratio further.",
+    referenceUrl: "https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cache-hit-ratio.html",
+    tags: ["CloudFront", "Cache policy", "Cache hit ratio"]
+  },
+  {
+    id: "aws-soa-138",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d2",
+    domainName: "Reliability and Business Continuity",
+    title: "Old JavaScript lingering after each release",
+    scenario: "A travel booking site serves its single-page application from S3 through CloudFront, with Cache-Control max-age set to one year on every file so browsers cache aggressively. After each release, many customers keep running the previous JavaScript bundle for days, which breaks calls to changed APIs. The team releases several times a week.",
+    question: "Which approach ensures customers pick up new code promptly while keeping long browser caching?",
+    options: [
+      { id: 'A', text: "Invalidate the path /* after every release, keeping the one-year max-age so edges fetch the new bundle from S3." },
+      { id: 'B', text: "Give each bundle a versioned file name, and serve index.html, which references it, with a short max-age of its own." },
+      { id: 'C', text: "Set the minimum TTL in the cache policy to zero so CloudFront revalidates every file with S3 before it serves a request." },
+      { id: 'D', text: "Enable S3 Versioning on the bucket so that each upload creates a new object version that CloudFront delivers to users." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "Versioned file names turn each release into new URLs, so browsers and edges cache the old and new bundles independently, and a short max-age on index.html means clients quickly load the page that points to the new bundle; the bundles themselves keep their one-year caching. Invalidation clears edge caches only; browsers that already hold the old bundle with a one-year max-age never ask CloudFront again. A zero minimum TTL still honours the one-year max-age header and does nothing for browser caches. S3 Versioning keeps prior object versions for recovery; CloudFront still serves the same URL and browsers keep their cached copy.",
+    referenceUrl: "https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/UpdatingExistingObjects.html",
+    tags: ["CloudFront", "Cache invalidation", "Versioned objects"]
+  },
+  {
+    id: "aws-soa-139",
+    difficulty: "hard",
+    certId: "aws-soa",
+    domainId: "d2",
+    domainName: "Reliability and Business Continuity",
+    title: "Valkey cache running out of memory",
+    scenario: "A social app uses an ElastiCache for Valkey cluster with cluster mode enabled, three shards and one replica per shard. DatabaseMemoryUsagePercentage is above 95 percent on every shard, the Evictions metric keeps rising, and the cache hit rate has dropped. The team needs more total cache memory without taking the cluster offline.",
+    question: "Which actions will increase usable cache memory? (Choose two.)",
+    options: [
+      { id: 'A', text: "Enable Multi-AZ with automatic failover so that a replica is promoted if a primary node runs out of memory." },
+      { id: 'B', text: "Change the maxmemory-policy parameter to noeviction so that the cluster stops discarding existing keys." },
+      { id: 'C', text: "Scale the cluster up online to a node type that has more memory, keeping the same number of shards." },
+      { id: 'D', text: "Add a second replica to each of the three shards so reads spread across more nodes holding data." },
+      { id: 'E', text: "Add shards to the cluster through online resharding so the keyspace is spread over more primary nodes." }
+    ],
+    correctAnswers: ['C', 'E'],
+    type: "multiple",
+    explanation: "Usable memory in a cluster-mode-enabled cluster is the memory of the primaries added together, so it grows either by adding shards through online resharding, which moves slots onto new primaries, or by online vertical scaling to a larger node type. Replicas hold copies of the same data, so an extra replica per shard increases read capacity but not the amount of data the cluster can hold. With noeviction the cluster stops evicting and instead returns errors on writes once memory is full, which breaks the application instead of adding room. Multi-AZ with automatic failover improves availability; it does not change capacity.",
+    referenceUrl: "https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/scaling-redis-cluster-mode-enabled.html",
+    tags: ["ElastiCache", "Valkey", "Resharding", "Scaling"]
+  },
+  {
+    id: "aws-soa-140",
+    difficulty: "easy",
+    certId: "aws-soa",
+    domainId: "d2",
+    domainName: "Reliability and Business Continuity",
+    title: "Microsecond reads for a game leaderboard",
+    scenario: "A mobile game stores player scores in a DynamoDB table and reads the leaderboard items very heavily during tournaments. Designers now want read latency in microseconds, and eventually consistent reads are acceptable. The developers want to keep using the existing DynamoDB API calls with as few code changes as possible.",
+    question: "Which solution should the CloudOps engineer deploy?",
+    options: [
+      { id: 'A', text: "The on-demand capacity mode for the table so that tournament read spikes are never throttled by provisioned limits." },
+      { id: 'B', text: "A DynamoDB global table with replicas in the other Regions where players connect, so reads stay close to them." },
+      { id: 'C', text: "An ElastiCache for Redis OSS cluster that the application checks before its existing DynamoDB calls, filled on a miss." },
+      { id: 'D', text: "A DynamoDB Accelerator cluster, with the application switched to the DAX client for its existing table calls." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "DynamoDB Accelerator is an in-memory cache for DynamoDB that is API-compatible with it, so the application swaps in the DAX client and keeps its existing calls, and eventually consistent reads are served from the cache in microseconds. ElastiCache can cache the same data but requires the application to implement its own cache-aside logic. Global tables place replicas in more Regions for locality and resilience, but reads are still single-digit milliseconds. On-demand mode prevents throttling but does not change read latency.",
+    referenceUrl: "https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DAX.html",
+    tags: ["DynamoDB", "DAX", "Caching"]
+  },
+  {
+    id: "aws-soa-141",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d2",
+    domainName: "Reliability and Business Continuity",
+    title: "Origin overloaded by cache misses from many edges",
+    scenario: "A video platform serves a global audience through CloudFront from a custom origin in us-east-1 that transcodes renditions on demand. When a popular new video is released, requests for the same renditions arrive at the origin from dozens of edge locations at once, and the origin's CPU saturates. The platform wants fewer origin fetches without re-architecting the origin.",
+    question: "What should the CloudOps engineer enable?",
+    options: [
+      { id: 'A', text: "A Lambda@Edge function on origin request that rewrites the URLs of renditions to a normalized path before fetching." },
+      { id: 'B', text: "An origin group with a second origin outside us-east-1 so CloudFront fails over when requests overwhelm the first." },
+      { id: 'C', text: "Field-level encryption on the distribution so that the origin does less processing on each request it receives." },
+      { id: 'D', text: "CloudFront Origin Shield in the us-east-1 Region so requests from all edge locations consolidate before the origin." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Origin Shield adds a centralized caching layer in front of the origin; placed in the Region nearest the origin, it lets requests from every edge and regional edge cache converge there, so a popular object is fetched from the origin roughly once instead of once per location. An origin group provides failover on error responses; it does not reduce how many fetches reach the primary origin. URL normalization helps only when requests differ in path, and these requests are already identical. Field-level encryption protects specific form fields and adds work instead of removing it.",
+    referenceUrl: "https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/origin-shield.html",
+    tags: ["CloudFront", "Origin Shield"]
+  },
+  {
+    id: "aws-soa-142",
+    difficulty: "hard",
+    certId: "aws-soa",
+    domainId: "d2",
+    domainName: "Reliability and Business Continuity",
+    title: "Low CPU but a saturated Redis engine",
+    scenario: "An ad-tech firm runs a write-heavy ElastiCache for Redis OSS cluster with cluster mode disabled on a four-vCPU node type with one primary and two replicas. Latency is rising, yet the CPUUtilization metric on the primary sits near 25 percent while EngineCPUUtilization is above 90 percent. Memory usage is moderate.",
+    question: "Which action addresses the bottleneck?",
+    options: [
+      { id: 'A', text: "Scale the primary up to a node type with 16 vCPUs so that the Redis engine has more processor cores to schedule work on." },
+      { id: 'B', text: "Migrate to a cluster-mode-enabled cluster with several shards so that writes are spread across multiple primaries." },
+      { id: 'C', text: "Add three more replicas and point the application's read and write clients at the reader endpoint for the cluster." },
+      { id: 'D', text: "Enable data tiering on the cluster so that less frequently used keys move to SSD and free memory on the primary." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "Redis OSS executes commands on a single main thread, and EngineCPUUtilization reports that thread's usage; at over 90 percent it is saturated even though host-level CPUUtilization, averaged across four vCPUs, looks low. Write load can only be spread by adding primaries, which means moving to cluster mode enabled with multiple shards. More vCPUs do not speed up the single command thread in a meaningful way for this workload. Replicas cannot accept writes, and the reader endpoint does not route writes. Data tiering addresses memory pressure, and memory here is moderate.",
+    referenceUrl: "https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/CacheMetrics.WhichShouldIMonitor.html",
+    tags: ["ElastiCache", "Redis OSS", "CloudWatch metrics"]
+  },
+  {
+    id: "aws-soa-143",
+    difficulty: "easy",
+    certId: "aws-soa",
+    domainId: "d2",
+    domainName: "Reliability and Business Continuity",
+    title: "A database volume that fills without warning",
+    scenario: "A marketing analytics startup's Amazon RDS for MySQL instance ingests campaign data in unpredictable bursts. Twice this quarter the instance ran out of storage overnight and the application went down until an engineer increased allocated storage. The team wants storage to grow on its own, up to a cap that finance approves.",
+    question: "What should the CloudOps engineer configure?",
+    options: [
+      { id: 'A', text: "A read replica with larger allocated storage that is promoted to primary whenever the source instance becomes full." },
+      { id: 'B', text: "A CloudWatch alarm on FreeStorageSpace that notifies on-call through Amazon SNS so they resize within the finance limit." },
+      { id: 'C', text: "RDS storage autoscaling on the instance, with the maximum storage threshold set to the limit that finance approved." },
+      { id: 'D', text: "A switch from General Purpose gp3 storage to Provisioned IOPS io2 storage so that burst writes complete more quickly." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "RDS storage autoscaling increases allocated storage automatically when free space runs low, and the maximum storage threshold caps growth at the approved limit. An SNS alarm still depends on a person waking up to act, which is what failed twice. Provisioned IOPS storage changes performance, not capacity. Promoting a replica is a disruptive manual recovery step and does not stop the source from running out of space in the first place.",
+    referenceUrl: "https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PIOPS.Autoscaling.html",
+    tags: ["RDS", "Storage autoscaling"]
+  },
+  {
+    id: "aws-soa-144",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d2",
+    domainName: "Reliability and Business Continuity",
+    title: "Reader capacity that follows reporting demand",
+    scenario: "An insurance company's Aurora MySQL cluster runs on provisioned instances and serves a reporting application whose read load swings from light to heavy several times a day. The writer is lightly loaded, and reporting queries already use the cluster's reader endpoint. The team wants read capacity to grow and shrink with demand automatically.",
+    question: "Which configuration meets the requirement?",
+    options: [
+      { id: 'A', text: "A custom endpoint that lists two fixed Aurora Replicas and a scheduled Lambda function that resizes those replicas." },
+      { id: 'B', text: "An Aurora Auto Scaling policy for the cluster that tracks a target for the average CPU utilization of Aurora Replicas." },
+      { id: 'C', text: "A switch of the reporting application to the cluster endpoint so its reads are served by the more powerful writer." },
+      { id: 'D', text: "An Aurora Auto Scaling policy for the cluster that tracks a target for the instance class of the writer instance." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "Aurora Auto Scaling adds and removes Aurora Replicas with a target tracking policy on a predefined metric such as average reader CPU utilization or average reader connections, and new replicas join the reader endpoint automatically, so the reporting application needs no change. Resizing fixed replicas from a scheduled function follows a clock, not demand, and resizing causes interruptions. Sending reads to the cluster endpoint loads the writer and gives no elasticity. Aurora Auto Scaling does not resize the writer's instance class; it only manages the number of replicas.",
+    referenceUrl: "https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Integrating.AutoScaling.html",
+    tags: ["Aurora", "Auto Scaling", "Read replicas"]
+  },
+  {
+    id: "aws-soa-145",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d2",
+    domainName: "Reliability and Business Continuity",
+    title: "Write throttling on a newly launched table",
+    scenario: "A startup has just launched a voting feature that writes to a DynamoDB table in provisioned capacity mode with auto scaling enabled. Traffic is impossible to predict; write traffic jumps from near zero to many thousands of writes per second within seconds when a celebrity shares a poll, and those bursts are throttled before auto scaling responds.",
+    question: "What should the CloudOps engineer change?",
+    options: [
+      { id: 'A', text: "Switch the table to on-demand capacity mode so that it serves sudden bursts of writes without capacity planning." },
+      { id: 'B', text: "Lower the auto scaling target utilization to 20 percent so that the table keeps far more write capacity in reserve." },
+      { id: 'C', text: "Set the provisioned write capacity to the largest of the bursts seen so far and turn off auto scaling for the voting table." },
+      { id: 'D', text: "Place a DynamoDB Accelerator cluster in front of the table so that the burst of poll writes is absorbed in memory." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "On-demand mode serves traffic up to double the previous peak instantly and keeps adapting, with no capacity to manage, which suits a new table whose writes arrive in unpredictable spikes. DAX is a write-through cache; writes still go to the table and consume capacity, so it does not stop write throttling. A 20 percent target keeps a large idle buffer that is expensive and can still be exceeded by a jump from near zero. Fixing capacity at the largest burst seen so far pays for that peak around the clock and will throttle the next, bigger burst.",
+    referenceUrl: "https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/on-demand-capacity-mode.html",
+    tags: ["DynamoDB", "On-demand", "Throttling"]
+  },
+  {
+    id: "aws-soa-146",
+    difficulty: "hard",
+    certId: "aws-soa",
+    domainId: "d2",
+    domainName: "Reliability and Business Continuity",
+    title: "Base table writes throttled by an index",
+    scenario: "An IoT company writes device readings to a DynamoDB table in provisioned mode. The table has plenty of unused write capacity, yet writes are being throttled. CloudWatch shows WriteThrottleEvents on a global secondary index keyed on status, which has only three possible values, and the index's own provisioned write capacity is far below the table's.",
+    question: "Which actions will resolve the throttling? (Choose two.)",
+    options: [
+      { id: 'A', text: "Raise the provisioned write capacity of the global secondary index, or enable auto scaling on the index itself." },
+      { id: 'B', text: "Replace the global secondary index with a local secondary index keyed on the same three status values." },
+      { id: 'C', text: "Raise the provisioned write capacity of the base table further so that it has more headroom for device writes." },
+      { id: 'D', text: "Redesign the index around a partition key with many distinct values so writes spread across its partitions." },
+      { id: 'E', text: "Switch queries that use the index to strongly consistent reads so that they stop competing with index writes." }
+    ],
+    correctAnswers: ['A', 'D'],
+    type: "multiple",
+    explanation: "A global secondary index has its own capacity, and when it cannot keep up, DynamoDB throttles writes to the base table so the index stays consistent. Giving the index enough write capacity, directly or through its own auto scaling, removes the shortfall, and a high-cardinality partition key spreads index writes across partitions instead of three hot ones. More base table capacity does nothing because the table is not the constraint. A local secondary index must share the table's partition key and can only be created with the table, so it cannot reproduce this access pattern. Global secondary indexes do not support strongly consistent reads, and reads do not consume write capacity anyway.",
+    referenceUrl: "https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.html",
+    tags: ["DynamoDB", "Global secondary index", "Throttling"]
+  },
+  {
+    id: "aws-soa-147",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d2",
+    domainName: "Reliability and Business Continuity",
+    title: "Connection storms from a Lambda fleet",
+    scenario: "A ride-sharing company's Lambda functions query an Amazon RDS for PostgreSQL instance. During evening peaks the functions scale to more than a thousand concurrent executions, each opening its own database connection, and the instance starts refusing connections while its memory is consumed by idle sessions. Query volume itself is well within the instance's capacity.",
+    question: "Which solution addresses the problem while keeping the functions' throughput?",
+    options: [
+      { id: 'A', text: "Put an Amazon RDS Proxy in front of the instance and point the functions at the proxy endpoint instead." },
+      { id: 'B', text: "Create a read replica and split the function traffic so half the connections land on the replica endpoint." },
+      { id: 'C', text: "Set reserved concurrency on each function to 50 so fewer executions can open database connections at once." },
+      { id: 'D', text: "Raise max_connections in a custom DB parameter group and reboot so the instance accepts the functions' sessions." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "RDS Proxy maintains a pool of database connections and multiplexes many short-lived client connections onto it, which absorbs Lambda connection spikes without changing function concurrency. Raising max_connections lets more idle sessions pile up and makes the memory pressure worse. A read replica halves the connections per instance at best and does nothing for writes. Capping reserved concurrency protects the database by throttling the functions, which sacrifices the throughput the company wants to keep.",
+    referenceUrl: "https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-proxy.html",
+    tags: ["RDS Proxy", "Lambda", "Connection pooling"]
+  },
+  {
+    id: "aws-soa-148",
+    difficulty: "easy",
+    certId: "aws-soa",
+    domainId: "d2",
+    domainName: "Reliability and Business Continuity",
+    title: "Moving a database to a bigger instance class",
+    scenario: "A property listing site's Amazon RDS for MySQL instance is a Multi-AZ DB instance deployment and needs a larger instance class to handle new traffic. The business accepts about a minute of disruption but not an extended outage, and the change should be made during a quiet period tonight.",
+    question: "Which approach keeps downtime to a minimum?",
+    options: [
+      { id: 'A', text: "Stop the instance, change its instance class while it is stopped, and start it again once the modification is done." },
+      { id: 'B', text: "Modify the instance class tonight; RDS changes the standby first and then fails over to it, which is brief." },
+      { id: 'C', text: "Take a snapshot tonight, restore it to a new instance with the larger class, and change the application's endpoint to it." },
+      { id: 'D', text: "Create a read replica on the larger class, and later add it to the application's connection string for reads." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "With a Multi-AZ DB instance deployment, RDS applies an instance class change to the standby first, fails over to it, and then modifies the old primary, so the disruption is roughly the length of a failover. Restoring a snapshot to a new instance loses writes made after the snapshot and needs an endpoint change, with a long outage for a consistent cutover. Stopping and starting keeps the database down for the full modification. A read replica adds read capacity but does not make the primary any larger.",
+    referenceUrl: "https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.MultiAZSingleStandby.html",
+    tags: ["RDS", "Multi-AZ", "Instance class"]
+  },
+  {
+    id: "aws-soa-149",
+    difficulty: "hard",
+    certId: "aws-soa",
+    domainId: "d2",
+    domainName: "Reliability and Business Continuity",
+    title: "Slow scale-up from a tiny serverless minimum",
+    scenario: "A SaaS vendor's Aurora PostgreSQL cluster uses Aurora Serverless v2 with a capacity range of 0.5 to 64 ACUs. Every morning a burst of heavy queries arrives, and for the first few minutes latency is poor while capacity climbs; peak usage never exceeds 24 ACUs. The vendor accepts a somewhat higher overnight cost to fix the morning slowdown.",
+    question: "What should the CloudOps engineer change?",
+    options: [
+      { id: 'A', text: "Raise the maximum capacity to a higher value of 128 ACUs so the writer has more headroom to scale into during the morning burst." },
+      { id: 'B', text: "Put an RDS Proxy in front of the cluster so the morning connections are pooled before they reach the writer instance." },
+      { id: 'C', text: "Add an Aurora Serverless v2 reader in promotion tier 15 so that it scales independently to absorb the query burst." },
+      { id: 'D', text: "Raise the minimum capacity to a higher value such as 8 ACUs so the writer scales faster and keeps more data cached." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Aurora Serverless v2 scales in increments that grow with current capacity, so an instance idling at 0.5 ACU climbs slowly, and at that size its buffer cache holds little of the working set. A higher minimum makes the first scaling steps larger and keeps more data in memory, which is the documented remedy when rapid scale-up matters, at the cost of more overnight capacity. The cluster never reaches 64 ACUs, so raising the maximum changes nothing. A tier 15 reader serves only traffic sent to it, and these queries hit the writer. RDS Proxy pools connections but does not add compute.",
+    referenceUrl: "https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless-v2.setting-capacity.html",
+    tags: ["Aurora Serverless v2", "ACU", "Scaling"]
+  },
+  {
+    id: "aws-soa-150",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d2",
+    domainName: "Reliability and Business Continuity",
+    title: "Top-of-the-hour spikes on a provisioned table",
+    scenario: "A betting platform's DynamoDB table uses provisioned capacity with target tracking auto scaling, and the company has bought reserved capacity for its baseline. Traffic is steady except for a sharp read spike in the first five minutes of every hour when odds refresh, which is throttled because auto scaling needs several minutes to react.",
+    question: "What is the most cost-effective way to stop the hourly throttling?",
+    options: [
+      { id: 'A', text: "Switch the table to on-demand capacity mode so that every hourly spike is absorbed without capacity planning." },
+      { id: 'B', text: "Request an increase to the table's burst capacity allowance so the spikes draw on saved capacity for longer." },
+      { id: 'C', text: "Lower the target utilization in the auto scaling policy to 20 percent so read capacity sits above demand every hour." },
+      { id: 'D', text: "Use Application Auto Scaling scheduled actions that raise the table's minimum read capacity just before each hour." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Application Auto Scaling supports scheduled actions on DynamoDB table capacity, so the minimum read capacity can be raised just before each hour and dropped afterwards while target tracking continues to handle the rest; the reserved baseline keeps paying off. A 20 percent target keeps several times the needed capacity provisioned all day. On-demand mode would absorb the spike but abandons the value of the reserved capacity already bought and costs more for steady traffic. Burst capacity is a fixed allowance of unused capacity that DynamoDB retains for up to five minutes; it cannot be increased on request.",
+    referenceUrl: "https://docs.aws.amazon.com/autoscaling/application/userguide/examples-scheduled-actions.html",
+    tags: ["DynamoDB", "Application Auto Scaling", "Scheduled scaling"]
+  }
+];
+
+export default AWS_SOA_QUESTIONS_6;

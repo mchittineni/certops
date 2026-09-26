@@ -1,0 +1,532 @@
+export const AWS_SOA_QUESTIONS_10 = [
+  {
+    id: "aws-soa-226",
+    difficulty: "easy",
+    certId: "aws-soa",
+    domainId: "d3",
+    domainName: "Deployment, Provisioning, and Automation",
+    title: "A monthly golden image without hand-built steps",
+    scenario: "A healthcare software company builds its hardened Amazon Linux AMI by hand each month: an engineer launches an instance, installs patches and the security agent, runs CIS checks, and creates an image. The process is slow and inconsistent. The company wants the build, hardening, testing and AMI creation to run automatically on a monthly schedule.",
+    question: "Which AWS service should the CloudOps engineer use?",
+    options: [
+      { id: 'A', text: "EC2 Image Builder, with an image recipe of build and test components run by a scheduled image pipeline." },
+      { id: 'B', text: "AWS Systems Manager Patch Manager, with a maintenance window that patches a reference instance monthly." },
+      { id: 'C', text: "AWS Elastic Disaster Recovery, which keeps a replicated copy of the reference instance ready to be imaged." },
+      { id: 'D', text: "Amazon Data Lifecycle Manager, with an AMI policy that images the reference instance on a monthly schedule." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "EC2 Image Builder automates golden image creation: an image recipe combines a parent image with build components (patching, agents, hardening) and test components, and an image pipeline runs it on a schedule, producing a tested AMI each time. Patch Manager patches existing instances but does not produce or test images. Data Lifecycle Manager can create AMIs of an instance on a schedule, but it simply images whatever state the instance is in, with no build or test steps. Elastic Disaster Recovery is for recovery replication, not image building.",
+    referenceUrl: "https://docs.aws.amazon.com/imagebuilder/latest/userguide/what-is-image-builder.html",
+    tags: ["EC2 Image Builder", "AMI", "Golden image"]
+  },
+  {
+    id: "aws-soa-227",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d3",
+    domainName: "Deployment, Provisioning, and Automation",
+    title: "Publishing the golden AMI to three Regions",
+    scenario: "A retailer's EC2 Image Builder pipeline produces a golden AMI in us-east-1. Workload teams in eu-west-1 and ap-southeast-1 need the same AMI in their Regions, and every account in the Workloads OU must be able to launch it as soon as each new version is published, without anyone running extra copy or share commands.",
+    question: "How should the CloudOps engineer configure this?",
+    options: [
+      { id: 'A', text: "Add an EventBridge rule for each new AMI that invokes a Lambda function to copy it and edit its launch permissions." },
+      { id: 'B', text: "Add a distribution configuration to the pipeline that lists all three Regions and grants launch access to that OU." },
+      { id: 'C', text: "Add a second and third image pipeline, one in each of the other Regions, each building its own AMI from the recipe." },
+      { id: 'D', text: "Add a Data Lifecycle Manager cross-Region copy policy for the new AMIs and share them through AWS RAM with the OU." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "An Image Builder distribution configuration copies each output AMI to the listed Regions and sets launch permissions for accounts, organizations or OUs as part of every pipeline run, so no extra steps are needed. An EventBridge and Lambda solution works but is custom code that the built-in distribution makes unnecessary. AMIs are shared through launch permissions, not AWS RAM, and a Data Lifecycle Manager policy would not be tied to pipeline runs. Separate pipelines per Region build different AMIs that may drift and multiply the work.",
+    referenceUrl: "https://docs.aws.amazon.com/imagebuilder/latest/userguide/manage-distribution-settings.html",
+    tags: ["EC2 Image Builder", "Distribution", "AMI sharing"]
+  },
+  {
+    id: "aws-soa-228",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d3",
+    domainName: "Deployment, Provisioning, and Automation",
+    title: "Image builds that never get past launch",
+    scenario: "A fintech firm created a new EC2 Image Builder pipeline. Each build launches an instance in a private subnet that has a NAT gateway route, but the build fails after a long wait because Image Builder cannot communicate with the instance through Systems Manager. The instance profile in the infrastructure configuration grants only S3 read access to the firm's artifact bucket.",
+    question: "What should the CloudOps engineer change?",
+    options: [
+      { id: 'A', text: "Attach AdministratorAccess to the Image Builder service-linked role instead of the instance profile's role." },
+      { id: 'B', text: "Move the build instance into a public subnet and give it a public IP address so it can reach Image Builder." },
+      { id: 'C', text: "Add an inbound rule on port 22 to the build instance's security group from the Image Builder service ranges." },
+      { id: 'D', text: "Attach the AmazonSSMManagedInstanceCore and EC2InstanceProfileForImageBuilder policies to the profile's role." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Image Builder drives build and test instances through Systems Manager, so the instance profile needs AmazonSSMManagedInstanceCore for the SSM Agent to register and EC2InstanceProfileForImageBuilder for component and logging access. The subnet already has outbound internet access through the NAT gateway, so a public subnet adds exposure without fixing the missing permissions. The service-linked role is not what the instance uses to talk to Systems Manager, and broadening it is poor practice. Systems Manager uses outbound HTTPS from the agent, not inbound SSH.",
+    referenceUrl: "https://docs.aws.amazon.com/imagebuilder/latest/userguide/image-builder-setting-up.html",
+    tags: ["EC2 Image Builder", "IAM", "Systems Manager"]
+  },
+  {
+    id: "aws-soa-229",
+    difficulty: "hard",
+    certId: "aws-soa",
+    domainId: "d3",
+    domainName: "Deployment, Provisioning, and Automation",
+    title: "Rebuilding only when the base image changes",
+    scenario: "A media company's Image Builder pipeline runs every night and produces a new golden AMI even when nothing has changed, creating dozens of identical images a month. The company wants the pipeline to check nightly but create a new image only when AWS has released a newer version of the parent image or when one of its components has a new version.",
+    question: "How should the CloudOps engineer configure the pipeline?",
+    options: [
+      { id: 'A', text: "Change the schedule to monthly and set the parent image in the recipe to a fixed AMI ID for each release." },
+      { id: 'B', text: "Keep the nightly schedule but set its start condition so it runs only when dependency updates are available." },
+      { id: 'C', text: "Keep the nightly schedule and add an AMI lifecycle policy that deletes images identical to the last one." },
+      { id: 'D', text: "Disable the schedule and invoke the pipeline manually whenever the platform team reads an AMI release note." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "An Image Builder pipeline schedule has a start condition; with the option to run only when dependency updates are available, and a recipe that references the parent image and components by version wildcard or latest, the nightly check builds only when a newer parent image or component version exists. A fixed parent AMI ID never picks up new base images, and a monthly schedule delays security fixes. Manual starts depend on people noticing releases. Deleting images after the fact still spends build time and cannot tell which images are functionally identical.",
+    referenceUrl: "https://docs.aws.amazon.com/imagebuilder/latest/userguide/pipelines-schedule.html",
+    tags: ["EC2 Image Builder", "Pipelines", "Scheduling"]
+  },
+  {
+    id: "aws-soa-230",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d3",
+    domainName: "Deployment, Provisioning, and Automation",
+    title: "Launch templates that follow the latest base AMI",
+    scenario: "A logistics company's Auto Scaling groups use launch templates that each name a specific Amazon Linux 2023 AMI ID. Every time a new AMI is released, engineers create a new launch template version in each Region with the new ID. The company wants new instances to use the latest Amazon Linux 2023 AMI without editing the launch templates each time.",
+    question: "What should the CloudOps engineer do?",
+    options: [
+      { id: 'A', text: "Set the launch template image ID to the name of the Amazon Linux 2023 AMI so that EC2 finds the newest AMI by name." },
+      { id: 'B', text: "Use an EventBridge rule on AMI releases that invokes a Lambda function to create a new version of each launch template." },
+      { id: 'C', text: "Set the launch template image ID to resolve:ssm: plus the AWS public parameter for the latest Amazon Linux 2023 AMI." },
+      { id: 'D', text: "Use an Auto Scaling mixed instances policy that lists the latest AMI IDs for each instance type in all launch templates." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "Launch templates accept a Systems Manager parameter in place of an AMI ID, written as resolve:ssm:/aws/service/ami-amazon-linux-latest/..., and EC2 resolves it to the current AMI each time an instance launches, so no template edits are needed when AWS updates the public parameter. The image ID field does not accept an AMI name. An EventBridge and Lambda pipeline automates the edits but still creates and manages template versions. Mixed instances policies override instance types, and their per-type launch template overrides do not keep AMIs current.",
+    referenceUrl: "https://docs.aws.amazon.com/autoscaling/ec2/userguide/using-systems-manager-parameters.html",
+    tags: ["Launch templates", "AMI", "Parameter Store"]
+  },
+  {
+    id: "aws-soa-231",
+    difficulty: "easy",
+    certId: "aws-soa",
+    domainId: "d3",
+    domainName: "Deployment, Provisioning, and Automation",
+    title: "Thousands of stale images in a repository",
+    scenario: "A SaaS startup's CI pipeline pushes a container image to Amazon ECR on every commit, and the repository now holds more than 20,000 images, most of them untagged leftovers from builds that were retagged. Storage costs are rising. The team wants untagged images removed after 14 days and only the 50 most recent release-tagged images kept.",
+    question: "What should the CloudOps engineer configure?",
+    options: [
+      { id: 'A', text: "An ECR lifecycle policy with one rule expiring untagged images after 14 days and one keeping 50 release images." },
+      { id: 'B', text: "ECR pull through cache rules on the repository so that older images are fetched from the upstream on demand." },
+      { id: 'C', text: "Tag immutability on the repository so that rebuilt images can no longer create untagged image leftovers." },
+      { id: 'D', text: "An S3 Lifecycle rule on the bucket behind the repository that expires image layers not accessed in 14 days." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "ECR lifecycle policies expire images automatically using rules on tag status, tag prefix, image age or image count, so one rule can remove untagged images older than 14 days and another can keep only the 50 newest images with a release tag prefix. ECR storage is not exposed as a customer bucket. Tag immutability stops tags being overwritten, which would make pushes of an existing tag fail rather than clean anything up. Pull through cache mirrors images from upstream registries and does not expire images in private repositories.",
+    referenceUrl: "https://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html",
+    tags: ["ECR", "Lifecycle policies"]
+  },
+  {
+    id: "aws-soa-232",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d3",
+    domainName: "Deployment, Provisioning, and Automation",
+    title: "Images available in the recovery Region and account",
+    scenario: "A bank's CI pipeline pushes container images to Amazon ECR in its build account in us-east-1. Its ECS services in a separate production account in us-east-1, and in a disaster recovery account in us-west-2, must pull the images from repositories in their own accounts and Regions, kept in sync automatically after every push.",
+    question: "What should the CloudOps engineer configure?",
+    options: [
+      { id: 'A', text: "A CodePipeline stage that runs docker pull and docker push commands into each of the target repositories." },
+      { id: 'B', text: "A repository policy in the build account granting pull access so each account pulls from us-east-1 directly." },
+      { id: 'C', text: "A registry replication configuration in the build account, with destination registry policies in the others." },
+      { id: 'D', text: "Pull through cache rules in the production and recovery accounts that point at the build account's registry." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "ECR private image replication is configured at the registry level and copies images to other Regions and other accounts automatically after each push; destination accounts add a registry permissions policy allowing the source to replicate in. A repository policy allows cross-account pulls but leaves images only in us-east-1, which fails the requirement for local copies and for recovery if that Region is down. Pull through cache supports specific upstream registries, including ECR, but populates images only on first pull rather than keeping them in sync on push. A pipeline stage re-implements replication with custom scripting.",
+    referenceUrl: "https://docs.aws.amazon.com/AmazonECR/latest/userguide/replication.html",
+    tags: ["ECR", "Replication", "Cross-account"]
+  },
+  {
+    id: "aws-soa-233",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d3",
+    domainName: "Deployment, Provisioning, and Automation",
+    title: "A release tag silently overwritten",
+    scenario: "A game studio's ECS services deploy images by tag, such as v2.4.1. Last week a developer's misconfigured build pushed a different image under an existing release tag, and production tasks started running untested code at the next deployment. The studio wants to guarantee that a pushed release tag always refers to the same image.",
+    question: "What should the CloudOps engineer enable on the repository?",
+    options: [
+      { id: 'A', text: "Image tag immutability, so that any push reusing an existing tag in the repository is rejected by ECR." },
+      { id: 'B', text: "Enhanced scanning with Amazon Inspector, so images pushed under a release tag are checked before use." },
+      { id: 'C', text: "A lifecycle policy that keeps only one image per release tag and expires every other image that has it." },
+      { id: 'D', text: "Image signing with AWS Signer, so that only images carrying the release tags are allowed to be pulled." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "With tag immutability enabled, ECR rejects a push that would move an existing tag to a different image, so a release tag always points at the image originally pushed; deploying by image digest gives the same guarantee. Inspector scanning finds vulnerabilities but does not stop a tag being overwritten. Signing proves who produced an image, but a signed image could still be pushed under a reused tag, and ECR does not enforce signatures on pull by itself. A lifecycle policy cannot prevent overwrites; a tag belongs to only one image at a time anyway.",
+    referenceUrl: "https://docs.aws.amazon.com/AmazonECR/latest/userguide/image-tag-mutability.html",
+    tags: ["ECR", "Tag immutability"]
+  },
+  {
+    id: "aws-soa-234",
+    difficulty: "hard",
+    certId: "aws-soa",
+    domainId: "d3",
+    domainName: "Deployment, Provisioning, and Automation",
+    title: "One hardening process for AMIs and containers",
+    scenario: "An insurance company already hardens its EC2 AMIs with an EC2 Image Builder pipeline that uses custom build components for CIS settings and test components for compliance checks. Its teams are moving services to ECS, and security wants container base images hardened and tested by the same components, then stored in Amazon ECR, with a single audit trail for both image types.",
+    question: "What should the CloudOps engineer build?",
+    options: [
+      { id: 'A', text: "An ECR pull through cache rule for Docker Hub base images, with ECR basic scanning enabled on every pull." },
+      { id: 'B', text: "An Image Builder container recipe reusing the components, with a pipeline that distributes images to ECR." },
+      { id: 'C', text: "A CodeBuild project with a Dockerfile that repeats the CIS settings, pushing the resulting image to ECR." },
+      { id: 'D', text: "An Image Builder image recipe that installs Docker and exports the built AMI to ECR as a container image." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "Image Builder supports container recipes that start from a base image and a Dockerfile template, apply the same build and test components used for AMIs, and distribute the result to a target ECR repository, so both image types share one process and history. A CodeBuild project works but duplicates the hardening logic outside the components security has approved. Pull through cache mirrors upstream images without hardening them, and scanning only reports vulnerabilities. An AMI cannot be exported to ECR as a container image.",
+    referenceUrl: "https://docs.aws.amazon.com/imagebuilder/latest/userguide/manage-recipes.html",
+    tags: ["EC2 Image Builder", "Container images", "ECR"]
+  },
+  {
+    id: "aws-soa-235",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d3",
+    domainName: "Deployment, Provisioning, and Automation",
+    title: "Steering teams away from old golden AMIs",
+    scenario: "A platform team publishes a new golden AMI monthly and shares it with 40 accounts. Teams keep picking outdated AMIs when they search the shared images list, but some existing Auto Scaling groups still reference last quarter's AMI IDs and must keep launching until they are migrated next month.",
+    question: "What should the CloudOps engineer do with the outdated AMIs?",
+    options: [
+      { id: 'A', text: "Set a deprecation time on each outdated AMI so it drops out of image listings but can still launch by ID." },
+      { id: 'B', text: "Remove the launch permissions for the 40 accounts from each outdated AMI so that they stop seeing it listed." },
+      { id: 'C', text: "Delete the EBS snapshots behind each outdated AMI so that the images become unusable for any new launches." },
+      { id: 'D', text: "Deregister each outdated AMI so that it disappears from the shared images list in every account at once." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "After an AMI's deprecation time, it no longer appears in DescribeImages results for users who do not own it unless they ask for deprecated images, but anyone who references its ID, such as an existing launch template or Auto Scaling group, can still launch it. Deregistering the AMI or removing launch permissions would break the groups that still use it. Deleting the backing snapshots of a registered AMI is not allowed, and would stop launches if it were.",
+    referenceUrl: "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-deprecate.html",
+    tags: ["AMI", "Deprecation"]
+  },
+  {
+    id: "aws-soa-236",
+    difficulty: "hard",
+    certId: "aws-soa",
+    domainId: "d3",
+    domainName: "Deployment, Provisioning, and Automation",
+    title: "Only tested images reach the distribution step",
+    scenario: "A payments company's Image Builder pipeline has produced AMIs that failed to start the payment service when teams launched them. The company wants every image to boot and pass a service health test before it is distributed to other Regions and accounts, and the platform team wants a notification whenever a build or test fails.",
+    question: "Which actions should the CloudOps engineer take? (Choose two.)",
+    options: [
+      { id: 'A', text: "Add the AWS Config rule approved-amis-by-id so that the untested AMIs are flagged after launch." },
+      { id: 'B', text: "Add a CloudFormation creation policy to the pipeline so it waits for the service to send a signal." },
+      { id: 'C', text: "Add test components to the image recipe that start the service and check its health endpoint." },
+      { id: 'D', text: "Enable Amazon Inspector scanning of the built images so that failing services are found before use." },
+      { id: 'E', text: "Set an SNS topic on the pipeline's infrastructure configuration to receive image status messages." }
+    ],
+    correctAnswers: ['C', 'E'],
+    type: "multiple",
+    explanation: "Test components run during the pipeline's test phase on an instance launched from the new image, and a failing test stops the image from being distributed. Setting an SNS topic in the infrastructure configuration makes Image Builder publish a message whenever an image build completes or fails, which covers the notification. A creation policy is a CloudFormation resource attribute and plays no part in an Image Builder pipeline. The approved-amis-by-id rule reports after instances are already running. Inspector finds software vulnerabilities, not services that fail to start.",
+    referenceUrl: "https://docs.aws.amazon.com/imagebuilder/latest/userguide/manage-infra-config.html",
+    tags: ["EC2 Image Builder", "Testing", "SNS"]
+  },
+  {
+    id: "aws-soa-237",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d3",
+    domainName: "Deployment, Provisioning, and Automation",
+    title: "One template, the right AMI in every Region",
+    scenario: "A consultancy deploys the same CloudFormation template for EC2-based applications in eight Regions. The template's Mappings section holds an Amazon Linux AMI ID for each Region, and it goes stale whenever AWS releases a new AMI. The consultancy wants each deployment to pick up the current Amazon Linux 2023 AMI for its Region automatically.",
+    question: "How should the CloudOps engineer change the template?",
+    options: [
+      { id: 'A', text: "Add a Fn::ImportValue that reads the AMI ID exported by a central stack deployed once in us-east-1 only." },
+      { id: 'B', text: "Add a parameter of type AWS::SSM::Parameter::Value<AWS::EC2::Image::Id> defaulting to the public AMI path." },
+      { id: 'C', text: "Add a parameter of type AWS::EC2::Image::Id and have each deploying team paste the current regional AMI ID." },
+      { id: 'D', text: "Add a Fn::FindInMap lookup keyed on AWS::Region into a mapping that a scheduled job rewrites every month." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "An SSM parameter type makes CloudFormation read the parameter's value from Parameter Store in the stack's Region at deployment time, and AWS maintains public parameters such as /aws/service/ami-amazon-linux-latest/al2023-ami-kernel-default-x86_64 with the current AMI ID in every Region. An AWS::EC2::Image::Id parameter only validates an ID that someone must look up and type. A mapping rewritten by a job keeps the staleness problem and adds tooling. Exports can only be imported within the same Region, so a us-east-1 export cannot serve the other seven.",
+    referenceUrl: "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cloudformation-supplied-parameter-types.html",
+    tags: ["CloudFormation", "Parameters", "Parameter Store"]
+  },
+  {
+    id: "aws-soa-238",
+    difficulty: "easy",
+    certId: "aws-soa",
+    domainId: "d3",
+    domainName: "Deployment, Provisioning, and Automation",
+    title: "Sharing one VPC stack's IDs with app stacks",
+    scenario: "A retail company manages its VPC in one CloudFormation stack owned by the network team and deploys each application in its own stack owned by application teams, all in the same account and Region. The application stacks need the VPC ID and private subnet IDs, and the network team wants to stop people copying those IDs into templates by hand.",
+    question: "What should the CloudOps engineer implement?",
+    options: [
+      { id: 'A', text: "Use a Fn::FindInMap lookup in each application stack against a mapping of VPC IDs maintained by the network team." },
+      { id: 'B', text: "Use Fn::GetAtt in the application stacks to read the VPC resource's attributes directly from the network stack." },
+      { id: 'C', text: "Export the IDs from the network stack's Outputs and read them with Fn::ImportValue in the application stacks." },
+      { id: 'D', text: "Nest the application stacks inside the network stack so they inherit the VPC ID and subnet IDs as parameters." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "Cross-stack references let a stack export output values that other stacks in the same account and Region import with Fn::ImportValue, and CloudFormation prevents the exporting stack from deleting or changing an export while it is in use. Nesting the application stacks inside the network stack would put application lifecycles under the network team's stack. Fn::GetAtt works only on resources in the same template. A mapping is still a hand-maintained copy of the IDs.",
+    referenceUrl: "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/walkthrough-crossstackref.html",
+    tags: ["CloudFormation", "Cross-stack references", "Exports"]
+  },
+  {
+    id: "aws-soa-239",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d3",
+    domainName: "Deployment, Provisioning, and Automation",
+    title: "An export the network stack cannot change",
+    scenario: "A network team tried to update its CloudFormation stack to replace a subnet, which changes the value of the exported output PrivateSubnetA. The update failed with a message that the export cannot be updated because it is in use by two application stacks, which reference it with Fn::ImportValue. The subnet replacement must go ahead.",
+    question: "What should the CloudOps engineer do?",
+    options: [
+      { id: 'A', text: "Delete the two application stacks, update the network stack, and then redeploy the application stacks again." },
+      { id: 'B', text: "Update the two application stacks to stop importing the export, update the network stack, then re-point them." },
+      { id: 'C', text: "Rerun the network stack update with the --disable-rollback option so that the export change is kept anyway." },
+      { id: 'D', text: "Apply a stack policy to the network stack that explicitly allows Update:Replace on the exported subnet output." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "CloudFormation will not change or remove an export while any stack imports it. The importing stacks must first be updated to stop using it, for example by temporarily replacing the import with a literal value or a parameter; the exporting stack can then be updated and the importers changed back to reference the new export. Disabling rollback does not bypass the export check. Stack policies govern updates to resources, not outputs that are in use. Deleting and recreating the application stacks would cause an avoidable outage.",
+    referenceUrl: "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-exports.html",
+    tags: ["CloudFormation", "Exports", "Stack updates"]
+  },
+  {
+    id: "aws-soa-240",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d3",
+    domainName: "Deployment, Provisioning, and Automation",
+    title: "A final snapshot whatever happens to the stack",
+    scenario: "A clinic's patient database is an AWS::RDS::DBInstance in a CloudFormation stack. The operations manager requires that a final snapshot always exists if the stack is deleted, and also if a future template change causes CloudFormation to replace the DB instance. Engineers must still be able to delete the stack when a clinic closes.",
+    question: "Which attributes should the CloudOps engineer set on the DB instance resource? (Choose two.)",
+    options: [
+      { id: 'A', text: "Termination protection on the stack, so the database cannot be deleted along with its stack." },
+      { id: 'B', text: "A stack policy denying Update:Replace, so no change is ever able to replace the DB instance." },
+      { id: 'C', text: "DeletionPolicy: Retain, so the database resource is left running after the stack is deleted." },
+      { id: 'D', text: "UpdateReplacePolicy: Snapshot, so that the old instance is snapshotted if it is replaced." },
+      { id: 'E', text: "DeletionPolicy: Snapshot, so a snapshot is taken if the resource is removed from the stack." }
+    ],
+    correctAnswers: ['D', 'E'],
+    type: "multiple",
+    explanation: "DeletionPolicy: Snapshot makes CloudFormation take a snapshot before deleting the DB instance when it is removed from the template or the stack is deleted, and UpdateReplacePolicy: Snapshot does the same for the old physical instance when an update replaces it. Retain keeps a running instance with its costs rather than a final snapshot. Termination protection blocks stack deletion entirely, which conflicts with closing clinics. A stack policy denying replacement prevents some future changes rather than protecting the data when they happen.",
+    referenceUrl: "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-updatereplacepolicy.html",
+    tags: ["CloudFormation", "DeletionPolicy", "UpdateReplacePolicy"]
+  },
+  {
+    id: "aws-soa-241",
+    difficulty: "hard",
+    certId: "aws-soa",
+    domainId: "d3",
+    domainName: "Deployment, Provisioning, and Automation",
+    title: "A database password nobody types",
+    scenario: "A bank's security team stores the master password for a new Amazon RDS for PostgreSQL instance in an existing AWS Secrets Manager secret, which it rotates. The CloudFormation template that creates the instance must use that secret's current value, and the password must never be entered by the deploying engineer or appear in stack parameters or template text.",
+    question: "How should the template supply the master password?",
+    options: [
+      { id: 'A', text: "A dynamic reference such as {{resolve:secretsmanager:db-master:SecretString:password}} in the property." },
+      { id: 'B', text: "A template parameter with NoEcho set to true, filled in by the deploying engineer at each stack update." },
+      { id: 'C', text: "A dynamic reference such as {{resolve:ssm:db-master-password}} to a String parameter in Parameter Store." },
+      { id: 'D', text: "A Mappings entry encrypted with the stack's KMS key and read with Fn::FindInMap from the property value." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "A secretsmanager dynamic reference makes CloudFormation fetch the secret value at deploy time; the template holds only the secret's name and key, and CloudFormation does not display the resolved value. A NoEcho parameter masks the value in the console, but someone still has to type it, which the requirement forbids. An ssm dynamic reference to a plain String parameter would require copying the secret into Parameter Store without encryption, outside the rotated secret. Mappings are literal template text; CloudFormation has no encrypted mapping feature.",
+    referenceUrl: "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/dynamic-references-secretsmanager.html",
+    tags: ["CloudFormation", "Dynamic references", "Secrets Manager"]
+  },
+  {
+    id: "aws-soa-242",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d3",
+    domainName: "Deployment, Provisioning, and Automation",
+    title: "Config file changes without replacing instances",
+    scenario: "A publishing company configures EC2 instances with AWS::CloudFormation::Init metadata and cfn-init in user data. When engineers change a configuration file in the metadata and update the stack, running instances keep the old file, because user data runs only at first boot. The company wants metadata changes applied to running instances without replacing them.",
+    question: "What should the CloudOps engineer add?",
+    options: [
+      { id: 'A', text: "A new AMI for every metadata change, and an instance refresh on the Auto Scaling group afterwards." },
+      { id: 'B', text: "A change set for every metadata update, so CloudFormation pushes the changed files to each instance." },
+      { id: 'C', text: "The cfn-signal helper after cfn-init in user data, with a creation policy waiting for each instance." },
+      { id: 'D', text: "Run the cfn-hup helper on the instances, with a hook that reruns cfn-init when the metadata changes." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "cfn-hup is a daemon that polls the stack for changes to a resource's metadata and runs configured hooks, typically cfn-init with the updated configuration, so running instances pick up changes after a stack update. Baking an AMI and refreshing instances replaces them, which the company wants to avoid. cfn-signal reports success to a creation or update policy but applies nothing. A change set previews changes; CloudFormation does not push files onto instances itself.",
+    referenceUrl: "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-hup.html",
+    tags: ["CloudFormation", "cfn-hup", "cfn-init"]
+  },
+  {
+    id: "aws-soa-243",
+    difficulty: "easy",
+    certId: "aws-soa",
+    domainId: "d3",
+    domainName: "Deployment, Provisioning, and Automation",
+    title: "First CDK deployment into a new account",
+    scenario: "A developer at an e-commerce company runs cdk deploy for an app that packages a Lambda function, targeting a newly created account in eu-west-2. The deployment stops with an error saying the environment has not been bootstrapped and that the required toolkit resources, such as the staging bucket, cannot be found.",
+    question: "What should the CloudOps engineer do before deploying again?",
+    options: [
+      { id: 'A', text: "Run cdk bootstrap for that account and Region, creating the CDKToolkit stack with its bucket and roles." },
+      { id: 'B', text: "Create an S3 bucket named after the account in that Region and grant CloudFormation access to write to it." },
+      { id: 'C', text: "Run cdk synth for that account and Region so the CloudFormation template and assets are written locally." },
+      { id: 'D', text: "Run cdk init for that account and Region so the project is linked to the new environment's resources." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Each account and Region a CDK app deploys into must be bootstrapped once; cdk bootstrap deploys the CDKToolkit stack, which provides the staging S3 bucket, an ECR repository for container assets, and the IAM roles the CLI assumes. cdk synth only produces the template locally and does not create those resources. A hand-made bucket does not match the names, roles and version the toolkit expects. cdk init creates a new project skeleton and does nothing in an account.",
+    referenceUrl: "https://docs.aws.amazon.com/cdk/v2/guide/bootstrapping.html",
+    tags: ["AWS CDK", "Bootstrapping"]
+  },
+  {
+    id: "aws-soa-244",
+    difficulty: "easy",
+    certId: "aws-soa",
+    domainId: "d3",
+    domainName: "Deployment, Provisioning, and Automation",
+    title: "Seeing what a CDK change will do",
+    scenario: "A CloudOps engineer at a university has changed an AWS CDK app that manages production networking. Before deploying, the change advisory board wants to see which resources will be added, changed or removed, and any IAM or security group changes, compared with what is currently deployed.",
+    question: "Which command should the engineer run?",
+    options: [
+      { id: 'A', text: "cdk list, which lists every stack in the app and shows the pending changes for each of the stacks." },
+      { id: 'B', text: "cdk diff, which compares the synthesized template with the deployed stack and lists the changes." },
+      { id: 'C', text: "cdk synth, which writes the CloudFormation template and lists what changed since the last deployment." },
+      { id: 'D', text: "cdk doctor, which inspects the project and reports resources that differ from the deployed stack." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "cdk diff synthesizes the app and compares the result with the currently deployed stack, showing added, modified and removed resources and highlighting IAM policy and security group changes; cdk deploy can also create a change set for review. cdk synth produces the template but does not compare it with what is deployed. cdk doctor reports on the CDK environment and configuration. cdk list only names the stacks in the app.",
+    referenceUrl: "https://docs.aws.amazon.com/cdk/v2/guide/ref-cli-cmd-diff.html",
+    tags: ["AWS CDK", "cdk diff"]
+  },
+  {
+    id: "aws-soa-245",
+    difficulty: "hard",
+    certId: "aws-soa",
+    domainId: "d3",
+    domainName: "Deployment, Provisioning, and Automation",
+    title: "A refactor that wants to replace the database",
+    scenario: "A developer tidied up an AWS CDK app by renaming the construct ID of a DynamoDB table from OrdersTable to Orders and moving it into a new parent construct. cdk diff now shows the production table being destroyed and a new one created. The table must be kept, and the tidier code structure is still wanted.",
+    question: "What should the CloudOps engineer do?",
+    options: [
+      { id: 'A', text: "Set the table's removal policy to DESTROY so that the old table is emptied and replaced in the same deployment." },
+      { id: 'B', text: "Add a stack policy that denies Update:Delete on the table so CloudFormation renames it in place instead." },
+      { id: 'C', text: "Keep the new structure and override the table's logical ID with overrideLogicalId to match the deployed one." },
+      { id: 'D', text: "Deploy anyway, since CloudFormation migrates the table's items into the new table during the replacement." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "CDK derives each resource's CloudFormation logical ID from its construct path, so renaming or moving a construct produces a new logical ID, which CloudFormation treats as deleting one resource and creating another. Overriding the logical ID on the underlying CfnTable (or reverting the path) keeps the deployed resource. CloudFormation never copies data between old and new tables. A DESTROY removal policy guarantees the data is lost. A stack policy would simply make the update fail; CloudFormation cannot rename a logical ID in place.",
+    referenceUrl: "https://docs.aws.amazon.com/cdk/v2/guide/identifiers.html",
+    tags: ["AWS CDK", "Logical IDs", "Refactoring"]
+  },
+  {
+    id: "aws-soa-246",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d3",
+    domainName: "Deployment, Provisioning, and Automation",
+    title: "Undoing a stack update when errors spike",
+    scenario: "A ticketing company updates a CloudFormation stack that changes its API's Lambda functions and API Gateway settings. Last month an update completed successfully but caused a surge of 5XX errors, and engineers took 40 minutes to roll back by hand. The company wants CloudFormation to roll the update back automatically if a CloudWatch error alarm fires shortly after the update.",
+    question: "What should the CloudOps engineer configure?",
+    options: [
+      { id: 'A', text: "A creation policy on the Lambda functions that waits for the error alarm to report OK before completing." },
+      { id: 'B', text: "The disable-rollback option on the stack so the update stays in place until the error alarm has cleared." },
+      { id: 'C', text: "A stack policy that denies updates to the functions while the error alarm is in the ALARM state for it." },
+      { id: 'D', text: "A rollback configuration on the stack with the error alarm as a trigger and a monitoring time for updates." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Rollback triggers let a stack name up to five CloudWatch alarms and a monitoring period of up to 180 minutes; if any alarm goes to ALARM during the operation or the monitoring period, CloudFormation rolls the stack back to its previous state. Creation policies wait for success signals from instances or Auto Scaling groups and do not watch alarms. Stack policies are static and do not react to alarm state. Disabling rollback does the opposite of what is wanted.",
+    referenceUrl: "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-rollback-triggers.html",
+    tags: ["CloudFormation", "Rollback triggers", "CloudWatch alarms"]
+  },
+  {
+    id: "aws-soa-247",
+    difficulty: "easy",
+    certId: "aws-soa",
+    domainId: "d3",
+    domainName: "Deployment, Provisioning, and Automation",
+    title: "A production stack deleted by a tidy-up script",
+    scenario: "A marketing agency's operators routinely delete short-lived CloudFormation stacks for campaigns. Last week a clean-up script deleted a production stack by mistake. Operators must keep their permission to delete stacks, but deleting a production stack should need a deliberate extra step first.",
+    question: "What should the CloudOps engineer enable on the production stacks?",
+    options: [
+      { id: 'A', text: "EC2 termination protection on every instance so the stack deletion stops before removing them." },
+      { id: 'B', text: "Termination protection, which must be turned off on a stack before anyone can delete that stack." },
+      { id: 'C', text: "A stack policy that denies all update actions on every resource that is part of the stack itself." },
+      { id: 'D', text: "A DeletionPolicy of Retain on every resource so the resources survive when the stack is deleted." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "With stack termination protection enabled, any delete request fails until someone with permission explicitly disables the protection, which is the deliberate extra step, and operators keep their ordinary delete permission for other stacks. Retain policies preserve resources but still let the stack itself be deleted, leaving unmanaged resources behind. Stack policies govern updates, not stack deletion. EC2 termination protection would cause the stack deletion to fail partway, leaving the stack in DELETE_FAILED with some resources already removed.",
+    referenceUrl: "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-protect-stacks.html",
+    tags: ["CloudFormation", "Termination protection"]
+  },
+  {
+    id: "aws-soa-248",
+    difficulty: "hard",
+    certId: "aws-soa",
+    domainId: "d3",
+    domainName: "Deployment, Provisioning, and Automation",
+    title: "Making a single-Region template portable",
+    scenario: "A software company wrote a CloudFormation template in us-east-1 that includes literal ARNs containing the Region and account ID, an S3 bucket with a literal BucketName, and a mapping of instance settings keyed by environment. The template must now deploy unchanged into four more Regions and two more accounts.",
+    question: "Which changes make the template portable? (Choose two.)",
+    options: [
+      { id: 'A', text: "Add a mapping keyed on stack name with a copy of every ARN for each Region and each account." },
+      { id: 'B', text: "Drop the literal BucketName so CloudFormation generates a unique bucket name for each stack." },
+      { id: 'C', text: "Give each IAM role a fixed RoleName so the same role name is created in every Region deployed." },
+      { id: 'D', text: "Build ARNs and names with Fn::Sub and the pseudo parameters AWS::Region and AWS::AccountId." },
+      { id: 'E', text: "Import the bucket name from an export in us-east-1 with Fn::ImportValue in every other Region." }
+    ],
+    correctAnswers: ['B', 'D'],
+    type: "multiple",
+    explanation: "Pseudo parameters resolve to the Region and account of each stack, so Fn::Sub builds correct ARNs and names everywhere, and omitting BucketName avoids collisions because bucket names are globally unique and CloudFormation generates a unique name. Exports can be imported only in the same Region. IAM is global, so a fixed RoleName fails in the second Region with a name conflict. A mapping of copied ARNs keeps the literal values and must be edited for every new Region or account.",
+    referenceUrl: "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/pseudo-parameter-reference.html",
+    tags: ["CloudFormation", "Pseudo parameters", "Portability"]
+  },
+  {
+    id: "aws-soa-249",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d3",
+    domainName: "Deployment, Provisioning, and Automation",
+    title: "Instances that boot before their route exists",
+    scenario: "A CloudFormation template creates a VPC, a NAT gateway, a private route table with a default route to the NAT gateway, and an EC2 instance whose user data downloads packages from the internet. Stack creation sometimes succeeds and sometimes leaves the instance without its packages, because the instance occasionally boots before the default route is created.",
+    question: "What should the CloudOps engineer change in the template?",
+    options: [
+      { id: 'A', text: "Add a DependsOn attribute to the EC2 instance that names the private default route resource." },
+      { id: 'B', text: "Add a Condition on the instance that evaluates to true only after the route table is ready." },
+      { id: 'C', text: "Add a WaitConditionHandle to the template so that resources are always created in file order." },
+      { id: 'D', text: "Add Fn::GetAtt on the NAT gateway's ID into the instance's tags to create an ordering link." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "CloudFormation creates resources in parallel unless a dependency exists; the instance has no reference to the route, so nothing makes it wait. DependsOn on the route resource forces the instance to be created only after the default route exists. Conditions decide whether a resource is created at all and are evaluated before provisioning starts, not during it. A reference to the NAT gateway orders the instance after the gateway, but not after the route that uses it. A wait condition handle on its own orders nothing, and CloudFormation never creates resources in file order.",
+    referenceUrl: "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html",
+    tags: ["CloudFormation", "DependsOn"]
+  },
+  {
+    id: "aws-soa-250",
+    difficulty: "easy",
+    certId: "aws-soa",
+    domainId: "d3",
+    domainName: "Deployment, Provisioning, and Automation",
+    title: "Where to look after a failed cdk deploy",
+    scenario: "A developer at a charity ran cdk deploy for a stack that adds an Amazon SQS queue and a Lambda function. The command printed that the stack update failed and was rolled back, but the terminal output scrolled past too quickly to read. The CloudOps engineer is asked to find the specific resource error.",
+    question: "Where should the engineer look first?",
+    options: [
+      { id: 'A', text: "The cdk.out directory's manifest file, which contains the error returned by the failed resource." },
+      { id: 'B', text: "The CloudFormation stack's Events tab, finding the first resource with an UPDATE_FAILED status." },
+      { id: 'C', text: "The CloudWatch Logs group of the new Lambda function, where CDK writes every deployment event." },
+      { id: 'D', text: "The CDKToolkit stack's Outputs tab, which records the errors from the last failed deployment." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "cdk deploy hands the synthesized template to CloudFormation, so the authoritative record of what failed is the stack's event history; the first UPDATE_FAILED event carries the underlying reason, and later events are mostly cancellations and rollback. The function's log group records invocations, not deployments. The CDKToolkit stack holds bootstrap resources, not app deployment errors. cdk.out contains the synthesized templates and assets from before deployment, not the result.",
+    referenceUrl: "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/troubleshooting.html",
+    tags: ["AWS CDK", "CloudFormation", "Stack events"]
+  }
+];
+
+export default AWS_SOA_QUESTIONS_10;

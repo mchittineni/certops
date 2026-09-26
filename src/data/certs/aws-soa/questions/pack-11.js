@@ -1,0 +1,532 @@
+export const AWS_SOA_QUESTIONS_11 = [
+  {
+    id: "aws-soa-251",
+    difficulty: "easy",
+    certId: "aws-soa",
+    domainId: "d3",
+    domainName: "Deployment, Provisioning, and Automation",
+    title: "Redeploying after a failed first stack creation",
+    scenario: "A CloudOps engineer launched a new CloudFormation stack for a reporting service, but an RDS parameter group property was invalid and the creation failed. The stack now shows ROLLBACK_COMPLETE and every resource it had created is gone. The engineer has corrected the template and wants the same stack name back in service.",
+    question: "What must the engineer do to deploy the corrected template?",
+    options: [
+      { id: 'A', text: "Run an update on the existing stack with the corrected template, because a stack in ROLLBACK_COMPLETE accepts updates normally." },
+      { id: 'B', text: "Create a change set against the stack from the corrected template and execute it so only the failed resource is recreated." },
+      { id: 'C', text: "Run continue-update-rollback on the stack so it returns to a stable state, then apply the corrected template as an update." },
+      { id: 'D', text: "Delete the stack in ROLLBACK_COMPLETE, then create a new stack with the same name from the corrected template file." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "A stack whose first creation failed and rolled back sits in ROLLBACK_COMPLETE, a state that can only be deleted; it cannot be updated or targeted by a change set. Deleting it frees the name, and a fresh create with the fixed template succeeds. A direct update is rejected in this state. Continue-update-rollback applies only to stacks stuck in UPDATE_ROLLBACK_FAILED after a failed update, not to a failed creation. Change sets are also an update mechanism and are refused for the same reason as a direct update.",
+    referenceUrl: "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/troubleshooting.html",
+    tags: ["CloudFormation", "Stack states", "Troubleshooting"]
+  },
+  {
+    id: "aws-soa-252",
+    difficulty: "easy",
+    certId: "aws-soa",
+    domainId: "d3",
+    domainName: "Deployment, Provisioning, and Automation",
+    title: "Launch refused for lack of capacity in one zone",
+    scenario: "A render farm launches c6i.8xlarge On-Demand Instances in a single Availability Zone every evening. Tonight the launches fail with InsufficientInstanceCapacity, even though the account is well inside its vCPU quota. The jobs can run in any zone of the Region and on any comparable compute-optimized size.",
+    question: "Which action is most likely to get the instances running?",
+    options: [
+      { id: 'A', text: "Purchase a Compute Savings Plan for the fleet so AWS reserves c6i capacity for the account in that Availability Zone." },
+      { id: 'B', text: "Retry the launch in a different Availability Zone or with another compute-optimized instance type such as c7i.8xlarge." },
+      { id: 'C', text: "Stop and start the instances already running in that zone so that they move to new hosts and release capacity." },
+      { id: 'D', text: "Request an increase to the Running On-Demand Standard instances vCPU quota through Service Quotas and retry the launch." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "InsufficientInstanceCapacity means AWS has no spare capacity for that instance type in that zone at the moment; it is not an account limit. Launching in another zone, or with a different comparable type, draws from a different capacity pool and usually succeeds. A vCPU quota increase addresses VcpuLimitExceeded, a different error, and the account is already under its quota. Stopping and starting existing instances does nothing to free the pool for new launches. Savings Plans are a billing discount and never reserve capacity; only On-Demand Capacity Reservations do that.",
+    referenceUrl: "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/troubleshooting-launch.html",
+    tags: ["EC2", "Capacity", "Troubleshooting"]
+  },
+  {
+    id: "aws-soa-253",
+    difficulty: "easy",
+    certId: "aws-soa",
+    domainId: "d3",
+    domainName: "Deployment, Provisioning, and Automation",
+    title: "Finding console edits that broke a stack update",
+    scenario: "A stack update for an internal API keeps failing on a security group resource. The team suspects that someone edited the group's rules and the Lambda function's memory setting in the console last week, but nobody documented what changed. The engineer needs a list of the differences between the template and the live resources before touching anything.",
+    question: "Which CloudFormation feature produces that list?",
+    options: [
+      { id: 'A', text: "Review the stack events tab, which logs every console change made to stack resources since the last update." },
+      { id: 'B', text: "Create a change set from the current template so CloudFormation lists every property it plans to modify on update." },
+      { id: 'C', text: "Enable termination protection on the stack so that it records each out-of-band edit made from the console." },
+      { id: 'D', text: "Run drift detection on the stack and review the expected and actual property values for each drifted resource." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Drift detection compares each supported resource's live configuration with the template's expected values and reports MODIFIED, DELETED or IN_SYNC, showing expected versus actual properties, which is exactly the inventory of undocumented console edits. A change set compares the new template with the stack's recorded template, not with the live resources, so it does not reveal out-of-band changes. Termination protection only blocks stack deletion. Stack events record operations that CloudFormation itself performed and contain nothing about changes made outside it.",
+    referenceUrl: "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift.html",
+    tags: ["CloudFormation", "Drift detection"]
+  },
+  {
+    id: "aws-soa-254",
+    difficulty: "easy",
+    certId: "aws-soa",
+    domainId: "d3",
+    domainName: "Deployment, Provisioning, and Automation",
+    title: "One network, many application accounts",
+    scenario: "A retailer's networking team owns a VPC with carefully planned subnets, NAT gateways and inspection routing in a central network account. Application teams in eight other accounts of the same AWS Organization must launch EC2 instances and RDS databases directly into those subnets, while the networking team keeps sole control of routing.",
+    question: "What should the CloudOps engineer set up?",
+    options: [
+      { id: 'A', text: "Deploy the central VPC template to every account with CloudFormation StackSets so that each account gets an identical copy." },
+      { id: 'B', text: "Attach every application account's own VPC to a transit gateway and propagate routes to the central inspection VPC." },
+      { id: 'C', text: "Create a VPC in every application account and peer each of them with the central VPC so traffic can reach the NAT gateways." },
+      { id: 'D', text: "Share the application subnets with the application accounts through AWS Resource Access Manager so they launch into the VPC." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "VPC sharing through AWS RAM lets participant accounts in the same organization create instances, databases and other resources directly in subnets owned by the network account, while the owner alone manages route tables, NAT gateways and network ACLs. Peering or a transit gateway keeps separate VPCs in each account, which is not launching into the central subnets and adds routing to operate. A StackSets rollout would create eight separate copies of the network rather than one shared network under central control.",
+    referenceUrl: "https://docs.aws.amazon.com/vpc/latest/userguide/vpc-sharing.html",
+    tags: ["AWS RAM", "VPC sharing", "Multi-account"]
+  },
+  {
+    id: "aws-soa-255",
+    difficulty: "easy",
+    certId: "aws-soa",
+    domainId: "d3",
+    domainName: "Deployment, Provisioning, and Automation",
+    title: "Baseline stack for every new account in an OU",
+    scenario: "A media company vends new accounts into a Workloads organizational unit several times a month. Each account needs the same CloudTrail trail, a read-only audit role and a budget alarm on day one, and the CloudOps team wants the baseline removed automatically if an account leaves the OU. Nobody should need to run a deployment when an account is created.",
+    question: "How should the engineer deliver the baseline?",
+    options: [
+      { id: 'A', text: "Create a StackSet with self-managed permissions and add each new account ID to it as a stack instance after vending." },
+      { id: 'B', text: "Add an EventBridge rule on CreateAccount that invokes a Lambda function to deploy a normal stack into the account." },
+      { id: 'C', text: "Create a StackSet with service-managed permissions targeting the OU, with automatic deployment turned on." },
+      { id: 'D', text: "Store the template in an S3 bucket and ask each account owner to launch it from the CloudFormation console." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "Service-managed StackSets integrate with AWS Organizations: targeting an OU with automatic deployment enabled deploys stack instances to accounts as they join the OU and, with the retain setting off, removes them when an account leaves. No per-account action is needed. Self-managed permissions require adding each account and its execution role manually. A custom EventBridge and Lambda pipeline can be built but reproduces what automatic deployment already provides and does not handle accounts leaving the OU. Asking owners to launch the template relies on people and fails the day-one requirement.",
+    referenceUrl: "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-manage-auto-deployment.html",
+    tags: ["StackSets", "AWS Organizations", "Automatic deployment"]
+  },
+  {
+    id: "aws-soa-256",
+    difficulty: "easy",
+    certId: "aws-soa",
+    domainId: "d3",
+    domainName: "Deployment, Provisioning, and Automation",
+    title: "Stack stops at the sixth Elastic IP",
+    scenario: "A template that builds a new customer environment allocates three Elastic IP addresses. The first environment in us-east-2 deployed cleanly, but the second fails with CREATE_FAILED on an AWS::EC2::EIP resource reporting that the maximum number of addresses has been reached. The account already holds four other addresses in the Region.",
+    question: "What should the engineer do so that further environments can deploy?",
+    options: [
+      { id: 'A', text: "Grant the deployment role ec2:AllocateAddress on all resources so each Elastic IP allocation is authorized." },
+      { id: 'B', text: "Add a DependsOn attribute between the EIP resources so CloudFormation allocates the addresses one at a time." },
+      { id: 'C', text: "Request an increase to the EC2-VPC Elastic IPs quota for us-east-2 in Service Quotas, then redeploy the stack." },
+      { id: 'D', text: "Move the EIP resources into a nested stack so they count against a stack-level limit, not the us-east-2 one." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "Elastic IP addresses are limited per Region by the EC2-VPC Elastic IPs quota, which defaults to five, so seven addresses in use plus the new allocation exceed it. A Service Quotas increase for that Region removes the ceiling. Ordering the allocations with DependsOn changes timing, not the total. A permissions problem produces an authorization error rather than an address-limit message, and the first environment already allocated addresses with the same role. Nested stacks share the account's regional quota; there is no per-stack Elastic IP limit.",
+    referenceUrl: "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html",
+    tags: ["CloudFormation", "Service Quotas", "Elastic IP"]
+  },
+  {
+    id: "aws-soa-257",
+    difficulty: "easy",
+    certId: "aws-soa",
+    domainId: "d3",
+    domainName: "Deployment, Provisioning, and Automation",
+    title: "Corporate office ranges maintained in one place",
+    scenario: "A manufacturer's 30 AWS accounts all allow SSH and RDP only from its 14 office and factory CIDR ranges, which change whenever a site opens or closes. Each account keeps its own copy of these rules in security groups, and the copies have drifted apart. The CloudOps team wants one list, owned by the security account, that other accounts reference directly in their rules.",
+    question: "Which approach meets the requirement?",
+    options: [
+      { id: 'A', text: "Create an AWS WAF IP set in the security account and associate it with the security groups in each account." },
+      { id: 'B', text: "Publish the ranges as a network ACL in the security account and replicate it to every account with StackSets." },
+      { id: 'C', text: "Store the ranges in a Systems Manager parameter and have each account's templates resolve it into separate rules." },
+      { id: 'D', text: "Create a customer-managed prefix list in the security account and share it through AWS Resource Access Manager." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "A customer-managed prefix list groups CIDR blocks under one ID, can be shared across accounts through AWS RAM, and can be referenced directly as the source of a security group rule, so updating the list in the security account updates every referencing rule. A parameter resolved into templates still produces independent rule copies that change only when each stack is redeployed. AWS WAF IP sets attach to web ACLs for CloudFront, ALB and similar resources, not to security groups. Replicated network ACLs are again separate copies per account and operate at the subnet level rather than in security groups.",
+    referenceUrl: "https://docs.aws.amazon.com/vpc/latest/userguide/sharing-managed-prefix-lists.html",
+    tags: ["AWS RAM", "Prefix lists", "Security groups"]
+  },
+  {
+    id: "aws-soa-258",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d3",
+    domainName: "Deployment, Provisioning, and Automation",
+    title: "Rollback stuck on a deleted cache cluster",
+    scenario: "An update to a production stack failed and CloudFormation began rolling back, but the rollback also failed and the stack now sits in UPDATE_ROLLBACK_FAILED. The events show that an ElastiCache cluster managed by the stack was deleted manually during the incident, so CloudFormation cannot restore its previous configuration. The team accepts that the cluster will be rebuilt later.",
+    question: "How should the engineer return the stack to a usable state?",
+    options: [
+      { id: 'A', text: "Run an update on the stack with the previous template so CloudFormation rebuilds the missing cluster." },
+      { id: 'B', text: "Import the missing cluster back into the stack with a resource import change set, then retry the rollback." },
+      { id: 'C', text: "Delete the stack and recreate it from the last known good template, restoring the cache cluster afterwards." },
+      { id: 'D', text: "Run continue-update-rollback and name the cache cluster's logical ID in the resources to skip." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "UPDATE_ROLLBACK_FAILED can be cleared with ContinueUpdateRollback, and resources that cannot be rolled back, such as one deleted out of band, are listed in ResourcesToSkip; CloudFormation marks them as rolled back and the stack reaches UPDATE_ROLLBACK_COMPLETE, after which it can be updated again. Deleting a production stack destroys every other resource in it. A stack in UPDATE_ROLLBACK_FAILED rejects updates until the rollback completes. Resource import needs an existing physical resource to import, and the cluster no longer exists; import is also not allowed while the stack is in this state.",
+    referenceUrl: "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-continueupdaterollback.html",
+    tags: ["CloudFormation", "Rollback", "Troubleshooting"]
+  },
+  {
+    id: "aws-soa-259",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d3",
+    domainName: "Deployment, Provisioning, and Automation",
+    title: "Deployer blocked from handing a role to CloudFormation",
+    scenario: "To limit privileges, a platform team gave release engineers a policy that allows cloudformation:* but nothing else, and created a CloudFormation service role that holds the permissions stacks need. When a release engineer creates a stack and selects that service role, the request is rejected before any resource is created.",
+    question: "Which permission must be added to the release engineers' policy?",
+    options: [
+      { id: 'A', text: "iam:CreateServiceLinkedRole for CloudFormation, so the service can create a role on their behalf." },
+      { id: 'B', text: "iam:PassRole on the service role's ARN, so the engineers can hand that role to CloudFormation on create." },
+      { id: 'C', text: "iam:GetRole on the service role, so CloudFormation can read the role policy the engineers selected." },
+      { id: 'D', text: "sts:AssumeRole on the service role, so the engineers can switch into it before calling CreateStack." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "Specifying a service role on a stack operation passes that role to CloudFormation, and the caller must hold iam:PassRole on the role's ARN; without it the request fails immediately, which matches the symptom. The engineers never assume the role themselves, so sts:AssumeRole is irrelevant; CloudFormation assumes it through the role's trust policy. CloudFormation does not use a service-linked role for stack operations. Reading the role with iam:GetRole does not authorize handing it to a service.",
+    referenceUrl: "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-servicerole.html",
+    tags: ["CloudFormation", "IAM", "PassRole"]
+  },
+  {
+    id: "aws-soa-260",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d3",
+    domainName: "Deployment, Provisioning, and Automation",
+    title: "Auto Scaling group out of addresses in /26 subnets",
+    scenario: "A web tier's Auto Scaling group spans two /26 subnets in a VPC whose only CIDR is 10.20.0.0/24, and every address in that block is already allocated to subnets. During a sale, scale-out fails with an error stating the subnets have insufficient free addresses. The team must allow the group to grow to about 200 instances without rebuilding the VPC.",
+    question: "Which two actions should the engineer take? (Choose two.)",
+    options: [
+      { id: 'A', text: "Create new subnets from the added CIDR and add them to the Auto Scaling group." },
+      { id: 'B', text: "Raise the Auto Scaling group's maximum capacity so it can request more instances." },
+      { id: 'C', text: "Enable auto-assign public IPv4 addresses on the subnets so instances need no private IP." },
+      { id: 'D', text: "Edit the two existing /26 subnets and widen their CIDR blocks to /23 in place." },
+      { id: 'E', text: "Associate a secondary IPv4 CIDR block, such as 10.21.0.0/22, with the existing VPC." }
+    ],
+    correctAnswers: ['A', 'E'],
+    type: "multiple",
+    explanation: "A subnet's CIDR cannot be changed after creation, but a VPC can have secondary IPv4 CIDR blocks associated with it. Adding a /22 and carving new subnets from it, then adding those subnets to the group, gives the group room for about a thousand more addresses without a rebuild. Existing subnets cannot be resized in place. A public IPv4 address is assigned in addition to the primary private address, never instead of it, so it does nothing for private address exhaustion. Raising maximum capacity only lets the group request more instances, which is already failing for lack of addresses.",
+    referenceUrl: "https://docs.aws.amazon.com/vpc/latest/userguide/vpc-cidr-blocks.html",
+    tags: ["VPC", "Subnet sizing", "EC2 Auto Scaling"]
+  },
+  {
+    id: "aws-soa-261",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d3",
+    domainName: "Deployment, Provisioning, and Automation",
+    title: "Stack hangs for an hour on a custom resource",
+    scenario: "A template uses a Lambda-backed custom resource to seed a DynamoDB table. After a code change, stack creation sits in CREATE_IN_PROGRESS on that resource for an hour before failing. The function's CloudWatch Logs show it finishes seeding in 20 seconds with no errors, then exits.",
+    question: "What is the most likely cause?",
+    options: [
+      { id: 'A', text: "The function's reserved concurrency is zero, so CloudFormation's invocation stays queued for an hour." },
+      { id: 'B', text: "The resource is missing a DependsOn on the table, so CloudFormation keeps waiting for the table." },
+      { id: 'C', text: "The function lacks dynamodb:PutItem, so the seed writes are being retried silently until the timeout." },
+      { id: 'D', text: "The function never sends a SUCCESS or FAILED response to the presigned S3 URL in the request." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "CloudFormation waits for a custom resource provider to PUT a response document to the ResponseURL, a presigned S3 URL in the event; if the function exits without doing so, the stack waits until the timeout, one hour by default unless ServiceTimeout is set, and then fails. The logs show the function ran and completed, which rules out a queued invocation from zero reserved concurrency. A missing PutItem permission would show AccessDenied errors in the logs rather than a clean run. A missing DependsOn could cause failures if the table did not yet exist, but the seed succeeded, so the table was there.",
+    referenceUrl: "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/crpg-ref-responses.html",
+    tags: ["CloudFormation", "Custom resources", "Lambda"]
+  },
+  {
+    id: "aws-soa-262",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d3",
+    domainName: "Deployment, Provisioning, and Automation",
+    title: "VPC-attached function fails during stack creation",
+    scenario: "A stack creates a Lambda function with a VpcConfig that places it in two private subnets so it can reach an RDS database. Creation fails on the function with the message that the provided execution role does not have permissions to call CreateNetworkInterface on EC2. The deploying engineer has AdministratorAccess.",
+    question: "What should be changed so the stack deploys?",
+    options: [
+      { id: 'A', text: "Grant the CloudFormation service role ec2:CreateNetworkInterface so it can build the function's network interfaces." },
+      { id: 'B', text: "Add a NAT gateway to the private subnets so the function can reach the EC2 API to create its network interfaces." },
+      { id: 'C', text: "Move the function into larger subnets, because the message means the subnets have no free addresses for ENIs." },
+      { id: 'D', text: "Attach the AWSLambdaVPCAccessExecutionRole managed policy, or equivalent EC2 permissions, to the execution role." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Lambda creates and manages the function's elastic network interfaces using the function's execution role, which therefore needs ec2:CreateNetworkInterface, DescribeNetworkInterfaces, DeleteNetworkInterface and related permissions; the AWSLambdaVPCAccessExecutionRole managed policy provides them. The deployer's or CloudFormation's own permissions are not used for this check, which is why administrator access does not help. The Lambda service creates the interfaces itself, so no NAT path is involved. Address exhaustion produces a different error that names the subnet's free IP addresses.",
+    referenceUrl: "https://docs.aws.amazon.com/lambda/latest/dg/configuration-vpc.html",
+    tags: ["Lambda", "VPC", "IAM"]
+  },
+  {
+    id: "aws-soa-263",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d3",
+    domainName: "Deployment, Provisioning, and Automation",
+    title: "Subnet share that never reaches the member accounts",
+    scenario: "An engineer in the network account created a resource share in AWS RAM for two subnets and added three member accounts from the organization as principals. The share shows the principals as failed, and the member accounts see nothing to accept. Other resource types shared by the same account to external accounts through invitations work normally.",
+    question: "What should be done to complete the subnet share?",
+    options: [
+      { id: 'A', text: "Attach a resource-based policy to each subnet that grants the member accounts ec2:RunInstances permission." },
+      { id: 'B', text: "Have each member account accept an invitation for the share from the Shared with me page of the RAM console." },
+      { id: 'C', text: "Enable resource sharing with AWS Organizations from the management account, then recreate or update the share." },
+      { id: 'D', text: "Change the share to use a customer managed permission that grants the member accounts full subnet access." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "Subnets can only be shared with accounts in the same organization, and that requires resource sharing with AWS Organizations to be enabled from the management account; once enabled, shares to organization principals take effect without invitations. Without it, invitation-based sharing is available only for resource types that support it, which is why the other shares work while the subnet share fails and there is no invitation to accept. Subnets do not support resource-based policies. Customer managed permissions refine what principals may do with a share that already works; they do not fix a share that cannot be delivered.",
+    referenceUrl: "https://docs.aws.amazon.com/ram/latest/userguide/getting-started-sharing.html",
+    tags: ["AWS RAM", "AWS Organizations", "VPC sharing"]
+  },
+  {
+    id: "aws-soa-264",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d3",
+    domainName: "Deployment, Provisioning, and Automation",
+    title: "Self-managed StackSet across non-organization accounts",
+    scenario: "A consultancy manages workloads in 12 client-owned AWS accounts that are not part of its AWS Organization. It wants to push a standard monitoring stack from its own tooling account to all 12 accounts with CloudFormation StackSets. The client accounts already allow the consultancy to create IAM roles in them.",
+    question: "Which two roles must be in place for the StackSet to deploy? (Choose two.)",
+    options: [
+      { id: 'A', text: "AWSCloudFormationStackSetExecutionRole in each client account, trusting the tooling account." },
+      { id: 'B', text: "A delegated administrator registration for the tooling account in each client account's organization." },
+      { id: 'C', text: "AWSCloudFormationStackSetAdministrationRole in the tooling account that owns the StackSet." },
+      { id: 'D', text: "An AWS RAM resource share that shares the StackSet from the tooling account with each client account." },
+      { id: 'E', text: "The AWSServiceRoleForCloudFormationStackSetsOrgAdmin service-linked role in the tooling account." }
+    ],
+    correctAnswers: ['A', 'C'],
+    type: "multiple",
+    explanation: "Accounts outside the caller's organization can only be targeted with self-managed permissions, which use an administration role in the account that owns the StackSet and an execution role in each target account whose trust policy allows the administration role to assume it; by default these are named AWSCloudFormationStackSetAdministrationRole and AWSCloudFormationStackSetExecutionRole. The service-linked role and delegated administrator registration belong to service-managed StackSets, which only work within the owner's organization. StackSets are not a resource type shared through AWS RAM.",
+    referenceUrl: "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs-self-managed.html",
+    tags: ["StackSets", "IAM roles", "Self-managed permissions"]
+  },
+  {
+    id: "aws-soa-265",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d3",
+    domainName: "Deployment, Provisioning, and Automation",
+    title: "Limiting blast radius of a StackSet rollout",
+    scenario: "A bank updates a StackSet that changes security group rules in 200 accounts across four Regions. Change management requires that no more than 10 accounts are updated at the same time and that the whole operation stops as soon as two accounts fail, so that a bad change cannot spread widely.",
+    question: "Which StackSet operation settings satisfy the requirement?",
+    options: [
+      { id: 'A', text: "Set Region concurrency to parallel with maximum concurrent accounts at 10 percent and failure tolerance at 2." },
+      { id: 'B', text: "Set maximum concurrent accounts to 10 and failure tolerance to 1, so the operation halts on the second failure." },
+      { id: 'C', text: "Set maximum concurrent accounts to 10 and failure tolerance to 2, so the operation halts on the second failure." },
+      { id: 'D', text: "Set Region concurrency to sequential and failure tolerance to 0, leaving concurrent accounts at the default." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "Failure tolerance is the number of failures allowed before the operation stops in a Region, so a tolerance of 1 permits one failure and stops on the second; maximum concurrent accounts of 10 caps how many accounts are updated at once. A tolerance of 2 would keep going after the second failure and stop only on the third. Ten percent of 200 accounts is 20, which exceeds the limit of 10, and parallel Regions multiply the accounts in flight across all four Regions. Leaving concurrency at its default of one account is compliant but a tolerance of 0 halts on the first failure rather than the second.",
+    referenceUrl: "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-concepts.html",
+    tags: ["StackSets", "Deployment options"]
+  },
+  {
+    id: "aws-soa-266",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d3",
+    domainName: "Deployment, Provisioning, and Automation",
+    title: "Letting the platform account run org-wide StackSets",
+    scenario: "Company policy forbids day-to-day work in the organization's management account. The CloudOps team operates from a dedicated platform account and must create and manage StackSets that deploy to organizational units across the organization, with automatic deployment for new accounts.",
+    question: "What should be configured so the platform account can do this?",
+    options: [
+      { id: 'A', text: "Register the platform account as a delegated administrator for StackSets from the organization's management account." },
+      { id: 'B', text: "Share the management account's StackSets with the platform account through a resource share in AWS RAM." },
+      { id: 'C', text: "Create self-managed StackSets in the platform account and add an execution role to every member account." },
+      { id: 'D', text: "Attach an SCP to the platform account that allows the cloudformation:CreateStackSet action organization-wide." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "A member account registered as a delegated administrator for StackSets can create and manage service-managed StackSets for the organization, including OU targeting and automatic deployment, calling the APIs with CallAs set to DELEGATED_ADMIN. Self-managed StackSets can reach member accounts but lose automatic deployment and require a role in every account. StackSets cannot be shared through AWS RAM. SCPs only restrict permissions and never grant any, so an allow in an SCP gives the platform account nothing it did not already have.",
+    referenceUrl: "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-delegated-admin.html",
+    tags: ["StackSets", "Delegated administrator", "AWS Organizations"]
+  },
+  {
+    id: "aws-soa-267",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d3",
+    domainName: "Deployment, Provisioning, and Automation",
+    title: "On-premises DNS forwarding for every workload VPC",
+    scenario: "A shared-services account runs Route 53 Resolver outbound endpoints and a forwarding rule that sends queries for corp.example.internal to on-premises DNS servers. Forty workload accounts in the organization each have their own VPCs that must resolve that domain the same way, without deploying their own outbound endpoints.",
+    question: "How should the CloudOps engineer provide this?",
+    options: [
+      { id: 'A', text: "Replace the forwarding rule with a private hosted zone for the domain, associated with every workload VPC." },
+      { id: 'B', text: "Change each workload VPC's DHCP options set to point at the on-premises DNS server IP addresses." },
+      { id: 'C', text: "Share the forwarding rule through AWS RAM and have each workload account associate it with its VPCs." },
+      { id: 'D', text: "Share the outbound endpoint's subnets through AWS RAM so workload instances can query it directly." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "Resolver rules can be shared across accounts with AWS RAM; each recipient associates the shared rule with its own VPCs, and queries matching the domain are forwarded through the owner's outbound endpoint to on-premises servers. A private hosted zone would answer authoritatively from Route 53 rather than forwarding to the corporate DNS servers. Custom DHCP options send every query to on-premises DNS, bypassing Route 53 Resolver for AWS names and depending on hybrid connectivity from every VPC. Sharing subnets moves workloads into the shared VPC and does not associate forwarding rules with the workload accounts' own VPCs.",
+    referenceUrl: "https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/resolver-rules-managing.html",
+    tags: ["Route 53 Resolver", "AWS RAM", "Hybrid DNS"]
+  },
+  {
+    id: "aws-soa-268",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d3",
+    domainName: "Deployment, Provisioning, and Automation",
+    title: "Copying an encrypted golden AMI to the DR Region",
+    scenario: "A payments team's golden AMI in us-east-1 has EBS snapshots encrypted with a customer managed KMS key in that Region. The disaster recovery plan requires the AMI to be available in us-west-2, encrypted with a key the team controls there, before any failover occurs.",
+    question: "How should the engineer make the AMI available in us-west-2?",
+    options: [
+      { id: 'A', text: "Copy the AMI to us-west-2 with copy-image and keep the us-east-1 key ID, since KMS keys are available in all Regions." },
+      { id: 'B', text: "Share the AMI with the us-west-2 Region through launch permissions and reuse the us-east-1 key for decryption there." },
+      { id: 'C', text: "Copy the AMI to us-west-2 with copy-image, specifying a customer managed KMS key in us-west-2 for the new snapshots." },
+      { id: 'D', text: "Launch instances in us-west-2 from the us-east-1 AMI ID and let EC2 replicate the snapshots at first launch." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "AMIs are regional, so they must be copied to be used in another Region, and a single-Region KMS key cannot be used outside its Region; copy-image re-encrypts the snapshots with the key named for the destination Region. Launch permissions share an AMI with accounts, not Regions. Specifying the source Region's key for the destination fails because standard KMS keys exist only in the Region where they were created; only multi-Region keys have replicas elsewhere. An AMI ID is valid only in its own Region, so launching it in us-west-2 is not possible.",
+    referenceUrl: "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/CopyingAMIs.html",
+    tags: ["AMI", "KMS", "Disaster recovery"]
+  },
+  {
+    id: "aws-soa-269",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d3",
+    domainName: "Deployment, Provisioning, and Automation",
+    title: "Participant cannot add a route in a shared VPC",
+    scenario: "An analytics account launches instances into subnets shared from the network account through AWS RAM. The analytics team needs a route from its subnet to a new VPC endpoint for a partner service, but their route table change is denied even though their IAM role has ec2:* permissions in their own account.",
+    question: "Why does the change fail, and what is the correct fix?",
+    options: [
+      { id: 'A', text: "An SCP on the analytics account blocks route edits; exempt the analytics account from that policy." },
+      { id: 'B', text: "The share uses the default managed permission; switch it to a permission that includes route table edits." },
+      { id: 'C', text: "Only the VPC owner can modify route tables in a shared VPC; the network account must add the route." },
+      { id: 'D', text: "Their role needs ec2:CreateRoute in an identity policy in the network account; add it there and retry." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "In VPC sharing, participants can create and manage their own resources, such as instances and security groups, in the shared subnets, but they cannot view, modify or delete resources the owner owns, including route tables, network ACLs and the subnets themselves. The owner account must add the route. IAM policies in either account cannot override that ownership boundary, and a role from the analytics account has no identity in the network account to attach policies to. Managed permissions for subnet shares do not extend to editing the owner's route tables. Nothing in the scenario points to an SCP, and the denial is explained fully by ownership.",
+    referenceUrl: "https://docs.aws.amazon.com/vpc/latest/userguide/vpc-sharing-service-behavior.html",
+    tags: ["VPC sharing", "AWS RAM", "Route tables"]
+  },
+  {
+    id: "aws-soa-270",
+    difficulty: "hard",
+    certId: "aws-soa",
+    domainId: "d3",
+    domainName: "Deployment, Provisioning, and Automation",
+    title: "Instances terminate at launch after enabling EBS encryption",
+    scenario: "After a launch template was changed to encrypt EBS volumes with a new customer managed KMS key, every instance the Auto Scaling group launches goes to terminated within seconds. The activity history reports Client.InternalError: Client error on launch. The key policy currently grants access only to the account's administrators.",
+    question: "What should the engineer change to fix the launches?",
+    options: [
+      { id: 'A', text: "Grant the instance profile's role kms:Decrypt and kms:GenerateDataKey on the key in an IAM policy." },
+      { id: 'B', text: "Enable EBS encryption by default in the Region so EC2 no longer needs to call KMS during a launch." },
+      { id: 'C', text: "Update the key policy to let the AWSServiceRoleForAutoScaling service-linked role use the key." },
+      { id: 'D', text: "Switch the launch template to the AWS managed aws/ebs key, since customer keys cannot be used by Auto Scaling." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "Amazon EC2 Auto Scaling uses its service-linked role to launch instances, and that role must be allowed to use the customer managed key, through the key policy or a grant, to create the encrypted volumes; without it, launches fail with Client.InternalError and the instances terminate. The instance profile is used by software on the running instance, not by the service creating its volumes. Customer managed keys work with Auto Scaling once the service-linked role has access, so reverting to aws/ebs is unnecessary. Encryption by default still calls KMS with the configured key and would hit the same permission gap.",
+    referenceUrl: "https://docs.aws.amazon.com/autoscaling/ec2/userguide/key-policy-requirements-EBS-encryption.html",
+    tags: ["EC2 Auto Scaling", "KMS", "EBS encryption"]
+  },
+  {
+    id: "aws-soa-271",
+    difficulty: "hard",
+    certId: "aws-soa",
+    domainId: "d3",
+    domainName: "Deployment, Provisioning, and Automation",
+    title: "Creation policy times out in an isolated subnet",
+    scenario: "A stack launches instances into private subnets that have no NAT gateway or internet route, by security design. The Auto Scaling group has a CreationPolicy that waits for cfn-signal, and user data runs cfn-signal after bootstrapping. The group fails with a timeout, yet instance logs show bootstrapping completed and cfn-signal was invoked.",
+    question: "Which change allows the signals to reach CloudFormation while keeping the subnets isolated?",
+    options: [
+      { id: 'A', text: "Replace the CreationPolicy with a DependsOn attribute so the stack no longer waits for signals." },
+      { id: 'B', text: "Create a gateway VPC endpoint for Amazon S3 so the instances can reach the signal's presigned URL." },
+      { id: 'C', text: "Increase the CreationPolicy timeout from PT15M to PT1H so the signals have longer to arrive." },
+      { id: 'D', text: "Create an interface VPC endpoint for CloudFormation in the VPC with private DNS names enabled." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "cfn-signal calls the CloudFormation SignalResource API, so the instances need a network path to the CloudFormation endpoint; in isolated subnets an interface VPC endpoint for CloudFormation with private DNS provides that path without internet access. A presigned S3 URL is used by wait condition handles, not by cfn-signal responding to a CreationPolicy, so an S3 gateway endpoint does not help here. Extending the timeout only delays the same failure, because the calls never arrive. Swapping to DependsOn removes the health gate entirely, so the stack would report success even if bootstrapping broke.",
+    referenceUrl: "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/vpc-interface-endpoints.html",
+    tags: ["CloudFormation", "cfn-signal", "VPC endpoints"]
+  },
+  {
+    id: "aws-soa-272",
+    difficulty: "hard",
+    certId: "aws-soa",
+    domainId: "d3",
+    domainName: "Deployment, Provisioning, and Automation",
+    title: "EKS pods stuck pending as subnets run dry",
+    scenario: "An EKS cluster using the Amazon VPC CNI runs in three /24 node subnets of a VPC that has no free space left in its primary CIDR. New pods now stay in ContainerCreating because the CNI cannot assign IP addresses, while node CPU and memory are mostly idle. The team cannot re-address the nodes or rebuild the cluster.",
+    question: "Which approach gives the pods more addresses with the least disruption?",
+    options: [
+      { id: 'A', text: "Move the node group to larger instance types so each node supports more ENIs and therefore more pod addresses." },
+      { id: 'B', text: "Enable prefix delegation on the VPC CNI so each node receives /28 prefixes carved from the primary CIDR subnets." },
+      { id: 'C', text: "Add a secondary CIDR such as 100.64.0.0/16, create pod subnets from it and enable CNI custom networking with ENIConfig." },
+      { id: 'D', text: "Add a second managed node group to the same three subnets so the scheduler can place pods on additional nodes." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "Custom networking lets the VPC CNI place pod ENIs in subnets different from the node's, so pod addresses can come from a secondary CIDR, commonly from 100.64.0.0/10, associated with the VPC; nodes keep their current addresses and only need to be recycled for the new ENIConfig to apply. Prefix delegation raises pods per node but still consumes addresses from the same exhausted subnets and needs contiguous free /28 blocks that do not exist. Larger instances allow more ENIs per node, but every address still comes from the full subnets. More nodes in the same subnets consume even more of the scarce addresses.",
+    referenceUrl: "https://docs.aws.amazon.com/eks/latest/userguide/cni-custom-network.html",
+    tags: ["Amazon EKS", "VPC CNI", "Subnet sizing"]
+  },
+  {
+    id: "aws-soa-273",
+    difficulty: "hard",
+    certId: "aws-soa",
+    domainId: "d3",
+    domainName: "Deployment, Provisioning, and Automation",
+    title: "Sharing an encrypted AMI with a partner account",
+    scenario: "A software vendor must let a customer's AWS account launch instances from the vendor's hardened AMI. The AMI's snapshots are encrypted with a customer managed KMS key in the vendor account. The customer reports that the AMI appears under private images but every launch fails with a KMS access error.",
+    question: "Which two actions must the vendor take so the customer's launches succeed? (Choose two.)",
+    options: [
+      { id: 'A', text: "Share the KMS key with the customer account through a resource share in AWS RAM." },
+      { id: 'B', text: "Re-encrypt the snapshots with the AWS managed aws/ebs key so they can be shared freely." },
+      { id: 'C', text: "Make the AMI public so launch permissions and snapshot encryption checks are bypassed." },
+      { id: 'D', text: "Add the customer account ID to the AMI's launch permissions so it can use the image." },
+      { id: 'E', text: "Update the KMS key policy to allow the customer account to use the key, including CreateGrant." }
+    ],
+    correctAnswers: ['D', 'E'],
+    type: "multiple",
+    explanation: "Sharing an encrypted AMI takes two grants: launch permission on the AMI for the target account, and permission in the customer managed key's policy for that account to use the key, including kms:CreateGrant, Decrypt, DescribeKey, GenerateDataKey and ReEncrypt, so EC2 can create volumes from the snapshots; the customer's administrators then delegate that use to their own principals. AMIs encrypted with the AWS managed aws/ebs key cannot be shared at all because its policy cannot be changed. Encrypted AMIs cannot be made public. KMS keys are not a resource type shared through AWS RAM; cross-account use is granted in the key policy.",
+    referenceUrl: "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/sharingamis-explicit.html",
+    tags: ["AMI", "KMS", "Cross-account"]
+  },
+  {
+    id: "aws-soa-274",
+    difficulty: "hard",
+    certId: "aws-soa",
+    domainId: "d3",
+    domainName: "Deployment, Provisioning, and Automation",
+    title: "Service-managed StackSet skips the payer account",
+    scenario: "A service-managed StackSet targets the organization root with automatic deployment so that every account gets an AWS Config recorder. An audit finds that all member accounts have the recorder, but the management account does not, and the StackSet shows no stack instance or failure for it.",
+    question: "What explains this, and how should the recorder be deployed to the management account?",
+    options: [
+      { id: 'A', text: "Service-managed deployments need an execution role there; create one and let automatic deployment retry." },
+      { id: 'B', text: "Automatic deployment ignores existing accounts; run a manual stack instance operation targeting the root." },
+      { id: 'C', text: "The management account sits outside any OU; move it into an OU that the StackSet targets and wait." },
+      { id: 'D', text: "Service-managed StackSets never deploy to the management account; create a stack there directly instead." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "With service-managed permissions, StackSets does not deploy stack instances to the organization's management account, even when it is in a targeted OU or the root is targeted, so no instance or failure is recorded; the resources have to be deployed there with a regular stack or a self-managed StackSet. An execution role is part of the self-managed model and would not change service-managed behavior. Moving the management account into a targeted OU does not change this exclusion either. Automatic deployment covers accounts added later, and the initial deployment to the root already covered existing member accounts, as the audit shows.",
+    referenceUrl: "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-manage-auto-deployment.html",
+    tags: ["StackSets", "Management account", "AWS Config"]
+  },
+  {
+    id: "aws-soa-275",
+    difficulty: "hard",
+    certId: "aws-soa",
+    domainId: "d3",
+    domainName: "Deployment, Provisioning, and Automation",
+    title: "Tearing down a stack blocked by a foreign ENI",
+    scenario: "A decommissioned test stack is in DELETE_FAILED because its security group is still attached to a network interface created by another team's Lambda function outside the stack. Every other resource was deleted. The other team will remove the group themselves next month, and the engineer wants the stack gone today without touching their function.",
+    question: "What should the engineer do?",
+    options: [
+      { id: 'A', text: "Set a DeletionPolicy of Retain on the group through a stack update, then delete the stack again." },
+      { id: 'B', text: "Run continue-update-rollback with the security group listed in the resources to skip, then delete." },
+      { id: 'C', text: "Detach the network interface from the Lambda function and delete it, then retry the stack deletion." },
+      { id: 'D', text: "Retry the delete and specify the security group's logical ID in the list of resources to retain." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "When a stack is in DELETE_FAILED, the delete can be retried with RetainResources listing the logical IDs that failed; CloudFormation leaves those physical resources in place and completes the stack deletion, so the other team's dependency is untouched. Continue-update-rollback applies only to UPDATE_ROLLBACK_FAILED. A stack in DELETE_FAILED cannot be updated, so a DeletionPolicy cannot be added now. Detaching and deleting the interface would break the other team's function, which the engineer must avoid.",
+    referenceUrl: "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/troubleshooting.html",
+    tags: ["CloudFormation", "Stack deletion", "Troubleshooting"]
+  }
+];
+
+export default AWS_SOA_QUESTIONS_11;

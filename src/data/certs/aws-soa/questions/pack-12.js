@@ -1,0 +1,532 @@
+export const AWS_SOA_QUESTIONS_12 = [
+  {
+    id: "aws-soa-276",
+    difficulty: "easy",
+    certId: "aws-soa",
+    domainId: "d3",
+    domainName: "Deployment, Provisioning, and Automation",
+    title: "Releasing to a fresh fleet behind the same load balancer",
+    scenario: "An insurance portal runs on EC2 instances in an Auto Scaling group behind an Application Load Balancer, and releases are pushed with CodeDeploy. Today each release updates the running instances one at a time, and a bad build once left half the fleet broken for 40 minutes. The team wants new code on new instances, with the old fleet kept until the release is proven.",
+    question: "Which CodeDeploy configuration should the engineer use?",
+    options: [
+      { id: 'A', text: "An in-place deployment with the HalfAtATime configuration and a load balancer attached to the group." },
+      { id: 'B', text: "An in-place deployment with the OneAtATime configuration and automatic rollback enabled on failure." },
+      { id: 'C', text: "A blue/green deployment that copies the Auto Scaling group and reroutes the load balancer to the copy." },
+      { id: 'D', text: "An in-place deployment with AllAtOnce so every instance in the Auto Scaling group switches together." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "A CodeDeploy blue/green deployment for EC2 provisions a replacement fleet, typically by copying the Auto Scaling group, installs the revision there, shifts the load balancer to it, and can keep the original instances running for a set period so traffic can be moved back quickly. Every in-place configuration, whether one at a time, half at a time or all at once, installs the new code on the instances already serving traffic, which is exactly what the team wants to stop; automatic rollback in place still redeploys the previous revision over broken instances rather than keeping a known-good fleet.",
+    referenceUrl: "https://docs.aws.amazon.com/codedeploy/latest/userguide/welcome.html",
+    tags: ["CodeDeploy", "Blue/green", "EC2"]
+  },
+  {
+    id: "aws-soa-277",
+    difficulty: "easy",
+    certId: "aws-soa",
+    domainId: "d3",
+    domainName: "Deployment, Provisioning, and Automation",
+    title: "Trying a new function version on a slice of traffic",
+    scenario: "A ride-hailing company publishes a new version of its pricing Lambda function every week through CodeDeploy. The operations lead wants 10 percent of invocations to hit the new version for five minutes and, if nothing goes wrong, all traffic to move over at once.",
+    question: "Which deployment configuration meets the requirement?",
+    options: [
+      { id: 'A', text: "LambdaAllAtOnce, followed by a five-minute alarm check before the old version is deleted." },
+      { id: 'B', text: "LambdaLinear10PercentEvery3Minutes, which shifts ten percent every three minutes across the release." },
+      { id: 'C', text: "LambdaLinear10PercentEvery1Minute, which adds another ten percent of traffic each minute until done." },
+      { id: 'D', text: "LambdaCanary10Percent5Minutes, which shifts ten percent first and the remainder after five minutes." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Canary configurations move traffic in two increments: LambdaCanary10Percent5Minutes sends 10 percent of traffic through the alias to the new version, waits five minutes, then shifts the other 90 percent. Linear configurations shift equal increments on a fixed interval, so every minute or every three minutes another 10 percent moves, which is a gradual ramp rather than one test slice followed by a full cutover. AllAtOnce moves all traffic immediately, so no slice of traffic ever tests the new version on its own.",
+    referenceUrl: "https://docs.aws.amazon.com/codedeploy/latest/userguide/deployment-configurations.html",
+    tags: ["CodeDeploy", "Lambda", "Canary"]
+  },
+  {
+    id: "aws-soa-278",
+    difficulty: "easy",
+    certId: "aws-soa",
+    domainId: "d3",
+    domainName: "Deployment, Provisioning, and Automation",
+    title: "Keeping full capacity during an ECS rolling update",
+    scenario: "A checkout service runs 12 tasks on AWS Fargate behind a load balancer and uses the ECS rolling update deployment type. During the last release, the service dropped to six running tasks and latency spiked. The team wants all 12 tasks serving throughout future deployments.",
+    question: "Which service deployment settings should the engineer apply?",
+    options: [
+      { id: 'A', text: "Set minimum healthy percent to 0 and maximum percent to 100 so the deployment finishes as fast as it can." },
+      { id: 'B', text: "Set minimum healthy percent to 50 and maximum percent to 100 so tasks are replaced in two halves." },
+      { id: 'C', text: "Set the desired count to 24 during the release and back to 12 afterwards, keeping defaults otherwise." },
+      { id: 'D', text: "Set minimum healthy percent to 100 and maximum percent to 200 so new tasks start before old ones stop." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Minimum healthy percent is the floor of running tasks during a deployment and maximum percent the ceiling; 100 and 200 mean ECS must keep all 12 tasks running and may start up to 12 new tasks alongside them before stopping old ones, and Fargate supplies the extra capacity. A floor of 50 percent is what allowed the drop to six tasks. A floor of zero allows every task to stop at once. Doubling the desired count by hand adds cost and manual steps, and with the defaults the deployment can still stop tasks before replacements are healthy.",
+    referenceUrl: "https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-type-ecs.html",
+    tags: ["Amazon ECS", "Rolling update", "Fargate"]
+  },
+  {
+    id: "aws-soa-279",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d3",
+    domainName: "Deployment, Provisioning, and Automation",
+    title: "Tasks that crash-loop after a bad image push",
+    scenario: "A logistics company's ECS service uses rolling updates. Last week a task definition referencing a broken image was deployed, the new tasks failed health checks repeatedly, and the deployment kept launching replacements for hours until someone noticed. The team wants ECS to detect such failures and return to the last working task definition automatically.",
+    question: "What should the engineer enable on the service?",
+    options: [
+      { id: 'A', text: "The deployment circuit breaker with the rollback option turned on for the rolling update deployment." },
+      { id: 'B', text: "An EventBridge rule for task state changes that emails the team when tasks stop with an error code." },
+      { id: 'C', text: "Service auto scaling with a target tracking policy on CPU so failing tasks are replaced by healthy ones." },
+      { id: 'D', text: "A health check grace period of 600 seconds so the new tasks have longer to pass the target group check." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "The ECS deployment circuit breaker watches a rolling update and marks the deployment failed when tasks repeatedly fail to reach a steady state; with rollback enabled, ECS then redeploys the last deployment that completed successfully. Target tracking scales the task count on load, and every replacement task still uses the broken image. A longer grace period only delays failed health checks for an image that will never become healthy. An email alert improves detection but still leaves the rollback to a person, which is what the team wants to eliminate.",
+    referenceUrl: "https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-circuit-breaker.html",
+    tags: ["Amazon ECS", "Circuit breaker", "Rollback"]
+  },
+  {
+    id: "aws-soa-280",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d3",
+    domainName: "Deployment, Provisioning, and Automation",
+    title: "Rolling back when error rates climb mid-release",
+    scenario: "A streaming service deploys to 60 EC2 instances with CodeDeploy using a one-third-at-a-time configuration. Installs have never failed, but a recent release passed its lifecycle scripts and then pushed the HTTP 5xx rate over 5 percent, which nobody caught until customers complained. The team wants such a release reversed automatically.",
+    question: "What should the engineer configure on the deployment group?",
+    options: [
+      { id: 'A', text: "Enable rollback when a deployment fails, since the deployment is marked failed when 5xx errors appear." },
+      { id: 'B', text: "Add a ValidateService hook that curls the home page and exits non-zero if it returns an error." },
+      { id: 'C', text: "Switch the deployment configuration to AllAtOnce so that any failure affects all instances equally." },
+      { id: 'D', text: "Add a CloudWatch alarm on the 5xx rate and enable rollback when alarm thresholds are met." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "CodeDeploy can monitor CloudWatch alarms associated with the deployment group, stop the deployment when one goes into ALARM, and, with rollback on alarm enabled, redeploy the last known good revision. Rollback on deployment failure only reacts when lifecycle events fail, and these installs succeeded, so it would not trigger. A ValidateService check runs once per instance right after install and a single request to the home page will not see an error rate that emerges under real traffic. Deploying all at once increases the blast radius without adding any detection.",
+    referenceUrl: "https://docs.aws.amazon.com/codedeploy/latest/userguide/deployments-rollback-and-redeploy.html",
+    tags: ["CodeDeploy", "CloudWatch alarms", "Rollback"]
+  },
+  {
+    id: "aws-soa-281",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d3",
+    domainName: "Deployment, Provisioning, and Automation",
+    title: "Beanstalk updates without losing serving capacity",
+    scenario: "A nonprofit runs its donation site on Elastic Beanstalk with eight instances, all needed at peak. Deployments currently use the Rolling policy with a batch size of two, and capacity dips to six instances while each batch updates. The team wants full capacity kept during deployments at the lowest extra cost, and deployment speed is not a concern.",
+    question: "Which deployment policy should the engineer choose?",
+    options: [
+      { id: 'A', text: "Immutable, which launches a full set of new instances in a temporary Auto Scaling group." },
+      { id: 'B', text: "Rolling with additional batch, which launches a new batch before taking any instances out." },
+      { id: 'C', text: "Rolling with a batch size of one, so that only a single instance is out of service at a time." },
+      { id: 'D', text: "All at once, so the deployment finishes in one pass and capacity is never reduced for long." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "Rolling with additional batch launches an extra batch of instances first, then rolls through the fleet, so the environment keeps its full eight instances in service while paying for only one additional batch at a time. All at once takes every instance out simultaneously and causes downtime. Immutable also keeps full capacity but launches eight new instances alongside the old ones, doubling the fleet during the deployment, which costs more than a single extra batch. A batch size of one still reduces capacity to seven instances during every step.",
+    referenceUrl: "https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/using-features.rolling-version-deploy.html",
+    tags: ["Elastic Beanstalk", "Deployment policies"]
+  },
+  {
+    id: "aws-soa-282",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d3",
+    domainName: "Deployment, Provisioning, and Automation",
+    title: "Moving a Beanstalk app to a new platform branch",
+    scenario: "A school district's Elastic Beanstalk application must move from a retiring Node.js platform branch to a new one, which cannot be done as an in-place platform update. The app uses an RDS database created separately from the environment. The district wants testing on the new platform first and a cutover that can be reversed within minutes.",
+    question: "Which approach meets the requirement?",
+    options: [
+      { id: 'A', text: "Run a managed platform update during the maintenance window and roll back from the event history." },
+      { id: 'B', text: "Deploy the current application version with the Immutable policy so new instances use the new branch." },
+      { id: 'C', text: "Rebuild the existing environment and select the new platform branch when the console prompts for one." },
+      { id: 'D', text: "Clone the environment onto the new platform branch, test it, then swap environment URLs with the old one." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Elastic Beanstalk blue/green deployment runs the new platform in a separate environment; after testing, swapping environment URLs exchanges the CNAMEs so users reach the new environment, and swapping back reverses the cutover quickly. Because the database is external to the environment, both environments can use it. Managed platform updates only apply patch and minor updates within the same branch. Deployment policies such as Immutable change the application version, not the platform branch. Rebuilding an environment recreates it on its current configuration and causes downtime, with no parallel environment to fall back to.",
+    referenceUrl: "https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/using-features.CNAMESwap.html",
+    tags: ["Elastic Beanstalk", "Blue/green", "Platform update"]
+  },
+  {
+    id: "aws-soa-283",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d3",
+    domainName: "Deployment, Provisioning, and Automation",
+    title: "Instant rollback for AMI changes made by CloudFormation",
+    scenario: "A trading firm's CloudFormation stack defines an Auto Scaling group whose launch template AMI changes every month. If a new AMI fails its signals, the firm wants the stack rollback to leave the original instances completely untouched rather than relaunching old instances batch by batch.",
+    question: "Which UpdatePolicy should the engineer set on the Auto Scaling group?",
+    options: [
+      { id: 'A', text: "AutoScalingScheduledAction with IgnoreUnmodifiedGroupSizeProperties so that group sizes are kept." },
+      { id: 'B', text: "AutoScalingReplacingUpdate with WillReplace set to true, so a new group is built beside the original." },
+      { id: 'C', text: "AutoScalingRollingUpdate with MinInstancesInService equal to the desired capacity and a pause time." },
+      { id: 'D', text: "AutoScalingRollingUpdate with MaxBatchSize of one and WaitOnResourceSignals turned on for each batch." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "With AutoScalingReplacingUpdate and WillReplace true, CloudFormation creates a replacement Auto Scaling group and removes the old one only after the new group succeeds; if the update fails, rollback simply deletes the new group and the original instances were never touched. Rolling updates replace instances in the existing group in batches, so a rollback has to relaunch old-AMI instances batch by batch, whatever the batch size, minimum in service or signal settings. AutoScalingScheduledAction only controls how scheduled actions interact with group size properties during updates.",
+    referenceUrl: "https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-attribute-updatepolicy.html",
+    tags: ["CloudFormation", "UpdatePolicy", "EC2 Auto Scaling"]
+  },
+  {
+    id: "aws-soa-284",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d3",
+    domainName: "Deployment, Provisioning, and Automation",
+    title: "Staged rollout of a configuration flag",
+    scenario: "A food delivery app reads feature flags at runtime with the AWS AppConfig agent. Turning on a new recommendation engine flag for everyone at once caused errors last quarter. The team now wants the flag enabled progressively over 30 minutes and reverted automatically if an error-rate alarm fires, without redeploying the app.",
+    question: "What should the CloudOps engineer configure?",
+    options: [
+      { id: 'A', text: "A CodeDeploy canary deployment of the application with the new flag value baked into the build." },
+      { id: 'B', text: "An AppConfig deployment using the AllAtOnce strategy, followed by a bake time watched by the alarm." },
+      { id: 'C', text: "An AppConfig deployment strategy with a 30-minute linear rollout and the alarm set as a rollback monitor." },
+      { id: 'D', text: "A Systems Manager Parameter Store parameter with a policy that changes its value after 30 minutes." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "AppConfig deployment strategies control how quickly a configuration reaches clients, for example linearly over 30 minutes, and CloudWatch alarms attached to the environment act as monitors: if one goes into ALARM during the rollout or bake time, AppConfig rolls the configuration back automatically. A CodeDeploy canary redeploys the application, which the team wants to avoid. Parameter Store policies handle expiration and notifications, not gradual exposure or alarm-based rollback. AllAtOnce exposes every client immediately, which is what caused last quarter's errors, even if a bake time can still roll it back afterwards.",
+    referenceUrl: "https://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-creating-deployment-strategy.html",
+    tags: ["AppConfig", "Feature flags", "Deployment strategy"]
+  },
+  {
+    id: "aws-soa-285",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d3",
+    domainName: "Deployment, Provisioning, and Automation",
+    title: "Weighted cutover between two regional stacks",
+    scenario: "A travel site has built a complete new stack, including its own load balancer, next to the existing one in the same Region. The team wants to send 5 percent of users to the new stack, raise the share over a week, and return everyone to the old stack quickly if problems appear. Clients reach the site through a Route 53 hosted zone.",
+    question: "Which approach fits the requirement?",
+    options: [
+      { id: 'A', text: "Create a Route 53 multivalue answer record with both load balancers and health checks on each one." },
+      { id: 'B', text: "Create Route 53 weighted alias records for both load balancers and adjust weights with a short TTL." },
+      { id: 'C', text: "Create Route 53 failover records with the new stack as primary and the old stack as the secondary." },
+      { id: 'D', text: "Create Route 53 latency records for both load balancers so users go to whichever answers fastest." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "Weighted records split DNS responses in proportion to their weights, so 95 and 5 send roughly 5 percent of new resolutions to the new stack, and changing the weights moves traffic in either direction; a short TTL limits how long clients keep the old answer. Failover routing sends all traffic to the primary while it is healthy, with no proportional split. Latency routing chooses by network latency between Regions, and both stacks are in the same Region. Multivalue answers return several healthy records at random with no control over the share each receives.",
+    referenceUrl: "https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy-weighted.html",
+    tags: ["Route 53", "Blue/green", "Weighted routing"]
+  },
+  {
+    id: "aws-soa-286",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d3",
+    domainName: "Deployment, Provisioning, and Automation",
+    title: "Git push that no longer starts the pipeline",
+    scenario: "A team keeps its Terraform and application code in a GitHub repository and uses CodePipeline to deploy. They want the pipeline to start only when changes land on the main branch under the infra/ folder, while pushes to feature branches and documentation edits must not trigger a run.",
+    question: "How should the engineer configure the pipeline source?",
+    options: [
+      { id: 'A', text: "Use a scheduled EventBridge rule that starts the pipeline hourly and exits early when nothing has changed." },
+      { id: 'B', text: "Use a GitHub source via CodeConnections in a V1 pipeline and check the branch and path in a build step." },
+      { id: 'C', text: "Use a GitHub source via CodeConnections in a V2 pipeline with branch and file path trigger filters." },
+      { id: 'D', text: "Use an S3 source action and have developers upload a zip of the infra folder after they merge into main." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "CodePipeline connects to GitHub through a CodeConnections connection, and V2 pipelines support trigger filters on push events by branch and by file path, so only merges to main that touch infra/ start an execution. An S3 source depends on a manual upload step. A schedule runs whether or not anything changed and delays deployments by up to an hour. A V1 pipeline starts on every push to its configured branch, so filtering later in a build step still consumes an execution and cannot keep documentation edits on main from triggering a run.",
+    referenceUrl: "https://docs.aws.amazon.com/codepipeline/latest/userguide/pipelines-filter.html",
+    tags: ["CodePipeline", "Git", "CodeConnections"]
+  },
+  {
+    id: "aws-soa-287",
+    difficulty: "hard",
+    certId: "aws-soa",
+    domainId: "d3",
+    domainName: "Deployment, Provisioning, and Automation",
+    title: "Smoke tests before production traffic reaches new tasks",
+    scenario: "A bank deploys an ECS service with the CodeDeploy blue/green deployment controller, using a production listener on port 443 and a test listener on port 8443. The team wants an automated Lambda test suite to call the replacement tasks through the test listener and stop the deployment if tests fail, before any customer traffic is shifted.",
+    question: "In which AppSpec lifecycle hook should the Lambda function be registered?",
+    options: [
+      { id: 'A', text: "AfterAllowTraffic, which runs after production traffic has moved to the replacement tasks." },
+      { id: 'B', text: "AfterInstall, which runs once tasks are created but before any listener routes to them." },
+      { id: 'C', text: "BeforeInstall, which runs before the replacement task set is created for the new version." },
+      { id: 'D', text: "AfterAllowTestTraffic, which runs once the test listener routes to the replacement tasks." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "For ECS blue/green deployments, AfterAllowTestTraffic runs after the test listener begins routing to the replacement task set, so a Lambda hook there can exercise the new version on port 8443 and report failure to stop and roll back the deployment before production traffic moves. BeforeInstall runs before the replacement tasks exist. AfterInstall runs before the test listener routes to them, so the tests would have nothing to call through 8443. AfterAllowTraffic runs after customers are already on the new tasks, which is too late for a gate.",
+    referenceUrl: "https://docs.aws.amazon.com/codedeploy/latest/userguide/reference-appspec-file-structure-hooks.html",
+    tags: ["CodeDeploy", "Amazon ECS", "Lifecycle hooks"]
+  },
+  {
+    id: "aws-soa-288",
+    difficulty: "hard",
+    certId: "aws-soa",
+    domainId: "d3",
+    domainName: "Deployment, Provisioning, and Automation",
+    title: "Preparing an ECS service for CodeDeploy blue/green",
+    scenario: "A media company is converting an existing ECS service behind an Application Load Balancer from rolling updates to blue/green deployments managed by CodeDeploy. The service currently has one target group attached to a single HTTPS listener.",
+    question: "Which two changes are required before the first blue/green deployment? (Choose two.)",
+    options: [
+      { id: 'A', text: "Create a second target group on the load balancer for the replacement task set." },
+      { id: 'B', text: "Enable the deployment circuit breaker with rollback on the existing ECS service." },
+      { id: 'C', text: "Replace the Application Load Balancer with a Network Load Balancer for fast cutover." },
+      { id: 'D', text: "Install the CodeDeploy agent on every container instance that hosts the service." },
+      { id: 'E', text: "Set the service's deployment controller type to CODE_DEPLOY for the service." }
+    ],
+    correctAnswers: ['A', 'E'],
+    type: "multiple",
+    explanation: "CodeDeploy blue/green for ECS shifts listener traffic between two target groups, one for the original and one for the replacement task set, and the service must use the CODE_DEPLOY deployment controller rather than the ECS rolling update controller. Application Load Balancers are fully supported, so no switch to a Network Load Balancer is needed. The circuit breaker applies to the ECS rolling update controller, not to CodeDeploy deployments. The CodeDeploy agent is used for EC2 and on-premises deployments; ECS deployments need no agent.",
+    referenceUrl: "https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-type-bluegreen.html",
+    tags: ["Amazon ECS", "CodeDeploy", "Blue/green"]
+  },
+  {
+    id: "aws-soa-289",
+    difficulty: "hard",
+    certId: "aws-soa",
+    domainId: "d3",
+    domainName: "Deployment, Provisioning, and Automation",
+    title: "Every instance fails at the DownloadBundle step",
+    scenario: "A new CodeDeploy deployment group targets tagged EC2 instances that run the CodeDeploy agent. Every deployment fails on all instances at the DownloadBundle event, and the agent log shows Access Denied when reading the revision from the artifact bucket. The pipeline's own role can read the bucket without issue.",
+    question: "What should the engineer fix?",
+    options: [
+      { id: 'A', text: "Add a bucket policy allowing the codedeploy.amazonaws.com service principal to read revisions." },
+      { id: 'B', text: "Add s3:GetObject on the revision bucket to the CodeDeploy service role that the deployment group uses." },
+      { id: 'C', text: "Reinstall the CodeDeploy agent on each instance so that it picks up the pipeline role's credentials." },
+      { id: 'D', text: "Grant the instances' instance profile role s3:GetObject on the revision bucket and its objects." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "During DownloadBundle the CodeDeploy agent on each instance downloads the revision itself, using the credentials of the instance profile, so that role needs s3:GetObject on the bucket, plus kms:Decrypt if the objects use a customer managed key. The CodeDeploy service role is used by the service to read tags, call Auto Scaling and manage load balancers, not to fetch bundles onto instances. The agent never uses the pipeline's credentials, so reinstalling it changes nothing. Granting the service principal access in the bucket policy does not help because the request comes from the instance role.",
+    referenceUrl: "https://docs.aws.amazon.com/codedeploy/latest/userguide/getting-started-create-iam-instance-profile.html",
+    tags: ["CodeDeploy", "IAM", "Troubleshooting"]
+  },
+  {
+    id: "aws-soa-290",
+    difficulty: "easy",
+    certId: "aws-soa",
+    domainId: "d3",
+    domainName: "Deployment, Provisioning, and Automation",
+    title: "Two engineers corrupting the same Terraform state",
+    scenario: "Two CloudOps engineers manage a VPC with Terraform, and each keeps a terraform.tfstate file on a laptop. Last week both ran apply within minutes of each other, and the resulting state no longer matched the real infrastructure. The team wants one shared state that only one run can change at a time.",
+    question: "What should the team configure?",
+    options: [
+      { id: 'A', text: "Commit terraform.tfstate to the Git repository so both engineers always pull the latest state first." },
+      { id: 'B', text: "Use Terraform workspaces on each laptop so that every engineer applies to a separate state file." },
+      { id: 'C', text: "Store the state file on a shared EFS volume that both engineers mount before they run apply." },
+      { id: 'D', text: "Use the S3 backend for the state with state locking enabled so concurrent runs are refused." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "A remote S3 backend gives everyone one authoritative state, and state locking, through an S3 lock file or a DynamoDB table, makes a second plan or apply wait or fail while another run holds the lock. Committing state to Git offers no locking and exposes any secrets the state contains. Separate workspaces give each engineer a different state for the same VPC, so each would try to manage the same resources independently. A shared file system provides a single file but no locking, so simultaneous applies can still corrupt it.",
+    referenceUrl: "https://developer.hashicorp.com/terraform/language/backend/s3",
+    tags: ["Terraform", "State", "S3 backend"]
+  },
+  {
+    id: "aws-soa-291",
+    difficulty: "easy",
+    certId: "aws-soa",
+    domainId: "d3",
+    domainName: "Deployment, Provisioning, and Automation",
+    title: "Reviewing what Terraform will destroy",
+    scenario: "A junior engineer edited a Terraform configuration to rename a security group and wants to know, before anything changes in the account, whether Terraform will modify the group in place or delete and recreate it. The change must be shared in a pull request for review.",
+    question: "Which command should the engineer run and attach to the pull request?",
+    options: [
+      { id: 'A', text: "terraform apply with auto-approve, then terraform show to capture what was actually changed." },
+      { id: 'B', text: "terraform plan, which compares configuration with state and shows each create, update or replace." },
+      { id: 'C', text: "terraform fmt, which normalizes the files so reviewers can see exactly which attributes changed." },
+      { id: 'D', text: "terraform validate, which checks the configuration and reports any resources that will be replaced." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "terraform plan refreshes state, compares it with the configuration and prints the proposed actions, marking resources that must be replaced (destroy and create) versus updated in place, without changing anything; saving the plan output lets reviewers see it. terraform validate checks syntax and internal consistency but never contacts the provider to compute changes. terraform fmt only rewrites formatting. Applying first and reviewing afterwards defeats the purpose of reviewing the change before it happens.",
+    referenceUrl: "https://developer.hashicorp.com/terraform/cli/commands/plan",
+    tags: ["Terraform", "Plan", "Code review"]
+  },
+  {
+    id: "aws-soa-292",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d3",
+    domainName: "Deployment, Provisioning, and Automation",
+    title: "Terraform state out of step after console hotfixes",
+    scenario: "During an outage, an engineer raised an RDS instance's allocated storage and changed a security group rule in the console. The resources are managed by Terraform. Before deciding whether to codify or revert the changes, the team wants to see exactly how the live resources differ from state, without Terraform proposing to modify any infrastructure.",
+    question: "What should the engineer run?",
+    options: [
+      { id: 'A', text: "terraform apply, which reverts the live resources so they match the configuration immediately." },
+      { id: 'B', text: "terraform import for both resources so their live settings overwrite the configuration files." },
+      { id: 'C', text: "terraform plan -refresh-only, which reports the differences between state and the real resources." },
+      { id: 'D', text: "terraform state rm for both resources so that Terraform stops tracking the drifted infrastructure." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "A refresh-only plan reads the real infrastructure and shows how it differs from the recorded state, proposing only to update state, never the resources, so the team can decide whether to codify or revert; apply -refresh-only would then accept the drift into state. A normal apply would revert the hotfixes immediately, before any decision. terraform import brings unmanaged resources under management and fails for resources already in state; it also never edits configuration files. terraform state rm abandons the resources to unmanaged drift.",
+    referenceUrl: "https://developer.hashicorp.com/terraform/tutorials/state/resource-drift",
+    tags: ["Terraform", "Drift"]
+  },
+  {
+    id: "aws-soa-293",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d3",
+    domainName: "Deployment, Provisioning, and Automation",
+    title: "Removing long-lived keys from a GitHub Actions workflow",
+    scenario: "A GitHub Actions workflow runs terraform apply against an AWS account using an IAM user's access keys stored as repository secrets. Security has ordered the keys removed. The workflow must still deploy, but only from the main branch of the company's infra repository.",
+    question: "Which two steps should the engineer take? (Choose two.)",
+    options: [
+      { id: 'A', text: "Create an IAM role that trusts that provider, with a condition on the token's sub for the main branch." },
+      { id: 'B', text: "Create an IAM role for the main branch that trusts GitHub's account ID and uses an external ID." },
+      { id: 'C', text: "Rotate the IAM user's access keys every 30 days with a Secrets Manager rotation function." },
+      { id: 'D', text: "Store the access keys in Secrets Manager and have the workflow read them at the start of each run." },
+      { id: 'E', text: "Create an IAM OIDC identity provider for token.actions.githubusercontent.com in the account." }
+    ],
+    correctAnswers: ['A', 'E'],
+    type: "multiple",
+    explanation: "GitHub Actions can obtain short-lived AWS credentials by exchanging its OIDC token with AssumeRoleWithWebIdentity: register GitHub's OIDC provider in IAM, then create a role that trusts it with conditions on the audience and on the sub claim so only the main branch of that repository can assume it. Rotating or relocating the access keys keeps long-lived credentials, which security wants gone, and reading them from Secrets Manager still requires credentials to reach Secrets Manager. GitHub has no AWS account to trust, and external IDs belong to cross-account role delegation, not web identity federation.",
+    referenceUrl: "https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_create_oidc.html",
+    tags: ["IAM", "OIDC", "CI/CD"]
+  },
+  {
+    id: "aws-soa-294",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d3",
+    domainName: "Deployment, Provisioning, and Automation",
+    title: "Database password showing up in the state bucket",
+    scenario: "A security review of a Terraform setup finds that the S3 bucket holding state for an RDS stack contains the master password in plain text inside the state file, even though the variable is marked sensitive. The team must keep using Terraform for the database and reduce the exposure.",
+    question: "Which change most directly addresses the finding?",
+    options: [
+      { id: 'A', text: "Let RDS manage the master password in Secrets Manager so Terraform never handles the value." },
+      { id: 'B', text: "Run terraform fmt and commit the result so the sensitive variable is redacted in future state writes." },
+      { id: 'C', text: "Mark the output that returns the password as sensitive so it is removed from the stored state file." },
+      { id: 'D', text: "Enable S3 Object Lock on the state bucket so the state file containing the password cannot be altered." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Marking values sensitive only hides them from CLI output; Terraform still records them in state. Setting manage_master_user_password lets RDS generate and store the password in Secrets Manager, so the secret never passes through Terraform and never lands in state; the state bucket should still be encrypted and tightly restricted. A sensitive output has the same limitation as a sensitive variable. Object Lock prevents deletion or overwriting but does nothing to hide the plaintext value. terraform fmt only reformats source files.",
+    referenceUrl: "https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-secrets-manager.html",
+    tags: ["Terraform", "Secrets Manager", "Amazon RDS"]
+  },
+  {
+    id: "aws-soa-295",
+    difficulty: "easy",
+    certId: "aws-soa",
+    domainId: "d3",
+    domainName: "Deployment, Provisioning, and Automation",
+    title: "One Terraform configuration, two Regions",
+    scenario: "A Terraform configuration deploys an application in us-east-1. The team now needs an S3 bucket for replicated backups in eu-west-1 managed in the same configuration and state, while every existing resource stays in us-east-1.",
+    question: "How should the engineer configure Terraform?",
+    options: [
+      { id: 'A', text: "Add a second AWS provider block with an alias for eu-west-1 and set provider on the bucket resource." },
+      { id: 'B', text: "Change the default AWS provider's region to eu-west-1 and re-run apply for the whole configuration." },
+      { id: 'C', text: "Set the AWS_REGION environment variable to eu-west-1 only while the bucket resource is being created." },
+      { id: 'D', text: "Add a region argument inside the bucket's lifecycle block so that just this resource uses eu-west-1." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Terraform supports multiple configurations of the same provider through the alias meta-argument; a second aws provider for eu-west-1 referenced by the bucket's provider argument places only that resource in eu-west-1, while everything else keeps the default provider. Changing the default region would try to move every resource. An environment variable applies to the whole run and would confuse later plans. The lifecycle block controls create, update and destroy behavior and has no region setting.",
+    referenceUrl: "https://developer.hashicorp.com/terraform/language/providers/configuration",
+    tags: ["Terraform", "Providers", "Multi-Region"]
+  },
+  {
+    id: "aws-soa-296",
+    difficulty: "hard",
+    certId: "aws-soa",
+    domainId: "d3",
+    domainName: "Deployment, Provisioning, and Automation",
+    title: "State lock left behind by a cancelled CI job",
+    scenario: "A CI runner was killed halfway through terraform apply for a networking stack, and every later run fails with Error acquiring the state lock, showing a lock ID and the dead runner as the holder. The team has confirmed that no Terraform process is still running against this state.",
+    question: "What should the engineer do next?",
+    options: [
+      { id: 'A', text: "Wait for the lock to expire automatically after one hour, as S3 backend locks carry a fixed TTL." },
+      { id: 'B', text: "Run terraform force-unlock with the reported lock ID, then plan to review what the interrupted apply did." },
+      { id: 'C', text: "Delete the state file from the S3 bucket so that Terraform creates a fresh, unlocked state on the next run." },
+      { id: 'D', text: "Re-run the pipeline with -lock=false on apply so it skips locking while the stale lock expires." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "terraform force-unlock removes a lock that its holder can no longer release; it must only be used after confirming nothing else is running, as the team has. A plan afterwards shows which resources the interrupted apply created or changed, so the next apply starts from an understood state. Deleting the state file makes Terraform forget every resource it manages and try to recreate them. Disabling locking on an apply removes the protection that prevents concurrent runs and is unsafe as a routine fix. Terraform locks do not expire on their own.",
+    referenceUrl: "https://developer.hashicorp.com/terraform/cli/commands/force-unlock",
+    tags: ["Terraform", "State locking", "Troubleshooting"]
+  },
+  {
+    id: "aws-soa-297",
+    difficulty: "hard",
+    certId: "aws-soa",
+    domainId: "d3",
+    domainName: "Deployment, Provisioning, and Automation",
+    title: "Hardening the bucket that stores Terraform state",
+    scenario: "A fintech keeps every Terraform state file in one S3 bucket. An engineer recently overwrote a state file with an older copy and the team spent a day rebuilding it. Auditors also noted that anyone with S3 read access in the account could open the files, which contain connection strings.",
+    question: "Which two measures should the engineer apply to the state bucket? (Choose two.)",
+    options: [
+      { id: 'A', text: "Set a lifecycle rule moving state to Glacier Flexible Retrieval after seven days." },
+      { id: 'B', text: "Turn on S3 Requester Pays so that only billed principals can download state files." },
+      { id: 'C', text: "Enable S3 Transfer Acceleration so state writes complete before a job can overlap." },
+      { id: 'D', text: "Enable S3 Versioning so an earlier state version can be restored after a bad write." },
+      { id: 'E', text: "Encrypt with SSE-KMS and restrict the bucket and key policies to the deploy roles." }
+    ],
+    correctAnswers: ['D', 'E'],
+    type: "multiple",
+    explanation: "Versioning keeps every prior version of each state file, so an overwritten or deleted state can be restored in minutes. SSE-KMS with bucket and key policies limited to the deployment roles means general S3 readers can neither fetch nor decrypt the files. Transfer Acceleration speeds long-distance uploads and does nothing for overlapping writes, which locking addresses. Requester Pays changes who is billed for requests, not who is authorized. Archiving state to Glacier Flexible Retrieval would make Terraform unable to read the current state without a restore.",
+    referenceUrl: "https://docs.aws.amazon.com/AmazonS3/latest/userguide/Versioning.html",
+    tags: ["Terraform", "S3", "KMS"]
+  },
+  {
+    id: "aws-soa-298",
+    difficulty: "hard",
+    certId: "aws-soa",
+    domainId: "d3",
+    domainName: "Deployment, Provisioning, and Automation",
+    title: "Refactoring into modules without recreating resources",
+    scenario: "An engineer relocated an aws_db_instance and its security group from the root Terraform configuration into a new module. The plan now shows both resources being destroyed and recreated under their new module addresses, which would wipe the production database.",
+    question: "Which change lets the refactor apply without replacing the resources?",
+    options: [
+      { id: 'A', text: "Add create_before_destroy to both resources so the new copies exist before the old ones are removed." },
+      { id: 'B', text: "Add lifecycle prevent_destroy to both resources so the plan updates them in place instead." },
+      { id: 'C', text: "Run terraform taint on both resources so Terraform recognizes them under the new module address." },
+      { id: 'D', text: "Add moved blocks mapping each old resource address to its new module address, then plan again." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "A moved block tells Terraform that the object tracked at the old address now lives at the new one, so it updates state instead of planning destroy and create; terraform state mv achieves the same result imperatively. prevent_destroy only makes the plan fail when destruction is proposed; it does not remap addresses. taint marks a resource for replacement, the opposite of what is needed. create_before_destroy changes the order of a replacement but still creates a new, empty database and deletes the old one.",
+    referenceUrl: "https://developer.hashicorp.com/terraform/language/modules/develop/refactoring",
+    tags: ["Terraform", "Modules", "Refactoring"]
+  },
+  {
+    id: "aws-soa-299",
+    difficulty: "easy",
+    certId: "aws-soa",
+    domainId: "d3",
+    domainName: "Deployment, Provisioning, and Automation",
+    title: "Undoing a merged change in a GitOps workflow",
+    scenario: "A team manages infrastructure through Git: every merge to main is deployed by a pipeline, and the repository history is the audit record. A merged change to an Auto Scaling group's instance type caused problems in production an hour ago, and the team wants to undo it while keeping the history intact.",
+    question: "What should the engineer do?",
+    options: [
+      { id: 'A', text: "Run git revert on the merge commit, open a pull request, and let the pipeline deploy the revert." },
+      { id: 'B', text: "Change the instance type back in the console now and leave the repository as it is until next week." },
+      { id: 'C', text: "Run git reset --hard to the commit before the merge on main and force-push so the change disappears." },
+      { id: 'D', text: "Delete the main branch and recreate it from the last release tag so that the pipeline redeploys it." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "git revert creates a new commit that undoes the bad change, so the history keeps both the change and its reversal, and the normal review and pipeline path deploys the fix. Resetting and force-pushing rewrites shared history, destroying the audit record and disrupting everyone else's clones. A console change leaves the repository describing a state the account no longer has, so the next pipeline run would reapply the bad instance type. Recreating main from a tag also rewrites history and can drop unrelated merged work.",
+    referenceUrl: "https://docs.aws.amazon.com/prescriptive-guidance/latest/choosing-git-branch-approach/introduction.html",
+    tags: ["Git", "GitOps", "Rollback"]
+  },
+  {
+    id: "aws-soa-300",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d3",
+    domainName: "Deployment, Provisioning, and Automation",
+    title: "Adopting hand-built resources into Terraform",
+    scenario: "A startup created its production S3 buckets and an IAM role by hand before adopting Terraform. The team has written matching resource blocks and wants Terraform to manage the existing resources from now on, without deleting or recreating them.",
+    question: "What should the engineer do?",
+    options: [
+      { id: 'A', text: "Run terraform plan -refresh-only so Terraform writes the unmanaged resources into its state file." },
+      { id: 'B', text: "Add import blocks with each resource's ID, run plan to confirm no changes are proposed, then apply." },
+      { id: 'C', text: "Delete the resources by hand and run terraform apply so Terraform recreates them under management." },
+      { id: 'D', text: "Run terraform apply with the new blocks; Terraform detects existing names and adopts the resources." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "Import blocks, or the terraform import command, associate existing infrastructure with resource addresses in state; a plan then shows whether the written configuration matches the real settings before apply records the import. A plain apply tries to create new resources and fails on the existing bucket names or role name. A refresh-only plan updates attributes of resources already in state and never discovers unmanaged ones. Deleting production buckets and a live role to recreate them causes data loss and downtime.",
+    referenceUrl: "https://developer.hashicorp.com/terraform/language/import",
+    tags: ["Terraform", "Import"]
+  }
+];
+
+export default AWS_SOA_QUESTIONS_12;

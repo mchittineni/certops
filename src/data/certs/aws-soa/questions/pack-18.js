@@ -1,0 +1,532 @@
+export const AWS_SOA_QUESTIONS_18 = [
+  {
+    id: "aws-soa-426",
+    difficulty: "easy",
+    certId: "aws-soa",
+    domainId: "d5",
+    domainName: "Networking and Content Delivery",
+    title: "NAT gateway bill driven by object storage traffic",
+    scenario: "A video analytics firm's Cost Explorer shows NAT gateway data processing as its largest networking charge. Flow log analysis shows that almost all of the traffic through the NAT gateway is EC2 instances in private subnets reading and writing objects in S3 buckets in the same Region.",
+    question: "Which change reduces this cost with the least effort?",
+    options: [
+      { id: 'A', text: "Enable S3 Transfer Acceleration on the buckets so uploads travel over the edge network instead of the NAT." },
+      { id: 'B', text: "Create an interface VPC endpoint for S3 in each private subnet and point the applications at its DNS names." },
+      { id: 'C', text: "Add a gateway VPC endpoint for S3 to the private subnets' route tables so S3 traffic skips the NAT gateway." },
+      { id: 'D', text: "Replace the NAT gateway with a NAT instance on a smaller instance type so that per-GB processing is avoided." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "A gateway endpoint for S3 adds a prefix-list route that sends S3 traffic directly from the private subnets to S3 with no hourly or per-GB charge, removing the NAT gateway processing fee for that traffic with a single route table change. A NAT instance avoids the processing fee but brings instance costs, patching and a throughput bottleneck, which is more effort and risk. Transfer Acceleration adds a per-GB charge and still needs an internet path. An interface endpoint for S3 works but charges per hour per AZ and per GB and requires application changes, so it is neither the cheapest nor the simplest option for in-VPC traffic.",
+    referenceUrl: "https://docs.aws.amazon.com/vpc/latest/privatelink/vpc-endpoints-s3.html",
+    tags: ["Cost optimization", "NAT gateway", "Gateway endpoint"]
+  },
+  {
+    id: "aws-soa-427",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d5",
+    domainName: "Networking and Content Delivery",
+    title: "Cross-AZ charges on outbound internet traffic",
+    scenario: "A marketing platform runs instances in private subnets across three Availability Zones. All three private subnets share one route table whose default route points to a single NAT gateway in the first AZ. The bill shows large regional data transfer charges, and an AZ outage last year cut internet access for every subnet.",
+    question: "What should the CloudOps engineer change to address both problems?",
+    options: [
+      { id: 'A', text: "Create a NAT gateway in every AZ's public subnet and point each private subnet's route table at its own AZ's gateway." },
+      { id: 'B', text: "Add a transit gateway and route each private subnet's default traffic through it to the NAT gateway in the first AZ." },
+      { id: 'C', text: "Attach a second Elastic IP address to the existing NAT gateway so that connections are spread across two addresses." },
+      { id: 'D', text: "Resize the existing NAT gateway to a larger bandwidth class so it absorbs traffic from all three AZs at a lower rate." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Traffic from the second and third AZs crosses AZ boundaries to reach a NAT gateway in the first AZ, which incurs inter-AZ data transfer charges, and that single zonal gateway is a shared point of failure. A NAT gateway per AZ with AZ-specific route tables keeps traffic in its zone and survives the loss of one AZ. NAT gateways scale automatically and have no selectable bandwidth class. Additional Elastic IP addresses increase available connection ports but do not change where the gateway lives. Routing through a transit gateway adds its per-GB processing fee and still ends at the same zonal gateway.",
+    referenceUrl: "https://docs.aws.amazon.com/vpc/latest/userguide/nat-gateway-basics.html",
+    tags: ["Cost optimization", "NAT gateway", "Availability Zones"]
+  },
+  {
+    id: "aws-soa-428",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d5",
+    domainName: "Networking and Content Delivery",
+    title: "Hunting idle public IPv4 addresses",
+    scenario: "Since AWS began charging for every public IPv4 address, a SaaS company's bill has risen noticeably. The account has hundreds of Elastic IP addresses and auto-assigned public addresses across load balancers, NAT gateways and instances, and nobody knows which ones are unattached or unnecessary.",
+    question: "Which tool gives the team an inventory of public IPv4 addresses by type and association status?",
+    options: [
+      { id: 'A', text: "VPC Reachability Analyzer run against each Elastic IP address to find the addresses that have no path to a resource." },
+      { id: 'B', text: "The EC2 Global View console, which lists every public IPv4 address in each Region together with its hourly charge." },
+      { id: 'C', text: "Public IP insights in Amazon VPC IP Address Manager, which lists addresses by type and association state." },
+      { id: 'D', text: "The Trusted Advisor idle load balancers check, which reports every public IPv4 address that carries no application traffic." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "Public IP insights in VPC IPAM, available in the free tier, shows the public IPv4 addresses in use in a Region broken down by type, such as Amazon-owned Elastic IPs, EC2 public IPs and service-managed addresses, and flags unassociated Elastic IPs that can be released. The Trusted Advisor idle load balancer check looks at load balancers, not every address. Reachability Analyzer tests paths between resources and is not an address inventory. EC2 Global View summarizes resources such as instances and VPCs across Regions but does not provide address-level charge information.",
+    referenceUrl: "https://docs.aws.amazon.com/vpc/latest/ipam/view-public-ip-insights.html",
+    tags: ["Cost optimization", "Public IPv4", "VPC IPAM"]
+  },
+  {
+    id: "aws-soa-429",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d5",
+    domainName: "Networking and Content Delivery",
+    title: "Heavy traffic between two spokes on a transit gateway",
+    scenario: "An ad-tech company attaches 25 VPCs to a transit gateway. Two of those VPCs, in the same Region and account, exchange about 400 TB a month between instances in the same Availability Zones, and transit gateway data processing for this pair now dominates the network bill. The other VPCs need to keep their current connectivity.",
+    question: "What should the CloudOps engineer do to cut this cost?",
+    options: [
+      { id: 'A', text: "Replace the attachments of the two VPCs with Site-to-Site VPN attachments so that processing is billed at VPN rates." },
+      { id: 'B', text: "Enable appliance mode on both transit gateway attachments so that flows between the pair stay in the same Availability Zone." },
+      { id: 'C', text: "Move the two VPCs to a second transit gateway dedicated to them and peer it with the original one for other traffic." },
+      { id: 'D', text: "Create a VPC peering connection between the two VPCs and route their mutual traffic over it, not the transit gateway." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "VPC peering has no per-GB processing fee, and data transferred over a peering connection within the same Availability Zone is free, so moving the heavy pair's traffic to a direct peering connection with more specific routes removes the transit gateway processing charge while other VPCs stay on the transit gateway. Appliance mode keeps flows symmetric for inspection appliances; it does not change pricing. A second transit gateway still charges data processing, plus peering attachment costs. VPN attachments are also billed for transit gateway processing and add VPN connection charges and throughput limits.",
+    referenceUrl: "https://docs.aws.amazon.com/whitepapers/latest/building-scalable-secure-multi-vpc-network-infrastructure/vpc-peering.html",
+    tags: ["Cost optimization", "Transit gateway", "VPC peering"]
+  },
+  {
+    id: "aws-soa-430",
+    difficulty: "hard",
+    certId: "aws-soa",
+    domainId: "d5",
+    domainName: "Networking and Content Delivery",
+    title: "Paying for the same endpoints in 20 VPCs",
+    scenario: "A bank's 20 workload VPCs, all attached to a transit gateway, each run their own interface endpoints for eight AWS services in three Availability Zones, and the hourly endpoint charges have become significant. Applications must keep using the default service DNS names, such as ssm.eu-west-1.amazonaws.com, and traffic must stay private.",
+    question: "Which two actions reduce the cost while meeting the requirements? (Choose two.)",
+    options: [
+      { id: 'A', text: "Create the eight interface endpoints once in a shared services VPC attached to the transit gateway, with private DNS disabled." },
+      { id: 'B', text: "Delete the endpoints and send the service traffic through a centralized NAT gateway so that no endpoint charges remain." },
+      { id: 'C', text: "Replace the interface endpoints in each VPC with gateway endpoints for the same eight services, which carry no hourly fee." },
+      { id: 'D', text: "Create private hosted zones for the service names with alias records to the shared endpoints and associate them with each VPC." },
+      { id: 'E', text: "Keep private DNS enabled on the shared endpoints so that every VPC on the transit gateway resolves names to them directly." }
+    ],
+    correctAnswers: ['A', 'D'],
+    type: "multiple",
+    explanation: "Centralizing the interface endpoints in a shared services VPC cuts the number of billed endpoint-AZ hours by a factor of 20, and because an endpoint's private DNS applies only to its own VPC, the spokes need private hosted zones for each service name with alias records to the shared endpoints, associated with every spoke VPC, so the default names still resolve to private addresses reached over the transit gateway. Gateway endpoints exist only for S3 and DynamoDB. Private DNS on the shared endpoints does not extend to other VPCs. A NAT gateway sends traffic to public service endpoints over the internet path and adds per-GB processing, which breaks the private-traffic requirement.",
+    referenceUrl: "https://docs.aws.amazon.com/whitepapers/latest/building-scalable-secure-multi-vpc-network-infrastructure/centralized-access-to-vpc-private-endpoints.html",
+    tags: ["Cost optimization", "Interface endpoint", "Private hosted zones"]
+  },
+  {
+    id: "aws-soa-431",
+    difficulty: "easy",
+    certId: "aws-soa",
+    domainId: "d5",
+    domainName: "Networking and Content Delivery",
+    title: "Data transfer out for downloadable installers",
+    scenario: "A software company serves 2 GB installers directly from an S3 bucket to customers worldwide, and data transfer out to the internet is now its largest AWS cost. Download speed complaints from Asia are also increasing. The installers change only with each monthly release.",
+    question: "What should the CloudOps engineer recommend?",
+    options: [
+      { id: 'A', text: "Enable S3 Transfer Acceleration on the bucket and publish the accelerated endpoint for customer downloads." },
+      { id: 'B', text: "Serve the installers through a CloudFront distribution with the bucket as its origin and long cache lifetimes." },
+      { id: 'C', text: "Replicate the bucket to a Region in Asia with S3 Cross-Region Replication and use a latency routing record." },
+      { id: 'D', text: "Move the installers to the S3 Intelligent-Tiering storage class so that rarely downloaded files cost less." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "Data transfer from S3 to CloudFront is free, CloudFront's data transfer out rates are lower than S3's direct internet rates, and caching at edge locations speeds up downloads worldwide, so a distribution with long cache lifetimes addresses both cost and performance. Transfer Acceleration speeds up transfers but adds a per-GB fee on top of data transfer. Cross-Region Replication adds replication and storage charges and still pays S3 internet transfer rates. Intelligent-Tiering changes storage cost, not data transfer out, which is the dominant charge.",
+    referenceUrl: "https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Introduction.html",
+    tags: ["Cost optimization", "CloudFront", "Data transfer"]
+  },
+  {
+    id: "aws-soa-432",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d5",
+    domainName: "Networking and Content Delivery",
+    title: "Finding the instances behind a NAT traffic spike",
+    scenario: "A fintech's NAT gateway BytesOutToDestination metric tripled this month, raising data processing charges. The private subnets host about 300 instances owned by many teams, and the CloudOps engineer must identify which source instances and destinations account for most of the bytes.",
+    question: "What should the engineer do?",
+    options: [
+      { id: 'A', text: "Review CloudTrail management events for the NAT gateway to see which instances opened the most connections through it." },
+      { id: 'B', text: "Enable detailed monitoring on every private instance and sort them by NetworkOut in a CloudWatch dashboard widget." },
+      { id: 'C', text: "Add a CloudWatch alarm on the NAT gateway ErrorPortAllocation metric and review which instances triggered the alarm." },
+      { id: 'D', text: "Enable VPC flow logs on the NAT gateway's network interface and sum bytes by source and destination in Logs Insights." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Flow logs on the NAT gateway's elastic network interface record the private source address, destination and byte count of each flow, so a CloudWatch Logs Insights query that sums bytes by source and destination reveals the top talkers and where they send data. CloudTrail records API calls, not data-plane connections. ErrorPortAllocation counts failed port allocations and identifies no sources. Instance NetworkOut includes traffic to every destination, including in-VPC and endpoint traffic, so it cannot isolate what passed through the NAT gateway.",
+    referenceUrl: "https://docs.aws.amazon.com/vpc/latest/userguide/nat-gateway-troubleshooting.html",
+    tags: ["Cost optimization", "VPC flow logs", "NAT gateway"]
+  },
+  {
+    id: "aws-soa-433",
+    difficulty: "hard",
+    certId: "aws-soa",
+    domainId: "d5",
+    domainName: "Networking and Content Delivery",
+    title: "Inter-AZ charges after a load balancer change",
+    scenario: "A market data provider runs a Network Load Balancer across three Availability Zones with an equal number of healthy targets in each zone. After an engineer enabled cross-zone load balancing on the NLB, regional data transfer charges rose sharply. Clients are spread evenly across the zones, and no other change was made.",
+    question: "What should the CloudOps engineer do to remove the new charges?",
+    options: [
+      { id: 'A', text: "Turn on connection draining with a shorter deregistration delay so fewer flows move between AZ targets." },
+      { id: 'B', text: "Disable cross-zone load balancing on the NLB, since targets are balanced and each node can serve its zone." },
+      { id: 'C', text: "Replace the NLB with an Application Load Balancer, which bills no inter-AZ transfer for cross-zone traffic." },
+      { id: 'D', text: "Enable client IP preservation on the target groups so that responses return directly and avoid other zones." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "With cross-zone load balancing on, each NLB node spreads traffic across targets in every zone, and for Network Load Balancers that cross-zone traffic is billed as inter-AZ data transfer; with targets and clients balanced per zone, turning it back off keeps each node's traffic in its own zone and removes the charge. Although ALBs do not charge for their cross-zone traffic, replacing the NLB would change the protocol behavior, static addresses and performance the provider chose it for. Client IP preservation affects what source address targets see, not which zone traffic crosses. Deregistration delay governs draining during target removal and does not change steady-state routing.",
+    referenceUrl: "https://docs.aws.amazon.com/elasticloadbalancing/latest/network/network-load-balancers.html",
+    tags: ["Cost optimization", "NLB", "Cross-zone load balancing"]
+  },
+  {
+    id: "aws-soa-434",
+    difficulty: "easy",
+    certId: "aws-soa",
+    domainId: "d5",
+    domainName: "Networking and Content Delivery",
+    title: "Private zone names that one VPC cannot resolve",
+    scenario: "A CloudOps engineer created a Route 53 private hosted zone for internal.example.org and associated it with the application VPC, where the records resolve correctly. Instances in a second VPC in the same account and Region, which already has DNS resolution and hostnames enabled, get NXDOMAIN for the same names.",
+    question: "What should the engineer do?",
+    options: [
+      { id: 'A', text: "Set the second VPC's DHCP options to use the first VPC's DNS." },
+      { id: 'B', text: "Create a public hosted zone for the same domain in the account." },
+      { id: 'C', text: "Associate the private hosted zone with the second VPC as well." },
+      { id: 'D', text: "Peer the two VPCs and enable DNS resolution on the connection." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "A private hosted zone answers queries only from VPCs associated with it, so associating the zone with the second VPC makes its records resolvable there with no other change. A public hosted zone would publish internal names to the internet and is not needed. Peering with DNS resolution enabled lets public DNS hostnames of instances resolve to private IPs across the peering; it does not share private hosted zones. Pointing DHCP options at the first VPC's resolver address fails because the second VPC has no network path to it, and zone association is the supported way to share private records.",
+    referenceUrl: "https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/hosted-zone-private-associate-vpcs.html",
+    tags: ["Route 53", "Private hosted zones"]
+  },
+  {
+    id: "aws-soa-435",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d5",
+    domainName: "Networking and Content Delivery",
+    title: "Associating a private zone with another account's VPC",
+    scenario: "A shared-services account owns the private hosted zone corp.example.net. A new workload account's VPC must resolve those records. In the Route 53 console of the zone's account, the workload VPC does not appear in the list of VPCs available for association, and the company does not use Route 53 profiles.",
+    question: "How should the CloudOps engineer complete the association?",
+    options: [
+      { id: 'A', text: "Peer the two VPCs and enable DNS resolution so the workload VPC inherits the zone's association through the peering." },
+      { id: 'B', text: "Create a matching private hosted zone in the workload account and copy the records with a scheduled Lambda job." },
+      { id: 'C', text: "Share the hosted zone with the workload account through AWS RAM and accept the share in that account's console." },
+      { id: 'D', text: "Authorize the association from the zone's account, then associate the zone from the workload account using the CLI or API." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Cross-account private hosted zone association is a two-step process: the zone owner runs create-vpc-association-authorization for the other account's VPC, then that account runs associate-vpc-with-hosted-zone, using the CLI, SDK or API rather than the console. Private hosted zones are not shared directly through AWS RAM, apart from the separate Route 53 profiles feature the company does not use. A copied zone drifts and doubles the management work. Peering does not extend a private hosted zone to another VPC.",
+    referenceUrl: "https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/hosted-zone-private-associate-vpcs-different-accounts.html",
+    tags: ["Route 53", "Private hosted zones", "Cross-account"]
+  },
+  {
+    id: "aws-soa-436",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d5",
+    domainName: "Networking and Content Delivery",
+    title: "Data center clients resolving private zone records",
+    scenario: "A hospital connects its data center to a VPC over AWS Site-to-Site VPN. Records for aws.hospital.example live in a Route 53 private hosted zone associated with the VPC, and on-premises clients use Windows DNS servers in the data center. On-premises clients must resolve the private records without any EC2-based DNS servers.",
+    question: "Which two actions should the CloudOps engineer take? (Choose two.)",
+    options: [
+      { id: 'A', text: "Create a Route 53 Resolver outbound endpoint and a forwarding rule for aws.hospital.example in the VPC." },
+      { id: 'B', text: "Add a conditional forwarder for aws.hospital.example on the Windows DNS servers to the endpoint addresses." },
+      { id: 'C', text: "Convert the private hosted zone to a public hosted zone and restrict it to the hospital's public IPs." },
+      { id: 'D', text: "Create a Route 53 Resolver inbound endpoint in the VPC with IP addresses in two subnets in different AZs." },
+      { id: 'E', text: "Point the Windows DNS servers' forwarders at the VPC base address plus two across the VPN connection." }
+    ],
+    correctAnswers: ['B', 'D'],
+    type: "multiple",
+    explanation: "A Resolver inbound endpoint gives the VPC resolver IP addresses that are reachable over the VPN, and a conditional forwarder on the Windows DNS servers sends queries for aws.hospital.example to those addresses, where the private hosted zone answers. Outbound endpoints and forwarding rules carry queries in the other direction, from the VPC to on-premises DNS. The VPC base plus two resolver is not reachable from outside the VPC. Public hosted zones cannot be restricted by client address and would expose internal names.",
+    referenceUrl: "https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/resolver-forwarding-inbound-queries.html",
+    tags: ["Route 53 Resolver", "Inbound endpoint", "Hybrid DNS"]
+  },
+  {
+    id: "aws-soa-437",
+    difficulty: "hard",
+    certId: "aws-soa",
+    domainId: "d5",
+    domainName: "Networking and Content Delivery",
+    title: "Split-horizon zone hides a public record",
+    scenario: "A retailer has a public hosted zone for example-shop.com containing www and api records, and recently created a private hosted zone with the same name, associated with its VPC, holding only an internal api record. Since then, instances in the VPC get NXDOMAIN for www.example-shop.com, while internet users resolve it fine.",
+    question: "What should the CloudOps engineer do so the instances can resolve www?",
+    options: [
+      { id: 'A', text: "Create a Resolver forwarding rule for example-shop.com that sends the VPC's queries to the public name servers." },
+      { id: 'B', text: "Enable the VPC's DNS hostnames attribute so that queries missing from the private zone fall through to the public zone." },
+      { id: 'C', text: "Delegate www from the private zone to the public zone's name servers with an NS record for the www name." },
+      { id: 'D', text: "Create a www record in the private hosted zone that returns the same value as the one in the public zone." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "When a private hosted zone matches the queried domain, the VPC resolver answers from that zone only; if the record does not exist there it returns NXDOMAIN and does not fall back to the public zone, so any name internal clients need must also exist in the private zone. The DNS hostnames attribute controls hostname assignment and private DNS features, not fallback. Route 53 Resolver does not follow NS delegations from a private zone to public name servers. A forwarding rule for the whole domain would send the internal api query to the public servers too, breaking the split-horizon design.",
+    referenceUrl: "https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/hosted-zone-private-considerations.html",
+    tags: ["Route 53", "Split-horizon DNS", "Private hosted zones"]
+  },
+  {
+    id: "aws-soa-438",
+    difficulty: "easy",
+    certId: "aws-soa",
+    domainId: "d5",
+    domainName: "Networking and Content Delivery",
+    title: "Pointing the bare domain at a load balancer",
+    scenario: "A bakery chain wants both example-bakery.com and www.example-bakery.com to reach its Application Load Balancer. The www CNAME record works, but Route 53 rejects a CNAME record for example-bakery.com itself. The load balancer's IP addresses can change at any time.",
+    question: "What record should the CloudOps engineer create for example-bakery.com?",
+    options: [
+      { id: 'A', text: "A TXT record with the load balancer's DNS name as its text value." },
+      { id: 'B', text: "An NS record that delegates the apex to the load balancer's DNS." },
+      { id: 'C', text: "An A record containing the load balancer's current IP addresses." },
+      { id: 'D', text: "An A record configured as an alias to the Application Load Balancer." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Alias records can be created at the zone apex, point to AWS resources such as load balancers, follow their changing IP addresses automatically, and incur no query charge for alias queries to AWS resources. DNS does not permit a CNAME at the apex, which is why Route 53 rejects it. Hard-coding the current IP addresses breaks as soon as the load balancer's addresses change. An NS record at the apex would redefine the zone's own delegation, and a load balancer is not a name server. TXT records carry text and do not direct clients anywhere.",
+    referenceUrl: "https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/resource-record-sets-choosing-alias-non-alias.html",
+    tags: ["Route 53", "Alias records"]
+  },
+  {
+    id: "aws-soa-439",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d5",
+    domainName: "Networking and Content Delivery",
+    title: "Handing a subdomain to another team's account",
+    scenario: "A media group's networking account hosts the public zone example-media.com. The streaming team wants to manage every record under stream.example-media.com in a public hosted zone in its own account, without being given access to the parent zone. The team has already created the stream.example-media.com hosted zone.",
+    question: "What should the CloudOps engineer do in the parent zone?",
+    options: [
+      { id: 'A', text: "Create a CNAME record for stream.example-media.com that targets the streaming team's hosted zone ID value." },
+      { id: 'B', text: "Create an alias record for stream.example-media.com that points to the streaming team's hosted zone name." },
+      { id: 'C', text: "Create an NS record for stream.example-media.com listing the name servers of the streaming team's zone." },
+      { id: 'D', text: "Create an SOA record for stream.example-media.com that names the streaming team's account as its authority." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "Delegating a subdomain means adding an NS record for the subdomain in the parent zone that lists the name servers Route 53 assigned to the child hosted zone; resolvers then follow the delegation and the streaming team manages all records in its own account. A CNAME aliases one name to another name and cannot point to a hosted zone ID, and it would conflict with records under the subdomain. Each zone has exactly one SOA record at its apex, created automatically, and adding one for a subdomain in the parent is not how delegation works. Alias records target AWS resources or records in the same zone, not other hosted zones.",
+    referenceUrl: "https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/CreatingNewSubdomain.html",
+    tags: ["Route 53", "Subdomain delegation"]
+  },
+  {
+    id: "aws-soa-440",
+    difficulty: "hard",
+    certId: "aws-soa",
+    domainId: "d5",
+    domainName: "Networking and Content Delivery",
+    title: "Keeping one subdomain local under a forwarding rule",
+    scenario: "A bank's VPC has a Resolver outbound endpoint and a forwarding rule that sends all queries for bank.example to on-premises DNS. A new private hosted zone for cloud.bank.example is associated with the VPC, but instances resolving app.cloud.bank.example get answers from the on-premises servers, which know nothing about it.",
+    question: "What should the CloudOps engineer configure?",
+    options: [
+      { id: 'A', text: "Create a second forwarding rule for cloud.bank.example that targets the VPC's own base address plus two." },
+      { id: 'B', text: "Disassociate the bank.example forwarding rule from the VPC and associate it again after the private zone." },
+      { id: 'C', text: "Create a Resolver inbound endpoint so the on-premises servers can forward cloud.bank.example back to the VPC." },
+      { id: 'D', text: "Create a Resolver system rule for cloud.bank.example and associate it with the VPC to resolve it locally." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Resolver applies the most specific matching rule, and a system rule tells it to resolve that domain itself using private hosted zones and its normal recursive process, so a system rule for cloud.bank.example overrides the broader bank.example forwarding rule for the subdomain only. Forwarding rules cannot target the VPC's own resolver address. Rule order is decided by domain specificity, not by the order in which rules or zones were associated, so re-associating changes nothing. An inbound endpoint with on-premises conditional forwarding back to AWS would work only by adding a round trip through the data center and new on-premises configuration.",
+    referenceUrl: "https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/resolver-overview-DSN-queries-to-vpc.html",
+    tags: ["Route 53 Resolver", "Resolver rules", "Hybrid DNS"]
+  },
+  {
+    id: "aws-soa-441",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d5",
+    domainName: "Networking and Content Delivery",
+    title: "Signing a public zone with DNSSEC",
+    scenario: "A government agency must enable DNSSEC signing for its Route 53 public hosted zone, whose domain is registered with a third-party registrar. The agency's CloudOps engineer has enabled signing in the console but validating resolvers still report the zone as insecure rather than signed and trusted.",
+    question: "Which step completes the chain of trust?",
+    options: [
+      { id: 'A', text: "Create a symmetric KMS key in the zone's home Region and rotate it annually to refresh signatures." },
+      { id: 'B', text: "Enable DNSSEC validation on the VPC's Route 53 Resolver so the agency's resolvers trust the zone." },
+      { id: 'C', text: "Add the DS record for the zone's key-signing key at the registrar so the parent zone trusts it." },
+      { id: 'D', text: "Lower the TTL on the NS and SOA records at the registrar to 60 seconds so resolvers fetch signed data." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "After Route 53 signs the zone with a key-signing key backed by an asymmetric ECC_NIST_P256 customer managed KMS key in us-east-1, the chain of trust is completed by publishing a DS record for that key in the parent zone, which for a third-party registrar means adding it through the registrar. Route 53 DNSSEC signing requires an asymmetric key in us-east-1, not a symmetric key in another Region. Resolver DNSSEC validation makes a VPC validate answers it receives; it does not make other resolvers trust the zone. TTL changes affect caching, not whether a chain of trust exists.",
+    referenceUrl: "https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-configuring-dnssec-enable-signing.html",
+    tags: ["Route 53", "DNSSEC"]
+  },
+  {
+    id: "aws-soa-442",
+    difficulty: "easy",
+    certId: "aws-soa",
+    domainId: "d5",
+    domainName: "Networking and Content Delivery",
+    title: "Sending users to the fastest Region",
+    scenario: "An online learning company runs identical stacks behind Application Load Balancers in us-east-1, eu-west-1 and ap-southeast-2. It wants Route 53 to answer each user with the Region that gives that user the lowest network round-trip time, regardless of which country the user is in.",
+    question: "Which routing policy should the CloudOps engineer use?",
+    options: [
+      { id: 'A', text: "Weighted routing, giving each of the three Regional stacks a third of the traffic." },
+      { id: 'B', text: "Latency-based routing, with one record per Region pointing at that Region's ALB." },
+      { id: 'C', text: "Multivalue answer routing, returning all three load balancers for each DNS query." },
+      { id: 'D', text: "Geolocation routing, with one record per continent pointing at the nearest stack." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "Latency-based routing answers with the record for the AWS Region that Route 53 measures as having the lowest latency for the user's network, which is exactly the requirement. Geolocation routes by where the user is, and the closest continent is not always the lowest-latency Region. Weighted routing splits traffic by proportion without regard to performance. Multivalue answer returns several healthy records in random order and leaves the choice to the client.",
+    referenceUrl: "https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy-latency.html",
+    tags: ["Route 53", "Latency routing"]
+  },
+  {
+    id: "aws-soa-443",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d5",
+    domainName: "Networking and Content Delivery",
+    title: "Visitors from unlisted countries get no answer",
+    scenario: "A streaming service uses Route 53 geolocation routing with records for the United States, Canada and the European Union, each pointing at a licensed regional stack. Support reports that viewers in Brazil and from some mobile carriers whose resolvers cannot be located receive no DNS answer at all. The company wants those viewers served by the US stack.",
+    question: "What should the CloudOps engineer add?",
+    options: [
+      { id: 'A', text: "A geolocation record for South America that points to the US regional stack." },
+      { id: 'B', text: "A latency record for us-east-1 alongside the three geolocation records." },
+      { id: 'C', text: "A health check on each regional record so failed lookups fail over to the US." },
+      { id: 'D', text: "A geolocation record for the Default location that points to the US stack." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Geolocation routing returns no answer for queries whose location matches no record, including resolvers whose location cannot be determined; a Default location record catches every such query and sends it to the US stack. Route 53 does not allow records with different routing policies for the same name and type, so a latency record cannot sit alongside the geolocation records. A South America record fixes Brazil but not resolvers with unknown locations. Health checks fail over unhealthy endpoints; they do nothing for queries that match no record.",
+    referenceUrl: "https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy-geo.html",
+    tags: ["Route 53", "Geolocation routing"]
+  },
+  {
+    id: "aws-soa-444",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d5",
+    domainName: "Networking and Content Delivery",
+    title: "Pulling more users toward a larger Region",
+    scenario: "A ride-hailing company routes users by geographic distance to stacks in us-east-1 and us-west-2 with Route 53 geoproximity routing. The us-east-1 stack has just been doubled in size, and the company wants users in the central United States who currently go to us-west-2 to be drawn to us-east-1 instead.",
+    question: "What should the CloudOps engineer change?",
+    options: [
+      { id: 'A', text: "Lower the TTL on the us-east-1 record so that resolvers in the central states query it more often." },
+      { id: 'B', text: "Give the us-east-1 record a higher weight so it receives a larger share of the resolver queries." },
+      { id: 'C', text: "Give the us-west-2 record a positive bias so that its geographic area expands toward the east coast." },
+      { id: 'D', text: "Give the us-east-1 record a positive bias so that its geographic area expands west into central states." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Geoproximity routing lets each record carry a bias from -99 to 99; a positive bias expands the geographic region that routes to that resource, so a positive bias on us-east-1 pulls central users toward it. Weight is a property of weighted routing and has no effect on geoproximity records. TTL controls caching duration, not which answer a resolver receives. A positive bias on us-west-2 would expand its area and send even more central users west, the opposite of the goal.",
+    referenceUrl: "https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy-geoproximity.html",
+    tags: ["Route 53", "Geoproximity routing"]
+  },
+  {
+    id: "aws-soa-445",
+    difficulty: "easy",
+    certId: "aws-soa",
+    domainId: "d5",
+    domainName: "Networking and Content Delivery",
+    title: "Returning several healthy servers per query",
+    scenario: "A game studio runs six stateless matchmaking servers on EC2 instances with Elastic IP addresses and no load balancer. It wants DNS to return several server addresses per query so clients can retry another one, and it wants unhealthy servers left out of the answers automatically.",
+    question: "Which Route 53 configuration meets the requirement?",
+    options: [
+      { id: 'A', text: "A simple routing record listing all six addresses, with a health check on the record." },
+      { id: 'B', text: "A multivalue answer record for each server, each associated with its own health check." },
+      { id: 'C', text: "A failover primary record for one server and secondary records for the remaining five." },
+      { id: 'D', text: "A weighted record for each server with equal weights and no health checks associated." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "Multivalue answer routing returns up to eight healthy records per query, chosen at random, and omits any record whose health check is failing, which gives clients several working addresses to try. Simple routing records cannot be associated with health checks, so a failed server would still be returned. Failover routing supports one primary and one secondary record, not six servers active at once. Weighted routing returns a single record per query, and without health checks it would still hand out unhealthy servers.",
+    referenceUrl: "https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy-multivalue.html",
+    tags: ["Route 53", "Multivalue answer routing"]
+  },
+  {
+    id: "aws-soa-446",
+    difficulty: "hard",
+    certId: "aws-soa",
+    domainId: "d5",
+    domainName: "Networking and Content Delivery",
+    title: "Routing one carrier's subscribers by address range",
+    scenario: "A video platform has a peering arrangement that makes its eu-central-1 stack much cheaper and faster for subscribers of one large mobile carrier, whose resolver and client CIDR blocks are published. Everyone else should keep receiving the answer that latency-based routing currently gives them.",
+    question: "What should the CloudOps engineer configure in Route 53?",
+    options: [
+      { id: 'A', text: "A CIDR collection with the carrier's blocks and IP-based routing records sending that location to eu-central-1." },
+      { id: 'B', text: "A geoproximity record with a large positive bias for eu-central-1 so that the carrier's region routes there." },
+      { id: 'C', text: "A weighted record with weight 255 for eu-central-1 and a Route 53 Resolver rule matching the carrier's domain." },
+      { id: 'D', text: "A geolocation record for the carrier's home country pointing to eu-central-1, with latency records for everyone else." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "IP-based routing uses CIDR collections that map client or resolver address ranges to named locations, so the carrier's published blocks can be sent to eu-central-1 while the default location record, which can alias to the existing latency records, keeps serving everyone else. Geolocation by country would move every user in that country, not only the carrier's subscribers. Weighted routing splits traffic proportionally and Resolver rules affect only queries from VPCs, not public clients. Geoproximity bias shifts whole geographic areas, which again captures users of other carriers.",
+    referenceUrl: "https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy-ipbased.html",
+    tags: ["Route 53", "IP-based routing"]
+  },
+  {
+    id: "aws-soa-447",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d5",
+    domainName: "Networking and Content Delivery",
+    title: "Query logging for a public zone will not save",
+    scenario: "A publisher's operations team works entirely in eu-west-1. They want every DNS query that Route 53 answers for their public hosted zone logged to CloudWatch Logs. When they try to configure query logging to a log group they created in eu-west-1, the log group is not accepted.",
+    question: "What should the CloudOps engineer do?",
+    options: [
+      { id: 'A', text: "Send the eu-west-1 log group to an S3 bucket and configure query logging to write into the bucket." },
+      { id: 'B', text: "Create the log group in us-east-1, add a resource policy that lets Route 53 write to it, and select it." },
+      { id: 'C', text: "Enable CloudTrail data events for Route 53 and deliver the trail to the eu-west-1 log group instead." },
+      { id: 'D', text: "Create a Resolver query logging configuration in eu-west-1 and associate it with the team's VPC." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "Public DNS query logging writes only to CloudWatch Logs log groups in US East (N. Virginia), and the log group needs a resource policy that allows Route 53 to create log streams and put events; subscriptions or exports can then move the data elsewhere. Resolver query logging captures queries made from VPCs, not the public queries Route 53 answers for internet resolvers. Public query logging cannot target S3 directly. CloudTrail records Route 53 API calls, not DNS queries.",
+    referenceUrl: "https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/query-logs.html",
+    tags: ["Route 53", "Query logging", "CloudWatch Logs"]
+  },
+  {
+    id: "aws-soa-448",
+    difficulty: "hard",
+    certId: "aws-soa",
+    domainId: "d5",
+    domainName: "Networking and Content Delivery",
+    title: "Which instance looked up the suspicious domain",
+    scenario: "Threat intelligence reports that malware on EC2 contacts update.bad-example.net. The security team must find which instances in a production VPC have looked up that name in the past, and keep a searchable record of all future DNS lookups from the VPC in Amazon S3.",
+    question: "Which two actions should the CloudOps engineer take? (Choose two.)",
+    options: [
+      { id: 'A', text: "Create a Route 53 Resolver query logging configuration with the S3 bucket as its destination." },
+      { id: 'B', text: "Enable VPC flow logs to S3 and filter the records on the domain name and on UDP port 53 traffic." },
+      { id: 'C', text: "Enable CloudTrail data events for Route 53 Resolver and search the trail for the domain name." },
+      { id: 'D', text: "Associate the Resolver query logging configuration with the production VPC to capture its lookups." },
+      { id: 'E', text: "Enable public DNS query logging on a hosted zone for bad-example.net with the bucket as target." }
+    ],
+    correctAnswers: ['A', 'D'],
+    type: "multiple",
+    explanation: "Resolver query logging records each DNS query made from an associated VPC, including the query name and the source instance's address, and it can deliver to S3, CloudWatch Logs or Firehose; creating the configuration and associating it with the VPC produces the searchable record. Public query logging applies to hosted zones the company owns and records queries from internet resolvers, not lookups by its instances of someone else's domain. Flow logs carry no DNS names and do not capture traffic to the Amazon-provided resolver. CloudTrail does not record individual DNS queries.",
+    referenceUrl: "https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/resolver-query-logs.html",
+    tags: ["Route 53 Resolver", "Query logging", "Security investigation"]
+  },
+  {
+    id: "aws-soa-449",
+    difficulty: "easy",
+    certId: "aws-soa",
+    domainId: "d5",
+    domainName: "Networking and Content Delivery",
+    title: "Preparing DNS for a planned cutover",
+    scenario: "A law firm will move its client portal to a new load balancer on Saturday by changing a non-alias Route 53 A record. The record currently has a TTL of 86,400 seconds. The partners want clients to reach the new endpoint within about five minutes of the change.",
+    question: "What should the CloudOps engineer do ahead of the cutover?",
+    options: [
+      { id: 'A', text: "Enable DNSSEC signing on the zone so resolvers discard cached answers sooner." },
+      { id: 'B', text: "Create the new record with weighted routing and set the old record's weight to 0." },
+      { id: 'C', text: "Lower the record's TTL to about 300 seconds at least a day before the change." },
+      { id: 'D', text: "Lower the hosted zone's SOA refresh value to 300 seconds just before the change." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "Resolvers cache a record for its TTL, so lowering it to about 300 seconds at least one old TTL period (a day here) before the change ensures that caches expire within five minutes of the cutover. DNSSEC authenticates answers and does not shorten caching. The SOA refresh value is used by secondary name servers in zone transfers and does not control how long resolvers cache the A record. Converting to weighted records still leaves the old answers cached for up to a day under the current TTL.",
+    referenceUrl: "https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/resource-record-sets-values-basic.html",
+    tags: ["Route 53", "TTL", "Migration"]
+  },
+  {
+    id: "aws-soa-450",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d5",
+    domainName: "Networking and Content Delivery",
+    title: "Forwarding rule that never takes effect",
+    scenario: "A CloudOps engineer created a Route 53 Resolver outbound endpoint in a new VPC and a forwarding rule that sends queries for plant.example.local to two on-premises DNS servers reachable over Direct Connect. Instances in the VPC still get NXDOMAIN for plant.example.local names, and the endpoint shows no query activity.",
+    question: "What is the most likely missing step?",
+    options: [
+      { id: 'A', text: "Associate the forwarding rule with the VPC so its instances' queries match the rule." },
+      { id: 'B', text: "Create an inbound endpoint so that on-premises servers can send the answers back." },
+      { id: 'C', text: "Open inbound UDP and TCP port 53 on the outbound endpoint's security group for the instances." },
+      { id: 'D', text: "Create a private hosted zone for plant.example.local and associate it with the VPC." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "A Resolver forwarding rule applies only to VPCs it is associated with; until the rule is associated, the VPC resolver never matches it, so no queries reach the outbound endpoint and names fail. Instances send queries to the VPC resolver, not to the outbound endpoint, so endpoint security group inbound rules are not the issue when the endpoint shows no activity at all. Replies to forwarded queries return on the same connection, so an inbound endpoint is not needed. A private hosted zone would shadow the on-premises domain with an empty zone rather than forwarding to it.",
+    referenceUrl: "https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/resolver-rules-managing.html",
+    tags: ["Route 53 Resolver", "Resolver rules", "Hybrid DNS"]
+  }
+];
+
+export default AWS_SOA_QUESTIONS_18;

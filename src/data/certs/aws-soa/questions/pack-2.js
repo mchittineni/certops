@@ -1,0 +1,532 @@
+export const AWS_SOA_QUESTIONS_2 = [
+  {
+    id: "aws-soa-26",
+    difficulty: "easy",
+    certId: "aws-soa",
+    domainId: "d1",
+    domainName: "Monitoring, Logging, Analysis, Remediation, and Performance Optimization",
+    title: "One dashboard for eighteen workload accounts",
+    scenario: "A retail group runs its storefront across 18 workload accounts in AWS Organizations. The central operations team, which works from a dedicated monitoring account, wants to build CloudWatch dashboards and alarms that read metrics, logs, and traces from all 18 accounts without signing in to each one.",
+    question: "What should the CloudOps engineer set up?",
+    options: [
+      { id: 'A', text: "A dashboard in each workload account shared publicly by link, with the links collected on an index page in the monitoring account." },
+      { id: 'B', text: "A CloudWatch metric stream in each workload account that sends every metric through Firehose into the monitoring account." },
+      { id: 'C', text: "CloudWatch cross-account observability, with the monitoring account as the sink and each workload account linked to it as a source." },
+      { id: 'D', text: "An IAM user in each workload account with CloudWatchReadOnlyAccess, whose keys the operations team rotates from the monitoring account." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "CloudWatch cross-account observability links source accounts to a monitoring account through the Observability Access Manager, after which dashboards, alarms, Logs Insights queries, and traces in the monitoring account can use the linked accounts' telemetry directly; linking can be done for a whole organization or OU. Metric streams deliver metrics to Firehose destinations, not into another account's CloudWatch, and do nothing for logs or traces. Publicly shared per-account dashboards expose data without authentication and still leave 18 separate views. Long-term IAM user keys in every account are both a security risk and a poor substitute for a native feature.",
+    referenceUrl: "https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Unified-Cross-Account.html",
+    tags: ["Cross-account observability","CloudWatch dashboards","AWS Organizations"]
+  },
+  {
+    id: "aws-soa-27",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d1",
+    domainName: "Monitoring, Logging, Analysis, Remediation, and Performance Optimization",
+    title: "Dashboard access for executives without AWS logins",
+    scenario: "A logistics company wants four executives to view one CloudWatch dashboard of order throughput from their laptops. The executives have no IAM users or IAM Identity Center access and will not be given any, and the security team insists that each viewer must authenticate before seeing the data.",
+    question: "How should the CloudOps engineer share the dashboard?",
+    options: [
+      { id: 'A', text: "Create an IAM user for each executive with CloudWatchReadOnlyAccess and a console password, and disable all other permissions." },
+      { id: 'B', text: "Export a widget image hourly with GetMetricWidgetImage from a Lambda function and email it to the executives as an attachment." },
+      { id: 'C', text: "Share the dashboard publicly so that anyone holding the link can open it, and send the link only to the four executives by email." },
+      { id: 'D', text: "Share the dashboard with the executives' email addresses, which creates Amazon Cognito identities that sign in with a password." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "CloudWatch dashboard sharing supports three modes: public, specific email addresses, and a single sign-on provider. Sharing with specific email addresses creates users in an Amazon Cognito user pool, each of whom sets a password and signs in to see only the shared dashboard, which meets both constraints. A public link requires no authentication, so anyone who obtains it sees the data. IAM users are exactly what the company said it would not create. Hourly images by email are stale, unauthenticated once forwarded, and need custom code.",
+    referenceUrl: "https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch-dashboard-sharing.html",
+    tags: ["CloudWatch dashboards","Dashboard sharing","Amazon Cognito"]
+  },
+  {
+    id: "aws-soa-28",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d1",
+    domainName: "Monitoring, Logging, Analysis, Remediation, and Performance Optimization",
+    title: "The same dashboard in twelve accounts, kept in step",
+    scenario: "A software company gives each of its 12 customer-dedicated accounts an identical operations dashboard for the account's ALB, Auto Scaling group, and Aurora cluster. Engineers keep editing individual dashboards in the console, and they drift apart. The company wants every dashboard defined once, versioned in Git, and deployed consistently to all 12 accounts.",
+    question: "Which approach meets the requirement?",
+    options: [
+      { id: 'A', text: "Create the dashboard once in the management account and share it with all 12 member accounts by using AWS Resource Access Manager." },
+      { id: 'B', text: "Turn on CloudWatch automatic dashboards in each account so that every account gets the same service views without authoring." },
+      { id: 'C', text: "Define an AWS::CloudWatch::Dashboard resource with the dashboard body in a CloudFormation template and deploy it with a StackSet." },
+      { id: 'D', text: "Save the dashboard body as a Systems Manager document and have a State Manager association apply it to every account daily." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "A dashboard is an ordinary CloudFormation resource whose DashboardBody holds the widget JSON, so keeping the template in Git and deploying it with a StackSet to all 12 accounts gives one versioned definition, consistent rollout, and drift detection. Resource Access Manager does not share CloudWatch dashboards. Automatic dashboards show generic per-service views and cannot express the company's specific layout of one ALB, group, and cluster. State Manager associations apply documents to managed nodes, not dashboards across accounts.",
+    referenceUrl: "https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-cloudwatch-dashboard.html",
+    tags: ["CloudWatch dashboards","CloudFormation","StackSets"]
+  },
+  {
+    id: "aws-soa-29",
+    difficulty: "hard",
+    certId: "aws-soa",
+    domainId: "d1",
+    domainName: "Monitoring, Logging, Analysis, Remediation, and Performance Optimization",
+    title: "Choosing one microservice from a dropdown",
+    scenario: "A streaming platform runs 30 microservices, each emitting the same custom metrics with a ServiceName dimension. On-call engineers want a single CloudWatch dashboard where they pick one service from a dropdown and every widget switches to that service's latency, errors, and saturation, instead of maintaining 30 near-identical dashboards.",
+    question: "Which dashboard feature should the CloudOps engineer use?",
+    options: [
+      { id: 'A', text: "A cross-account observability link for each microservice, so each service's metrics appear in the dashboard's account list." },
+      { id: 'B', text: "A SEARCH expression in each widget that returns every ServiceName series, so all 30 services are drawn together on each graph." },
+      { id: 'C', text: "A metric math expression in each widget that averages the 30 series into one line, with a label showing the service count." },
+      { id: 'D', text: "A dashboard variable bound to ServiceName, so that picking a value updates every widget on the dashboard together." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Dashboard variables, either property variables or pattern variables, add a selector to the dashboard and substitute the chosen value, here a ServiceName, into every widget's metric definitions, so one dashboard serves all 30 services. A SEARCH expression is useful for showing all matching series at once, but that produces 30 overlapping lines rather than letting the engineer focus on one service. Averaging the series hides the one service that is misbehaving. Cross-account links connect accounts, not individual services inside one account.",
+    referenceUrl: "https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_dashboard_variables.html",
+    tags: ["CloudWatch dashboards","Dashboard variables"]
+  },
+  {
+    id: "aws-soa-30",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d1",
+    domainName: "Monitoring, Logging, Analysis, Remediation, and Performance Optimization",
+    title: "The ten hottest instances in a large fleet",
+    scenario: "A gaming company runs about 2,000 EC2 instances whose membership changes every hour. Operators want a dashboard widget that always shows the ten instances with the highest CPU utilization right now, without editing the widget as instances launch and terminate.",
+    question: "What should the CloudOps engineer add to the dashboard?",
+    options: [
+      { id: 'A', text: "An anomaly detection band on the fleet's average CPUUtilization, so that the instances outside the band appear on the widget." },
+      { id: 'B', text: "A Metrics Insights query widget that selects maximum CPUUtilization grouped by instance, ordered descending and limited to 10." },
+      { id: 'C', text: "A line widget listing 2,000 individual CPUUtilization metrics, with a Lambda function that rewrites the widget list each hour." },
+      { id: 'D', text: "A Contributor Insights rule on the EC2 CPUUtilization metric that ranks the instances and displays the top 10 contributors." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "CloudWatch Metrics Insights uses a SQL-like language, for example SELECT MAX(CPUUtilization) FROM SCHEMA(\"AWS/EC2\", InstanceId) GROUP BY InstanceId ORDER BY MAX() DESC LIMIT 10, and re-evaluates it every time the widget refreshes, so the top ten always reflects the current fleet. A hand-maintained list of 2,000 metrics needs custom code and quickly exceeds what a widget can plot. Contributor Insights analyzes log events, not existing metrics. An anomaly band on the fleet average shows a single aggregate series and does not identify any instance.",
+    referenceUrl: "https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/query_with_cloudwatch-metrics-insights.html",
+    tags: ["Metrics Insights","CloudWatch dashboards","EC2"]
+  },
+  {
+    id: "aws-soa-31",
+    difficulty: "easy",
+    certId: "aws-soa",
+    domainId: "d1",
+    domainName: "Monitoring, Logging, Analysis, Remediation, and Performance Optimization",
+    title: "Seeing every alarm's state at a glance",
+    scenario: "A hospital's night operations team watches a wall screen showing a CloudWatch dashboard with graphs of key metrics. They want the same dashboard to show, as coloured tiles, whether each of their 25 production alarms is currently OK, in ALARM, or has insufficient data.",
+    question: "Which widget should the CloudOps engineer add?",
+    options: [
+      { id: 'A', text: "An alarm status widget that lists the 25 alarms and shows the current state of each one as a colour-coded tile in a grid." },
+      { id: 'B', text: "A logs table widget that runs a Logs Insights query over the alarm history and shows the most recent state change of each alarm." },
+      { id: 'C', text: "A text widget containing links to each alarm's console page, so the operators can open any alarm to check its current state." },
+      { id: 'D', text: "A number widget for each alarm's underlying metric, with a threshold annotation that turns the value red when it is exceeded." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "The alarm status widget displays a grid of chosen alarms with their current state colour-coded, which is exactly what a wall screen needs. Alarm history is not stored in a CloudWatch Logs log group, so a Logs Insights query has nothing to read. Number widgets with annotations show metric values, not alarm states, and ignore the alarm's evaluation settings such as M out of N. A text widget of links requires someone to click through each alarm and shows nothing at a glance.",
+    referenceUrl: "https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/add_remove_alarm_dashboard.html",
+    tags: ["CloudWatch dashboards","Alarm status widget"]
+  },
+  {
+    id: "aws-soa-32",
+    difficulty: "hard",
+    certId: "aws-soa",
+    domainId: "d1",
+    domainName: "Monitoring, Logging, Analysis, Remediation, and Performance Optimization",
+    title: "Wiring source accounts to a monitoring account",
+    scenario: "A bank is enabling CloudWatch cross-account observability so that a central monitoring account can query metrics and logs from 40 application accounts in one organizational unit. The CloudOps engineer has administrator access in the monitoring account and can deploy CloudFormation StackSets to the OU.",
+    question: "Which two steps are required? (Choose two.)",
+    options: [
+      { id: 'A', text: "In the monitoring account, create an Observability Access Manager sink with a policy allowing the OU and the telemetry types needed." },
+      { id: 'B', text: "Create a cross-account IAM role in each application account that the monitoring account's dashboards assume when they are opened." },
+      { id: 'C', text: "In each application account, create an Observability Access Manager link to the sink, for example with a StackSet deployed to the OU." },
+      { id: 'D', text: "Enable trusted access for CloudWatch observability in AWS Organizations so that member account metrics are copied into the management account." },
+      { id: 'E', text: "Peer the monitoring account's VPC with each application account's VPC so that CloudWatch can read metrics across account boundaries." }
+    ],
+    correctAnswers: ['A', 'C'],
+    type: "multiple",
+    explanation: "Cross-account observability has two halves: a sink in the monitoring account, whose sink policy states which accounts or organizational units may link and which telemetry types (metrics, logs, traces, and others) they may share, and a link in each source account pointing to that sink, which a StackSet or the provided template can create across the OU. CloudWatch telemetry is read through the service, not over VPC networking, so peering is irrelevant. No Organizations trusted access setting copies metrics into the management account. A cross-account IAM role is the older console cross-account feature, which requires switching context and is not part of setting up observability links.",
+    referenceUrl: "https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Unified-Cross-Account-Setup.html",
+    tags: ["Cross-account observability","Observability Access Manager"]
+  },
+  {
+    id: "aws-soa-33",
+    difficulty: "easy",
+    certId: "aws-soa",
+    domainId: "d1",
+    domainName: "Monitoring, Logging, Analysis, Remediation, and Performance Optimization",
+    title: "Two Regions on a single dashboard",
+    scenario: "A travel company serves Europe from eu-west-1 and North America from us-east-1. Its engineers built one dashboard in each Region and switch between them during incidents. They want a single dashboard that shows ALB request counts and 5XX errors from both Regions side by side.",
+    question: "What should the CloudOps engineer do?",
+    options: [
+      { id: 'A', text: "Create one dashboard and add widgets whose metrics specify eu-west-1 and us-east-1, because a dashboard can mix Regions." },
+      { id: 'B', text: "Enable cross-account observability between the two Regions, which lets a dashboard in one Region read metrics from the other." },
+      { id: 'C', text: "Deploy the dashboard with a StackSet to both Regions, which merges the two dashboards into one global view after deployment." },
+      { id: 'D', text: "Replicate the eu-west-1 metrics into us-east-1 with a metric stream and Firehose, then graph both from the us-east-1 dashboard." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "CloudWatch dashboards are global, and each metric in a widget carries its own Region, so one dashboard can graph ALB metrics from eu-west-1 and us-east-1 next to each other with no data movement. A metric stream exports metrics to Firehose destinations and does not make them appear as CloudWatch metrics in another Region. Cross-account observability links accounts, and it is set up per Region; it does not bridge Regions within one account. A StackSet deploys a separate copy of the dashboard per target and never merges them.",
+    referenceUrl: "https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cross_region_dashboard.html",
+    tags: ["CloudWatch dashboards","Multi-Region"]
+  },
+  {
+    id: "aws-soa-34",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d1",
+    domainName: "Monitoring, Logging, Analysis, Remediation, and Performance Optimization",
+    title: "S3 cannot validate the notification topic",
+    scenario: "A media company wants an SNS message whenever a video lands in its uploads bucket. When the CloudOps engineer saves the S3 event notification pointing at a standard SNS topic in the same account and Region, S3 returns the error Unable to validate the following destination configurations.",
+    question: "What should the engineer change?",
+    options: [
+      { id: 'A', text: "Add an S3 bucket policy statement that grants the SNS service principal the s3:GetObject permission on the uploads bucket prefix." },
+      { id: 'B', text: "Enable server-side encryption with SSE-S3 on the uploads bucket so that S3 is permitted to publish its object events to the SNS topic." },
+      { id: 'C', text: "Add a statement to the SNS topic's access policy allowing the S3 service principal to publish, scoped with the bucket's source ARN." },
+      { id: 'D', text: "Replace the standard topic with a FIFO topic, because S3 event notifications can only be delivered to FIFO topics in the account." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "When an event notification is saved, S3 checks that it can publish to the destination, and the validation error appears when the topic's access policy does not allow s3.amazonaws.com to call sns:Publish; adding that statement, conditioned on aws:SourceArn for the bucket and aws:SourceAccount, fixes it. Bucket encryption settings do not affect notification permissions. S3 event notifications support standard SNS topics and do not support FIFO topics. SNS never reads objects, so granting it s3:GetObject addresses the wrong direction of access.",
+    referenceUrl: "https://docs.aws.amazon.com/AmazonS3/latest/userguide/grant-destinations-permissions-to-s3.html",
+    tags: ["SNS","S3 event notifications","Troubleshooting"]
+  },
+  {
+    id: "aws-soa-35",
+    difficulty: "hard",
+    certId: "aws-soa",
+    domainId: "d1",
+    domainName: "Monitoring, Logging, Analysis, Remediation, and Performance Optimization",
+    title: "Alarms silent after the topic was encrypted",
+    scenario: "A compliance review required encryption at rest for every SNS topic, so an engineer enabled SSE on the operations alert topic using the AWS managed key for SNS. Since then, CloudWatch alarms still change state but their notifications never arrive, although a test message published from the console is delivered to all subscribers.",
+    question: "How should the CloudOps engineer restore alarm notifications while keeping the topic encrypted?",
+    options: [
+      { id: 'A', text: "Add a topic access policy statement allowing cloudwatch.amazonaws.com to publish, and keep the AWS managed key for SNS in place." },
+      { id: 'B', text: "Change the alarms to publish through an EventBridge rule, because EventBridge can use the AWS managed key for SNS to publish." },
+      { id: 'C', text: "Encrypt the topic with a customer managed KMS key whose key policy lets CloudWatch use kms:Decrypt and kms:GenerateDataKey*." },
+      { id: 'D', text: "Disable encryption on the topic and enable it again with the same AWS managed key so that CloudWatch receives a key grant." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "The AWS managed key for SNS has a key policy that cannot be edited, so it cannot grant other AWS services such as CloudWatch the kms:Decrypt and kms:GenerateDataKey* permissions they need to publish to an encrypted topic; a customer managed key with a key policy statement for cloudwatch.amazonaws.com resolves it. Re-enabling the same managed key changes nothing. A topic access policy is not the barrier here, since the failure is at the KMS layer. EventBridge faces the same restriction with the AWS managed key and would also need a customer managed key.",
+    referenceUrl: "https://docs.aws.amazon.com/sns/latest/dg/sns-key-management.html",
+    tags: ["SNS","KMS","CloudWatch alarms"]
+  },
+  {
+    id: "aws-soa-36",
+    difficulty: "easy",
+    certId: "aws-soa",
+    domainId: "d1",
+    domainName: "Monitoring, Logging, Analysis, Remediation, and Performance Optimization",
+    title: "Hearing about database failovers and maintenance",
+    scenario: "A payroll company runs Multi-AZ RDS for PostgreSQL instances. The database team wants an email whenever any production instance fails over, is rebooted, or starts a maintenance action, without writing any code or polling.",
+    question: "What should the CloudOps engineer configure?",
+    options: [
+      { id: 'A', text: "Enhanced Monitoring at a one-second interval, which emails the team whenever the operating system of an instance restarts." },
+      { id: 'B', text: "An RDS event subscription for the database instances, covering failover, maintenance, and notification categories, to an SNS topic." },
+      { id: 'C', text: "A CloudWatch alarm on the DatabaseConnections metric of each database that emails the team when connections drop to zero." },
+      { id: 'D', text: "A CloudTrail trail with a metric filter on RebootDBInstance calls, which captures the failovers and maintenance actions performed by RDS." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "RDS event notifications publish events such as failover, reboot, and maintenance to an SNS topic through an event subscription filtered by source type, source IDs, and event categories, with no code. A drop in connections is an indirect symptom that also fires for quiet periods and says nothing about why. Failovers and maintenance are performed by the service, not through RebootDBInstance API calls, so CloudTrail would miss most of them. Enhanced Monitoring collects OS metrics and has no email capability.",
+    referenceUrl: "https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Events.overview.html",
+    tags: ["RDS","Event notifications","SNS"]
+  },
+  {
+    id: "aws-soa-37",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d1",
+    domainName: "Monitoring, Logging, Analysis, Remediation, and Performance Optimization",
+    title: "Early warning of scheduled AWS maintenance",
+    scenario: "A telecom's operations team keeps missing AWS Health notices about scheduled EC2 retirements and service issues that affect its accounts. It wants each new Health event affecting its resources sent to the team's SNS topic automatically so that it reaches their pager and email.",
+    question: "Which solution meets this requirement?",
+    options: [
+      { id: 'A', text: "A CloudWatch alarm on the EC2 StatusCheckFailed_System metric that publishes to the SNS topic whenever a retirement is planned." },
+      { id: 'B', text: "A Trusted Advisor check refresh scheduled every hour, with its weekly summary email sent to the operations team's address." },
+      { id: 'C', text: "A CloudTrail trail with data events enabled for AWS Health, streamed to CloudWatch Logs with a metric filter that notifies SNS." },
+      { id: 'D', text: "An EventBridge rule matching events from the aws.health source, with the operations team's SNS topic configured as its target." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "AWS Health delivers events for the account to EventBridge with the aws.health source, so a rule matching those events (optionally narrowed by service or event type code such as scheduled changes) can target an SNS topic and notify the team as soon as the event is posted. A system status check alarm fires only after hardware has failed, not when a retirement is scheduled. Trusted Advisor checks cover best practices and do not surface Health events. CloudTrail records API calls, and there are no Health data events describing scheduled maintenance.",
+    referenceUrl: "https://docs.aws.amazon.com/health/latest/ug/cloudwatch-events-health.html",
+    tags: ["AWS Health","EventBridge","SNS"]
+  },
+  {
+    id: "aws-soa-38",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d1",
+    domainName: "Monitoring, Logging, Analysis, Remediation, and Performance Optimization",
+    title: "Routing alerts to the right team only",
+    scenario: "An insurer publishes all operational alerts to one SNS topic, and every message carries a team message attribute such as database, network, or payments. Each team subscribes its own SQS queue and email list to the topic but complains about receiving every other team's alerts.",
+    question: "What is the simplest way to deliver each team only its own alerts?",
+    options: [
+      { id: 'A', text: "Add a subscription filter policy to each team's subscriptions that matches the team message attribute with that team's value." },
+      { id: 'B', text: "Convert the topic to a FIFO topic and set the message group ID to the team name so each subscriber receives only its group." },
+      { id: 'C', text: "Create a separate SNS topic for each team and change every alarm and publisher to send to the topic owned by the correct team." },
+      { id: 'D', text: "Have each team's SQS consumer read every message and delete the ones whose team attribute does not match its own team value." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "SNS subscription filter policies are evaluated per subscription, so a policy such as {\"team\": [\"database\"]} on the database team's subscriptions delivers only matching messages, with no change to publishers. Separate topics work but require changing every alarm and publisher, which is more effort. Filtering in the consumer still delivers every alert to email subscribers and wastes queue traffic. Message groups in FIFO topics control ordering; they do not restrict which subscribers receive a message.",
+    referenceUrl: "https://docs.aws.amazon.com/sns/latest/dg/sns-message-filtering.html",
+    tags: ["SNS","Filter policies"]
+  },
+  {
+    id: "aws-soa-39",
+    difficulty: "easy",
+    certId: "aws-soa",
+    domainId: "d1",
+    domainName: "Monitoring, Logging, Analysis, Remediation, and Performance Optimization",
+    title: "Knowing when an Auto Scaling launch fails",
+    scenario: "An engineering firm's Auto Scaling group occasionally fails to launch instances because of a misconfigured launch template or a capacity shortage, and nobody notices until users report slowness. The team wants an email every time the group fails to launch or terminate an instance.",
+    question: "What should the CloudOps engineer configure?",
+    options: [
+      { id: 'A', text: "Enable group metrics collection on the Auto Scaling group and alarm when GroupInServiceInstances is lower than the maximum size." },
+      { id: 'B', text: "Enable detailed monitoring in the launch template so that the group reports its failed launches to CloudWatch every minute." },
+      { id: 'C', text: "Attach a lifecycle hook to the group that holds failed instances in a wait state and emails the team when the hook times out." },
+      { id: 'D', text: "Add an Auto Scaling notification configuration that sends the launch error and termination error events to an SNS email topic." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "An Auto Scaling group can publish notifications to SNS for EC2_INSTANCE_LAUNCH, EC2_INSTANCE_LAUNCH_ERROR, EC2_INSTANCE_TERMINATE, and EC2_INSTANCE_TERMINATE_ERROR, so subscribing an email address to the topic reports every failed launch or termination directly. GroupInServiceInstances below the maximum is the normal state for most groups and would alarm constantly. Lifecycle hooks act on instances that launched successfully; a failed launch never reaches a hook. Detailed monitoring changes EC2 metric frequency and does not report launch failures.",
+    referenceUrl: "https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-sns-notifications.html",
+    tags: ["Auto Scaling","SNS","Notifications"]
+  },
+  {
+    id: "aws-soa-40",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d1",
+    domainName: "Monitoring, Logging, Analysis, Remediation, and Performance Optimization",
+    title: "Alarm notifications in the team's Slack channel",
+    scenario: "A fintech's on-call engineers live in Slack and ignore email. The team wants every CloudWatch alarm notification posted to its #prod-alerts channel as a formatted message, and wants engineers to be able to run read-only CLI commands from the channel, without building or hosting any integration code.",
+    question: "What should the CloudOps engineer set up?",
+    options: [
+      { id: 'A', text: "A Lambda function subscribed to the topic that reformats each alarm and posts it to the channel through the Slack Web API." },
+      { id: 'B', text: "An SNS HTTPS subscription pointed at a Slack incoming webhook URL, with the raw message delivery option enabled on it." },
+      { id: 'C', text: "An Amazon Q Developer in chat applications Slack channel configuration subscribed to the alarm topic, with a guardrail policy." },
+      { id: 'D', text: "An EventBridge API destination for the Slack webhook, with an input transformer that shapes each alarm into a formatted Slack message." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "Amazon Q Developer in chat applications (formerly AWS Chatbot) subscribes a Slack channel configuration to SNS topics, formats CloudWatch alarm notifications natively, and lets permitted users run AWS CLI commands from the channel, limited by the channel IAM role and guardrail policies, with no code to host. An SNS HTTPS subscription to a webhook sends raw JSON that Slack cannot render usefully and cannot confirm the subscription handshake. A Lambda function and an EventBridge API destination both work for posting messages but require building and maintaining the formatting, and neither provides the command capability.",
+    referenceUrl: "https://docs.aws.amazon.com/chatbot/latest/adminguide/what-is.html",
+    tags: ["Amazon Q Developer in chat applications","SNS","Slack"]
+  },
+  {
+    id: "aws-soa-41",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d1",
+    domainName: "Monitoring, Logging, Analysis, Remediation, and Performance Optimization",
+    title: "Clearing a filling disk before it stops the app",
+    scenario: "A publishing company's EC2 instances run out of disk space every few weeks when a log rotation job fails, which stops the application. The CloudWatch agent already publishes disk_used_percent, and the team has a tested shell script that clears old files. They want the cleanup to run automatically when usage passes 85 percent.",
+    question: "Which solution should the CloudOps engineer implement?",
+    options: [
+      { id: 'A', text: "Schedule the cleanup script hourly with cron on every instance, so the disk never reaches the 85 percent threshold between runs." },
+      { id: 'B', text: "Add an EC2 reboot action to an alarm on disk_used_percent, so that the instance restarts and clears its temporary directories." },
+      { id: 'C', text: "Increase the EBS volume size with Elastic Volumes every time the alarm fires, using an Auto Scaling scaling policy as the alarm action." },
+      { id: 'D', text: "Create an alarm on disk_used_percent and an EventBridge rule for its ALARM state that runs an Automation runbook calling Run Command." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "The alarm's state change reaches EventBridge, and a rule targeting a Systems Manager Automation runbook with an aws:runCommand step (or running AWS-RunShellScript on the instance) executes the tested cleanup script only when it is needed, with an audit trail in Systems Manager. A reboot does not delete old log files, so the disk is just as full when the instance comes back. Growing the volume on every alarm treats the symptom, increases cost indefinitely, and Auto Scaling policies cannot resize volumes. An hourly cron job runs blindly on every instance and still fails if a burst fills the disk within the hour.",
+    referenceUrl: "https://docs.aws.amazon.com/systems-manager/latest/userguide/automation-cwe-target.html",
+    tags: ["Systems Manager Automation","EventBridge","Remediation"]
+  },
+  {
+    id: "aws-soa-42",
+    difficulty: "hard",
+    certId: "aws-soa",
+    domainId: "d1",
+    domainName: "Monitoring, Logging, Analysis, Remediation, and Performance Optimization",
+    title: "An alarm that cannot invoke its function",
+    scenario: "A CloudOps engineer configured a CloudWatch alarm with a Lambda action that flushes a stuck cache when a custom metric breaches. The alarm enters ALARM as expected, but the function is never invoked, and the alarm history shows that the action failed because of insufficient permissions.",
+    question: "What should the engineer add?",
+    options: [
+      { id: 'A', text: "An identity-based policy on the engineer's own IAM role that grants lambda:InvokeFunction on the function, since every alarm runs as its creator." },
+      { id: 'B', text: "An EventBridge rule that forwards the alarm's state change to the function, because alarms cannot invoke Lambda without EventBridge." },
+      { id: 'C', text: "The CloudWatchFullAccess managed policy attached to the function's execution role, so that the alarm may call into the function directly." },
+      { id: 'D', text: "A resource-based policy on the function that allows the lambda.alarms.cloudwatch.amazonaws.com principal to invoke it, scoped to the alarm ARN." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "CloudWatch alarms invoke Lambda functions directly, and the function's resource-based policy must allow the lambda.alarms.cloudwatch.amazonaws.com service principal to call lambda:InvokeFunction, ideally with a SourceArn condition naming the alarm. Alarms do not run with their creator's permissions, so the engineer's own role is irrelevant. The execution role governs what the function may do once running, not who may invoke it. EventBridge is an alternative route, but alarms have supported direct Lambda actions for some time, so the claim behind that option is false and the fix is the missing permission.",
+    referenceUrl: "https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/alarms-and-actions-Lambda.html",
+    tags: ["CloudWatch alarms","Lambda","Resource-based policies"]
+  },
+  {
+    id: "aws-soa-43",
+    difficulty: "easy",
+    certId: "aws-soa",
+    domainId: "d1",
+    domainName: "Monitoring, Logging, Analysis, Remediation, and Performance Optimization",
+    title: "Traffic that is normal at noon but not at 3 a.m.",
+    scenario: "A food delivery app's order API handles about 50 requests per second at 3 a.m. and 4,000 at lunchtime, with a similar pattern every day and quieter weekends. A static threshold alarm on RequestCount either misses a nighttime collapse or pages every afternoon.",
+    question: "Which alarm type should the CloudOps engineer use?",
+    options: [
+      { id: 'A', text: "A static threshold alarm on the hourly Sum of RequestCount, which evens out the daily pattern into one steady number." },
+      { id: 'B', text: "An anomaly detection alarm on RequestCount that learns the daily and weekly pattern and alarms outside the expected band." },
+      { id: 'C', text: "A composite alarm combining a daytime alarm and a nighttime alarm, each using a fixed threshold suitable for its hours." },
+      { id: 'D', text: "A metric math alarm on RATE(RequestCount), which alarms when the rate of change exceeds a fixed percentage per minute." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "CloudWatch anomaly detection trains a model on the metric's history, including hourly, daily, and weekly seasonality, and alarms when values leave the expected band, so a collapse at 3 a.m. and a surge at noon are judged against what is normal for that time. An hourly sum still varies eightyfold across the day, so no single threshold fits. A composite alarm cannot switch child alarms on and off by time of day, so both fixed thresholds would be evaluated around the clock. Rate-of-change thresholds fire on the normal morning ramp and miss slow declines.",
+    referenceUrl: "https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Anomaly_Detection.html",
+    tags: ["Anomaly detection","CloudWatch alarms"]
+  },
+  {
+    id: "aws-soa-44",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d1",
+    domainName: "Monitoring, Logging, Analysis, Remediation, and Performance Optimization",
+    title: "Guided fixes from the alarm that raised the issue",
+    scenario: "A shipping company wants every critical production alarm to open a tracked work item that shows the related metrics and CloudTrail events, and from which an operator can run an approved Systems Manager runbook with one click. Operators do not want issues handled from email threads anymore.",
+    question: "What should the CloudOps engineer configure?",
+    options: [
+      { id: 'A', text: "An alarm action that publishes to an SNS topic subscribed by a Jira email address, so a ticket opens with the alarm details." },
+      { id: 'B', text: "An alarm action that creates an OpsItem in Systems Manager OpsCenter, with the approved runbooks associated for operators to run." },
+      { id: 'C', text: "A Systems Manager State Manager association that runs the approved runbooks on a fixed schedule so that operators never have to act on alarms." },
+      { id: 'D', text: "An AWS Config rule for each alarm whose remediation action runs the approved runbook automatically when the alarm changes." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "CloudWatch alarms can create OpsItems in OpsCenter when they enter ALARM; each OpsItem aggregates related resources, alarm details, and CloudTrail events, and operators can run associated Automation runbooks directly from it, keeping a record of what was done. Emailing a ticketing tool loses the operational context and the one-click runbooks. A scheduled association runs remediation regardless of whether anything is wrong. AWS Config rules evaluate resource configuration compliance and cannot be triggered by alarm state.",
+    referenceUrl: "https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-create-OpsItems-from-CloudWatch-Alarms.html",
+    tags: ["OpsCenter","CloudWatch alarms","Systems Manager"]
+  },
+  {
+    id: "aws-soa-45",
+    difficulty: "hard",
+    certId: "aws-soa",
+    domainId: "d1",
+    domainName: "Monitoring, Logging, Analysis, Remediation, and Performance Optimization",
+    title: "Rule matches but the runbook never starts",
+    scenario: "An EventBridge rule targets the AWS-RestartEC2Instance Automation runbook when an alarm enters ALARM. The rule's Invocations metric increases each time, but FailedInvocations increases too and no Automation execution appears. The target is configured with an IAM role for EventBridge and passes an AutomationAssumeRole parameter naming a separate Automation role.",
+    question: "Which two permission problems could cause this? (Choose two.)",
+    options: [
+      { id: 'A', text: "The EventBridge target role lacks iam:PassRole on the Automation role, so it cannot hand that role to the execution it starts." },
+      { id: 'B', text: "The instance lacks the SSM Agent or an instance profile role, so the runbook cannot connect to it to start the Automation execution." },
+      { id: 'C', text: "The rule's event pattern omits the alarm name, so EventBridge matches the event but discards it before invoking the target." },
+      { id: 'D', text: "The EventBridge target role lacks ssm:StartAutomationExecution on the runbook, so EventBridge cannot start the execution." },
+      { id: 'E', text: "The alarm lacks an EventBridge action in its configuration, so the state change is never emitted to the default event bus." }
+    ],
+    correctAnswers: ['A', 'D'],
+    type: "multiple",
+    explanation: "Invocations rising alongside FailedInvocations means the pattern matched but EventBridge could not call the target. For an Automation target, the role EventBridge assumes needs ssm:StartAutomationExecution on the runbook and, because the runbook runs as a separate AutomationAssumeRole, iam:PassRole on that role; missing either makes every invocation fail before an execution exists. AWS-RestartEC2Instance uses EC2 API calls and does not need the SSM Agent, and an agent problem would appear as a failed execution rather than no execution. Alarms emit state changes to EventBridge automatically with no action required. A pattern that matched is confirmed by the Invocations metric, so the pattern is not the issue.",
+    referenceUrl: "https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-troubleshooting.html",
+    tags: ["EventBridge","Systems Manager Automation","IAM"]
+  },
+  {
+    id: "aws-soa-46",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d1",
+    domainName: "Monitoring, Logging, Analysis, Remediation, and Performance Optimization",
+    title: "Alerts dropped when a subscriber function fails",
+    scenario: "A utilities company's alert topic fans out to a Lambda function that opens tickets in its service desk. During a two-hour service desk outage the function threw errors, and after SNS exhausted its retries those alerts were lost for good. The team wants undeliverable messages kept for later reprocessing.",
+    question: "What should the CloudOps engineer configure?",
+    options: [
+      { id: 'A', text: "Raise the function's reserved concurrency so that SNS never needs to retry, since every delivery is then accepted on its first attempt." },
+      { id: 'B', text: "Attach an SQS dead-letter queue to the Lambda subscription through a redrive policy, and allow SNS to send messages to that queue." },
+      { id: 'C', text: "Enable SNS delivery status logging for Lambda so failed deliveries are written to CloudWatch Logs with their messages kept for replay." },
+      { id: 'D', text: "Enable SNS message archiving on the standard topic so that every published message can be replayed to the function after the outage." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "A subscription-level redrive policy sends messages that SNS cannot deliver after its retry policy is exhausted to an SQS dead-letter queue, whose access policy must allow the topic to send messages; the team can then reprocess them once the service desk recovers. Delivery status logging records success and failure of deliveries for troubleshooting but does not preserve messages for replay. Message archiving and replay is a feature of FIFO topics, not standard topics. The failures came from the function throwing errors against a broken downstream system, so more concurrency would only fail faster.",
+    referenceUrl: "https://docs.aws.amazon.com/sns/latest/dg/sns-dead-letter-queues.html",
+    tags: ["SNS","Dead-letter queues","Lambda"]
+  },
+  {
+    id: "aws-soa-47",
+    difficulty: "easy",
+    certId: "aws-soa",
+    domainId: "d1",
+    domainName: "Monitoring, Logging, Analysis, Remediation, and Performance Optimization",
+    title: "Catching a broken checkout before customers do",
+    scenario: "An online retailer learns about checkout failures only when customers complain on social media. The operations team wants the checkout page and its payment API exercised from outside every five minutes, with an alarm when the flow stops succeeding, even when no real customers are active overnight.",
+    question: "What should the CloudOps engineer implement?",
+    options: [
+      { id: 'A', text: "A CloudWatch RUM app monitor on the checkout page with an alarm on JavaScript errors reported by the browsers of real users." },
+      { id: 'B', text: "An ALB alarm on HTTPCode_Target_5XX_Count, which catches any failed checkout attempt as soon as the targets begin to fail." },
+      { id: 'C', text: "A Route 53 health check against the load balancer's DNS name, with an alarm when the health check reports that it is unhealthy." },
+      { id: 'D', text: "A CloudWatch Synthetics canary that scripts the checkout journey on a five-minute schedule, with an alarm on its SuccessPercent." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Synthetics canaries run scripted journeys, such as loading the checkout page and calling the payment API, on a schedule and publish SuccessPercent and duration metrics, so an alarm catches a broken flow even when no customers are active. RUM measures real user sessions, so overnight it has nothing to report. A Route 53 health check verifies that an endpoint answers, not that the multi-step checkout works. A 5XX alarm requires real traffic and misses failures that return a successful status code with a broken page.",
+    referenceUrl: "https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries.html",
+    tags: ["CloudWatch Synthetics","Availability monitoring"]
+  },
+  {
+    id: "aws-soa-48",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d1",
+    domainName: "Monitoring, Logging, Analysis, Remediation, and Performance Optimization",
+    title: "Which partition keys cause the throttling",
+    scenario: "A ticket marketplace's DynamoDB table in on-demand mode throttles during popular on-sale events even though total consumed capacity is far below the table's limits. The team suspects a few hot partition keys but cannot tell which ones from the table-level CloudWatch metrics.",
+    question: "What should the CloudOps engineer enable to identify the keys?",
+    options: [
+      { id: 'A', text: "CloudWatch Contributor Insights for the DynamoDB table, which ranks the most accessed and most throttled partition keys." },
+      { id: 'B', text: "DynamoDB Streams on the table with a Lambda consumer that counts writes per key and publishes custom metrics for each key." },
+      { id: 'C', text: "CloudTrail data events for the table, then an Athena query that counts GetItem and PutItem calls grouped by the partition keys." },
+      { id: 'D', text: "Point-in-time recovery for the table, then a restore into a new table to scan the item distribution across the partitions." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Contributor Insights for DynamoDB is enabled per table or index and continuously reports the most accessed and most throttled partition keys (and sort keys), which directly exposes hot keys. A Streams consumer sees only successful writes, never reads or throttled requests, and requires custom code. CloudTrail data events record item-level API calls but not throttling from the partition's perspective, and querying them at on-sale volume is slow and costly. Restoring a table shows how data is stored, not which keys receive traffic.",
+    referenceUrl: "https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/contributorinsights_HowItWorks.html",
+    tags: ["Contributor Insights","DynamoDB","Performance analysis"]
+  },
+  {
+    id: "aws-soa-49",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d1",
+    domainName: "Monitoring, Logging, Analysis, Remediation, and Performance Optimization",
+    title: "An AI investigator across twelve accounts",
+    scenario: "A digital bank's incidents often span 12 accounts, and engineers spend the first hour correlating alarms, logs, deployments, and recent changes by hand. The operations lead wants an AWS service that, when an incident is raised, investigates across those accounts, proposes a likely root cause, and suggests mitigation steps, with a defined boundary on what it may access.",
+    question: "Which approach should the CloudOps engineer set up?",
+    options: [
+      { id: 'A', text: "AWS Config aggregator for the 12 accounts, which records configuration changes and states the root cause of each incident." },
+      { id: 'B', text: "AWS Trusted Advisor with organizational view, which analyzes incidents across the accounts and publishes root causes weekly." },
+      { id: 'C', text: "AWS DevOps Agent, with an Agent Space that defines the 12 accounts and tool integrations the agent may use during investigations." },
+      { id: 'D', text: "AWS Compute Optimizer at the organization level, which correlates the incident alarms with resource sizing to explain each outage." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "AWS DevOps Agent investigates incidents autonomously: it gathers alarms, logs, topology, and recent changes, publishes a root cause summary with supporting observations, and can generate a mitigation plan. An Agent Space sets the boundary of which AWS accounts, third-party tools, and users the agent works with. Trusted Advisor evaluates accounts against best-practice checks, not live incidents. Compute Optimizer recommends resource sizes from utilization history. A Config aggregator is a valuable evidence source for what changed, but it only records configuration and does not analyze incidents or propose causes.",
+    referenceUrl: "https://docs.aws.amazon.com/devopsagent/latest/userguide/about-aws-devops-agent.html",
+    tags: ["AWS DevOps Agent","Incident response"]
+  },
+  {
+    id: "aws-soa-50",
+    difficulty: "hard",
+    certId: "aws-soa",
+    domainId: "d1",
+    domainName: "Monitoring, Logging, Analysis, Remediation, and Performance Optimization",
+    title: "Explaining a latency jump after a change window",
+    scenario: "The p99 latency of a payments API on EC2 behind an ALB doubled at 21:40 and stayed high. CPU and memory on the instances look normal, and the team suspects a change made that evening by one of several engineers. The CloudOps engineer must find the change and who made it.",
+    question: "Which two data sources should the engineer examine together? (Choose two.)",
+    options: [
+      { id: 'A', text: "Amazon Inspector findings for the instances, which list configuration changes introduced during the evening's change window." },
+      { id: 'B', text: "The EC2 instance system logs retrieved from the console, which record each IAM principal that changed the instance's settings." },
+      { id: 'C', text: "The AWS Config timeline for the ALB, target group, and instances, showing configuration differences recorded around 21:40." },
+      { id: 'D', text: "CloudTrail management events around 21:40, filtered to write API calls on the ALB, target group, security groups, and instances." },
+      { id: 'E', text: "VPC flow logs for the ALB's subnets, which record the configuration change that each API caller applied to the load balancer." }
+    ],
+    correctAnswers: ['C', 'D'],
+    type: "multiple",
+    explanation: "CloudTrail answers who made which API call and when, so write events around 21:40 on the load balancer, target group, security groups, and instances reveal the change and the principal. AWS Config's timeline shows exactly what changed in each resource's configuration before and after, and links each change to its CloudTrail event, which confirms whether the change explains the latency. The instance system log is guest console output and holds no API caller identities. Flow logs record accepted and rejected network traffic, not configuration changes. Inspector reports software vulnerabilities and network exposure, not change history.",
+    referenceUrl: "https://docs.aws.amazon.com/config/latest/developerguide/view-manage-resource-console.html",
+    tags: ["CloudTrail","AWS Config","Troubleshooting"]
+  }
+];
+
+export default AWS_SOA_QUESTIONS_2;

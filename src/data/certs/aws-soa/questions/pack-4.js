@@ -1,0 +1,532 @@
+export const AWS_SOA_QUESTIONS_4 = [
+  {
+    id: "aws-soa-76",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d1",
+    domainName: "Monitoring, Logging, Analysis, Remediation, and Performance Optimization",
+    title: "Right-sizing that accounts for memory",
+    scenario: "An advertising company suspects that many of its 400 EC2 instances are oversized, and it wants AWS recommendations for smaller instance types. Several applications are memory-bound, so finance does not trust recommendations based on CPU alone. No monitoring beyond the EC2 defaults is currently in place.",
+    question: "Which two actions will produce memory-aware right-sizing recommendations? (Choose two.)",
+    options: [
+      { id: 'A', text: "Install the CloudWatch agent on the instances and publish memory utilization so that Compute Optimizer can include it." },
+      { id: 'B', text: "Opt the account, or the whole organization, in to AWS Compute Optimizer so that it analyzes the instances' utilization history." },
+      { id: 'C', text: "Enable EC2 instance status checks on every instance so that memory exhaustion is recorded as a utilization datapoint." },
+      { id: 'D', text: "Enable AWS Trusted Advisor's low utilization check, which reads guest memory from the hypervisor for each instance." },
+      { id: 'E', text: "Enable detailed monitoring on every instance so that the default EC2 metrics include memory at one-minute granularity." }
+    ],
+    correctAnswers: ['A', 'B'],
+    type: "multiple",
+    explanation: "AWS Compute Optimizer must be opted in at the account or organization level, after which it analyzes CloudWatch utilization history and recommends instance types. By default it sees only hypervisor metrics such as CPU and network; publishing memory utilization with the CloudWatch agent lets it factor memory into its recommendations, which matters for memory-bound applications. Detailed monitoring increases the frequency of existing metrics but adds no memory metric. Trusted Advisor's low utilization check looks at CPU and network, and the hypervisor cannot see guest memory. Status checks are pass or fail health signals, not utilization metrics.",
+    referenceUrl: "https://docs.aws.amazon.com/compute-optimizer/latest/ug/metrics.html",
+    tags: ["Compute Optimizer","CloudWatch agent","Right-sizing"]
+  },
+  {
+    id: "aws-soa-77",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d1",
+    domainName: "Monitoring, Logging, Analysis, Remediation, and Performance Optimization",
+    title: "A build server that slows to a crawl each afternoon",
+    scenario: "A software company runs its CI build server on a t3.large instance launched with the standard credit specification. Builds run quickly in the morning but take four times longer by mid-afternoon on busy days. CloudWatch shows CPUCreditBalance dropping steadily to zero around noon while CPUUtilization then flattens at about 30 percent.",
+    question: "What is the cause, and what is an appropriate fix?",
+    options: [
+      { id: 'A', text: "The instance's EBS burst balance is exhausted, so it should be moved to a gp3 volume with higher provisioned throughput." },
+      { id: 'B', text: "The instance is on a failing host, so it should be stopped and started to move it onto new hardware in the same Availability Zone." },
+      { id: 'C', text: "The instance is reaching its network baseline, so enhanced networking should be enabled to lift throughput for the builds." },
+      { id: 'D', text: "The instance has exhausted its CPU credits and is held at baseline, so it should use unlimited mode or a fixed-performance type." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Burstable instances earn CPU credits at a fixed rate and spend them when running above baseline; in standard mode, once CPUCreditBalance reaches zero the instance is throttled to its baseline (30 percent per vCPU for a t3.large), which matches the flat 30 percent line. Switching to unlimited mode allows sustained bursting for an extra charge, and a sustained heavy workload is usually cheaper on a fixed-performance family such as M or C. EBS burst balance concerns gp2 volumes and would not appear as a CPU plateau. Enhanced networking is already enabled on T3 and is unrelated to CPU. A failing host shows status check failures, not a credit pattern.",
+    referenceUrl: "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-credits-baseline-concepts.html",
+    tags: ["EC2","Burstable instances","CPU credits"]
+  },
+  {
+    id: "aws-soa-78",
+    difficulty: "easy",
+    certId: "aws-soa",
+    domainId: "d1",
+    domainName: "Monitoring, Logging, Analysis, Remediation, and Performance Optimization",
+    title: "Better price-performance for a Java service",
+    scenario: "A media company runs a stateless Java microservice on m6i instances in an Auto Scaling group. The service has no native x86 dependencies and runs on a JVM that supports Arm. Leadership wants better price-performance with minimal effort and no change in architecture.",
+    question: "What should the CloudOps engineer recommend?",
+    options: [
+      { id: 'A', text: "Move the group to AWS Graviton-based instances such as m7g after testing the service on Arm64 builds of the JVM and OS." },
+      { id: 'B', text: "Move the group to the previous-generation m4 family, which has a lower hourly price than m6i and runs the same service code." },
+      { id: 'C', text: "Move the group to Dedicated Hosts so the JVM can use every physical core on the server without sharing it with other tenants." },
+      { id: 'D', text: "Move the group to x1e instances, whose very large memory per vCPU gives Java services the best price-performance available." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Graviton instances use AWS-designed Arm processors and offer better price-performance than comparable x86 instances for many workloads; a JVM application without native x86 dependencies typically needs only an Arm64 AMI and JVM, so the change is small. x1e instances are memory-optimized for in-memory databases and would be expensive and oversized here. Previous-generation m4 instances deliver less performance per dollar than current generations. Dedicated Hosts address licensing and compliance needs and cost more; they do not improve price-performance.",
+    referenceUrl: "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html",
+    tags: ["EC2","Graviton","Cost optimization"]
+  },
+  {
+    id: "aws-soa-79",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d1",
+    domainName: "Monitoring, Logging, Analysis, Remediation, and Performance Optimization",
+    title: "Right-sizing findings for one cost center",
+    scenario: "A university's central cloud team uses AWS Compute Optimizer across its organization. The medical school, whose resources are tagged CostCenter=med, asks for a list of only its over-provisioned EC2 instances and Auto Scaling groups so that its engineers can act on them.",
+    question: "What is the most efficient way to produce the list?",
+    options: [
+      { id: 'A', text: "Filter the Compute Optimizer recommendations by the CostCenter tag with the value med and export the matching results." },
+      { id: 'B', text: "Run AWS Config advanced queries for instances with CostCenter=med, then compare each instance type against its CPU graphs." },
+      { id: 'C', text: "Create a separate AWS account for the medical school, move its instances there, and enable Compute Optimizer in that account." },
+      { id: 'D', text: "Build a CloudWatch dashboard showing CPUUtilization for every instance and ask the medical school to spot the idle ones." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Compute Optimizer lets you filter recommendations by resource tag key and value and export them, so the medical school gets only its own over-provisioned instances and Auto Scaling groups straight from the existing analysis. Moving resources into a new account is disruptive and unnecessary for a report. A CPU dashboard shifts the analysis to people and ignores the instance-type recommendations that Compute Optimizer already calculates. Config queries can list the tagged instances but provide no right-sizing analysis.",
+    referenceUrl: "https://docs.aws.amazon.com/compute-optimizer/latest/ug/viewing-dashboard.html",
+    tags: ["Compute Optimizer","Resource tags","Right-sizing"]
+  },
+  {
+    id: "aws-soa-80",
+    difficulty: "hard",
+    certId: "aws-soa",
+    domainId: "d1",
+    domainName: "Monitoring, Logging, Analysis, Remediation, and Performance Optimization",
+    title: "A CPU-bound function with long durations",
+    scenario: "A mapping company's Lambda function renders map tiles and is purely CPU-bound. It is configured with 512 MB of memory, uses about 180 MB, and averages 9 seconds per invocation. An engineer argues that memory should be reduced to 256 MB because the function uses so little of it.",
+    question: "What should the CloudOps engineer do to improve performance and possibly lower cost?",
+    options: [
+      { id: 'A', text: "Keep 512 MB and enable provisioned concurrency, which assigns dedicated vCPUs to each environment and shortens compute time." },
+      { id: 'B', text: "Reduce memory to 256 MB as proposed, because Lambda bills only for memory actually used, so cost falls without affecting speed." },
+      { id: 'C', text: "Increase memory, for example to 1,769 MB or more, since Lambda allocates CPU in proportion to memory, then compare cost." },
+      { id: 'D', text: "Keep 512 MB and raise the function timeout, because the long duration comes from the timeout limiting how much CPU is used." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "Lambda allocates CPU power in proportion to configured memory, reaching one full vCPU at 1,769 MB, so a CPU-bound function often runs much faster with more memory; because billing is memory multiplied by duration, the shorter duration can offset or beat the higher memory price, which Compute Optimizer or a power-tuning test can confirm. Lambda bills for configured memory, not used memory, and halving it would also halve CPU and lengthen duration. Provisioned concurrency removes cold starts but does not add CPU. The timeout is only an upper limit on duration and does not constrain CPU.",
+    referenceUrl: "https://docs.aws.amazon.com/lambda/latest/dg/configuration-memory.html",
+    tags: ["Lambda","Performance tuning","Cost"]
+  },
+  {
+    id: "aws-soa-81",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d1",
+    domainName: "Monitoring, Logging, Analysis, Remediation, and Performance Optimization",
+    title: "Over-provisioned Fargate tasks",
+    scenario: "A fintech runs 40 ECS services on AWS Fargate. Developers set task CPU and memory generously when the services launched two years ago, and Container Insights now shows most tasks using under 20 percent of their allocation. The team wants data-driven recommendations for task sizes without writing its own analysis.",
+    question: "Which AWS tool provides these recommendations?",
+    options: [
+      { id: 'A', text: "AWS Cost Explorer rightsizing recommendations, which cover Fargate tasks and suggest smaller task sizes based on utilization." },
+      { id: 'B', text: "ECS Service Auto Scaling, which lowers the CPU and memory in each service's task definition whenever utilization stays low." },
+      { id: 'C', text: "AWS Compute Optimizer, which analyzes ECS services on Fargate and recommends task CPU and memory sizes for each service." },
+      { id: 'D', text: "AWS Trusted Advisor, which lists the Fargate tasks whose containers have the highest memory use along with their task definitions." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "Compute Optimizer produces recommendations for Amazon ECS services on Fargate, suggesting task-level CPU and memory and container-level sizes from CloudWatch utilization history. Trusted Advisor checks do not size Fargate tasks. Service Auto Scaling changes the number of tasks, not the CPU and memory in the task definition. Cost Explorer's rightsizing recommendations cover EC2 instances, not Fargate tasks.",
+    referenceUrl: "https://docs.aws.amazon.com/compute-optimizer/latest/ug/view-ecs-recommendations.html",
+    tags: ["Compute Optimizer","ECS","Fargate"]
+  },
+  {
+    id: "aws-soa-82",
+    difficulty: "hard",
+    certId: "aws-soa",
+    domainId: "d1",
+    domainName: "Monitoring, Logging, Analysis, Remediation, and Performance Optimization",
+    title: "Paying for licensed cores that are not needed",
+    scenario: "A bank runs a database engine licensed per physical core on r6i.8xlarge instances, which have 32 vCPUs from 16 cores with two threads each. Performance testing shows the workload is memory-bound and gains nothing from simultaneous multithreading. The bank wants to cut license costs without reducing memory.",
+    question: "What should the CloudOps engineer do?",
+    options: [
+      { id: 'A', text: "Move to r6i.4xlarge instances, which halve the vCPU count and therefore the license count while keeping the same memory." },
+      { id: 'B', text: "Launch the instances with CPU options specifying fewer cores and one thread per core, keeping the r6i.8xlarge memory size." },
+      { id: 'C', text: "Switch the instances to the unlimited credit specification so that unused vCPUs on each core are released back to the host." },
+      { id: 'D', text: "Enable Hibernate on the instances so that idle cores are released overnight and are no longer counted by the license server." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "EC2 CPU options let you specify the number of cores and threads per core for an instance; running fewer active cores with one thread each keeps all the memory of the r6i.8xlarge while reducing the licensed core count. An r6i.4xlarge has half the memory as well as half the vCPUs, which the memory-bound workload cannot accept. Hibernation stops the instance entirely and does not change how many cores are licensed while it runs. Credit specifications apply only to burstable T instances.",
+    referenceUrl: "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html",
+    tags: ["EC2","CPU options","Licensing"]
+  },
+  {
+    id: "aws-soa-83",
+    difficulty: "easy",
+    certId: "aws-soa",
+    domainId: "d1",
+    domainName: "Monitoring, Logging, Analysis, Remediation, and Performance Optimization",
+    title: "Cheaper volumes with the same performance",
+    scenario: "A SaaS company runs 300 gp2 volumes of 500 GiB each for application servers. The volumes rarely exceed 1,500 IOPS, and the company wants to lower EBS cost without detaching volumes or taking downtime, while keeping at least the same baseline performance.",
+    question: "What should the CloudOps engineer do?",
+    options: [
+      { id: 'A', text: "Modify the volumes to gp3 with Elastic Volumes, which gives a baseline of 3,000 IOPS and 125 MiB/s at a lower price per GiB." },
+      { id: 'B', text: "Modify the volumes to st1 with Elastic Volumes, because throughput-optimized HDD volumes are cheaper and still suit app servers." },
+      { id: 'C', text: "Modify the volumes to io2 with Elastic Volumes and provision 1,500 IOPS so that the company pays only for the IOPS it uses above baseline." },
+      { id: 'D', text: "Snapshot each volume, delete it, and restore it as a smaller gp2 volume so the lower size reduces the monthly storage charge." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "gp3 costs less per GiB than gp2 and includes a baseline of 3,000 IOPS and 125 MiB/s regardless of size, and Elastic Volumes changes the type while the volume stays attached and in use, so cost falls with no downtime and no loss of baseline. st1 is designed for large sequential throughput and performs poorly for small random I/O, and it cannot be a boot volume. Restoring smaller gp2 volumes requires downtime and lowers gp2's size-linked baseline IOPS. io2 carries a higher storage price plus a charge per provisioned IOPS, which increases cost.",
+    referenceUrl: "https://docs.aws.amazon.com/ebs/latest/userguide/general-purpose.html",
+    tags: ["EBS","gp3","Cost optimization"]
+  },
+  {
+    id: "aws-soa-84",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d1",
+    domainName: "Monitoring, Logging, Analysis, Remediation, and Performance Optimization",
+    title: "Nightly batch slows after the first hour",
+    scenario: "A reporting server's 200 GiB gp2 data volume handles a nightly batch well for about 40 minutes, after which disk latency climbs sharply and the job takes hours longer. CloudWatch shows the volume's BurstBalance falling from 100 to 0 during that period while VolumeReadOps and VolumeWriteOps level off.",
+    question: "What should the CloudOps engineer do?",
+    options: [
+      { id: 'A', text: "Modify the volume to gp3 and provision the IOPS the batch needs, so performance stops depending on burst credits." },
+      { id: 'B', text: "Enable EBS optimization on the instance, because a non-optimized instance drains the gp2 burst balance during heavy I/O." },
+      { id: 'C', text: "Add a second 200 GiB gp2 volume and move the batch output to it, doubling the burst balance available to the whole job." },
+      { id: 'D', text: "Take a snapshot before each batch so that the volume's burst balance is restored to 100 percent at the start of every run." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "A 200 GiB gp2 volume has a baseline of 600 IOPS and bursts to 3,000 while its I/O credits last; when BurstBalance reaches zero it falls to baseline, matching the latency jump. gp3 provides a fixed 3,000 IOPS baseline and lets you provision more IOPS and throughput independently of size, so the batch runs at a steady rate. EBS optimization provides dedicated bandwidth to EBS and does not affect gp2 credits; current-generation instances are EBS-optimized by default anyway. Snapshots do not replenish burst credits. Splitting across two gp2 volumes may help partly but still depends on credits that run out and complicates the application.",
+    referenceUrl: "https://docs.aws.amazon.com/ebs/latest/userguide/using_cloudwatch_ebs.html",
+    tags: ["EBS","Burst balance","Troubleshooting"]
+  },
+  {
+    id: "aws-soa-85",
+    difficulty: "hard",
+    certId: "aws-soa",
+    domainId: "d1",
+    domainName: "Monitoring, Logging, Analysis, Remediation, and Performance Optimization",
+    title: "Provisioned IOPS that never materialize",
+    scenario: "An insurer attached a new io2 volume provisioned with 40,000 IOPS to an m5.large instance hosting a database. Load tests never exceed about 3,600 IOPS, the volume's queue length grows, and no errors appear on the volume. The CloudOps engineer confirms the volume itself reports no impairment.",
+    question: "What is the most likely cause?",
+    options: [
+      { id: 'A', text: "The m5.large instance's maximum EBS bandwidth and IOPS are far below the volume's, so the instance type is the bottleneck." },
+      { id: 'B', text: "The volume is attached as a secondary device, and io2 delivers its full provisioned IOPS only when it is the root volume." },
+      { id: 'C', text: "The volume has run out of I/O credits, because io2 volumes use a burst bucket like gp2 volumes when they are newly created." },
+      { id: 'D', text: "The io2 volume needs to be pre-warmed by reading every block before it can deliver its provisioned IOPS to the database." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Every instance type has its own maximum EBS bandwidth, throughput, and IOPS, and an m5.large can sustain only a small fraction of 40,000 IOPS, so the instance caps performance and requests queue; moving to an instance type with higher EBS limits unlocks the volume. Pre-warming applies to volumes restored from snapshots, not new empty volumes. io2 delivers provisioned IOPS consistently and does not use burst credits. Provisioned IOPS apply equally to root and data volumes.",
+    referenceUrl: "https://docs.aws.amazon.com/ebs/latest/userguide/ebs-optimized.html",
+    tags: ["EBS","io2","EBS-optimized"]
+  },
+  {
+    id: "aws-soa-86",
+    difficulty: "easy",
+    certId: "aws-soa",
+    domainId: "d1",
+    domainName: "Monitoring, Logging, Analysis, Remediation, and Performance Optimization",
+    title: "Throughput for a log analytics cluster",
+    scenario: "A security vendor runs a self-managed log analytics cluster on EC2 that scans multi-terabyte data sets sequentially in large blocks every hour. The data volumes need high sustained throughput at the lowest cost per GiB, and they are not used as boot volumes.",
+    question: "Which EBS volume type is the best fit?",
+    options: [
+      { id: 'A', text: "General Purpose SSD (gp2), because its burst credits cover the hourly scans and reset to full between each of the scans." },
+      { id: 'B', text: "Provisioned IOPS SSD (io2), because its high IOPS give the most throughput for large sequential reads on data volumes." },
+      { id: 'C', text: "Cold HDD (sc1), because its lowest price per GiB suits hourly scans of large data sets that are read in large blocks." },
+      { id: 'D', text: "Throughput Optimized HDD (st1), because it is built for large sequential workloads with high throughput at a low price per GiB." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "st1 is designed for frequently accessed, throughput-intensive sequential workloads such as big data and log processing, delivering high MiB/s at a low cost per GiB, and it cannot be a boot volume, which is not needed here. io2 provides IOPS for random I/O at a much higher price and is wasted on sequential scans. sc1 is cheaper but meant for infrequently accessed data and has much lower throughput, too slow for hourly scans. gp2 throughput and credits are sized for general workloads and would cost more per GiB than st1 at multi-terabyte scale.",
+    referenceUrl: "https://docs.aws.amazon.com/ebs/latest/userguide/hdd-vols.html",
+    tags: ["EBS","st1","Volume types"]
+  },
+  {
+    id: "aws-soa-87",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d1",
+    domainName: "Monitoring, Logging, Analysis, Remediation, and Performance Optimization",
+    title: "Slow first queries on a restored database volume",
+    scenario: "A retail company restores a 2 TiB EBS volume from a snapshot every morning to create a reporting copy of production. For the first hour, queries on the new copy are very slow even though the volume is gp3 with ample provisioned IOPS; later in the day the same queries are quick.",
+    question: "What should the CloudOps engineer do to get full performance immediately?",
+    options: [
+      { id: 'A', text: "Raise the gp3 volume's provisioned IOPS for the first hour and lower it again once the reporting copy performs normally." },
+      { id: 'B', text: "Copy the snapshot to the same Region first and restore from the copy, because copied snapshots restore at full performance." },
+      { id: 'C', text: "Enable EBS encryption by default on the account so that restored volumes are decrypted in advance before any reads begin." },
+      { id: 'D', text: "Enable Fast Snapshot Restore for the snapshot in the Availability Zone so restored volumes are fully initialized at creation." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Volumes created from snapshots load blocks from S3 lazily, so the first read of each block has high latency until the volume is initialized; Fast Snapshot Restore, enabled per snapshot and Availability Zone, creates volumes that are fully initialized and deliver provisioned performance immediately. Extra IOPS do not remove the first-touch latency of fetching blocks. Encryption has no bearing on initialization. A copied snapshot is still a snapshot and restores lazily in the same way.",
+    referenceUrl: "https://docs.aws.amazon.com/ebs/latest/userguide/ebs-fast-snapshot-restore.html",
+    tags: ["EBS","Fast Snapshot Restore","Snapshots"]
+  },
+  {
+    id: "aws-soa-88",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d1",
+    domainName: "Monitoring, Logging, Analysis, Remediation, and Performance Optimization",
+    title: "A queue building on a gp3 volume",
+    scenario: "An e-commerce database runs on a gp3 volume with 3,000 IOPS and 125 MiB/s provisioned. During sales, VolumeQueueLength rises and latency increases, while the sum of VolumeReadOps and VolumeWriteOps per second stays flat at about 3,000 and throughput is near 60 MiB/s. The instance's EBS limits are well above these figures.",
+    question: "What change addresses the bottleneck with the least disruption?",
+    options: [
+      { id: 'A', text: "Increase the gp3 volume's provisioned IOPS with Elastic Volumes while it remains attached and in use by the database." },
+      { id: 'B', text: "Stop the instance and change it to a type with instance store, then move the database files to the instance store." },
+      { id: 'C', text: "Increase the gp3 volume's provisioned throughput to 500 MiB/s with Elastic Volumes and leave its IOPS at 3,000." },
+      { id: 'D', text: "Change the volume to st1 with Elastic Volumes, because HDD volumes handle a deep queue better than SSD volumes do." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Operations plateauing at exactly the provisioned 3,000 IOPS while queue length and latency rise means the volume's IOPS limit is the bottleneck; throughput at 60 MiB/s is well under its 125 MiB/s limit. gp3 IOPS can be raised independently with Elastic Volumes while the volume remains attached and in use. Raising throughput does not help an IOPS-bound workload. st1 performs poorly for the small random I/O of a database. Instance store is ephemeral, so moving a production database to it risks data loss and requires downtime.",
+    referenceUrl: "https://docs.aws.amazon.com/ebs/latest/userguide/ebs-modify-volume.html",
+    tags: ["EBS","Elastic Volumes","Performance"]
+  },
+  {
+    id: "aws-soa-89",
+    difficulty: "hard",
+    certId: "aws-soa",
+    domainId: "d1",
+    domainName: "Monitoring, Logging, Analysis, Remediation, and Performance Optimization",
+    title: "Shared block storage for a clustered application",
+    scenario: "A manufacturer is moving a clustered application that uses a cluster-aware file system on a shared block device. Three Nitro-based EC2 instances in one Availability Zone must attach the same volume concurrently with sub-millisecond latency and high IOPS.",
+    question: "Which two elements are required? (Choose two.)",
+    options: [
+      { id: 'A', text: "A gp3 volume with Multi-Attach enabled, attached to the three instances running the cluster-aware file system." },
+      { id: 'B', text: "A cluster-aware file system on the volume that coordinates writes, rather than a standard file system such as XFS or ext4." },
+      { id: 'C', text: "An io2 volume with Multi-Attach enabled, attached to all three instances in the same Availability Zone as the volume." },
+      { id: 'D', text: "An st1 volume shared through Multi-Attach, since throughput-optimized volumes support concurrent attachment for clusters." },
+      { id: 'E', text: "An io2 volume attached to instances spread across three Availability Zones, so that the cluster survives a zone failure." }
+    ],
+    correctAnswers: ['B', 'C'],
+    type: "multiple",
+    explanation: "EBS Multi-Attach lets one Provisioned IOPS SSD (io1 or io2) volume attach to multiple Nitro-based instances in the same Availability Zone, and io2 delivers the sub-millisecond latency required. Because each instance writes to the same blocks, the application must use a cluster-aware file system; standard file systems such as XFS or ext4 would corrupt data under concurrent writers. gp3 and st1 volumes do not support Multi-Attach. EBS volumes are zonal and cannot attach to instances in other Availability Zones.",
+    referenceUrl: "https://docs.aws.amazon.com/ebs/latest/userguide/ebs-volumes-multi.html",
+    tags: ["EBS","Multi-Attach","io2"]
+  },
+  {
+    id: "aws-soa-90",
+    difficulty: "easy",
+    certId: "aws-soa",
+    domainId: "d1",
+    domainName: "Monitoring, Logging, Analysis, Remediation, and Performance Optimization",
+    title: "Disk still full after enlarging the volume",
+    scenario: "A CloudOps engineer used Elastic Volumes to enlarge a Linux instance's root gp3 volume from 20 GiB to 100 GiB after it filled up. The modification shows as completed in the console, but df on the instance still reports a 20 GiB file system that is 98 percent full.",
+    question: "What must the engineer do next?",
+    options: [
+      { id: 'A', text: "Reboot the instance so that the operating system detects the new volume size and grows the file system during boot." },
+      { id: 'B', text: "Detach and reattach the volume so that the instance registers the new size and resizes the file system automatically." },
+      { id: 'C', text: "Wait six hours for the volume optimization to finish, after which the file system expands to the new size automatically." },
+      { id: 'D', text: "Extend the partition with growpart and then grow the file system with xfs_growfs or resize2fs, depending on its type." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Elastic Volumes enlarges the block device, but the partition and file system inside it must be extended from the OS: growpart grows the partition, then xfs_growfs for XFS or resize2fs for ext4 expands the file system, all online. A reboot does not reliably expand a file system unless cloud-init growpart is configured, and that is not something to rely on in production. Detaching a root volume requires stopping the instance and still leaves the file system unchanged. The optimizing phase affects performance, not file system size, and nothing grows the file system automatically afterwards.",
+    referenceUrl: "https://docs.aws.amazon.com/ebs/latest/userguide/recognize-expanded-volume-linux.html",
+    tags: ["EBS","Elastic Volumes","Linux"]
+  },
+  {
+    id: "aws-soa-91",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d1",
+    domainName: "Monitoring, Logging, Analysis, Remediation, and Performance Optimization",
+    title: "Detecting a volume that stops responding",
+    scenario: "A hospital's EHR integration engine hung twice last quarter because its EBS data volume stopped completing I/O, yet the EC2 system and instance status checks stayed green throughout. The team wants an automatic alert whenever a volume attached to its Nitro-based instances stalls.",
+    question: "Which metric should the CloudOps engineer alarm on?",
+    options: [
+      { id: 'A', text: "The instance's CPUUtilization metric, which spikes to 100 percent whenever an attached volume stops completing I/O." },
+      { id: 'B', text: "The volume's BurstBalance metric, which falls to zero whenever the volume stops completing read or write operations." },
+      { id: 'C', text: "The instance's StatusCheckFailed_System metric, which covers every attached EBS volume's ability to complete I/O." },
+      { id: 'D', text: "The volume's VolumeStalledIOCheck metric, which reports a failure when the volume does not complete I/O operations." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "The EBS VolumeStalledIOCheck metric is a per-volume status check for volumes attached to Nitro-based instances that fails when the volume does not complete I/O, catching exactly the hang the team experienced; the instance-level StatusCheckFailed_AttachedEBS metric provides a similar signal across all attached volumes. System status checks cover the host, which stayed healthy. BurstBalance applies to burstable volume types and tracks credits, not stalls. CPU utilization often falls rather than spikes when an application is blocked on I/O, and it is not an EBS health signal.",
+    referenceUrl: "https://docs.aws.amazon.com/ebs/latest/userguide/monitoring-volume-checks.html",
+    tags: ["EBS","Status checks","CloudWatch alarms"]
+  },
+  {
+    id: "aws-soa-92",
+    difficulty: "easy",
+    certId: "aws-soa",
+    domainId: "d1",
+    domainName: "Monitoring, Logging, Analysis, Remediation, and Performance Optimization",
+    title: "Uploading 40 GB video masters reliably",
+    scenario: "A film studio uploads 40 GB video masters to S3 from its editing suite over a 1 Gbps connection. Single PUT uploads fail, and when a network blip occurs mid-transfer the whole file must be resent. The studio wants faster, restartable uploads.",
+    question: "What should the CloudOps engineer recommend?",
+    options: [
+      { id: 'A', text: "Use a single PUT with a longer client timeout, because S3 accepts one-request uploads of any size when given enough time." },
+      { id: 'B', text: "Use S3 Batch Operations to copy the file into the bucket, because it retries large objects automatically after a failure." },
+      { id: 'C', text: "Use multipart upload so parts upload in parallel, failed parts are retried alone, and the object is assembled after upload." },
+      { id: 'D', text: "Enable S3 Versioning on the bucket so that a failed upload resumes from the last saved version of the object in the bucket." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "Multipart upload splits the object into parts that upload in parallel, retries only failed parts, and is required for objects larger than 5 GB, the maximum for a single PUT; AWS recommends it for objects over 100 MB. A single PUT cannot exceed 5 GB, so a longer timeout cannot help. Versioning keeps object versions after successful writes and cannot resume a partial upload. Batch Operations acts on objects already in S3 and does not upload from on-premises workstations.",
+    referenceUrl: "https://docs.aws.amazon.com/AmazonS3/latest/userguide/mpuoverview.html",
+    tags: ["S3","Multipart upload"]
+  },
+  {
+    id: "aws-soa-93",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d1",
+    domainName: "Monitoring, Logging, Analysis, Remediation, and Performance Optimization",
+    title: "Slow uploads from customers on other continents",
+    scenario: "A photo-sharing company stores uploads in one S3 bucket in us-east-1. Customers in Asia and South America report uploads of 200 MB albums taking several minutes over long-distance internet paths, while US customers see no issue. The company wants faster uploads without changing its bucket or its Region.",
+    question: "What should the CloudOps engineer enable?",
+    options: [
+      { id: 'A', text: "S3 Transfer Acceleration on the bucket, with clients using the accelerate endpoint to upload through nearby edge locations." },
+      { id: 'B', text: "S3 Cross-Region Replication to buckets in Asia and South America so that customers upload to the replica nearest to them." },
+      { id: 'C', text: "An S3 gateway VPC endpoint in us-east-1, so that customers' uploads travel over the AWS network instead of the internet." },
+      { id: 'D', text: "S3 Intelligent-Tiering on the bucket so that uploaded objects are stored in the tier that responds fastest to each client." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Transfer Acceleration routes uploads to the nearest CloudFront edge location and carries them over the AWS backbone to the bucket, which speeds long-distance transfers without changing the bucket or its Region; the speed comparison tool can confirm the benefit per location. Cross-Region Replication copies objects after they are written and would require uploads to go to other buckets, changing the design. Intelligent-Tiering optimizes storage cost by access pattern, not upload speed. Gateway endpoints serve traffic from inside a VPC, not from customers on the internet.",
+    referenceUrl: "https://docs.aws.amazon.com/AmazonS3/latest/userguide/transfer-acceleration.html",
+    tags: ["S3","Transfer Acceleration"]
+  },
+  {
+    id: "aws-soa-94",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d1",
+    domainName: "Monitoring, Logging, Analysis, Remediation, and Performance Optimization",
+    title: "Moving 200 TB from a NAS to S3 online",
+    scenario: "A research institute must move 200 TB from an on-premises NFS file server to S3 over its 10 Gbps Direct Connect link within a month. The transfer must run on a schedule outside working hours, cap its bandwidth, verify data integrity, and copy only changed files on later runs.",
+    question: "Which service should the CloudOps engineer use?",
+    options: [
+      { id: 'A', text: "S3 Transfer Acceleration with the AWS CLI s3 sync command run from a cron job on a server in the institute's data center." },
+      { id: 'B', text: "AWS DataSync with an agent on premises and a scheduled task that limits bandwidth and verifies all transferred data." },
+      { id: 'C', text: "AWS Snowball Edge devices, shipped to spare the link's bandwidth, loaded over NFS, and returned to AWS for import." },
+      { id: 'D', text: "AWS Storage Gateway S3 File Gateway, with the NFS files copied onto its share by users during working hours each day." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "DataSync is built for online bulk transfers between on-premises storage and AWS: an agent reads the NFS share, tasks run on a schedule with a bandwidth limit, data integrity is verified, and incremental runs transfer only changed files, easily moving 200 TB over 10 Gbps within a month. Snowball Edge suits sites without adequate bandwidth and involves shipping, which is unnecessary here. The CLI with Transfer Acceleration lacks managed integrity verification and bandwidth scheduling, and acceleration adds nothing over Direct Connect. File Gateway provides ongoing hybrid file access, and manual copies during working hours break the schedule requirement.",
+    referenceUrl: "https://docs.aws.amazon.com/datasync/latest/userguide/what-is-datasync.html",
+    tags: ["DataSync","S3","Data migration"]
+  },
+  {
+    id: "aws-soa-95",
+    difficulty: "easy",
+    certId: "aws-soa",
+    domainId: "d1",
+    domainName: "Monitoring, Logging, Analysis, Remediation, and Performance Optimization",
+    title: "Aging invoices through cheaper storage",
+    scenario: "An accounting firm stores scanned invoices in S3 Standard. Invoices are read frequently for 30 days, occasionally until day 90, almost never afterwards, and must be deleted after seven years. The firm wants storage costs reduced automatically as invoices age.",
+    question: "What should the CloudOps engineer configure?",
+    options: [
+      { id: 'A', text: "An S3 Inventory report reviewed each month, with an engineer moving invoices older than 30 days to another storage class." },
+      { id: 'B', text: "S3 Replication to a second bucket in Glacier Deep Archive, deleting the originals from S3 Standard as soon as they arrive." },
+      { id: 'C', text: "S3 Object Lock in compliance mode for seven years, which moves invoices to cheaper storage classes as they grow older." },
+      { id: 'D', text: "A Lifecycle rule moving invoices to Standard-IA at 30 days and a Glacier class at 90 days, expiring them at seven years." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "S3 Lifecycle transition actions move objects between storage classes by age, and an expiration action deletes them after seven years, all automatically; Standard-IA requires objects to have been stored for at least 30 days, which matches the first transition. Replicating straight to Deep Archive would make invoices unavailable for the frequent reads of the first month without a restore. Object Lock prevents deletion or overwrite but never changes storage class. A monthly human review is slow and error-prone compared with a rule.",
+    referenceUrl: "https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lifecycle-mgmt.html",
+    tags: ["S3","Lifecycle","Storage classes"]
+  },
+  {
+    id: "aws-soa-96",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d1",
+    domainName: "Monitoring, Logging, Analysis, Remediation, and Performance Optimization",
+    title: "Storage billed for files nobody can see",
+    scenario: "A media company's S3 bill for one bucket is 30 percent higher than the size of its listed objects suggests. Its upload client often fails mid-transfer on large files and starts again from scratch. S3 Storage Lens shows a large amount of storage attributed to incomplete multipart uploads.",
+    question: "What should the CloudOps engineer configure to stop paying for this storage?",
+    options: [
+      { id: 'A', text: "An S3 Lifecycle rule that expires noncurrent object versions after one day, which also removes parts of incomplete multipart uploads." },
+      { id: 'B', text: "S3 Transfer Acceleration on the bucket, which prevents failed uploads from leaving any parts in the bucket after they fail." },
+      { id: 'C', text: "An S3 Lifecycle rule that aborts incomplete multipart uploads a few days after initiation, deleting their stored parts." },
+      { id: 'D', text: "S3 Intelligent-Tiering on the bucket, which moves unused upload parts into the archive access tiers after 90 days of no use." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "Parts of multipart uploads that are never completed or aborted remain stored and billed but do not appear as objects; a Lifecycle rule with the AbortIncompleteMultipartUpload action removes them a set number of days after the upload was initiated. Noncurrent version expiration applies to versions of completed objects, not to orphaned parts. Transfer Acceleration changes the network path and does not clean up parts. Intelligent-Tiering moves objects, and incomplete upload parts are not objects it manages.",
+    referenceUrl: "https://docs.aws.amazon.com/AmazonS3/latest/userguide/mpu-abort-incomplete-mpu-lifecycle-config.html",
+    tags: ["S3","Multipart upload","Lifecycle"]
+  },
+  {
+    id: "aws-soa-97",
+    difficulty: "hard",
+    certId: "aws-soa",
+    domainId: "d1",
+    domainName: "Monitoring, Logging, Analysis, Remediation, and Performance Optimization",
+    title: "SlowDown errors from a telemetry writer",
+    scenario: "An IoT platform writes about 12,000 small objects per second into one S3 bucket, all under a single prefix named ingest/. Clients receive 503 Slow Down errors during peaks, although total request volume is well within what the team expected S3 to handle. Readers can locate objects by any key naming scheme.",
+    question: "What should the CloudOps engineer recommend?",
+    options: [
+      { id: 'A', text: "Spread writes across many prefixes, such as ingest/ followed by a hash or device shard, and retry with exponential backoff." },
+      { id: 'B', text: "Request a service quota increase for PUT requests per bucket, since S3 limits each bucket to 3,500 PUT requests per second." },
+      { id: 'C', text: "Enable S3 Versioning on the bucket so that concurrent writes to the ingest/ prefix are stored as separate versions of objects." },
+      { id: 'D', text: "Enable S3 Transfer Acceleration on the bucket so that writes are absorbed at edge locations before they reach the prefix." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "S3 supports at least 3,500 PUT, COPY, POST, or DELETE and 5,500 GET or HEAD requests per second per partitioned prefix, and scales by adding prefixes; writing 12,000 objects per second under one prefix exceeds that, so distributing keys across multiple prefixes, combined with backoff retries while S3 scales, removes the throttling. Transfer Acceleration improves long-distance transfer paths and does not raise per-prefix request rates. Versioning adds versions but does not change request limits. The limit is per prefix, not per bucket, and there is no quota increase to request for it.",
+    referenceUrl: "https://docs.aws.amazon.com/AmazonS3/latest/userguide/optimizing-performance.html",
+    tags: ["S3","Request rates","Performance"]
+  },
+  {
+    id: "aws-soa-98",
+    difficulty: "easy",
+    certId: "aws-soa",
+    domainId: "d1",
+    domainName: "Monitoring, Logging, Analysis, Remediation, and Performance Optimization",
+    title: "Datasets with unpredictable access",
+    scenario: "A pharmaceutical company keeps research datasets in S3. Some are read heavily for a few weeks and then ignored; others sit unused for months before a sudden burst of analysis. Nobody can predict which, and the team wants storage costs optimized automatically without retrieval fees or performance penalties when data is read again.",
+    question: "Which storage class should the CloudOps engineer use?",
+    options: [
+      { id: 'A', text: "S3 Standard-Infrequent Access, which is cheaper to store and charges retrieval fees on each read of the datasets." },
+      { id: 'B', text: "S3 One Zone-Infrequent Access, which lowers storage cost by keeping data in one zone and returns it without delay." },
+      { id: 'C', text: "S3 Glacier Flexible Retrieval, which is the cheapest option for data that is idle for months at a time between analyses." },
+      { id: 'D', text: "S3 Intelligent-Tiering, which shifts objects between access tiers by usage and charges no retrieval fees." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Intelligent-Tiering monitors access and moves objects to lower-cost tiers after periods without access, then back to the frequent tier when they are read, with a small monitoring charge but no retrieval fees for its frequent, infrequent, and archive instant access tiers, which suits unpredictable patterns. Standard-IA charges retrieval fees, penalising the sudden bursts. Glacier Flexible Retrieval requires a restore that takes minutes to hours. One Zone-IA also charges retrieval fees and loses data if its Availability Zone is lost.",
+    referenceUrl: "https://docs.aws.amazon.com/AmazonS3/latest/userguide/intelligent-tiering-overview.html",
+    tags: ["S3","Intelligent-Tiering","Storage classes"]
+  },
+  {
+    id: "aws-soa-99",
+    difficulty: "hard",
+    certId: "aws-soa",
+    domainId: "d1",
+    domainName: "Monitoring, Logging, Analysis, Remediation, and Performance Optimization",
+    title: "Speeding up a large-file pipeline within one Region",
+    scenario: "A genomics lab's EC2-based pipeline in us-west-2 uploads 80 GB result files to an S3 bucket in the same Region and later downloads them for downstream analysis. Both steps currently use one connection per file and take too long. The lab wants to maximize throughput for both the uploads and the downloads.",
+    question: "Which two changes should the CloudOps engineer make? (Choose two.)",
+    options: [
+      { id: 'A', text: "Store the result files in S3 Glacier Instant Retrieval so that the downstream analysis gets millisecond first-byte latency." },
+      { id: 'B', text: "Enable S3 Transfer Acceleration on the bucket so that the pipeline in us-west-2 reaches the bucket through edge locations." },
+      { id: 'C', text: "Upload each file with multipart upload, sending several parts at once over parallel connections to the bucket." },
+      { id: 'D', text: "Enable S3 Cross-Region Replication to another bucket so that downloads are split between two Regions at the same time." },
+      { id: 'E', text: "Download each file with parallel byte-range GET requests that fetch different parts of the object at the same time." }
+    ],
+    correctAnswers: ['C', 'E'],
+    type: "multiple",
+    explanation: "S3 throughput scales with parallel connections: multipart upload sends parts concurrently for large objects, and byte-range fetches let a client download different ranges of one object at once, both multiplying per-file throughput. Transfer Acceleration helps distant clients reach a bucket, not an EC2 pipeline in the same Region, and adds cost. Replicating to another Region adds cross-Region latency and transfer charges without speeding either step. Glacier Instant Retrieval is a cheaper class for rarely accessed data with retrieval fees; it is no faster than Standard.",
+    referenceUrl: "https://docs.aws.amazon.com/AmazonS3/latest/userguide/optimizing-performance-guidelines.html",
+    tags: ["S3","Byte-range fetches","Multipart upload"]
+  },
+  {
+    id: "aws-soa-100",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d1",
+    domainName: "Monitoring, Logging, Analysis, Remediation, and Performance Optimization",
+    title: "Millisecond object access for an ML training job",
+    scenario: "A machine learning team's training job on EC2 instances in one Availability Zone reads millions of small objects repeatedly from S3 Standard and spends much of its time waiting on request latency. The data can be regenerated if lost, and the team wants the lowest possible request latency from S3 storage in that zone.",
+    question: "What should the CloudOps engineer recommend?",
+    options: [
+      { id: 'A', text: "Turn on S3 Intelligent-Tiering so that the frequently read training objects stay in the tier with the lowest request latency." },
+      { id: 'B', text: "Copy the training data to an S3 Express One Zone directory bucket in the same Availability Zone as the training instances." },
+      { id: 'C', text: "Enable S3 Transfer Acceleration on the existing general purpose bucket so that each small GET is served through an edge location." },
+      { id: 'D', text: "Move the training data to S3 One Zone-Infrequent Access in that Availability Zone so requests are served from one zone." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "S3 Express One Zone stores data in directory buckets in a single Availability Zone you choose and delivers consistent single-digit millisecond latency with very high request rates, ideal for repeated small reads by co-located compute when single-zone durability is acceptable. Transfer Acceleration improves long-distance paths, not in-Region request latency. One Zone-IA is a cheaper infrequent-access class with the same latency profile as Standard and retrieval fees. Intelligent-Tiering changes cost tiers, and its frequent tier performs like Standard.",
+    referenceUrl: "https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-one-zone.html",
+    tags: ["S3 Express One Zone","Performance","Machine learning"]
+  }
+];
+
+export default AWS_SOA_QUESTIONS_4;

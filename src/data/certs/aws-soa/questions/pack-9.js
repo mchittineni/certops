@@ -1,0 +1,532 @@
+export const AWS_SOA_QUESTIONS_9 = [
+  {
+    id: "aws-soa-201",
+    difficulty: "easy",
+    certId: "aws-soa",
+    domainId: "d2",
+    domainName: "Reliability and Business Continuity",
+    title: "Recovering a pricing file overwritten by a script",
+    scenario: "A wholesale distributor keeps pricing spreadsheets in an S3 bucket that a nightly script updates. Last night a bug made the script overwrite several files with empty content, and there was no way to get the previous contents back. The distributor wants any future overwrite or deletion to be recoverable without running a separate backup process.",
+    question: "What should the CloudOps engineer enable on the bucket?",
+    options: [
+      { id: 'A', text: "S3 Transfer Acceleration, so the script's uploads land more quickly and are less likely to be cut short." },
+      { id: 'B', text: "Default encryption with SSE-KMS, so that every change to an object is logged and can be rolled back." },
+      { id: 'C', text: "S3 Intelligent-Tiering, so previous object contents move into a cheaper tier instead of being discarded." },
+      { id: 'D', text: "S3 Versioning, so every overwrite or delete keeps the prior object as a version that can be restored." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "With versioning enabled, an overwrite creates a new current version and keeps the old one as a noncurrent version, and a delete adds a delete marker instead of removing data, so both can be undone. Transfer Acceleration speeds up long-distance uploads but does not keep old content. SSE-KMS encrypts objects and records key usage in CloudTrail, but it keeps no earlier versions. Intelligent-Tiering moves objects between access tiers based on access patterns; it does not preserve overwritten content.",
+    referenceUrl: "https://docs.aws.amazon.com/AmazonS3/latest/userguide/Versioning.html",
+    tags: ["S3", "Versioning"]
+  },
+  {
+    id: "aws-soa-202",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d2",
+    domainName: "Reliability and Business Continuity",
+    title: "Undeleting an object without duplicating it",
+    scenario: "A photographer's portfolio site stores images in a versioned S3 bucket. An editor deleted the key albums/2024/cover.jpg with a simple DELETE request that did not specify a version, and the image now returns 404. The site owner wants it back as quickly as possible without creating an extra copy of the 300 MB file.",
+    question: "What should the CloudOps engineer do?",
+    options: [
+      { id: 'A', text: "Suspend versioning on the bucket, which removes the delete marker and makes the object visible again." },
+      { id: 'B', text: "Copy the latest noncurrent version of the object onto the same key so it becomes the current version." },
+      { id: 'C', text: "Delete the delete marker that the request created, so the most recent version becomes current again." },
+      { id: 'D', text: "Start a restore of the object from S3 Glacier Flexible Retrieval using the Expedited retrieval option." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "A DELETE without a version ID on a versioned bucket only inserts a delete marker as the current version; permanently deleting that marker (a DELETE that specifies the marker's version ID) makes the previous version current again with no data copied. Copying the noncurrent version also restores the image but stores a second full copy of the object. Suspending versioning does not remove existing delete markers. The object was never archived, so a Glacier restore does not apply.",
+    referenceUrl: "https://docs.aws.amazon.com/AmazonS3/latest/userguide/ManagingDelMarkers.html",
+    tags: ["S3", "Versioning", "Delete markers"]
+  },
+  {
+    id: "aws-soa-203",
+    difficulty: "easy",
+    certId: "aws-soa",
+    domainId: "d2",
+    domainName: "Reliability and Business Continuity",
+    title: "Old versions quietly filling a bucket",
+    scenario: "A mapping company enabled versioning on a bucket of tile images that are regenerated and overwritten every day. Six months later, storage costs have grown tenfold because of noncurrent versions. The company wants to keep the three most recent previous versions of each tile for 30 days for rollback and let everything older disappear automatically.",
+    question: "What should the CloudOps engineer configure?",
+    options: [
+      { id: 'A', text: "A switch of the versioning state to Disabled so noncurrent versions beyond the latest three are purged." },
+      { id: 'B', text: "An S3 Lifecycle rule that expires current versions after 30 days so that overwritten tiles are discarded." },
+      { id: 'C', text: "An S3 Batch Operations job that runs monthly to delete every noncurrent version older than thirty days." },
+      { id: 'D', text: "An S3 Lifecycle rule that expires noncurrent versions after 30 days while retaining three newer versions." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "A lifecycle NoncurrentVersionExpiration action with NoncurrentDays set to 30 and NewerNoncurrentVersions set to 3 deletes older noncurrent versions automatically while keeping the three most recent ones for rollback. Expiring current versions would remove live tiles, not old ones. Once versioning has been enabled it can only be suspended, not disabled, and suspension does not delete existing versions. A scheduled Batch Operations job works but needs building and maintaining, which lifecycle rules make unnecessary.",
+    referenceUrl: "https://docs.aws.amazon.com/AmazonS3/latest/userguide/lifecycle-configuration-examples.html",
+    tags: ["S3", "Versioning", "Lifecycle"]
+  },
+  {
+    id: "aws-soa-204",
+    difficulty: "hard",
+    certId: "aws-soa",
+    domainId: "d2",
+    domainName: "Reliability and Business Continuity",
+    title: "Auditors want MFA Delete switched on",
+    scenario: "A bank's auditors require that the versioning configuration of its statement archive bucket shows MFA Delete as Enabled, so that permanently deleting object versions or changing the versioning state requires a one-time code. The bucket is versioned. The security team manages S3 through IAM roles and rarely uses the account's root user.",
+    question: "How must MFA Delete be enabled?",
+    options: [
+      { id: 'A', text: "The root user runs put-bucket-versioning in the AWS CLI, passing its MFA device serial and a code." },
+      { id: 'B', text: "An IAM administrator signed in with MFA enables it on the bucket's Properties tab in the S3 console." },
+      { id: 'C', text: "The root user turns on S3 Object Lock in governance mode so deletions need a bypass permission." },
+      { id: 'D', text: "A bucket policy denies s3:DeleteObjectVersion unless the aws:MultiFactorAuthPresent key is true." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "MFA Delete can be enabled only by the bucket owner's root user, using the AWS CLI or API with the root user's MFA device serial number and current code in the put-bucket-versioning call; the console cannot enable it. IAM users and roles cannot turn it on, even with MFA. A bucket policy conditioned on MFA can protect deletes, but it does not set MFA Delete in the versioning configuration that the auditors check. Object Lock governance mode is a separate retention feature and does not enable MFA Delete.",
+    referenceUrl: "https://docs.aws.amazon.com/AmazonS3/latest/userguide/MultiFactorAuthenticationDelete.html",
+    tags: ["S3", "MFA Delete", "Versioning"]
+  },
+  {
+    id: "aws-soa-205",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d2",
+    domainName: "Reliability and Business Continuity",
+    title: "Stopping versioning on a scratch bucket",
+    scenario: "A data science team enabled versioning on a bucket of intermediate model files by mistake. The files are regenerated constantly, nobody needs earlier versions, and the bucket now holds terabytes of noncurrent versions. The team wants to stop creating new versions and get rid of the existing noncurrent ones without deleting the bucket.",
+    question: "Which actions should the CloudOps engineer take? (Choose two.)",
+    options: [
+      { id: 'A', text: "Suspend versioning on the bucket so that new writes stop creating additional noncurrent versions." },
+      { id: 'B', text: "Enable S3 Object Lock with a one-day default retention so that noncurrent versions expire quickly." },
+      { id: 'C', text: "Add a lifecycle rule that expires noncurrent versions and removes expired object delete markers." },
+      { id: 'D', text: "Enable MFA Delete so that the noncurrent versions can be removed in bulk with a single request." },
+      { id: 'E', text: "Disable versioning on the bucket, which switches it off entirely and purges all noncurrent versions." }
+    ],
+    correctAnswers: ['A', 'C'],
+    type: "multiple",
+    explanation: "A bucket that has been versioned can never return to unversioned; suspending versioning stops new noncurrent versions from being created, and a lifecycle rule with NoncurrentVersionExpiration and expired delete marker clean-up removes the ones that already exist. There is no Disabled state after versioning is enabled, and suspension does not purge versions. MFA Delete adds a requirement to permanently delete versions; it provides no bulk removal. Object Lock retention prevents deletion until it ends and does not delete anything.",
+    referenceUrl: "https://docs.aws.amazon.com/AmazonS3/latest/userguide/VersioningSuspended.html",
+    tags: ["S3", "Versioning", "Lifecycle"]
+  },
+  {
+    id: "aws-soa-206",
+    difficulty: "hard",
+    certId: "aws-soa",
+    domainId: "d2",
+    domainName: "Reliability and Business Continuity",
+    title: "Freezing evidence until a lawsuit ends",
+    scenario: "A construction firm stores project emails in an S3 bucket with Object Lock enabled and a default governance retention of one year. Legal counsel now needs about 400 specific object versions preserved indefinitely because of pending litigation, with no fixed end date, while all other objects keep following the default retention.",
+    question: "What should the CloudOps engineer apply to those object versions?",
+    options: [
+      { id: 'A', text: "A bucket-wide change of the default retention from governance mode to compliance mode for ten years." },
+      { id: 'B', text: "A legal hold on each of the 400 versions, which lasts until someone with permission removes the hold." },
+      { id: 'C', text: "An S3 Lifecycle rule scoped by tag that stops expiration of the tagged versions while the case is open." },
+      { id: 'D', text: "A compliance-mode retention of ten years on each of the 400 versions, removed if the legal case settles." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "An Object Lock legal hold prevents a version from being overwritten or deleted with no expiry date and stays in place until a user with s3:PutObjectLegalHold removes it, which suits litigation of unknown length and can be applied to specific versions, for example with S3 Batch Operations. A compliance-mode retention cannot be shortened or removed by anyone once set, so it could not be lifted when the case settles. Changing the bucket default affects every new object, not just the 400. Lifecycle rules manage expiration but offer no protection against deletion.",
+    referenceUrl: "https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock.html",
+    tags: ["S3", "Object Lock", "Legal hold"]
+  },
+  {
+    id: "aws-soa-207",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d2",
+    domainName: "Reliability and Business Continuity",
+    title: "Older objects missing from the replica bucket",
+    scenario: "A publishing house enabled versioning on its manuscripts bucket and on a new bucket in another Region, then added a Cross-Region Replication rule for the whole bucket. New uploads now appear in the destination within minutes, but none of the 2 million objects that existed before the rule was created have been copied.",
+    question: "How should the CloudOps engineer copy the existing objects under the replication configuration?",
+    options: [
+      { id: 'A', text: "Turn on S3 Replication Time Control on the rule so every object is copied within fifteen minutes." },
+      { id: 'B', text: "Turn on delete marker replication so objects that existed before the rule are re-evaluated for copying." },
+      { id: 'C', text: "Recreate the replication rule with a higher priority value so that it is applied to all objects too." },
+      { id: 'D', text: "Run S3 Batch Replication for the source bucket to replicate the objects that existed before the rule." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Live replication applies only to objects written after the rule exists; S3 Batch Replication replicates existing objects, objects that previously failed, and objects already replicated elsewhere, using the bucket's replication configuration. Replication Time Control sets an SLA for new objects but does not backfill. Delete marker replication controls whether delete markers are copied, not whether older objects are. Rule priority resolves overlaps between rules and does not make live replication retroactive.",
+    referenceUrl: "https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-batch-replication-batch.html",
+    tags: ["S3", "Replication", "Batch Replication"]
+  },
+  {
+    id: "aws-soa-208",
+    difficulty: "easy",
+    certId: "aws-soa",
+    domainId: "d2",
+    domainName: "Reliability and Business Continuity",
+    title: "Letting staff restore their own file versions",
+    scenario: "An accounting practice moved its Windows file shares to Amazon FSx for Windows File Server. Staff often overwrite spreadsheets by mistake and then ask IT to restore them from the nightly AWS Backup recovery point, which takes hours. The practice wants users to restore earlier versions of files themselves from Windows Explorer.",
+    question: "What should the CloudOps engineer configure?",
+    options: [
+      { id: 'A', text: "An hourly AWS Backup rule for the file system, so each restore is less than an hour out of date for users." },
+      { id: 'B', text: "S3 Versioning on the bucket behind the share, so each save keeps a version users open from Windows Explorer." },
+      { id: 'C', text: "Shadow copies on the file system with a schedule, so users open Previous Versions in Windows Explorer." },
+      { id: 'D', text: "Data deduplication on the file system, so copies of changed files are retained as separate file versions." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "FSx for Windows File Server supports Windows shadow copies: once shadow storage and a schedule are configured, users right-click a file or folder and restore it from Previous Versions without involving IT. More frequent AWS Backup recovery points still need an administrator to run restores. Data deduplication reduces storage by removing duplicate blocks; it does not keep file versions. FSx for Windows is not backed by a customer-visible S3 bucket.",
+    referenceUrl: "https://docs.aws.amazon.com/fsx/latest/WindowsGuide/manage-shadow-cpy.html",
+    tags: ["FSx for Windows", "Shadow copies"]
+  },
+  {
+    id: "aws-soa-209",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d2",
+    domainName: "Reliability and Business Continuity",
+    title: "Hourly file versions on an ONTAP volume",
+    scenario: "An architecture firm uses Amazon FSx for NetApp ONTAP for project data accessed over both NFS and SMB. Designers want to recover a file as it was an hour or a day ago on their own, and the storage team wants those recovery points to use space efficiently and be retained for two weeks.",
+    question: "What should the CloudOps engineer configure?",
+    options: [
+      { id: 'A', text: "SnapMirror replication to a second file system in another Region that designers can mount when they need to." },
+      { id: 'B', text: "An AWS Backup plan with hourly rules for the file system, with IT restoring files on request from designers." },
+      { id: 'C', text: "A snapshot policy on the volumes with hourly and daily schedules, exposing the .snapshot directory to users." },
+      { id: 'D', text: "Windows shadow copies on the SMB shares, configured through the file system's PowerShell remote endpoint." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "ONTAP volume snapshots are space-efficient point-in-time copies created by a snapshot policy with hourly, daily or weekly schedules and retention counts; users browse the .snapshot directory over NFS or use Previous Versions over SMB to recover files themselves. AWS Backup recovery points require an administrator to restore and are not browsable by users. SnapMirror is a replication feature for disaster recovery, not a self-service version history. Shadow copies and the PowerShell endpoint belong to FSx for Windows File Server.",
+    referenceUrl: "https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/snapshots-ontap.html",
+    tags: ["FSx for NetApp ONTAP", "Snapshots"]
+  },
+  {
+    id: "aws-soa-210",
+    difficulty: "hard",
+    certId: "aws-soa",
+    domainId: "d2",
+    domainName: "Reliability and Business Continuity",
+    title: "One corrupted file on a busy ZFS volume",
+    scenario: "A research institute's simulation outputs live on an Amazon FSx for OpenZFS volume that takes a snapshot every hour. A researcher corrupted one configuration file 20 minutes ago, while dozens of colleagues have written new results to the same volume since the last snapshot. The researcher needs only that file back, immediately, without affecting anyone else's work.",
+    question: "What should the CloudOps engineer tell the researcher to do?",
+    options: [
+      { id: 'A', text: "Roll the volume back to the most recent snapshot, which returns the whole volume to the state it was in then." },
+      { id: 'B', text: "Copy the file from the snapshot's read-only view under the .zfs/snapshot directory on the mounted volume." },
+      { id: 'C', text: "Open the file's Previous Versions tab in Windows Explorer and pick the version from the most recent snapshot." },
+      { id: 'D', text: "Restore last night's AWS Backup recovery point to a new file system and copy the single file across from it." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "FSx for OpenZFS exposes each snapshot as a read-only directory under .zfs/snapshot on the client, so the researcher can copy the file from the latest hourly snapshot immediately without touching anything else. Rolling the volume back to the snapshot would discard every colleague's writes since then. Restoring an AWS Backup recovery point takes much longer and is less recent than the hourly snapshot. Previous Versions is the Windows shadow copy interface of FSx for Windows File Server, and OpenZFS volumes are accessed over NFS.",
+    referenceUrl: "https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/snapshots-openzfs.html",
+    tags: ["FSx for OpenZFS", "Snapshots"]
+  },
+  {
+    id: "aws-soa-211",
+    difficulty: "easy",
+    certId: "aws-soa",
+    domainId: "d2",
+    domainName: "Reliability and Business Continuity",
+    title: "Storage doubled after turning on versioning",
+    scenario: "A monitoring vendor enabled versioning on a bucket where each customer's 50 MB status file is rewritten once a day. A month later, the finance team asks why the bucket's storage bill has grown so much even though the number of customers is unchanged and the file sizes have not grown.",
+    question: "What explains the increase?",
+    options: [
+      { id: 'A', text: "Versioning moves every object into the S3 Standard-IA class, which adds a retrieval charge for each rewrite." },
+      { id: 'B', text: "Each rewrite keeps the previous file as a noncurrent version, and every version is billed at its full size." },
+      { id: 'C', text: "Versioning stores a separate delta for each rewrite, and deltas are billed at a higher per-GB rate than data." },
+      { id: 'D', text: "Versioning automatically enables S3 Cross-Region Replication, which bills a second copy in another Region." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "S3 stores every version as a complete object, so a daily rewrite of a 50 MB file adds roughly 1.5 GB of noncurrent versions per customer per month, all billed at the storage class rate; a lifecycle rule for noncurrent versions controls the growth. S3 does not store deltas between versions. Versioning is a prerequisite for replication but never turns it on by itself. Enabling versioning does not change an object's storage class.",
+    referenceUrl: "https://docs.aws.amazon.com/AmazonS3/latest/userguide/versioning-workflows.html",
+    tags: ["S3", "Versioning", "Cost"]
+  },
+  {
+    id: "aws-soa-212",
+    difficulty: "easy",
+    certId: "aws-soa",
+    domainId: "d2",
+    domainName: "Reliability and Business Continuity",
+    title: "An internal wiki that can wait a day",
+    scenario: "A manufacturing company's internal wiki runs on a single EC2 instance with an RDS database. The business has agreed that in a Regional disaster the wiki can be unavailable for up to 24 hours and can lose up to a day of edits. The company wants the least expensive disaster recovery approach that meets those objectives.",
+    question: "Which disaster recovery strategy should the CloudOps engineer implement?",
+    options: [
+      { id: 'A', text: "Backup and restore, copying daily backups and AMIs to a second Region and rebuilding there after a disaster." },
+      { id: 'B', text: "Warm standby, running a scaled-down copy of the whole stack in the second Region that can be scaled up later." },
+      { id: 'C', text: "Pilot light, running a cross-Region read replica of the database and keeping AMIs ready in the second Region." },
+      { id: 'D', text: "Multi-site active/active, serving users from both Regions at once with health-checked Route 53 records." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "With an RTO and RPO of 24 hours, daily backups and AMIs copied to another Region and restored after a disaster meet the objectives at the lowest cost, because nothing runs in the second Region beforehand. Pilot light keeps a database replica running continuously, buying an RPO and RTO far better than required. Warm standby and active/active run even more infrastructure all the time and are justified only by much tighter objectives.",
+    referenceUrl: "https://docs.aws.amazon.com/whitepapers/latest/disaster-recovery-workloads-on-aws/disaster-recovery-options-in-the-cloud.html",
+    tags: ["Disaster recovery", "Backup and restore"]
+  },
+  {
+    id: "aws-soa-213",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d2",
+    domainName: "Reliability and Business Continuity",
+    title: "Minutes of data loss and an hour to recover",
+    scenario: "An online pharmacy requires that a Regional disaster costs no more than a few minutes of order data and that service is restored within about an hour. Management wants to avoid paying for application servers in the recovery Region while nothing is wrong, and the infrastructure is already defined in CloudFormation templates.",
+    question: "Which disaster recovery strategy fits these requirements?",
+    options: [
+      { id: 'A', text: "Warm standby, with a fully functional but smaller copy of the app tier always running in the recovery Region." },
+      { id: 'B', text: "Backup and restore, with nightly database snapshots copied to the recovery Region and templates run at failover." },
+      { id: 'C', text: "Pilot light, with the database replicating continuously to the recovery Region and app servers launched at failover." },
+      { id: 'D', text: "Multi-site active/active, with both Regions taking live orders at all times behind latency-based routing." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "Pilot light keeps the data layer live in the recovery Region through continuous replication, which gives an RPO of minutes, while application servers are provisioned from the existing templates only during failover, which fits an RTO of around an hour and avoids paying for idle servers. Nightly snapshots allow up to a day of data loss. Warm standby and active/active both keep application servers running in the recovery Region, which management wants to avoid.",
+    referenceUrl: "https://docs.aws.amazon.com/whitepapers/latest/disaster-recovery-workloads-on-aws/disaster-recovery-options-in-the-cloud.html",
+    tags: ["Disaster recovery", "Pilot light"]
+  },
+  {
+    id: "aws-soa-214",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d2",
+    domainName: "Reliability and Business Continuity",
+    title: "Taking some traffic the moment disaster strikes",
+    scenario: "A ticketing platform must resume serving customers within 10 minutes of a Regional failure, and its recovery Region must be able to take at least some production traffic immediately while it scales up. Leadership is not willing to pay for full production capacity in both Regions all the time.",
+    question: "Which disaster recovery strategy should the CloudOps engineer implement?",
+    options: [
+      { id: 'A', text: "Pilot light, with the data layer replicated and the application tier created from templates only on failover." },
+      { id: 'B', text: "Warm standby, with a smaller but fully working copy of the stack in the recovery Region that scales on failover." },
+      { id: 'C', text: "Multi-site active/active, with full production capacity in both Regions and traffic split between them always." },
+      { id: 'D', text: "Backup and restore, with AWS Backup copies in the recovery Region and a runbook that rebuilds the stack there." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "Warm standby runs a scaled-down but fully functional copy of the workload in the recovery Region, so it can accept traffic immediately and scale up to full capacity, meeting a 10-minute RTO without paying for a full second production footprint. Pilot light needs the application tier to be created before any traffic can be served, which usually takes longer. Active/active meets the objective but requires the full capacity leadership rejected. Backup and restore takes hours.",
+    referenceUrl: "https://docs.aws.amazon.com/whitepapers/latest/disaster-recovery-workloads-on-aws/disaster-recovery-options-in-the-cloud.html",
+    tags: ["Disaster recovery", "Warm standby"]
+  },
+  {
+    id: "aws-soa-215",
+    difficulty: "hard",
+    certId: "aws-soa",
+    domainId: "d2",
+    domainName: "Reliability and Business Continuity",
+    title: "Near-zero downtime across two Regions",
+    scenario: "A global payments processor needs near-zero RTO and near-zero RPO for its authorization service in us-east-1 and eu-west-1. Both Regions must accept writes all the time so that customers are served from the nearest Region, and losing one Region must not require any promotion or restore step before the other carries all traffic.",
+    question: "Which design meets these requirements?",
+    options: [
+      { id: 'A', text: "DynamoDB global tables with a replica in each Region, and Route 53 latency records with health checks." },
+      { id: 'B', text: "AWS Elastic Disaster Recovery replicating the service's servers into eu-west-1 and a staged runbook." },
+      { id: 'C', text: "An RDS for PostgreSQL cross-Region read replica in eu-west-1, and Route 53 weighted routing at 50/50." },
+      { id: 'D', text: "An Aurora global database with a secondary cluster in eu-west-1, and Route 53 failover routing records." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "DynamoDB global tables replicate multi-active tables across Regions, so each Region accepts reads and writes, and latency-based Route 53 records with health checks send customers to the nearest healthy Region; when one fails, traffic simply shifts with no promotion. An Aurora global database has one writer Region, and the secondary must be promoted during failover. A cross-Region read replica is read-only until promoted, so weighted routing would send writes to a replica that rejects them. Elastic Disaster Recovery launches recovery servers only after a disaster is declared.",
+    referenceUrl: "https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GlobalTables.html",
+    tags: ["Disaster recovery", "Active/active", "DynamoDB global tables"]
+  },
+  {
+    id: "aws-soa-216",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d2",
+    domainName: "Reliability and Business Continuity",
+    title: "Rotating the primary Region without losing data",
+    scenario: "A streaming service runs an Aurora PostgreSQL global database with its primary cluster in us-east-1 and a secondary in us-west-2. For a planned disaster recovery exercise, the service wants to move the writer role to us-west-2 with no data loss and keep the global database topology intact so replication continues back to us-east-1.",
+    question: "What should the CloudOps engineer do?",
+    options: [
+      { id: 'A', text: "Detach the us-west-2 cluster from the global database and promote it to a standalone primary cluster." },
+      { id: 'B', text: "Restore a snapshot of the primary into us-west-2 and add it back to the global database as primary." },
+      { id: 'C', text: "Run a global database switchover, which promotes us-west-2 once it has caught up with the primary." },
+      { id: 'D', text: "Run a global database failover with data loss allowed, which promotes us-west-2 right away as the writer." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "A switchover (previously called managed planned failover) waits for the secondary to be fully synchronized, then swaps the roles, so there is no data loss and the old primary becomes a secondary with replication continuing. Detaching and promoting breaks the global topology, and the old primary must be re-added. A snapshot restore loses recent changes and takes much longer. A failover with data loss allowed is meant for unplanned outages and can lose writes not yet replicated.",
+    referenceUrl: "https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database-disaster-recovery.html",
+    tags: ["Aurora", "Global database", "Switchover"]
+  },
+  {
+    id: "aws-soa-217",
+    difficulty: "hard",
+    certId: "aws-soa",
+    domainId: "d2",
+    domainName: "Reliability and Business Continuity",
+    title: "Recovery for 200 mixed servers on a budget",
+    scenario: "A hospital group runs 200 Windows and Linux servers, some on premises and some on EC2, with a mix of commercial applications and databases installed on the servers. It needs an RPO of seconds and an RTO of minutes in a recovery Region, while keeping the standing cost in that Region low. Rewriting the applications is not an option.",
+    question: "Which service should the CloudOps engineer use?",
+    options: [
+      { id: 'A', text: "AWS Elastic Disaster Recovery, with block-level replication into a low-cost staging area in the recovery Region." },
+      { id: 'B', text: "Amazon Data Lifecycle Manager cross-Region snapshot copies every hour, with AMIs launched in the recovery Region." },
+      { id: 'C', text: "AWS Backup with hourly EC2 backups and cross-Region copy rules that restore instances in the recovery Region." },
+      { id: 'D', text: "AWS Application Migration Service, with a one-time replication and cutover of every server to the recovery Region." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Elastic Disaster Recovery continuously replicates server block storage, from on premises or EC2, into a staging area of low-cost instances and volumes, giving an RPO of seconds; during a disaster it launches full recovery instances within minutes, and no application changes are needed. Hourly AWS Backup or Data Lifecycle Manager copies give an RPO of at least an hour, and restores take longer, and Data Lifecycle Manager cannot protect on-premises servers. Application Migration Service is designed for one-time migration cutovers, not for ongoing disaster recovery.",
+    referenceUrl: "https://docs.aws.amazon.com/drs/latest/userguide/what-is-drs.html",
+    tags: ["Elastic Disaster Recovery", "Disaster recovery"]
+  },
+  {
+    id: "aws-soa-218",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d2",
+    domainName: "Reliability and Business Continuity",
+    title: "Proving the failover runbook under real faults",
+    scenario: "A car-sharing company has a multi-AZ architecture and a written runbook for Availability Zone failures, but it has never been exercised. The reliability lead wants to run controlled experiments that inject real faults, such as stopping instances and disrupting network connectivity in one zone, with automatic stop conditions tied to CloudWatch alarms.",
+    question: "Which service should the CloudOps engineer use?",
+    options: [
+      { id: 'A', text: "AWS Trusted Advisor, running its fault tolerance checks against the workload across Availability Zones." },
+      { id: 'B', text: "AWS Config, evaluating the workload's resources with conformance packs for multi-AZ fault tolerance." },
+      { id: 'C', text: "AWS Resilience Hub, running an assessment of the application against a resiliency policy for AZ faults." },
+      { id: 'D', text: "AWS Fault Injection Service, with an experiment template that has actions and alarm-based stop conditions." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "AWS Fault Injection Service runs experiments from templates that define targets, fault actions such as stopping instances or disrupting network connectivity in a zone, and stop conditions tied to CloudWatch alarms that halt the experiment automatically. Resilience Hub assesses an application's configuration against RTO and RPO targets but does not inject faults itself. Trusted Advisor and Config evaluate configuration; neither exercises the runbook with real faults.",
+    referenceUrl: "https://docs.aws.amazon.com/fis/latest/userguide/what-is.html",
+    tags: ["Fault Injection Service", "Resilience testing"]
+  },
+  {
+    id: "aws-soa-219",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d2",
+    domainName: "Reliability and Business Continuity",
+    title: "Checking whether an app can meet its RTO",
+    scenario: "A retail bank has defined recovery targets for each business application, such as an RTO of one hour and an RPO of 15 minutes for its card services application. The operations team wants AWS to analyse the application's CloudFormation-defined resources, estimate whether those targets can be met for AZ and Regional disruptions, and recommend improvements.",
+    question: "Which service should the CloudOps engineer use?",
+    options: [
+      { id: 'A', text: "AWS Well-Architected Tool, with a review of the workload against the Reliability pillar questions." },
+      { id: 'B', text: "AWS Backup Audit Manager, with a framework whose controls check backup frequency and retention." },
+      { id: 'C', text: "AWS Fault Injection Service, with an experiment that stops the application's instances in each zone." },
+      { id: 'D', text: "AWS Resilience Hub, with a resiliency policy that holds the targets and an assessment of the application." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Resilience Hub imports an application from sources such as CloudFormation stacks, compares it against a resiliency policy containing RTO and RPO targets for application, infrastructure, AZ and Regional disruptions, estimates whether the targets are met, and recommends changes, alarms and tests. Fault Injection Service runs experiments but does not estimate compliance with targets. The Well-Architected Tool records answers to review questions rather than analysing resources. Backup Audit Manager checks backup compliance only.",
+    referenceUrl: "https://docs.aws.amazon.com/resilience-hub/latest/userguide/what-is.html",
+    tags: ["Resilience Hub", "RTO", "RPO"]
+  },
+  {
+    id: "aws-soa-220",
+    difficulty: "hard",
+    certId: "aws-soa",
+    domainId: "d2",
+    domainName: "Reliability and Business Continuity",
+    title: "Building the pieces of a pilot light",
+    scenario: "A logistics company is implementing a pilot light disaster recovery strategy in us-west-2 for an application that runs on an EC2 Auto Scaling group with an Amazon RDS for MySQL database in us-east-1. The recovery Region should hold only what is needed to bring the application up quickly, with the data kept continuously current.",
+    question: "Which actions should the CloudOps engineer take? (Choose two.)",
+    options: [
+      { id: 'A', text: "Set Route 53 weighted routing at 50/50 between the two Regions so both serve users during normal times." },
+      { id: 'B', text: "Copy the application AMIs to us-west-2 and keep CloudFormation templates ready to launch the app tier." },
+      { id: 'C', text: "Run a full-size Auto Scaling group in us-west-2 behind a load balancer that is always taking traffic." },
+      { id: 'D', text: "Create a cross-Region read replica of the database in us-west-2 to keep the data continuously current." },
+      { id: 'E', text: "Copy one database snapshot to us-west-2 each night so that the recovery Region has yesterday's data." }
+    ],
+    correctAnswers: ['B', 'D'],
+    type: "multiple",
+    explanation: "In pilot light, the data layer runs live in the recovery Region, which a cross-Region read replica provides, while the application tier is not running but can be launched quickly from AMIs already copied to the Region and ready templates. A full-size group serving traffic, or 50/50 weighted routing, turns the design into active/active and pays for full capacity. Nightly snapshot copies are backup and restore and do not keep the data continuously current.",
+    referenceUrl: "https://docs.aws.amazon.com/whitepapers/latest/disaster-recovery-workloads-on-aws/disaster-recovery-options-in-the-cloud.html",
+    tags: ["Disaster recovery", "Pilot light", "Read replicas"]
+  },
+  {
+    id: "aws-soa-221",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d2",
+    domainName: "Reliability and Business Continuity",
+    title: "Copying encrypted snapshots to the DR Region",
+    scenario: "A media company's backup-and-restore runbook copies encrypted EBS snapshots from eu-west-1 to eu-north-1 each night. The snapshots are encrypted with a single-Region customer managed KMS key in eu-west-1, and the first copy attempt in the runbook failed because the copy request had no usable key in the destination Region.",
+    question: "What should the CloudOps engineer change in the copy step?",
+    options: [
+      { id: 'A', text: "Specify a KMS key that exists in eu-north-1 in the copy request, so the snapshot copy is re-encrypted with it." },
+      { id: 'B', text: "Share the eu-west-1 KMS key with eu-north-1 through its key policy so the destination copy can reuse it." },
+      { id: 'C', text: "Enable EBS encryption by default in eu-west-1 so that snapshot copies choose a destination key themselves." },
+      { id: 'D', text: "Decrypt the snapshots in eu-west-1 before copying them and turn on encryption again after they arrive." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "KMS keys are Regional, so a cross-Region copy of an encrypted snapshot must name a key in the destination Region (or use a multi-Region key replica), and EBS re-encrypts the copy with that key. A single-Region key cannot be used from another Region, whatever its key policy says. EBS cannot decrypt an encrypted snapshot in place, and an unencrypted copy would weaken protection. Encryption by default in the source Region does not supply a key in eu-north-1.",
+    referenceUrl: "https://docs.aws.amazon.com/ebs/latest/userguide/ebs-copy-snapshot.html",
+    tags: ["EBS", "Snapshots", "KMS", "Cross-Region copy"]
+  },
+  {
+    id: "aws-soa-222",
+    difficulty: "easy",
+    certId: "aws-soa",
+    domainId: "d2",
+    domainName: "Reliability and Business Continuity",
+    title: "A replication time guarantee for bucket data",
+    scenario: "A broadcaster replicates its media archive bucket to another Region as part of its disaster recovery plan. The plan now states that 99.99 percent of new objects must be present in the recovery Region within 15 minutes, and the operations team wants metrics and notifications when replication falls behind that target.",
+    question: "What should the CloudOps engineer enable?",
+    options: [
+      { id: 'A', text: "S3 Transfer Acceleration on the source bucket so that replicated objects travel over edge networks." },
+      { id: 'B', text: "S3 Batch Replication on a 15-minute schedule so that any object not yet copied is replicated again." },
+      { id: 'C', text: "S3 Replication Time Control on the replication rule, which includes replication metrics and events." },
+      { id: 'D', text: "S3 Multi-Region Access Points with failover controls so objects are written to both Regions at once." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "S3 Replication Time Control is backed by an SLA to replicate 99.99 percent of new objects within 15 minutes and enables replication metrics and S3 event notifications for objects that miss the threshold. Transfer Acceleration speeds client uploads over edge locations and does not apply to replication. Batch Replication handles existing or failed objects on demand and gives no time guarantee. Multi-Region Access Points route requests to buckets but do not write objects to both Regions simultaneously; replication still does the copying.",
+    referenceUrl: "https://docs.aws.amazon.com/AmazonS3/latest/userguide/replication-time-control.html",
+    tags: ["S3", "Replication Time Control", "Disaster recovery"]
+  },
+  {
+    id: "aws-soa-223",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d2",
+    domainName: "Reliability and Business Continuity",
+    title: "Conflicting writes in two active Regions",
+    scenario: "A loyalty-points service uses DynamoDB global tables in the default multi-Region eventual consistency mode, with users served from us-east-1 and ap-southeast-2. During a test, the same customer's points item was updated in both Regions within the same second, and one of the two updates disappeared after replication completed.",
+    question: "What explains the result, and how should the design be adjusted?",
+    options: [
+      { id: 'A', text: "Global tables merge concurrent writes by summing numeric attributes; use string attributes for points." },
+      { id: 'B', text: "Global tables apply writes in the primary Region's order; make ap-southeast-2 the primary Region instead." },
+      { id: 'C', text: "Global tables resolve concurrent writes with last writer wins; route each customer's writes to one Region." },
+      { id: 'D', text: "Global tables reject the later of two concurrent writes; raise the table's write capacity in each Region." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "With multi-Region eventual consistency, concurrent updates to the same item in different Regions are reconciled by last writer wins, so one update is overwritten; homing each customer's writes to a single Region, or using conditional and idempotent update patterns, avoids the conflict. Global tables do not merge attribute values. They do not reject concurrent writes for capacity reasons. Global tables are multi-active with no primary Region that orders writes.",
+    referenceUrl: "https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/V2globaltables_HowItWorks.html",
+    tags: ["DynamoDB", "Global tables", "Conflict resolution"]
+  },
+  {
+    id: "aws-soa-224",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d2",
+    domainName: "Reliability and Business Continuity",
+    title: "Shortening a backup-and-restore recovery",
+    scenario: "A law firm uses a backup and restore disaster recovery strategy for its case management system. The last test took two days because backups existed only in the primary Region and engineers rebuilt the network, instances and database settings by following a document. The firm wants a faster, repeatable recovery while keeping the backup and restore strategy.",
+    question: "Which improvements should the CloudOps engineer make? (Choose two.)",
+    options: [
+      { id: 'A', text: "Add AWS Backup copy actions that place recovery points in a vault in the recovery Region." },
+      { id: 'B', text: "Extend the retention of the backups in the primary Region from 35 days to one full year." },
+      { id: 'C', text: "Define the network, compute and database in CloudFormation templates run at recovery time." },
+      { id: 'D', text: "Migrate the database to an Aurora global database with a secondary in the recovery Region." },
+      { id: 'E', text: "Keep a scaled-down copy of the application running in the recovery Region at all times." }
+    ],
+    correctAnswers: ['A', 'C'],
+    type: "multiple",
+    explanation: "Copying recovery points to a vault in the recovery Region means the backups survive a Regional disaster, and infrastructure as code turns a two-day manual rebuild into a repeatable deployment, both within a backup and restore strategy. A running scaled-down copy is warm standby, and an Aurora global database is a pilot light or warm standby component; both change the strategy and its cost. Longer retention in the primary Region does nothing if that Region is unavailable.",
+    referenceUrl: "https://docs.aws.amazon.com/whitepapers/latest/disaster-recovery-workloads-on-aws/disaster-recovery-options-in-the-cloud.html",
+    tags: ["Disaster recovery", "Backup and restore", "CloudFormation"]
+  },
+  {
+    id: "aws-soa-225",
+    difficulty: "easy",
+    certId: "aws-soa",
+    domainId: "d2",
+    domainName: "Reliability and Business Continuity",
+    title: "A standby copy of shared files in another Region",
+    scenario: "A game studio keeps build artifacts and shared assets on an Amazon EFS file system in us-east-1. Its disaster recovery plan needs a copy of the file system in us-west-2 that is kept current automatically, typically within minutes, and that can be made writable if us-east-1 becomes unavailable.",
+    question: "What should the CloudOps engineer configure?",
+    options: [
+      { id: 'A', text: "An AWS DataSync task that copies the file system to Amazon S3 in us-west-2 each night." },
+      { id: 'B', text: "EFS replication from the us-east-1 file system to a destination file system in us-west-2." },
+      { id: 'C', text: "EFS lifecycle management that moves files to EFS Archive storage in the us-west-2 Region." },
+      { id: 'D', text: "A nightly AWS Backup rule for the file system that copies recovery points to us-west-2." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "EFS replication keeps a read-only destination file system in another Region continuously synchronized, designed for an RPO of 15 minutes for most file systems, and deleting the replication configuration makes the destination writable for failover. Nightly AWS Backup copies or a nightly DataSync task can lose up to a day of changes, and restoring or reloading them takes time. Lifecycle management moves files between storage classes within the same file system; it does not create a copy in another Region.",
+    referenceUrl: "https://docs.aws.amazon.com/efs/latest/ug/efs-replication.html",
+    tags: ["EFS", "Replication", "Disaster recovery"]
+  }
+];
+
+export default AWS_SOA_QUESTIONS_9;

@@ -1,0 +1,532 @@
+export const AWS_SOA_QUESTIONS_17 = [
+  {
+    id: "aws-soa-401",
+    difficulty: "easy",
+    certId: "aws-soa",
+    domainId: "d5",
+    domainName: "Networking and Content Delivery",
+    title: "IPv6 updates for private instances",
+    scenario: "A research lab runs dual-stack EC2 instances in a private subnet. The instances must download software updates from IPv6 hosts on the internet, but no host on the internet may open an IPv6 connection to them. IPv4 traffic already leaves through a NAT gateway.",
+    question: "What should the CloudOps engineer add for the IPv6 traffic?",
+    options: [
+      { id: 'A', text: "A ::/0 route to the existing NAT gateway so that it translates IPv6 flows for the subnet too." },
+      { id: 'B', text: "A ::/0 route to the VPC's internet gateway plus a security group that denies inbound IPv6." },
+      { id: 'C', text: "An egress-only internet gateway, with a ::/0 route to it in the private subnet's route table." },
+      { id: 'D', text: "A second NAT gateway in the public subnet created in IPv6 mode for the private instances." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "An egress-only internet gateway is the IPv6 counterpart of NAT for outbound-only access: it lets instances start IPv6 connections to the internet and blocks connections initiated from outside, so a ::/0 route to it meets both requirements. A NAT gateway does not route general IPv6 traffic; its NAT64 feature translates IPv6-only clients to IPv4 destinations through the 64:ff9b::/96 prefix. Routing ::/0 to the internet gateway makes the instances reachable, and security groups cannot express deny rules, so the lab would rely on allow rules alone. NAT gateways have no IPv6 mode for this purpose.",
+    referenceUrl: "https://docs.aws.amazon.com/vpc/latest/userguide/egress-only-internet-gateway.html",
+    tags: ["VPC", "IPv6", "Egress-only internet gateway"]
+  },
+  {
+    id: "aws-soa-402",
+    difficulty: "easy",
+    certId: "aws-soa",
+    domainId: "d5",
+    domainName: "Networking and Content Delivery",
+    title: "Patching servers that must stay private",
+    scenario: "An accounting firm moved its application servers into private subnets with no public IPv4 addresses. The servers now fail to download operating system patches from public repositories. Security requires that the servers stay unreachable from the internet, and the team does not want to manage any additional EC2 instances.",
+    question: "What should the CloudOps engineer configure?",
+    options: [
+      { id: 'A', text: "Create an egress-only internet gateway and route 0.0.0.0/0 from the private subnets' route table to it." },
+      { id: 'B', text: "Attach an internet gateway to the VPC and add a 0.0.0.0/0 route to it in the private subnets' route table." },
+      { id: 'C', text: "Create a NAT gateway in a public subnet and route 0.0.0.0/0 from the private subnets' route table to it." },
+      { id: 'D', text: "Launch a NAT instance from a community AMI in a public subnet and disable its source/destination check." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "A NAT gateway in a public subnet, reached through a default route from the private route table, lets the servers start outbound IPv4 connections while rejecting inbound connections, and it is a managed service with no instances to operate. Routing private subnets straight to an internet gateway does nothing for instances without public addresses and would make the subnets public by definition. Egress-only internet gateways handle IPv6 only. A NAT instance works but is an EC2 instance the team would have to patch and scale, which the requirement excludes.",
+    referenceUrl: "https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html",
+    tags: ["VPC", "NAT gateway"]
+  },
+  {
+    id: "aws-soa-403",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d5",
+    domainName: "Networking and Content Delivery",
+    title: "Custom network ACL breaks web responses",
+    scenario: "A retailer attached a custom network ACL to its public web subnet. Inbound rules allow TCP 443 from 0.0.0.0/0 and outbound rules allow TCP 443 to 0.0.0.0/0, each followed by the default deny. The security groups allow 443 inbound. Since the change, browsers time out when loading the site hosted on instances in the subnet.",
+    question: "Which network ACL change restores access?",
+    options: [
+      { id: 'A', text: "Renumber the inbound 443 rule to 32767 so it is evaluated after the default rule and applies last." },
+      { id: 'B', text: "Add an outbound rule allowing TCP 1024-65535 to 0.0.0.0/0 so responses reach the clients' ports." },
+      { id: 'C', text: "Add an outbound rule allowing TCP 80 to 0.0.0.0/0 so that the redirect from HTTP to HTTPS completes." },
+      { id: 'D', text: "Add an inbound rule allowing TCP 1024-65535 from 0.0.0.0/0 so return traffic can enter the subnet." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "Network ACLs are stateless, so responses are evaluated as new outbound traffic; the web servers reply from port 443 to the client's ephemeral port, typically in the 1024-65535 range, and the current outbound rule only permits destination port 443. An outbound ephemeral-port rule lets the replies leave. An inbound ephemeral rule would matter for connections the servers start, not for serving clients. Port 80 is irrelevant when clients already connect on 443 and the timeouts affect HTTPS. Rules are evaluated lowest number first, and the default rule is the asterisk rule, which always evaluates last; renumbering the allow rule to a higher number changes nothing useful.",
+    referenceUrl: "https://docs.aws.amazon.com/vpc/latest/userguide/vpc-network-acls.html",
+    tags: ["Network ACL", "Ephemeral ports"]
+  },
+  {
+    id: "aws-soa-404",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d5",
+    domainName: "Networking and Content Delivery",
+    title: "Letting only the load balancer reach the app tier",
+    scenario: "An e-commerce site's application instances sit in private subnets behind an internet-facing Application Load Balancer in public subnets. Auto Scaling replaces instances often, and the ALB's node IP addresses change as it scales. Security wants the instances to accept port 8080 traffic only from the load balancer, with no rule updates when addresses change.",
+    question: "How should the instances' security group be configured?",
+    options: [
+      { id: 'A', text: "Allow TCP 8080 from 0.0.0.0/0 and add a network ACL on the private subnets that denies other sources." },
+      { id: 'B', text: "Allow TCP 8080 from the CIDR blocks of the public subnets that the load balancer nodes are placed in." },
+      { id: 'C', text: "Allow TCP 8080 from the AWS-managed prefix list for Elastic Load Balancing in the VPC's Region." },
+      { id: 'D', text: "Allow TCP 8080 from the security group attached to the load balancer as the rule's traffic source." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Referencing the load balancer's security group as the source allows traffic from any network interface that carries that group, so the rule follows the ALB's nodes as they change and admits nothing else. Public subnet CIDRs also cover every other resource in those subnets, such as NAT gateways and bastion hosts, so the rule is broader than the requirement. AWS publishes managed prefix lists for services such as CloudFront, S3 and DynamoDB, not one representing a customer's own load balancer nodes. Opening the group to 0.0.0.0/0 and trying to narrow it with a stateless ACL is fragile and still admits any source the ACL fails to deny.",
+    referenceUrl: "https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-update-security-groups.html",
+    tags: ["Security groups", "ALB"]
+  },
+  {
+    id: "aws-soa-405",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d5",
+    domainName: "Networking and Content Delivery",
+    title: "Blocking one abusive address at the subnet",
+    scenario: "A news site's public subnet network ACL has rule 100 allowing TCP 443 from 0.0.0.0/0. An engineer added rule 200 denying all traffic from 203.0.113.77, a source flooding the login page, but the requests keep arriving. The instances' security groups allow 443 from anywhere.",
+    question: "What should the engineer do to block the address?",
+    options: [
+      { id: 'A', text: "Add a deny rule for 203.0.113.77 to the instances' security group and keep the network ACL unchanged." },
+      { id: 'B', text: "Associate the network ACL with the private subnets too, so the deny rule 200 is checked a second time." },
+      { id: 'C', text: "Add a matching outbound deny for 203.0.113.77 at rule 200 so the ACL blocks the flow in both directions." },
+      { id: 'D', text: "Move the deny for 203.0.113.77 to a rule number lower than 100 so it is evaluated before the allow." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Network ACL rules are processed in ascending order and the first match wins, so traffic from the address matches the allow at rule 100 before the deny at rule 200 is ever reached; renumbering the deny below 100 makes it take effect. Security groups support allow rules only and cannot deny a specific address. An outbound deny numbered 200 would still let the requests reach the servers, and it would be skipped anyway wherever a lower-numbered outbound allow matches first. Applying the ACL to other subnets does not change evaluation order for the public subnet.",
+    referenceUrl: "https://docs.aws.amazon.com/vpc/latest/userguide/nacl-rules.html",
+    tags: ["Network ACL", "Rule evaluation"]
+  },
+  {
+    id: "aws-soa-406",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d5",
+    domainName: "Networking and Content Delivery",
+    title: "One partner address list for many security groups",
+    scenario: "A logistics company allows a partner's 14 office CIDR blocks on port 443 in 30 different security groups across one account. The partner adds or removes offices every few weeks, and each change currently means editing all 30 groups by hand, which has led to drift. The team wants a single place to maintain the list.",
+    question: "What should the CloudOps engineer implement?",
+    options: [
+      { id: 'A', text: "Create a customer-managed prefix list with the partner CIDRs and reference it in each group's inbound rule." },
+      { id: 'B', text: "Create an AWS WAF IP set with the partner CIDRs and associate the web ACL with every security group." },
+      { id: 'C', text: "Create a network ACL with the partner CIDRs and associate it with every subnet used by the 30 groups." },
+      { id: 'D', text: "Create one security group holding the partner CIDRs and reference that group as the source in the others." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "A customer-managed prefix list holds a set of CIDR blocks that security group rules and route tables can reference, so updating the list once changes every rule that uses it; each entry counts toward the referencing group's rule quota, which 14 entries fit comfortably. Referencing a security group as a source matches traffic from network interfaces carrying that group, not the CIDRs listed in its rules, so partner offices would not be matched. A network ACL applies to whole subnets and would still need the 30 group rules to allow the traffic. WAF web ACLs attach to resources such as load balancers and CloudFront, not to security groups.",
+    referenceUrl: "https://docs.aws.amazon.com/vpc/latest/userguide/managed-prefix-lists.html",
+    tags: ["Prefix lists", "Security groups"]
+  },
+  {
+    id: "aws-soa-407",
+    difficulty: "hard",
+    certId: "aws-soa",
+    domainId: "d5",
+    domainName: "Networking and Content Delivery",
+    title: "Adding IPv6 to an existing private tier",
+    scenario: "A telecom's VPC is IPv4-only with public and private subnets. A regulator now requires the private application tier to reach partner APIs that are published only on IPv6, while no IPv6 connection may be initiated toward the tier from outside. The public tier will be handled in a later phase.",
+    question: "Which two actions are required for the private tier? (Choose two.)",
+    options: [
+      { id: 'A', text: "Add a ::/0 route to the internet gateway in the private route table and rely on security group rules." },
+      { id: 'B', text: "Associate an Amazon-provided IPv6 CIDR block with the VPC and assign a /64 from it to each private subnet." },
+      { id: 'C', text: "Add a ::/0 route in the private route table that targets the existing NAT gateway in the public subnet." },
+      { id: 'D', text: "Create an egress-only internet gateway and add a ::/0 route to it in the private subnets' route table." },
+      { id: 'E', text: "Enable auto-assign public IPv4 addresses on the private subnets so their instances become dual-stack." }
+    ],
+    correctAnswers: ['B', 'D'],
+    type: "multiple",
+    explanation: "Instances cannot hold IPv6 addresses until the VPC has an IPv6 CIDR block and each subnet has a /64 from it, and outbound-only IPv6 internet access comes from an egress-only internet gateway targeted by a ::/0 route, which blocks connections initiated from outside. A NAT gateway does not forward native IPv6 traffic to the internet. Auto-assigning public IPv4 addresses has nothing to do with IPv6 and would expose the tier. A ::/0 route to the internet gateway allows inbound IPv6 connections subject only to security group allow rules, which does not meet the no-inbound mandate as a network control.",
+    referenceUrl: "https://docs.aws.amazon.com/vpc/latest/userguide/vpc-migrate-ipv6.html",
+    tags: ["VPC", "IPv6", "Dual-stack"]
+  },
+  {
+    id: "aws-soa-408",
+    difficulty: "easy",
+    certId: "aws-soa",
+    domainId: "d5",
+    domainName: "Networking and Content Delivery",
+    title: "Private access to S3 from an isolated subnet",
+    scenario: "A genomics team runs batch jobs on EC2 instances in a subnet with no internet gateway route and no NAT gateway. The jobs must read input files from S3 buckets in the same Region. Security will not allow any path to the internet from the subnet.",
+    question: "What should the CloudOps engineer configure?",
+    options: [
+      { id: 'A', text: "Create a gateway VPC endpoint for DynamoDB and store the input file locations in a DynamoDB table." },
+      { id: 'B', text: "Create a VPC peering connection to a VPC that has a NAT gateway and route S3 traffic across it." },
+      { id: 'C', text: "Create a gateway VPC endpoint for S3 and associate it with the isolated subnet's route table." },
+      { id: 'D', text: "Enable S3 Transfer Acceleration on the buckets and use the accelerated endpoint name in jobs." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "A gateway endpoint for S3 adds a route for the S3 prefix list to the associated route table, so instances reach S3 in the same Region privately with no internet path and no endpoint hourly charge. Transfer Acceleration uses edge locations over the public internet, which the subnet cannot reach. VPC peering does not support edge-to-edge routing, so traffic cannot use a NAT gateway in the peer VPC, and it would create an internet path anyway. A DynamoDB endpoint reaches DynamoDB, not the S3 objects the jobs must read.",
+    referenceUrl: "https://docs.aws.amazon.com/vpc/latest/privatelink/vpc-endpoints-s3.html",
+    tags: ["VPC endpoints", "S3", "Gateway endpoint"]
+  },
+  {
+    id: "aws-soa-409",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d5",
+    domainName: "Networking and Content Delivery",
+    title: "Bucket readable only through the VPC endpoint",
+    scenario: "A healthcare company's application in a VPC reads patient reports from an S3 bucket through a gateway endpoint. An audit found that users with IAM credentials can also download the reports from their laptops over the internet. The bucket must accept requests only when they arrive through that specific endpoint.",
+    question: "What should the CloudOps engineer add?",
+    options: [
+      { id: 'A', text: "A bucket policy that denies all S3 actions unless aws:SourceVpce equals the gateway endpoint's ID." },
+      { id: 'B', text: "An S3 Block Public Access setting on the bucket so that only principals inside the VPC can read it." },
+      { id: 'C', text: "A bucket policy that denies all S3 actions unless aws:SourceIp matches the VPC's private CIDR range." },
+      { id: 'D', text: "An endpoint policy on the gateway endpoint that allows s3:GetObject only for the reports bucket's ARN." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "A Deny in the bucket policy conditioned on aws:SourceVpce not matching the endpoint ID rejects every request that does not traverse that endpoint, including authenticated requests from laptops. An endpoint policy limits what can be done through the endpoint but has no effect on requests that bypass it over the internet. The aws:SourceIp key does not contain private VPC addresses for requests through a VPC endpoint, so a private CIDR condition would not match and is the wrong tool. Block Public Access stops public grants but does not stop authenticated IAM principals from outside the VPC.",
+    referenceUrl: "https://docs.aws.amazon.com/AmazonS3/latest/userguide/example-bucket-policies-vpc-endpoint.html",
+    tags: ["S3", "VPC endpoints", "Bucket policy"]
+  },
+  {
+    id: "aws-soa-410",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d5",
+    domainName: "Networking and Content Delivery",
+    title: "Interface endpoint name still resolves publicly",
+    scenario: "A platform team created an interface VPC endpoint for Amazon SQS with private DNS enabled in a VPC that was built from an old template. Applications still resolve sqs.eu-central-1.amazonaws.com to public addresses and time out, because the subnets have no NAT gateway. The endpoint's security group allows HTTPS from the application subnets.",
+    question: "What should the CloudOps engineer check first?",
+    options: [
+      { id: 'A', text: "That the VPC attributes enableDnsSupport and enableDnsHostnames are both set to true for the VPC." },
+      { id: 'B', text: "That a Route 53 public hosted zone for amazonaws.com is associated with the VPC for private names." },
+      { id: 'C', text: "That the VPC's route tables have a route to the endpoint for the SQS service prefix list in the Region." },
+      { id: 'D', text: "That the endpoint policy allows sqs:SendMessage for the queues the applications need to reach." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Private DNS for an interface endpoint works through a private hosted zone that AWS manages, and it takes effect only when the VPC has both DNS resolution and DNS hostnames enabled; older templates often leave hostnames off, so the public name keeps resolving to public addresses. Interface endpoints are reached through network interfaces in subnets, not through route table entries, and SQS has no gateway endpoint prefix list. Public hosted zones cannot be associated with a VPC and would not override service names. An endpoint policy that denied the action would produce access-denied errors after a successful connection, not public DNS answers and timeouts.",
+    referenceUrl: "https://docs.aws.amazon.com/vpc/latest/privatelink/privatelink-access-aws-services.html",
+    tags: ["Interface endpoint", "Private DNS", "VPC DNS"]
+  },
+  {
+    id: "aws-soa-411",
+    difficulty: "hard",
+    certId: "aws-soa",
+    domainId: "d5",
+    domainName: "Networking and Content Delivery",
+    title: "Offering a service to customer VPCs that overlap",
+    scenario: "A SaaS vendor runs a license-validation API on EC2 instances in its own VPC. Dozens of customer accounts need to call it privately from their VPCs, many of which use the same 10.0.0.0/16 range as the vendor. Customers must reach only the API, not the rest of the vendor's network, and the vendor wants to approve each connection.",
+    question: "What should the CloudOps engineer implement?",
+    options: [
+      { id: 'A', text: "Publish the API through an internet-facing Application Load Balancer and allow only customers' NAT addresses." },
+      { id: 'B', text: "Peer each customer VPC with the vendor VPC and restrict access with security groups referencing peer groups." },
+      { id: 'C', text: "Front the API with a Network Load Balancer, create an endpoint service requiring acceptance, and share it." },
+      { id: 'D', text: "Attach every customer VPC to a shared transit gateway and use route table associations to isolate the API." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "An AWS PrivateLink endpoint service backed by a Network Load Balancer lets each customer create an interface endpoint in its own VPC, which uses addresses from the customer's subnets, so overlapping CIDRs do not matter; traffic reaches only the service behind the load balancer, and acceptance required lets the vendor approve each connection request. VPC peering is not allowed between VPCs with overlapping CIDR blocks and exposes routable networks. A transit gateway also cannot route between attachments with the same overlapping range. An internet-facing load balancer is not private connectivity.",
+    referenceUrl: "https://docs.aws.amazon.com/vpc/latest/privatelink/create-endpoint-service.html",
+    tags: ["PrivateLink", "Endpoint service", "NLB"]
+  },
+  {
+    id: "aws-soa-412",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d5",
+    domainName: "Networking and Content Delivery",
+    title: "New peering connection passes no traffic",
+    scenario: "An engineer created and accepted a VPC peering connection between a reporting VPC (10.20.0.0/16) and a database VPC (10.30.0.0/16) in the same account and Region. Reporting instances still cannot connect to a PostgreSQL instance on port 5432 in the database VPC. No routes or security group rules were changed after the peering was accepted.",
+    question: "Which two changes are needed? (Choose two.)",
+    options: [
+      { id: 'A', text: "Enable DNS resolution support on the peering connection so private IP traffic can cross between the VPCs." },
+      { id: 'B', text: "Attach both VPCs to a transit gateway, because a peering connection by itself only carries DNS queries." },
+      { id: 'C', text: "Add routes for the peer CIDR through the peering connection in the route tables of both VPCs' subnets." },
+      { id: 'D', text: "Allow TCP 5432 from 10.20.0.0/16 in the security group attached to the PostgreSQL database instance." },
+      { id: 'E', text: "Add routes for the peer CIDR through each VPC's internet gateway so that return traffic has a known path." }
+    ],
+    correctAnswers: ['C', 'D'],
+    type: "multiple",
+    explanation: "A peering connection carries traffic only after each side's route tables send the peer CIDR to the pcx target, and the database's security group must allow port 5432 from the reporting VPC's range (or its security group, since both are in one Region). The DNS resolution option lets public DNS names resolve to private addresses across the peering; it is not required for traffic addressed to private IPs. Peering carries all IP traffic once routed, so a transit gateway is unnecessary here. Internet gateway routes send traffic to the internet, not to the peer VPC.",
+    referenceUrl: "https://docs.aws.amazon.com/vpc/latest/peering/vpc-peering-routing.html",
+    tags: ["VPC peering", "Route tables", "Security groups"]
+  },
+  {
+    id: "aws-soa-413",
+    difficulty: "easy",
+    certId: "aws-soa",
+    domainId: "d5",
+    domainName: "Networking and Content Delivery",
+    title: "Reaching a VPC two peerings away",
+    scenario: "A company has three VPCs. VPC A is peered with VPC B, and VPC B is peered with VPC C, with routes and security groups configured for both peerings. An application in VPC A now needs to reach a service in VPC C, but its connections fail even though traffic between A and B works.",
+    question: "What should the CloudOps engineer do?",
+    options: [
+      { id: 'A', text: "Enable transitive routing on the B-to-C peering connection so VPC B forwards traffic from VPC A." },
+      { id: 'B', text: "Enable DNS resolution on both peerings so that VPC A resolves VPC C's names to private addresses." },
+      { id: 'C', text: "Add a route in VPC A's route table sending VPC C's CIDR to the existing A-to-B peering connection." },
+      { id: 'D', text: "Create a peering connection directly between VPC A and VPC C and add routes for it on both sides." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "VPC peering is non-transitive: traffic from VPC A cannot pass through VPC B to reach VPC C, so a direct A-to-C peering with routes on both sides is needed (or, at larger scale, a transit gateway). A route in VPC A pointing C's range at the A-to-B peering does not help, because VPC B does not forward traffic from one peering connection to another. There is no transitive routing setting on a peering connection. DNS resolution affects name lookups, not whether packets are forwarded through an intermediate VPC.",
+    referenceUrl: "https://docs.aws.amazon.com/vpc/latest/peering/vpc-peering-basics.html",
+    tags: ["VPC peering", "Transitive routing"]
+  },
+  {
+    id: "aws-soa-414",
+    difficulty: "hard",
+    certId: "aws-soa",
+    domainId: "d5",
+    domainName: "Networking and Content Delivery",
+    title: "Reaching S3 privately from the data center",
+    scenario: "A manufacturer connects its data center to a VPC with AWS Direct Connect using a private virtual interface. On-premises servers upload quality-control images to S3, and security requires that this traffic never uses the public internet or a public virtual interface. The VPC already has a gateway endpoint for S3 that its own instances use.",
+    question: "What should the CloudOps engineer do?",
+    options: [
+      { id: 'A', text: "Create a Direct Connect gateway and associate it with the S3 gateway endpoint so its routes are learned." },
+      { id: 'B', text: "Run a proxy fleet on EC2 in the VPC that forwards on-premises uploads through the existing gateway endpoint." },
+      { id: 'C', text: "Create an interface VPC endpoint for S3 and point the servers at its endpoint-specific DNS names over DX." },
+      { id: 'D', text: "Advertise the S3 gateway endpoint's prefix list to the data center over BGP on the private virtual interface." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "Interface endpoints for S3 have private IP addresses in the VPC's subnets, so on-premises servers can reach them across the private virtual interface using the endpoint-specific DNS names, keeping traffic off the internet with no extra infrastructure. Gateway endpoints are reachable only from within the VPC; their routes cannot be extended to on-premises networks over Direct Connect or VPN. A proxy fleet could work but adds instances to run and scale, which an interface endpoint makes unnecessary. A Direct Connect gateway associates with virtual private gateways or transit gateways, not with VPC endpoints.",
+    referenceUrl: "https://docs.aws.amazon.com/AmazonS3/latest/userguide/privatelink-interface-endpoints.html",
+    tags: ["S3", "Interface endpoint", "Direct Connect"]
+  },
+  {
+    id: "aws-soa-415",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d5",
+    domainName: "Networking and Content Delivery",
+    title: "Session Manager in a subnet with no egress",
+    scenario: "A defense contractor runs EC2 instances in subnets with no internet gateway or NAT route. Administrators must open shells on the instances with Session Manager instead of SSH. The instances have the SSM Agent and an instance profile with AmazonSSMManagedInstanceCore, but they never appear as managed nodes.",
+    question: "What should the CloudOps engineer add to the VPC?",
+    options: [
+      { id: 'A', text: "An interface VPC endpoint for CloudWatch Logs so the agent can register the instances by sending its logs." },
+      { id: 'B', text: "An interface VPC endpoint for EC2 Instance Connect so administrators can open shells through Session Manager." },
+      { id: 'C', text: "A gateway VPC endpoint for Systems Manager associated with the route tables of the instances' subnets." },
+      { id: 'D', text: "Interface endpoints for ssm, ssmmessages and ec2messages, with private DNS and HTTPS open from instances." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Without an internet path, the SSM Agent reaches Systems Manager through interface endpoints: ssm for registration and API calls, ssmmessages for Session Manager data channels, and ec2messages for agent messaging, each with private DNS and a security group allowing HTTPS from the instances. Gateway endpoints exist only for S3 and DynamoDB. The EC2 Instance Connect Endpoint is a separate feature for SSH and RDP access and does not register instances with Systems Manager. A CloudWatch Logs endpoint is needed only if sessions are logged there; it does not make the instances managed nodes.",
+    referenceUrl: "https://docs.aws.amazon.com/systems-manager/latest/userguide/setup-create-vpc.html",
+    tags: ["Systems Manager", "Interface endpoint", "Session Manager"]
+  },
+  {
+    id: "aws-soa-416",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d5",
+    domainName: "Networking and Content Delivery",
+    title: "Trialling a DNS blocklist before enforcing it",
+    scenario: "A school network's security team wants to block EC2 workloads from resolving domains on the AWS-managed malware and botnet domain lists. Before enforcing, they want two weeks of evidence of which workloads query those domains so they can clean up legitimate dependencies without breaking anything.",
+    question: "How should the CloudOps engineer configure Route 53 Resolver DNS Firewall?",
+    options: [
+      { id: 'A', text: "Add rules for the managed domain lists with the ALLOW action and enable fail-open on the VPC association settings." },
+      { id: 'B', text: "Add rules for the managed domain lists with the ALERT action, associate the rule group, and review the query logs." },
+      { id: 'C', text: "Add the managed domain lists to an AWS WAF web ACL in Count mode and associate the web ACL with the VPC resolver." },
+      { id: 'D', text: "Add rules for the managed domain lists with the BLOCK action and a NODATA response, and review Resolver query logs." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "DNS Firewall rules support ALLOW, BLOCK and ALERT actions; ALERT lets matching queries resolve normally while recording them, so with the rule group associated to the VPC and Resolver query logging enabled the team sees which workloads query the listed domains before switching the rules to BLOCK. BLOCK enforces immediately, which risks the breakage they want to avoid. ALLOW with fail-open records nothing about the listed domains and fail-open concerns resolver behavior when DNS Firewall is impaired. AWS WAF inspects HTTP requests at resources such as load balancers and cannot be associated with the VPC resolver.",
+    referenceUrl: "https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/resolver-dns-firewall-rule-actions.html",
+    tags: ["DNS Firewall", "Route 53 Resolver"]
+  },
+  {
+    id: "aws-soa-417",
+    difficulty: "easy",
+    certId: "aws-soa",
+    domainId: "d5",
+    domainName: "Networking and Content Delivery",
+    title: "Baseline DDoS protection with no subscription",
+    scenario: "A small nonprofit hosts its donation site on CloudFront with an S3 origin and Route 53 DNS. The board asks whether the site has any protection against common network and transport layer DDoS attacks such as SYN floods, given that there is no budget for additional subscriptions.",
+    question: "What should the CloudOps engineer tell the board?",
+    options: [
+      { id: 'A', text: "AWS WAF must be associated with the distribution with a rate-based rule to block SYN flood attacks." },
+      { id: 'B', text: "AWS Network Firewall must be deployed in front of the S3 origin to absorb volumetric flood traffic." },
+      { id: 'C', text: "AWS Shield Standard already protects CloudFront and Route 53 automatically at no additional charge." },
+      { id: 'D', text: "AWS Shield Advanced must be subscribed to before CloudFront applies any layer 3 or layer 4 protection." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "Shield Standard is enabled automatically for all AWS customers at no extra cost and defends against the most common network and transport layer attacks, with CloudFront and Route 53 benefiting from protection at the edge. Shield Advanced adds features such as the Shield Response Team, cost protection and advanced detection, but it is not required for baseline protection. A WAF rate-based rule counts HTTP requests, so it does not act on SYN floods at the transport layer. Network Firewall is deployed inside a VPC and cannot sit in front of an S3 origin served through CloudFront.",
+    referenceUrl: "https://docs.aws.amazon.com/waf/latest/developerguide/ddos-standard-summary.html",
+    tags: ["AWS Shield", "DDoS", "CloudFront"]
+  },
+  {
+    id: "aws-soa-418",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d5",
+    domainName: "Networking and Content Delivery",
+    title: "Measuring a managed rule group before it blocks",
+    scenario: "A ticketing company wants to add the AWS Managed Rules SQL database rule group to the web ACL on its production Application Load Balancer. The last time a rule group was added, it blocked legitimate checkout requests for an hour. The team wants to see what the new group would block for a week before it affects any customer.",
+    question: "How should the rule group be added?",
+    options: [
+      { id: 'A', text: "Add it to a second web ACL associated with the same ALB, so the first web ACL keeps enforcing rules." },
+      { id: 'B', text: "Add it with its rule actions overridden to Count and review the web ACL logs and metrics for matches." },
+      { id: 'C', text: "Add it with its rule actions overridden to CAPTCHA so customers can always complete their requests." },
+      { id: 'D', text: "Add it at a lower priority than every existing rule so it runs only on requests the others allowed." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "Overriding a rule group's rule actions to Count makes AWS WAF record matches, add labels and emit metrics without blocking, so the team can study a week of would-be blocks in the logs and sampled requests before switching to the group's own actions. Priority controls evaluation order, and a lower-priority group still blocks whatever it matches. A resource can be associated with only one web ACL at a time. CAPTCHA challenges real customers at checkout, which affects them and can still break API clients that cannot solve puzzles.",
+    referenceUrl: "https://docs.aws.amazon.com/waf/latest/developerguide/web-acl-rule-group-override-options.html",
+    tags: ["AWS WAF", "Managed rules", "Count mode"]
+  },
+  {
+    id: "aws-soa-419",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d5",
+    domainName: "Networking and Content Delivery",
+    title: "WAF logs that exclude session tokens",
+    scenario: "A bank must keep an audit trail of every request its AWS WAF web ACL blocks on an API's CloudFront distribution, searchable with CloudWatch Logs Insights. Compliance forbids storing the Authorization header, and the team does not want to pay to store logs for allowed requests.",
+    question: "Which configuration meets the requirements?",
+    options: [
+      { id: 'A', text: "Enable web ACL logging to a Firehose stream that writes to S3 and use a Lambda transform to strip every request header." },
+      { id: 'B', text: "Enable web ACL logging to a log group named aws-waf-logs-api, redact the Authorization header, and filter to blocked requests." },
+      { id: 'C', text: "Enable CloudFront standard logging to an S3 bucket and create a Logs Insights query that selects requests with a 403 status." },
+      { id: 'D', text: "Enable CloudTrail data events for AWS WAF and deliver them to a CloudWatch Logs group with the header field excluded." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "AWS WAF can send web ACL logs directly to a CloudWatch Logs group whose name starts with aws-waf-logs-, where Logs Insights can query them; redacted fields remove the Authorization header value, and a logging filter keeps only records whose action is BLOCK, so allowed requests are not stored. CloudFront standard logs go to S3, not to Logs Insights, and a 403 status does not show which WAF rule acted. CloudTrail records WAF API calls, not the inspected web requests. A Firehose stream to S3 does not meet the Logs Insights requirement and stripping every header discards evidence the audit needs.",
+    referenceUrl: "https://docs.aws.amazon.com/waf/latest/developerguide/logging-management.html",
+    tags: ["AWS WAF", "Logging", "CloudWatch Logs"]
+  },
+  {
+    id: "aws-soa-420",
+    difficulty: "hard",
+    certId: "aws-soa",
+    domainId: "d5",
+    domainName: "Networking and Content Delivery",
+    title: "Inspecting inbound traffic with Network Firewall",
+    scenario: "A payments company deployed AWS Network Firewall with a firewall endpoint in a dedicated firewall subnet. Its public web instances sit in a separate public subnet. Stateful alert logs show outbound flows from the instances, but no inbound connections from the internet are ever inspected, although customers reach the site normally.",
+    question: "Which routing change makes inbound traffic pass through the firewall?",
+    options: [
+      { id: 'A', text: "Add a 0.0.0.0/0 route to the firewall endpoint in the firewall subnet's route table and keep the rest unchanged." },
+      { id: 'B', text: "Associate the firewall's policy with the internet gateway so the gateway forwards each packet to the endpoint." },
+      { id: 'C', text: "Add a route in the web subnet's route table that sends the firewall subnet CIDR back to the internet gateway." },
+      { id: 'D', text: "Create a route table associated with the internet gateway that sends the web subnet CIDR to the firewall endpoint." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Inbound traffic arriving at the internet gateway is routed by the gateway's own route table, so an edge-associated route table on the internet gateway that sends the web subnet's CIDR to the firewall endpoint forces incoming flows through the firewall, while the web subnet's default route to the endpoint keeps the path symmetric. The firewall subnet should route 0.0.0.0/0 to the internet gateway, not to its own endpoint, which would loop. Firewall policies attach to firewalls, not to internet gateways. A route from the web subnet to the gateway for the firewall subnet does nothing for internet-originated traffic.",
+    referenceUrl: "https://docs.aws.amazon.com/network-firewall/latest/developerguide/arch-igw-ngw.html",
+    tags: ["Network Firewall", "Ingress routing", "Route tables"]
+  },
+  {
+    id: "aws-soa-421",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d5",
+    domainName: "Networking and Content Delivery",
+    title: "Covering scaling charges from a DDoS event",
+    scenario: "An online gaming company runs matchmaking behind an Application Load Balancer with Auto Scaling in one account. A layer 7 flood last month forced the fleet to scale out tenfold and left a large bill. Leadership wants AWS experts available during attacks and a way to request credits for scaling charges caused by a DDoS event.",
+    question: "What should the CloudOps engineer enable?",
+    options: [
+      { id: 'A', text: "Add an AWS WAF rate-based rule to the ALB and request credits from AWS Support when the rule's count rises." },
+      { id: 'B', text: "Configure AWS Firewall Manager with a Shield policy in the account so its DDoS cost protection applies." },
+      { id: 'C', text: "Turn on AWS Shield Standard for the ALB and enable its automatic application layer DDoS mitigation feature." },
+      { id: 'D', text: "Subscribe to AWS Shield Advanced, add the ALB as a protected resource, and set up Shield Response Team access." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Shield Advanced provides DDoS cost protection, under which customers can request credits for scaling charges caused by an attack on protected resources, and access to the Shield Response Team during events; the ALB must be added as a protected resource. A WAF rate-based rule mitigates floods but carries no credit entitlement. Shield Standard is automatic and free, covers network and transport layer attacks, and does not include cost protection or automatic application layer mitigation, which is a Shield Advanced feature. Firewall Manager deploys protections across accounts in an organization, and its Shield policies still require a Shield Advanced subscription for the benefits.",
+    referenceUrl: "https://docs.aws.amazon.com/waf/latest/developerguide/ddos-advanced-summary.html",
+    tags: ["AWS Shield Advanced", "DDoS", "Cost protection"]
+  },
+  {
+    id: "aws-soa-422",
+    difficulty: "hard",
+    certId: "aws-soa",
+    domainId: "d5",
+    domainName: "Networking and Content Delivery",
+    title: "Which WAF rule is rejecting mobile users",
+    scenario: "After a web ACL update, some customers of a retail app receive 403 responses from the Application Load Balancer when uploading profile photos. The web ACL contains six rules, including two managed rule groups. The CloudOps engineer must identify which rule terminated the blocked requests and see sample request details.",
+    question: "Which two sources provide this information? (Choose two.)",
+    options: [
+      { id: 'A', text: "VPC flow logs for the load balancer's network interfaces filtered on REJECT records for port 443." },
+      { id: 'B', text: "Network Firewall alert logs for the VPC, which record the stateful rule that dropped each HTTP request." },
+      { id: 'C', text: "Web ACL logs, whose records carry the terminatingRuleId and the action applied to a request." },
+      { id: 'D', text: "CloudTrail management events for AWS WAF, which record each request that a rule evaluated and blocked." },
+      { id: 'E', text: "The web ACL's sampled requests view, which shows matched requests along with the rule that acted." }
+    ],
+    correctAnswers: ['C', 'E'],
+    type: "multiple",
+    explanation: "AWS WAF logs include the terminatingRuleId, the action and request details such as headers and URI for every inspected request, and the console's sampled requests show a sample of matching web requests with the rule that matched them, which is enough to pinpoint the rule and inspect examples. VPC flow logs record layer 3 and 4 metadata and would show accepted connections, since WAF blocks at layer 7 after the connection is established. CloudTrail records API calls that change WAF configuration, not inspected requests. Network Firewall is a different service and does not evaluate the web ACL's rules.",
+    referenceUrl: "https://docs.aws.amazon.com/waf/latest/developerguide/logging-fields.html",
+    tags: ["AWS WAF", "Troubleshooting", "Logging"]
+  },
+  {
+    id: "aws-soa-423",
+    difficulty: "easy",
+    certId: "aws-soa",
+    domainId: "d5",
+    domainName: "Networking and Content Delivery",
+    title: "Outbound allowlist by domain name",
+    scenario: "A pharmaceutical company's build servers in a VPC may download packages only from three approved repository domains, whose IP addresses change frequently behind a CDN. All other outbound web traffic from the VPC must be dropped and logged for review.",
+    question: "Which service should the CloudOps engineer use to enforce this?",
+    options: [
+      { id: 'A', text: "Security groups with outbound rules that allow only the domains' current IP addresses on port 443." },
+      { id: 'B', text: "AWS Network Firewall with a stateful domain list rule group that allows only the three domains." },
+      { id: 'C', text: "AWS WAF with a web ACL that allows requests only when their Host header matches the domains." },
+      { id: 'D', text: "Network ACLs with outbound allow rules for the domains' address ranges and a final deny rule." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "Network Firewall stateful domain list rules filter outbound HTTP and HTTPS traffic by host name, using the HTTP Host header and the TLS SNI field, so an allowlist of three domains drops everything else and records it in the firewall's logs regardless of changing IP addresses. Security groups and network ACLs match IP addresses only, so they cannot follow CDN addresses that change frequently. AWS WAF protects inbound requests to resources such as load balancers and CloudFront; it does not filter egress from servers in a VPC.",
+    referenceUrl: "https://docs.aws.amazon.com/network-firewall/latest/developerguide/stateful-rule-groups-domain-names.html",
+    tags: ["Network Firewall", "Egress filtering"]
+  },
+  {
+    id: "aws-soa-424",
+    difficulty: "hard",
+    certId: "aws-soa",
+    domainId: "d5",
+    domainName: "Networking and Content Delivery",
+    title: "Choosing how DNS filtering fails",
+    scenario: "A streaming company associates a DNS Firewall rule group with the VPC that runs its customer-facing video service. The CTO rules that if DNS Firewall itself becomes impaired, playback must continue even at the cost of skipping filtering, while a separate internal finance VPC must stop resolving names rather than risk unfiltered queries.",
+    question: "How should the CloudOps engineer configure the two VPCs?",
+    options: [
+      { id: 'A', text: "Set the video VPC's rule group priority to 101 and the finance VPC's to 10000, so finance rules evaluate last." },
+      { id: 'B', text: "Enable fail open in the video VPC's DNS Firewall configuration and leave it disabled for the finance VPC." },
+      { id: 'C', text: "Add an ALLOW rule for * at the top of the video VPC's rule group and a BLOCK rule for * in the finance VPC." },
+      { id: 'D', text: "Enable fail open for the finance VPC's DNS Firewall configuration and leave it disabled in the video VPC." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "The DNS Firewall configuration for each VPC has a fail-open setting: when enabled, Resolver allows queries through if DNS Firewall cannot evaluate them, favoring availability, and when disabled, which is the default, it blocks queries it cannot evaluate, favoring security. So the video VPC gets fail open and the finance VPC keeps the default. Swapping them inverts the CTO's decision. Rule group priority orders evaluation when several groups are associated; it does not control behavior during impairment. A catch-all ALLOW defeats filtering permanently, and a catch-all BLOCK stops all resolution in finance even when the firewall is healthy.",
+    referenceUrl: "https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/resolver-dns-firewall-vpc-configuration.html",
+    tags: ["DNS Firewall", "Availability", "Route 53 Resolver"]
+  },
+  {
+    id: "aws-soa-425",
+    difficulty: "easy",
+    certId: "aws-soa",
+    domainId: "d5",
+    domainName: "Networking and Content Delivery",
+    title: "Public web server that nobody can reach",
+    scenario: "A startup launched a web server in a new VPC's subnet and attached an Elastic IP address. The security group allows TCP 80 from 0.0.0.0/0 and the network ACL is the default. Browsers cannot reach the server, and the subnet's route table contains only the local route.",
+    question: "What should the CloudOps engineer do?",
+    options: [
+      { id: 'A', text: "Attach an internet gateway to the VPC and add a 0.0.0.0/0 route to it in the subnet's route table." },
+      { id: 'B', text: "Replace the Elastic IP address with an auto-assigned public IPv4 address from the subnet's setting." },
+      { id: 'C', text: "Create a NAT gateway in the subnet and add a 0.0.0.0/0 route to it in the subnet's route table." },
+      { id: 'D', text: "Add an inbound rule allowing TCP 80 to the default network ACL so that it permits web requests." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "A subnet is public only when its route table sends internet-bound traffic to an internet gateway attached to the VPC; without that route the Elastic IP address has no path to or from the internet. A NAT gateway provides outbound-only access for private instances and cannot deliver inbound connections to the server. Elastic and auto-assigned public addresses behave the same for reachability, so swapping them fixes nothing. The default network ACL already allows all inbound and outbound traffic.",
+    referenceUrl: "https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Internet_Gateway.html",
+    tags: ["VPC", "Internet gateway", "Route tables"]
+  }
+];
+
+export default AWS_SOA_QUESTIONS_17;

@@ -1,0 +1,532 @@
+export const AWS_SOA_QUESTIONS_20 = [
+  {
+    id: "aws-soa-476",
+    difficulty: "easy",
+    certId: "aws-soa",
+    domainId: "d5",
+    domainName: "Networking and Content Delivery",
+    title: "Pulling a wrong product photo from the edge",
+    scenario: "A fashion retailer accidentally uploaded the wrong product photo to S3 under /images/dress-2291.jpg, overwriting the correct one, and then uploaded the correct file again. Customers still see the wrong photo because CloudFront cached it with a one-week TTL. The photo must be corrected everywhere within minutes.",
+    question: "What should the CloudOps engineer do?",
+    options: [
+      { id: 'A', text: "Enable S3 versioning on the bucket so that CloudFront fetches the newest version." },
+      { id: 'B', text: "Disable and re-enable the distribution so that every edge location clears its cache." },
+      { id: 'C', text: "Create a CloudFront invalidation for /images/dress-2291.jpg on that distribution." },
+      { id: 'D', text: "Lower the cache policy's default TTL to one minute and wait for edges to refresh." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "An invalidation removes the named object from all CloudFront edge caches, so the next request fetches the corrected file from S3, typically within minutes. Lowering the default TTL affects future caching decisions but the photo already cached keeps its original one-week expiry. S3 versioning keeps prior versions in the bucket and does not tell CloudFront anything. Disabling a distribution stops it serving traffic and is not a supported way to purge caches, causing an outage for every object.",
+    referenceUrl: "https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Invalidation.html",
+    tags: ["CloudFront", "Invalidation", "Caching"]
+  },
+  {
+    id: "aws-soa-477",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d5",
+    domainName: "Networking and Content Delivery",
+    title: "One customer's account page shown to another",
+    scenario: "A bank added CloudFront in front of its web application. Shortly after, a customer reported seeing another customer's account summary at /account/summary. The origin identifies users by a session cookie, and the default cache behavior uses the CachingOptimized managed cache policy, which ignores cookies.",
+    question: "What should the CloudOps engineer change?",
+    options: [
+      { id: 'A', text: "Attach AWS WAF with a rule that blocks requests to /account/* that do not carry the session cookie header." },
+      { id: 'B', text: "Add a cache behavior for /account/* that uses the CachingDisabled policy and forwards cookies to the origin." },
+      { id: 'C', text: "Add a cache behavior for /account/* that uses the CachingOptimized policy with a one-second default TTL value." },
+      { id: 'D', text: "Enable automatic compression on the default behavior so that per-user pages are stored as separate objects." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "Because the cache key ignores the session cookie, the first user's personalized page is cached and returned to everyone requesting the same URL; a dedicated behavior for /account/* with the CachingDisabled policy, plus an origin request policy that forwards cookies, sends every request to the origin so each user gets their own page. A one-second TTL still shares the cached page between users for that second. Compression varies cache entries by encoding, not by user. Blocking cookieless requests does nothing about cookie-bearing users receiving someone else's cached response.",
+    referenceUrl: "https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-cache-policies.html",
+    tags: ["CloudFront", "Cache key", "Personalized content"]
+  },
+  {
+    id: "aws-soa-478",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d5",
+    domainName: "Networking and Content Delivery",
+    title: "Cache fragmented by device headers",
+    scenario: "A news site's CloudFront cache behavior uses a custom cache policy that includes the User-Agent and Accept-Language headers in the cache key, and the hit ratio is under 15 percent. The origin needs User-Agent for analytics logging only and renders identical pages for every browser. Pages differ only by the lang query string.",
+    question: "Which two changes will raise the hit ratio while the origin still receives the headers it needs? (Choose two.)",
+    options: [
+      { id: 'A', text: "Attach an origin request policy that forwards User-Agent to the origin without adding it to the cache key." },
+      { id: 'B', text: "Keep both headers in the cache policy and raise the minimum TTL so each variant stays cached for longer." },
+      { id: 'C', text: "Remove the User-Agent and Accept-Language headers from the cache policy so that they no longer vary the key." },
+      { id: 'D', text: "Enable Origin Shield in the Region closest to the origin so that each header variant is cached only once." },
+      { id: 'E', text: "Swap User-Agent for the CloudFront-Is-Mobile-Viewer header in the cache policy to collapse device keys." }
+    ],
+    correctAnswers: ['A', 'C'],
+    type: "multiple",
+    explanation: "Every distinct User-Agent and Accept-Language value creates a separate cache entry, so removing them from the cache policy collapses thousands of variants into one per URL and lang value, and an origin request policy still forwards User-Agent to the origin for logging without affecting the cache key. Longer TTLs keep the fragmented variants around but each still starts with a miss. Origin Shield reduces load on the origin but does not merge cache keys at the edge. The pages do not vary by device, so adding a mobile header adds variation for no benefit.",
+    referenceUrl: "https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cache-hit-ratio.html",
+    tags: ["CloudFront", "Cache policy", "Origin request policy"]
+  },
+  {
+    id: "aws-soa-479",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d5",
+    domainName: "Networking and Content Delivery",
+    title: "Objects refetched every day despite rare changes",
+    scenario: "An engineering firm serves CAD drawings from S3 through CloudFront using a custom cache policy with minimum TTL 0, default TTL 86,400 and maximum TTL 31,536,000 seconds. The files change about once a quarter, yet the origin logs show every object being fetched again daily. The S3 objects carry no Cache-Control or Expires metadata.",
+    question: "What should the CloudOps engineer do to keep objects cached for 30 days?",
+    options: [
+      { id: 'A', text: "Set the Cache-Control max-age=2592000 metadata on the objects, or raise the cache policy's default TTL." },
+      { id: 'B', text: "Raise the cache policy's maximum TTL to ten years so that CloudFront keeps the objects cached longer." },
+      { id: 'C', text: "Enable Origin Shield so that each edge location refreshes from the shield rather than from the bucket." },
+      { id: 'D', text: "Set the Expires metadata on each object to the current date so CloudFront treats them as fresh objects." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "When the origin sends no Cache-Control or Expires header, CloudFront caches objects for the cache policy's default TTL, which is one day here; setting max-age on the objects to 30 days, within the policy's minimum and maximum, or raising the default TTL to 30 days keeps them cached as intended. The maximum TTL only caps origin-supplied values and has no effect when the origin sends none. An Expires date of today marks objects as immediately stale. Origin Shield reduces origin fetches from many edges but each object would still expire daily.",
+    referenceUrl: "https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html",
+    tags: ["CloudFront", "TTL", "Cache-Control"]
+  },
+  {
+    id: "aws-soa-480",
+    difficulty: "hard",
+    certId: "aws-soa",
+    domainId: "d5",
+    domainName: "Networking and Content Delivery",
+    title: "Stale balances despite no-store headers",
+    scenario: "A fintech's API responses at /v1/balance include Cache-Control: no-store, private, yet customers sometimes see balances several minutes old. The CloudFront behavior for /v1/* uses a custom cache policy with minimum TTL 300, default TTL 600 and maximum TTL 3,600 seconds, created months ago for a different API.",
+    question: "What is causing the stale responses?",
+    options: [
+      { id: 'A', text: "The default TTL of 600 seconds applies because CloudFront overrides every origin header with the default value." },
+      { id: 'B', text: "The private directive is ignored by CloudFront, so responses must carry s-maxage=0 to stop shared caching." },
+      { id: 'C', text: "The minimum TTL above zero makes CloudFront cache the responses for 300 seconds despite the no-store directive." },
+      { id: 'D', text: "Browsers cache the response locally for the maximum TTL because CloudFront rewrites Cache-Control to public." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "When a cache policy's minimum TTL is greater than zero, CloudFront caches responses for at least that long even if the origin sends no-cache, no-store or private, so every balance can be up to five minutes stale; setting the minimum TTL to 0, or using the CachingDisabled policy for the API, lets the origin's directives take effect. CloudFront honors private and no-store when the minimum TTL is 0, so no extra directive is needed. The default TTL applies only when the origin sends no caching headers. CloudFront does not rewrite the origin's Cache-Control header to public for viewers.",
+    referenceUrl: "https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html",
+    tags: ["CloudFront", "TTL", "Troubleshooting"]
+  },
+  {
+    id: "aws-soa-481",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d5",
+    domainName: "Networking and Content Delivery",
+    title: "JavaScript bundles delivered uncompressed",
+    scenario: "A SaaS dashboard serves 2 MB JavaScript bundles from S3 through CloudFront. Browser tools show the files arrive without Content-Encoding even though browsers send Accept-Encoding: gzip, br. The behavior's automatic compression setting is on, but the custom cache policy was created with its compression support settings unchecked.",
+    question: "What should the CloudOps engineer change?",
+    options: [
+      { id: 'A', text: "Forward Accept-Encoding: gzip in the origin request policy so S3 compresses objects before returning them." },
+      { id: 'B', text: "Enable S3 Transfer Acceleration on the bucket so that the bundles are transferred in compressed form." },
+      { id: 'C', text: "Raise the cache policy's maximum TTL so that CloudFront has time to compress each object at the edge." },
+      { id: 'D', text: "Enable the Gzip and Brotli settings in the cache policy, so normalized Accept-Encoding joins the key." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "CloudFront compresses objects only when the behavior has automatic compression on and the cache policy enables Gzip or Brotli, which adds the normalized Accept-Encoding header to the cache key so compressed and uncompressed variants are cached separately. S3 does not compress objects on request, so forwarding the header to it does nothing, and Accept-Encoding cannot be added to an origin request policy separately. Transfer Acceleration speeds uploads and downloads to S3 but does not compress content. TTL values have no effect on whether CloudFront compresses a response.",
+    referenceUrl: "https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/ServingCompressedFiles.html",
+    tags: ["CloudFront", "Compression", "Cache policy"]
+  },
+  {
+    id: "aws-soa-482",
+    difficulty: "easy",
+    certId: "aws-soa",
+    domainId: "d5",
+    domainName: "Networking and Content Delivery",
+    title: "Checking whether a response came from cache",
+    scenario: "While troubleshooting slow page loads, a CloudOps engineer uses curl to request an image from a CloudFront distribution and wants to confirm, for that single response, whether CloudFront served it from an edge cache or fetched it from the origin.",
+    question: "Which response header should the engineer inspect?",
+    options: [
+      { id: 'A', text: "X-Amz-Cf-Id, which reports how many seconds the object has stayed in the cache." },
+      { id: 'B', text: "X-Cache, which shows values such as Hit from cloudfront or Miss from cloudfront." },
+      { id: 'C', text: "Via, which lists the origin server that generated the response for that request." },
+      { id: 'D', text: "Content-Encoding, which reports whether the object was retrieved from the cache." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "CloudFront adds an X-Cache header whose value, such as Hit from cloudfront, RefreshHit from cloudfront or Miss from cloudfront, tells whether the response was served from the edge cache. The Via header identifies the CloudFront hop that handled the request, not the origin or cache status. X-Amz-Cf-Id is a unique request identifier used when working with AWS Support; the Age header, not this one, reports time in cache. Content-Encoding describes compression of the body.",
+    referenceUrl: "https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/standard-logs-reference.html",
+    tags: ["CloudFront", "Troubleshooting", "Headers"]
+  },
+  {
+    id: "aws-soa-483",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d5",
+    domainName: "Networking and Content Delivery",
+    title: "Error pages that outlast the outage",
+    scenario: "A ticketing site's origin returned 503 errors for about 20 seconds during a deployment, but viewers kept receiving CloudFront's cached 503 error page for five minutes afterward. The distribution has a custom error response for 503 that serves /errors/busy.html. The team wants errors to clear within about ten seconds of the origin recovering.",
+    question: "What should the CloudOps engineer change?",
+    options: [
+      { id: 'A', text: "Lower the default TTL in the cache policy of the default behavior from 86,400 seconds to 300 seconds." },
+      { id: 'B', text: "Lower the error caching minimum TTL on the 503 custom error response from 300 seconds to about 10." },
+      { id: 'C', text: "Change the custom error response code from 503 to 200 so browsers do not retain the error response." },
+      { id: 'D', text: "Create an invalidation for /* at the start of every deployment so cached error pages are removed early." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "CloudFront caches origin error responses for the error caching minimum TTL configured on the custom error response, 10 seconds by default; a value of 300 explains five minutes of lingering errors, and lowering it to about 10 seconds lets CloudFront retry the origin soon after recovery. The cache policy's default TTL governs successful responses, not error caching. An invalidation at the start of the deployment runs before the errors are cached, so it would not remove them. Returning 200 for errors hides failures from clients and monitoring and does not change how long CloudFront caches the error.",
+    referenceUrl: "https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/HTTPStatusCodes.html",
+    tags: ["CloudFront", "Error caching"]
+  },
+  {
+    id: "aws-soa-484",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d5",
+    domainName: "Networking and Content Delivery",
+    title: "VPN tunnels up, but no traffic flows",
+    scenario: "A retailer created a Site-to-Site VPN with dynamic BGP routing between its branch router and a virtual private gateway attached to a VPC. Both tunnels show UP and the router learns the VPC CIDR over BGP, but instances in the VPC cannot reach branch servers in 192.168.50.0/24. Security groups allow the branch range.",
+    question: "What should the CloudOps engineer check first?",
+    options: [
+      { id: 'A', text: "That both tunnels share one inside CIDR so the virtual gateway can balance traffic across them." },
+      { id: 'B', text: "That route propagation from the virtual private gateway is enabled on the subnets' route tables." },
+      { id: 'C', text: "That the customer gateway is configured with a static IP address that matches the router's address." },
+      { id: 'D', text: "That the VPC has an internet gateway so return traffic from the branch can reach the instances." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "With both tunnels up and BGP exchanging routes, the branch knows how to reach the VPC, but the VPC's subnet route tables need a route for 192.168.50.0/24 to the virtual private gateway, which route propagation adds automatically; without it, instances send the traffic to the local route or nowhere. A customer gateway address mismatch would keep the tunnels from coming up. Each tunnel has its own inside CIDR by design. VPN traffic does not use an internet gateway.",
+    referenceUrl: "https://docs.aws.amazon.com/vpn/latest/s2svpn/VPNRoutingTypes.html",
+    tags: ["Site-to-Site VPN", "Route propagation", "Troubleshooting"]
+  },
+  {
+    id: "aws-soa-485",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d5",
+    domainName: "Networking and Content Delivery",
+    title: "Tunnel drops overnight and stays down",
+    scenario: "A lab's Site-to-Site VPN carries traffic only during business hours. Each morning the tunnel is down and stays down until an engineer sends traffic from the on-premises side. The logs show AWS clearing the IKE session after dead peer detection timeouts during the idle night, and the lab's firewall is not configured to initiate negotiation on its own.",
+    question: "Which tunnel option change keeps the tunnel recovering without on-premises intervention?",
+    options: [
+      { id: 'A', text: "Switch the VPN from dynamic BGP routing to static routing so that no keepalive traffic needs to be sent." },
+      { id: 'B', text: "Enable acceleration on the VPN connection so the tunnel terminates at an edge location that stays up." },
+      { id: 'C', text: "Set the DPD timeout action to Restart and the startup action to Start so AWS renegotiates the tunnel." },
+      { id: 'D', text: "Raise the phase 2 lifetime to its maximum so the security association never expires during idle periods." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "The default DPD timeout action is Clear, which ends the IKE session and waits for the customer gateway to initiate again; setting it to Restart, together with a startup action of Start, makes AWS initiate renegotiation itself, so the tunnel comes back without anyone sending traffic from the lab. A longer phase 2 lifetime does not stop DPD from clearing an unresponsive session. Static routing removes BGP but the tunnel still depends on IKE and DPD. Acceleration routes the tunnel through Global Accelerator edges but does not change DPD behavior, and it can only be set when creating the connection.",
+    referenceUrl: "https://docs.aws.amazon.com/vpn/latest/s2svpn/VPNTunnels.html",
+    tags: ["Site-to-Site VPN", "Dead peer detection", "Troubleshooting"]
+  },
+  {
+    id: "aws-soa-486",
+    difficulty: "easy",
+    certId: "aws-soa",
+    domainId: "d5",
+    domainName: "Networking and Content Delivery",
+    title: "Outage during routine VPN maintenance",
+    scenario: "A clinic's Site-to-Site VPN dropped for 20 minutes while AWS performed routine maintenance on the VPN endpoint. The console showed that only one of the connection's two tunnels had ever been up, because the clinic's firewall was configured with a single tunnel.",
+    question: "What should the CloudOps engineer recommend to avoid similar outages?",
+    options: [
+      { id: 'A', text: "Create a second customer gateway in AWS that uses the same public IP of the firewall." },
+      { id: 'B', text: "Enable acceleration on the existing VPN connection so maintenance events are avoided." },
+      { id: 'C', text: "Configure both tunnels on the clinic's firewall so traffic can fail over between them." },
+      { id: 'D', text: "Replace the virtual private gateway with a new one each time maintenance is announced." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "Each Site-to-Site VPN connection provides two tunnels terminating on different AWS endpoints, and AWS may take one down during maintenance; configuring both on the customer gateway device lets traffic move to the other tunnel automatically. A second customer gateway resource with the same address adds nothing unless tunnels are configured on the device. Acceleration changes the entry point to the AWS network, not the need for two tunnels, and cannot be added to an existing connection. Replacing the gateway causes an outage of its own and does not provide redundancy.",
+    referenceUrl: "https://docs.aws.amazon.com/vpn/latest/s2svpn/vpn-redundant-connection.html",
+    tags: ["Site-to-Site VPN", "Redundancy"]
+  },
+  {
+    id: "aws-soa-487",
+    difficulty: "hard",
+    certId: "aws-soa",
+    domainId: "d5",
+    domainName: "Networking and Content Delivery",
+    title: "BGP session drops after new branch routes",
+    scenario: "A logistics company's Direct Connect private virtual interface to a virtual private gateway worked for years. After the network team began advertising each branch office's /24 individually from the on-premises router, bringing the total to about 140 prefixes, the BGP session went idle and all traffic to the VPC stopped. Physical link metrics look normal.",
+    question: "What should the CloudOps engineer recommend?",
+    options: [
+      { id: 'A', text: "Summarize the branch routes so the router advertises no more than 100 prefixes over the private interface." },
+      { id: 'B', text: "Enable BFD on the virtual interface so the session recovers faster after branch prefixes are advertised." },
+      { id: 'C', text: "Request a service quota increase for routes per virtual private gateway route table to allow 140 routes." },
+      { id: 'D', text: "Replace the private virtual interface with a public virtual interface, which accepts more advertised routes." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "A private virtual interface accepts up to 100 prefixes advertised from the customer router; exceeding that limit puts the BGP session into an idle state, which matches the symptoms. Summarizing the branch /24s into fewer, larger prefixes brings the count under the limit and restores the session. The 100-prefix limit on the BGP session is fixed rather than a route table quota that can be raised. BFD speeds failure detection but does not lift the prefix limit. A public virtual interface reaches public AWS endpoints, not the VPC's private addresses.",
+    referenceUrl: "https://docs.aws.amazon.com/directconnect/latest/UserGuide/limits.html",
+    tags: ["Direct Connect", "BGP", "Troubleshooting"]
+  },
+  {
+    id: "aws-soa-488",
+    difficulty: "hard",
+    certId: "aws-soa",
+    domainId: "d5",
+    domainName: "Networking and Content Delivery",
+    title: "Traffic prefers the backup VPN over Direct Connect",
+    scenario: "A media company uses Direct Connect as its primary link to a VPC's virtual private gateway, with a Site-to-Site VPN as backup. Its router advertises 10.10.0.0/16 over Direct Connect and, because of an old configuration, 10.10.20.0/24 over the VPN. Traffic from the VPC to servers in 10.10.20.0/24 uses the VPN even though Direct Connect is healthy.",
+    question: "What should the CloudOps engineer do so the traffic uses Direct Connect?",
+    options: [
+      { id: 'A', text: "Increase the BGP local preference on the VPN tunnels so the gateway ranks the VPN below Direct Connect." },
+      { id: 'B', text: "Add a static route for 10.10.20.0/24 to the Direct Connect gateway in the virtual gateway's route table." },
+      { id: 'C', text: "Prepend the AS path on the Direct Connect advertisements so that AWS sees that path as the shorter route." },
+      { id: 'D', text: "Advertise the same prefixes over both paths, or a less specific prefix over the VPN than over the DX link." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Route selection uses longest prefix match first, so the /24 learned over the VPN beats the /16 learned over Direct Connect regardless of the gateway's preference for Direct Connect routes; advertising identical prefixes on both paths, or only less specific ones over the VPN, lets the Direct Connect preference apply. AS path prepending makes a path look longer and would only be considered between equal prefixes. Local preference set on the customer router influences the customer's outbound choice, not how AWS routes toward the customer. Virtual private gateways do not have route tables in which a static route to a Direct Connect gateway can be added.",
+    referenceUrl: "https://docs.aws.amazon.com/vpc/latest/userguide/route-tables-priority.html",
+    tags: ["Direct Connect", "Site-to-Site VPN", "Route priority"]
+  },
+  {
+    id: "aws-soa-489",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d5",
+    domainName: "Networking and Content Delivery",
+    title: "Endpoint name resolves but connections hang",
+    scenario: "An application in private subnets calls AWS KMS through an interface VPC endpoint with private DNS. The name kms.us-east-2.amazonaws.com correctly resolves to private addresses in the VPC, but every connection attempt times out. The endpoint was created with a new security group that has no inbound rules.",
+    question: "What should the CloudOps engineer do?",
+    options: [
+      { id: 'A', text: "Add a route for the KMS service prefix list to the endpoint in the application subnets' route tables." },
+      { id: 'B', text: "Add an inbound rule allowing TCP 443 from the application subnets to the endpoint's security group." },
+      { id: 'C', text: "Add an outbound rule on the endpoint's security group allowing TCP 443 back to the app instances." },
+      { id: 'D', text: "Attach an endpoint policy allowing kms:Decrypt so that the endpoint begins accepting connections." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "Interface endpoints are network interfaces protected by their security group, so with no inbound rules every HTTPS connection from the application is dropped; allowing TCP 443 from the application subnets or their security group fixes the timeouts. Interface endpoints are reached through their private IPs, and KMS has no gateway endpoint prefix list for route tables. An endpoint policy that denied the call would return an access-denied error, not a timeout. Security groups are stateful, so replies need no outbound rule on the endpoint.",
+    referenceUrl: "https://docs.aws.amazon.com/vpc/latest/privatelink/create-interface-endpoint.html",
+    tags: ["Interface endpoint", "Security groups", "Troubleshooting"]
+  },
+  {
+    id: "aws-soa-490",
+    difficulty: "easy",
+    certId: "aws-soa",
+    domainId: "d5",
+    domainName: "Networking and Content Delivery",
+    title: "Consumer endpoint stuck in pending",
+    scenario: "A customer created an interface VPC endpoint in its own account to connect to a monitoring vendor's PrivateLink endpoint service. The endpoint stays in the Pending acceptance state, and no traffic reaches the vendor. The vendor's endpoint service is configured to require acceptance.",
+    question: "What must happen for the connection to work?",
+    options: [
+      { id: 'A', text: "The vendor must add the customer's VPC CIDR to its load balancer's listeners." },
+      { id: 'B', text: "The customer must enable private DNS on its endpoint to finish the connection setup." },
+      { id: 'C', text: "The vendor must accept the endpoint connection request on its endpoint service." },
+      { id: 'D', text: "The customer must peer its VPC with the vendor VPC to complete the handshake." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "When an endpoint service requires acceptance, each consumer endpoint remains in Pending acceptance until the service provider accepts the connection request, after which it becomes Available. Private DNS affects name resolution, not the connection's acceptance state. PrivateLink needs no VPC peering. Network Load Balancer listeners are defined by protocol and port, not by consumer CIDRs.",
+    referenceUrl: "https://docs.aws.amazon.com/vpc/latest/privatelink/configure-endpoint-service.html",
+    tags: ["PrivateLink", "Endpoint service"]
+  },
+  {
+    id: "aws-soa-491",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d5",
+    domainName: "Networking and Content Delivery",
+    title: "Static VPN reaches nothing in the VPC",
+    scenario: "A factory set up a Site-to-Site VPN with static routing to a virtual private gateway, listing its network 172.20.0.0/16 as a static route on the VPN connection. Tunnels are UP. Engineers at the factory cannot reach an application server in a private subnet, and flow logs show no packets from 172.20.0.0/16 accepted at the server.",
+    question: "Which two changes should the CloudOps engineer make? (Choose two.)",
+    options: [
+      { id: 'A', text: "Allow the application's port from 172.20.0.0/16 in the security group attached to the application server." },
+      { id: 'B', text: "Add 172.20.0.0/16 to the private subnet's route table targeting the virtual private gateway, or propagate." },
+      { id: 'C', text: "Attach an internet gateway to the VPC so that decrypted VPN traffic can be forwarded to the private subnet." },
+      { id: 'D', text: "Convert the VPN connection to BGP routing, because static VPNs cannot carry traffic into private subnets." },
+      { id: 'E', text: "Assign an Elastic IP address to the application server so that factory devices have a routable address." }
+    ],
+    correctAnswers: ['A', 'B'],
+    type: "multiple",
+    explanation: "The VPN connection's static route tells AWS where the factory network is, but the private subnet's route table still needs a route for 172.20.0.0/16 to the virtual private gateway, either added statically or through route propagation, and the server's security group must allow the application port from that range. Static VPNs carry traffic into any subnet whose routes point at the gateway, so BGP is not required. VPN traffic never uses an internet gateway. Factory devices reach the server's private address over the tunnel, so no Elastic IP is needed.",
+    referenceUrl: "https://docs.aws.amazon.com/vpn/latest/s2svpn/SetUpVPNConnections.html",
+    tags: ["Site-to-Site VPN", "Route tables", "Security groups"]
+  },
+  {
+    id: "aws-soa-492",
+    difficulty: "hard",
+    certId: "aws-soa",
+    domainId: "d5",
+    domainName: "Networking and Content Delivery",
+    title: "Package updates fail after locking down S3 access",
+    scenario: "To prevent data exfiltration, a CloudOps engineer attached an endpoint policy to a VPC's S3 gateway endpoint that allows access only to the company's own bucket ARNs. Since then, dnf updates on Amazon Linux 2023 instances in private subnets, which have no NAT gateway, fail with 403 errors, while access to company buckets works.",
+    question: "What should the engineer change?",
+    options: [
+      { id: 'A', text: "Grant the instance profile s3:GetObject on all buckets so that the endpoint policy no longer applies." },
+      { id: 'B', text: "Allow s3:GetObject in the endpoint policy on the Amazon Linux repository buckets used in the Region." },
+      { id: 'C', text: "Add a NAT gateway so the Amazon Linux package manager reaches repositories without the S3 endpoint." },
+      { id: 'D', text: "Add an interface endpoint for S3 with no policy, which the package manager will prefer to the gateway." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "Amazon Linux package repositories are hosted in AWS-owned S3 buckets, so requests to them pass through the gateway endpoint and are now denied by its policy; adding a statement that allows s3:GetObject on the documented repository bucket ARNs for the Region restores updates while keeping the exfiltration control for everything else. A NAT gateway would still send S3 traffic through the gateway endpoint route, and it adds cost and an internet path the design avoided. A second, unrestricted interface endpoint reopens the exfiltration path the policy was meant to close. IAM permissions and endpoint policies are both evaluated, so broadening the instance profile does not bypass the endpoint policy.",
+    referenceUrl: "https://docs.aws.amazon.com/linux/al2023/ug/managing-repos-os-updates.html",
+    tags: ["Gateway endpoint", "Endpoint policy", "Troubleshooting"]
+  },
+  {
+    id: "aws-soa-493",
+    difficulty: "easy",
+    certId: "aws-soa",
+    domainId: "d5",
+    domainName: "Networking and Content Delivery",
+    title: "Are slow logins our fault or the internet's?",
+    scenario: "A video conferencing company hosts its application in two Regions behind CloudFront. Users in certain cities and on certain ISPs intermittently report slow logins, and the operations team wants AWS-measured latency and availability data for their end users by location and network provider, with alerts when impact rises.",
+    question: "Which service should the CloudOps engineer set up?",
+    options: [
+      { id: 'A', text: "Amazon CloudWatch Internet Monitor with the distribution and VPCs as monitored resources." },
+      { id: 'B', text: "Amazon CloudWatch Synthetics canaries running every minute from the two application Regions." },
+      { id: 'C', text: "AWS X-Ray tracing on the login service to record latency for each downstream call it makes." },
+      { id: 'D', text: "VPC Reachability Analyzer paths from the application VPCs to the users' public IP addresses." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "CloudWatch Internet Monitor uses AWS's global connectivity data to measure performance and availability between the company's applications, such as CloudFront distributions and VPCs, and the cities and ASNs where its users are, and it raises health events when impact crosses thresholds. Synthetics canaries run from AWS Regions, not from users' cities and ISPs. Reachability Analyzer checks configuration paths inside AWS and cannot measure internet performance. X-Ray traces request processing inside the application and does not see internet path quality.",
+    referenceUrl: "https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-InternetMonitor.html",
+    tags: ["Internet Monitor", "CloudWatch", "Network monitoring"]
+  },
+  {
+    id: "aws-soa-494",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d5",
+    domainName: "Networking and Content Delivery",
+    title: "Measuring loss on the hybrid link",
+    scenario: "A bank connects its data center to AWS with Direct Connect. Application teams blame the link for sporadic slowness, and the network team wants continuous round-trip time and packet loss measurements from subnets in the VPC to specific on-premises server IP addresses, plus an indication of whether any degradation is inside the AWS network.",
+    question: "What should the CloudOps engineer configure?",
+    options: [
+      { id: 'A', text: "VPC flow logs on the virtual gateway's interfaces with a Logs Insights query for packet loss values." },
+      { id: 'B', text: "A CloudWatch Network Synthetic Monitor with probes from VPC subnets to the on-premises IP addresses." },
+      { id: 'C', text: "A CloudWatch alarm on the Direct Connect ConnectionBpsEgress metric for the dedicated connection." },
+      { id: 'D', text: "CloudWatch Internet Monitor with the VPC as a monitored resource and the data center's public ASN." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "Network Synthetic Monitor creates ICMP or TCP probes from chosen VPC subnets to on-premises destination IPs across Direct Connect or VPN, publishes round-trip time and packet loss to CloudWatch, and provides a network health indicator showing whether AWS-network issues are contributing. Internet Monitor measures internet-facing performance for end users, not private hybrid links. Flow logs record flow metadata but not latency or loss, and virtual private gateways do not have network interfaces to log. ConnectionBpsEgress shows throughput, not loss or latency to specific servers.",
+    referenceUrl: "https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/what-is-network-monitor.html",
+    tags: ["Network Synthetic Monitor", "Direct Connect", "Network monitoring"]
+  },
+  {
+    id: "aws-soa-495",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d5",
+    domainName: "Networking and Content Delivery",
+    title: "TCP retransmissions between microservices",
+    scenario: "A payments company runs microservices on EC2 and Amazon EKS across three Availability Zones. Engineers suspect network problems between certain services because of sporadic timeouts, and they want per-flow TCP metrics such as retransmissions and round-trip time between workloads, along with an indication of whether AWS infrastructure is at fault.",
+    question: "Which capability should the CloudOps engineer deploy?",
+    options: [
+      { id: 'A', text: "CloudWatch Network Flow Monitor, with its agent installed on the instances and the EKS nodes." },
+      { id: 'B', text: "Enhanced networking with ENA Express on the instances to publish TCP retransmission metrics." },
+      { id: 'C', text: "VPC Traffic Mirroring from every instance to a packet analyzer that computes TCP statistics." },
+      { id: 'D', text: "CloudWatch Internet Monitor, with the VPCs that host the microservices added as its resources." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Network Flow Monitor uses lightweight agents on EC2 instances and EKS nodes to collect TCP performance data, such as retransmissions, timeouts, round-trip time and data transferred, between workloads, and its network health indicator shows whether AWS network issues are involved. Traffic Mirroring could feed a custom analyzer but copies all packets from every instance, a costly build with no AWS-attribution signal. Internet Monitor covers traffic between applications and internet users, not east-west flows. ENA Express improves throughput and latency using SRD but is not a monitoring service.",
+    referenceUrl: "https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-NetworkFlowMonitor.html",
+    tags: ["Network Flow Monitor", "EKS", "Network monitoring"]
+  },
+  {
+    id: "aws-soa-496",
+    difficulty: "hard",
+    certId: "aws-soa",
+    domainId: "d5",
+    domainName: "Networking and Content Delivery",
+    title: "Acting on internet health data",
+    scenario: "A streaming service already runs CloudWatch Internet Monitor for its two-Region application. The on-call team wants an automated page whenever Internet Monitor detects a significant availability or performance event affecting its users, and the architects want data on how latency for key cities would change if traffic were served from another Region or through CloudFront.",
+    question: "Which two actions meet these needs? (Choose two.)",
+    options: [
+      { id: 'A', text: "Review the traffic optimization suggestions on the monitor's traffic insights page for those cities." },
+      { id: 'B', text: "Create a CloudWatch alarm on the VPC's NetworkPacketsIn metric and target the same paging SNS topic." },
+      { id: 'C', text: "Run VPC Reachability Analyzer from each Region to the cities' public addresses to compare latency." },
+      { id: 'D', text: "Enable CloudFront real-time logs and compare the time-taken field for requests from those cities." },
+      { id: 'E', text: "Create an EventBridge rule matching Internet Monitor health events and target the paging SNS topic." }
+    ],
+    correctAnswers: ['A', 'E'],
+    type: "multiple",
+    explanation: "Internet Monitor publishes health events to EventBridge, so a rule matching them can page the on-call team through SNS, and its traffic insights include optimization suggestions that estimate how time to first byte for client locations would change if traffic were routed to other Regions or through CloudFront. NetworkPacketsIn measures instance traffic volume, not user-facing internet health. Reachability Analyzer checks configuration paths and measures no latency. Real-time logs show current request timing through CloudFront but cannot predict performance from an alternative Region.",
+    referenceUrl: "https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-IM-EventBridge-integration.html",
+    tags: ["Internet Monitor", "EventBridge", "Network monitoring"]
+  },
+  {
+    id: "aws-soa-497",
+    difficulty: "easy",
+    certId: "aws-soa",
+    domainId: "d5",
+    domainName: "Networking and Content Delivery",
+    title: "Alarming when a NAT gateway drops traffic",
+    scenario: "A logistics company's private workloads depend on a NAT gateway for calls to carrier APIs. The operations team wants a CloudWatch alarm that fires when the NAT gateway itself is dropping packets, which they can correlate with failed API calls.",
+    question: "Which NAT gateway metric should the alarm use?",
+    options: [
+      { id: 'A', text: "BytesOutToDestination, which counts bytes sent to internet endpoints." },
+      { id: 'B', text: "IdleTimeoutCount, which counts connections moved to the idle state." },
+      { id: 'C', text: "ActiveConnectionCount, which counts current connections through it." },
+      { id: 'D', text: "PacketsDropCount, which counts packets that the NAT gateway dropped." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "PacketsDropCount reports packets dropped by the NAT gateway, and an alarm on a sustained non-zero value, compared with total packets processed, flags a problem with the gateway. ActiveConnectionCount and BytesOutToDestination measure load and volume, not failures. IdleTimeoutCount counts connections that timed out from inactivity, which is normal behavior for idle clients rather than drops.",
+    referenceUrl: "https://docs.aws.amazon.com/vpc/latest/userguide/metrics-dimensions-nat-gateway.html",
+    tags: ["NAT gateway", "CloudWatch metrics"]
+  },
+  {
+    id: "aws-soa-498",
+    difficulty: "easy",
+    certId: "aws-soa",
+    domainId: "d5",
+    domainName: "Networking and Content Delivery",
+    title: "Knowing when a VPN tunnel goes down",
+    scenario: "A retail chain's stores connect to AWS through Site-to-Site VPN connections, each with two tunnels. The network team wants an SNS notification whenever any tunnel goes down, even if traffic has failed over to the other tunnel, so the store's router can be checked.",
+    question: "What should the CloudOps engineer configure?",
+    options: [
+      { id: 'A', text: "A CloudWatch alarm on each tunnel's TunnelState metric that fires when the value drops below 1." },
+      { id: 'B', text: "An AWS Config rule that flags VPN connections whose tunnel options differ from the chain's standard." },
+      { id: 'C', text: "A CloudTrail metric filter that matches DeleteVpnConnection API calls made on the store connections." },
+      { id: 'D', text: "A CloudWatch alarm on each connection's TunnelDataIn metric that fires when it reaches zero bytes." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Site-to-Site VPN publishes a TunnelState metric per tunnel, 1 when up and 0 when down, so an alarm when it falls below 1 notifies the team about any tunnel failure, including one whose traffic has already failed over. TunnelDataIn can be zero on a healthy but idle tunnel, which causes false alarms. A Config rule evaluates configuration, not runtime tunnel status. Tunnels usually go down because of router or network issues, not API deletions, so a CloudTrail filter would miss them.",
+    referenceUrl: "https://docs.aws.amazon.com/vpn/latest/s2svpn/monitoring-cloudwatch-vpn.html",
+    tags: ["Site-to-Site VPN", "CloudWatch alarms"]
+  },
+  {
+    id: "aws-soa-499",
+    difficulty: "medium",
+    certId: "aws-soa",
+    domainId: "d5",
+    domainName: "Networking and Content Delivery",
+    title: "Watching a Direct Connect link's health and headroom",
+    scenario: "A broadcaster relies on a 10 Gbps dedicated Direct Connect connection for contribution feeds. The CloudOps engineer must alarm immediately if the physical connection goes down, and also warn when sustained outbound traffic exceeds 80 percent of the port's capacity so an upgrade can be planned.",
+    question: "Which CloudWatch metrics should the alarms use?",
+    options: [
+      { id: 'A', text: "ConnectionState for the link status and ConnectionBpsEgress for the outbound bit rate." },
+      { id: 'B', text: "TunnelState for the link status and TunnelDataOut for the outbound bytes transferred." },
+      { id: 'C', text: "VirtualInterfaceBpsIngress for the link status and BytesOutToDestination for egress." },
+      { id: 'D', text: "ConnectionLightLevelTx for the link status and NetworkOut for the outbound throughput." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Direct Connect publishes ConnectionState, 1 when the connection is up and 0 when down, for link status, and ConnectionBpsEgress, the bit rate for outbound data from the AWS side, which can be compared against 8 Gbps for the headroom warning. TunnelState and TunnelDataOut are Site-to-Site VPN metrics. Light levels help diagnose optical problems but do not directly report the connection state, and NetworkOut is an EC2 instance metric. VirtualInterfaceBpsIngress measures one interface's inbound rate, and BytesOutToDestination belongs to NAT gateways.",
+    referenceUrl: "https://docs.aws.amazon.com/directconnect/latest/UserGuide/monitoring-cloudwatch.html",
+    tags: ["Direct Connect", "CloudWatch metrics"]
+  },
+  {
+    id: "aws-soa-500",
+    difficulty: "hard",
+    certId: "aws-soa",
+    domainId: "d5",
+    domainName: "Networking and Content Delivery",
+    title: "Loss on the probes, but AWS reports healthy",
+    scenario: "A Network Synthetic Monitor probe from a VPC subnet to an on-premises database over Direct Connect shows packet loss rising to 4 percent every evening, while the monitor's network health indicator stays healthy throughout. The Direct Connect ConnectionState metric remains 1, and the on-premises team insists their side is fine.",
+    question: "What is the most reasonable conclusion and next step?",
+    options: [
+      { id: 'A', text: "The loss is inside the AWS network, so open a support case and fail traffic over to the backup VPN link." },
+      { id: 'B', text: "The loss is outside the AWS network, so investigate the customer router, circuit and on-premises path." },
+      { id: 'C', text: "The probes are misconfigured, because a healthy network health indicator means that loss is not possible." },
+      { id: 'D', text: "The virtual interface is exceeding its prefix limit each evening, so summarize the advertised routes now." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "The network health indicator reflects whether AWS-controlled network segments are degraded along the monitored path; a healthy indicator with real probe loss points to the portion AWS does not operate, such as the customer or partner router, the last-mile circuit or on-premises devices, so the investigation belongs there, for example by checking interface errors and congestion during the evening peak. Concluding that the loss is inside AWS contradicts the indicator. Probe loss is a direct measurement, so a healthy indicator does not make it impossible. Exceeding the prefix limit would take the BGP session down entirely rather than cause partial loss.",
+    referenceUrl: "https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/what-is-network-monitor.html",
+    tags: ["Network Synthetic Monitor", "Direct Connect", "Troubleshooting"]
+  }
+];
+
+export default AWS_SOA_QUESTIONS_20;
