@@ -1,0 +1,532 @@
+export const AZURE_AZ305_QUESTIONS_14 = [
+  {
+    id: "azure-az305-326",
+    difficulty: "easy",
+    certId: "azure-az305",
+    domainId: "d4",
+    domainName: "Design infrastructure solutions",
+    title: "Sizing hosts for an in-memory analytics engine",
+    scenario: "A retailer is moving an in-memory analytics engine that loads a 900 GB dataset into RAM and uses relatively few CPU cores for its aggregation work. Benchmarks show the engine is limited by memory capacity, not by processor speed, and it must run on Azure virtual machines.",
+    question: "Which virtual machine family should the architect specify?",
+    options: [
+      { id: 'A', text: "GPU-accelerated N-series machines, which offload parallel calculations to attached graphics processors." },
+      { id: 'B', text: "Compute-optimised F-series machines, which offer a high ratio of vCPUs to memory for processor-bound work." },
+      { id: 'C', text: "Memory-optimised E-series or M-series machines, which offer a high ratio of memory to each vCPU." },
+      { id: 'D', text: "Burstable B-series machines, which bank CPU credits while idle and spend them during busy periods." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "Memory-optimised families such as E-series and, for the largest footprints, M-series provide a high memory-to-core ratio, which suits an engine that is bound by RAM capacity rather than CPU. F-series machines deliberately pair many cores with comparatively little memory, the opposite of what the benchmarks show. B-series machines address spiky CPU use at low cost and do not offer the memory sizes required. N-series GPUs accelerate parallel compute, which the aggregation engine does not use.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/virtual-machines/sizes/overview",
+    tags: ["Virtual machines", "VM sizing"]
+  },
+  {
+    id: "azure-az305-327",
+    difficulty: "easy",
+    certId: "azure-az305",
+    domainId: "d4",
+    domainName: "Design infrastructure solutions",
+    title: "Cheap hosting for a mostly idle intranet wiki",
+    scenario: "An engineering firm's intranet wiki runs on a single Windows virtual machine that averages 5 percent CPU and spikes briefly to full CPU when staff search the site each morning. The VM must not be evicted or shut down by the platform, and the firm wants the lowest compute cost that still handles the spikes.",
+    question: "Which virtual machine family should the architect recommend?",
+    options: [
+      { id: 'A', text: "A D-series Spot VM, which offers deep discounts on unused Azure capacity in the region." },
+      { id: 'B', text: "A D-series general-purpose VM sized so that its full CPU capacity covers the morning spikes." },
+      { id: 'C', text: "A B-series burstable VM, which accrues CPU credits at low load and spends them during spikes." },
+      { id: 'D', text: "An F-series compute-optimised VM, which offers the lowest price for each vCPU of compute capacity." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "B-series burstable machines charge for a low baseline CPU and let the VM bank credits while idle, then burst to full CPU for short periods, which fits a workload that averages 5 percent with brief spikes. A general-purpose D-series machine sized for the spikes pays for peak capacity all day. F-series machines are cheap per vCPU but still pay for full cores that sit idle. Spot VMs can be evicted whenever Azure needs the capacity, which the firm ruled out.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/virtual-machines/sizes/general-purpose/b-family",
+    tags: ["Virtual machines", "B-series", "Cost optimization"]
+  },
+  {
+    id: "azure-az305-328",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d4",
+    domainName: "Design infrastructure solutions",
+    title: "Physical servers the firm alone controls",
+    scenario: "A defence contractor's compliance rules require its virtual machines to run on physical servers that no other Azure customer uses, and its security team wants to choose when host maintenance is applied. The contractor also wants visibility of the physical cores for licensing purposes, and it runs about 60 VMs of mixed sizes.",
+    question: "What should the architect recommend?",
+    options: [
+      { id: 'A', text: "Deploy the virtual machines on Azure Dedicated Hosts in a host group, with a maintenance configuration." },
+      { id: 'B', text: "Deploy the virtual machines into an availability set spread across three fault domains in the region." },
+      { id: 'C', text: "Deploy the virtual machines as confidential VMs, which encrypt memory so the host cannot inspect it." },
+      { id: 'D', text: "Deploy the virtual machines on isolated VM sizes, which dedicate the hardware to one customer and follow platform maintenance." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Azure Dedicated Host provides whole physical servers for a single subscription, lets the customer place VMs of different sizes on them, exposes the physical cores for licensing, and supports maintenance configurations that control when host updates are applied. Isolated VM sizes give single-customer hardware for one large VM each, but they do not provide host-level placement or core visibility for a mixed estate. Confidential VMs protect data in use but still run on shared hosts. An availability set spreads VMs across racks shared with other customers.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/virtual-machines/dedicated-hosts",
+    tags: ["Azure Dedicated Host", "Compliance", "Licensing"]
+  },
+  {
+    id: "azure-az305-329",
+    difficulty: "hard",
+    certId: "azure-az305",
+    domainId: "d4",
+    domainName: "Design infrastructure solutions",
+    title: "Protecting patient data while it is being processed",
+    scenario: "A genomics company processes identifiable patient DNA on Azure virtual machines. Its data protection officer requires that the data stay encrypted in memory while it is processed, so that neither the hypervisor nor Azure operators could read it, and that the VM's integrity be attested before keys are released to it.",
+    question: "Which compute option meets the requirement?",
+    options: [
+      { id: 'A', text: "Confidential VMs running in a hardware trusted execution environment with remote attestation." },
+      { id: 'B', text: "Standard virtual machines with encryption at host enabled for the temporary disk and the disk caches." },
+      { id: 'C', text: "Virtual machines on an Azure Dedicated Host so that no other customer's workloads share the server." },
+      { id: 'D', text: "Trusted launch virtual machines with Secure Boot and a virtual TPM enabled to protect the boot chain." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Confidential VMs run inside a hardware-based trusted execution environment, such as AMD SEV-SNP or Intel TDX, that encrypts memory with keys the hypervisor cannot access, and they support attestation so secrets are released only to a verified VM. Trusted launch protects against boot-level malware but does not encrypt memory from the host. Encryption at host protects data at rest on temporary disks and caches, not data being processed in RAM. A dedicated host isolates the server from other customers but leaves memory readable by the host platform.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/confidential-computing/confidential-vm-overview",
+    tags: ["Confidential computing", "Virtual machines", "Security"]
+  },
+  {
+    id: "azure-az305-330",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d4",
+    domainName: "Design infrastructure solutions",
+    title: "OS disks for a stateless render farm scale set",
+    scenario: "A visual effects studio runs a scale set of stateless render nodes that are reimaged after each job and keep nothing on their OS disks. The studio wants the fastest possible reimage and lower storage cost, and it never stops and deallocates the nodes; they are simply deleted when the queue empties.",
+    question: "Which OS disk option should the architect choose?",
+    options: [
+      { id: 'A', text: "Ultra Disk managed OS disks with IOPS set high enough that the image is written back almost instantly." },
+      { id: 'B', text: "Standard HDD managed OS disks, which carry the lowest price per gigabyte of any managed disk type." },
+      { id: 'C', text: "Ephemeral OS disks created on the VM's local cache or temporary disk, not on remote disks." },
+      { id: 'D', text: "Premium SSD managed OS disks with read-only host caching enabled to speed up each reimage operation." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "Ephemeral OS disks are created on the VM's local storage, so there is no charge for OS disk storage, read and write latency is low, and reimaging is fast because nothing is copied to remote storage; losing the disk contents on deallocation does not matter for stateless nodes that are deleted anyway. Standard HDD managed disks still incur storage cost and are slow. Premium SSD with caching improves performance but keeps the remote disk cost and slower reimage. Ultra Disks cannot be used as OS disks.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/virtual-machines/ephemeral-os-disks",
+    tags: ["Ephemeral OS disks", "Scale sets", "Cost optimization"]
+  },
+  {
+    id: "azure-az305-331",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d4",
+    domainName: "Design infrastructure solutions",
+    title: "Hardened images for teams in five regions",
+    scenario: "A bank's platform team builds a hardened Windows Server image every month. Application teams in five Azure regions must deploy scale sets from the latest image or pin a previous monthly version, and deployments must not copy large VHDs across regions at deployment time.",
+    question: "What should the architect use to distribute the images?",
+    options: [
+      { id: 'A', text: "A private Azure Marketplace offer, with each monthly build published as a new plan for the teams." },
+      { id: 'B', text: "VHD files in a geo-redundant storage account, with teams creating managed disks from them on demand." },
+      { id: 'C', text: "Managed images created in one region, with teams referencing that image from every region's deployment." },
+      { id: 'D', text: "Azure Compute Gallery image definitions with monthly versions replicated in advance to all target locations." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Azure Compute Gallery stores image definitions with versions, replicates each version to the regions you choose ahead of time, and lets deployments reference either the latest version or a specific one, so scale sets deploy from a local replica. A managed image is a regional resource, so it cannot be used directly from other regions and has no versioning. Creating disks from VHDs in a storage account copies large files at deployment time and lacks version management. A Marketplace offer is designed for publishing to external customers and adds a certification process to every monthly build.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/virtual-machines/azure-compute-gallery",
+    tags: ["Azure Compute Gallery", "Images", "Scale sets"]
+  },
+  {
+    id: "azure-az305-332",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d4",
+    domainName: "Design infrastructure solutions",
+    title: "Scaling out before a daily trading surge",
+    scenario: "A brokerage's quote engine runs on a virtual machine scale set whose instances take about 12 minutes to boot and warm their caches. Load rises sharply every weekday before markets open, but the timing drifts with seasons and daylight saving changes, and the team does not want to maintain a calendar of scale times.",
+    question: "What should the architect configure?",
+    options: [
+      { id: 'A', text: "Predictive autoscale on the CPU metric, which forecasts the daily pattern and scales out in advance." },
+      { id: 'B', text: "Scheduled autoscale profiles that set a higher instance count before each market's opening time." },
+      { id: 'C', text: "A reactive autoscale rule that adds instances when average CPU exceeds 70 percent for five minutes." },
+      { id: 'D', text: "Manual scaling by the operations team each morning based on the previous day's peak instance count." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Predictive autoscale for virtual machine scale sets uses machine learning over the CPU history to forecast cyclical load and add instances ahead of the predicted rise, which covers the 12-minute warm-up without anyone maintaining schedules, and it adapts as the pattern drifts. A reactive CPU rule fires only once load has already arrived, so new instances are ready 12 minutes too late. Scheduled profiles would work but must be edited whenever the timing shifts, which the team refused. Manual scaling depends on people and on yesterday's numbers.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-monitor/autoscale/autoscale-predictive",
+    tags: ["Virtual Machine Scale Sets", "Autoscale"]
+  },
+  {
+    id: "azure-az305-333",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d4",
+    domainName: "Design infrastructure solutions",
+    title: "Shared desktops for a 24-hour contact centre",
+    scenario: "A utility's contact centre has 900 agents working in three shifts, each using a standard set of Windows applications for eight hours a day. The utility wants Windows 11 desktops hosted in Azure, several agents per virtual machine to keep costs down, and capacity that scales with the shift pattern.",
+    question: "Which solution should the architect recommend?",
+    options: [
+      { id: 'A', text: "Windows Server VMs running Remote Desktop Services that the utility deploys and manages by itself." },
+      { id: 'B', text: "Windows 365 Enterprise, assigning each agent a Cloud PC at a fixed monthly price per user licence." },
+      { id: 'C', text: "Azure Virtual Desktop pooled host pools on Windows 11 Enterprise multi-session with autoscale plans." },
+      { id: 'D', text: "Microsoft Dev Box pools, giving each agent a preconfigured workstation defined by a dev box definition." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "Azure Virtual Desktop pooled host pools let many users share each session host running Windows 11 Enterprise multi-session, and autoscale plans add and remove hosts to follow the shift pattern, keeping cost tied to use. Windows 365 gives each user a dedicated Cloud PC at a fixed price, so 900 agents on three shifts pay for three times the machines they use at once. Dev Box targets developer workstations, not shared contact centre desktops. Self-managed Remote Desktop Services works but leaves the brokering, gateway and scaling infrastructure for the utility to run, and it delivers a Windows Server desktop rather than Windows 11.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/virtual-desktop/overview",
+    tags: ["Azure Virtual Desktop", "Multi-session"]
+  },
+  {
+    id: "azure-az305-334",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d4",
+    domainName: "Design infrastructure solutions",
+    title: "Discounted test VMs that keep their disks",
+    scenario: "A software vendor runs a long-lived performance test environment on 20 virtual machines. The tests tolerate interruption and can resume later, so the vendor wants the deepest available compute discount. However, testers configure the VMs' disks over several weeks and must not have to rebuild them after an interruption.",
+    question: "What should the architect recommend?",
+    options: [
+      { id: 'A', text: "Spot VMs with the eviction policy set to Delete, recreating each VM from the gallery image when capacity returns." },
+      { id: 'B', text: "Spot VMs with the eviction policy set to Deallocate, so evicted VMs keep their disks and can be restarted." },
+      { id: 'C', text: "Pay-as-you-go VMs covered by a three-year reservation, keeping the disks attached and the VMs running." },
+      { id: 'D', text: "B-series burstable VMs, which bank credits while idle so the test machines never need to be interrupted." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "Spot VMs give the deepest discount on spare capacity, and the Deallocate eviction policy stops the VM on eviction while keeping its disks, which continue to incur storage charges, so testers restart the same machines when capacity returns. The Delete policy removes the VM and its disks, forcing the rebuild the testers want to avoid. A reservation discounts pay-as-you-go but not as deeply as Spot for an interruptible workload. Burstable VMs suit low average CPU, not sustained performance testing, and are not the deepest discount.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/virtual-machines/spot-vms",
+    tags: ["Spot VMs", "Cost optimization"]
+  },
+  {
+    id: "azure-az305-335",
+    difficulty: "hard",
+    certId: "azure-az305",
+    domainId: "d4",
+    domainName: "Design infrastructure solutions",
+    title: "A guaranteed floor with discounted burst capacity",
+    scenario: "A marketing analytics firm's stateless API runs on a virtual machine scale set that scales between 10 and 100 instances. The first 10 instances must always be regular VMs so the service never drops below that floor, while at least 70 percent of the capacity above the floor should use Spot pricing. The team wants one scale set to manage.",
+    question: "What should the architect configure?",
+    options: [
+      { id: 'A', text: "A Flexible scale set using Spot Priority Mix with a base of ten regular VMs and a 70:30 Spot ratio beyond it." },
+      { id: 'B', text: "Two Uniform scale sets, one regular and one Spot, behind the same load balancer with separate autoscale rules." },
+      { id: 'C', text: "An Azure Batch pool with ten dedicated nodes and an autoscale formula that adds Spot nodes as load grows." },
+      { id: 'D', text: "A Uniform scale set of Spot instances with an on-demand capacity reservation that holds ten instances." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Spot Priority Mix, available with Flexible orchestration, sets a base count of regular VMs and a percentage split between Spot and regular VMs for everything above the base, all in one scale set, which matches the floor and the 70 percent target exactly. Two scale sets meet the goal but double the management the team wanted to avoid. Capacity reservations do not apply to Spot VMs, so the floor would not be guaranteed. Azure Batch schedules jobs and tasks, not a continuously running API behind a load balancer.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/virtual-machine-scale-sets/spot-priority-mix",
+    tags: ["Virtual Machine Scale Sets", "Spot VMs", "Spot Priority Mix"]
+  },
+  {
+    id: "azure-az305-336",
+    difficulty: "hard",
+    certId: "azure-az305",
+    domainId: "d4",
+    domainName: "Design infrastructure solutions",
+    title: "Guaranteed capacity for a ticket sale surge",
+    scenario: "A concert promoter's queueing service scales out to 40 extra D16s_v5 virtual machines in zone 2 of West US 3 during major ticket releases. Last year the scale-out failed with allocation errors for that size at the worst possible moment. The promoter needs certainty that the capacity can be allocated whenever a release happens, and it will pay for that certainty.",
+    question: "What should the architect recommend?",
+    options: [
+      { id: 'A', text: "Pre-create the 40 VMs in zone 2 of West US 3 and keep them deallocated between ticket releases." },
+      { id: 'B', text: "Buy three-year reserved instances for 40 D16s_v5 VMs scoped to the promoter's subscription." },
+      { id: 'C', text: "Enable predictive autoscale on the scale set so it requests the VMs an hour before each release." },
+      { id: 'D', text: "Create an on-demand capacity reservation for 40 D16s_v5 VMs in zone 2 of West US 3." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "An on-demand capacity reservation guarantees compute capacity for a specific VM size in a region or zone for as long as the reservation exists, and it is billed at the pay-as-you-go rate whether or not VMs use it. Reserved instances are a billing discount and do not guarantee that capacity can be allocated, although they can discount a capacity reservation. Deallocated VMs release their compute, so restarting them can hit the same allocation failure. Predictive autoscale only changes when instances are requested; an earlier request can still fail to allocate.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/virtual-machines/capacity-reservation-overview",
+    tags: ["Capacity reservations", "Virtual machines", "Scale sets"]
+  },
+  {
+    id: "azure-az305-337",
+    difficulty: "easy",
+    certId: "azure-az305",
+    domainId: "d4",
+    domainName: "Design infrastructure solutions",
+    title: "Legacy Windows service with COM dependencies",
+    scenario: "A logistics company must move a 15-year-old Windows application to Azure. It runs as a Windows service, installs COM components, writes to the registry and relies on a third-party print driver installed on the server. The company has no budget to change the code.",
+    question: "Which compute service should the architect recommend?",
+    options: [
+      { id: 'A', text: "Azure Functions on the Premium plan, invoking the application logic from a timer trigger." },
+      { id: 'B', text: "An Azure virtual machine running Windows Server, where the service and driver install as today." },
+      { id: 'C', text: "Azure Container Apps, packaging the application and its print driver into a container image." },
+      { id: 'D', text: "Azure App Service on a Windows plan, deploying the application with its components as a web job." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "A Windows Server virtual machine gives full control of the operating system, so the Windows service, COM registration, registry writes and print driver install exactly as they do on premises with no code change. App Service is a sandboxed platform that does not allow installing drivers or registering COM components system-wide. Container Apps runs Linux containers only, so a Windows service with a Windows print driver cannot run there. Functions hosts event-driven code, which would require rewriting the service.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/architecture/guide/technology-choices/compute-decision-tree",
+    tags: ["Virtual machines", "Compute selection", "Legacy applications"]
+  },
+  {
+    id: "azure-az305-338",
+    difficulty: "easy",
+    certId: "azure-az305",
+    domainId: "d4",
+    domainName: "Design infrastructure solutions",
+    title: "Occasional container job with no platform to run",
+    scenario: "A property portal needs to run a containerised image-optimisation tool a few times a week for about 20 minutes each time, triggered by its existing Logic App. The team wants per-second billing, no cluster or plan to keep running between runs, and no orchestration features.",
+    question: "Which service should run the container?",
+    options: [
+      { id: 'A', text: "A virtual machine scale set that scales from zero to one instance whenever the Logic App fires." },
+      { id: 'B', text: "App Service Web App for Containers on a Basic plan kept running to host the image-optimisation tool." },
+      { id: 'C', text: "Azure Container Instances, starting a container group on demand and deleting it after each run." },
+      { id: 'D', text: "Azure Kubernetes Service, running the tool as a Kubernetes Job on a small system node pool." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "Azure Container Instances runs a container group on demand with per-second billing and no underlying infrastructure to keep running, and Logic Apps has a connector to create and delete container groups, which suits an occasional 20-minute task. AKS requires a cluster whose nodes run and bill continuously between jobs. An App Service plan bills for as long as it exists, even when the tool is idle. A scale set brings VM boot time, OS management and image maintenance for a simple containerised task.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/container-instances/container-instances-overview",
+    tags: ["Container Instances", "Compute selection"]
+  },
+  {
+    id: "azure-az305-339",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d4",
+    domainName: "Design infrastructure solutions",
+    title: "Microservices without running Kubernetes",
+    scenario: "A fintech start-up is building 14 containerised microservices that call each other through Dapr, scale on HTTP traffic and queue depth, and should scale to zero overnight. The three-person team has no Kubernetes experience, will never need direct access to the Kubernetes API, and wants to avoid cluster upgrades.",
+    question: "Which hosting platform should the architect recommend?",
+    options: [
+      { id: 'A', text: "Azure Container Instances container groups, with one group per microservice behind an API gateway." },
+      { id: 'B', text: "Azure Container Apps, using its built-in Dapr integration and KEDA-based scale rules for each service." },
+      { id: 'C', text: "Azure App Service Web App for Containers, with one app per microservice on a shared Premium plan." },
+      { id: 'D', text: "Azure Kubernetes Service with the Dapr and KEDA add-ons installed and the cluster autoscaler enabled." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "Container Apps is a serverless container platform built on Kubernetes that hides the cluster, offers managed Dapr integration and KEDA-driven scale rules for HTTP, queues and other events, and can scale apps to zero. AKS supports Dapr and KEDA too, but the team would have to operate the cluster and its upgrades. Container Instances has no built-in autoscaling or service-to-service features. App Service does not scale to zero and has no built-in Dapr support.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/container-apps/overview",
+    tags: ["Container Apps", "Microservices", "Dapr"]
+  },
+  {
+    id: "azure-az305-340",
+    difficulty: "easy",
+    certId: "azure-az305",
+    domainId: "d4",
+    domainName: "Design infrastructure solutions",
+    title: "A platform built around custom operators",
+    scenario: "A telecom's network automation platform is delivered as Helm charts that install custom resource definitions and a custom Kubernetes operator, and engineers use kubectl daily to inspect those resources. The platform team is experienced with Kubernetes and wants a managed control plane in Azure.",
+    question: "Which compute service should the architect recommend?",
+    options: [
+      { id: 'A', text: "Azure App Service, hosting the operator as a Web App for Containers with deployment slots." },
+      { id: 'B', text: "Azure Container Apps, deploying each Helm chart component as a separate container app." },
+      { id: 'C', text: "Azure Kubernetes Service, installing the CRDs and the operator on the cluster with Helm." },
+      { id: 'D', text: "Azure Container Instances, running the operator and its Kubernetes workloads as long-lived container groups." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "AKS provides a managed Kubernetes control plane with full access to the Kubernetes API, so Helm charts, custom resource definitions, operators and kubectl work as designed. Container Apps runs on Kubernetes but does not expose the Kubernetes API, so CRDs and operators cannot be installed. Container Instances has no Kubernetes API at all. App Service hosts web apps and cannot run a controller that manages custom resources.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/aks/what-is-aks",
+    tags: ["AKS", "Kubernetes", "Compute selection"]
+  },
+  {
+    id: "azure-az305-341",
+    difficulty: "hard",
+    certId: "azure-az305",
+    domainId: "d4",
+    domainName: "Design infrastructure solutions",
+    title: "Pods outgrowing a tight corporate address plan",
+    scenario: "A bank's new AKS cluster must live in a spoke virtual network that received only a /24 from the corporate IP plan, but the platform team expects to run about 3,000 pods. Pods must reach on-premises services, which see traffic from node IP addresses, and the team wants a supported, future-proof network plugin.",
+    question: "Which networking configuration should the architect choose?",
+    options: [
+      { id: 'A', text: "Azure CNI with flat networking, requesting a larger address range for the node and pod subnet." },
+      { id: 'B', text: "Kubenet networking, with pod address ranges and user-defined routes maintained on the node subnet." },
+      { id: 'C', text: "Azure CNI Overlay, assigning pod addresses from a private CIDR that is separate from the VNet." },
+      { id: 'D', text: "Azure CNI with dynamic IP allocation, placing pod addresses in a dedicated pod subnet of the same /24." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "Azure CNI Overlay gives nodes addresses from the VNet subnet but assigns pods addresses from a separate private CIDR that does not consume VNet space, and pod traffic leaving the cluster is translated to the node IP, which matches what on-premises services expect; it is the recommended successor to kubenet. Kubenet also conserves addresses but relies on route tables with scale limits and is being retired. Flat Azure CNI gives every pod a VNet address, and the corporate plan will not provide a larger range. Dynamic IP allocation still draws pod addresses from the VNet, which a /24 cannot supply for 3,000 pods.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/aks/azure-cni-overlay",
+    tags: ["AKS", "Networking", "Azure CNI Overlay"]
+  },
+  {
+    id: "azure-az305-342",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d4",
+    domainName: "Design infrastructure solutions",
+    title: "Pods reading Key Vault without stored credentials",
+    scenario: "An insurer's claims services run as several deployments on AKS, and each needs its own permissions to read secrets from a different Key Vault. Security forbids storing client secrets or certificates in the cluster and rejects any design where one identity is shared by every pod on a node.",
+    question: "What should the architect recommend?",
+    options: [
+      { id: 'A', text: "Entra Workload ID, federating each deployment's service account with its own managed identity." },
+      { id: 'B', text: "A service principal per deployment, with each client secret stored in an encrypted Kubernetes secret." },
+      { id: 'C', text: "The node pool's kubelet managed identity, granting it read access on all of the Key Vaults in use." },
+      { id: 'D', text: "Microsoft Entra pod-managed identity, assigning a managed identity to each deployment through a binding." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Workload ID federates a Kubernetes service account with a user-assigned managed identity, so each deployment exchanges its projected service account token for an Entra token with its own permissions and no secret is stored in the cluster. Pod-managed identity is deprecated and has been replaced by Workload ID. The kubelet identity is shared by every pod on the node, which security explicitly rejects. Service principal secrets in Kubernetes secrets are stored credentials, which security forbids.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/aks/workload-identity-overview",
+    tags: ["AKS", "Workload identity", "Key Vault"]
+  },
+  {
+    id: "azure-az305-343",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d4",
+    domainName: "Design infrastructure solutions",
+    title: "Keeping GPU nodes for machine learning pods only",
+    scenario: "A media company's AKS cluster hosts web services and a new set of machine learning inference pods that need NVIDIA GPUs. GPU nodes are expensive, so only the inference pods may ever be scheduled on them, and the web services must continue to run on the existing general-purpose nodes.",
+    question: "Which two actions should the architect take? (Choose two.)",
+    options: [
+      { id: 'A', text: "Resize the cluster's system node pool to a GPU-enabled VM size for all workloads." },
+      { id: 'B', text: "Create a resource quota in the inference namespace that limits its GPU requests." },
+      { id: 'C', text: "Add a separate user node pool that uses a GPU-enabled VM size for the inference." },
+      { id: 'D', text: "Set a cluster autoscaler profile that scales down idle GPU nodes more aggressively." },
+      { id: 'E', text: "Taint the GPU node pool and add a matching toleration to the inference pod specs." }
+    ],
+    correctAnswers: ['C', 'E'],
+    type: "multiple",
+    explanation: "A dedicated user node pool with a GPU VM size provides the hardware without changing the general-purpose pools, and a taint on that pool repels every pod that lacks the matching toleration, so only the inference pods, which carry the toleration (usually with a node selector or affinity), are scheduled there. Moving the system node pool to GPUs would run system and web pods on expensive hardware. A resource quota caps how much a namespace requests but does not stop other pods landing on GPU nodes. Autoscaler tuning saves cost on idle nodes but does not control which pods use them.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/aks/use-multiple-node-pools",
+    tags: ["AKS", "Node pools", "GPU"]
+  },
+  {
+    id: "azure-az305-344",
+    difficulty: "easy",
+    certId: "azure-az305",
+    domainId: "d4",
+    domainName: "Design infrastructure solutions",
+    title: "One registry for clusters on three continents",
+    scenario: "A SaaS provider runs AKS clusters in East US, West Europe and Australia East that all pull the same container images. Image pulls across oceans slow down scale-out, and the provider wants every cluster to pull from a nearby copy while pipelines push to a single registry login server.",
+    question: "What should the architect recommend?",
+    options: [
+      { id: 'A', text: "One Premium registry in East US with zone redundancy enabled in its home region." },
+      { id: 'B', text: "A separate Basic registry in each region, with the pipeline pushing every image to all three." },
+      { id: 'C', text: "One Premium registry with a geo-replica in each region where a cluster runs." },
+      { id: 'D', text: "One Standard registry with ACR Tasks that rebuilds each image in all three regions on commit." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "Geo-replication, a Premium tier feature, keeps replicas of a single registry in the chosen regions behind one login server, so pipelines push once and each cluster pulls from the nearest replica. Separate registries work but mean three login servers and pipelines that must push to all of them. ACR Tasks automates builds; it does not place copies of a registry in other regions. Zone redundancy protects the registry within one region and does nothing for cross-ocean pull latency.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/container-registry/container-registry-geo-replication",
+    tags: ["Container Registry", "Geo-replication", "AKS"]
+  },
+  {
+    id: "azure-az305-345",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d4",
+    domainName: "Design infrastructure solutions",
+    title: "Orchestrating Windows containers for a .NET Framework app",
+    scenario: "A manufacturer has containerised a set of .NET Framework 4.8 services into Windows Server container images. The services need rolling updates, service discovery between containers and horizontal autoscaling, and they will run alongside a few Linux-based helper services.",
+    question: "Which platform should the architect recommend?",
+    options: [
+      { id: 'A', text: "Azure Kubernetes Service with a Windows Server node pool next to the default Linux node pool." },
+      { id: 'B', text: "Azure Container Instances, deploying the Windows images as container groups in a virtual network." },
+      { id: 'C', text: "Azure Functions on the Premium plan, deploying each Windows image as a custom container function." },
+      { id: 'D', text: "Azure Container Apps, running each Windows image as a container app with KEDA scale rules." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "AKS supports Windows Server node pools next to Linux node pools in one cluster, giving the Windows containers rolling updates, service discovery and horizontal pod autoscaling while the Linux helpers run on Linux nodes. Container Apps supports Linux containers only. Container Instances can run Windows containers but offers no orchestration, rolling updates or autoscaling. Functions supports custom containers only on Linux, and it expects the Functions programming model rather than arbitrary services.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/aks/windows-faq",
+    tags: ["AKS", "Windows containers"]
+  },
+  {
+    id: "azure-az305-346",
+    difficulty: "easy",
+    certId: "azure-az305",
+    domainId: "d4",
+    domainName: "Design infrastructure solutions",
+    title: "Keeping OpenShift tooling after the move",
+    scenario: "A bank's developers deploy to on-premises Red Hat OpenShift using OpenShift routes, templates and the OpenShift web console. The bank wants to move these workloads to a managed service in Azure without retraining teams, and it wants the platform jointly supported by Microsoft and Red Hat.",
+    question: "Which service should the architect recommend?",
+    options: [
+      { id: 'A', text: "Azure Container Apps, importing the OpenShift images into its managed ingress environment." },
+      { id: 'B', text: "Azure Red Hat OpenShift, running fully managed OpenShift clusters inside Azure subscriptions." },
+      { id: 'C', text: "Self-managed OpenShift on Azure virtual machines deployed by the bank's own platform team." },
+      { id: 'D', text: "Azure Kubernetes Service, converting the OpenShift templates and routes into Helm charts." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "Azure Red Hat OpenShift provides fully managed OpenShift clusters that are jointly engineered, operated and supported by Microsoft and Red Hat, so routes, templates and the OpenShift console keep working without retraining. AKS is Kubernetes without the OpenShift layer, so templates, routes and tooling would have to be converted. Self-managed OpenShift on VMs keeps the tooling but is not a managed, jointly supported service. Container Apps offers none of the OpenShift constructs.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/openshift/intro-openshift",
+    tags: ["Azure Red Hat OpenShift", "Containers"]
+  },
+  {
+    id: "azure-az305-347",
+    difficulty: "hard",
+    certId: "azure-az305",
+    domainId: "d4",
+    domainName: "Design infrastructure solutions",
+    title: "Scaling order workers on queue backlog",
+    scenario: "An online grocer's order workers run on AKS and pull messages from an Azure Service Bus queue. Each message costs little CPU but waits on downstream calls, so CPU stays low even when thousands of orders back up. The grocer wants pods to scale with the queue backlog and the cluster to add nodes when the pods no longer fit.",
+    question: "Which two components should the architect use? (Choose two.)",
+    options: [
+      { id: 'A', text: "The cluster autoscaler enabled on the node pool that runs the order workers." },
+      { id: 'B', text: "A scheduled pipeline job that scales the deployment up when queue message peaks are expected." },
+      { id: 'C', text: "The KEDA add-on with a scaled object on the Service Bus queue's message count." },
+      { id: 'D', text: "A Horizontal Pod Autoscaler targeting 60 percent average CPU across the workers." },
+      { id: 'E', text: "The Vertical Pod Autoscaler raising the CPU requests of the order worker pods." }
+    ],
+    correctAnswers: ['A', 'C'],
+    type: "multiple",
+    explanation: "KEDA scales a deployment on event sources such as the length of a Service Bus queue, so worker replicas follow the backlog even while CPU stays low, and the cluster autoscaler adds nodes when pending pods cannot be scheduled and removes them afterwards. A CPU-based pod autoscaler never triggers because the workers are I/O bound. The Vertical Pod Autoscaler resizes pod requests rather than adding replicas, which does not drain a backlog faster. A schedule guesses at demand instead of reacting to the actual queue.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/aks/keda-about",
+    tags: ["AKS", "KEDA", "Autoscaling"]
+  },
+  {
+    id: "azure-az305-348",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d4",
+    domainName: "Design infrastructure solutions",
+    title: "Single container web app with slot swaps",
+    scenario: "A publisher's editorial portal is one Linux container that serves a web UI, and its release pipeline already warms a staging copy and swaps it into production with instant rollback. The team wants a managed platform with custom domains and TLS certificates, and it has no interest in container orchestration.",
+    question: "Which hosting option should the architect recommend?",
+    options: [
+      { id: 'A', text: "Azure App Service Web App for Containers on a Premium v3 plan with a second deployment slot." },
+      { id: 'B', text: "Azure Kubernetes Service with a blue-green deployment managed by two Kubernetes services." },
+      { id: 'C', text: "Azure Container Instances with two container groups and a DNS record switched on each release." },
+      { id: 'D', text: "Azure Virtual Machines running Docker, with two VMs behind a load balancer swapped by a script." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Web App for Containers runs a single container on a managed platform with custom domains and managed certificates, and deployment slots provide the warmed staging copy, swap and instant swap-back that the pipeline already relies on. AKS can do blue-green releases but introduces the orchestration the team does not want. Switching DNS between container groups gives slow, cache-dependent cutovers and no managed TLS. Docker on VMs leaves patching and the swap mechanics to the team.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/app-service/deploy-staging-slots",
+    tags: ["App Service", "Containers", "Deployment slots"]
+  },
+  {
+    id: "azure-az305-349",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d4",
+    domainName: "Design infrastructure solutions",
+    title: "Patching AKS nodes inside a change window",
+    scenario: "A hospital's AKS clusters must receive node operating system security updates regularly, but its change policy allows disruptive maintenance only between 01:00 and 05:00 on Sundays. The platform team currently patches nodes by hand and wants the process automated within the policy.",
+    question: "Which two configurations should the architect recommend? (Choose two.)",
+    options: [
+      { id: 'A', text: "Define a planned maintenance window for node OS upgrades on Sunday mornings." },
+      { id: 'B', text: "Disable automatic upgrades and patch nodes over SSH in the maintenance slot." },
+      { id: 'C', text: "Set the node OS upgrade channel to NodeImage or SecurityPatch on each cluster." },
+      { id: 'D', text: "Enable Azure Update Manager periodic assessment on the node pool scale sets." },
+      { id: 'E', text: "Pin the cluster's Kubernetes version so that nodes are never restarted by AKS." }
+    ],
+    correctAnswers: ['A', 'C'],
+    type: "multiple",
+    explanation: "The node OS upgrade channel automates security updates for node images, with NodeImage replacing nodes with a patched image and SecurityPatch applying security fixes, and a planned maintenance window for node OS upgrades confines those operations to the permitted Sunday slot. Azure Update Manager is not supported for managing AKS node pool scale sets, which AKS manages itself. Patching over SSH is the manual process the team wants to replace. Pinning the Kubernetes version does not stop node OS patching needs, and nodes still require updates.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/aks/auto-upgrade-node-os-image",
+    tags: ["AKS", "Patching", "Planned maintenance"]
+  },
+  {
+    id: "azure-az305-350",
+    difficulty: "hard",
+    certId: "azure-az305",
+    domainId: "d4",
+    domainName: "Design infrastructure solutions",
+    title: "An AKS API server with no public endpoint",
+    scenario: "A government agency's security baseline states that the Kubernetes API server of its AKS clusters must not have any public IP address or public DNS resolution to a routable endpoint. Administrators work from the corporate network over ExpressRoute, and deployments run from self-hosted pipeline agents in a peered virtual network.",
+    question: "What should the architect recommend?",
+    options: [
+      { id: 'A', text: "Deploy a private AKS cluster whose API server is reached through a private endpoint in the VNet." },
+      { id: 'B', text: "Apply a network security group to the node subnet that blocks inbound port 443 from the internet." },
+      { id: 'C', text: "Keep the public API server and restrict it with authorized IP ranges for the corporate egress addresses." },
+      { id: 'D', text: "Route the cluster's egress through Azure Firewall and deny outbound traffic to the public API endpoint." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "A private cluster exposes the API server only through a private endpoint (or API server VNet integration) with private DNS, so administrators on ExpressRoute and agents in the peered network reach it privately and no public endpoint exists. Authorized IP ranges restrict who may call the API server but leave it on a public IP, which the baseline forbids. The API server is managed by Azure outside the node subnet, so an NSG there does not affect it. Egress filtering controls outbound traffic from nodes and does not remove the public inbound endpoint.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/aks/private-clusters",
+    tags: ["AKS", "Private cluster", "Security"]
+  }
+];
+
+export default AZURE_AZ305_QUESTIONS_14;

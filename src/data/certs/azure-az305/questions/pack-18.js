@@ -1,0 +1,532 @@
+export const AZURE_AZ305_QUESTIONS_18 = [
+  {
+    id: "azure-az305-426",
+    difficulty: "easy",
+    certId: "azure-az305",
+    domainId: "d4",
+    domainName: "Design infrastructure solutions",
+    title: "Inventorying a VMware estate without touching the guests",
+    scenario: "A food manufacturer runs 600 virtual machines on three vCenter Server instances. Before planning a move to Azure it needs an inventory of every VM with its configuration and CPU, memory and disk utilization. The server team will not install any software inside the guest operating systems during the evaluation.",
+    question: "What should the architect recommend?",
+    options: [
+      { id: 'A', text: "Configure Azure Site Recovery replication through vCenter for every VM so the vault records the configuration of each machine." },
+      { id: 'B', text: "Install the Azure Monitor Agent on each VM and send performance counters to a Log Analytics workspace for a month." },
+      { id: 'C', text: "Deploy the Azure Migrate appliance as a VM that connects to each vCenter Server and collects configuration and performance data." },
+      { id: 'D', text: "Onboard each VM to Azure Arc-enabled servers and read the configuration and performance data from Azure Resource Graph." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "The Azure Migrate appliance is a lightweight VM deployed on-premises that talks to vCenter Server and discovers VMs agentlessly, collecting configuration and performance metadata that feeds Azure Migrate assessments; nothing is installed inside the guests. Azure Arc-enabled servers and the Azure Monitor Agent both require an agent in every guest operating system. Site Recovery replication is a disaster recovery or migration mechanism that copies disks, installs components and does not produce utilization-based assessments.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/migrate/migrate-appliance",
+    tags: ["Azure Migrate", "Discovery", "VMware"]
+  },
+  {
+    id: "azure-az305-427",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d4",
+    domainName: "Design infrastructure solutions",
+    title: "Right-sizing servers that were built far too large",
+    scenario: "An engineering firm's on-premises servers were provisioned generously years ago; most run below 20 percent CPU, with month-end peaks. Discovery has been running in Azure Migrate for five weeks. Finance wants the Azure VM recommendations to reflect actual usage, including the month-end peaks, rather than the allocated cores and memory.",
+    question: "How should the architect configure the Azure VM assessment?",
+    options: [
+      { id: 'A', text: "Use performance-based sizing over a one-month history at the 95th percentile with a comfort factor for headroom." },
+      { id: 'B', text: "Import a CSV of each server's allocated cores and memory and create an assessment from the imported inventory." },
+      { id: 'C', text: "Use as-on-premises sizing so each Azure VM matches the allocated cores and memory, then downsize after migration." },
+      { id: 'D', text: "Use performance-based sizing with a one-day performance history so the assessment reflects the most recent usage." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Performance-based sizing recommends VM sizes and disks from collected utilization; a one-month history captures the month-end peaks, a high percentile such as the 95th ignores rare spikes without discarding the regular peak, and the comfort factor adds headroom. As-on-premises sizing reproduces the over-provisioning finance wants to avoid. A one-day history would miss the month-end peak and undersize the servers. An imported CSV of allocated resources gives as-allocated sizes again, with less accuracy than the appliance data already collected.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/migrate/concepts-assessment-calculation",
+    tags: ["Azure Migrate", "Assessment", "Right-sizing"]
+  },
+  {
+    id: "azure-az305-428",
+    difficulty: "hard",
+    certId: "azure-az305",
+    domainId: "d4",
+    domainName: "Design infrastructure solutions",
+    title: "One-star confidence on a performance-based assessment",
+    scenario: "A retailer deployed the Azure Migrate appliance on Monday and created a performance-based Azure VM assessment with a one-month performance history on Wednesday. The assessment shows a one-star confidence rating, and the recommended sizes look too small to the operations team. The migration steering meeting is in six weeks.",
+    question: "What should the architect do?",
+    options: [
+      { id: 'A', text: "Switch the assessment to as-on-premises sizing, which removes the confidence rating and uses allocated sizes." },
+      { id: 'B', text: "Let the appliance collect data for the full month and then recalculate the assessment before the meeting." },
+      { id: 'C', text: "Redeploy the appliance with a larger VM size so it can collect more data points per server each hour." },
+      { id: 'D', text: "Raise the comfort factor to 2.0 so the recommended sizes double and cover the missing data points before the meeting." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "The confidence rating of a performance-based assessment reflects the share of expected data points that were available for the chosen performance history; two days of data against a one-month window gives a low rating and unreliable sizes. Waiting until the appliance has collected a full month and recalculating fixes the cause, and six weeks is enough time. As-on-premises sizing hides the rating by not using performance data, reproducing allocated sizes instead of right-sizing. A large comfort factor inflates sizes arbitrarily rather than basing them on data. The appliance's own size does not change how often it samples each server.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/migrate/concepts-assessment-calculation#confidence-ratings-performance-based",
+    tags: ["Azure Migrate", "Assessment", "Confidence rating"]
+  },
+  {
+    id: "azure-az305-429",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d4",
+    domainName: "Design infrastructure solutions",
+    title: "Finding which servers talk to each other before grouping",
+    scenario: "A bank must group 300 VMware virtual machines into migration waves so that no wave leaves a chatty application split across the WAN. Nobody has an up-to-date map of which servers communicate, and the security team forbids installing agents on the servers. The Azure Migrate appliance is already discovering the estate.",
+    question: "What should the architect recommend?",
+    options: [
+      { id: 'A', text: "Install the dependency agent on each server and view the connections in the VM insights map feature." },
+      { id: 'B', text: "Enable Network Watcher connection monitor for the servers and group them by the latency paths it reports." },
+      { id: 'C', text: "Enable agentless dependency analysis in Azure Migrate, then review the dependency map to build groups." },
+      { id: 'D', text: "Run a test migration of every server and note which applications fail when a peer is left behind." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "Agentless dependency analysis uses the Azure Migrate appliance to collect TCP connection data from the servers through vCenter, with no agents in the guests, and presents a dependency map and exportable connection data from which servers can be grouped into waves. Connection monitor tests paths between endpoints that must run the Network Watcher agent, and does not discover unknown dependencies on-premises. Test-migrating everything to see what breaks is slow and disruptive. The dependency agent route violates the no-agent rule.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/migrate/concepts-dependency-visualization",
+    tags: ["Azure Migrate", "Dependency analysis", "Migration waves"]
+  },
+  {
+    id: "azure-az305-430",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d4",
+    domainName: "Design infrastructure solutions",
+    title: "A rough Azure estimate before any appliance is allowed",
+    scenario: "A government contractor needs an indicative Azure cost for 900 servers within two weeks to support a budget request. Its security accreditation process means no discovery appliance can be deployed for at least three months, but the operations team can export an inventory with each server's cores, memory, disks, operating system and average utilization from its CMDB.",
+    question: "What should the architect recommend?",
+    options: [
+      { id: 'A', text: "Wait until the appliance is accredited, because an imported inventory cannot feed an Azure Migrate assessment." },
+      { id: 'B', text: "Deploy the Azure Migrate appliance in an Azure VM and point it at the on-premises servers over the internet." },
+      { id: 'C', text: "Import the CMDB inventory as a CSV into Azure Migrate and create an Azure VM assessment from the imported servers." },
+      { id: 'D', text: "Enter each of the 900 CMDB servers into the Azure pricing calculator with a VM size matched by hand to each server." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "Azure Migrate supports import-based discovery: an inventory in its CSV template (or an RVTools export) can be imported, and Azure VM assessments and business cases can be created from it, including performance-based sizing when utilization values are supplied. Matching 900 servers by hand in the pricing calculator is slow and error-prone. The appliance must run on-premises close to the servers it discovers, and exposing servers to it over the internet would breach the same accreditation rules. Waiting three months is unnecessary because assessments do not require an appliance.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/migrate/tutorial-discover-import",
+    tags: ["Azure Migrate", "Import-based discovery", "Assessment"]
+  },
+  {
+    id: "azure-az305-431",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d4",
+    domainName: "Design infrastructure solutions",
+    title: "Which Azure SQL target suits each of 90 instances",
+    scenario: "An airline runs 90 SQL Server instances on VMware and wants, for each instance, a recommended Azure SQL deployment option with readiness issues, migration blockers and a right-sized tier. The Azure Migrate appliance is already discovering the servers, and the team wants to avoid running a separate tool against each instance.",
+    question: "What should the architect recommend?",
+    options: [
+      { id: 'A', text: "Configure a Managed Instance link for each instance so that compatibility is checked while the data replicates." },
+      { id: 'B', text: "Provide SQL credentials to the existing appliance and create an Azure SQL assessment for the discovered SQL instances." },
+      { id: 'C', text: "Run SQL Server Migration Assistant against each instance to convert the schemas and report which targets support them." },
+      { id: 'D', text: "Create an Azure VM assessment for the servers hosting the instances and read the SQL readiness from the VM sizing report." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "When given SQL Server credentials, the Azure Migrate appliance discovers SQL instances and databases at scale, and an Azure SQL assessment then recommends the most suitable target among Azure SQL Database, Azure SQL Managed Instance and SQL Server on Azure VMs, with readiness, blockers and performance-based sizing. SQL Server Migration Assistant converts schemas from other engines such as Oracle or Db2 into SQL Server and is not a SQL Server to Azure SQL assessment tool. A Managed Instance link is a migration and replication feature for one target type, not an assessment. An Azure VM assessment sizes the servers as VMs and says nothing about PaaS readiness.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/migrate/concepts-azure-sql-assessment-calculation",
+    tags: ["Azure Migrate", "Azure SQL assessment", "SQL Server"]
+  },
+  {
+    id: "azure-az305-432",
+    difficulty: "easy",
+    certId: "azure-az305",
+    domainId: "d4",
+    domainName: "Design infrastructure solutions",
+    title: "How many private cloud hosts the estate would need",
+    scenario: "A media company wants to compare moving its vSphere estate unchanged into a VMware private cloud on Azure against converting the machines to native Azure VMs. For the first option, it needs to know how many dedicated hosts it would need and the monthly cost, based on the 400 VMs its Azure Migrate appliance has discovered.",
+    question: "What should the architect create in Azure Migrate?",
+    options: [
+      { id: 'A', text: "An Azure SQL assessment that estimates the managed database capacity used by the workloads." },
+      { id: 'B', text: "An Azure VM assessment with performance-based sizing for the 400 discovered virtual machines." },
+      { id: 'C', text: "An Azure VMware Solution assessment that sizes the node count needed for the discovered VMs." },
+      { id: 'D', text: "An AKS assessment that estimates the node pools needed to host the workloads as containers." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "An Azure VMware Solution assessment uses the discovered VM configuration and utilization to calculate how many AVS nodes (hosts) are needed, considering CPU, memory, storage and failures to tolerate, and estimates the monthly cost, which is what the private cloud option needs. An Azure VM assessment sizes the native Azure VM option instead. An AKS assessment is for containerizing web applications. An Azure SQL assessment covers databases and cannot size a VMware private cloud.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/migrate/concepts-azure-vmware-solution-assessment-calculation",
+    tags: ["Azure Migrate", "Azure VMware Solution", "Assessment"]
+  },
+  {
+    id: "azure-az305-433",
+    difficulty: "easy",
+    certId: "azure-az305",
+    domainId: "d4",
+    domainName: "Design infrastructure solutions",
+    title: "Moving vSphere VMs to native Azure VMs without guest agents",
+    scenario: "A publisher has assessed 250 VMware virtual machines and decided to run them as native Azure VMs. The server team wants replication to start without installing anything inside the guests, to keep the source VMs running during replication, and to manage the whole move from the same Azure Migrate project it used for assessment.",
+    question: "What should the architect recommend?",
+    options: [
+      { id: 'A', text: "Protect each VM with Azure Backup, then restore the recovery points as new Azure VMs in the target region." },
+      { id: 'B', text: "Deploy Azure VMware Solution and move each VM into the private cloud using VMware HCX bulk migration." },
+      { id: 'C', text: "Use agentless VMware migration in Azure Migrate, replicating through the appliance that already talks to vCenter." },
+      { id: 'D', text: "Export each VM's disks as VHD files, upload them with AzCopy, and create a managed disk and VM from each file." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "Agentless VMware migration in Azure Migrate uses the appliance and vCenter snapshots with changed block tracking to replicate disks while the VMs keep running, installs nothing in the guests, and is managed from the same project as the assessment. Exporting and uploading VHDs requires downtime per VM and a lot of manual work. HCX moves VMs into Azure VMware Solution, which keeps them on VMware rather than making them native Azure VMs. Azure Backup cannot back up on-premises VMware VMs as Azure VM recovery points and restore them as Azure VMs.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/migrate/tutorial-migrate-vmware",
+    tags: ["Azure Migrate", "VMware", "Agentless migration"]
+  },
+  {
+    id: "azure-az305-434",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d4",
+    domainName: "Design infrastructure solutions",
+    title: "Moving physical servers and cloud VMs into Azure",
+    scenario: "After an acquisition, a pharmaceutical company must move 40 physical Windows and Linux servers from a colocation facility and 60 VMs running in another public cloud into Azure. Neither environment has a hypervisor the company controls, and the servers must keep running during replication.",
+    question: "Which two components are required for the migration? (Choose two.)",
+    options: [
+      { id: 'A', text: "The Mobility service agent installed on every server that is going to be migrated to Azure." },
+      { id: 'B', text: "The Azure Migrate appliance connected to vCenter Server for snapshot-based agentless replication." },
+      { id: 'C', text: "The Azure Monitor Agent on every server with a data collection rule that streams disk changes to Azure." },
+      { id: 'D', text: "A replication appliance deployed in the source environment to receive and forward the replication data." },
+      { id: 'E', text: "The Azure Site Recovery provider and Recovery Services agent installed on each Hyper-V host in the environment." }
+    ],
+    correctAnswers: ['A', 'D'],
+    type: "multiple",
+    explanation: "Physical servers and VMs in other clouds use agent-based migration in Azure Migrate: the Mobility service agent on each server captures disk writes, and a replication appliance in the source environment receives, caches and forwards that data to Azure. The Site Recovery provider on Hyper-V hosts is for agentless Hyper-V migration, and there are no Hyper-V hosts here. Agentless replication through vCenter needs a VMware environment the company controls. The Azure Monitor Agent collects monitoring data, not disk replication.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/migrate/tutorial-migrate-physical-virtual-machines",
+    tags: ["Azure Migrate", "Agent-based migration", "Physical servers"]
+  },
+  {
+    id: "azure-az305-435",
+    difficulty: "easy",
+    certId: "azure-az305",
+    domainId: "d4",
+    domainName: "Design infrastructure solutions",
+    title: "Rehearsing a migration while production keeps running",
+    scenario: "A hospital is replicating its patient-scheduling servers to Azure with Azure Migrate. Before the real cutover, the application team wants to boot the replicated servers in Azure and check that the application works, without shutting down or affecting the on-premises servers and without any chance of clashing with production traffic.",
+    question: "What should the architect recommend?",
+    options: [
+      { id: 'A', text: "Stop replication, restore the latest replica into the production virtual network, and check it there." },
+      { id: 'B', text: "Perform the migration with the option to keep the source running, then fail back if the checks do not pass." },
+      { id: 'C', text: "Run a test migration into an isolated virtual network, check the application, then clean up the test." },
+      { id: 'D', text: "Create an Azure VM assessment with performance-based sizing and review its readiness for each server." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "A test migration creates Azure VMs from the replicated data in a virtual network you choose, ideally an isolated one, while replication and the on-premises servers carry on untouched; after validation the test resources are cleaned up and the real migration can follow. Performing the real migration is the cutover itself, and Azure Migrate has no built-in failback to on-premises. Stopping replication discards the ongoing sync, and testing in the production network risks conflicts with the live servers. An assessment reports readiness on paper but boots nothing.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/migrate/tutorial-migrate-vmware#run-a-test-migration",
+    tags: ["Azure Migrate", "Test migration"]
+  },
+  {
+    id: "azure-az305-436",
+    difficulty: "hard",
+    certId: "azure-az305",
+    domainId: "d4",
+    domainName: "Design infrastructure solutions",
+    title: "Datacentre exit that keeps vSphere operations and IP addresses",
+    scenario: "A financial services firm must exit a datacentre in five months. It runs 1,200 VMs on vSphere, its operations team relies heavily on vCenter, vSAN and NSX tooling and runbooks, and many applications have hard-coded IP addresses that cannot be changed before the exit. Modernization can happen later.",
+    question: "What should the architect recommend?",
+    options: [
+      { id: 'A', text: "Refactor the applications onto AKS in waves, using Azure CNI overlay so that pods keep the original addressing." },
+      { id: 'B', text: "Rehost the VMs as native Azure VMs with Azure Migrate agentless replication, keeping their IP addresses on Azure subnets." },
+      { id: 'C', text: "Move the VMs into Azure VMware Solution with VMware HCX, using network extension to keep their IP addresses." },
+      { id: 'D', text: "Replicate the VMs to Azure with Azure Site Recovery and retain the IP addresses through recovery plan scripts." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "Azure VMware Solution runs vSphere, vSAN and NSX on dedicated hosts in Azure, so operations keep their tools and runbooks, and VMware HCX moves VMs in bulk or live while its network extension stretches on-premises layer 2 segments into the private cloud, letting VMs keep their IP addresses during and after the move. Native Azure VMs can reuse addresses only after the on-premises range is cut over, and the operations team would lose vCenter tooling. Site Recovery is a disaster recovery service; Azure Migrate is the recommended migration route and it also loses the VMware tooling. Refactoring 1,200 VMs onto AKS in five months is not realistic.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-vmware/configure-vmware-hcx",
+    tags: ["Azure VMware Solution", "HCX", "Datacentre exit"]
+  },
+  {
+    id: "azure-az305-437",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d4",
+    domainName: "Design infrastructure solutions",
+    title: "Hundreds of IIS sites onto a managed web platform",
+    scenario: "A university hosts 180 ASP.NET web applications on a farm of Windows Server IIS machines. It wants to stop managing the web servers, move the applications to a platform-as-a-service host with no code changes where possible, and handle the migration in batches rather than site by site. Azure Migrate is already discovering the servers.",
+    question: "What should the architect recommend?",
+    options: [
+      { id: 'A', text: "Package each site into a Windows container image by hand and run the images on a shared AKS Windows node pool." },
+      { id: 'B', text: "Assess the discovered web apps for Azure App Service in Azure Migrate and migrate them in batches from the project." },
+      { id: 'C', text: "Rebuild each application as a set of Azure Functions and deploy them from a GitHub Actions workflow per site." },
+      { id: 'D', text: "Rehost the IIS servers as Azure VMs with Azure Migrate replication in batches and enable automatic OS patching." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "Azure Migrate discovers ASP.NET web apps running on IIS, assesses their readiness for Azure App Service, and can migrate them at scale in batches onto App Service plans, removing web server management without code changes for compatible apps. Rehosting on VMs keeps the Windows servers the university wants to stop running. Rebuilding 180 applications as Functions is a rewrite. Hand-packaging containers onto AKS adds a cluster to operate and is far more work than an at-scale App Service migration.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/migrate/tutorial-modernize-asp-net-appservice-code",
+    tags: ["Azure Migrate", "App Service", "Web app migration"]
+  },
+  {
+    id: "azure-az305-438",
+    difficulty: "hard",
+    certId: "azure-az305",
+    domainId: "d4",
+    domainName: "Design infrastructure solutions",
+    title: "A cutover weekend with no lost transactions",
+    scenario: "An insurer is replicating its claims servers from VMware to Azure with agentless migration in Azure Migrate. The cutover is planned for a weekend window. The business requires that no committed transaction is lost at cutover and that the Azure environment has been proven to work with the application before the window opens.",
+    question: "Which two actions should the architect include in the plan? (Choose two.)",
+    options: [
+      { id: 'A', text: "Restore the claims servers from the latest Azure Backup recovery points in Azure once the window opens." },
+      { id: 'B', text: "Run a test migration into an isolated virtual network ahead of the window and validate the application there." },
+      { id: 'C', text: "At cutover, select the option to shut down the source VMs so a final delta sync runs before Azure VMs start." },
+      { id: 'D', text: "Stop replication for each server on the Friday so no further changes reach Azure during the cutover itself." },
+      { id: 'E', text: "Seed the initial replicas by shipping the disks to Azure on a Data Box device before starting replication." }
+    ],
+    correctAnswers: ['B', 'C'],
+    type: "multiple",
+    explanation: "A test migration boots the replicated servers in an isolated network while replication continues, proving the application works in Azure before the window. At cutover, the migrate operation can shut down the source VMs first and perform a final replication cycle, so every change committed before shutdown reaches Azure and nothing is lost. Stopping replication early leaves Azure behind by a day of transactions. Seeding with Data Box addresses bandwidth for the initial copy, not data loss at cutover. Restoring from backup recovery points returns data only up to the last backup and is not how Azure Migrate cuts over.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/migrate/tutorial-migrate-vmware#migrate-vms",
+    tags: ["Azure Migrate", "Cutover", "Test migration"]
+  },
+  {
+    id: "azure-az305-439",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d4",
+    domainName: "Design infrastructure solutions",
+    title: "Replicating Hyper-V VMs without agents in each guest",
+    scenario: "A school district runs 150 virtual machines on a Windows Server Hyper-V failover cluster with four nodes. It wants to migrate them to Azure VMs while the VMs keep running, without installing anything inside the guest operating systems and without deploying a separate replication VM.",
+    question: "What should the architect recommend?",
+    options: [
+      { id: 'A', text: "Install the Mobility service in every guest and deploy a replication appliance on the Hyper-V cluster to forward changes." },
+      { id: 'B', text: "Deploy the VMware-oriented Azure Migrate appliance and connect it to the cluster to take snapshot-based replicas." },
+      { id: 'C', text: "Install the Site Recovery provider and the Recovery Services agent on each Hyper-V node and replicate agentlessly." },
+      { id: 'D', text: "Shut down each VM, convert its VHDX to a fixed-size VHD, and upload it to Azure with AzCopy to build a new VM." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "Agentless Hyper-V migration in Azure Migrate installs the Azure Site Recovery provider and the Microsoft Azure Recovery Services agent on the Hyper-V hosts or cluster nodes, which replicate VM disks to Azure while the VMs run, with nothing inside the guests and no replication appliance. Agent-based migration with the Mobility service and a replication appliance breaks both constraints. Converting and uploading disks by hand requires downtime for every VM. The VMware appliance connects to vCenter and cannot replicate Hyper-V VMs.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/migrate/tutorial-migrate-hyper-v",
+    tags: ["Azure Migrate", "Hyper-V", "Agentless migration"]
+  },
+  {
+    id: "azure-az305-440",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d4",
+    domainName: "Design infrastructure solutions",
+    title: "Requirements that rule out a managed SQL instance",
+    scenario: "A logistics firm wants to move a SQL Server 2019 workload to Azure with the least management overhead, and Azure SQL Managed Instance is the default choice. The workload team lists five requirements for the migrated database server, and the architect must identify which of them would force SQL Server on Azure Virtual Machines instead.",
+    question: "Which two requirements rule out Managed Instance? (Choose two.)",
+    options: [
+      { id: 'A', text: "SQL Server Agent jobs that run nightly T-SQL maintenance and data load procedures." },
+      { id: 'B', text: "Queries that join tables across three databases hosted on the same SQL Server instance." },
+      { id: 'C', text: "A third-party backup agent that must be installed in the server's operating system." },
+      { id: 'D', text: "CLR assemblies that the application loads to parse incoming XML messages at runtime." },
+      { id: 'E', text: "SQL Server Reporting Services running on the same machine as the database engine." }
+    ],
+    correctAnswers: ['C', 'E'],
+    type: "multiple",
+    explanation: "Managed Instance is platform as a service: there is no access to the operating system, so a third-party agent that must be installed on the server cannot run there, and Reporting Services is not part of Managed Instance, so hosting it beside the engine needs SQL Server on an Azure VM (or a separate reporting host). Managed Instance supports cross-database queries between databases on the same instance, SQL Server Agent jobs and CLR assemblies loaded from binary, which is why it is usually the first choice for lift-and-shift of SQL Server.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-sql/managed-instance/transact-sql-tsql-differences-sql-server",
+    tags: ["SQL Managed Instance", "SQL Server on Azure VMs", "Database migration"]
+  },
+  {
+    id: "azure-az305-441",
+    difficulty: "easy",
+    certId: "azure-az305",
+    domainId: "d4",
+    domainName: "Design infrastructure solutions",
+    title: "PaaS target for an instance-dependent SQL Server estate",
+    scenario: "A property management company runs SQL Server 2016 with eight databases that reference each other through three-part names, SQL Server Agent jobs, Database Mail and linked servers. It wants a fully managed Azure database service that avoids operating system patching and requires as few application changes as possible.",
+    question: "Which target should the architect recommend?",
+    options: [
+      { id: 'A', text: "Azure SQL Database elastic pool holding the eight databases with elastic jobs in place of the agent jobs and mail." },
+      { id: 'B', text: "Azure SQL Managed Instance, keeping the eight databases together on one instance with the jobs and mail." },
+      { id: 'C', text: "Azure SQL Database single databases, one for each of the eight databases, in the General Purpose tier." },
+      { id: 'D', text: "SQL Server on an Azure VM with automated patching enabled through the SQL IaaS Agent extension." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "Azure SQL Managed Instance offers near-complete SQL Server engine compatibility as a managed service, including cross-database queries with three-part names, SQL Server Agent, Database Mail and linked servers, so the estate moves with few changes and no OS patching. Azure SQL Database, whether single or pooled, does not support three-part cross-database references, SQL Server Agent or Database Mail, so the application would need rework; elastic jobs replace agent jobs only partially. SQL Server on a VM supports everything but leaves the operating system to manage, which the company wants to avoid.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-sql/managed-instance/sql-managed-instance-paas-overview",
+    tags: ["SQL Managed Instance", "Database migration"]
+  },
+  {
+    id: "azure-az305-442",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d4",
+    domainName: "Design infrastructure solutions",
+    title: "Minutes of downtime for a 4 TB order database",
+    scenario: "An e-commerce company is moving a 4 TB SQL Server 2019 order database to Azure SQL Managed Instance. The site can tolerate only a few minutes of downtime at cutover, the database changes continuously, and a site-to-site VPN already connects the datacentre to Azure. The team wants the replica in Azure kept current until it chooses when to cut over.",
+    question: "Which migration approach should the architect recommend?",
+    options: [
+      { id: 'A', text: "Export the database to a BACPAC file during a quiet night and import the file into the managed instance." },
+      { id: 'B', text: "Take a full backup to Blob Storage, restore it on the managed instance, then point the application at it." },
+      { id: 'C', text: "Set up transactional replication with the managed instance as publisher and the on-premises server subscribing continuously." },
+      { id: 'D', text: "Configure a Managed Instance link so the database replicates continuously, then fail over to Azure at cutover." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "The Managed Instance link uses distributed availability groups to replicate a SQL Server 2016 or later database to Managed Instance in near real time over the existing connectivity; the replica stays current until the team fails over, giving downtime of minutes. A BACPAC export and import of 4 TB takes many hours, all of it downtime for a changing database. A one-off backup and restore leaves Azure behind by every change made after the backup. Transactional replication in the direction described sends data from Azure to on-premises, the opposite of what is needed.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-sql/managed-instance/managed-instance-link-feature-overview",
+    tags: ["SQL Managed Instance", "Managed Instance link", "Online migration"]
+  },
+  {
+    id: "azure-az305-443",
+    difficulty: "hard",
+    certId: "azure-az305",
+    domainId: "d4",
+    domainName: "Design infrastructure solutions",
+    title: "Migrating from backups with no network path to Azure",
+    scenario: "A defence supplier must move twelve SQL Server databases to Azure SQL Managed Instance. Its security policy forbids any network connection from the SQL Server hosts to Azure, but existing jobs already take full, differential and log backups, and a separate gateway can upload files to a Blob Storage container. Downtime must be limited to the final log restore.",
+    question: "What should the architect recommend?",
+    options: [
+      { id: 'A', text: "Configure a Managed Instance link for each database so changes flow continuously until the cutover." },
+      { id: 'B', text: "Use the Log Replay Service to restore the uploaded backup chain continuously, then complete the cutover." },
+      { id: 'C', text: "Use Database Migration Service online mode with a self-hosted integration runtime reading the SQL hosts." },
+      { id: 'D', text: "Restore only the latest full backup on the instance during the window and re-enter later transactions." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "The Log Replay Service, built on SQL Server log shipping, restores full, differential and log backups that have been placed in Blob Storage onto Managed Instance, picking up new log backups as they arrive; the cutover restores the last log and brings the databases online, so downtime is just that final step, and the SQL hosts never connect to Azure. A Managed Instance link needs a network connection between SQL Server and the instance. Database Migration Service in online mode also needs its integration runtime to reach the source servers. Restoring only a full backup and re-entering transactions by hand is slow and risks data loss.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-sql/managed-instance/log-replay-service-overview",
+    tags: ["SQL Managed Instance", "Log Replay Service", "Database migration"]
+  },
+  {
+    id: "azure-az305-444",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d4",
+    domainName: "Design infrastructure solutions",
+    title: "Moving a busy MySQL database with minimal downtime",
+    scenario: "A ticketing startup runs a 900 GB MySQL 8.0 database on a VM in its own datacentre, connected to Azure by ExpressRoute. It is moving the database to Azure Database for MySQL Flexible Server, and the ticket sales platform can be offline for no more than 15 minutes, so changes made during the bulk copy must also be carried over.",
+    question: "What should the architect recommend?",
+    options: [
+      { id: 'A', text: "Take a mysqldump export during a quiet night and restore it with the mysql client on the flexible server." },
+      { id: 'B', text: "Use Azure Database Migration Service in online mode to copy the data and replicate ongoing changes." },
+      { id: 'C', text: "Copy the tables with an Azure Data Factory pipeline on a schedule and switch over after the last run." },
+      { id: 'D', text: "Replicate the database VM with Azure Migrate and run MySQL on the migrated Azure VM after cutover." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "Database Migration Service supports online migrations from MySQL to Azure Database for MySQL Flexible Server: it performs the initial load and then replicates changes from the binary log until you cut over, so downtime is limited to the final switch. A mysqldump of 900 GB and its restore take hours, all of it offline. Scheduled Data Factory copies do not capture changes continuously, so the last run still needs a long freeze. Replicating the VM with Azure Migrate lands MySQL on an IaaS VM, not the managed flexible server that was chosen.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/dms/tutorial-mysql-azure-external-to-flex-online-portal",
+    tags: ["Database Migration Service", "MySQL", "Online migration"]
+  },
+  {
+    id: "azure-az305-445",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d4",
+    domainName: "Design infrastructure solutions",
+    title: "PostgreSQL from another cloud into a managed flexible server",
+    scenario: "A health-tech company is consolidating onto Azure and must move three PostgreSQL 15 databases, totalling 1.5 TB, from Amazon RDS into Azure Database for PostgreSQL flexible server. It wants a Microsoft-managed migration tool, integrated with the target service, that supports an online migration so that the cutover takes only minutes.",
+    question: "What should the architect recommend?",
+    options: [
+      { id: 'A', text: "Create a Data Factory pipeline that copies each table online and rerun the pipeline at cutover for deltas." },
+      { id: 'B', text: "Use Azure Migrate agent-based server migration to move the RDS database hosts onto Azure virtual machines." },
+      { id: 'C', text: "Dump each PostgreSQL database with pg_dump and restore the files with pg_restore on the flexible server during a weekend." },
+      { id: 'D', text: "Use the migration service in Azure Database for PostgreSQL to run an online migration from the RDS source." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "The migration service built into Azure Database for PostgreSQL flexible server migrates from on-premises, Azure VMs and other clouds such as Amazon RDS and Aurora, in offline or online mode; online mode replicates changes after the initial copy so cutover takes minutes. pg_dump and pg_restore are offline and would take the databases down for hours. RDS is a managed service with no host to install an agent on, and the target is PaaS rather than VMs. Data Factory copy activities do not capture changes continuously, so the rerun still needs a long freeze.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/postgresql/migrate/migration-service/overview-migration-service-postgresql",
+    tags: ["PostgreSQL", "Migration service", "Online migration"]
+  },
+  {
+    id: "azure-az305-446",
+    difficulty: "hard",
+    certId: "azure-az305",
+    domainId: "d4",
+    domainName: "Design infrastructure solutions",
+    title: "Keeping Oracle RAC and Exadata features after the move",
+    scenario: "A telecom's billing platform runs on Oracle Database 19c with Real Application Clusters on Exadata. The applications are moving to Azure, the database must stay on Oracle with RAC and Exadata performance features, latency to the Azure-hosted application tier must be minimal, and the company wants Oracle's infrastructure managed for it.",
+    question: "What should the architect recommend for the database?",
+    options: [
+      { id: 'A', text: "Migrate the schemas to Azure Database for PostgreSQL flexible server with ora2pg and rewrite PL/SQL code." },
+      { id: 'B', text: "Oracle Database 19c with Real Application Clusters on Azure VMs, using shared managed disks in place of Exadata." },
+      { id: 'C', text: "Convert the schemas with SQL Server Migration Assistant for Oracle and move to Azure SQL Managed Instance." },
+      { id: 'D', text: "Oracle Database@Azure, running Oracle Exadata Database Service inside Azure datacentres next to the applications." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Oracle Database@Azure places Oracle-managed Exadata infrastructure inside Azure datacentres, connected to Azure virtual networks, so the database keeps RAC and Exadata features with low latency to Azure applications and Oracle operates the infrastructure. Oracle RAC is not supported on Azure VMs. Converting to Azure SQL Managed Instance or PostgreSQL removes Oracle altogether and means rewriting PL/SQL, which the requirement to stay on Oracle rules out.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/oracle/oracle-db/database-overview",
+    tags: ["Oracle Database@Azure", "Database migration", "Exadata"]
+  },
+  {
+    id: "azure-az305-447",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d4",
+    domainName: "Design infrastructure solutions",
+    title: "Forty small databases moved during a maintenance weekend",
+    scenario: "A software vendor hosts 40 customer databases of 5 to 30 GB each on SQL Server 2017 and is moving them to Azure SQL Database single databases. Customers have agreed to a weekend outage, a VPN connects the datacentre to Azure, and the team wants a managed, repeatable process with progress tracking rather than handling each database separately.",
+    question: "What should the architect recommend?",
+    options: [
+      { id: 'A', text: "Upload the existing backups to Blob Storage and use the Log Replay Service to restore them into each target." },
+      { id: 'B', text: "Configure a Managed Instance link for each database and fail it over to Azure SQL Database at the weekend." },
+      { id: 'C', text: "Use Database Migration Service for an offline migration, with a self-hosted integration runtime at the source." },
+      { id: 'D', text: "Set up transactional replication from each on-premises database and switch the application after it syncs." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "Database Migration Service supports offline migrations from SQL Server to Azure SQL Database: a self-hosted integration runtime reaches the source over the VPN, the schema and data move per database, and progress is tracked in one service that can be scripted for all 40 databases, which fits an agreed weekend outage. The Managed Instance link and the Log Replay Service both target Azure SQL Managed Instance only and cannot restore into Azure SQL Database. Transactional replication can feed Azure SQL Database but means configuring 40 publications for a migration that has an agreed outage anyway.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/dms/tutorial-sql-server-azure-sql-database-offline",
+    tags: ["Database Migration Service", "Azure SQL Database", "Offline migration"]
+  },
+  {
+    id: "azure-az305-448",
+    difficulty: "hard",
+    certId: "azure-az305",
+    domainId: "d4",
+    domainName: "Design infrastructure solutions",
+    title: "A way back to the datacentre after moving to Azure",
+    scenario: "A regional bank is migrating its core SQL Server 2022 databases to Azure SQL Managed Instance with near-zero downtime. The risk committee will approve the move only if, for the first quarter after cutover, the bank can move the databases back onto its on-premises SQL Server 2022 servers online if serious problems appear.",
+    question: "What should the architect recommend?",
+    options: [
+      { id: 'A', text: "Migrate with Database Migration Service online mode and keep the source databases untouched to fall back to." },
+      { id: 'B', text: "Migrate with the Log Replay Service and later restore native instance backups on the on-premises servers." },
+      { id: 'C', text: "Migrate with a BACPAC export and import and keep nightly BACPAC exports from Azure for any rollback." },
+      { id: 'D', text: "Migrate with a Managed Instance link and, if needed, fail back over the link to the SQL Server 2022 hosts." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "With SQL Server 2022, the Managed Instance link supports failover in both directions: after migrating by failing over to Managed Instance, the link can replicate back to the on-premises SQL Server 2022 servers, so the bank can return online if problems arise. Keeping the untouched source databases as a fallback discards every transaction made in Azure after cutover. Log Replay Service is one-way, and restoring Managed Instance backups on SQL Server is an offline process that depends on version compatibility. BACPAC exports are offline snapshots that lose everything after the export.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-sql/managed-instance/managed-instance-link-disaster-recovery",
+    tags: ["SQL Managed Instance", "Managed Instance link", "Failback"]
+  },
+  {
+    id: "azure-az305-449",
+    difficulty: "easy",
+    certId: "azure-az305",
+    domainId: "d4",
+    domainName: "Design infrastructure solutions",
+    title: "A rarely used database that should cost almost nothing when idle",
+    scenario: "A charity is migrating a 20 GB SQL Server database that supports a volunteer portal used for a few hours a week, with long idle periods in between. The database uses no instance-level features. The charity wants a managed service that scales compute automatically and bills only for storage while the database is idle.",
+    question: "Which target should the architect recommend?",
+    options: [
+      { id: 'A', text: "Azure SQL Managed Instance General Purpose, stopped manually by an automation runbook between the weekly sessions." },
+      { id: 'B', text: "SQL Server Express on a small Azure VM that is deallocated on a schedule outside the usual portal hours." },
+      { id: 'C', text: "Azure SQL Database General Purpose serverless compute, with auto-pause enabled after an hour of inactivity." },
+      { id: 'D', text: "Azure SQL Database provisioned compute in the Basic tier, which offers the lowest fixed price per month." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "The serverless compute tier of Azure SQL Database scales vCores automatically with demand and, with auto-pause enabled, pauses after the configured idle delay so that only storage is billed until the next connection resumes it, which fits a database used a few hours a week. A stopped Managed Instance is a heavier, instance-level service driven by a schedule rather than usage. A scheduled VM relies on the timetable matching real use and keeps the charity managing an operating system. The Basic tier bills compute continuously, idle or not.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-sql/database/serverless-tier-overview",
+    tags: ["Azure SQL Database", "Serverless", "Database migration"]
+  },
+  {
+    id: "azure-az305-450",
+    difficulty: "easy",
+    certId: "azure-az305",
+    domainId: "d4",
+    domainName: "Design infrastructure solutions",
+    title: "Moving a document database without rewriting its data layer",
+    scenario: "A recipe-sharing app stores its data in a self-managed MongoDB replica set on three VMs, and its code uses the official MongoDB drivers throughout. The owners want a fully managed Azure database after migration and will not rewrite the data access layer.",
+    question: "Which target should the architect recommend?",
+    options: [
+      { id: 'A', text: "Azure Cosmos DB for NoSQL, with the MongoDB drivers replaced by the Cosmos DB SDK in the data layer." },
+      { id: 'B', text: "Azure Cosmos DB for MongoDB, which speaks the MongoDB wire protocol to the existing drivers." },
+      { id: 'C', text: "Azure Database for PostgreSQL flexible server, storing each document in a jsonb column per row." },
+      { id: 'D', text: "Azure Table Storage, storing each document as an entity with its fields flattened into properties." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "Azure Cosmos DB for MongoDB (in its RU-based or vCore-based form) implements the MongoDB wire protocol, so applications keep using the official MongoDB drivers and query language, and the database is fully managed. Cosmos DB for NoSQL uses its own SDK and query syntax, which means rewriting the data access layer. Table Storage is a key-attribute store without MongoDB compatibility or rich document queries. PostgreSQL with jsonb could hold the documents but needs a new data layer written against SQL.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/cosmos-db/mongodb/introduction",
+    tags: ["Cosmos DB for MongoDB", "Database migration"]
+  }
+];
+
+export default AZURE_AZ305_QUESTIONS_18;

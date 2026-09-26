@@ -1,0 +1,532 @@
+export const AZURE_AZ305_QUESTIONS_13 = [
+  {
+    id: "azure-az305-301",
+    difficulty: "easy",
+    certId: "azure-az305",
+    domainId: "d3",
+    domainName: "Design business continuity solutions",
+    title: "Blob data that must never leave the region",
+    scenario: "A national tax authority stores scanned returns in Azure Blob Storage in a region with three availability zones. Law forbids any copy of the data outside that region. Uploads from the public portal must keep succeeding, without any failover step, if one datacenter in the region is lost.",
+    question: "Which redundancy option should the storage account use?",
+    options: [
+      { id: 'A', text: "Geo-zone-redundant storage, which combines zone copies with an asynchronous copy in the pair." },
+      { id: 'B', text: "Locally redundant storage, which keeps three synchronous copies inside a single datacenter of the region." },
+      { id: 'C', text: "Geo-redundant storage, which adds asynchronous copies in the paired region for failover use." },
+      { id: 'D', text: "Zone-redundant storage, which keeps synchronous copies in three availability zones of the region." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "ZRS writes every request synchronously to three availability zones, so reads and writes continue through the loss of a datacenter or zone with no failover, and no copy leaves the region. LRS keeps all three copies in a single datacenter, so losing that datacenter stops uploads. GRS and GZRS both replicate asynchronously to the paired region, which breaks the law that forbids copies outside the region.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/storage/common/storage-redundancy",
+    tags: ["Azure Storage", "ZRS", "Data residency"]
+  },
+  {
+    id: "azure-az305-302",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d3",
+    domainName: "Design business continuity solutions",
+    title: "Product images readable through any outage",
+    scenario: "A fashion marketplace serves product images to its app from a storage account. The images must stay writable in the primary region if an availability zone fails, and the app must keep reading images during a full regional outage without waiting for anyone to initiate a failover. Temporary loss of uploads during a regional outage is acceptable.",
+    question: "Which redundancy option meets the requirements?",
+    options: [
+      { id: 'A', text: "Zone-redundant storage (ZRS), with a lifecycle policy copying new images to a second region at the end of each day." },
+      { id: 'B', text: "Read-access geo-zone-redundant storage (RA-GZRS), with the app reading the secondary endpoint on errors." },
+      { id: 'C', text: "Geo-zone-redundant storage (GZRS), with the team initiating an account failover during an outage." },
+      { id: 'D', text: "Read-access geo-redundant storage (RA-GRS), with the app reading the secondary endpoint on errors." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "RA-GZRS replicates synchronously across zones in the primary region, so a zone failure never interrupts writes, and it exposes a read-only secondary endpoint in the paired region that the app can read at any time, including during a regional outage with no failover. RA-GRS provides the readable secondary, but its primary copy is LRS, so a zone outage can stop writes. GZRS has no readable secondary until a failover completes, which the requirement rules out. Lifecycle management moves blobs between tiers and deletes them; it cannot copy data to another region.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/storage/common/storage-redundancy",
+    tags: ["Azure Storage", "RA-GZRS", "Read access"]
+  },
+  {
+    id: "azure-az305-303",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d3",
+    domainName: "Design business continuity solutions",
+    title: "Sizing data loss before a storage failover",
+    scenario: "The primary region of a news agency's GRS storage account has been unavailable for three hours, and the editor-in-chief must decide whether to fail over to the secondary region now. She wants to know, before deciding, roughly which recently uploaded photos would be lost by failing over.",
+    question: "What should the architect use to estimate the potential data loss?",
+    options: [
+      { id: 'A', text: "The object replication status of each blob, which reports whether it has reached the secondary region." },
+      { id: 'B', text: "The account's change feed, read from the primary region to list every blob written in the last day." },
+      { id: 'C', text: "The Blob inventory report for the account, filtered to blobs created in the hours before the outage." },
+      { id: 'D', text: "The account's Last Sync Time property, compared with the newsroom's own log of recent uploads." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Last Sync Time records the most recent point at which all primary writes were also present on the secondary, so every upload the agency logged after that time is at risk of loss if it fails over now. The change feed lives in the primary region, which is unreachable, and during unplanned failover it can even be inconsistent with the blob data. Blob inventory runs on a schedule against the account and describes contents, not replication progress to the secondary. Object replication status applies only to object replication policies, not to the account's built-in geo-replication.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/storage/common/last-sync-time-get",
+    tags: ["Azure Storage", "Account failover", "Last Sync Time"]
+  },
+  {
+    id: "azure-az305-304",
+    difficulty: "hard",
+    certId: "azure-az305",
+    domainId: "d3",
+    domainName: "Design business continuity solutions",
+    title: "Storage account failover rehearsal without side effects",
+    scenario: "A reinsurer's regulator requires a quarterly test that its GZRS storage accounts can run from the secondary region. Both regions are healthy during the tests. The operations team must lose no data, and must not have to reconfigure geo-redundancy or pay to re-replicate data after each drill.",
+    question: "How should the drill be performed?",
+    options: [
+      { id: 'A', text: "Copy the accounts to new accounts in the secondary region with AzCopy, then point the applications at them." },
+      { id: 'B', text: "Initiate a customer-managed planned failover, which swaps the regions, then fail back after testing completes." },
+      { id: 'C', text: "Initiate a customer-managed unplanned failover, then fail back to the original region after testing completes." },
+      { id: 'D', text: "Open a support request asking Microsoft to perform a managed failover of the storage accounts for the drill." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "A customer-managed planned failover requires both regions to be available, swaps primary and secondary without data loss, and keeps geo-redundancy, so a failback restores the original GZRS configuration with nothing to reconfigure. An unplanned failover converts the account to LRS in the new primary and deletes the original copy, so the team would have to re-enable geo-redundancy and pay for re-replication, and it can lose data. Microsoft-managed failover is triggered only for an entire region in a disaster and cannot be requested for individual accounts. Copying with AzCopy tests a different set of accounts rather than the account's own failover.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/storage/common/storage-disaster-recovery-guidance",
+    tags: ["Azure Storage", "Planned failover", "DR testing"]
+  },
+  {
+    id: "azure-az305-305",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d3",
+    domainName: "Design business continuity solutions",
+    title: "Restoring geo protection after an unplanned failover",
+    scenario: "After a prolonged outage, a museum's operations team performed a customer-managed unplanned failover of its GRS storage account holding digitised collections, some of which sit in the archive tier. The account now serves from the former secondary region, and the museum wants cross-region protection back as soon as possible.",
+    question: "Which two actions are required? (Choose two.)",
+    options: [
+      { id: 'A', text: "Move the account to the premium block blob performance tier so it can use zone-redundant storage." },
+      { id: 'B', text: "Leave the account as it is; it keeps GRS and resumes replicating to the original primary region." },
+      { id: 'C', text: "Enable object replication from the account to a new account in the original primary region." },
+      { id: 'D', text: "Re-enable geo-redundancy (GRS or RA-GRS) on the account, which is now locally redundant storage." },
+      { id: 'E', text: "Rehydrate every archived blob to an online tier before changing the account's redundancy setting." }
+    ],
+    correctAnswers: ['D', 'E'],
+    type: "multiple",
+    explanation: "An unplanned failover leaves the account as LRS in the new primary region, so geo-redundancy must be re-enabled, which starts a billed re-replication to a new secondary; before the account can be configured for geo-redundancy, archived blobs must be rehydrated to an online tier. Doing nothing is wrong because only a planned failover retains geo-redundancy. Object replication fails for archived blobs and duplicates what re-enabling GRS provides natively. Premium block blob accounts do not support geo-redundancy at all, so the conversion moves further from the goal.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/storage/common/storage-disaster-recovery-guidance",
+    tags: ["Azure Storage", "Unplanned failover", "Archive tier"]
+  },
+  {
+    id: "azure-az305-306",
+    difficulty: "easy",
+    certId: "azure-az305",
+    domainId: "d3",
+    domainName: "Design business continuity solutions",
+    title: "Low-latency blobs that must survive a zone loss",
+    scenario: "A telemetry platform writes millions of small objects per hour and needs the consistent single-digit millisecond latency of premium block blob storage. The data must remain available if an availability zone fails; a copy in another region is not required.",
+    question: "Which storage account configuration should the architect specify?",
+    options: [
+      { id: 'A', text: "A standard general-purpose v2 storage account configured with geo-zone-redundant storage." },
+      { id: 'B', text: "A premium block blob storage account configured with locally redundant storage." },
+      { id: 'C', text: "A premium block blob storage account configured with zone-redundant storage (ZRS)." },
+      { id: 'D', text: "A premium block blob storage account configured with geo-zone-redundant storage." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "Premium block blob accounts support LRS and ZRS, and ZRS keeps synchronous copies across three zones, so the data stays available through a zone failure at premium latency. Premium block blob accounts do not support geo-redundant options such as GZRS, so that configuration cannot be created. A standard general-purpose v2 account offers GZRS but not the consistent low latency the workload needs. LRS keeps all copies in one datacenter and does not survive a zone failure.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/storage/blobs/storage-blob-block-blob-premium",
+    tags: ["Azure Storage", "Premium block blobs", "ZRS"]
+  },
+  {
+    id: "azure-az305-307",
+    difficulty: "hard",
+    certId: "azure-az305",
+    domainId: "d3",
+    domainName: "Design business continuity solutions",
+    title: "Second-region copy of a hierarchical data lake",
+    scenario: "A bank's risk data lake is an Azure Data Lake Storage account with the hierarchical namespace enabled in West Europe. The DR design calls for a readable copy in the paired region that analysts can query during a West Europe outage, with no pipelines to build or maintain. A contractor has proposed an object replication policy to a second account.",
+    question: "What should the architect recommend?",
+    options: [
+      { id: 'A', text: "Proceed with object replication, enabling blob versioning and the change feed on the data lake account first." },
+      { id: 'B', text: "Configure the data lake account for RA-GZRS and have analysts use the secondary endpoint during a regional outage." },
+      { id: 'C', text: "Enable soft delete and point-in-time restore on the data lake account so analysts can recover it after an outage." },
+      { id: 'D', text: "Mount the data lake in the paired region through an NFS 3.0 endpoint on a new geo-redundant storage account." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "Object replication is not supported on accounts with a hierarchical namespace, so the contractor's design cannot be built; the account's own RA-GZRS redundancy replicates the data lake, including namespace metadata such as ACLs, to the paired region and exposes a read-only secondary endpoint analysts can use during an outage with nothing to maintain. Point-in-time restore is not supported on hierarchical namespace accounts, and soft delete protects against deletion rather than regional loss. Accounts with NFS 3.0 enabled cannot be configured for geo-redundancy, so that option contradicts itself.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/storage/blobs/object-replication-overview",
+    tags: ["Data Lake Storage", "RA-GZRS", "Object replication"]
+  },
+  {
+    id: "azure-az305-308",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d3",
+    domainName: "Design business continuity solutions",
+    title: "Prerequisites for copying video blobs to Asia",
+    scenario: "A streaming company stores new episodes as block blobs in a general-purpose v2 account in East US and wants them copied asynchronously to an account in Southeast Asia so regional encoders can read them locally. The architect has chosen object replication and must list the features to enable before the policy can be created.",
+    question: "Which two features must be enabled? (Choose two.)",
+    options: [
+      { id: 'A', text: "The blob change feed on the source account where new files land." },
+      { id: 'B', text: "Blob versioning on both the source account and the destination account." },
+      { id: 'C', text: "The hierarchical namespace on both the source and destination accounts." },
+      { id: 'D', text: "Geo-redundant storage on the source account so a secondary exists." },
+      { id: 'E', text: "Container soft delete on the destination account in Southeast Asia." }
+    ],
+    correctAnswers: ['A', 'B'],
+    type: "multiple",
+    explanation: "Object replication requires blob versioning on both accounts and the change feed on the source account, which the service reads to find writes and deletes to replicate. Accounts with a hierarchical namespace cannot use object replication at all, so enabling it would block the design. Object replication works independently of the account's redundancy setting, so GRS is not a prerequisite. Soft delete is a separate data protection feature that object replication does not depend on.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/storage/blobs/object-replication-overview",
+    tags: ["Object replication", "Blob versioning", "Change feed"]
+  },
+  {
+    id: "azure-az305-309",
+    difficulty: "easy",
+    certId: "azure-az305",
+    domainId: "d3",
+    domainName: "Design business continuity solutions",
+    title: "Zone resilience for a single-region Cosmos DB account",
+    scenario: "A loyalty programme is provisioning a new Azure Cosmos DB for NoSQL account in one region that has availability zones. Budget rules out a second region, but the programme wants the account to keep serving reads and writes if a datacenter in that region fails.",
+    question: "What should the architect configure when creating the account?",
+    options: [
+      { id: 'A', text: "Enable availability zones for the account's region at account creation." },
+      { id: 'B', text: "Provision autoscale throughput so replicas scale out when a datacenter is lost." },
+      { id: 'C', text: "Enable continuous backup with a 30-day retention window for point-in-time restore." },
+      { id: 'D', text: "Add a second region to the account with service-managed failover turned on for writes." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Enabling availability zones for a region spreads the account's replicas across zones in that region, so the account keeps serving reads and writes if one zone fails, and it raises the single-region SLA; the setting is chosen when the region is added to the account. A second region adds cost the budget rules out. Continuous backup supports restores after data corruption or deletion but does not keep the account available. Autoscale changes throughput, not replica placement.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/reliability/reliability-cosmos-db-nosql",
+    tags: ["Cosmos DB", "Availability zones"]
+  },
+  {
+    id: "azure-az305-310",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d3",
+    domainName: "Design business continuity solutions",
+    title: "Global writes for a multiplayer game's profile store",
+    scenario: "A game studio stores player profiles in Azure Cosmos DB and serves players in North America, Europe and Asia. Profile updates must complete with local write latency in each continent, and the store must remain writable in every region even while another region is offline. The studio accepts that simultaneous edits may conflict and be resolved automatically.",
+    question: "Which configuration meets the requirements?",
+    options: [
+      { id: 'A', text: "Three separate single-region accounts kept in sync by change feed processors with no conflict handling." },
+      { id: 'B', text: "Three regions with multi-region writes enabled and a conflict resolution policy on the container." },
+      { id: 'C', text: "Three regions with one write region, strong consistency and the SDK's preferred regions set." },
+      { id: 'D', text: "Three regions with one write region and service-managed failover of the write region enabled on the account." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "Multi-region writes let every region accept writes locally, giving low write latency on each continent and write availability even when another region is down, while the container's conflict resolution policy settles concurrent updates automatically. A single write region forces remote writes from two continents and makes writes unavailable until failover completes. Strong consistency across distant regions raises write latency further and still has one write region. Three separate accounts with change feed processors are a custom replication system with no built-in conflict handling or failover.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/cosmos-db/multi-region-writes",
+    tags: ["Cosmos DB", "Multi-region writes"]
+  },
+  {
+    id: "azure-az305-311",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d3",
+    domainName: "Design business continuity solutions",
+    title: "Automatic write-region failover without conflicts",
+    scenario: "A logistics company's shipment tracker uses Azure Cosmos DB with East US as its only write region and West US as a read region. The data model cannot tolerate write conflicts, so multiple write regions are ruled out. If East US becomes unavailable, writes must move to West US without an operator having to act.",
+    question: "What should the architect configure?",
+    options: [
+      { id: 'A', text: "Create an Azure Automation runbook that performs a manual failover when a Service Health alert fires." },
+      { id: 'B', text: "Enable service-managed failover and set West US next in the failover priority list." },
+      { id: 'C', text: "Enable availability zones on the East US region so a regional failover is no longer ever needed." },
+      { id: 'D', text: "Enable multi-region writes and set a last-writer-wins policy so conflicts never reach the application." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "Service-managed failover lets Azure Cosmos DB promote the next region in the configured priority list to be the write region during a regional outage, and the SDKs redirect writes automatically, so no operator is involved and there is still only one write region. Multi-region writes introduce the conflicts the data model cannot tolerate; last writer wins resolves them by discarding a write. A runbook triggered by an alert is still a manual failover path that depends on the alert and the automation working. Availability zones protect against a zone failure, not the loss of East US.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/cosmos-db/how-to-manage-database-account",
+    tags: ["Cosmos DB", "Service-managed failover"]
+  },
+  {
+    id: "azure-az305-312",
+    difficulty: "hard",
+    certId: "azure-az305",
+    domainId: "d3",
+    domainName: "Design business continuity solutions",
+    title: "Zero data loss for a Cosmos DB ledger across regions",
+    scenario: "A payments firm keeps a settlement ledger in Azure Cosmos DB replicated to two regions about 800 km apart. Its recovery objective is that a regional outage must lose no committed ledger entries at all. Write latency of tens of milliseconds is acceptable, and all writes originate from one application tier.",
+    question: "Which two settings meet the recovery objective? (Choose two.)",
+    options: [
+      { id: 'A', text: "Keep a single write region with the other region for reads." },
+      { id: 'B', text: "Set the account's default consistency level to strong." },
+      { id: 'C', text: "Enable continuous backup with seven days of retention." },
+      { id: 'D', text: "Enable multi-region writes so both regions accept writes." },
+      { id: 'E', text: "Set the account's default consistency level to session." }
+    ],
+    correctAnswers: ['A', 'B'],
+    type: "multiple",
+    explanation: "With a single write region, strong consistency commits each write to a majority in every region before acknowledging it, so a regional outage has an RPO of zero; the latency cost is acceptable here. Strong consistency cannot be combined with multi-region writes, and multi-region write accounts lose any unreplicated writes in the failed region. Session consistency allows an RPO of up to about 15 minutes in a regional outage. Continuous backup restores to a point in time but does not prevent the loss of recent writes during a regional failover.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/cosmos-db/consistency-levels",
+    tags: ["Cosmos DB", "Consistency", "RPO"]
+  },
+  {
+    id: "azure-az305-313",
+    difficulty: "easy",
+    certId: "azure-az305",
+    domainId: "d3",
+    domainName: "Design business continuity solutions",
+    title: "Slow catalogue reads for shoppers in Asia",
+    scenario: "An electronics retailer's product catalogue lives in a single-region Azure Cosmos DB account in West Europe. Shoppers in Singapore see slow page loads because every catalogue read crosses continents, and if West Europe fails the catalogue goes offline. The retailer wants faster reads in Asia and a readable copy there, with no downtime to set it up.",
+    question: "What should the architect recommend?",
+    options: [
+      { id: 'A', text: "Add Southeast Asia as a read region and list it first in the SDK's preferred regions for the Asian app." },
+      { id: 'B', text: "Create a second account in Southeast Asia and copy the catalogue into it with a change feed processor function." },
+      { id: 'C', text: "Double the provisioned throughput on the catalogue container so each read is served more quickly." },
+      { id: 'D', text: "Place Azure Front Door in front of the Cosmos DB account to cache catalogue reads at Asian edge sites." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Regions can be added to a Cosmos DB account at any time without downtime, and the SDK's preferred regions setting sends the Asian application's reads to the local replica, cutting latency and giving a readable copy if West Europe fails. A second account with a change feed processor is custom replication with its own code to run and no failover built in. Front Door is not used in front of the Cosmos DB data plane, whose clients connect directly to regional endpoints. More throughput reduces throttling but cannot remove intercontinental network latency.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/cosmos-db/distribute-data-globally",
+    tags: ["Cosmos DB", "Global distribution", "Preferred regions"]
+  },
+  {
+    id: "azure-az305-314",
+    difficulty: "hard",
+    certId: "azure-az305",
+    domainId: "d3",
+    domainName: "Design business continuity solutions",
+    title: "Resolving write conflicts by sequence number",
+    scenario: "A ride-hailing firm's driver status container in Azure Cosmos DB for NoSQL uses multi-region writes. Every update carries a numeric sequenceNumber field set by the driver's device, and when two regions accept conflicting updates the one with the highest sequenceNumber must win. The team wants no custom conflict-handling code to write or run.",
+    question: "How should the container be configured?",
+    options: [
+      { id: 'A', text: "Set a last-writer-wins policy whose conflict resolution path is the numeric /sequenceNumber property." },
+      { id: 'B', text: "Keep the default last-writer-wins policy, which resolves conflicts by the numeric system _ts timestamp property." },
+      { id: 'C', text: "Set a custom policy with a merge stored procedure that compares the sequenceNumber of each version." },
+      { id: 'D', text: "Set a custom policy with no stored procedure and process the conflicts feed in an Azure Function." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "A last-writer-wins policy can use any numeric property as its conflict resolution path, and the version with the highest value wins, so pointing it at /sequenceNumber gives the required outcome with no code. The default path is the server-side _ts timestamp, which reflects when each region received the write rather than the device's sequence. A merge stored procedure would work but is exactly the custom code the team wants to avoid. Processing the conflicts feed in a function is also custom code and leaves conflicts unresolved until the function runs.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/cosmos-db/conflict-resolution-policies",
+    tags: ["Cosmos DB", "Multi-region writes", "Conflict resolution"]
+  },
+  {
+    id: "azure-az305-315",
+    difficulty: "easy",
+    certId: "azure-az305",
+    domainId: "d3",
+    domainName: "Design business continuity solutions",
+    title: "Secondary reads that returned errors during an outage",
+    scenario: "During a regional outage, a publisher's developers pointed their document viewer at the storage account's -secondary endpoint, but every read failed. The account is configured for GRS. The publisher wants reads to continue from the paired region during future outages without waiting for a failover.",
+    question: "What should the architect change?",
+    options: [
+      { id: 'A', text: "Convert the account to ZRS so every read is served from all zones of the primary region." },
+      { id: 'B', text: "Enable static website hosting on the account so the secondary web endpoint can serve the documents." },
+      { id: 'C', text: "Convert the account to RA-GRS so the secondary endpoint in the paired region accepts reads." },
+      { id: 'D', text: "Enable blob versioning so earlier versions can be read from the paired region's replicas." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "GRS replicates data to the paired region but does not allow reads there until a failover; RA-GRS adds a read-only secondary endpoint that can be read at any time, so the viewer can keep working during a regional outage. ZRS keeps all copies in the primary region, so a regional outage still stops reads. Blob versioning keeps prior versions in the same account and has no effect on secondary read access. A secondary static website endpoint also requires read-access geo-redundancy, so enabling static websites alone changes nothing.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/storage/common/geo-redundant-design",
+    tags: ["Azure Storage", "RA-GRS", "Secondary endpoint"]
+  },
+  {
+    id: "azure-az305-316",
+    difficulty: "easy",
+    certId: "azure-az305",
+    domainId: "d3",
+    domainName: "Design business continuity solutions",
+    title: "Zone-resilient SMB share for a line-of-business app",
+    scenario: "A law firm's document management application stores files on an SSD-backed premium SMB file share in Azure Files. The application's virtual machines already span three availability zones, and the file share must also stay available if one zone fails.",
+    question: "How should the file share's storage account be configured?",
+    options: [
+      { id: 'A', text: "A FileStorage account for premium shares using zone-redundant storage across all zones." },
+      { id: 'B', text: "A FileStorage account for premium shares using locally redundant storage in one zone." },
+      { id: 'C', text: "A standard general-purpose v2 account using LRS with Azure File Sync to each zone's VMs." },
+      { id: 'D', text: "A FileStorage account for premium shares using geo-zone-redundant storage in the pair." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Premium file shares support zone-redundant storage, which writes synchronously to three zones and keeps the share available through a zone failure, matching the zone-spanning virtual machines. LRS keeps the share in one datacenter, so a zone failure can take it offline. Premium file shares do not offer geo-zone-redundant storage. Azure File Sync caches files on Windows servers but leaves the LRS cloud share as a single-zone dependency and adds servers to run.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/storage/files/files-redundancy",
+    tags: ["Azure Files", "Premium file shares", "ZRS"]
+  },
+  {
+    id: "azure-az305-317",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d3",
+    domainName: "Design business continuity solutions",
+    title: "Single VM whose data disk must outlive its zone",
+    scenario: "A cooperative runs a legacy inventory application on one virtual machine in zone 2 because the software cannot run on two nodes. If zone 2 fails, the operations team wants to start a replacement VM in zone 1 and attach the existing data disk to it within minutes, without restoring from backup.",
+    question: "Which disk configuration supports this plan?",
+    options: [
+      { id: 'A', text: "A Premium SSD ZRS data disk that can be force-detached and reattached in zone 1." },
+      { id: 'B', text: "An unmanaged data disk stored as a page blob in a geo-redundant storage account." },
+      { id: 'C', text: "An Ultra Disk data disk in zone 2 with its performance tier set to the maximum." },
+      { id: 'D', text: "A Premium SSD LRS data disk with hourly incremental snapshots copied to zone 1." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "A ZRS managed disk is replicated synchronously across three zones, so if the zone hosting the VM fails the disk can be force-detached and attached to a new VM in a surviving zone with no data loss and no restore. An LRS disk lives in one zone and would have to be rebuilt from a snapshot, which is a restore and loses recent writes. Ultra Disks are zonal and do not support ZRS, so the disk fails with zone 2. Unmanaged disks are retired and would rely on a storage account failover rather than a zone-level attach.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/virtual-machines/disks-redundancy",
+    tags: ["Managed disks", "ZRS", "Virtual machines"]
+  },
+  {
+    id: "azure-az305-318",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d3",
+    domainName: "Design business continuity solutions",
+    title: "Table data that needs automatic regional failover",
+    scenario: "A courier's parcel-event store uses Azure Table storage on an RA-GRS account. During the last regional outage, writes stopped for hours while the team debated an account failover. The courier wants automatic failover of writes, optional writes in several regions, and changes limited to the connection string and SDK configuration.",
+    question: "What should the architect recommend?",
+    options: [
+      { id: 'A', text: "Convert the account to RA-GZRS so the table endpoint fails over across regions automatically." },
+      { id: 'B', text: "Migrate the tables to Azure SQL Database with an auto-failover group and a read-write listener." },
+      { id: 'C', text: "Replicate the tables to a second account with object replication and switch accounts on failure." },
+      { id: 'D', text: "Migrate the tables to Azure Cosmos DB for Table with service-managed failover." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Azure Cosmos DB for Table is wire compatible with Table storage SDKs, so the application changes little beyond its connection string, and it adds turnkey global distribution, service-managed failover and optional multi-region writes. RA-GZRS improves zone resilience but a regional failover of a storage account is still a customer- or Microsoft-initiated event. Moving to Azure SQL Database means rewriting the data access layer, far more than a connection-string change. Object replication copies block blobs only, not table entities.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/cosmos-db/table/introduction",
+    tags: ["Cosmos DB for Table", "Table storage", "Failover"]
+  },
+  {
+    id: "azure-az305-319",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d3",
+    domainName: "Design business continuity solutions",
+    title: "Regional copy of NFS volumes for an SAP landscape",
+    scenario: "A manufacturer's SAP landscape keeps its shared transport and interface directories on Azure NetApp Files NFS volumes in Germany West Central. The DR plan needs a copy of these volumes in another region with a recovery point of minutes, and the SAP team wants to keep using NetApp Files at the DR site.",
+    question: "What should the architect recommend?",
+    options: [
+      { id: 'A', text: "NetApp Files cross-region replication of the volumes to a capacity pool in the DR region." },
+      { id: 'B', text: "NetApp Files snapshot policies on the volumes, taking a snapshot every ten minutes in the source region." },
+      { id: 'C', text: "A nightly AzCopy job that copies the volumes' contents into a block blob container in the DR region." },
+      { id: 'D', text: "Azure Files NFS shares on a geo-redundant storage account, synchronised from the volumes with rsync jobs." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Cross-region replication asynchronously replicates NetApp Files volumes to a destination volume in another region on a schedule as frequent as every ten minutes, keeping the DR copy on NetApp Files. Snapshots alone stay in the source region's volume, so they do not survive a regional outage. NFS shares in Azure Files cannot use geo-redundant storage, and the design would move DR off NetApp Files. A nightly copy into blob storage gives a recovery point of up to a day and cannot be mounted as the same NFS volume.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-netapp-files/cross-region-replication-introduction",
+    tags: ["Azure NetApp Files", "Cross-region replication", "SAP"]
+  },
+  {
+    id: "azure-az305-320",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d3",
+    domainName: "Design business continuity solutions",
+    title: "NetApp Files volume that fell with its zone",
+    scenario: "A research institute's genomics pipeline reads a large Azure NetApp Files volume that was deployed with an availability zone placement in zone 1. A zone 1 incident took the volume offline although compute in zones 2 and 3 was healthy. The institute wants a copy in another zone of the same region that can take over, and data must stay in the region.",
+    question: "What should the architect add?",
+    options: [
+      { id: 'A', text: "NetApp Files cross-region replication from the volume to the paired Azure region's capacity pool." },
+      { id: 'B', text: "A ZRS premium file share that the pipeline mounts whenever the volume is offline." },
+      { id: 'C', text: "NetApp Files cross-zone replication from the volume to a destination volume in zone 2." },
+      { id: 'D', text: "A second NetApp Files capacity pool in zone 1 holding a clone of the same volume." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "NetApp Files volumes are placed in a single zone, and cross-zone replication asynchronously replicates a volume to a destination volume in another zone of the same region, which can be activated if the source zone fails. Cross-region replication sends the data to another region, which the residency rule forbids. A second capacity pool in zone 1 shares the fate of the zone that failed. A premium file share is a different service, and nothing keeps its contents in step with the NetApp Files volume.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-netapp-files/cross-zone-replication-introduction",
+    tags: ["Azure NetApp Files", "Cross-zone replication"]
+  },
+  {
+    id: "azure-az305-321",
+    difficulty: "hard",
+    certId: "azure-az305",
+    domainId: "d3",
+    domainName: "Design business continuity solutions",
+    title: "Geo protection for an NFS 3.0 blob account",
+    scenario: "A climate research group mounts a Blob Storage container over NFS 3.0 from an HPC cluster. Their proposal calls for the account to use GZRS so that results survive both a zone outage and a regional disaster. The storage team says the proposal cannot be deployed as written.",
+    question: "What should the architect recommend instead?",
+    options: [
+      { id: 'A', text: "Keep GZRS and move the cluster to Azure Files NFS shares, which support geo-redundant storage with NFS." },
+      { id: 'B', text: "Use RA-GZRS instead of GZRS, because NFS 3.0 accounts need the readable secondary endpoint to mount it." },
+      { id: 'C', text: "Keep GZRS and disable the hierarchical namespace, which is the setting that actually conflicts with geo-redundancy." },
+      { id: 'D', text: "Use ZRS for the NFS 3.0 account and copy the output to a geo-redundant account in another region on a schedule." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "An account with NFS 3.0 enabled cannot be configured for any geo-redundant option, so ZRS provides the zone resilience and a scheduled copy to a separate geo-redundant account supplies the regional protection. RA-GZRS is still geo-redundant, so it is blocked in the same way. NFS 3.0 on Blob Storage requires the hierarchical namespace, so disabling it would remove NFS rather than fix the conflict. Azure Files NFS shares are premium shares, which support only LRS and ZRS.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/storage/blobs/network-file-system-protocol-support",
+    tags: ["Blob Storage", "NFS 3.0", "Redundancy"]
+  },
+  {
+    id: "azure-az305-322",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d3",
+    domainName: "Design business continuity solutions",
+    title: "A replication time guarantee for blob copies",
+    scenario: "A broadcaster uses object replication to copy news clips from a storage account in West Europe to one in North Europe for its DR playout system. The DR contract now requires a financially backed commitment that almost all clips arrive in North Europe within 15 minutes of upload.",
+    question: "What should the architect enable?",
+    options: [
+      { id: 'A', text: "A second object replication policy to a third account to double the replication throughput." },
+      { id: 'B', text: "RA-GZRS on the source account so its Last Sync Time stays within fifteen minutes of writes." },
+      { id: 'C', text: "Replication metrics on the source account with an alert when pending bytes exceed a threshold." },
+      { id: 'D', text: "Priority replication on the existing object replication policy between the two storage accounts." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Object replication priority replication improves replication performance and, when both accounts are on the same continent, carries an SLA to replicate 99 percent of objects within 15 minutes, which is the financially backed commitment the contract needs. Replication metrics and alerts show pending work but guarantee nothing. The account's geo-redundancy has no SLA on Last Sync Time and replicates to the paired region, not to the playout account. A second policy adds another destination but does not speed up or guarantee the existing one.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/storage/blobs/object-replication-priority-replication",
+    tags: ["Object replication", "Priority replication", "SLA"]
+  },
+  {
+    id: "azure-az305-323",
+    difficulty: "easy",
+    certId: "azure-az305",
+    domainId: "d3",
+    domainName: "Design business continuity solutions",
+    title: "Using failover to move storage to a new region",
+    scenario: "A retailer is consolidating its Azure estate into Sweden Central and wants to move a GRS storage account from West Europe permanently. A team member suggests running a customer-managed failover to the secondary region as a quick way to relocate the account.",
+    question: "What should the architect advise?",
+    options: [
+      { id: 'A', text: "Change the account's location property to Sweden Central, then wait for replication to finish." },
+      { id: 'B', text: "Run a planned failover, because it swaps the regions without data loss and makes the move permanent." },
+      { id: 'C', text: "Migrate the data to a new account in Sweden Central; failover is not a migration tool." },
+      { id: 'D', text: "Run an unplanned failover, because it deletes the West Europe copy and leaves the data in Sweden." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "Account failover is designed for disaster recovery and testing, and it can only move the account to its paired secondary region, which for West Europe is North Europe rather than Sweden Central; Microsoft states that failover should not be part of a migration strategy. Moving the data to a new account in Sweden Central with a copy tool is the supported approach. Neither kind of failover can target an arbitrary region. A storage account's location cannot be changed in place.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/storage/common/storage-disaster-recovery-guidance",
+    tags: ["Azure Storage", "Account failover", "Migration"]
+  },
+  {
+    id: "azure-az305-324",
+    difficulty: "hard",
+    certId: "azure-az305",
+    domainId: "d3",
+    domainName: "Design business continuity solutions",
+    title: "Regional outage plan for a File Sync cloud endpoint",
+    scenario: "An architecture firm uses Azure File Sync to cache a GRS Azure file share on file servers in six branch offices. The draft DR runbook says that if the storage account's primary region fails, the operations team will immediately run a customer-managed unplanned failover of the storage account.",
+    question: "How should the architect correct the runbook?",
+    options: [
+      { id: 'A', text: "Keep the step and convert the account to RA-GRS so branch file servers read the secondary during failover." },
+      { id: 'B', text: "Remove the failover step, because Azure File Sync does not support customer-managed account failover." },
+      { id: 'C', text: "Keep the step and add a second cloud endpoint in the secondary region to the sync group beforehand." },
+      { id: 'D', text: "Keep the step but run a customer-managed planned failover instead, since it keeps geo-redundancy." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "Azure File Sync does not support customer-managed account failover; failing over a storage account used as a cloud endpoint disrupts sync and can lose newly tiered files, so the runbook should not include it and should rely on the documented File Sync disaster recovery options, such as the geo-redundant copy used by a Microsoft-managed failover and backups of the share. A planned failover is still a customer-managed failover and is equally unsupported. A sync group holds exactly one cloud endpoint. Read access to the secondary does not make a customer-managed failover safe for File Sync.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/storage/file-sync/file-sync-disaster-recovery-best-practices",
+    tags: ["Azure File Sync", "Account failover"]
+  },
+  {
+    id: "azure-az305-325",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d3",
+    domainName: "Design business continuity solutions",
+    title: "Making a busy LRS account zone redundant",
+    scenario: "A media archive holds 400 TB in a standard general-purpose v2 storage account configured for LRS, and applications write to it around the clock. After a datacenter incident, leadership wants the account to become zone redundant in the same region without an application cutover or any downtime.",
+    question: "What should the architect recommend?",
+    options: [
+      { id: 'A', text: "Create a new ZRS account and copy the 400 TB into it with AzCopy, then switch the applications over." },
+      { id: 'B', text: "Request a customer-initiated conversion of the existing account's redundancy setting from LRS to ZRS." },
+      { id: 'C', text: "Enable object replication to a ZRS account in the same region and point new writes at the copy." },
+      { id: 'D', text: "Initiate a customer-managed failover so the account is rebuilt with zone-redundant storage elsewhere." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "A customer-initiated conversion changes an existing account from LRS to ZRS in place, keeping the same endpoints while the data is migrated in the background, so applications keep writing with no cutover. Copying to a new account works but requires a cutover and a period of dual writes, which leadership ruled out. Failover is available only for geo-redundant accounts and moves the account to another region, not to ZRS. Object replication copies to a separate account with its own endpoint and makes the destination container read-only, so applications would still have to switch accounts.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/storage/common/redundancy-migration",
+    tags: ["Azure Storage", "Redundancy conversion", "ZRS"]
+  }
+];
+
+export default AZURE_AZ305_QUESTIONS_13;

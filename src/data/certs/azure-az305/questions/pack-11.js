@@ -1,0 +1,532 @@
+export const AZURE_AZ305_QUESTIONS_11 = [
+  {
+    id: "azure-az305-251",
+    difficulty: "easy",
+    certId: "azure-az305",
+    domainId: "d3",
+    domainName: "Design business continuity solutions",
+    title: "Four-hour recovery points for a billing server",
+    scenario: "A utility's billing application runs on a single Azure VM that is backed up once a night with Azure Backup. A new internal standard says the VM must never lose more than four hours of data from backup alone. The team wants to stay with Azure Backup and avoid any extra tooling.",
+    question: "What should the architect change?",
+    options: [
+      { id: 'A', text: "Keep the standard policy and add a second daily schedule four hours after the first one." },
+      { id: 'B', text: "Enable Azure Site Recovery on the VM so that its recovery points are created every hour." },
+      { id: 'C', text: "Assign an enhanced backup policy that takes backups every four hours throughout the day." },
+      { id: 'D', text: "Increase instant restore snapshot retention to five days so more recovery points are kept." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "The enhanced policy for Azure VM backup supports multiple backups a day, with schedules as frequent as every four hours, so the worst-case data loss from backup drops to four hours. A standard policy allows only one scheduled backup a day, so a second daily schedule cannot be added, and two backups four hours apart would still leave a twenty-hour gap until the next day. Longer snapshot retention keeps older points but does not create more frequent ones. Site Recovery is a separate disaster recovery service, which the team wants to avoid.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/backup/backup-azure-vms-enhanced-policy",
+    tags: ["Azure Backup", "Enhanced policy", "Azure VMs"]
+  },
+  {
+    id: "azure-az305-252",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d3",
+    domainName: "Design business continuity solutions",
+    title: "Faster restores after bad weekly deployments",
+    scenario: "A SaaS vendor deploys to its Azure VMs every Thursday. When a release goes wrong, engineers restore VMs from the previous day's backup, and restores that read from the vault take over an hour for its 2 TB VMs. Most restores are from recovery points less than a week old, and the vendor wants those restores to complete much faster.",
+    question: "What should the architect configure in the backup policy?",
+    options: [
+      { id: 'A', text: "Instant restore snapshot retention of seven days, so recent restores use local disk snapshots." },
+      { id: 'B', text: "Geo-redundant vault storage with Cross Region Restore enabled for all of the protected VMs." },
+      { id: 'C', text: "Longer vault retention of daily recovery points, keeping them for 90 days instead of 30 days." },
+      { id: 'D', text: "Vault-archive tiering of daily recovery points after seven days to lower the retention costs." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Azure VM backup first takes snapshots that are kept alongside the disks for the instant restore retention period; restoring from a snapshot avoids copying data back from the vault and completes far faster. The enhanced policy allows instant restore retention up to 30 days, so seven days covers the week of recovery points the vendor restores from most. Longer vault retention keeps more points but they still restore from the vault. Archive tiering makes old points slower and costlier to restore. Cross Region Restore adds a second-region copy and does nothing for restore speed.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/backup/backup-instant-restore-capability",
+    tags: ["Azure Backup", "Instant restore", "RTO"]
+  },
+  {
+    id: "azure-az305-253",
+    difficulty: "easy",
+    certId: "azure-az305",
+    domainId: "d3",
+    domainName: "Design business continuity solutions",
+    title: "Getting back three deleted spreadsheets",
+    scenario: "A user deleted three spreadsheets from a folder on a 1 TB data disk of an Azure VM file server last Tuesday. The VM is protected by Azure Backup with daily recovery points, and the rest of the server's data has changed since then and must not be rolled back.",
+    question: "What is the quickest way to recover the files?",
+    options: [
+      { id: 'A', text: "Restore Monday's recovery point to a storage account and download the VHD to browse its contents." },
+      { id: 'B', text: "Restore the entire VM as a new VM from Monday's recovery point and copy the three files off it." },
+      { id: 'C', text: "Replace the data disk with the one from Monday's recovery point, bringing each file back." },
+      { id: 'D', text: "Use file recovery to mount Monday's recovery point on the VM and copy the three files back to it." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "File-level recovery from an Azure VM backup runs a script that mounts the recovery point's disks as local drives, so the three files can be copied back without restoring any disk or VM and without touching the rest of the server's data. Restoring a whole new VM works but takes much longer for three files. Replacing the data disk rolls back every other change made since Monday. Downloading a VHD is slow and still requires mounting it somewhere to browse.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/backup/backup-azure-restore-files-from-vm",
+    tags: ["Azure Backup", "File-level recovery"]
+  },
+  {
+    id: "azure-az305-254",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d3",
+    domainName: "Design business continuity solutions",
+    title: "Skipping a scratch disk in VM backups",
+    scenario: "A research VM has an OS disk, a 512 GB data disk holding results, and a 4 TB disk used as a scratch area that is rebuilt at the start of every job. Backing up all three disks inflates backup storage costs, and the scratch data never needs to be restored. The team wants to keep using Azure VM backup.",
+    question: "What should the architect recommend?",
+    options: [
+      { id: 'A', text: "Protect the VM with the MARS agent and include only the folders that contain the job results." },
+      { id: 'B', text: "Use selective disk backup to protect the OS and results disks and exclude the scratch disk." },
+      { id: 'C', text: "Back up the results disk with Azure Disk Backup and stop backing up the VM as a whole unit." },
+      { id: 'D', text: "Move the scratch data to the VM's temporary disk so Azure Backup ignores it during snapshots." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "Selective disk backup lets an Azure VM backup policy include only chosen data disks, so the OS disk and results disk are protected while the 4 TB scratch disk is excluded, cutting backup storage without changing tools. The temporary disk is too small for a 4 TB scratch area on most sizes and is wiped on redeployment, which is not a backup design decision. Azure Disk Backup protects individual disks but would leave the OS disk and VM configuration unprotected. The MARS agent backs up files, which loses the ability to restore the VM itself.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/backup/selective-disk-backup-restore",
+    tags: ["Azure Backup", "Selective disk backup", "Cost optimization"]
+  },
+  {
+    id: "azure-az305-255",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d3",
+    domainName: "Design business continuity solutions",
+    title: "Consistent backups of a Linux database VM",
+    scenario: "A retailer runs PostgreSQL on an Azure Linux VM protected by Azure Backup. A test restore produced a database that needed crash recovery and lost in-flight transactions. The DBA wants each backup to capture the database in a consistent state by quiescing it just before the snapshot and resuming it afterwards.",
+    question: "What should the architect configure?",
+    options: [
+      { id: 'A', text: "An enhanced backup policy, which makes every Linux VM backup application-consistent by default." },
+      { id: 'B', text: "Azure Site Recovery with app-consistent snapshots every hour in place of the Azure Backup policy." },
+      { id: 'C', text: "Pre-scripts and post-scripts registered in the VM snapshot plugin configuration on the Linux VM." },
+      { id: 'D', text: "Volume Shadow Copy Service writers on the VM so that Azure Backup coordinates the snapshot." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "On Linux, Azure Backup takes application-consistent snapshots by running a pre-script before the snapshot and a post-script after it, registered in the VM snapshot plugin configuration file, so the DBA's scripts can quiesce PostgreSQL and then resume it. VSS is a Windows framework and does not exist on Linux. The enhanced policy changes schedule and retention options; without scripts a Linux backup remains file-system consistent. Site Recovery is a disaster recovery tool and does not replace the backup policy the retailer uses for restores.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/backup/backup-azure-linux-app-consistent",
+    tags: ["Azure Backup", "Linux", "Application-consistent"]
+  },
+  {
+    id: "azure-az305-256",
+    difficulty: "hard",
+    certId: "azure-az305",
+    domainId: "d3",
+    domainName: "Design business continuity solutions",
+    title: "Backing up Trusted Launch VMs on Premium SSD v2",
+    scenario: "A bank is deploying new Trusted Launch VMs whose database data disks are Premium SSD v2. The backup team plans to add them to the existing standard daily VM backup policy used for the rest of the estate. The bank's recovery point objective for these VMs is one day.",
+    question: "What must the architect ensure?",
+    options: [
+      { id: 'A', text: "The VMs are converted to standard security type so the existing standard policy can protect them." },
+      { id: 'B', text: "The VMs use Azure Disk Backup for each Premium SSD v2 disk and a standard policy for the OS disk." },
+      { id: 'C', text: "The Trusted Launch VMs use a standard policy, and each Premium SSD v2 disk is excluded from it." },
+      { id: 'D', text: "The VMs are protected with an enhanced policy, which supports Trusted Launch and Premium SSD v2." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Azure VM backup of Trusted Launch VMs, and of VMs with Premium SSD v2 or Ultra disks, is supported only through the enhanced policy, so the new VMs need an enhanced policy even though a daily schedule would meet the RPO. A standard policy cannot protect Trusted Launch VMs, with or without excluding disks. Downgrading the VMs to standard security removes the protections the bank chose them for. Splitting protection between Disk Backup and a standard policy still leaves the Trusted Launch VM itself on an unsupported policy.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/backup/backup-support-matrix-iaas",
+    tags: ["Azure Backup", "Trusted Launch", "Premium SSD v2"]
+  },
+  {
+    id: "azure-az305-257",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d3",
+    domainName: "Design business continuity solutions",
+    title: "Frequent snapshots of one critical disk",
+    scenario: "A trading firm has a VM whose 2 TB managed data disk holds market data that is rebuilt nightly, but the firm wants to roll that disk back to any point within the last two days in steps of a few hours. The firm wants agentless, crash-consistent protection of just that disk, without backing up or restoring the whole VM.",
+    question: "Which solution should the architect recommend?",
+    options: [
+      { id: 'A', text: "Azure Backup Server running in Azure, protecting the disk's volume with hourly express backups." },
+      { id: 'B', text: "Azure Disk Backup in a Backup vault, taking incremental snapshots of the disk several times a day." },
+      { id: 'C', text: "Azure VM backup with an enhanced policy, restoring the whole VM when the disk needs a rollback." },
+      { id: 'D', text: "Azure Site Recovery replication of the VM, failing over to an earlier recovery point for the disk." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "Azure Disk Backup is an agentless, crash-consistent solution in a Backup vault that takes incremental snapshots of individual managed disks, several times a day if needed, and restores a chosen snapshot as a new disk, so the firm can roll back just the market data disk. VM backup protects and restores the VM or its disks as part of the whole VM backup. Site Recovery failover moves the entire VM to another region or zone. Azure Backup Server needs a server and agent, which the firm wants to avoid.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/backup/disk-backup-overview",
+    tags: ["Azure Disk Backup", "Backup vault", "Managed disks"]
+  },
+  {
+    id: "azure-az305-258",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d3",
+    domainName: "Design business continuity solutions",
+    title: "Protecting stateful workloads on AKS",
+    scenario: "A logistics company runs stateful services on AKS with Azure Disk persistent volumes. It needs scheduled backups of namespaces, including Kubernetes resources and persistent volume data, with the ability to restore a namespace to the same or another cluster, managed from Azure Backup.",
+    question: "Which two actions are required? (Choose two.)",
+    options: [
+      { id: 'A', text: "Enable Azure Site Recovery for the AKS node pools so that the cluster fails over with its volumes." },
+      { id: 'B', text: "Install the Azure Backup extension in the AKS cluster with a storage account for its backups." },
+      { id: 'C', text: "Create a Recovery Services vault and register the AKS cluster in it as a protected container." },
+      { id: 'D', text: "Enable Trusted Access between the Backup vault and the AKS cluster so the vault can operate on it." },
+      { id: 'E', text: "Protect every AKS node VM with Azure VM backup so volume data is captured with each node's disks." }
+    ],
+    correctAnswers: ['B', 'D'],
+    type: "multiple",
+    explanation: "Azure Backup for AKS uses a backup extension installed in the cluster, which writes Kubernetes resource backups to a blob container in a storage account and coordinates CSI snapshots of persistent volumes, and Trusted Access lets the Backup vault operate on the cluster. Node VMs are disposable infrastructure; backing them up captures neither Kubernetes objects nor volumes in a restorable form. Site Recovery does not support AKS node pools. AKS backups are managed in a Backup vault, not a Recovery Services vault.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/backup/azure-kubernetes-service-backup-overview",
+    tags: ["Azure Backup", "AKS", "Kubernetes"]
+  },
+  {
+    id: "azure-az305-259",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d3",
+    domainName: "Design business continuity solutions",
+    title: "Web app backups kept for a quarter with their database",
+    scenario: "A charity's donation site runs on App Service in the Premium tier with an Azure SQL database connected through a connection string. The built-in automatic backups keep 30 days of app content only. Auditors want the app and its database backed up together and kept for 90 days.",
+    question: "Which two actions should the architect take? (Choose two.)",
+    options: [
+      { id: 'A', text: "Keep the automatic backups, which follow the connection string, and raise retention to 90 days." },
+      { id: 'B', text: "Scale the app to the Isolated tier so automatic backups include linked databases and longer retention." },
+      { id: 'C', text: "Configure custom backups to a storage account with a 90-day retention period on the schedule." },
+      { id: 'D', text: "Protect the App Service plan's workers with Azure VM backup and a 90-day retention policy." },
+      { id: 'E', text: "Include the SQL database in the custom backup configuration using the app's connection string." }
+    ],
+    correctAnswers: ['C', 'E'],
+    type: "multiple",
+    explanation: "Custom backups write the app's content and configuration to a storage account on a schedule with a retention period the owner sets, so 90 days can be configured, and a custom backup can include supported databases referenced by the app's connection strings, such as Azure SQL Database. Automatic backups have a fixed retention and cannot be extended to 90 days. Automatic backups do not include linked databases on any tier. App Service workers are managed by the platform and cannot be protected with VM backup.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/app-service/manage-backup",
+    tags: ["App Service", "Backup", "Retention"]
+  },
+  {
+    id: "azure-az305-260",
+    difficulty: "easy",
+    certId: "azure-az305",
+    domainId: "d3",
+    domainName: "Design business continuity solutions",
+    title: "One corrupted data disk on a healthy VM",
+    scenario: "A reporting VM has an OS disk and two data disks. A faulty script corrupted one data disk yesterday, while the OS disk and the other data disk are fine and have changes that must be kept. The VM is protected by Azure Backup with daily recovery points.",
+    question: "Which restore option should the team use?",
+    options: [
+      { id: 'A', text: "Create a new VM from yesterday's recovery point and move the reports to it from the old VM." },
+      { id: 'B', text: "Use cross-subscription restore to create a copy of the VM in the test subscription for comparison." },
+      { id: 'C', text: "Use the replace existing option so that all three disks of the VM return to yesterday's state." },
+      { id: 'D', text: "Restore disks from the recovery point, then attach the restored data disk in place of the bad one." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Restoring disks creates managed disks from the recovery point without touching the running VM, so the team can swap only the corrupted data disk for its restored copy while keeping the current OS disk and the healthy data disk. Creating a new VM is more work and leaves data to reconcile. Replace existing rolls back every disk, losing the changes on the healthy disks. A copy in another subscription does not repair the production VM.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/backup/backup-azure-arm-restore-vms",
+    tags: ["Azure Backup", "Restore disks", "Azure VMs"]
+  },
+  {
+    id: "azure-az305-261",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d3",
+    domainName: "Design business continuity solutions",
+    title: "Ten years of monthly VM restore points for less",
+    scenario: "A pension fund keeps monthly and yearly recovery points of 150 Azure VMs for ten years to satisfy regulators. These old points are restored perhaps once a year, and retention costs in the vault-standard tier have become the largest line in the backup bill. Restores of old points may take a day.",
+    question: "What should the architect recommend?",
+    options: [
+      { id: 'A', text: "Reduce monthly and yearly retention to five years and export older restores to a cool-tier blob account." },
+      { id: 'B', text: "Switch the policy to weekly backups only, so that fewer long-term recovery points are created in total." },
+      { id: 'C', text: "Change the vault to a locally redundant storage tier so ten years of recovery points cost less to hold." },
+      { id: 'D', text: "Move eligible monthly and yearly recovery points to the vault-archive tier through the backup policy." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Azure Backup's vault-archive tier holds long-term monthly and yearly recovery points at a much lower price, and a policy can move eligible points there automatically; restores take longer because points must be rehydrated first, which the fund accepts. Cutting retention to five years breaks the regulatory requirement, and VM recovery points cannot be exported to a blob account. Vault redundancy cannot be changed once items are protected, and it would reduce durability. Weekly backups do not reduce the number of monthly and yearly points required.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/backup/archive-tier-support",
+    tags: ["Azure Backup", "Archive tier", "Long-term retention"]
+  },
+  {
+    id: "azure-az305-262",
+    difficulty: "hard",
+    certId: "azure-az305",
+    domainId: "d3",
+    domainName: "Design business continuity solutions",
+    title: "Backups failing on disk-encrypted VMs",
+    scenario: "A healthcare company enabled Azure Disk Encryption on 80 Windows VMs, with the BitLocker keys and key encryption keys stored in a Key Vault that uses the Azure RBAC permission model. Since then, the VMs' scheduled Azure Backup jobs fail with a key vault access error. Restores must be able to recover the keys as well as the disks.",
+    question: "What should the architect do?",
+    options: [
+      { id: 'A', text: "Move the keys to a Managed HSM, because Azure Backup cannot read keys from standard Key Vaults at all." },
+      { id: 'B', text: "Disable Azure Disk Encryption before each backup and re-enable it afterwards through an automation runbook." },
+      { id: 'C', text: "Switch the VMs to server-side encryption with platform keys, because encrypted VMs cannot be backed up." },
+      { id: 'D', text: "Grant the Backup Management Service identity roles on the vault to read keys and secrets for backup." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Azure Backup backs up VMs encrypted with Azure Disk Encryption by also backing up the BitLocker encryption key and key encryption key, which requires the Backup Management Service to have permissions on the Key Vault; with the RBAC model that means assigning it roles that allow reading keys and secrets. Turning encryption off around backups exposes data and is unsupported. Standard Key Vaults are supported, so moving to Managed HSM is unnecessary. VMs with Azure Disk Encryption can be backed up, so abandoning the encryption the company chose is not required.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/backup/backup-azure-vms-encryption",
+    tags: ["Azure Backup", "Azure Disk Encryption", "Key Vault"]
+  },
+  {
+    id: "azure-az305-263",
+    difficulty: "easy",
+    certId: "azure-az305",
+    domainId: "d3",
+    domainName: "Design business continuity solutions",
+    title: "Fifteen-minute RPO for SQL Server on a VM",
+    scenario: "A distributor runs a 1.5 TB SQL Server 2022 database on an Azure VM. It needs to restore the database to any point in time with no more than 15 minutes of data loss and keep backups for 90 days, without building or patching backup servers or managing backup files in storage accounts.",
+    question: "Which solution should the architect recommend?",
+    options: [
+      { id: 'A', text: "SQL Server Agent jobs that back up to a file share every 15 minutes, with a cleanup job for 90 days." },
+      { id: 'B', text: "Azure VM backup with an enhanced policy taking a snapshot of the VM every four hours for 90 days." },
+      { id: 'C', text: "Azure Site Recovery for the VM, with crash-consistent points kept for 90 days." },
+      { id: 'D', text: "Azure Backup for SQL Server in Azure VMs, with full backups plus log backups every 15 minutes." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Azure Backup for SQL Server in Azure VMs is a streaming, workload-aware backup that runs full, differential and log backups, with log backups as frequent as every 15 minutes, into a Recovery Services vault, enabling point-in-time restore with no backup infrastructure or files to manage. VM snapshots every four hours cannot meet a 15-minute RPO or restore to a point in time. Agent jobs to a file share are exactly the backup files the distributor does not want to manage. Site Recovery keeps recovery points for at most 15 days and is not a database backup.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/backup/backup-azure-sql-database",
+    tags: ["Azure Backup", "SQL Server on Azure VMs", "Point-in-time restore"]
+  },
+  {
+    id: "azure-az305-264",
+    difficulty: "hard",
+    certId: "azure-az305",
+    domainId: "d3",
+    domainName: "Design business continuity solutions",
+    title: "Quick restores of a very large SAP HANA database",
+    scenario: "A manufacturer runs a 12 TB SAP HANA database on an Azure VM. Its streaming Backint backups work, but a full restore from them would take many hours, far beyond the two-hour RTO in the SAP recovery plan. Log backups every 15 minutes must continue so that point-in-time recovery stays possible.",
+    question: "What should the architect add to the backup design?",
+    options: [
+      { id: 'A', text: "Azure VM backup of the HANA VM with a standard policy, restoring the whole VM to meet the recovery time." },
+      { id: 'B', text: "HANA snapshot backups through Azure Backup, used with the Backint log backups for point-in-time restore." },
+      { id: 'C', text: "More frequent full Backint backups so each point-in-time restore replays fewer logs and ends in two hours." },
+      { id: 'D', text: "Azure Site Recovery replication of the HANA VM to another zone, failing over when a restore is required." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "Azure Backup's HANA snapshot backups use managed disk snapshots of the HANA data volumes coordinated with HANA, so even a 12 TB database restores in a fraction of the time of a streaming restore, and combining them with Backint log backups keeps point-in-time recovery. A standard VM backup is not application-aware for HANA and gives only a daily crash-consistent point. Site Recovery replicates corruption and deletions as quickly as good data, so it cannot replace restores. More frequent full backups shorten log replay but still stream all 12 TB back during a restore.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/backup/sap-hana-database-instances-backup",
+    tags: ["Azure Backup", "SAP HANA", "Snapshots"]
+  },
+  {
+    id: "azure-az305-265",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d3",
+    domainName: "Design business continuity solutions",
+    title: "Ten-year retention for a PostgreSQL flexible server",
+    scenario: "A lender's loan database runs on Azure Database for PostgreSQL flexible server with the built-in backup retention set to its maximum. Regulators now require monthly backups kept for ten years, stored in a vault separate from the server that database administrators cannot delete.",
+    question: "What should the architect recommend?",
+    options: [
+      { id: 'A', text: "Create a read replica in another region and keep it running as the long-term copy of each month." },
+      { id: 'B', text: "Raise the server's built-in backup retention period so that it covers ten years of recovery points." },
+      { id: 'C', text: "Protect the server with Azure Backup in a Backup vault, using a policy with ten-year retention." },
+      { id: 'D', text: "Run monthly pg_dump jobs from an Azure VM and store the dump files in a Recovery Services vault." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "Azure Backup offers long-term retention for PostgreSQL flexible server in a Backup vault, with policies that keep backups for up to ten years, isolated from the server so they survive server deletion and can be protected by the vault's security features. The built-in retention tops out at 35 days. Recovery Services vaults do not store arbitrary dump files, and a scripted VM job is extra infrastructure. A read replica mirrors the current state, so it holds no history at all.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/backup/backup-azure-database-postgresql-flex-overview",
+    tags: ["Azure Backup", "PostgreSQL", "Long-term retention"]
+  },
+  {
+    id: "azure-az305-266",
+    difficulty: "hard",
+    certId: "azure-az305",
+    domainId: "d3",
+    domainName: "Design business continuity solutions",
+    title: "Regional restore for an existing MySQL server",
+    scenario: "A ticketing company's Azure Database for MySQL flexible server was created a year ago with locally redundant backup storage. A new continuity requirement says the database must be restorable in the paired region if its home region is lost. The team proposes switching the backup redundancy setting to geo-redundant on the existing server.",
+    question: "What should the architect advise?",
+    options: [
+      { id: 'A', text: "Enable zone-redundant high availability, which also copies backup storage to the paired region." },
+      { id: 'B', text: "Create a new server with geo-redundant backup storage and migrate the database to it from the old server." },
+      { id: 'C', text: "Add a read replica in the paired region; the replica's backups then become geo-restorable by default." },
+      { id: 'D', text: "Change the backup redundancy on the existing server to geo-redundant, which applies to new backups at once." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "Geo-redundant backup storage for Azure Database for MySQL flexible server is chosen when the server is created and cannot be changed afterwards, so meeting the requirement means creating a server with geo-redundant backups, which enables geo-restore to the paired region, and moving the database to it. The existing server's redundancy setting cannot be switched. A read replica provides a copy in another region, but its own backup redundancy is also fixed at creation and it is not a substitute for the requested geo-restore capability. Zone-redundant high availability protects against zone failures within the region.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/mysql/flexible-server/concepts-backup-restore",
+    tags: ["MySQL", "Geo-redundant backup", "Geo-restore"]
+  },
+  {
+    id: "azure-az305-267",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d3",
+    domainName: "Design business continuity solutions",
+    title: "Undoing a bad bulk update in Cosmos DB",
+    scenario: "A fitness app stores user profiles in Azure Cosmos DB for NoSQL with the default periodic backup. Last month a faulty job overwrote thousands of profiles and the team waited on a support ticket to get data back. They now want to restore any container themselves to any second within the last three weeks.",
+    question: "Which backup configuration should the architect recommend?",
+    options: [
+      { id: 'A', text: "A change feed processor copying every item version to a second container used for manual repairs." },
+      { id: 'B', text: "Continuous backup in the 7-day tier, restoring any container within the tier's retention window." },
+      { id: 'C', text: "Periodic backup with the interval lowered to one hour and retention raised to three weeks of copies." },
+      { id: 'D', text: "Continuous backup in the 30-day tier, restoring the account or container to a chosen point in time." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Continuous backup lets owners run self-service point-in-time restores to any second within the retention window, and the 30-day tier covers the three weeks required. Periodic backup takes snapshots at intervals and restores still go through a support request, which the team wants to avoid, and it cannot restore to any second. The 7-day tier is self-service but only reaches back seven days. A change feed copy is custom code that the team would have to build, and it does not capture deletes in the default mode.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/cosmos-db/continuous-backup-restore-introduction",
+    tags: ["Cosmos DB", "Continuous backup", "Point-in-time restore"]
+  },
+  {
+    id: "azure-az305-268",
+    difficulty: "easy",
+    certId: "azure-az305",
+    domainId: "d3",
+    domainName: "Design business continuity solutions",
+    title: "Bringing back a database deleted by mistake",
+    scenario: "An engineer deleted an Azure SQL Database named Invoices three days ago, believing it was a test copy. The logical server still exists, and the database had the default point-in-time restore retention of seven days.",
+    question: "How can the database be recovered?",
+    options: [
+      { id: 'A', text: "Open a support request so Microsoft recovers the database from the platform's internal replicas." },
+      { id: 'B', text: "Restore the latest long-term retention backup, which is created automatically for every database." },
+      { id: 'C', text: "Geo-restore the database from the paired region, which keeps a copy after the primary is deleted." },
+      { id: 'D', text: "Restore the deleted database from the server's list of deleted databases to its time of deletion." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Azure SQL Database keeps a deleted database's backups for its point-in-time retention period, so from the server's deleted databases list it can be restored to the moment it was deleted, up to seven days here. Support cannot recover it from internal replicas; the restore is self-service. Geo-restore uses geo-replicated backups to restore in another region and is meant for regional outages, not the simplest path for a deleted database. Long-term retention backups exist only if an LTR policy was configured; they are not created automatically.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-sql/database/recovery-using-backups",
+    tags: ["Azure SQL Database", "Deleted database restore"]
+  },
+  {
+    id: "azure-az305-269",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d3",
+    domainName: "Design business continuity solutions",
+    title: "Undoing a failed schema migration on PostgreSQL",
+    scenario: "At 14:05 a faulty migration script dropped columns from tables in an Azure Database for PostgreSQL flexible server that backs an order service. The server keeps 14 days of built-in backups. The team wants the data as it was at 14:00 and asks how to get the order service running on it with the least risk.",
+    question: "What should the architect recommend?",
+    options: [
+      { id: 'A', text: "Run a point-in-time restore to 14:00 into a new server, validate it, then point the service at it." },
+      { id: 'B', text: "Run a geo-restore from the geo-redundant backup in the paired region, which lags a few minutes behind." },
+      { id: 'C', text: "Restore the server in place to 14:00, overwriting the current data so the connection string stays the same." },
+      { id: 'D', text: "Promote the server's read replica, which still holds the tables as they were before the migration ran." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Point-in-time restore of a flexible server always creates a new server from the backups and transaction logs at the chosen time, so the team can restore to 14:00, check the data and then repoint the order service, keeping the damaged server for investigation. There is no in-place restore that overwrites an existing server. A read replica applies changes from the primary within seconds, so the dropped columns are already gone there. Geo-restore targets regional outages and restores from the latest geo-replicated backup rather than a precise time, and it would also land in another region.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/concepts-backup-restore",
+    tags: ["PostgreSQL", "Point-in-time restore"]
+  },
+  {
+    id: "azure-az305-270",
+    difficulty: "easy",
+    certId: "azure-az305",
+    domainId: "d3",
+    domainName: "Design business continuity solutions",
+    title: "A decommissioned VM whose backups must stay",
+    scenario: "A retailer is decommissioning a legacy ordering VM, but finance must be able to restore its data for five more years for audits. The VM is protected by Azure Backup with a policy that already keeps yearly recovery points for seven years, and the team wants to delete the VM now.",
+    question: "What should the team do before deleting the VM?",
+    options: [
+      { id: 'A', text: "Stop protection and delete backup data, relying on soft delete to keep the recovery points for five years." },
+      { id: 'B', text: "Keep protection active on the deleted VM so that the policy keeps creating recovery points after deletion." },
+      { id: 'C', text: "Move the VM's recovery points to a new vault before deletion so that they remain after the VM is removed." },
+      { id: 'D', text: "Stop protection and retain backup data, so the existing recovery points are kept for later restores." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Stopping protection while retaining backup data stops new backups but keeps existing recovery points, either according to the policy or indefinitely, so the VM can be deleted and its data restored later for audits. Soft delete keeps deleted backup data for days, not years. A deleted VM cannot produce new backups, and scheduled jobs would fail. Recovery points of Azure VMs cannot be moved between vaults.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/backup/backup-azure-manage-vms",
+    tags: ["Azure Backup", "Stop protection", "Retention"]
+  },
+  {
+    id: "azure-az305-271",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d3",
+    domainName: "Design business continuity solutions",
+    title: "Backups on the secondary replica of an availability group",
+    scenario: "A bank runs a SQL Server Always On availability group across two Azure VMs. The primary is heavily loaded during business hours, and the DBA team wants full and log backups to run on the secondary replica, with Azure Backup handling scheduling and retention, and restores still possible after a failover changes which replica is primary.",
+    question: "What should the architect recommend?",
+    options: [
+      { id: 'A', text: "Protect the availability group with Azure Backup for SQL, honouring the group's backup preference." },
+      { id: 'B', text: "Protect only the primary VM with Azure VM backup, taking a crash-consistent snapshot every night." },
+      { id: 'C', text: "Protect each availability group replica's database separately so each keeps its own backup chain." },
+      { id: 'D', text: "Schedule SQL Server Agent backup jobs on the secondary replica, writing files to a storage account." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Azure Backup for SQL Server discovers availability groups, protects the group's databases as one item, and runs backups on the replica selected by the group's backup preference, such as the secondary, keeping a single backup chain that survives failovers. A nightly VM snapshot is neither log-aware nor point-in-time capable. Protecting each replica separately creates competing chains that break log continuity. Agent jobs writing files leave scheduling and retention to the DBA team, which is what they want Azure Backup to do.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/backup/backup-sql-server-on-availability-groups",
+    tags: ["Azure Backup", "SQL Server", "Availability groups"]
+  },
+  {
+    id: "azure-az305-272",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d3",
+    domainName: "Design business continuity solutions",
+    title: "Retention rules for a manufacturing execution server",
+    scenario: "Compliance requires a manufacturer's MES VM to have daily restore points for 30 days, weekly points for 12 weeks, monthly points for 12 months and yearly points for 7 years. The team wants one Azure Backup configuration to cover all of this without separate scripts or manual on-demand backups.",
+    question: "How should the backup be configured?",
+    options: [
+      { id: 'A', text: "A daily policy kept for seven years, which covers every weekly, monthly and yearly requirement too." },
+      { id: 'B', text: "A daily policy kept for 30 days plus on-demand backups each week, month and year with custom expiry." },
+      { id: 'C', text: "One VM backup policy with a daily schedule and daily, weekly, monthly and yearly retention ranges." },
+      { id: 'D', text: "Four VM backup policies, one per retention range, each assigned to the MES VM on its own schedule." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "An Azure VM backup policy combines one backup schedule with grandfather-father-son retention ranges, so a single policy keeps daily points for 30 days and designates weekly, monthly and yearly points for longer retention, meeting every rule automatically. A VM can be associated with only one backup policy at a time. On-demand backups each week, month and year are manual work the team wants to avoid. Keeping every daily point for seven years meets the rules but stores thousands of unnecessary recovery points at far higher cost.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/backup/backup-azure-arm-vms-prepare",
+    tags: ["Azure Backup", "Backup policy", "Retention"]
+  },
+  {
+    id: "azure-az305-273",
+    difficulty: "easy",
+    certId: "azure-az305",
+    domainId: "d3",
+    domainName: "Design business continuity solutions",
+    title: "Safety copy before a risky upgrade",
+    scenario: "An engineer will upgrade the ERP application on an Azure VM tonight, several hours after the scheduled daily backup has run. The VM is protected by Azure Backup, and the team wants a recovery point taken immediately before the upgrade that is kept for 60 days, without changing the regular policy.",
+    question: "What should the engineer do?",
+    options: [
+      { id: 'A', text: "Enable Azure Site Recovery on the VM and fail back to its last recovery point if needed." },
+      { id: 'B', text: "Change the policy's schedule to tonight's upgrade time, then switch it back after the upgrade." },
+      { id: 'C', text: "Take a manual managed disk snapshot of the OS disk only, kept in the VM's resource group." },
+      { id: 'D', text: "Trigger an on-demand backup with a retention date 60 days out, then start the ERP upgrade." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "An on-demand backup takes a recovery point immediately with a retention date chosen for that point, so a copy from just before the upgrade is kept for 60 days without touching the regular policy. Editing the policy's schedule changes backups for every VM on the policy and has to be reverted. A snapshot of only the OS disk misses the data disks and is not managed by Azure Backup retention. Site Recovery is a regional recovery tool and would take time to set up just for an upgrade.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/backup/backup-azure-vms-first-look-arm",
+    tags: ["Azure Backup", "On-demand backup"]
+  },
+  {
+    id: "azure-az305-274",
+    difficulty: "hard",
+    certId: "azure-az305",
+    domainId: "d3",
+    domainName: "Design business continuity solutions",
+    title: "Point-in-time and cross-region restore for SQL on VMs",
+    scenario: "An insurer runs SQL Server databases on Azure VMs in UK South. It needs point-in-time restores with at most 15 minutes of data loss for everyday mistakes, and it must be able to restore the same databases in UK West if UK South is unavailable, all managed through Azure Backup without backup servers.",
+    question: "Which two design elements should the architect include? (Choose two.)",
+    options: [
+      { id: 'A', text: "Azure Site Recovery replication of the SQL VMs, keeping recovery points for fifteen days." },
+      { id: 'B', text: "A geo-redundant Recovery Services vault with Cross Region Restore enabled for the SQL items." },
+      { id: 'C', text: "Azure VM backup with an enhanced policy every 240 minutes, restored in UK West when needed." },
+      { id: 'D', text: "Azure Backup for SQL Server in Azure VMs, with log backups scheduled every 15 minutes." },
+      { id: 'E', text: "A zone-redundant Recovery Services vault so that backups remain available during an outage." }
+    ],
+    correctAnswers: ['B', 'D'],
+    type: "multiple",
+    explanation: "Azure Backup for SQL Server in Azure VMs gives point-in-time restore with log backups every 15 minutes, and a geo-redundant vault with Cross Region Restore lets those SQL backups be restored in the paired region, UK West, when UK South is down. VM backups every four hours cannot meet the 15-minute RPO. A zone-redundant vault keeps backups in UK South only, so they are unavailable if the region is lost. Site Recovery handles regional failover but does not provide the point-in-time database restores the insurer needs for everyday mistakes.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/backup/restore-sql-database-azure-vm",
+    tags: ["Azure Backup", "SQL Server on Azure VMs", "Cross Region Restore"]
+  },
+  {
+    id: "azure-az305-275",
+    difficulty: "hard",
+    certId: "azure-az305",
+    domainId: "d3",
+    domainName: "Design business continuity solutions",
+    title: "Key rotation that broke an old database restore",
+    scenario: "A payments company encrypts Azure SQL Database with TDE using a customer-managed key in Key Vault and rotates the key every 90 days. After a rotation, an administrator deleted the old key versions to tidy the vault. An auditor later asked for a restore from a backup taken four months ago, and the restore failed.",
+    question: "What should the architect put in the key management design to prevent this?",
+    options: [
+      { id: 'A', text: "Switch the servers to service-managed TDE before each restore and back to customer-managed keys afterwards." },
+      { id: 'B', text: "Rotate the TDE protector only after each long-term retention backup has expired so versions are never needed." },
+      { id: 'C', text: "Store a copy of each key version in a second Key Vault in the paired region and delete old versions locally." },
+      { id: 'D', text: "Keep previous TDE protector key versions in the vault for as long as any backup encrypted with them is kept." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Backups of a TDE-protected database are encrypted with the key version that was the TDE protector when they were taken, so restoring an older backup requires that version to still be available in the vault; old versions must be kept as long as any backup that uses them is retained, with purge protection guarding against deletion. Delaying rotation until years of long-term backups expire defeats the rotation policy. Switching to service-managed keys does not re-encrypt existing backups, which still need their original key. A copy in another vault helps only if the restore can reach that vault as the server's configured key source, and deleting versions locally repeats the mistake.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-sql/database/transparent-data-encryption-byok-overview",
+    tags: ["TDE", "Customer-managed keys", "Restore"]
+  }
+];
+
+export default AZURE_AZ305_QUESTIONS_11;

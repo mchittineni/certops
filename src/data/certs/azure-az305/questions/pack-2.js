@@ -1,0 +1,533 @@
+export const AZURE_AZ305_QUESTIONS_2 = [
+  {
+    id: "azure-az305-26",
+    difficulty: "easy",
+    certId: "azure-az305",
+    domainId: "d1",
+    domainName: "Design identity, governance, and monitoring solutions",
+    title: "Cloud sign-in that survives a datacentre outage",
+    scenario: "A logistics firm synchronises 6,000 users from a single Active Directory forest to Microsoft Entra ID. It wants users to keep signing in to Microsoft 365 even if both on-premises datacentres go offline, it wants alerts when a user's password appears in a known leak, and it does not want to run any authentication servers on-premises.",
+    question: "Which sign-in method should the architect recommend?",
+    options: [
+      { id: 'A', text: "Pass-through authentication with three agents spread across both datacentres for redundancy" },
+      { id: 'B', text: "Federation with an AD FS farm and Web Application Proxy servers in each datacentre" },
+      { id: 'C', text: "Password hash synchronization configured in Microsoft Entra Connect Sync" },
+      { id: 'D', text: "Microsoft Entra Domain Services with a replica set in the region nearest the offices" }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "Password hash synchronization stores a hash of the on-premises password hash in Entra ID, so Entra ID validates sign-ins itself and keeps working when the datacentres are offline; it is also what lets Entra ID Protection compare credentials against leaked-credential lists. Pass-through authentication validates every sign-in against an on-premises domain controller through the agents, so a double datacentre outage stops sign-ins, and the agents are on-premises authentication components. AD FS is a full on-premises authentication farm, the opposite of the requirement. Entra Domain Services provides managed LDAP and Kerberos for Azure workloads; it is not a sign-in method for Microsoft 365.",
+    referenceUrl: "https://learn.microsoft.com/en-us/entra/identity/hybrid/connect/choose-ad-authn",
+    tags: ["Hybrid identity", "Password hash sync", "Authentication"]
+  },
+  {
+    id: "azure-az305-27",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d1",
+    domainName: "Design identity, governance, and monitoring solutions",
+    title: "Enforcing logon hours at cloud sign-in",
+    scenario: "A defence contractor's security policy forbids storing any form of user password hash outside its own datacentre, and requires that Active Directory logon hours and account disablement take effect at the moment a user signs in to Microsoft 365. The infrastructure team will accept lightweight outbound-only agents but will not deploy servers in a perimeter network.",
+    question: "Which authentication design should the architect recommend?",
+    options: [
+      { id: 'A', text: "An AD FS farm published to the internet through Web Application Proxy servers in a DMZ" },
+      { id: 'B', text: "Microsoft Entra Cloud Sync agents with password writeback turned on for every user" },
+      { id: 'C', text: "Password hash synchronization with Seamless SSO enabled for domain-joined PCs" },
+      { id: 'D', text: "Pass-through authentication with agents on at least three domain-joined servers" }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Pass-through authentication validates each password directly against on-premises domain controllers through agents that only make outbound connections, so no hash leaves the datacentre and logon hours and disabled states are evaluated at sign-in; Microsoft recommends at least three agents for resilience. Password hash synchronization stores a derived hash in the cloud, which the policy forbids, whether or not Seamless SSO is added. AD FS meets the policy but needs Web Application Proxy servers in a perimeter network, which the team refuses. Password writeback moves self-service password changes back to AD; it is not an authentication method and Cloud Sync does not provide pass-through validation.",
+    referenceUrl: "https://learn.microsoft.com/en-us/entra/identity/hybrid/connect/how-to-connect-pta",
+    tags: ["Hybrid identity", "Pass-through authentication"]
+  },
+  {
+    id: "azure-az305-28",
+    difficulty: "easy",
+    certId: "azure-az305",
+    domainId: "d1",
+    domainName: "Design identity, governance, and monitoring solutions",
+    title: "Credential-free secret access for one VM",
+    scenario: "A reporting application runs on a single Azure virtual machine and reads a database connection string from Key Vault at startup. The security team wants no secrets or certificates stored on the machine, and wants the application's identity to disappear automatically if the virtual machine is ever deleted.",
+    question: "Which identity should the application use?",
+    options: [
+      { id: 'A', text: "A service principal that signs in with a client secret kept in an environment variable" },
+      { id: 'B', text: "A system-assigned managed identity enabled on the virtual machine" },
+      { id: 'C', text: "A service principal that signs in with a certificate installed in the machine's store" },
+      { id: 'D', text: "A user-assigned managed identity attached to the virtual machine" }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "A system-assigned managed identity is created with the virtual machine and deleted with it, and the application obtains tokens from the instance metadata endpoint without any credential on disk, so both requirements are met. A user-assigned managed identity is also credential-free but is a standalone resource whose lifecycle is independent of the machine, so it would survive the deletion. Both service principal options place a secret or certificate on the machine and leave the identity behind when the machine is removed.",
+    referenceUrl: "https://learn.microsoft.com/en-us/entra/identity/managed-identities-azure-resources/overview",
+    tags: ["Managed identities", "Key Vault"]
+  },
+  {
+    id: "azure-az305-29",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d1",
+    domainName: "Design identity, governance, and monitoring solutions",
+    title: "One identity for a fleet that is rebuilt nightly",
+    scenario: "A media company's transcoding platform runs on a Virtual Machine Scale Set of up to 200 instances plus four Function Apps, all of which read from the same Storage account. The scale set is deleted and redeployed from a pipeline every night, and the security team wants the storage role assignment approved once and never recreated.",
+    question: "What should the architect recommend for authenticating to the Storage account?",
+    options: [
+      { id: 'A', text: "Enable a system-assigned managed identity on the scale set and on each Function App and assign each one the storage role" },
+      { id: 'B', text: "Register one application in Entra ID, give it the storage role and distribute its client secret through app settings" },
+      { id: 'C', text: "Generate a user delegation SAS each night from the pipeline and inject it into the instances and Function App settings" },
+      { id: 'D', text: "Create one user-assigned managed identity with the storage role and attach it to the scale set and Function Apps" }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "A user-assigned managed identity is an independent resource that can be attached to many resources, so one role assignment covers the scale set and all four Function Apps and survives the nightly rebuild because the identity is not deleted with the scale set. System-assigned identities are recreated with a new principal each time the scale set is redeployed, forcing new role assignments every night. An app registration with a client secret puts a credential into configuration that must be rotated. A nightly SAS is a bearer token that also has to be distributed and still depends on the pipeline's own credentials.",
+    referenceUrl: "https://learn.microsoft.com/en-us/entra/identity/managed-identities-azure-resources/managed-identity-best-practice-recommendations",
+    tags: ["Managed identities", "User-assigned", "Storage"]
+  },
+  {
+    id: "azure-az305-30",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d1",
+    domainName: "Design identity, governance, and monitoring solutions",
+    title: "Deploying from hosted CI without stored secrets",
+    scenario: "A retailer deploys Bicep templates to Azure from GitHub Actions workflows running on GitHub-hosted runners. An audit found a service principal client secret stored in the repository's secrets that had not been rotated in two years. The security team wants no long-lived Azure credential stored in GitHub at all.",
+    question: "What should the architect recommend?",
+    options: [
+      { id: 'A', text: "Replace the client secret with a certificate credential stored as an encrypted repository secret and rotated yearly" },
+      { id: 'B', text: "Keep the client secret but store it in Key Vault and have the GitHub workflow fetch it at the start of each run" },
+      { id: 'C', text: "Add a federated identity credential that trusts the repository's GitHub OIDC tokens on the deployment identity" },
+      { id: 'D', text: "Enable a system-assigned managed identity for the workflow so the runner obtains Azure tokens from instance metadata" }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "Workload identity federation lets the workflow exchange the short-lived OIDC token GitHub issues for an Entra access token, with the federated credential scoped to a specific repository, branch or environment, so nothing long-lived is stored in GitHub. A certificate is still a long-lived credential kept in GitHub secrets. Managed identities exist only for Azure-hosted compute, so a GitHub-hosted runner cannot use one. Moving the secret to Key Vault still needs a credential in GitHub to read Key Vault, which just moves the problem.",
+    referenceUrl: "https://learn.microsoft.com/en-us/entra/workload-id/workload-identity-federation",
+    tags: ["Workload identity federation", "GitHub Actions", "CI/CD"]
+  },
+  {
+    id: "azure-az305-31",
+    difficulty: "easy",
+    certId: "azure-az305",
+    domainId: "d1",
+    domainName: "Design identity, governance, and monitoring solutions",
+    title: "Phishing-resistant sign-in for privileged staff",
+    scenario: "After an adversary-in-the-middle phishing campaign captured session cookies from several helpdesk staff, a university will require every holder of an Entra administrative role to satisfy the built-in phishing-resistant MFA authentication strength in Conditional Access. The identity team is choosing which methods to roll out.",
+    question: "Which two methods satisfy that authentication strength? (Choose two.)",
+    options: [
+      { id: 'A', text: "FIDO2 security keys registered to each administrator" },
+      { id: 'B', text: "Microsoft Authenticator push approvals with number matching" },
+      { id: 'C', text: "Windows Hello for Business on managed administrator PCs" },
+      { id: 'D', text: "One-time passcodes from OATH hardware tokens" },
+      { id: 'E', text: "SMS one-time passcodes sent to registered mobile numbers" }
+    ],
+    correctAnswers: ['A', 'C'],
+    type: "multiple",
+    explanation: "FIDO2 security keys and Windows Hello for Business bind the credential to the legitimate sign-in origin with public-key cryptography, so a proxy site cannot relay them, and both are included in the phishing-resistant MFA strength (along with certificate-based multifactor authentication and passkeys). Authenticator push with number matching resists MFA fatigue but a user can still approve a sign-in started by a phishing proxy. OATH hardware token codes and SMS codes are typed into whatever page asks for them, so an adversary-in-the-middle can replay them, and SMS is additionally exposed to SIM swapping.",
+    referenceUrl: "https://learn.microsoft.com/en-us/entra/identity/authentication/concept-authentication-strengths",
+    tags: ["MFA", "Authentication strengths", "Passwordless"]
+  },
+  {
+    id: "azure-az305-32",
+    difficulty: "easy",
+    certId: "azure-az305",
+    domainId: "d1",
+    domainName: "Design identity, governance, and monitoring solutions",
+    title: "Partner engineers who keep their own accounts",
+    scenario: "An aircraft manufacturer is starting a two-year project with an engine supplier whose 80 engineers already have accounts in the supplier's own Entra tenant. The engineers need access to a project SharePoint site and an internal web app, and the manufacturer does not want to manage their passwords or MFA registrations.",
+    question: "What should the architect recommend?",
+    options: [
+      { id: 'A', text: "Create member accounts for the engineers in the manufacturer's tenant with temporary passwords" },
+      { id: 'B', text: "Invite the engineers as B2B collaboration guests who sign in with their supplier accounts" },
+      { id: 'C', text: "Enable B2B direct connect with the supplier's tenant for the SharePoint site and web app" },
+      { id: 'D', text: "Create an external tenant in Microsoft Entra External ID and register the engineers there" }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "B2B collaboration adds each engineer as a guest object in the manufacturer's tenant while authentication stays with the supplier's tenant, so the manufacturer assigns access to the site and app but never handles passwords or MFA registration. Member accounts with temporary passwords make the manufacturer responsible for credentials, which it wants to avoid. An External ID external tenant is designed for consumer and customer-facing apps, not workforce collaboration on SharePoint. B2B direct connect does not create guest objects and currently works only for Teams shared channels, so it cannot grant access to a SharePoint site or a custom web app.",
+    referenceUrl: "https://learn.microsoft.com/en-us/entra/external-id/what-is-b2b",
+    tags: ["External identities", "B2B collaboration"]
+  },
+  {
+    id: "azure-az305-33",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d1",
+    domainName: "Design identity, governance, and monitoring solutions",
+    title: "Sign-up and social login for a loyalty app",
+    scenario: "A coffee chain is launching a new loyalty mobile app in 2026 for an expected three million consumers. Customers must be able to self-register or sign in with Google, Apple or Facebook, the sign-in pages must carry the chain's branding, and customer accounts must be kept apart from the employee directory. The chain has never used any Microsoft customer identity product before.",
+    question: "Which identity solution should the architect recommend?",
+    options: [
+      { id: 'A', text: "Deploy Microsoft Entra Domain Services and store consumer accounts in a dedicated OU" },
+      { id: 'B', text: "Create an Azure AD B2C tenant and build custom user flows for each of the social identity providers" },
+      { id: 'C', text: "Create an external tenant in Microsoft Entra External ID with branded sign-up user flows" },
+      { id: 'D', text: "Invite consumers into the workforce tenant as B2B guests using email one-time passcodes" }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "Microsoft Entra External ID in an external tenant is the current customer identity platform: it keeps consumers in a tenant separate from the workforce directory, supports self-service sign-up, social identity providers and company branding, and scales to consumer volumes. Azure AD B2C stopped being available to new customers on 1 May 2025, so a first-time customer cannot adopt it. Inviting millions of consumers as guests puts them in the employee tenant, which the requirement forbids, and B2B has no self-service consumer sign-up at this scale. Entra Domain Services is a managed domain for legacy LDAP and Kerberos workloads, not a consumer sign-in service.",
+    referenceUrl: "https://learn.microsoft.com/en-us/entra/external-id/customers/overview-customers-ciam",
+    tags: ["External ID", "CIAM", "Customer identity"]
+  },
+  {
+    id: "azure-az305-34",
+    difficulty: "hard",
+    certId: "azure-az305",
+    domainId: "d1",
+    domainName: "Design identity, governance, and monitoring solutions",
+    title: "Acquired company users as members, not guests",
+    scenario: "A pharmaceutical group has acquired a biotech whose 1,500 staff are cloud-only users in their own Entra tenant, which will be kept for at least three years. Biotech staff must appear in the group's tenant as members so they show up in the global address list and can be assigned apps, and joiners and leavers must be reflected automatically within the hour without anyone running scripts.",
+    question: "What should the architect recommend?",
+    options: [
+      { id: 'A', text: "Point a Microsoft Entra Connect Sync server at both tenants to merge the users into the group tenant" },
+      { id: 'B', text: "Set up B2B direct connect between the tenants and allow inbound access for all biotech users" },
+      { id: 'C', text: "Bulk-invite the biotech staff as B2B guests each week from a CSV export and convert them to members" },
+      { id: 'D', text: "Configure cross-tenant synchronization from the biotech tenant with the user type mapped to Member" }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Cross-tenant synchronization is a provisioning job configured in the source tenant that creates, updates and removes B2B users in the target tenant on a regular cycle, and the user type can be mapped to Member so the accounts behave like internal users for the address list and app assignment. A weekly CSV invitation is manual, lags joiners and leavers, and does nothing for deprovisioning. Entra Connect Sync reads from on-premises Active Directory; it cannot synchronise cloud-only users from one Entra tenant to another. B2B direct connect creates no user objects in the resource tenant and is limited to Teams shared channels.",
+    referenceUrl: "https://learn.microsoft.com/en-us/entra/identity/multi-tenant-organizations/cross-tenant-synchronization-overview",
+    tags: ["Cross-tenant synchronization", "Multitenant", "Mergers"]
+  },
+  {
+    id: "azure-az305-35",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d1",
+    domainName: "Design identity, governance, and monitoring solutions",
+    title: "Cloud password resets that must reach AD",
+    scenario: "A housing association has enabled self-service password reset in Entra ID for its hybrid users, who are synchronised with password hash synchronization. Users report that after resetting their password at the Entra portal, their old password still works for the on-premises file server and for signing in to domain-joined PCs.",
+    question: "What should the architect add to the design?",
+    options: [
+      { id: 'A', text: "Deploy Microsoft Entra Password Protection agents on every domain controller" },
+      { id: 'B', text: "Enable password writeback in the synchronisation configuration" },
+      { id: 'C', text: "Reduce the password hash synchronisation interval from two minutes to one" },
+      { id: 'D', text: "Switch the tenant from password hash sync to pass-through authentication" }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "Password writeback sends a password changed or reset in Entra ID back to on-premises Active Directory, so the new password takes effect for domain sign-in and the file server; it is available in both Entra Connect Sync and Cloud Sync. Password hash sync only flows from AD to Entra ID, and switching to pass-through authentication changes how cloud sign-ins are validated but still gives self-service reset no path into AD. Password Protection enforces banned-password lists on domain controllers. The hash sync interval is not user-configurable and controls the opposite direction anyway.",
+    referenceUrl: "https://learn.microsoft.com/en-us/entra/identity/authentication/concept-sspr-writeback",
+    tags: ["SSPR", "Password writeback", "Hybrid identity"]
+  },
+  {
+    id: "azure-az305-36",
+    difficulty: "easy",
+    certId: "azure-az305",
+    domainId: "d1",
+    domainName: "Design identity, governance, and monitoring solutions",
+    title: "Blocking brand-name passwords on premises",
+    scenario: "A penetration test at a sports retailer cracked dozens of Active Directory passwords such as Stride2026! that combine the company name with a year. The retailer wants to stop users from setting passwords built from its brand names and from common weak passwords, both in the cloud and when changing passwords on domain controllers.",
+    question: "What should the architect recommend?",
+    options: [
+      { id: 'A', text: "Microsoft Entra Password Protection with a custom banned password list plus the DC agent" },
+      { id: 'B', text: "A Conditional Access policy that forces a password change when user risk is high" },
+      { id: 'C', text: "Fine-grained password policies in Active Directory that raise the minimum length to 16" },
+      { id: 'D', text: "Microsoft Entra smart lockout with a custom lockout threshold and lockout duration" }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Microsoft Entra Password Protection evaluates new passwords against the global banned list plus a custom list of organisation terms, including common substitutions, and the DC agent and proxy extend the same check to password changes on on-premises domain controllers. A longer minimum length still allows a long password built on the brand name. Smart lockout throttles guessing attempts but does not govern what password a user chooses. A user-risk policy reacts after a credential is judged compromised rather than preventing weak choices.",
+    referenceUrl: "https://learn.microsoft.com/en-us/entra/identity/authentication/concept-password-ban-bad-on-premises",
+    tags: ["Password Protection", "Hybrid identity"]
+  },
+  {
+    id: "azure-az305-37",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d1",
+    domainName: "Design identity, governance, and monitoring solutions",
+    title: "Synchronising forests that cannot see each other",
+    scenario: "A holding company has acquired five small firms, each with its own Active Directory forest and no network connectivity between the forests or to the head office. All five must synchronise users into the group's Entra tenant using password hash synchronization, and each firm's IT contact can install only a lightweight agent on an existing server.",
+    question: "What should the architect recommend?",
+    options: [
+      { id: 'A', text: "Build site-to-site VPNs to every forest and run one Entra Connect Sync server that reads all of them" },
+      { id: 'B', text: "Install a Microsoft Entra Cloud Sync provisioning agent in each forest and configure one sync job per forest" },
+      { id: 'C', text: "Install a Microsoft Entra Connect Sync server in each forest, each synchronising into the group tenant" },
+      { id: 'D', text: "Use Microsoft Identity Manager with a management agent per forest to merge them before one Entra Connect server" }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "Entra Cloud Sync moves the synchronisation engine into the cloud and uses lightweight outbound agents, so each disconnected forest needs only its own agent and the service handles all of them into one tenant with password hash synchronization. Entra Connect Sync needs a single server with line of sight to every forest, which is why VPNs would be required. Running several active Entra Connect Sync servers into the same tenant is not a supported topology. Microsoft Identity Manager adds a heavyweight server estate and still needs connectivity to every forest.",
+    referenceUrl: "https://learn.microsoft.com/en-us/entra/identity/hybrid/cloud-sync/what-is-cloud-sync",
+    tags: ["Entra Cloud Sync", "Hybrid identity", "Multi-forest"]
+  },
+  {
+    id: "azure-az305-38",
+    difficulty: "hard",
+    certId: "azure-az305",
+    domainId: "d1",
+    domainName: "Design identity, governance, and monitoring solutions",
+    title: "Deciding between the two synchronisation engines",
+    scenario: "A manufacturer running Entra Connect Sync wants to move to Entra Cloud Sync to cut server maintenance. Before approving, the identity lead lists the capabilities the company relies on today and asks which of them would prevent the move because Cloud Sync cannot provide them.",
+    question: "Which two current capabilities would block a move to Cloud Sync? (Choose two.)",
+    options: [
+      { id: 'A', text: "Device writeback for on-premises Conditional Access" },
+      { id: 'B', text: "Synchronising two forests with no connectivity between them" },
+      { id: 'C', text: "Password hash synchronization as a backup sign-in method" },
+      { id: 'D', text: "Pass-through authentication for all cloud sign-ins" },
+      { id: 'E', text: "Password writeback for self-service password reset" }
+    ],
+    correctAnswers: ['A', 'D'],
+    type: "multiple",
+    explanation: "Pass-through authentication is configured and its agents are deployed through Entra Connect, and device writeback is also an Entra Connect Sync feature with no Cloud Sync equivalent, so a company depending on either must keep Connect Sync (or run both engines for different purposes). Cloud Sync supports password hash synchronization and password writeback. Disconnected forests are a scenario where Cloud Sync is actually the better fit, because each forest runs its own lightweight agent.",
+    referenceUrl: "https://learn.microsoft.com/en-us/entra/identity/hybrid/cloud-sync/what-is-cloud-sync",
+    tags: ["Entra Cloud Sync", "Entra Connect", "Hybrid identity"]
+  },
+  {
+    id: "azure-az305-39",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d1",
+    domainName: "Design identity, governance, and monitoring solutions",
+    title: "Extra verification only for off-site admin portal access",
+    scenario: "An engineering firm with Entra ID P1 licences wants MFA required whenever anyone opens the Azure portal, Azure CLI or PowerShell against Azure Resource Manager from outside its two office IP ranges. Inside the offices, sign-ins to those tools should not prompt, and other cloud apps must be unaffected.",
+    question: "What should the architect recommend?",
+    options: [
+      { id: 'A', text: "Enable per-user MFA for every user and add the two office IP ranges as trusted IPs in the legacy MFA settings" },
+      { id: 'B', text: "Turn on security defaults so that MFA is required for all privileged operations against Azure Resource Manager" },
+      { id: 'C', text: "Define office named locations and target Windows Azure Service Management API in Conditional Access" },
+      { id: 'D', text: "Create an Entra ID Protection sign-in risk policy that requires MFA at medium risk and above for every user" }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "A Conditional Access policy targeting the Windows Azure Service Management API covers the Azure portal, CLI and PowerShell calls to Resource Manager, and excluding named locations for the office ranges limits the MFA requirement to off-site access while leaving other apps alone; P1 includes Conditional Access. Security defaults cannot be scoped by location or app and are replaced by Conditional Access. Per-user MFA with trusted IPs applies to every app the user signs in to, not just Azure management. A sign-in risk policy needs Entra ID P2 and triggers on risk detections, not on location.",
+    referenceUrl: "https://learn.microsoft.com/en-us/entra/identity/conditional-access/policy-old-require-mfa-azure-mgmt",
+    tags: ["Conditional Access", "Named locations", "MFA"]
+  },
+  {
+    id: "azure-az305-40",
+    difficulty: "hard",
+    certId: "azure-az305",
+    domainId: "d1",
+    domainName: "Design identity, governance, and monitoring solutions",
+    title: "Revoking mail access within minutes of offboarding",
+    scenario: "A bank's security review found that a dismissed trader kept reading Exchange Online mail for almost an hour after HR disabled his account, because his access token was still valid. The bank wants disablement, password resets and a user leaving the corporate IP range to cut off Exchange and SharePoint Online access in near real time, without raising token issuance traffic across the tenant.",
+    question: "What should the architect recommend?",
+    options: [
+      { id: 'A', text: "Run an Automation runbook on HR termination events that calls the revoke sign-in sessions API" },
+      { id: 'B', text: "Set a Conditional Access sign-in frequency of one hour for Exchange Online and SharePoint Online" },
+      { id: 'C', text: "Assign a token lifetime policy that cuts access tokens for Exchange and SharePoint to ten minutes" },
+      { id: 'D', text: "Rely on continuous access evaluation with strict location enforcement enabled in Conditional Access" }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Continuous access evaluation lets Exchange Online and SharePoint Online receive critical events such as account disablement, password change and token revocation and reject the existing token almost immediately, and strict location enforcement makes those services enforce IP-based Conditional Access on every request; because CAE-capable clients get longer-lived tokens, token traffic does not rise. Ten-minute access tokens still leave a window and multiply token requests. A one-hour sign-in frequency governs reauthentication prompts, not revocation of a valid token. Revoking sessions invalidates refresh tokens, but without CAE an already issued access token stays valid until it expires, and it does nothing for IP changes.",
+    referenceUrl: "https://learn.microsoft.com/en-us/entra/identity/conditional-access/concept-continuous-access-evaluation",
+    tags: ["Continuous access evaluation", "Conditional Access", "Tokens"]
+  },
+  {
+    id: "azure-az305-41",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d1",
+    domainName: "Design identity, governance, and monitoring solutions",
+    title: "Automatic response to leaked employee credentials",
+    scenario: "An online travel agency with Entra ID P2 licences learns that employee credentials regularly appear in public breach dumps. When Microsoft detects that a user's credentials have leaked, the agency wants that user forced to change their password securely at the next sign-in without a helpdesk call. All users are already registered for MFA and password writeback is enabled.",
+    question: "What should the architect configure?",
+    options: [
+      { id: 'A', text: "Smart lockout with a lower threshold for sign-ins from unfamiliar locations" },
+      { id: 'B', text: "Microsoft Entra Password Protection with a custom banned list checked at each password change" },
+      { id: 'C', text: "A sign-in risk Conditional Access policy that requires MFA for medium and high risk" },
+      { id: 'D', text: "A user risk Conditional Access policy requiring a secure password change at high risk" }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Leaked credentials is a user risk detection in Entra ID Protection, and a risk-based Conditional Access policy on user risk with the password change grant makes the user complete MFA and set a new password, which then remediates the risk; password writeback carries the new password to AD. A sign-in risk policy evaluates the individual sign-in and requiring MFA would not change a password known to attackers. Password Protection blocks weak choices at change time but does not react to a leak. Smart lockout slows password guessing and has no link to leaked-credential detections.",
+    referenceUrl: "https://learn.microsoft.com/en-us/entra/id-protection/concept-identity-protection-policies",
+    tags: ["ID Protection", "User risk", "Conditional Access"]
+  },
+  {
+    id: "azure-az305-42",
+    difficulty: "easy",
+    certId: "azure-az305",
+    domainId: "d1",
+    domainName: "Design identity, governance, and monitoring solutions",
+    title: "Entra accounts for SSH to Linux servers",
+    scenario: "An analytics start-up runs 60 Ubuntu virtual machines in Azure and today shares SSH keys among engineers. It wants engineers to sign in to the machines with their Entra accounts so Conditional Access MFA applies, and it wants sudo rights granted only to the platform team.",
+    question: "What should the architect recommend?",
+    options: [
+      { id: 'A', text: "Store each engineer's SSH key in Key Vault and connect only through Azure Bastion" },
+      { id: 'B', text: "Join the machines to Microsoft Entra Domain Services and grant sudo to a domain group" },
+      { id: 'C', text: "Install the Entra login extension and assign Virtual Machine Administrator Login" },
+      { id: 'D', text: "Enable Microsoft Defender for Cloud just-in-time VM access on port 22 for every virtual machine" }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "The Microsoft Entra login extension for Linux lets users authenticate over SSH with Entra ID and OpenSSH certificates, so Conditional Access applies; the Virtual Machine Administrator Login role grants sudo while Virtual Machine User Login grants ordinary access, which separates the platform team from other engineers. Joining Entra Domain Services gives Kerberos domain accounts synchronised from Entra ID, but those sign-ins bypass Conditional Access MFA. Keys in Key Vault with Bastion still rely on shared key material. Just-in-time access narrows when port 22 is open but does not change how users authenticate.",
+    referenceUrl: "https://learn.microsoft.com/en-us/entra/identity/devices/howto-vm-sign-in-azure-ad-linux",
+    tags: ["Entra login", "Linux VMs", "Authentication"]
+  },
+  {
+    id: "azure-az305-43",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d1",
+    domainName: "Design identity, governance, and monitoring solutions",
+    title: "SaaS sign-in for employees of customer companies",
+    scenario: "A software vendor is building a project-management web app it will sell to other businesses. Employees of each customer company must sign in with their existing work accounts from their own Entra tenant, and each customer's administrator must be able to approve the app's permissions for their whole organisation.",
+    question: "How should the architect register the application?",
+    options: [
+      { id: 'A', text: "As an app in an External ID external tenant with a local account user flow" },
+      { id: 'B', text: "As a single-tenant app, inviting each customer's employees as B2B guests" },
+      { id: 'C', text: "As a multitenant app accepting accounts in any organisational directory" },
+      { id: 'D', text: "As a single-tenant app with inbound cross-tenant access for each customer" }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "A multitenant registration lets users from any Entra tenant sign in with their own work accounts, and when a customer's administrator grants admin consent a service principal is created in that customer's tenant covering the whole organisation. Inviting every customer employee as a guest in the vendor's tenant does not scale and makes the vendor administer external users. An external tenant with local accounts forces customers to create new credentials instead of using their work accounts. Cross-tenant access settings govern B2B collaboration between tenants and do not turn a single-tenant app into one that other tenants can consent to.",
+    referenceUrl: "https://learn.microsoft.com/en-us/entra/identity-platform/howto-convert-app-to-be-multi-tenant",
+    tags: ["App registration", "Multitenant apps", "Consent"]
+  },
+  {
+    id: "azure-az305-44",
+    difficulty: "hard",
+    certId: "azure-az305",
+    domainId: "d1",
+    domainName: "Design identity, governance, and monitoring solutions",
+    title: "Nightly job that reads every user's calendar",
+    scenario: "A facilities company is building a background service in Azure Container Apps that runs at 02:00 each night, reads room bookings from every employee's Exchange calendar through Microsoft Graph and writes occupancy reports. No user is present when it runs, and the security team forbids storing any user's password for the service.",
+    question: "Which authentication design should the architect recommend?",
+    options: [
+      { id: 'A', text: "Resource owner password credentials flow using a dedicated service account with a mailbox" },
+      { id: 'B', text: "Application permission Calendars.Read granted with admin consent, used with the client credentials flow" },
+      { id: 'C', text: "Delegated Calendars.Read permission obtained once through the device code flow by an administrator" },
+      { id: 'D', text: "The on-behalf-of flow, exchanging the scheduling service's own token for a Graph token" }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "A daemon with no signed-in user uses the client credentials flow with application permissions, which an administrator consents to once; the app can then authenticate with a managed identity or certificate rather than a password, and Exchange application access policies or RBAC for Applications can narrow the mailboxes it reaches. Delegated permissions act on behalf of a signed-in user and can only reach what that user can see, and the device code flow requires someone present to sign in. The ROPC flow depends on a stored user password, which is forbidden and incompatible with MFA. On-behalf-of is for a middle-tier API that received a user's token, and there is no user in this flow.",
+    referenceUrl: "https://learn.microsoft.com/en-us/entra/identity-platform/v2-oauth2-client-creds-grant-flow",
+    tags: ["OAuth 2.0", "Client credentials", "Microsoft Graph"]
+  },
+  {
+    id: "azure-az305-45",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d1",
+    domainName: "Design identity, governance, and monitoring solutions",
+    title: "Smart-card sign-in after retiring federation",
+    scenario: "A government agency's staff sign in to Microsoft 365 with PIV smart cards through an AD FS farm, which the agency plans to decommission this year. Smart-card sign-in must continue and must count as multifactor authentication, and the agency does not want to issue any new authenticator hardware.",
+    question: "What should the architect recommend?",
+    options: [
+      { id: 'A', text: "Microsoft Entra certificate-based authentication trusting the agency's certificate authorities" },
+      { id: 'B', text: "FIDO2 security keys issued to every employee and enforced through authentication strengths" },
+      { id: 'C', text: "Windows Hello for Business in cloud Kerberos trust mode on all agency workstations" },
+      { id: 'D', text: "Keep a reduced AD FS farm solely for certificate authentication and move other sign-ins" }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Entra certificate-based authentication validates X.509 certificates from smart cards directly against the agency's uploaded certificate authorities, so AD FS can be removed, and authentication binding rules can classify PIV certificates as multifactor. Windows Hello for Business is a different credential that would replace, not preserve, smart-card sign-in. FIDO2 keys are new hardware, which the agency rules out. Retaining AD FS keeps the infrastructure the agency is trying to decommission.",
+    referenceUrl: "https://learn.microsoft.com/en-us/entra/identity/authentication/concept-certificate-based-authentication",
+    tags: ["Certificate-based authentication", "AD FS migration"]
+  },
+  {
+    id: "azure-az305-46",
+    difficulty: "easy",
+    certId: "azure-az305",
+    domainId: "d1",
+    domainName: "Design identity, governance, and monitoring solutions",
+    title: "First-day passwordless setup for new hires",
+    scenario: "A consultancy is moving all staff to passwordless sign-in with the Microsoft Authenticator app. New hires are issued laptops and phones on their first day but have never had a password, and they need a time-limited way to sign in once and register their passwordless method.",
+    question: "What should the architect recommend?",
+    options: [
+      { id: 'A', text: "Send an SMS one-time passcode to each new hire's personal phone" },
+      { id: 'B', text: "Email a random initial password to each new hire's line manager" },
+      { id: 'C', text: "Enable self-service password reset with security questions only" },
+      { id: 'D', text: "Issue each new hire an eight-hour Temporary Access Pass" }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "A Temporary Access Pass is a time-limited passcode issued by an administrator that satisfies strong authentication, so a new hire can sign in and register Authenticator passwordless sign-in or a passkey without ever having a password. An emailed initial password introduces the very password the programme avoids and exposes it in transit. Security questions are a weak recovery method that assumes an existing account password. SMS sign-in requires the phone number to be registered and enabled first, and SMS is not a method that can bootstrap passwordless registration securely.",
+    referenceUrl: "https://learn.microsoft.com/en-us/entra/identity/authentication/howto-authentication-temporary-access-pass",
+    tags: ["Temporary Access Pass", "Passwordless"]
+  },
+  {
+    id: "azure-az305-47",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d1",
+    domainName: "Design identity, governance, and monitoring solutions",
+    title: "Piloting the move off AD FS before cutover",
+    scenario: "A publisher's Microsoft 365 domain is federated with AD FS. The identity team has decided to move to password hash synchronization for cloud sign-in, but the CIO wants 200 pilot users in two security groups to authenticate through Entra ID first while everyone else stays on AD FS until the pilot succeeds.",
+    question: "Which two actions should the architect include? (Choose two.)",
+    options: [
+      { id: 'A', text: "Publish a second AD FS relying party trust that only the pilot users hit" },
+      { id: 'B', text: "Enable Staged Rollout for hash sync and add both pilot security groups" },
+      { id: 'C', text: "Turn on password hash synchronization in Entra Connect for all users" },
+      { id: 'D', text: "Convert the domain to managed with password hash synchronization now" },
+      { id: 'E', text: "Build a second Entra Connect server in staging mode for the pilot groups" }
+    ],
+    correctAnswers: ['B', 'C'],
+    type: "multiple",
+    explanation: "Password hashes must be synchronised for the pilot users before they can authenticate in the cloud, and Staged Rollout lets selected groups use cloud authentication while the domain remains federated for everyone else. Converting the domain to managed switches all users at once, which is the cutover the CIO wants to delay. Staging mode is a standby Entra Connect server for disaster recovery and testing configuration changes; it does not route any users' sign-ins. A second relying party trust keeps the pilot on AD FS, the opposite of the goal.",
+    referenceUrl: "https://learn.microsoft.com/en-us/entra/identity/hybrid/connect/how-to-connect-staged-rollout",
+    tags: ["AD FS migration", "Staged Rollout", "Password hash sync"]
+  },
+  {
+    id: "azure-az305-48",
+    difficulty: "hard",
+    certId: "azure-az305",
+    domainId: "d1",
+    domainName: "Design identity, governance, and monitoring solutions",
+    title: "Regional helpdesk limited to its own users",
+    scenario: "A retail group has 40,000 Entra users across three countries. The Spanish helpdesk must reset passwords and MFA methods for Spanish store staff only, and must be unable to touch users in the other two countries or any administrator. The group wants to use built-in roles rather than build custom tooling.",
+    question: "Which two actions should the architect recommend? (Choose two.)",
+    options: [
+      { id: 'A', text: "Assign the Spanish helpdesk User Administrator at tenant scope" },
+      { id: 'B', text: "Create a management group for the Spanish store subscriptions" },
+      { id: 'C', text: "Assign Authentication Administrator to the helpdesk scoped to that unit" },
+      { id: 'D', text: "Grant User Access Administrator to the helpdesk on the Spanish subscription" },
+      { id: 'E', text: "Create an administrative unit that contains the Spanish store users" }
+    ],
+    correctAnswers: ['C', 'E'],
+    type: "multiple",
+    explanation: "Administrative units restrict the scope of an Entra role to a chosen set of users or groups, and Authentication Administrator can reset passwords and manage authentication methods for non-administrators, so assigning it at the unit's scope confines the helpdesk to Spanish store staff; dynamic membership rules can keep the unit current. User Administrator at tenant scope reaches every user in all three countries. Management groups organise Azure subscriptions and have nothing to do with Entra user objects. User Access Administrator is an Azure RBAC role for delegating resource access and grants no rights over passwords or MFA methods.",
+    referenceUrl: "https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/administrative-units",
+    tags: ["Administrative units", "Entra roles", "Delegation"]
+  },
+  {
+    id: "azure-az305-49",
+    difficulty: "hard",
+    certId: "azure-az305",
+    domainId: "d1",
+    domainName: "Design identity, governance, and monitoring solutions",
+    title: "Stopping double MFA prompts for partner guests",
+    scenario: "A consultancy hosts 300 B2B guests from a long-standing partner whose tenant already enforces MFA on every sign-in. The consultancy's Conditional Access policy requires MFA for all users including guests, so partner staff must register a second MFA method in the consultancy's tenant and are prompted twice. The consultancy must keep MFA enforced for these guests.",
+    question: "What should the architect recommend?",
+    options: [
+      { id: 'A', text: "Replace B2B collaboration with B2B direct connect for the partner tenant" },
+      { id: 'B', text: "Configure cross-tenant synchronization so that partner users arrive as members" },
+      { id: 'C', text: "Trust MFA claims from the partner in inbound cross-tenant access settings" },
+      { id: 'D', text: "Exclude the partner's guest users from the MFA Conditional Access policy" }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "Inbound trust settings in cross-tenant access let the resource tenant accept the MFA claim issued by the partner's home tenant, so the Conditional Access MFA requirement is satisfied without a second registration or prompt, and MFA is still enforced. Excluding guests from the policy drops the MFA requirement altogether. Cross-tenant synchronization is configured by the source tenant for provisioning, and member users still face the same MFA problem unless trust is configured. B2B direct connect only covers Teams shared channels, so guests would lose access to everything else.",
+    referenceUrl: "https://learn.microsoft.com/en-us/entra/external-id/cross-tenant-access-settings-b2b-collaboration",
+    tags: ["Cross-tenant access", "B2B collaboration", "MFA"]
+  },
+  {
+    id: "azure-az305-50",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d1",
+    domainName: "Design identity, governance, and monitoring solutions",
+    title: "Standby for a sync server that also writes back devices",
+    scenario: "An insurer runs a single Entra Connect Sync server that synchronises 25,000 users and performs device writeback for its on-premises AD FS device-based access rules. The server's failure last quarter stopped provisioning for two days. The insurer wants a warm standby that can take over within an hour with the identical configuration.",
+    question: "What should the architect recommend?",
+    options: [
+      { id: 'A', text: "A second Entra Connect Sync server, identically configured, in staging mode" },
+      { id: 'B', text: "Azure Site Recovery replication of the sync server to a secondary region" },
+      { id: 'C', text: "Two Entra Cloud Sync agents registered in addition to the existing server" },
+      { id: 'D', text: "A second, active Entra Connect Sync server sharing the load with the first" }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "A staging-mode Entra Connect Sync server imports and computes changes with the same configuration but does not export, so it is ready to be switched to active if the primary fails; this is the documented high-availability pattern for Connect Sync. Two active Connect Sync servers exporting to the same tenant are not supported. Cloud Sync agents provide their own high availability but Cloud Sync cannot perform device writeback, so they cannot take over the insurer's workload. Site Recovery can restore the virtual machine, but it replicates any corruption with it and is not the product's supported standby model.",
+    referenceUrl: "https://learn.microsoft.com/en-us/entra/identity/hybrid/connect/plan-connect-topologies",
+    tags: ["Entra Connect", "Staging mode", "High availability"]
+  }
+];
+
+export default AZURE_AZ305_QUESTIONS_2;

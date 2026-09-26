@@ -9,12 +9,12 @@ export const AZURE_AZ305_QUESTIONS_3 = [
     scenario: "A retailer's help desk must be able to start, restart and deallocate 300 virtual machines in a production subscription during incidents. The security team requires least privilege: help desk staff must not be able to resize, delete or redeploy the machines, and must not be able to sign in to the guest operating system.",
     question: "Which role assignment should the architect recommend?",
     options: [
-      { id: 'A', text: "A custom role whose actions are limited to the virtual machine read, start, restart and deallocate operations, assigned at the subscription scope." },
-      { id: 'B', text: "The built-in Virtual Machine Contributor role assigned at the subscription scope, paired with a Conditional Access policy that requires MFA for staff." },
-      { id: 'C', text: "The built-in Virtual Machine User Login role assigned at the subscription scope so that staff can act on the machines from inside the guest session." },
-      { id: 'D', text: "The built-in Reader role assigned permanently, with Privileged Identity Management activation to Contributor for the duration of each incident." }
+      { id: 'A', text: "The built-in Virtual Machine Contributor role assigned at the subscription scope, paired with a Conditional Access policy that requires MFA for staff." },
+      { id: 'B', text: "The built-in Reader role assigned permanently, with Privileged Identity Management activation to Contributor for the duration of each incident." },
+      { id: 'C', text: "A custom role whose actions are limited to the virtual machine read, start, restart and deallocate operations, assigned at the subscription scope." },
+      { id: 'D', text: "The built-in Virtual Machine User Login role assigned at the subscription scope so that staff can act on the machines from inside the guest session." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "A custom role is the right tool when no built-in role matches the permission set: listing only Microsoft.Compute/virtualMachines/read, start/action, restart/action and deallocate/action gives the help desk power control and nothing else. Virtual Machine Contributor can delete, resize and redeploy machines, and multi-factor authentication does not narrow what a role permits. Virtual Machine User Login grants sign-in to the guest through Entra ID, which the security team explicitly forbids, and it grants no power-management actions at all. Reader with a PIM activation to Contributor still confers full Contributor during an incident, which is exactly when the extra permissions would be misused.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/role-based-access-control/custom-roles",
@@ -30,12 +30,12 @@ export const AZURE_AZ305_QUESTIONS_3 = [
     scenario: "A university's security operations team needs Reader access to every one of the 45 subscriptions under the Corp management group, and to any subscription that finance adds under that group in future. New subscriptions arrive two or three times a month, and the team wants no manual step when they appear.",
     question: "What should the architect recommend?",
     options: [
-      { id: 'A', text: "Assign the Reader role to the team's security group at each subscription scope using a deployment script." },
-      { id: 'B', text: "Assign the Reader role to the security group once at the Corp management group scope." },
-      { id: 'C', text: "Assign the Global Reader directory role to the team's security group in Microsoft Entra ID." },
-      { id: 'D', text: "Assign the Reader role to each team member individually at the root management group scope." }
+      { id: 'A', text: "Assign the Reader role to each team member individually at the root management group scope." },
+      { id: 'B', text: "Assign the Global Reader directory role to the team's security group in Microsoft Entra ID." },
+      { id: 'C', text: "Assign the Reader role to the team's security group at each subscription scope using a deployment script." },
+      { id: 'D', text: "Assign the Reader role to the security group once at the Corp management group scope." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Role assignments inherit down the hierarchy, so one Reader assignment at the Corp management group flows to every subscription beneath it today and to any subscription moved under it later, with no per-subscription action. Assigning at each subscription with a script covers today's 45 but leaves a manual or automated step for every new subscription. Global Reader is a Microsoft Entra directory role: it reads directory objects, not Azure resources, and grants no visibility into subscriptions. Assigning at the root management group would also inherit, but it grants Reader over every subscription in the tenant rather than just the Corp group, and per-user assignments consume assignment limits and complicate offboarding.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/role-based-access-control/scope-overview",
@@ -73,11 +73,11 @@ export const AZURE_AZ305_QUESTIONS_3 = [
     question: "What should the architect recommend?",
     options: [
       { id: 'A', text: "Author a deny assignment at the resource group scope in the Bicep template that lists every principal except the pipeline identity." },
-      { id: 'B', text: "Assign an Azure Policy initiative with the Deny effect on write operations to the resource group and exempt the pipeline identity from it." },
-      { id: 'C', text: "Apply a CanNotDelete lock at the resource group and grant the pipeline identity a custom role that includes the lock delete action." },
-      { id: 'D', text: "Deploy the resources with a deployment stack whose deny settings use the denyWriteAndDelete mode and exclude the pipeline identity." }
+      { id: 'B', text: "Apply a CanNotDelete lock at the resource group and grant the pipeline identity a custom role that includes the lock delete action." },
+      { id: 'C', text: "Deploy the resources with a deployment stack whose deny settings use the denyWriteAndDelete mode and exclude the pipeline identity." },
+      { id: 'D', text: "Assign an Azure Policy initiative with the Deny effect on write operations to the resource group and exempt the pipeline identity from it." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Deployment stacks are the supported way to obtain a deny assignment: the denyWriteAndDelete mode blocks PUT, PATCH and DELETE on every resource the stack manages for all principals, and excludedPrincipals carves out the pipeline identity so routine deployments continue. Deny assignments cannot be authored directly; the Microsoft.Authorization/denyAssignments type is created only by Azure on behalf of features such as deployment stacks and managed applications. Azure Policy exemptions apply to scopes, not to identities, so a Deny effect would either block the pipeline as well or block nobody. A CanNotDelete lock leaves modification open, and the scenario has already ruled out relying on locks that a privileged user can remove.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-resource-manager/bicep/deployment-stacks",
@@ -94,9 +94,9 @@ export const AZURE_AZ305_QUESTIONS_3 = [
     question: "Which approach meets these requirements?",
     options: [
       { id: 'A', text: "Make the engineers eligible for Owner in Privileged Identity Management with approval, an 8-hour maximum duration and a required ticket field." },
-      { id: 'B', text: "Grant the engineers Owner permanently and require multi-factor authentication and a compliant device through Conditional Access for portal sign-in." },
-      { id: 'C', text: "Create a break-glass account holding Owner, store its credential in Key Vault and grant engineers Key Vault Secrets User for the life of a ticket." },
-      { id: 'D', text: "Assign the engineers a custom role that mirrors Owner but adds a condition restricting use to maintenance windows opened by an incident ticket." }
+      { id: 'B', text: "Create a break-glass account holding Owner, store its credential in Key Vault and grant engineers Key Vault Secrets User for the life of a ticket." },
+      { id: 'C', text: "Assign the engineers a custom role that mirrors Owner but adds a condition restricting use to maintenance windows opened by an incident ticket." },
+      { id: 'D', text: "Grant the engineers Owner permanently and require multi-factor authentication and a compliant device through Conditional Access for portal sign-in." }
     ],
     correctAnswers: ['A'],
     type: "single",
@@ -114,12 +114,12 @@ export const AZURE_AZ305_QUESTIONS_3 = [
     scenario: "A media company's Global Administrator is asked to inventory every subscription in the tenant after an acquisition. Several subscriptions were created by departed employees and show no role assignments for current staff. The administrator can manage the directory but the Azure portal lists only three subscriptions. The company wants the fix to be temporary and auditable.",
     question: "What should the administrator do?",
     options: [
-      { id: 'A', text: "Assign the Owner role at the root management group to the administrator using a subscription where the administrator already holds Owner." },
-      { id: 'B', text: "Assign the Global Reader directory role to the administrator so that every subscription in the tenant appears in the portal." },
-      { id: 'C', text: "Elevate access on the Global Administrator account to gain User Access Administrator at root scope, then remove it afterwards." },
-      { id: 'D', text: "Ask Microsoft support to transfer billing ownership of the orphaned subscriptions to the administrator's own account." }
+      { id: 'A', text: "Ask Microsoft support to transfer billing ownership of the orphaned subscriptions to the administrator's own account." },
+      { id: 'B', text: "Assign the Owner role at the root management group to the administrator using a subscription where the administrator already holds Owner." },
+      { id: 'C', text: "Assign the Global Reader directory role to the administrator so that every subscription in the tenant appears in the portal." },
+      { id: 'D', text: "Elevate access on the Global Administrator account to gain User Access Administrator at root scope, then remove it afterwards." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Entra directory roles and Azure resource roles are separate: a Global Administrator has no rights on subscriptions until access is elevated, which grants User Access Administrator at the root scope, lets the administrator list and grant access to every subscription, is written to the directory audit log and is expected to be removed once the task is done. Assigning Owner at the root management group requires permissions on that scope, which the administrator lacks precisely because no current staff hold assignments there. Global Reader is another directory role and confers no Azure resource visibility. Billing ownership transfer changes who pays for a subscription, not who holds RBAC on it, and would need the departed owners' cooperation.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/role-based-access-control/elevate-access-global-admin",
@@ -136,11 +136,11 @@ export const AZURE_AZ305_QUESTIONS_3 = [
     question: "Which control should the architect recommend?",
     options: [
       { id: 'A', text: "Apply a ReadOnly lock to the storage account." },
-      { id: 'B', text: "Apply a CanNotDelete lock to the storage account." },
-      { id: 'C', text: "Apply a CanNotDelete lock to the resource group." },
+      { id: 'B', text: "Apply a CanNotDelete lock to the resource group." },
+      { id: 'C', text: "Apply a CanNotDelete lock to the storage account." },
       { id: 'D', text: "Apply a ReadOnly lock to the resource group." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "A CanNotDelete lock on the storage account blocks delete operations against that resource for every principal, including Owners, until the lock is removed, while leaving configuration changes such as network rules and all data-plane uploads untouched. A ReadOnly lock on the account would block management-plane writes, so the network rule changes would fail, and it also prevents listing the account keys. A CanNotDelete lock on the resource group is inherited by every resource in it, so the developers could no longer destroy their daily test virtual machines. A ReadOnly lock on the resource group combines both problems and freezes the whole group.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/lock-resources",
@@ -156,12 +156,12 @@ export const AZURE_AZ305_QUESTIONS_3 = [
     scenario: "A gaming studio applied a lock to the resource group that holds its Azure Functions apps and their host storage account to stop accidental changes before a launch. Shortly afterwards the portal began showing errors for the function apps and deployments through the portal editor started failing, although the storage account itself is healthy and reachable.",
     question: "What is the MOST likely cause?",
     options: [
-      { id: 'A', text: "A CanNotDelete lock blocks the storage account from rotating its keys, so services that depend on those keys lose their connection." },
-      { id: 'B', text: "The lock removed the function app's system-assigned identity, so the runtime can no longer authenticate to the storage account." },
-      { id: 'C', text: "Locks on a resource group prevent Azure Functions from scaling out, and the scale controller surfaces the failures in the portal." },
-      { id: 'D', text: "A ReadOnly lock blocks the storage account listKeys operation, which is a POST request, so services that fetch account keys fail." }
+      { id: 'A', text: "The lock removed the function app's system-assigned identity, so the runtime can no longer authenticate to the storage account." },
+      { id: 'B', text: "A ReadOnly lock blocks the storage account listKeys operation, which is a POST request, so services that fetch account keys fail." },
+      { id: 'C', text: "A CanNotDelete lock blocks the storage account from rotating its keys, so services that depend on those keys lose their connection." },
+      { id: 'D', text: "Locks on a resource group prevent Azure Functions from scaling out, and the scale controller surfaces the failures in the portal." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "A ReadOnly lock restricts the management plane to read operations, and listing storage account keys is a POST to the listKeys action, so it is denied; Azure Functions retrieves the account key through that call to reach its host storage, which produces exactly the portal and deployment errors described. A CanNotDelete lock only blocks delete; key rotation and key listing both keep working under it. Locks never alter managed identities, and a system-assigned identity is not used for the default key-based host connection in any case. Locks act on Resource Manager operations, not on the scale controller, so scaling continues regardless of a lock.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/lock-resources",
@@ -177,12 +177,12 @@ export const AZURE_AZ305_QUESTIONS_3 = [
     scenario: "A manufacturer has defined a custom role that lets network operators manage route tables and NSG rules. The role is needed in 60 subscriptions under the Workloads management group today, and new subscriptions land under that group every quarter. The team wants a single role definition that is assignable in every current and future subscription without editing it.",
     question: "How should the custom role's assignable scopes be defined?",
     options: [
-      { id: 'A', text: "Set the assignable scope to the Workloads management group." },
-      { id: 'B', text: "Set the assignable scope to the tenant root scope of /." },
-      { id: 'C', text: "Set the assignable scope to each of the 60 subscription ids." },
-      { id: 'D', text: "Set the assignable scope to the resource groups that hold the networks." }
+      { id: 'A', text: "Set the assignable scope to each of the 60 subscription ids." },
+      { id: 'B', text: "Set the assignable scope to the Workloads management group." },
+      { id: 'C', text: "Set the assignable scope to the resource groups that hold the networks." },
+      { id: 'D', text: "Set the assignable scope to the tenant root scope of /." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "A custom role can list a management group in assignableScopes, and it is then assignable at that group and at every subscription and resource group beneath it, including subscriptions added later, so one definition covers the whole estate. The tenant root scope of / is not permitted as an assignable scope for custom roles. Listing the 60 subscription ids works today but forces an edit of the definition every quarter, which is the maintenance the team wants to avoid. Resource group scopes are narrower still and multiply the same problem across every network resource group.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/role-based-access-control/role-definitions",
@@ -200,8 +200,8 @@ export const AZURE_AZ305_QUESTIONS_3 = [
     options: [
       { id: 'A', text: "Move the per-developer Contributor assignments to subscription scope with an ABAC condition on the resource group name." },
       { id: 'B', text: "Grant Reader on the shared tooling resource group to one Entra group containing all developers instead of per-user assignments." },
-      { id: 'C', text: "Replace the per-developer Contributor assignments with a custom role whose assignable scope is the development subscription." },
-      { id: 'D', text: "Split the shared tooling resource group into one per team so that each developer's Reader assignment sits on a smaller scope." }
+      { id: 'C', text: "Split the shared tooling resource group into one per team so that each developer's Reader assignment sits on a smaller scope." },
+      { id: 'D', text: "Replace the per-developer Contributor assignments with a custom role whose assignable scope is the development subscription." }
     ],
     correctAnswers: ['B'],
     type: "single",
@@ -220,10 +220,10 @@ export const AZURE_AZ305_QUESTIONS_3 = [
     question: "Which two attributes can the role assignment condition reference? (Choose two.)",
     options: [
       { id: 'A', text: "Blob index tags set on the blob being read." },
-      { id: 'B', text: "Security groups of which the calling user is a member." },
-      { id: 'C', text: "The public IP address from which the request originated." },
+      { id: 'B', text: "The replication and redundancy option configured on the storage account." },
+      { id: 'C', text: "Security groups of which the calling user is a member." },
       { id: 'D', text: "Custom security attributes assigned to the calling principal." },
-      { id: 'E', text: "The replication and redundancy option configured on the storage account." }
+      { id: 'E', text: "The public IP address from which the request originated." }
     ],
     correctAnswers: ['A', 'D'],
     type: "multiple",
@@ -241,12 +241,12 @@ export const AZURE_AZ305_QUESTIONS_3 = [
     scenario: "An energy utility created a custom role that grants Microsoft.Web/* but lists Microsoft.Web/sites/delete under NotActions, and assigned it to the app team at the production resource group. Weeks later a team member deleted a production web app. The same person also holds Contributor at the subscription scope from an earlier project.",
     question: "What is the MOST likely cause?",
     options: [
-      { id: 'A', text: "NotActions is evaluated only at the scope where the role is assigned, so a delete issued at the subscription scope bypasses the exclusion." },
-      { id: 'B', text: "NotActions only subtracts from the same role's Actions; effective permissions are the union of all assignments, so Contributor still allows the delete." },
-      { id: 'C', text: "Custom roles cannot exclude delete operations through NotActions; a deny assignment is required to block the action for that principal." },
-      { id: 'D', text: "The Microsoft.Web/* wildcard in Actions takes precedence over an explicit NotActions entry when both are listed in the same role definition." }
+      { id: 'A', text: "The Microsoft.Web/* wildcard in Actions takes precedence over an explicit NotActions entry when both are listed in the same role definition." },
+      { id: 'B', text: "Custom roles cannot exclude delete operations through NotActions; a deny assignment is required to block the action for that principal." },
+      { id: 'C', text: "NotActions is evaluated only at the scope where the role is assigned, so a delete issued at the subscription scope bypasses the exclusion." },
+      { id: 'D', text: "NotActions only subtracts from the same role's Actions; effective permissions are the union of all assignments, so Contributor still allows the delete." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "NotActions is not a deny: it removes operations from the set the same role definition grants, and Azure computes effective permissions as the union of every role assignment on a principal. The Contributor assignment at subscription scope includes Microsoft.Web/sites/delete and is inherited by the resource group, so the deletion succeeds regardless of the custom role. Role evaluation is not scope-sensitive in that way; an inherited assignment applies at every child scope. Custom roles can list delete operations in NotActions, which is exactly what this role does. Explicit NotActions entries are subtracted from wildcard Actions; that is the defined behaviour, not a precedence conflict.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/role-based-access-control/role-definitions",
@@ -262,12 +262,12 @@ export const AZURE_AZ305_QUESTIONS_3 = [
     scenario: "An audit of a public sector agency finds that four employees still hold the Co-Administrator classic role on a long-lived subscription that predates Azure Resource Manager. The agency wants equivalent day-to-day rights to remain in place through a supported mechanism, with the permissions visible in the same access reviews as the rest of the estate.",
     question: "What should the architect recommend?",
     options: [
-      { id: 'A', text: "Promote one employee to Service Administrator and remove the remaining Co-Administrator entries from the subscription." },
-      { id: 'B', text: "Assign each employee the User Access Administrator role at the subscription scope, then remove the Co-Administrator entries." },
-      { id: 'C', text: "Assign each employee the Owner role at the subscription scope through Azure RBAC, then remove the Co-Administrator entries." },
-      { id: 'D', text: "Assign each employee the Global Administrator role in Microsoft Entra ID, then remove the Co-Administrator entries." }
+      { id: 'A', text: "Assign each employee the Global Administrator role in Microsoft Entra ID, then remove the Co-Administrator entries." },
+      { id: 'B', text: "Assign each employee the Owner role at the subscription scope through Azure RBAC, then remove the Co-Administrator entries." },
+      { id: 'C', text: "Promote one employee to Service Administrator and remove the remaining Co-Administrator entries from the subscription." },
+      { id: 'D', text: "Assign each employee the User Access Administrator role at the subscription scope, then remove the Co-Administrator entries." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Classic administrator roles were retired on 31 August 2024, and Microsoft's guidance is to replace Co-Administrator with an Azure RBAC assignment: Owner at subscription scope grants the same full management rights and appears in access reviews and role assignment reports like every other RBAC assignment. Service Administrator is another classic role and is retired with the rest. User Access Administrator can manage role assignments but cannot create or change resources, so it would strip the employees of their day-to-day rights. Global Administrator is a directory role with no inherent Azure resource permissions and a far larger blast radius than a single subscription.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/role-based-access-control/classic-administrators",
@@ -283,12 +283,12 @@ export const AZURE_AZ305_QUESTIONS_3 = [
     scenario: "A fintech's platform lead must be able to create, modify and delete any resource in the payments subscription, including networking and Key Vault instances. Under the firm's separation-of-duties policy only the identity team may grant or change access for other people, so the lead must not be able to create role assignments.",
     question: "Which built-in role should the architect recommend?",
     options: [
-      { id: 'A', text: "Owner at the subscription scope." },
-      { id: 'B', text: "Contributor at the subscription scope." },
-      { id: 'C', text: "User Access Administrator at the subscription scope." },
+      { id: 'A', text: "Contributor at the subscription scope." },
+      { id: 'B', text: "User Access Administrator at the subscription scope." },
+      { id: 'C', text: "Owner at the subscription scope." },
       { id: 'D', text: "Role Based Access Control Administrator at the subscription scope." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['A'],
     type: "single",
     explanation: "Contributor grants full rights to manage every resource type but excludes Microsoft.Authorization/*/Write, so the lead can build and change anything while remaining unable to grant access, which is precisely the separation the policy demands. Owner adds the authorization write actions, so the lead could assign roles to anyone. User Access Administrator is the inverse: it manages access and little else, so the lead could not create resources. Role Based Access Control Administrator is a constrained delegation role for creating role assignments and likewise carries no resource management rights.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles",
@@ -304,8 +304,8 @@ export const AZURE_AZ305_QUESTIONS_3 = [
     scenario: "An airline's central identity team is a bottleneck: 30 application team leads file tickets to grant Storage Blob Data Reader or Storage Blob Data Contributor to colleagues on their own resource groups. The team wants leads to make those assignments themselves, but leads must be unable to assign Owner, Contributor or any other role, and must not be able to assign roles to service principals.",
     question: "Which solution meets these requirements?",
     options: [
-      { id: 'A', text: "Assign User Access Administrator on each lead's resource group and configure an activity log alert that notifies the identity team when other roles are assigned." },
-      { id: 'B', text: "Create a custom role containing Microsoft.Authorization/roleAssignments/write with NotDataActions that exclude Owner and Contributor assignments." },
+      { id: 'A', text: "Create a custom role containing Microsoft.Authorization/roleAssignments/write with NotDataActions that exclude Owner and Contributor assignments." },
+      { id: 'B', text: "Assign User Access Administrator on each lead's resource group and configure an activity log alert that notifies the identity team when other roles are assigned." },
       { id: 'C', text: "Make each lead eligible for Owner on their resource group in Privileged Identity Management with approval from the identity team for every activation." },
       { id: 'D', text: "Assign Role Based Access Control Administrator on each lead's resource group with a condition restricting the roles and principal types they can assign." }
     ],
@@ -325,12 +325,12 @@ export const AZURE_AZ305_QUESTIONS_3 = [
     scenario: "A non-profit is retiring its file servers in favour of Azure Files SMB shares. Its 900 staff sign in with accounts synchronised from on-premises Active Directory, and their Windows laptops are hybrid joined and mostly used from home. Users must authenticate to the shares with their existing identities and Windows ACLs must be preserved, with no VPN and no reachable domain controller from home.",
     question: "Which identity source should the storage account use?",
     options: [
-      { id: 'A', text: "Microsoft Entra Kerberos authentication for hybrid identities." },
-      { id: 'B', text: "On-premises Active Directory Domain Services authentication." },
-      { id: 'C', text: "Microsoft Entra Domain Services authentication." },
-      { id: 'D', text: "Storage account shared key with per-user SAS delegation." }
+      { id: 'A', text: "On-premises Active Directory Domain Services authentication." },
+      { id: 'B', text: "Storage account shared key with per-user SAS delegation." },
+      { id: 'C', text: "Microsoft Entra Kerberos authentication for hybrid identities." },
+      { id: 'D', text: "Microsoft Entra Domain Services authentication." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Entra Kerberos lets hybrid identities obtain Kerberos tickets for Azure Files from Entra ID, so hybrid-joined laptops authenticate from home without line of sight to a domain controller while the Windows ACLs on the share are honoured. On-premises AD DS authentication requires clients to reach a domain controller to obtain tickets, which the home users cannot do. Entra Domain Services authentication requires clients to be joined to the managed domain and able to reach it, which does not describe hybrid-joined laptops at home. Shared key and SAS provide no per-user identity, so Windows ACLs cannot be evaluated.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/storage/files/storage-files-identity-auth-hybrid-identities-enable",
@@ -347,11 +347,11 @@ export const AZURE_AZ305_QUESTIONS_3 = [
     question: "Which directory service should the architect recommend?",
     options: [
       { id: 'A', text: "Two Active Directory Domain Services domain controllers on Azure virtual machines." },
-      { id: 'B', text: "A Microsoft Entra Domain Services managed domain with secure LDAP enabled." },
-      { id: 'C', text: "Microsoft Entra ID with the application registered for OpenID Connect sign-in." },
-      { id: 'D', text: "Microsoft Entra Kerberos authentication for the application's virtual machines." }
+      { id: 'B', text: "Microsoft Entra Kerberos authentication for the application's virtual machines." },
+      { id: 'C', text: "A Microsoft Entra Domain Services managed domain with secure LDAP enabled." },
+      { id: 'D', text: "Microsoft Entra ID with the application registered for OpenID Connect sign-in." }
     ],
-    correctAnswers: ['B'],
+    correctAnswers: ['C'],
     type: "single",
     explanation: "Entra Domain Services is a managed domain: Microsoft runs, patches and backs up the domain controllers, it exposes LDAP, secure LDAP, Kerberos and NTLM, and it synchronises identities one way from Entra ID, so the application keeps its protocols and the users keep their identities with no domain controllers for the two-person team to operate. Domain controllers on virtual machines provide every feature but hand the team the patching and backup burden it has refused. Entra ID alone speaks modern protocols such as OpenID Connect and offers no LDAP bind for a legacy application that cannot be modified. Entra Kerberos is a mechanism for signing in to specific Azure resources such as Azure Files and does not provide a directory that an application can bind to.",
     referenceUrl: "https://learn.microsoft.com/en-us/entra/identity/domain-services/overview",
@@ -369,10 +369,10 @@ export const AZURE_AZ305_QUESTIONS_3 = [
     options: [
       { id: 'A', text: "Deploy a Microsoft Entra Domain Services managed domain synchronised with the corporate tenant and enable secure LDAP for the installer." },
       { id: 'B', text: "Deploy a Microsoft Entra Domain Services resource forest with a one-way trust to the corporate forest over the ExpressRoute circuit." },
-      { id: 'C', text: "Deploy domain controllers for the existing corporate forest on Azure virtual machines in a dedicated Active Directory site." },
-      { id: 'D', text: "Register the application in Microsoft Entra ID and store the custom attributes as directory extension attributes on the application." }
+      { id: 'C', text: "Register the application in Microsoft Entra ID and store the custom attributes as directory extension attributes on the application." },
+      { id: 'D', text: "Deploy domain controllers for the existing corporate forest on Azure virtual machines in a dedicated Active Directory site." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Only a self-managed Active Directory Domain Services forest permits schema extensions and Enterprise Admins rights, so extending the corporate forest with domain controllers in Azure over ExpressRoute satisfies the installer and keeps a single identity source; a dedicated AD site keeps authentication local to the Azure region. Entra Domain Services does not allow schema extensions or Enterprise Admins membership regardless of whether it is synchronised with the tenant. A resource forest trust lets managed-domain resources authenticate corporate users, but the managed forest still cannot have its schema extended. Directory extension attributes in Entra ID are for cloud applications and do not satisfy an installer that expects an Active Directory schema.",
     referenceUrl: "https://learn.microsoft.com/en-us/entra/identity/domain-services/compare-identity-solutions",
@@ -389,11 +389,11 @@ export const AZURE_AZ305_QUESTIONS_3 = [
     question: "Which solution meets these requirements?",
     options: [
       { id: 'A', text: "Publish the application through Microsoft Entra Private Access with a private network connector and a Conditional Access policy." },
-      { id: 'B', text: "Publish the application through Azure Application Gateway with a WAF policy and Microsoft Entra ID as the identity provider." },
-      { id: 'C', text: "Publish the application through a point-to-site VPN gateway that uses Microsoft Entra authentication and Conditional Access." },
-      { id: 'D', text: "Publish the application through Microsoft Entra application proxy with Kerberos constrained delegation for single sign-on." }
+      { id: 'B', text: "Publish the application through Microsoft Entra application proxy with Kerberos constrained delegation for single sign-on." },
+      { id: 'C', text: "Publish the application through Azure Application Gateway with a WAF policy and Microsoft Entra ID as the identity provider." },
+      { id: 'D', text: "Publish the application through a point-to-site VPN gateway that uses Microsoft Entra authentication and Conditional Access." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Application proxy places a connector inside the network that makes only outbound connections, pre-authenticates users in Entra ID so Conditional Access and MFA apply, and uses Kerberos constrained delegation to obtain a ticket for the Integrated Windows Authentication back end, so browser users on unmanaged devices get single sign-on with no client software. Entra Private Access requires the Global Secure Access client on the device, which the security team will not install. Application Gateway has no Entra pre-authentication or Kerberos delegation and would need a network path from Azure into the data centre. A point-to-site VPN requires a VPN client and profile on each personal device.",
     referenceUrl: "https://learn.microsoft.com/en-us/entra/identity/app-proxy/overview",
@@ -409,12 +409,12 @@ export const AZURE_AZ305_QUESTIONS_3 = [
     scenario: "A logistics company wants to retire its always-on VPN for 2,000 employees on Intune-managed Windows devices. Employees need RDP to jump hosts, SSH to Linux servers and SMB access to file servers in two data centres, and each of those applications must have its own Conditional Access policy. No inbound ports may be opened at the data centre edge.",
     question: "What should the architect recommend?",
     options: [
-      { id: 'A', text: "Microsoft Entra Private Access with private network connectors in each data centre and the Global Secure Access client on the devices." },
-      { id: 'B', text: "Microsoft Entra application proxy with a connector group in each data centre publishing the servers as separate enterprise applications." },
-      { id: 'C', text: "Azure Bastion in a hub virtual network connected to both data centres over ExpressRoute, with native client and IP-based connection enabled." },
-      { id: 'D', text: "Azure VPN Gateway point-to-site with Microsoft Entra authentication and a Conditional Access policy on the VPN enterprise application." }
+      { id: 'A', text: "Azure Bastion in a hub virtual network connected to both data centres over ExpressRoute, with native client and IP-based connection enabled." },
+      { id: 'B', text: "Azure VPN Gateway point-to-site with Microsoft Entra authentication and a Conditional Access policy on the VPN enterprise application." },
+      { id: 'C', text: "Microsoft Entra application proxy with a connector group in each data centre publishing the servers as separate enterprise applications." },
+      { id: 'D', text: "Microsoft Entra Private Access with private network connectors in each data centre and the Global Secure Access client on the devices." }
     ],
-    correctAnswers: ['A'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Entra Private Access, part of Global Secure Access, brokers TCP and UDP traffic such as RDP, SSH and SMB through outbound-only private network connectors, and each published application segment is an enterprise application that can carry its own Conditional Access policy, so per-application rules replace the network-wide VPN. Application proxy publishes HTTP and HTTPS applications only and cannot carry SMB or RDP. Azure Bastion provides RDP and SSH sessions but does not proxy SMB and is not a per-application access broker with its own Conditional Access policies. A point-to-site VPN applies one Conditional Access policy to the tunnel as a whole rather than per application, and it is the model the company is retiring.",
     referenceUrl: "https://learn.microsoft.com/en-us/entra/global-secure-access/concept-private-access",
@@ -431,11 +431,11 @@ export const AZURE_AZ305_QUESTIONS_3 = [
     question: "What should the architect recommend?",
     options: [
       { id: 'A', text: "Join the PCs to Microsoft Entra ID directly and require a compliant device in the Conditional Access policy." },
-      { id: 'B', text: "Register the PCs with Microsoft Entra ID as personal devices and require a registered device in the Conditional Access policy." },
-      { id: 'C', text: "Enrol the PCs in Microsoft Intune through co-management and require a compliant device in the Conditional Access policy." },
-      { id: 'D', text: "Configure Microsoft Entra hybrid join through Entra Connect and require a hybrid-joined device in the Conditional Access policy." }
+      { id: 'B', text: "Configure Microsoft Entra hybrid join through Entra Connect and require a hybrid-joined device in the Conditional Access policy." },
+      { id: 'C', text: "Register the PCs with Microsoft Entra ID as personal devices and require a registered device in the Conditional Access policy." },
+      { id: 'D', text: "Enrol the PCs in Microsoft Intune through co-management and require a compliant device in the Conditional Access policy." }
     ],
-    correctAnswers: ['D'],
+    correctAnswers: ['B'],
     type: "single",
     explanation: "Hybrid join registers existing domain-joined Windows devices in Entra ID through Entra Connect synchronising the computer objects, so the PCs stay in Active Directory under Group Policy and Configuration Manager while Conditional Access can require the device to be Microsoft Entra hybrid joined. Entra join is a different device state that replaces the domain join, so it would mean re-joining every PC. Entra registered is intended for personal, bring-your-own devices and gives no assurance that the device is a corporate PC. A compliant-device requirement depends on Intune enrolment, which the bank has ruled out.",
     referenceUrl: "https://learn.microsoft.com/en-us/entra/identity/devices/concept-hybrid-join",
@@ -451,12 +451,12 @@ export const AZURE_AZ305_QUESTIONS_3 = [
     scenario: "A retailer has 800 Windows and Linux servers in two co-location data centres that will stay on premises for at least five years. The governance team wants them to appear in Azure so that Azure Policy machine configuration, Defender for Servers, Azure Update Manager and RBAC apply exactly as they do to Azure virtual machines.",
     question: "What should the architect recommend?",
     options: [
-      { id: 'A', text: "Assess the servers with Azure Migrate and register them in a Recovery Services vault." },
-      { id: 'B', text: "Install the Azure Monitor Agent on the servers and connect it to a Log Analytics workspace." },
-      { id: 'C', text: "Onboard the servers as Azure Arc-enabled servers with the Connected Machine agent." },
-      { id: 'D', text: "Register the servers as Hybrid Runbook Workers in an Azure Automation account." }
+      { id: 'A', text: "Install the Azure Monitor Agent on the servers and connect it to a Log Analytics workspace." },
+      { id: 'B', text: "Register the servers as Hybrid Runbook Workers in an Azure Automation account." },
+      { id: 'C', text: "Assess the servers with Azure Migrate and register them in a Recovery Services vault." },
+      { id: 'D', text: "Onboard the servers as Azure Arc-enabled servers with the Connected Machine agent." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Azure Arc-enabled servers project each on-premises machine as a Microsoft.HybridCompute/machines resource in a resource group, which is what lets Azure Policy machine configuration, Defender for Servers, Update Manager and role assignments treat it like a virtual machine. Azure Migrate discovers and assesses servers for migration and a Recovery Services vault protects them, but neither creates a governable Azure resource for a server that is staying put. Azure Monitor Agent on a non-Azure machine itself depends on the Arc agent and delivers telemetry, not policy, patching or RBAC. Hybrid Runbook Workers run automation jobs and also require Arc for new deployments.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-arc/servers/overview",
@@ -472,13 +472,13 @@ export const AZURE_AZ305_QUESTIONS_3 = [
     scenario: "A telecom will onboard 3,000 on-premises servers to Azure Arc from its configuration management tool over six weeks. The onboarding identity must not be able to change or delete existing Azure resources, and the platform team wants Azure Monitor Agent and Defender for Servers to follow automatically once each machine is connected, without per-server manual steps.",
     question: "Which two actions should the team take? (Choose two.)",
     options: [
-      { id: 'A', text: "Create a service principal and assign it the Azure Connected Machine Onboarding role at the target resource group." },
-      { id: 'B', text: "Create a service principal and assign it Contributor at the target subscription so that it can register and configure the machines." },
-      { id: 'C', text: "Install the Azure Monitor Agent on each server before running the Arc onboarding script so that telemetry starts immediately." },
-      { id: 'D', text: "Assign a DeployIfNotExists policy at the resource group that installs the Azure Monitor Agent extension on connected machines." },
+      { id: 'A', text: "Create a service principal and assign it Contributor at the target subscription so that it can register and configure the machines." },
+      { id: 'B', text: "Assign a DeployIfNotExists policy at the resource group that installs the Azure Monitor Agent extension on connected machines." },
+      { id: 'C', text: "Create a service principal and assign it the Azure Connected Machine Onboarding role at the target resource group." },
+      { id: 'D', text: "Install the Azure Monitor Agent on each server before running the Arc onboarding script so that telemetry starts immediately." },
       { id: 'E', text: "Register each server as a Hybrid Runbook Worker so that the Automation account can push the agents to it." }
     ],
-    correctAnswers: ['A', 'D'],
+    correctAnswers: ['B', 'C'],
     type: "multiple",
     explanation: "The Azure Connected Machine Onboarding role grants only the actions needed to create Arc machine resources, so a service principal holding it can connect thousands of servers from a script without any right to modify or delete other resources. A DeployIfNotExists policy on the resource group evaluates each new Microsoft.HybridCompute/machines resource and installs the Azure Monitor Agent extension automatically, and the Defender for Servers plan on the subscription then covers the connected machines. Contributor works but far exceeds the least-privilege requirement. Azure Monitor Agent on a non-Azure machine requires the Arc agent to be present first, so installing it beforehand fails. Hybrid Runbook Workers themselves depend on Arc and are not an agent distribution mechanism.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-arc/servers/onboard-service-principal",
@@ -494,13 +494,13 @@ export const AZURE_AZ305_QUESTIONS_3 = [
     scenario: "A gaming studio is enabling identity-based access to Azure Files SMB shares for 300 artists who work from home. The studio synchronises its on-premises Active Directory to Microsoft Entra ID and issues company Windows laptops. The design review must confirm what the environment needs before the storage team switches on Microsoft Entra Kerberos authentication.",
     question: "Which two conditions must hold for the artists to authenticate to the shares? (Choose two.)",
     options: [
-      { id: 'A', text: "The storage account must be joined to the on-premises domain with a computer account created by the AzFilesHybrid module." },
-      { id: 'B', text: "The artists' user accounts must be hybrid identities synchronised from Active Directory Domain Services to Entra ID." },
-      { id: 'C', text: "The laptops must be Microsoft Entra joined or Microsoft Entra hybrid joined." },
-      { id: 'D', text: "A Microsoft Entra Domain Services managed domain must be deployed in a virtual network reachable from the laptops." },
+      { id: 'A', text: "The artists' user accounts must be hybrid identities synchronised from Active Directory Domain Services to Entra ID." },
+      { id: 'B', text: "A Microsoft Entra Domain Services managed domain must be deployed in a virtual network reachable from the laptops." },
+      { id: 'C', text: "The storage account must be joined to the on-premises domain with a computer account created by the AzFilesHybrid module." },
+      { id: 'D', text: "The laptops must be Microsoft Entra joined or Microsoft Entra hybrid joined." },
       { id: 'E', text: "The laptops must have network line of sight to an on-premises domain controller when the share is mounted." }
     ],
-    correctAnswers: ['B', 'C'],
+    correctAnswers: ['A', 'D'],
     type: "multiple",
     explanation: "Entra Kerberos for Azure Files issues tickets from Entra ID for hybrid identities, meaning users that originate in AD DS and are synchronised by Entra Connect or Cloud Sync, and the client must be Entra joined or hybrid joined so that Windows can request the ticket from the cloud. Domain-joining the storage account with the AzFilesHybrid module is the setup for on-premises AD DS authentication, a different identity source. A managed domain is required only for the Entra Domain Services authentication method. Line of sight to a domain controller is exactly what Entra Kerberos removes from the mount path; it is needed only while an administrator configures Windows ACLs from a domain-joined client.",
     referenceUrl: "https://learn.microsoft.com/en-us/azure/storage/files/storage-files-identity-auth-hybrid-identities-enable",
@@ -516,12 +516,12 @@ export const AZURE_AZ305_QUESTIONS_3 = [
     scenario: "An insurer assigns Azure roles exclusively to Microsoft Entra security groups. A team coordinator must be able to create those groups and maintain their membership for 25 application teams, but must not be able to reset passwords, manage user accounts or hold any permission on Azure resources.",
     question: "Which role should the architect recommend?",
     options: [
-      { id: 'A', text: "User Administrator in Microsoft Entra ID." },
-      { id: 'B', text: "User Access Administrator on the subscription." },
-      { id: 'C', text: "Groups Administrator in Microsoft Entra ID." },
-      { id: 'D', text: "Owner on the subscription that holds the teams' resources." }
+      { id: 'A', text: "Owner on the subscription that holds the teams' resources." },
+      { id: 'B', text: "User Administrator in Microsoft Entra ID." },
+      { id: 'C', text: "User Access Administrator on the subscription." },
+      { id: 'D', text: "Groups Administrator in Microsoft Entra ID." }
     ],
-    correctAnswers: ['C'],
+    correctAnswers: ['D'],
     type: "single",
     explanation: "Groups Administrator is a Microsoft Entra directory role scoped to creating and managing groups and their membership, and it carries no Azure resource permissions, which matches the coordinator's duties exactly. User Administrator can also manage groups but additionally creates users and resets passwords for non-administrators, exceeding the brief. User Access Administrator is an Azure RBAC role that manages role assignments on resources and cannot create directory groups at all. Owner on the subscription gives full resource and access control in Azure and, like any Azure role, grants nothing in the directory.",
     referenceUrl: "https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/permissions-reference",

@@ -1,0 +1,532 @@
+export const AZURE_AZ305_QUESTIONS_20 = [
+  {
+    id: "azure-az305-476",
+    difficulty: "easy",
+    certId: "azure-az305",
+    domainId: "d4",
+    domainName: "Design infrastructure solutions",
+    title: "Jitter between a matching engine and its gateways",
+    scenario: "An online brokerage runs order gateways and a matching engine on Linux VMs in one virtual network. Profiling shows that packet processing in the host's virtual switch adds latency and jitter under load and consumes guest CPU. The VM sizes in use support the relevant feature, and the team wants to lower latency without changing the application.",
+    question: "What should the architect recommend?",
+    options: [
+      { id: 'A', text: "Enable Accelerated Networking on the VMs' network interfaces so traffic bypasses the host virtual switch." },
+      { id: 'B', text: "Enable ExpressRoute FastPath on the virtual network so VM-to-VM traffic skips the gateway data path." },
+      { id: 'C', text: "Put the VMs behind an internal Standard load balancer so connections are spread across more instances." },
+      { id: 'D', text: "Add a second network interface to each VM so the host virtual switch spreads order traffic across both." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Accelerated Networking uses single root I/O virtualization so that network traffic goes directly between the VM's NIC and the physical network adapter, bypassing the host's virtual switch; that lowers latency and jitter, raises packets per second and frees guest CPU, with no application change. A second NIC adds interfaces but every packet still traverses the virtual switch. A load balancer spreads connections but adds a hop rather than removing host processing. FastPath affects traffic arriving over ExpressRoute from on-premises, not traffic between VMs in the same virtual network.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/virtual-network/accelerated-networking-overview",
+    tags: ["Accelerated Networking", "Network performance"]
+  },
+  {
+    id: "azure-az305-477",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d4",
+    domainName: "Design infrastructure solutions",
+    title: "Keeping chatty tiers physically close together",
+    scenario: "A logistics company's route optimization application makes thousands of small synchronous calls per request between its application VMs and a SQL Server VM. After deployment to one Azure region, round-trip latency between the tiers varies noticeably because the VMs landed in different datacentres. Availability-zone resilience is not a requirement for this workload.",
+    question: "What should the architect recommend to minimize latency between the tiers?",
+    options: [
+      { id: 'A', text: "Place the application tier and the SQL Server VM in separate virtual networks joined by global peering." },
+      { id: 'B', text: "Deploy the application VMs and the SQL Server VM into different availability zones for separate power." },
+      { id: 'C', text: "Put an Azure Cache for Redis instance in front of SQL Server so every call is answered from the cache." },
+      { id: 'D', text: "Deploy the application and SQL Server VMs into a proximity placement group so they are placed close together." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "A proximity placement group is a logical grouping that makes Azure place the VMs physically close to one another, typically in the same datacentre, which gives the lowest and most consistent network latency between tiers. Spreading VMs across availability zones deliberately separates them and adds inter-zone latency. Separate virtual networks with peering do not change physical placement. A Redis cache can help read-heavy data access, but it requires application changes and does not address latency for writes or synchronous calls that must reach SQL Server.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/virtual-machines/co-location",
+    tags: ["Proximity placement groups", "Network performance", "Virtual machines"]
+  },
+  {
+    id: "azure-az305-478",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d4",
+    domainName: "Design infrastructure solutions",
+    title: "Slow product images for shoppers far from the region",
+    scenario: "A fashion retailer runs its storefront on App Service in West Europe. Shoppers in Asia and Australia see product pages load slowly, mostly because of large images, scripts and style sheets that change rarely. The retailer does not want to deploy the application in more regions and wants TLS to terminate close to users.",
+    question: "What should the architect recommend?",
+    options: [
+      { id: 'A', text: "Put the storefront behind Azure Traffic Manager with performance routing so each shopper uses the closest endpoint." },
+      { id: 'B', text: "Scale the App Service plan up to Premium v3 and out to more instances so each page is served more quickly." },
+      { id: 'C', text: "Move the static files to an Azure CDN from Edgio profile and point the storefront's image links to its endpoint." },
+      { id: 'D', text: "Put the storefront behind Azure Front Door with caching and compression enabled on the static content routes." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Azure Front Door terminates TLS at Microsoft edge locations near users, caches static content there, compresses responses and carries dynamic requests to the origin over Microsoft's network, so distant shoppers load pages faster without additional regional deployments. Traffic Manager only answers DNS queries; with a single region there is no closer endpoint to choose and nothing is cached. Scaling the App Service plan helps server-side capacity but does nothing about distance and round-trip time. Azure CDN from Edgio has been retired, so it cannot be used for new designs.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/frontdoor/front-door-caching",
+    tags: ["Azure Front Door", "Caching", "Network performance"]
+  },
+  {
+    id: "azure-az305-479",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d4",
+    domainName: "Design infrastructure solutions",
+    title: "Sending devices to the nearest region without a proxy",
+    scenario: "A smart-meter company exposes an HTTPS ingestion API from VM scale sets in three Azure regions. The meters authenticate with mutual TLS certificates that must be validated by the application itself, so no intermediary may terminate TLS. Each meter should connect to the region that gives it the lowest network latency.",
+    question: "What should the architect recommend?",
+    options: [
+      { id: 'A', text: "Azure Traffic Manager with priority routing so meters use the first region until it becomes unhealthy." },
+      { id: 'B', text: "Azure Front Door with the three regional endpoints as origins, using latency-based origin selection." },
+      { id: 'C', text: "An Application Gateway in each region with multi-site listeners that forward traffic to the scale sets." },
+      { id: 'D', text: "Azure Traffic Manager with performance routing and the three regional public endpoints as endpoints." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Traffic Manager is a DNS-based load balancer: it returns the address of an endpoint and the meter then connects directly, so TLS is terminated only by the application. The performance routing method returns the endpoint with the lowest measured network latency from the client's DNS resolver location. Front Door and Application Gateway are reverse proxies that terminate TLS, which breaks the application-level certificate validation. Priority routing sends every meter to one region until it fails, ignoring latency.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/traffic-manager/traffic-manager-routing-methods",
+    tags: ["Traffic Manager", "Performance routing", "Load balancing"]
+  },
+  {
+    id: "azure-az305-480",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d4",
+    domainName: "Design infrastructure solutions",
+    title: "Replication traffic capped by a VPN between regions",
+    scenario: "A media company replicates large datasets between virtual networks in North Europe and East US using a VNet-to-VNet VPN connection between two VPN gateways. Replication now falls behind because throughput tops out at the gateway limit and latency is higher than expected. The company wants private connectivity between the virtual networks with much higher throughput.",
+    question: "What should the architect recommend?",
+    options: [
+      { id: 'A', text: "Replace the VPN connection with global virtual network peering between the two virtual networks." },
+      { id: 'B', text: "Route the replication through the on-premises datacentre using ExpressRoute circuits in each region." },
+      { id: 'C', text: "Upgrade both VPN gateways to the largest SKU and add tunnels to the connection to raise throughput." },
+      { id: 'D', text: "Publish the replication target with a public load balancer and send the data across the internet." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Global virtual network peering connects virtual networks in different regions over the Microsoft backbone with no gateway in the path, so bandwidth is limited only by the VMs and latency is as low as the distance allows. Larger VPN gateway SKUs raise the ceiling but still cap throughput and add encryption overhead in the gateway. Hairpinning through on-premises over ExpressRoute adds distance and depends on circuit bandwidth. Sending replication over the public internet gives up private connectivity.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/virtual-network/virtual-network-peering-overview",
+    tags: ["Virtual network peering", "Network performance"]
+  },
+  {
+    id: "azure-az305-481",
+    difficulty: "hard",
+    certId: "azure-az305",
+    domainId: "d4",
+    domainName: "Design infrastructure solutions",
+    title: "Direct paths for a dozen chatty spokes",
+    scenario: "A bank's hub-and-spoke network has 40 spokes, and all spoke-to-spoke traffic passes through the hub firewall. Twelve spokes that host a trading platform exchange heavy, latency-sensitive traffic with each other, and security has approved direct connectivity among those twelve only. The network team wants spokes added to that group later to gain the same connectivity automatically.",
+    question: "What should the architect recommend?",
+    options: [
+      { id: 'A', text: "Create 66 individual peerings among the twelve spokes and add new peerings by hand whenever a spoke joins the group." },
+      { id: 'B', text: "Enable gateway transit on every spoke peering so traffic between the twelve spokes flows through the hub gateway." },
+      { id: 'C', text: "Use Azure Virtual Network Manager with a network group for the twelve spokes and a mesh connectivity configuration." },
+      { id: 'D', text: "Scale out the hub firewall and enable its DNS proxy so connectivity among the twelve spokes is processed more quickly." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "Azure Virtual Network Manager can define a network group, with dynamic membership through Azure Policy if desired, and apply a mesh connectivity configuration so every member connects directly to every other member without hub transit; new members inherit the connectivity automatically, while the rest of the spokes keep using the hub. Sixty-six manual peerings work but must be maintained by hand as the group changes. Scaling the firewall reduces congestion but traffic still takes the extra hop and inspection latency. Gateway transit shares a VPN or ExpressRoute gateway with spokes and does not route spoke-to-spoke traffic.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/virtual-network-manager/concept-connectivity-configuration",
+    tags: ["Virtual Network Manager", "Mesh", "Hub and spoke"]
+  },
+  {
+    id: "azure-az305-482",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d4",
+    domainName: "Design infrastructure solutions",
+    title: "Cheaper egress for bulk downloads to the internet",
+    scenario: "An open-data portal serves hundreds of terabytes a month of dataset downloads from VMs and a storage account to users on the internet. The downloads are not latency-sensitive, and users accept best-effort performance. The portal's funding body wants the lowest possible data transfer cost for this egress without moving the service.",
+    question: "What should the architect recommend?",
+    options: [
+      { id: 'A', text: "Put Azure Front Door in front of the downloads so every file is served from the edge closest to each user." },
+      { id: 'B', text: "Connect the portal and storage account to an ExpressRoute circuit and send downloads over Microsoft peering." },
+      { id: 'C', text: "Keep routing preference on the Microsoft network so traffic stays on the backbone until the closest edge." },
+      { id: 'D', text: "Set the routing preference on the public IPs and storage account to Internet so traffic leaves via ISP networks." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Routing preference set to Internet hands traffic to transit ISP networks close to the Azure region instead of carrying it across Microsoft's global network, and it is billed at a lower egress rate, which suits large, latency-tolerant downloads. The Microsoft network option is the default and is priced higher because it maximizes performance. Front Door improves performance and caching but adds its own data transfer and request charges for hundreds of terabytes. ExpressRoute Microsoft peering connects on-premises networks to Microsoft services; it cannot deliver traffic to arbitrary internet users.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/virtual-network/ip-services/routing-preference-overview",
+    tags: ["Routing preference", "Egress cost"]
+  },
+  {
+    id: "azure-az305-483",
+    difficulty: "easy",
+    certId: "azure-az305",
+    domainId: "d4",
+    domainName: "Design infrastructure solutions",
+    title: "A file transfer VM that never exceeds a fixed rate",
+    scenario: "A broadcaster's media transfer VM, a small general-purpose size, consistently tops out at the same outbound throughput when sending video files to other Azure VMs, even though CPU and disk are mostly idle. Accelerated Networking is already enabled. The team needs roughly four times the current network throughput.",
+    question: "What should the architect recommend?",
+    options: [
+      { id: 'A', text: "Enable a NAT gateway on the VM's subnet so outbound connections have more SNAT ports and throughput." },
+      { id: 'B', text: "Attach four more network interfaces so outbound traffic is spread across five NICs at the current VM size." },
+      { id: 'C', text: "Move the VM's disks to Premium SSD v2 so data is read quickly enough to fill the available network link." },
+      { id: 'D', text: "Resize the VM to a size whose expected network bandwidth is about four times that of the current size." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Azure allocates outbound network bandwidth per VM according to its size, regardless of the number of NICs, so a VM that keeps hitting the same ceiling with idle CPU and disk needs a size with higher expected network bandwidth. Adding NICs does not raise the VM's total bandwidth limit. The disks are mostly idle, so faster storage will not help. A NAT gateway affects outbound connections to the internet, not VM-to-VM traffic inside Azure, and SNAT ports are not a throughput limit.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/virtual-network/virtual-machine-network-throughput",
+    tags: ["Virtual machines", "Network bandwidth"]
+  },
+  {
+    id: "azure-az305-484",
+    difficulty: "hard",
+    certId: "azure-az305",
+    domainId: "d4",
+    domainName: "Design infrastructure solutions",
+    title: "On-premises clients resolving a storage private endpoint",
+    scenario: "A manufacturer added a private endpoint for a storage account, linked the privatelink.blob.core.windows.net private DNS zone to its hub virtual network, and disabled public access. VMs in Azure connect correctly, but on-premises servers reaching Azure over ExpressRoute still resolve the account name to its public IP address and fail. On-premises DNS runs on Windows DNS servers.",
+    question: "Which two actions should the architect recommend? (Choose two.)",
+    options: [
+      { id: 'A', text: "Create an A record for the account in a public DNS zone that points the name to the private endpoint IP." },
+      { id: 'B', text: "Configure a conditional forwarder on the on-premises DNS servers that sends blob.core.windows.net queries there." },
+      { id: 'C', text: "Enable a service endpoint for Microsoft.Storage on the hub subnet so on-premises traffic uses the backbone." },
+      { id: 'D', text: "Link the privatelink.blob.core.windows.net zone directly to the on-premises DNS servers' IP addresses." },
+      { id: 'E', text: "Deploy an Azure DNS Private Resolver inbound endpoint in the hub virtual network linked to the private zone." }
+    ],
+    correctAnswers: ['B', 'E'],
+    type: "multiple",
+    explanation: "Private DNS zones answer only queries that come from linked virtual networks, so on-premises servers need a path into Azure DNS: an Azure DNS Private Resolver inbound endpoint gives the hub a private IP that resolves names using the zones linked to that network, and a conditional forwarder on the on-premises DNS servers sends blob.core.windows.net queries to that IP, which follows the privatelink CNAME to the private endpoint address. Publishing a private IP in public DNS leaks internal addressing and breaks access for anyone else. Service endpoints do not extend to on-premises networks. Private DNS zones can be linked only to virtual networks, not to on-premises servers.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/private-link/private-endpoint-dns-integration",
+    tags: ["Private endpoint", "DNS Private Resolver", "Hybrid DNS"]
+  },
+  {
+    id: "azure-az305-485",
+    difficulty: "easy",
+    certId: "azure-az305",
+    domainId: "d4",
+    domainName: "Design infrastructure solutions",
+    title: "Reaching a SQL database privately from the datacentre",
+    scenario: "A credit union's reporting servers in its datacentre connect to an Azure SQL Database logical server over ExpressRoute private peering, and Azure VMs also use the database. The security team requires that the database be reachable only through a private IP address in the credit union's address space, with public network access disabled.",
+    question: "What should the architect recommend?",
+    options: [
+      { id: 'A', text: "Create a private endpoint for the logical server in a virtual network reachable over ExpressRoute." },
+      { id: 'B', text: "Configure Microsoft peering on the ExpressRoute circuit and route the SQL traffic over that peering." },
+      { id: 'C', text: "Add the datacentre's public NAT addresses to the server firewall so it stays reachable over public access." },
+      { id: 'D', text: "Enable a virtual network service endpoint for Microsoft.Sql on the VM subnet and add a virtual network rule." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "A private endpoint gives the logical server a private IP address inside a virtual network; on-premises servers reach it over ExpressRoute private peering and Azure VMs reach it directly, so public network access can be disabled. Service endpoints keep the database on its public endpoint, secured to specific subnets, and do not work for traffic from on-premises. Firewall rules for public NAT addresses keep public access enabled, which the requirement forbids. Microsoft peering reaches public endpoints of Microsoft services, not a private address.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/private-link/private-endpoint-overview",
+    tags: ["Private endpoint", "Azure SQL", "Network security"]
+  },
+  {
+    id: "azure-az305-486",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d4",
+    domainName: "Design infrastructure solutions",
+    title: "Tier-based rules that survive autoscaling",
+    scenario: "An insurer's three-tier application runs web, application and database VMs in a single subnet, and scale sets add and remove web and application VMs throughout the day. Security requires that only web VMs reach application VMs on port 8443 and only application VMs reach database VMs on port 1433, without rules that list individual IP addresses.",
+    question: "What should the architect recommend?",
+    options: [
+      { id: 'A', text: "Move each tier into its own virtual network and connect them with peerings that allow only the needed ports." },
+      { id: 'B', text: "Create application security groups for each tier, assign NICs to them, and write NSG rules between the groups." },
+      { id: 'C', text: "Write NSG rules with the VirtualNetwork service tag as source and destination on ports 8443 and 1433." },
+      { id: 'D', text: "Deploy Azure Firewall in the subnet and create network rules that reference each VM's private IP address." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "Application security groups let you group NICs by role and use the groups as source and destination in NSG rules, so a rule allowing the web ASG to the app ASG on 8443 applies automatically to every VM a scale set adds, with no IP addresses in the rules, even inside one subnet. Peerings do not filter ports; NSGs would still be needed, and splitting into separate networks is a larger redesign. The VirtualNetwork service tag covers the whole address space, so any VM could reach any tier. Azure Firewall cannot sit inside the same subnet as the VMs to filter intra-subnet traffic, and listing IPs is exactly what must be avoided.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/virtual-network/application-security-groups",
+    tags: ["Application security groups", "NSG", "Network security"]
+  },
+  {
+    id: "azure-az305-487",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d4",
+    domainName: "Design infrastructure solutions",
+    title: "Firewall requirements that need the top tier",
+    scenario: "A healthcare provider is choosing an Azure Firewall SKU for its hub. Its requirements include outbound FQDN filtering, threat intelligence-based blocking of known malicious IPs, inbound DNAT, decrypting and inspecting outbound HTTPS traffic, and signature-based intrusion detection and prevention.",
+    question: "Which two requirements can be met only by the Azure Firewall Premium SKU? (Choose two.)",
+    options: [
+      { id: 'A', text: "Filtering outbound HTTP and HTTPS traffic by FQDN using application rules in a firewall policy." },
+      { id: 'B', text: "Translating inbound traffic on the firewall's public IP to a private server address with DNAT rules." },
+      { id: 'C', text: "Detecting and blocking attacks with signature-based intrusion detection and prevention (IDPS)." },
+      { id: 'D', text: "Alerting on and denying traffic to and from known malicious IP addresses and domains using threat intelligence." },
+      { id: 'E', text: "Decrypting outbound HTTPS traffic with TLS inspection so the full URL and payload can be examined." }
+    ],
+    correctAnswers: ['C', 'E'],
+    type: "multiple",
+    explanation: "TLS inspection, which decrypts outbound traffic so the firewall can see full URLs and payloads, and signature-based IDPS, which matches thousands of attack signatures in alert or alert-and-deny mode, are Azure Firewall Premium features. FQDN filtering in application rules, threat intelligence-based filtering and DNAT rules are all available in the Standard SKU, so they do not by themselves justify Premium.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/firewall/premium-features",
+    tags: ["Azure Firewall", "Premium SKU", "IDPS"]
+  },
+  {
+    id: "azure-az305-488",
+    difficulty: "hard",
+    certId: "azure-az305",
+    domainId: "d4",
+    domainName: "Design infrastructure solutions",
+    title: "DDoS coverage with expert help and cost protection",
+    scenario: "An online gaming company exposes 25 public IP addresses across two virtual networks for game servers and web front ends. It has been hit by volumetric attacks during tournaments and wants adaptive mitigation tuned to its traffic, access to Microsoft's DDoS response experts during an attack, and service credits for scale-out costs caused by attacks.",
+    question: "What should the architect recommend?",
+    options: [
+      { id: 'A', text: "Enable DDoS IP Protection on each of the 25 public IP addresses to get adaptive tuning per address." },
+      { id: 'B', text: "Rely on the infrastructure-level DDoS protection that every Azure public IP address receives by default." },
+      { id: 'C', text: "Deploy Azure Firewall Premium in each virtual network with IDPS in alert-and-deny mode for all traffic." },
+      { id: 'D', text: "Enable DDoS Network Protection with a plan linked to both virtual networks that hold the addresses." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "DDoS Network Protection applies adaptive, traffic-profiled mitigation to every public IP in the virtual networks linked to the plan, and it includes DDoS Rapid Response support during an active attack and cost protection credits for resources scaled out because of an attack; with 25 addresses it is also usually more economical than per-IP pricing. DDoS IP Protection offers the same mitigation engine per address but excludes Rapid Response and cost protection. Default infrastructure protection is not tuned to the customer's traffic and has no support or cost guarantees. Azure Firewall inspects traffic but is not a volumetric DDoS mitigation service.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/ddos-protection/ddos-protection-sku-comparison",
+    tags: ["DDoS Protection", "Network security"]
+  },
+  {
+    id: "azure-az305-489",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d4",
+    domainName: "Design infrastructure solutions",
+    title: "Blocking abusive clients before they reach the region",
+    scenario: "A ticket marketplace's public API, hosted in one Azure region, is flooded by scripted clients from a few countries where it does not operate and by bursts of requests from single IP addresses when tickets are released. The company wants these requests stopped at the global edge, before they consume regional bandwidth or compute.",
+    question: "What should the architect recommend?",
+    options: [
+      { id: 'A', text: "NSG rules on the API subnet that deny the IP ranges of the unwanted countries published by regional registries." },
+      { id: 'B', text: "Azure Front Door with a WAF policy containing geo-filtering and rate-limiting custom rules on the API route." },
+      { id: 'C', text: "An Application Gateway WAF v2 in the region with geo-match and rate-limit custom rules for the API listener." },
+      { id: 'D', text: "Azure Firewall in the hub with threat intelligence set to alert and deny for inbound traffic to the API." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "A WAF policy on Azure Front Door runs at Microsoft's edge locations worldwide; geo-filtering custom rules block the countries the company does not serve and rate-limit rules throttle individual client IPs, so unwanted requests are dropped before they reach the region. An Application Gateway WAF has similar rule types but evaluates traffic only after it has arrived in the region. NSG rules built from country IP lists are huge, brittle and still regional. Threat intelligence filtering blocks known malicious addresses, not whole countries or request bursts.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/web-application-firewall/afds/waf-front-door-rate-limit",
+    tags: ["Azure Front Door", "WAF", "Rate limiting"]
+  },
+  {
+    id: "azure-az305-490",
+    difficulty: "hard",
+    certId: "azure-az305",
+    domainId: "d4",
+    domainName: "Design infrastructure solutions",
+    title: "Blocking risky ports in every team's virtual network",
+    scenario: "A conglomerate has 300 virtual networks owned by application teams that manage their own NSGs. The central security team must guarantee that inbound RDP, SSH and SMB from the internet are denied in every virtual network, including new ones, and that no application team can override the rule with its own NSG rules.",
+    question: "What should the architect recommend?",
+    options: [
+      { id: 'A', text: "Assign an Azure Policy that deploys an NSG with deny rules to every subnet when it is created by a team." },
+      { id: 'B', text: "Route all internet traffic through a central Azure Firewall policy and deny the ports on the hub firewall." },
+      { id: 'C', text: "Use Azure Virtual Network Manager security admin rules that deny those ports for a network group of all VNets." },
+      { id: 'D', text: "Enable NSG flow logs on every NSG and alert the security team whenever a flow on those ports is allowed." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "Security admin rules in Azure Virtual Network Manager are evaluated before NSG rules, and a deny admin rule cannot be overridden by any NSG; applied to a network group that includes every virtual network, with dynamic membership for new ones, it guarantees the ports stay closed regardless of what teams configure. An NSG deployed by policy is still an NSG the team can edit or supplement with higher-priority allow rules. A hub firewall covers only traffic routed through it, and teams can attach public IPs that bypass the hub. Flow logs and alerts detect violations after the fact instead of preventing them.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/virtual-network-manager/concept-security-admins",
+    tags: ["Virtual Network Manager", "Security admin rules", "Governance"]
+  },
+  {
+    id: "azure-az305-491",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d4",
+    domainName: "Design infrastructure solutions",
+    title: "Offering a SaaS endpoint privately to customer networks",
+    scenario: "A SaaS analytics vendor runs its ingestion service on VMs behind an internal Standard load balancer. Enterprise customers in other Microsoft Entra tenants want to reach the service from their own virtual networks through a private IP address, without peering, overlapping-address conflicts, or exposing the service to the internet.",
+    question: "What should the architect recommend?",
+    options: [
+      { id: 'A', text: "Give each customer a site-to-site VPN connection into the vendor's hub so they reach the internal load balancer." },
+      { id: 'B', text: "Peer each customer virtual network to the vendor's network and add NSG rules restricting customers to the service." },
+      { id: 'C', text: "Expose the service through a public load balancer and restrict access to each customer's public IP addresses." },
+      { id: 'D', text: "Create a Private Link service on the load balancer so customers create private endpoints that connect to it." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "A Private Link service placed in front of a Standard load balancer lets consumers in any tenant create a private endpoint in their own virtual network that maps to the service; traffic stays on the Microsoft backbone, overlapping address spaces do not matter because NAT is applied, and the vendor approves each connection. Peering fails with overlapping ranges, requires cross-tenant peering per customer and exposes more of the vendor network. A public load balancer exposes the service to the internet. Per-customer VPNs are costly to operate and also break with overlapping address spaces.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/private-link/private-link-service-overview",
+    tags: ["Private Link service", "SaaS", "Network security"]
+  },
+  {
+    id: "azure-az305-492",
+    difficulty: "easy",
+    certId: "azure-az305",
+    domainId: "d4",
+    domainName: "Design infrastructure solutions",
+    title: "Allowing only regional storage traffic outbound",
+    scenario: "A research lab's analysis VMs must write results to Azure Storage accounts in West Europe and must not reach any other internet destination. Microsoft changes the IP ranges used by Azure Storage from time to time, and the lab does not want to maintain address lists in its rules.",
+    question: "What should the architect recommend?",
+    options: [
+      { id: 'A', text: "NSG outbound rules that allow the Storage.WestEurope service tag and deny the Internet service tag." },
+      { id: 'B', text: "An application security group for the storage accounts referenced as the NSG rule's destination." },
+      { id: 'C', text: "NSG outbound rules that allow the storage IP ranges downloaded from Microsoft and deny all else." },
+      { id: 'D', text: "A NAT gateway on the subnet with an allow list for the storage accounts' DNS names configured on it." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Service tags represent the address prefixes of an Azure service, optionally scoped to a region, and Microsoft updates them automatically, so an outbound NSG rule allowing Storage.WestEurope with a lower-priority rule denying the Internet tag meets the requirement with no address maintenance. Downloaded IP ranges go stale as Microsoft changes them. Application security groups group VM NICs, not PaaS services. A NAT gateway provides outbound connectivity and has no filtering or allow lists.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/virtual-network/service-tags-overview",
+    tags: ["Service tags", "NSG"]
+  },
+  {
+    id: "azure-az305-493",
+    difficulty: "easy",
+    certId: "azure-az305",
+    domainId: "d4",
+    domainName: "Design infrastructure solutions",
+    title: "Routing web paths to different server pools",
+    scenario: "A travel booking site in one Azure region runs its API on one pool of VMs and serves images from a separate pool. Requests for /api/* must reach the API pool and /images/* the image pool on the same hostname, TLS must terminate at the entry point, and OWASP web attacks must be blocked before they reach either pool.",
+    question: "What should the architect recommend?",
+    options: [
+      { id: 'A', text: "A Gateway Load Balancer chained to the VMs, with a third-party WAF appliance behind it for TLS." },
+      { id: 'B', text: "An Application Gateway WAF v2 with a path-based routing rule mapping each path to its pool." },
+      { id: 'C', text: "A public Standard load balancer with two load-balancing rules, one for each pool, on port 443." },
+      { id: 'D', text: "Azure Traffic Manager with two endpoints and a routing method that selects a pool by URL path." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "Application Gateway is the regional layer 7 load balancer: it terminates TLS, and a path-based routing rule sends /api/* and /images/* on the same listener to different backend pools, while the WAF v2 SKU applies OWASP core rule set protection. Azure Load Balancer works at layer 4 and cannot see URL paths. Traffic Manager resolves DNS names and never sees the URL path. A Gateway Load Balancer inserts network appliances transparently; it does no path routing and adds third-party appliances to operate.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/application-gateway/url-route-overview",
+    tags: ["Application Gateway", "Path-based routing", "WAF"]
+  },
+  {
+    id: "azure-az305-494",
+    difficulty: "hard",
+    certId: "azure-az305",
+    domainId: "d4",
+    domainName: "Design infrastructure solutions",
+    title: "Highly available firewall appliances for every port",
+    scenario: "A telecom inspects all traffic between spokes and to on-premises through a pair of third-party firewall virtual appliances in its hub. Spoke route tables point to a single appliance IP, so failover today depends on a script that edits routes. The appliances must share the load, cover every TCP and UDP port, and fail over within seconds.",
+    question: "What should the architect recommend?",
+    options: [
+      { id: 'A', text: "Put the appliances behind a public Standard load balancer with a rule for each common port and point routes at it." },
+      { id: 'B', text: "Put the appliances behind an internal Standard load balancer with an HA ports rule and route to its frontend IP." },
+      { id: 'C', text: "Put the appliances behind Azure Traffic Manager with priority routing and health probes on each appliance." },
+      { id: 'D', text: "Put the appliances behind an Application Gateway with a listener per protocol and point spoke routes at its IP." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "An HA ports load-balancing rule on an internal Standard load balancer balances all TCP and UDP flows on all ports to the backend pool, so spoke UDRs point at the load balancer's frontend IP as the next hop, both appliances share the load, and health probes remove a failed appliance within seconds. A public load balancer cannot be a UDR next hop for internal traffic, and per-port rules would miss protocols. Application Gateway handles only HTTP and HTTPS. Traffic Manager works through DNS, which route tables do not use.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/load-balancer/load-balancer-ha-ports-overview",
+    tags: ["Load Balancer", "HA ports", "Network virtual appliance"]
+  },
+  {
+    id: "azure-az305-495",
+    difficulty: "hard",
+    certId: "azure-az305",
+    domainId: "d4",
+    domainName: "Design infrastructure solutions",
+    title: "Inserting inspection appliances without touching routes",
+    scenario: "A game studio publishes game servers through a public Standard load balancer. Security wants every inbound and return packet inspected by a third-party intrusion prevention appliance, with the original client IP address preserved for the game servers, and without adding user-defined routes or changing the servers' network configuration.",
+    question: "What should the architect recommend?",
+    options: [
+      { id: 'A', text: "Deploy Azure Firewall Premium in front of the load balancer and DNAT the game ports to the frontend IP." },
+      { id: 'B', text: "Deploy the appliances behind a Gateway Load Balancer and chain it to the public load balancer's frontend." },
+      { id: 'C', text: "Deploy the appliances behind an internal load balancer with HA ports and point the public load balancer to it." },
+      { id: 'D', text: "Deploy the appliances in a hub and add UDRs on the server subnet that send all traffic through them first." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "Gateway Load Balancer is built for transparent insertion of network appliances: chaining it to a public Standard load balancer frontend sends inbound and return traffic through the appliance pool using VXLAN encapsulation, preserving the client IP and flow symmetry, with no UDRs or changes on the servers. Routing through a hub with UDRs is exactly the route change security wants to avoid, and it breaks client IP preservation behind a public load balancer. Firewall DNAT rewrites the destination and, in front of the load balancer, hides the original client IP from the servers. A public load balancer cannot use an internal load balancer as its backend.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/load-balancer/gateway-overview",
+    tags: ["Gateway Load Balancer", "Network virtual appliance"]
+  },
+  {
+    id: "azure-az305-496",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d4",
+    domainName: "Design infrastructure solutions",
+    title: "Managed layer 7 traffic splitting for AKS services",
+    scenario: "A retail platform team runs dozens of microservices on AKS and wants a managed layer 7 load balancer that lives outside the cluster, is configured through the Kubernetes Gateway API, supports weighted traffic splitting for canary releases and mutual TLS to backends, and applies configuration changes in near real time without operating an in-cluster ingress controller's data plane.",
+    question: "What should the architect recommend?",
+    options: [
+      { id: 'A', text: "Deploy Azure Front Door with an origin group per microservice and weighted origins for every canary release." },
+      { id: 'B', text: "Deploy the NGINX ingress controller in the cluster and expose it through an internal Standard load balancer." },
+      { id: 'C', text: "Place a public Standard load balancer service in front of each microservice and use Traffic Manager weights." },
+      { id: 'D', text: "Deploy Application Gateway for Containers with the ALB Controller and define Gateway API resources in AKS." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Application Gateway for Containers is a managed layer 7 load balancer that runs outside the cluster and is driven by the ALB Controller from Kubernetes Gateway API or Ingress resources; it supports weighted traffic splitting, mutual TLS to backends and near real-time configuration updates. The NGINX ingress controller runs its data plane inside the cluster, which the team wants to avoid operating. Per-service public load balancers are layer 4 and Traffic Manager weights operate through DNS caching, which is too coarse for canaries. Front Door can weight origins but is not configured from Kubernetes resources and would need every service exposed as an origin.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/application-gateway/for-containers/overview",
+    tags: ["Application Gateway for Containers", "AKS", "Gateway API"]
+  },
+  {
+    id: "azure-az305-497",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d4",
+    domainName: "Design infrastructure solutions",
+    title: "A global edge in front of an app with no public access",
+    scenario: "A public broadcaster runs a web app on App Service with public network access disabled for security reasons. It now needs a global entry point with caching and a web application firewall for internet users, while the App Service must stay unreachable from the internet except through that entry point, over a private connection.",
+    question: "What should the architect recommend?",
+    options: [
+      { id: 'A', text: "Azure Traffic Manager with the App Service as endpoint and a WAF policy attached to the Traffic Manager profile." },
+      { id: 'B', text: "An Application Gateway WAF v2 with a public listener that reaches the App Service through a service endpoint." },
+      { id: 'C', text: "Azure Front Door Premium with a Private Link origin to the App Service, approving the private endpoint connection." },
+      { id: 'D', text: "Azure Front Door Standard with the App Service as origin and access restrictions using the AzureFrontDoor.Backend tag." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "Azure Front Door Premium can connect to origins through Private Link: Front Door creates a private endpoint to the App Service, which the app owner approves, so the app keeps public network access disabled and receives traffic only over that private connection, while Front Door provides caching and WAF at the edge. Front Door Standard reaches origins over their public endpoints, so public access would have to be re-enabled and restricted by service tag and header. Traffic Manager is DNS-only, provides no WAF, and clients would still connect to the app directly. A regional Application Gateway is not a global entry point with caching.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/frontdoor/private-link",
+    tags: ["Azure Front Door", "Private Link", "App Service"]
+  },
+  {
+    id: "azure-az305-498",
+    difficulty: "easy",
+    certId: "azure-az305",
+    domainId: "d4",
+    domainName: "Design infrastructure solutions",
+    title: "A legacy portal that keeps session state in memory",
+    scenario: "A council's legacy planning portal stores user session state in the memory of each web server VM, and users are logged out whenever a request lands on a different server. The portal sits behind an Application Gateway, and the council cannot change the application code before next year.",
+    question: "What should the architect recommend?",
+    options: [
+      { id: 'A', text: "Switch the Application Gateway listener from basic to multi-site so each user maps to one host." },
+      { id: 'B', text: "Enable connection draining on the backend settings so sessions finish on the portal's pool." },
+      { id: 'C', text: "Enable cookie-based session affinity on the Application Gateway backend settings for the portal." },
+      { id: 'D', text: "Add a URL rewrite rule on the Application Gateway that appends each server's name to the path." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "Cookie-based affinity makes Application Gateway issue an affinity cookie and send each user's subsequent requests to the same backend server, which keeps in-memory sessions working without code changes. Connection draining only lets existing connections finish when a server is removed from the pool. A multi-site listener routes by hostname, not by user. Rewriting URLs with a server name does not pin users to servers and would break the application's paths.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/application-gateway/configuration-http-settings",
+    tags: ["Application Gateway", "Session affinity"]
+  },
+  {
+    id: "azure-az305-499",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d4",
+    domainName: "Design infrastructure solutions",
+    title: "Load balancing both tiers of a regional application",
+    scenario: "A lending company is deploying a two-tier application in one region. The internet-facing web tier needs TLS termination, cookie-based affinity and protection against common web attacks. The web tier calls a pricing engine on a pool of VMs over a proprietary TCP protocol on port 9000, which must be reachable only from inside the virtual network.",
+    question: "Which two load-balancing components should the architect recommend? (Choose two.)",
+    options: [
+      { id: 'A', text: "Azure Front Door with the pricing engine VMs as origins on port 9000 for web tier to engine calls." },
+      { id: 'B', text: "An internal Standard load balancer with a TCP rule on port 9000 in front of the pricing engine." },
+      { id: 'C', text: "Azure Traffic Manager with the web tier VMs as endpoints to spread the internet user requests." },
+      { id: 'D', text: "A public Standard load balancer with a TCP rule on port 9000 in front of the pricing engine pool." },
+      { id: 'E', text: "An Application Gateway WAF v2 with a public frontend in front of the web tier virtual machines." }
+    ],
+    correctAnswers: ['B', 'E'],
+    type: "multiple",
+    explanation: "Application Gateway WAF v2 provides the web tier's TLS termination, cookie-based affinity and web attack protection as a regional layer 7 load balancer, and an internal Standard load balancer distributes the proprietary TCP traffic on port 9000 to the pricing engine using a private frontend IP reachable only within the network. Traffic Manager only answers DNS queries and provides no TLS termination, affinity or WAF. Front Door handles HTTP and HTTPS and is internet-facing, so it cannot carry a proprietary TCP protocol privately. A public load balancer would expose the pricing engine to the internet.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/architecture/guide/technology-choices/load-balancing-overview",
+    tags: ["Load balancing", "Application Gateway", "Load Balancer"]
+  },
+  {
+    id: "azure-az305-500",
+    difficulty: "easy",
+    certId: "azure-az305",
+    domainId: "d4",
+    domainName: "Design infrastructure solutions",
+    title: "Shifting mail relay traffic to Azure a slice at a time",
+    scenario: "A marketing firm is moving its SMTP relay service, which listens on TCP port 25, from its datacentre to VMs in Azure. It wants to send 10 percent of senders to the Azure relay first, raising the share gradually while the datacentre relay keeps handling the rest, and both relays have public IP addresses.",
+    question: "What should the architect recommend?",
+    options: [
+      { id: 'A', text: "An Application Gateway with both relays in one backend pool and weights assigned per pool member." },
+      { id: 'B', text: "Azure Traffic Manager with priority routing so the Azure relay becomes the primary when it is ready." },
+      { id: 'C', text: "Azure Front Door with weighted origins for the datacentre relay and the Azure relay on port 25." },
+      { id: 'D', text: "Azure Traffic Manager with weighted routing, using the datacentre relay as an external endpoint." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Traffic Manager works at the DNS level for any protocol, so it can balance SMTP; weighted routing returns endpoints in proportion to their weights, and external endpoints let the datacentre relay participate, so the firm can start at 10 percent for Azure and raise it over time. Front Door and Application Gateway proxy only HTTP and HTTPS and cannot carry SMTP on port 25. Priority routing sends all traffic to one endpoint at a time, so there is no gradual shift.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/traffic-manager/traffic-manager-routing-methods#weighted-traffic-routing-method",
+    tags: ["Traffic Manager", "Weighted routing", "Migration"]
+  }
+];
+
+export default AZURE_AZ305_QUESTIONS_20;

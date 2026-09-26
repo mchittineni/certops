@@ -1,0 +1,532 @@
+export const AZURE_AZ305_QUESTIONS_17 = [
+  {
+    id: "azure-az305-401",
+    difficulty: "easy",
+    certId: "azure-az305",
+    domainId: "d4",
+    domainName: "Design infrastructure solutions",
+    title: "One settings store for a mixed microservice estate",
+    scenario: "An insurer runs twelve microservices, some on App Service and some on AKS, and each keeps its own copy of shared settings such as API base URLs and timeouts. Changing a value today means editing twelve places and redeploying. Operations wants one place to manage non-secret settings, with values grouped by environment and picked up by running services without a redeployment.",
+    question: "What should the architect recommend?",
+    options: [
+      { id: 'A', text: "Publish a JSON settings file to a Blob Storage container and have each service download the file whenever its pods or instances restart." },
+      { id: 'B', text: "Keep the values as App Service application settings and as AKS ConfigMaps, and script both from one pipeline variable group on every change." },
+      { id: 'C', text: "Store the settings in Azure App Configuration, use labels per environment, and load them through the App Configuration provider with refresh." },
+      { id: 'D', text: "Move every shared setting into Azure Key Vault as secrets and have each service read the values for its environment at startup through its managed identity." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "Azure App Configuration is the managed central store for application settings: key-values can carry a label per environment, and the provider libraries for .NET, Java, Python and JavaScript (plus the Kubernetes provider for AKS) refresh values at runtime, so a change reaches running services without a redeployment. Key Vault is built for secrets, keys and certificates, has lower request throughput for configuration-style reads, and loading only at startup still needs restarts. Scripting App Service settings and ConfigMaps from one variable group keeps twelve copies and still pushes changes through a deployment. A JSON file in Blob Storage has no labels, no change detection and is only read on restart.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-app-configuration/overview",
+    tags: ["App Configuration", "Configuration management"]
+  },
+  {
+    id: "azure-az305-402",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d4",
+    domainName: "Design infrastructure solutions",
+    title: "Secrets that must stay in the vault behind one provider",
+    scenario: "A payments team already loads all of its settings from Azure App Configuration. Security now requires every database connection string to live only in Azure Key Vault, yet developers want to keep using the single App Configuration provider in code. The application runs on App Service with a system-assigned managed identity.",
+    question: "Which two actions should the architect include in the design? (Choose two.)",
+    options: [
+      { id: 'A', text: "Add each connection string to App Configuration as a Key Vault reference that points to the secret URI in the vault." },
+      { id: 'B', text: "Enable customer-managed key encryption on the App Configuration store and keep each connection string as a plain key-value." },
+      { id: 'C', text: "Import the connection strings into App Configuration as key-values whose content type is set to mark them as secret." },
+      { id: 'D', text: "Assign the web app's managed identity the Key Vault Secrets User role on the vault that holds the connection strings." },
+      { id: 'E', text: "Give the App Configuration store a managed identity and assign it Key Vault Secrets User so it can resolve the references." }
+    ],
+    correctAnswers: ['A', 'D'],
+    type: "multiple",
+    explanation: "A Key Vault reference in App Configuration stores only the secret's URI; the App Configuration provider in the application sees the reference content type and fetches the secret from Key Vault itself, so the secret value never sits in App Configuration and the code keeps one provider. Because the application does the fetch, it is the web app's managed identity that needs Key Vault Secrets User on the vault. App Configuration never contacts Key Vault on the client's behalf, so a role for the store's identity does nothing. Customer-managed keys change how App Configuration encrypts its data at rest but still place the connection strings in the store, as does importing them as key-values with a secret-looking content type.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-app-configuration/use-key-vault-references-dotnet-core",
+    tags: ["App Configuration", "Key Vault references", "Managed identity"]
+  },
+  {
+    id: "azure-az305-403",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d4",
+    domainName: "Design infrastructure solutions",
+    title: "Releasing a new checkout to a beta group first",
+    scenario: "An online retailer has built a redesigned checkout into its existing web application. Product management wants it shown first to the internal Beta-Testers group, then to 10 percent of all other signed-in customers, with each customer getting a consistent experience and the ability to switch the feature off instantly without a deployment.",
+    question: "What should the architect recommend?",
+    options: [
+      { id: 'A', text: "Create an App Configuration feature flag with a targeting filter naming the group and a 10 percent default rollout." },
+      { id: 'B', text: "Create a second App Configuration label named beta and point the Beta-Testers group's sessions at it to expose the feature." },
+      { id: 'C', text: "Run the new checkout on a second origin and set weighted routing in Azure Front Door to send it 10 percent of traffic." },
+      { id: 'D', text: "Deploy the new checkout to a staging slot and use the slot traffic routing percentage to send 10 percent of requests there." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "A feature flag with the targeting filter lets you include named users and groups outright and then roll out to a percentage of everyone else; the feature management library assigns users deterministically, so each customer sees a consistent result, and disabling the flag in App Configuration switches the feature off without a deployment. Slot traffic routing splits by request with a cookie and has no notion of an Entra group, and turning it off means changing slot routing rather than a flag. Front Door weighted origins split by request across backends and cannot target a group. A label selects a different set of key-values for a whole application instance, not for a subset of users of one instance.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-app-configuration/howto-targetingfilter",
+    tags: ["App Configuration", "Feature flags", "Progressive rollout"]
+  },
+  {
+    id: "azure-az305-404",
+    difficulty: "hard",
+    certId: "azure-az305",
+    domainId: "d4",
+    domainName: "Design infrastructure solutions",
+    title: "Throttled refreshes from 400 running instances",
+    scenario: "A streaming platform scaled a service to 400 instances, each configured to watch 60 App Configuration keys individually with a 5-second refresh interval. The store has started returning HTTP 429 responses at peak. Settings change only a few times a day, and the team accepts a delay of a few minutes before a change takes effect, but all related settings must switch together.",
+    question: "What should the architect recommend?",
+    options: [
+      { id: 'A', text: "Convert the 60 keys into Key Vault references so that each change is read from Key Vault rather than from the store." },
+      { id: 'B', text: "Watch one sentinel key with refresh-all enabled, lengthen the refresh interval, and update the sentinel after each change." },
+      { id: 'C', text: "Place an Azure Cache for Redis instance between the services and the store and have each instance poll it at the same refresh interval." },
+      { id: 'D', text: "Spread the 60 keys across several labels so that each instance must watch only the subset of keys relevant to its role." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "The sentinel pattern registers a single key for change monitoring with refresh-all set, so each instance makes one conditional request per interval instead of 60, and updating the sentinel after the other edits makes every related value reload together; raising the interval to minutes cuts the request rate further and matches the tolerated delay. A Redis layer adds a component and custom code while the services would still need a change-detection scheme. Splitting keys across labels reduces the keys each instance watches only if roles differ, and still leaves per-key polling at 5 seconds. Key Vault references move the load to Key Vault, which has its own, lower, service limits and is not a configuration store.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-app-configuration/enable-dynamic-configuration-aspnet-core",
+    tags: ["App Configuration", "Dynamic refresh", "Throttling"]
+  },
+  {
+    id: "azure-az305-405",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d4",
+    domainName: "Design infrastructure solutions",
+    title: "Configuration that cannot drift after a release",
+    scenario: "A medical device vendor must prove to auditors exactly which configuration values each production release ran with, and must be able to roll a release back to that precise set of values months later. Engineers sometimes edit key-values in App Configuration directly, and the audit team does not accept a record that someone could later alter.",
+    question: "What should the architect recommend?",
+    options: [
+      { id: 'A', text: "Create an App Configuration snapshot of the release's key-values and have the release load its settings from that snapshot." },
+      { id: 'B', text: "Export the key-values to a JSON file in Blob Storage at each release and import the file again to roll back later." },
+      { id: 'C', text: "Rely on the store's key-value revision history and restore the values to the release date when a rollback is needed." },
+      { id: 'D', text: "Copy the release's key-values under a label named after the release version and load that label in production." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "A snapshot captures the key-values that match a filter at a point in time as an immutable, named set: nobody can edit its contents, the application can load settings from the snapshot by name, and pointing back to an older snapshot reproduces the earlier configuration exactly. A version label is only a naming convention, and anyone with write access can still change the key-values under it. Revision history is kept for a limited retention period (days, not months) and restoring it is an administrative action rather than a tamper-proof record. An exported JSON file can be edited or overwritten unless extra immutability controls are added, and re-importing changes the live store rather than pinning the release.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-app-configuration/concept-snapshots",
+    tags: ["App Configuration", "Snapshots", "Release management"]
+  },
+  {
+    id: "azure-az305-406",
+    difficulty: "easy",
+    certId: "azure-az305",
+    domainId: "d4",
+    domainName: "Design infrastructure solutions",
+    title: "Staging database string follows a swap into production",
+    scenario: "A travel agency deploys to a staging slot of its App Service web app and swaps it into production after testing. After the last swap, production began writing to the staging database because the connection string moved with the code. The team wants each slot to keep its own database connection string through every future swap.",
+    question: "What should the architect recommend?",
+    options: [
+      { id: 'A', text: "Turn on auto swap for the staging slot so that the platform manages which settings travel with the code during the swap." },
+      { id: 'B', text: "Move the connection string into the web.config file in the repository so that each build carries the right database value through swaps." },
+      { id: 'C', text: "Replace the connection string with a Key Vault reference so that the value is resolved from the vault at runtime instead." },
+      { id: 'D', text: "Mark the connection string as a deployment slot setting in each slot so that the value stays with the slot during swaps." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "A setting marked as a deployment slot setting is sticky: it stays with the slot, so after a swap the production slot keeps the production connection string and staging keeps its own. Auto swap only triggers a swap automatically after a deployment; it uses the same rules for which settings move. A Key Vault reference changes where the value comes from but, unless it is also marked as a slot setting, the reference itself still swaps with the code. Putting the value in web.config ties it to the build, so the same package carries the same string into whichever slot it lands in.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/app-service/deploy-staging-slots",
+    tags: ["App Service", "Deployment slots", "Slot settings"]
+  },
+  {
+    id: "azure-az305-407",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d4",
+    domainName: "Design infrastructure solutions",
+    title: "Settings that survive the loss of one region",
+    scenario: "A logistics company runs its order service active-active in West Europe and North Europe, and both deployments load settings from one Standard-tier App Configuration store in West Europe. A regional incident must not stop the North Europe deployment from starting or refreshing its settings. The team wants failover to happen without operator action or code that manages two stores.",
+    question: "What should the architect recommend?",
+    options: [
+      { id: 'A', text: "Enable availability zone support on the existing store so that its data is copied synchronously to three zones in the region." },
+      { id: 'B', text: "Add a geo-replica of the store in North Europe and let the App Configuration provider discover and fail over to the replica." },
+      { id: 'C', text: "Put Azure Front Door in front of the store endpoint and configure a second origin that serves a cached copy of the settings." },
+      { id: 'D', text: "Create a second store in North Europe and run a scheduled pipeline that exports the key-values from the primary and imports them there." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "Geo-replication, available in the Standard tier and above, adds replicas of the store in other regions that stay in sync automatically, and the App Configuration providers discover replicas and fail over to them when the origin is unreachable, so no operator action or second-store logic is needed. A scheduled export and import keeps a separate store that lags behind and needs code that knows about two endpoints. Zone redundancy protects against the loss of a datacentre within West Europe, not the loss of the region. Front Door is not a supported way to front an App Configuration endpoint and would not keep the settings synchronized.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-app-configuration/concept-geo-replication",
+    tags: ["App Configuration", "Geo-replication", "Resiliency"]
+  },
+  {
+    id: "azure-az305-408",
+    difficulty: "hard",
+    certId: "azure-az305",
+    domainId: "d4",
+    domainName: "Design infrastructure solutions",
+    title: "Locking down a settings store for AKS workloads",
+    scenario: "A bank's AKS workloads use Microsoft Entra Workload ID and read settings from Azure App Configuration. A security review found that the store is reachable from the internet and that one team still uses a connection string containing an access key. The bank requires private-network access only and no shared keys anywhere, while granting pods no more than read access.",
+    question: "Which two actions should the architect recommend? (Choose two.)",
+    options: [
+      { id: 'A', text: "Create a private endpoint for the store in the AKS virtual network and set public network access on the store to disabled." },
+      { id: 'B', text: "Assign App Configuration Data Owner to the cluster's kubelet identity so that every pod can authenticate to the store." },
+      { id: 'C', text: "Disable access-key authentication on the store and assign App Configuration Data Reader to the workload identities." },
+      { id: 'D', text: "Enable customer-managed key encryption on the store using a key held in a Key Vault that has public access disabled." },
+      { id: 'E', text: "Store the existing connection string as a Kubernetes secret and mount it only into the pods of the team that still uses it." }
+    ],
+    correctAnswers: ['A', 'C'],
+    type: "multiple",
+    explanation: "A private endpoint gives the store a private IP in the virtual network, and disabling public network access blocks every request that does not arrive through a private endpoint. Disabling access-key (local) authentication makes the store accept only Microsoft Entra tokens, and App Configuration Data Reader on each workload identity gives pods read access and nothing more. Data Owner grants write access, and the kubelet identity is shared by the node pool rather than scoped to a workload, so it breaks least privilege. A Kubernetes secret still holds an access key, which the bank forbids. Customer-managed keys govern encryption at rest and do nothing for network exposure or for how clients authenticate.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-app-configuration/howto-disable-access-key-authentication",
+    tags: ["App Configuration", "Private endpoint", "Workload identity"]
+  },
+  {
+    id: "azure-az305-409",
+    difficulty: "easy",
+    certId: "azure-az305",
+    domainId: "d4",
+    domainName: "Design infrastructure solutions",
+    title: "Declarative infrastructure without a state file",
+    scenario: "A public-sector agency wants to define its Azure infrastructure as code. Its requirements are a declarative language with concise, readable syntax, support for new Azure resource types and API versions as soon as they are released, and no separate state file to store, lock or secure. The agency deploys only to Azure.",
+    question: "Which approach should the architect recommend?",
+    options: [
+      { id: 'A', text: "Azure PowerShell runbooks in Azure Automation that apply each change on a schedule using a managed identity." },
+      { id: 'B', text: "Bicep files deployed through Azure Resource Manager, which itself tracks the deployed state of every resource." },
+      { id: 'C', text: "Terraform with the AzureRM provider, keeping remote state in a Storage account container protected with a lease." },
+      { id: 'D', text: "Azure CLI scripts in the pipeline that create each resource in order and check that it exists before running." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "Bicep is Azure's declarative language: it transpiles to ARM templates, so it supports every resource type and API version on day one, and Azure Resource Manager itself is the source of truth for what is deployed, so there is no state file to manage. Terraform is declarative but depends on a state file that must be stored, locked and secured, and new resource types arrive when the provider adds them. Azure CLI scripts and PowerShell runbooks are imperative: they describe steps rather than a desired end state, and making them idempotent is the author's job.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-resource-manager/bicep/overview",
+    tags: ["Bicep", "Infrastructure as code"]
+  },
+  {
+    id: "azure-az305-410",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d4",
+    domainName: "Design infrastructure solutions",
+    title: "Pipeline sign-in to Azure with nothing to rotate",
+    scenario: "A software company deploys its Bicep templates from GitHub Actions using GitHub-hosted runners. An audit flagged the client secret stored in the repository's secrets, which expires every six months and was once leaked in a log. The company wants the workflow to sign in to Azure with no stored credential of any kind and no build infrastructure to maintain.",
+    question: "What should the architect recommend?",
+    options: [
+      { id: 'A', text: "Add a federated identity credential for the repository and environment, and sign in with the azure/login action using OpenID Connect." },
+      { id: 'B', text: "Run the workflow on a self-hosted runner on an Azure VM and have the job sign in with the virtual machine's managed identity." },
+      { id: 'C', text: "Keep the client secret but store it in Azure Key Vault and have the workflow fetch it with a separate read-only credential." },
+      { id: 'D', text: "Replace the client secret with a certificate uploaded to the app registration and store the PFX file as an encrypted repository secret." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Workload identity federation lets a Microsoft Entra app registration or user-assigned managed identity trust tokens that GitHub issues for a specific repository, branch or environment; the azure/login action exchanges the GitHub OIDC token for an Azure access token, so no secret is stored or rotated and GitHub-hosted runners keep working. A certificate is still a stored credential that expires and can leak. A self-hosted runner with a managed identity removes the secret but adds a VM the company must patch and scale. Moving the secret to Key Vault only shifts the problem, because the workflow needs another credential to read the vault.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/developer/github/connect-from-azure-openid-connect",
+    tags: ["GitHub Actions", "Workload identity federation", "OIDC"]
+  },
+  {
+    id: "azure-az305-411",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d4",
+    domainName: "Design infrastructure solutions",
+    title: "Only the pipeline may delete platform resources",
+    scenario: "A platform team deploys shared networking with Bicep into a resource group where several application teams hold Contributor. Twice an application engineer deleted a route table by mistake. The platform team wants deletion of the resources it deploys to be blocked for everyone except its pipeline identity, while the pipeline can still remove resources as part of normal deployments.",
+    question: "What should the architect recommend?",
+    options: [
+      { id: 'A', text: "Replace Contributor for the application teams with a custom role that removes every delete action on network resource types." },
+      { id: 'B', text: "Apply a CanNotDelete resource lock to the resource group and have the pipeline identity remove and re-create it around deployments." },
+      { id: 'C', text: "Deploy through a deployment stack with deny settings set to deny delete, adding the pipeline identity as an excluded principal." },
+      { id: 'D', text: "Assign an Azure Policy definition with the deny effect that blocks the delete action on network resources in the resource group." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "A deployment stack manages its resources as a unit and can apply deny settings, implemented as a deny assignment, that block delete (or write and delete) on every managed resource, with up to a handful of excluded principals such as the pipeline identity; the stack also removes resources the template drops during normal updates. A resource lock applies to everyone, including the pipeline, so deployments that remove resources need extra lock-juggling steps. Azure Policy deny evaluates create and update requests and does not block delete operations. A custom role changes the application teams' permissions everywhere it is assigned, is easy to bypass with another role, and protects nothing from other principals.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-resource-manager/bicep/deployment-stacks",
+    tags: ["Deployment stacks", "Bicep", "Deny assignments"]
+  },
+  {
+    id: "azure-az305-412",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d4",
+    domainName: "Design infrastructure solutions",
+    title: "Approved templates that business units deploy from the portal",
+    scenario: "A manufacturer's central cloud team maintains an approved template for a hardened SQL virtual machine. Business units in 30 subscriptions must deploy it themselves from the Azure portal, choosing between published versions, and the central team must control who can see and use it through Azure RBAC. The business units must keep full control of the resources once deployed.",
+    question: "What should the architect recommend?",
+    options: [
+      { id: 'A', text: "Store the template in a Blob Storage container and give the business units a long-lived SAS token to download the file." },
+      { id: 'B', text: "Publish the template to a private Bicep module registry in Azure Container Registry and grant AcrPull to the business units." },
+      { id: 'C', text: "Publish the template as a service catalog managed application definition that each business unit deploys from the portal." },
+      { id: 'D', text: "Publish the template as a versioned template spec and grant the business units Reader on the template spec resource." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "A template spec stores an ARM or Bicep template as an Azure resource with versions; anyone with Reader on it can deploy a chosen version directly from the portal, CLI or pipelines, access is governed by Azure RBAC, and the deployed resources belong entirely to the deployer. A private module registry is consumed by Bicep at build time by authors, not deployed from the portal. A SAS token is a shared key rather than RBAC and offers no version picker. A service catalog managed application places the resources in a managed resource group that the consumer cannot fully modify, which conflicts with business units keeping full control.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-resource-manager/templates/template-specs",
+    tags: ["Template specs", "Infrastructure as code", "RBAC"]
+  },
+  {
+    id: "azure-az305-413",
+    difficulty: "hard",
+    certId: "azure-az305",
+    domainId: "d4",
+    domainName: "Design infrastructure solutions",
+    title: "Validating a release against production settings before cutover",
+    scenario: "An e-commerce site deploys to a staging slot of its App Service app. Several defects reached production because the new build behaved differently once production's sticky slot settings, such as its connection strings, were applied during the swap. The QA team now wants to test the new build with production's slot settings applied, and only then complete the cutover without a cold start.",
+    question: "What should the architect recommend?",
+    options: [
+      { id: 'A', text: "Use swap with preview so production's settings are applied to staging, test it there, and then complete the swap." },
+      { id: 'B', text: "Test the build in staging with staging's own settings applied, then complete a standard swap with a warm-up ping path." },
+      { id: 'C', text: "Route five percent of production traffic to the staging slot and let QA test through production before swapping." },
+      { id: 'D', text: "Enable auto swap on the staging slot so that each deployment warms up and swaps into production without manual steps." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Swap with preview (a multi-phase swap) first applies the target slot's settings, including sticky slot settings, to the source slot and restarts it, then pauses so the team can validate the build with production configuration; completing the swap then moves the already warmed instances into production, and cancelling reverts the settings. Auto swap removes the validation step entirely. Traffic routing sends some users to staging, but staging still runs with its own slot settings, so production configuration is not what gets tested. A standard swap after testing with staging settings is exactly the process that let the defects through.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/app-service/deploy-staging-slots#swap-with-preview-multi-phase-swap",
+    tags: ["App Service", "Deployment slots", "Swap with preview"]
+  },
+  {
+    id: "azure-az305-414",
+    difficulty: "easy",
+    certId: "azure-az305",
+    domainId: "d4",
+    domainName: "Design infrastructure solutions",
+    title: "Self-service test environments that clean themselves up",
+    scenario: "A fintech's developers wait days for the platform team to build test environments, each made of an App Service app, a database and a storage account. The platform team wants developers to create these environments themselves from approved infrastructure-as-code templates held in a Git catalog, with an expiry date so abandoned environments are deleted automatically.",
+    question: "Which service should the architect recommend?",
+    options: [
+      { id: 'A', text: "Microsoft Dev Box, with a dev box definition per project so each developer receives a preconfigured workstation." },
+      { id: 'B', text: "Template specs held in a shared catalog subscription, with developers deploying the templates into sandbox environments." },
+      { id: 'C', text: "Azure Automation runbooks that the platform team triggers from a ticket to deploy and later remove each stack." },
+      { id: 'D', text: "Azure Deployment Environments, with a catalog of templates and environment types mapped to target subscriptions." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Azure Deployment Environments lets platform engineers attach a Git catalog of Bicep, ARM or Terraform templates to a dev center, map environment types to subscriptions with the permissions and policies they need, and let developers create environments on demand, with expiration dates that delete them automatically. Microsoft Dev Box provides cloud developer workstations, not application environments. Template specs make templates deployable but have no project model, environment types or expiry. Runbooks triggered from tickets keep the platform team in the loop, which is the delay the fintech wants to remove.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/deployment-environments/overview-what-is-azure-deployment-environments",
+    tags: ["Deployment Environments", "Platform engineering"]
+  },
+  {
+    id: "azure-az305-415",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d4",
+    domainName: "Design infrastructure solutions",
+    title: "Removing resources that were dropped from the template",
+    scenario: "A media company's Bicep deployment spans three resource groups and a subscription-level policy assignment. When an engineer deletes a resource from the Bicep file, it keeps running in Azure and accrues cost until someone notices. The company wants resources removed from the template to be deleted automatically on the next deployment across every scope the template touches.",
+    question: "What should the architect recommend?",
+    options: [
+      { id: 'A', text: "Run each resource group deployment in complete mode so that resources missing from the template are deleted in that group." },
+      { id: 'B', text: "Create a subscription-scoped deployment stack and set its action on unmanaged resources to delete all of them." },
+      { id: 'C', text: "Add a what-if step to the pipeline and have an engineer delete any resource it reports as missing from the template." },
+      { id: 'D', text: "Assign an Azure Policy with the deployIfNotExists effect that removes resources which lack the pipeline's tag." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "A deployment stack created at subscription scope tracks every resource it deploys, including those in several resource groups, and its action-on-unmanage setting controls what happens to resources that drop out of the template: set to delete, they are removed on the next update. Complete mode works only for resource group deployments and considers one group at a time, so it cannot clean up the subscription-level assignment or coordinate the three groups, and it also deletes anything else in the group. A what-if step with manual deletion is the kind of human follow-up the company wants to eliminate. Azure Policy's deployIfNotExists deploys missing resources; it does not delete them.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-resource-manager/bicep/deployment-stacks",
+    tags: ["Deployment stacks", "Bicep", "Drift"]
+  },
+  {
+    id: "azure-az305-416",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d4",
+    domainName: "Design infrastructure solutions",
+    title: "Change-board approval before a production release",
+    scenario: "A utility company uses multi-stage YAML pipelines in Azure Pipelines. Its change policy says a production deployment may start only after a member of the change board approves it and only between 22:00 and 04:00 local time. Deployments to test must continue to run automatically, and the controls must apply no matter which pipeline targets production.",
+    question: "What should the architect recommend?",
+    options: [
+      { id: 'A', text: "Require change-board members to activate a PIM role on the production subscription before each pipeline run can start." },
+      { id: 'B', text: "Create a production environment in Azure Pipelines with an approval check for the change-board and a business hours check." },
+      { id: 'C', text: "Assign an Azure Policy to the production subscription that denies pipelines deploying outside the window unless tagged as approved." },
+      { id: 'D', text: "Add a branch policy on main that requires a change-board reviewer on pull requests and a build validation that checks the time." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "Approvals and checks are attached to an Azure Pipelines environment rather than to a pipeline, so every YAML stage that deploys to the production environment waits for the change-board approval and for the business hours check window, while stages targeting the test environment run unattended. A branch policy governs code entering main, not when or whether a deployment runs. PIM activation grants a person elevated access; it does not gate a pipeline's service connection. Azure Policy evaluates resource properties and has no notion of a time window or a pipeline approval.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/devops/pipelines/process/approvals",
+    tags: ["Azure Pipelines", "Environments", "Approvals"]
+  },
+  {
+    id: "azure-az305-417",
+    difficulty: "hard",
+    certId: "azure-az305",
+    domainId: "d4",
+    domainName: "Design infrastructure solutions",
+    title: "Showing reviewers what a template will change",
+    scenario: "At a healthcare provider, an infrastructure pull request once replaced a subnet and cut off a clinical system, although the Bicep file passed linting and validation. Reviewers now want every pull request to show, before merge, which existing resources will be created, modified or deleted and which properties will change, without deploying anything.",
+    question: "What should the pipeline run on each pull request?",
+    options: [
+      { id: 'A', text: "A validate operation against the target resource group so preflight checks confirm the template would be accepted." },
+      { id: 'B', text: "A what-if operation against the target scope, publishing the predicted resource and property changes to the PR." },
+      { id: 'C', text: "A test deployment into a copy of the resource group, comparing its deployment history with the production group." },
+      { id: 'D', text: "A Bicep build with the linter at error level so that risky patterns fail the pull request before any review." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "The what-if operation compares the template with the current state of the target scope and reports each resource as create, modify, delete, no change or ignore, with property-level differences, without making any change; publishing that output to the pull request gives reviewers exactly the view they asked for. Validate runs preflight checks such as syntax and quota, which the subnet change already passed. The linter enforces coding rules and cannot know what exists in Azure. A test deployment into a copy costs time and money and shows the copy's history, not the change against production.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/azure-resource-manager/bicep/deploy-what-if",
+    tags: ["Bicep", "What-if", "Pull requests"]
+  },
+  {
+    id: "azure-az305-418",
+    difficulty: "easy",
+    certId: "azure-az305",
+    domainId: "d4",
+    domainName: "Design infrastructure solutions",
+    title: "Preparing subscriptions before the first workload moves",
+    scenario: "A retailer has approved its cloud adoption plan and chosen the first workloads to migrate. Before any server moves, it wants a scalable environment in place: a management group hierarchy, identity and hub networking, baseline policies and logging that every future workload will inherit.",
+    question: "Which Cloud Adoption Framework methodology covers this work?",
+    options: [
+      { id: 'A', text: "The Adopt methodology, which migrates and modernizes the workloads into the target environment." },
+      { id: 'B', text: "The Plan methodology, which rationalizes the digital estate and builds the skills and adoption plan." },
+      { id: 'C', text: "The Ready methodology, which prepares the environment by deploying Azure landing zones." },
+      { id: 'D', text: "The Govern methodology, which defines policies and monitors the estate for compliance over time." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "In the Cloud Adoption Framework, Ready is where the environment is prepared: Azure landing zones provide the management group hierarchy, identity, connectivity, policy baseline and management tooling that workloads inherit. Plan comes earlier and turns strategy into a prioritized adoption plan with skilling and organizational alignment. Adopt follows Ready and is where workloads are actually migrated or modernized. Govern is an ongoing methodology that refines policy and compliance across the estate; it builds on the baseline the landing zone deploys rather than standing it up.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/",
+    tags: ["Cloud Adoption Framework", "Ready", "Landing zones"]
+  },
+  {
+    id: "azure-az305-419",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d4",
+    domainName: "Design infrastructure solutions",
+    title: "Financial justification for a datacentre exit",
+    scenario: "A distributor's CFO will approve a datacentre exit only if shown a comparison of its current on-premises total cost of ownership with the projected Azure cost, including savings from existing Windows Server and SQL Server licences. The IT team has already deployed the Azure Migrate appliance and discovered 450 servers over the past month.",
+    question: "What should the architect use to produce this comparison?",
+    options: [
+      { id: 'A', text: "Azure Advisor cost recommendations, reviewed for the subscriptions that will host the migrated servers in Azure." },
+      { id: 'B', text: "Microsoft Cost Management budgets and forecasts, set on the target subscriptions before any server is migrated." },
+      { id: 'C', text: "A business case in Azure Migrate built from the discovered inventory and utilization, with Hybrid Benefit applied." },
+      { id: 'D', text: "The Azure pricing calculator, entering a VM size for each server that Azure Migrate discovered and applying Hybrid Benefit." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "An Azure Migrate business case uses the inventory and performance data the appliance already collected to estimate on-premises TCO against Azure cost, showing year-on-year cash flow and the effect of Azure Hybrid Benefit and right-sizing, which is exactly the comparison the CFO asked for. The pricing calculator estimates Azure cost only and would need 450 manual entries with no on-premises side. Cost Management works on actual Azure spend, which does not exist yet. Advisor recommends optimizations for resources already running in Azure.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/migrate/concepts-business-case-calculation",
+    tags: ["Azure Migrate", "Business case", "Cloud Adoption Framework"]
+  },
+  {
+    id: "azure-az305-420",
+    difficulty: "easy",
+    certId: "azure-az305",
+    domainId: "d4",
+    domainName: "Design infrastructure solutions",
+    title: "Legacy expense system with a SaaS equivalent",
+    scenario: "A law firm runs a customized expense-reporting application on two ageing Windows servers. The vendor stopped supporting it, and the firm's requirements are fully met by a commercial SaaS expense product that finance already trials. The firm wants the least ongoing infrastructure to manage for this capability after migration.",
+    question: "Which rationalization approach should the architect recommend for this workload?",
+    options: [
+      { id: 'A', text: "Replace the application with the SaaS product and migrate the historical expense data into it." },
+      { id: 'B', text: "Rehost the two expense servers as Azure virtual machines so the application moves without code changes." },
+      { id: 'C', text: "Refactor the application onto Azure App Service so that the firm no longer manages the operating system." },
+      { id: 'D', text: "Rebuild the expense application as new cloud-native code on Azure Functions and Azure SQL Database." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "When a SaaS product fully meets the need, the Cloud Adoption Framework's replace approach retires the custom application and moves its data into the SaaS offering, leaving no infrastructure or code for the firm to operate. Rehosting keeps unsupported software running on VMs the firm must still patch. Refactoring to App Service removes OS management but keeps the firm maintaining an unsupported codebase. Rebuilding from scratch spends development effort to recreate functionality that is already available off the shelf.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/adopt/",
+    tags: ["Cloud Adoption Framework", "Rationalization", "SaaS"]
+  },
+  {
+    id: "azure-az305-421",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d4",
+    domainName: "Design infrastructure solutions",
+    title: "Small code changes to leave the operating system behind",
+    scenario: "A charity's donation website is an ASP.NET application on IIS that reads a local file share and a SQL Server database. The charity wants to stop patching Windows servers within three months, but the two developers can spend only a few weeks on code changes, and the application's design must otherwise stay as it is.",
+    question: "Which migration approach should the architect recommend?",
+    options: [
+      { id: 'A', text: "Rehost the web, file share and database servers as Azure VMs with automatic guest patching turned on." },
+      { id: 'B', text: "Rebuild the donation site as a new single-page application on Static Web Apps with an Azure Functions API." },
+      { id: 'C', text: "Refactor for App Service and Azure SQL Database, swapping the file share reads for Azure Blob Storage calls." },
+      { id: 'D', text: "Rearchitect the site into microservices on Azure Container Apps communicating through Azure Service Bus." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "Refactoring (sometimes called replatforming) makes modest code changes so the application can run on PaaS services: App Service and Azure SQL Database remove server patching, and replacing local file access with Blob Storage calls is the kind of small change a few weeks allow, while the overall design stays the same. Rehosting with automatic guest patching still leaves Windows servers to own. Rearchitecting into microservices changes the design and needs far more than a few weeks. Rebuilding as a new application is a full rewrite.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/adopt/",
+    tags: ["Cloud Adoption Framework", "Refactor", "App Service"]
+  },
+  {
+    id: "azure-az305-422",
+    difficulty: "hard",
+    certId: "azure-az305",
+    domainId: "d4",
+    domainName: "Design infrastructure solutions",
+    title: "Placing new subscriptions in a landing zone hierarchy",
+    scenario: "A retailer has deployed the Azure landing zone reference management group hierarchy. It is adding a subscription for an internal HR application that must reach on-premises systems through the hub network, and a subscription for a public marketing website that needs internet access but no private connectivity. Each must inherit the policies intended for its type of workload.",
+    question: "Where should the architect place the two subscriptions? (Choose two.)",
+    options: [
+      { id: 'A', text: "Place the HR subscription under the Corp management group beneath the Landing zones management group." },
+      { id: 'B', text: "Place both subscriptions under the Sandbox management group until their landing zone policies are known." },
+      { id: 'C', text: "Place the marketing subscription under the Online management group beneath the Landing zones group." },
+      { id: 'D', text: "Place the marketing subscription under the Connectivity management group beneath the Platform group." },
+      { id: 'E', text: "Place the HR subscription under the Identity management group so it inherits the domain controller policies." }
+    ],
+    correctAnswers: ['A', 'C'],
+    type: "multiple",
+    explanation: "In the Azure landing zone hierarchy, application landing zones sit under the Landing zones management group: Corp holds workloads that need private connectivity to the hub and on-premises, with policies such as denying public endpoints, and Online holds internet-facing workloads that do not require hybrid connectivity. Connectivity and Identity belong to the Platform group and host shared hub networking and identity services, not application workloads, and placing workloads there would apply the wrong policies and blur ownership. Sandbox is for experimentation and is deliberately disconnected from corporate networks, so the HR application could not reach on-premises systems.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/landing-zone/design-area/resource-org-management-groups",
+    tags: ["Cloud Adoption Framework", "Landing zones", "Management groups"]
+  },
+  {
+    id: "azure-az305-423",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d4",
+    domainName: "Design infrastructure solutions",
+    title: "Choosing the first workload for a migration programme",
+    scenario: "A university is starting a programme to move 120 applications to Azure. Its operations staff have little Azure experience, and the programme sponsor wants the first migration to build the team's skills and validate the landing zone and migration tooling while putting as little of the business at risk as possible.",
+    question: "Which workload should the architect recommend migrating first?",
+    options: [
+      { id: 'A', text: "The shared authentication service, because every other application depends on it and must follow it into Azure." },
+      { id: 'B', text: "The student records system, because moving the most critical workload first proves the platform to the business." },
+      { id: 'C', text: "The data warehouse, because the largest workload exercises the migration tooling at the greatest possible scale." },
+      { id: 'D', text: "A departmental wiki with few dependencies and low business impact, because it lets the team learn with little risk." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Cloud Adoption Framework guidance for the first adoption effort is to pick a workload that is low in business criticality and technical complexity and has few dependencies, so the team can learn the landing zone, tooling and operating processes while an error costs little. The student records system and the authentication service are high-impact, and a mistake with either would affect the whole university; the authentication service's many dependants also make it one of the hardest workloads to move. The data warehouse's size and complexity turn a learning exercise into a major project.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/plan/",
+    tags: ["Cloud Adoption Framework", "Migration planning", "Prioritization"]
+  },
+  {
+    id: "azure-az305-424",
+    difficulty: "easy",
+    certId: "azure-az305",
+    domainId: "d4",
+    domainName: "Design infrastructure solutions",
+    title: "Standing up the platform landing zone quickly",
+    scenario: "A logistics firm has decided to follow the Azure landing zone conceptual architecture. It wants to deploy the recommended management groups, policy assignments, central logging and hub networking in weeks rather than months, using maintained infrastructure-as-code that it can customize and keep in its own repository.",
+    question: "What should the architect use?",
+    options: [
+      { id: 'A', text: "Azure Arc, onboarding the subscriptions so that governance is applied from one control plane." },
+      { id: 'B', text: "Azure Deployment Environments, with a catalog that holds the landing zone templates." },
+      { id: 'C', text: "Azure Migrate, whose migration project creates the target subscriptions and networking." },
+      { id: 'D', text: "The Azure landing zone accelerator, deployed from the portal or its Bicep or Terraform modules." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "The Azure landing zone accelerators deploy the platform landing zone reference implementation, including the management group hierarchy, Azure Policy assignments, a central Log Analytics workspace and hub or Virtual WAN networking, and are available as a portal experience and as maintained Bicep and Terraform modules the firm can customize in its own repository. Deployment Environments provisions application environments for developers inside subscriptions that already exist. Azure Migrate discovers, assesses and moves workloads but does not build the platform. Azure Arc extends Azure management to servers and clusters outside Azure; Azure subscriptions do not need onboarding.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/landing-zone/",
+    tags: ["Cloud Adoption Framework", "Landing zones", "Accelerator"]
+  },
+  {
+    id: "azure-az305-425",
+    difficulty: "hard",
+    certId: "azure-az305",
+    domainId: "d4",
+    domainName: "Design infrastructure solutions",
+    title: "Nine months left on a datacentre lease",
+    scenario: "A manufacturer must vacate its datacentre in nine months when the lease ends, and it runs 800 Hyper-V virtual machines hosting about 200 applications. Leadership also wants to modernize its applications over time, but it will not accept a lease extension. The migration team has 12 engineers.",
+    question: "Which migration strategy should the architect recommend?",
+    options: [
+      { id: 'A', text: "Rearchitect the top 50 applications first and rehost the remaining 150 only if time remains before the exit." },
+      { id: 'B', text: "Rehost most servers in dependency-based waves to meet the lease date, then modernize key applications after exit." },
+      { id: 'C', text: "Move the estate to Azure VMware Solution first, then modernize applications from the private cloud over time." },
+      { id: 'D', text: "Refactor each application to PaaS before its move, so only modern workloads arrive in Azure within the lease." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "With a fixed, near-term deadline and a small team, the Cloud Adoption Framework approach is to rehost the bulk of the estate in dependency-based waves, which is the fastest and least risky way to exit, and then modernize the applications that deliver the most value once they are running in Azure. Refactoring 200 applications in nine months with 12 engineers is unrealistic. Azure VMware Solution is a fast path for VMware estates, but these are Hyper-V machines that would have to be converted, removing its advantage. Rearchitecting the top 50 first spends most of the time on the slowest work and puts the lease date at risk.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/migrate/",
+    tags: ["Cloud Adoption Framework", "Rehost", "Migration strategy"]
+  }
+];
+
+export default AZURE_AZ305_QUESTIONS_17;

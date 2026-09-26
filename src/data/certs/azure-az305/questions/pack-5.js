@@ -1,0 +1,532 @@
+export const AZURE_AZ305_QUESTIONS_5 = [
+  {
+    id: "azure-az305-101",
+    difficulty: "easy",
+    certId: "azure-az305",
+    domainId: "d1",
+    domainName: "Design identity, governance, and monitoring solutions",
+    title: "Measuring public blob exposure before enforcing",
+    scenario: "A university's security office wants to know how many of its 600 Storage accounts allow anonymous blob access before it decides on a remediation plan. Research groups are in the middle of grant deadlines, so nothing that blocks or alters deployments may be introduced this term.",
+    question: "Which policy effect should the architect recommend for now?",
+    options: [
+      { id: 'A', text: "DeployIfNotExists, so that a private endpoint is added to accounts" },
+      { id: 'B', text: "Audit, so that non-compliant accounts are reported as such" },
+      { id: 'C', text: "Deny, so that non-compliant accounts are rejected at deployment" },
+      { id: 'D', text: "Modify, so that anonymous access is switched off on each account" }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "The Audit effect evaluates existing and new resources and marks non-compliant ones in the compliance dashboard and activity log without affecting any request, which gives the security office its count with zero disruption. Deny would block research groups' deployments. Modify changes the accounts' configuration, which alters workloads mid-term. DeployIfNotExists deploys new resources, which is both disruptive and unrelated to measuring anonymous access.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/governance/policy/concepts/effect-audit",
+    tags: ["Azure Policy", "Audit", "Compliance"]
+  },
+  {
+    id: "azure-az305-102",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d1",
+    domainName: "Design identity, governance, and monitoring solutions",
+    title: "Diagnostic settings on every vault, old and new",
+    scenario: "A pension fund's auditors require every Key Vault, including the 70 that already exist and any created in future, to send its AuditEvent logs to the central Log Analytics workspace. Application teams create vaults through their own pipelines and often forget the diagnostic setting.",
+    question: "What should the architect recommend?",
+    options: [
+      { id: 'A', text: "An AuditIfNotExists policy that flags vaults lacking a diagnostic setting for the teams to fix" },
+      { id: 'B', text: "An Append policy that inserts the workspace ID into every vault deployment request" },
+      { id: 'C', text: "A Modify policy that adds the diagnostic setting as a property of each Key Vault resource" },
+      { id: 'D', text: "A DeployIfNotExists policy with a managed identity, plus a remediation task for existing vaults" }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "DeployIfNotExists checks for a related resource, here the diagnostic setting, after a vault is created or updated and deploys it if missing using the assignment's managed identity; a remediation task applies the same deployment to vaults that already exist. AuditIfNotExists only reports the gap and leaves it to teams who already forget. A diagnostic setting is a separate extension resource, not a property of the vault, so Modify and Append, which change fields in the request, cannot create it.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/governance/policy/concepts/effect-deploy-if-not-exists",
+    tags: ["Azure Policy", "DeployIfNotExists", "Diagnostic settings"]
+  },
+  {
+    id: "azure-az305-103",
+    difficulty: "easy",
+    certId: "azure-az305",
+    domainId: "d1",
+    domainName: "Design identity, governance, and monitoring solutions",
+    title: "Thirty controls tracked as one standard",
+    scenario: "An e-commerce company has chosen 30 built-in Azure Policy definitions that together implement its internal security baseline. It wants to assign them to its production management group as a single unit, pass shared parameters such as allowed regions once, and report one compliance percentage for the baseline.",
+    question: "What should the architect recommend?",
+    options: [
+      { id: 'A', text: "Assign the 30 definitions individually and total their compliance in a workbook" },
+      { id: 'B', text: "Package the definitions in an Azure Blueprints artifact and assign the blueprint" },
+      { id: 'C', text: "Group the definitions in an initiative and assign it to the management group" },
+      { id: 'D', text: "Create one custom policy whose rule combines all 30 conditions with anyOf" }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "An initiative (policy set definition) bundles related definitions so they are assigned once, share initiative-level parameters, and report compliance as a whole as well as per definition. Thirty separate assignments multiply parameters and reporting effort. Azure Blueprints has been retired. A single mega-policy with one effect loses per-control reporting and cannot mix the different effects the definitions use.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/governance/policy/concepts/initiative-definition-structure",
+    tags: ["Azure Policy", "Initiatives"]
+  },
+  {
+    id: "azure-az305-104",
+    difficulty: "easy",
+    certId: "azure-az305",
+    domainId: "d1",
+    domainName: "Design identity, governance, and monitoring solutions",
+    title: "Keeping GPU machines out of development",
+    scenario: "A games studio's finance team found that developers regularly deploy GPU and memory-optimised virtual machines in development subscriptions and forget them. The studio wants deployment of any size outside an approved list of small general-purpose sizes to be impossible in development, while production is unaffected.",
+    question: "What should the architect recommend?",
+    options: [
+      { id: 'A', text: "The Allowed virtual machine size SKUs policy assigned to the development group" },
+      { id: 'B', text: "Azure Advisor size recommendations reviewed weekly by the finance team" },
+      { id: 'C', text: "A custom RBAC role for developers that removes the virtual machine write action" },
+      { id: 'D', text: "A monthly budget on each development subscription with an action group alert" }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "The built-in Allowed virtual machine size SKUs policy denies deployments of any size not on its parameter list, and assigning it at the development management group leaves production untouched. A budget alert fires after money is spent and does not stop a deployment. Removing the virtual machine write action stops developers creating any virtual machine at all, because RBAC cannot distinguish by size. Advisor recommendations are advisory and arrive after the fact.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/governance/policy/samples/built-in-policies",
+    tags: ["Azure Policy", "Cost control", "Allowed SKUs"]
+  },
+  {
+    id: "azure-az305-105",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d1",
+    domainName: "Design identity, governance, and monitoring solutions",
+    title: "A time-boxed waiver for one legacy system",
+    scenario: "A bank's security initiative requires TLS 1.2 on every App Service app. One legacy integration in a single resource group cannot comply until a vendor upgrade in four months. Risk management has formally accepted the risk, and wants the non-compliance recorded with the reason and automatically enforced again when the approved period ends.",
+    question: "What should the architect recommend?",
+    options: [
+      { id: 'A', text: "Remove the TLS definition from the initiative and add it back after the upgrade" },
+      { id: 'B', text: "Add the resource group to the notScopes exclusions of the initiative assignment" },
+      { id: 'C', text: "Set the initiative assignment's enforcement mode to DoNotEnforce for four months" },
+      { id: 'D', text: "Create a policy exemption with the Waiver category and a four-month expiry date" }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "A policy exemption removes a scope from evaluation for chosen definitions, records a category (Waiver or Mitigated), a description and metadata, and can carry an expiration date after which the resources are evaluated and enforced again. An exclusion has no reason, no category and no expiry, so it must be remembered and removed by hand. DoNotEnforce switches off enforcement for every resource under the assignment. Removing the definition from the initiative drops the control for the whole estate.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/governance/policy/concepts/exemption-structure",
+    tags: ["Azure Policy", "Exemptions", "Compliance"]
+  },
+  {
+    id: "azure-az305-106",
+    difficulty: "hard",
+    certId: "azure-az305",
+    domainId: "d1",
+    domainName: "Design identity, governance, and monitoring solutions",
+    title: "Rehearsing a deny rule on live production",
+    scenario: "A logistics company plans to assign a Deny policy that blocks public IP addresses on network interfaces across its production management group. It wants two weeks of compliance data showing exactly which existing and newly requested resources would be affected, and then to start blocking on that same assignment without changing its definition or parameters.",
+    question: "What should the architect recommend?",
+    options: [
+      { id: 'A', text: "Assign a copy of the definition with the Audit effect and replace it with the Deny version later" },
+      { id: 'B', text: "Assign the policy and create exemptions of the Mitigated category for all production scopes" },
+      { id: 'C', text: "Assign the policy to a single test subscription first and widen the scope after two weeks" },
+      { id: 'D', text: "Assign the policy with its enforcement mode set to DoNotEnforce and switch it to Default later" }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "With enforcementMode set to DoNotEnforce, the assignment is evaluated and compliance results are produced for existing and new resources, but the Deny effect is not applied to requests; changing the same assignment to Default then starts enforcement with no new definition or parameters. A single test subscription does not show which production resources would be affected. Exemptions remove resources from evaluation, so no compliance data would be collected. An Audit copy means a different definition and a second assignment, which the company wants to avoid.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/governance/policy/concepts/assignment-structure",
+    tags: ["Azure Policy", "Enforcement mode", "Safe deployment"]
+  },
+  {
+    id: "azure-az305-107",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d1",
+    domainName: "Design identity, governance, and monitoring solutions",
+    title: "Showing PCI DSS control status for Azure workloads",
+    scenario: "A card processor's compliance officer needs a continuously updated view of how the company's own Azure subscriptions map to PCI DSS 4.0 controls, showing which automated assessments pass or fail per control, with the ability to export a report for the qualified security assessor.",
+    question: "What should the architect recommend?",
+    options: [
+      { id: 'A', text: "Run Azure Advisor's reliability and security checks each month and export the results" },
+      { id: 'B', text: "Assign the Azure Security Benchmark initiative and read the Policy compliance percentage" },
+      { id: 'C', text: "Add the PCI DSS 4.0 standard to the regulatory compliance dashboard in Defender for Cloud" },
+      { id: 'D', text: "Download Microsoft's PCI DSS attestation of compliance from the Service Trust Portal" }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "Defender for Cloud's regulatory compliance dashboard maps its assessments of your subscriptions to the controls of standards you add, such as PCI DSS 4.0, shows pass and fail per control, and exports PDF or CSV reports. Microsoft's attestation from the Service Trust Portal covers the Azure platform itself, not the company's configuration. Advisor gives best-practice recommendations with no mapping to PCI controls. The security benchmark initiative reports compliance against Microsoft's benchmark, not PCI DSS controls.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/defender-for-cloud/regulatory-compliance-dashboard",
+    tags: ["Defender for Cloud", "Regulatory compliance", "PCI DSS"]
+  },
+  {
+    id: "azure-az305-108",
+    difficulty: "easy",
+    certId: "azure-az305",
+    domainId: "d1",
+    domainName: "Design identity, governance, and monitoring solutions",
+    title: "Evidence of Microsoft's own controls for an auditor",
+    scenario: "An external auditor reviewing a hospital's cloud outsourcing arrangement asks for independent evidence that Microsoft's datacentres and Azure operations meet SOC 2 Type 2 and ISO 27001, covering the provider's side of the shared responsibility model rather than the hospital's configuration.",
+    question: "Where should the architect obtain this evidence?",
+    options: [
+      { id: 'A', text: "A Microsoft Purview Compliance Manager assessment for the tenant" },
+      { id: 'B', text: "An Azure Advisor score export for the hospital's subscriptions" },
+      { id: 'C', text: "The Azure Policy compliance view for the hospital's subscriptions" },
+      { id: 'D', text: "The Microsoft Service Trust Portal audit reports library" }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "The Service Trust Portal publishes Microsoft's independent audit reports, including SOC 2 Type 2 and ISO 27001 certificates, which evidence the provider's controls. Azure Policy compliance and the Advisor score describe how the hospital configured its own resources. Compliance Manager helps the customer track its own improvement actions against regulations; it does not replace the third-party audit reports of Microsoft's operations.",
+    referenceUrl: "https://learn.microsoft.com/en-us/purview/get-started-with-service-trust-portal",
+    tags: ["Service Trust Portal", "Compliance", "Shared responsibility"]
+  },
+  {
+    id: "azure-az305-109",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d1",
+    domainName: "Design identity, governance, and monitoring solutions",
+    title: "Auditing password settings inside Azure VMs",
+    scenario: "An insurer must prove that every Windows server, including 400 Azure virtual machines, enforces a minimum password length of 14 characters and has the Guest account disabled. It plans to use built-in Azure Policy definitions that audit settings inside the guest operating system and is preparing the Azure virtual machines to be evaluated.",
+    question: "Which two prerequisites must the Azure virtual machines have? (Choose two.)",
+    options: [
+      { id: 'A', text: "Registration as nodes in Automation State Configuration" },
+      { id: 'B', text: "The legacy Log Analytics agent linked to a workspace" },
+      { id: 'C', text: "The machine configuration guest extension installed" },
+      { id: 'D', text: "A system-assigned managed identity on each machine" },
+      { id: 'E', text: "Microsoft Defender for Servers Plan 2 on the subscription" }
+    ],
+    correctAnswers: ['C', 'D'],
+    type: "multiple",
+    explanation: "Azure Policy machine configuration evaluates settings inside the guest through the machine configuration extension, which authenticates to the service with the machine's system-assigned managed identity; the built-in initiative that deploys prerequisites adds both. Arc-enabled servers already include this capability in the Connected Machine agent. The Log Analytics agent is retired and plays no part in machine configuration. Automation State Configuration is a separate, retiring DSC service. Defender for Servers adds threat protection and vulnerability assessment but is not required for machine configuration audits.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/governance/machine-configuration/overview",
+    tags: ["Machine configuration", "Azure Policy", "Compliance"]
+  },
+  {
+    id: "azure-az305-110",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d1",
+    domainName: "Design identity, governance, and monitoring solutions",
+    title: "Security rules that subscription owners cannot remove",
+    scenario: "A media group gives each product team Owner on its own subscription. The central security team found that some owners deleted policy assignments on their subscriptions that blocked public storage. It wants the rules to keep applying to every product subscription regardless of what subscription owners do.",
+    question: "What should the architect recommend?",
+    options: [
+      { id: 'A', text: "Replace Owner with a custom role that excludes Microsoft.Authorization actions" },
+      { id: 'B', text: "Assign the policies at a management group placed above all the team subscriptions" },
+      { id: 'C', text: "Enable Defender for Storage on each subscription to alert on public containers" },
+      { id: 'D', text: "Assign the policies on each subscription and apply a CanNotDelete lock to it" }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "A policy assignment made at a management group is inherited by every subscription beneath it, and changing or deleting it requires rights on the management group, which subscription Owners do not have. A subscription lock does not protect policy assignments from deletion. Excluding all Microsoft.Authorization actions would also stop teams managing their own role assignments and locks, far beyond the goal. Defender for Storage detects threats; it does not block public access or keep policies in place.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/governance/policy/overview",
+    tags: ["Azure Policy", "Management groups", "Governance"]
+  },
+  {
+    id: "azure-az305-111",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d1",
+    domainName: "Design identity, governance, and monitoring solutions",
+    title: "Finding personal data across the data estate",
+    scenario: "A retailer must respond to GDPR data-subject requests and needs to know where personal data such as national IDs and email addresses lives across Azure Data Lake Storage, Azure SQL Database, on-premises SQL Server and an Amazon S3 bucket. It wants automated scanning, classification and a searchable catalogue with lineage.",
+    question: "What should the architect recommend?",
+    options: [
+      { id: 'A', text: "Microsoft Purview Data Map scans feeding the Purview Unified Catalog" },
+      { id: 'B', text: "Defender for Storage malware scanning on each storage account in scope" },
+      { id: 'C', text: "Data Discovery and Classification in Azure SQL, enabled on every database" },
+      { id: 'D', text: "Azure Policy guest configuration to inventory files on data servers" }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Microsoft Purview Data Map scans Azure, on-premises and multicloud sources, including S3, applies built-in and custom classifications such as national ID numbers, and feeds a catalogue with lineage that analysts can search. SQL Data Discovery and Classification covers only SQL databases, leaving the data lake and S3 unscanned. Defender for Storage malware scanning looks for malicious uploads, not personal data. Machine configuration audits operating system settings, not the contents of data stores.",
+    referenceUrl: "https://learn.microsoft.com/en-us/purview/concept-elastic-data-map",
+    tags: ["Microsoft Purview", "Data governance", "GDPR"]
+  },
+  {
+    id: "azure-az305-112",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d1",
+    domainName: "Design identity, governance, and monitoring solutions",
+    title: "Where to save a custom definition used everywhere",
+    scenario: "A telecom's platform team wrote a custom policy definition that restricts which Marketplace publishers can be used. It must be assignable to any of the 120 subscriptions beneath the company's intermediate root management group, including subscriptions added later, while being maintained as one definition.",
+    question: "Where should the team save the definition?",
+    options: [
+      { id: 'A', text: "In the platform team's own subscription, then shared with others through RBAC" },
+      { id: 'B', text: "As a template spec in a shared subscription that teams deploy on request" },
+      { id: 'C', text: "In each subscription, deployed from a pipeline whenever a subscription is added" },
+      { id: 'D', text: "At the management group that sits above all 120 of the subscriptions, current and future" }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "A custom definition's location sets where it can be assigned: at that scope or any scope below it. Saving it at the intermediate root management group makes one definition assignable to every current and future subscription beneath it. Copies in each subscription have to be kept in sync. A definition saved in one subscription cannot be assigned in another, and RBAC does not change that. A template spec stores deployment templates and would still create per-subscription copies of the definition.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/governance/policy/concepts/definition-structure-basics",
+    tags: ["Azure Policy", "Custom definitions", "Management groups"]
+  },
+  {
+    id: "azure-az305-113",
+    difficulty: "hard",
+    certId: "azure-az305",
+    domainId: "d1",
+    domainName: "Design identity, governance, and monitoring solutions",
+    title: "Blocking deletion of tagged production databases",
+    scenario: "A SaaS provider's teams create dozens of Azure SQL databases every week. After an accidental deletion, it wants any database tagged Environment=Production to be undeletable by anyone, while teams must still be able to scale and reconfigure those databases freely, and the rule must cover new databases without per-resource setup.",
+    question: "What should the architect recommend?",
+    options: [
+      { id: 'A', text: "A custom role without the delete action for teams working on production" },
+      { id: 'B', text: "A pipeline step that places a CanNotDelete lock on every new production database" },
+      { id: 'C', text: "A DenyAction policy that blocks delete calls on databases carrying that tag" },
+      { id: 'D', text: "A ReadOnly lock on the resource groups that hold the production databases" }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "The DenyAction effect blocks the delete action on resources that match the policy rule, here SQL databases tagged Environment=Production, for every caller at the assigned scope, while leaving updates allowed, and it applies to new databases automatically. A pipeline-applied lock depends on every deployment going through that pipeline and adds per-resource setup. A ReadOnly lock also blocks scaling and reconfiguration. A custom role is per principal, so anyone holding Owner or Contributor elsewhere in scope could still delete, and it cannot key off the tag.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/governance/policy/concepts/effect-deny-action",
+    tags: ["Azure Policy", "DenyAction", "Data protection"]
+  },
+  {
+    id: "azure-az305-114",
+    difficulty: "easy",
+    certId: "azure-az305",
+    domainId: "d1",
+    domainName: "Design identity, governance, and monitoring solutions",
+    title: "Quarterly check on guests in project groups",
+    scenario: "A consulting firm has 150 Microsoft 365 groups that include guests from client organisations. Many projects end without anyone removing the guests. The firm wants group owners asked every quarter to confirm each guest still needs access, with unconfirmed guests removed automatically.",
+    question: "What should the architect recommend?",
+    options: [
+      { id: 'A', text: "A recurring access review of guests in those groups with owners as reviewers and auto-apply" },
+      { id: 'B', text: "A Conditional Access policy that blocks guests after 90 days of inactivity" },
+      { id: 'C', text: "PIM for Groups with guests made eligible members by the group owners" },
+      { id: 'D', text: "Dynamic membership rules that add guests to groups from their company name" }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Access reviews can target guest users across all Microsoft 365 groups, recur quarterly, use group owners as reviewers, and auto-apply results so that denied or unreviewed guests are removed. PIM for Groups controls just-in-time activation of membership but does not ask owners to recertify guests. Dynamic rules add members by attribute and would keep adding guests rather than prune them. Conditional Access controls sign-in conditions and has no inactivity-based blocking.",
+    referenceUrl: "https://learn.microsoft.com/en-us/entra/id-governance/access-reviews-overview",
+    tags: ["Access reviews", "Guests", "Identity governance"]
+  },
+  {
+    id: "azure-az305-115",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d1",
+    domainName: "Design identity, governance, and monitoring solutions",
+    title: "Self-service access bundle for a partner company",
+    scenario: "A construction firm works with a design agency whose staff need a Teams team, a SharePoint site and a project app. Agency staff who are not yet in the firm's directory should be able to request access themselves, have it approved by the firm's project sponsor, and lose it automatically after 180 days unless renewed.",
+    question: "What should the architect recommend?",
+    options: [
+      { id: 'A', text: "Have the sponsor invite each agency user as a B2B guest and add them to the resources by hand" },
+      { id: 'B', text: "Configure cross-tenant synchronization from the agency tenant into the firm's tenant as members" },
+      { id: 'C', text: "An entitlement management access package with a policy for the agency's connected organisation" },
+      { id: 'D', text: "Enable self-service group management so agency staff can join the project group on request" }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "An access package bundles the team, site and app; a policy for a connected organisation lets users who are not yet in the directory request it, routes approval to the sponsor, creates the guest account on approval and expires the assignment after 180 days, with optional extension. Manual invitations and assignments give no self-service, approval workflow or expiry. Cross-tenant synchronization is configured by the source tenant and pushes users regardless of need. Self-service group management works only for users already in the directory and has no expiry.",
+    referenceUrl: "https://learn.microsoft.com/en-us/entra/id-governance/entitlement-management-overview",
+    tags: ["Entitlement management", "Access packages", "External users"]
+  },
+  {
+    id: "azure-az305-116",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d1",
+    domainName: "Design identity, governance, and monitoring solutions",
+    title: "Automatic offboarding on the last working day",
+    scenario: "A retail chain's HR system writes each leaver's final date to the employeeLeaveDateTime attribute in Entra ID. On that date, the chain wants the account disabled, all group memberships and licences removed and the manager emailed, and 30 days later the account deleted, all without custom code.",
+    question: "What should the architect recommend?",
+    options: [
+      { id: 'A', text: "A monthly access review of all employees with the manager as reviewer" },
+      { id: 'B', text: "A lifecycle workflow scheduled to run on each user's recorded last working day" },
+      { id: 'C', text: "A Logic App polling Microsoft Graph daily for accounts past their leave date" },
+      { id: 'D', text: "A dynamic group based on employeeLeaveDateTime with a licence assignment" }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "Lifecycle workflows run joiner, mover and leaver tasks on a schedule relative to attributes such as employeeLeaveDateTime, with built-in tasks to disable the account, remove groups and licences, email the manager and delete the account after a set delay, all with no code. A monthly access review relies on reviewers and misses the exact date. Dynamic group rules cannot evaluate date offsets and would not disable or delete accounts. A polling Logic App is the custom code the chain wants to avoid.",
+    referenceUrl: "https://learn.microsoft.com/en-us/entra/id-governance/what-are-lifecycle-workflows",
+    tags: ["Lifecycle workflows", "Leavers", "Identity governance"]
+  },
+  {
+    id: "azure-az305-117",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d1",
+    domainName: "Design identity, governance, and monitoring solutions",
+    title: "Global Administrator only when needed and approved",
+    scenario: "A payment processor has eight permanent Global Administrators. Its new policy says the role may be held only for up to two hours at a time, only after MFA, a written justification and approval by the CISO's office, and security must be alerted if anyone is ever given the role outside that process.",
+    question: "What should the architect recommend?",
+    options: [
+      { id: 'A', text: "Scope the Global Administrator assignments to an administrative unit for each team" },
+      { id: 'B', text: "Make these admins eligible in PIM with approval, MFA and a two-hour limit" },
+      { id: 'C', text: "Keep the permanent assignments and add a Conditional Access policy requiring MFA" },
+      { id: 'D', text: "Keep the assignments and require CISO approval in a monthly access review" }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "Privileged Identity Management converts standing access into eligible assignments whose role settings can require MFA, justification and approval by designated approvers and cap activation at two hours, and its alerts flag roles assigned outside PIM. Conditional Access adds MFA at sign-in but leaves the role permanently active. Global Administrator is a tenant-wide role and cannot be scoped to administrative units. A monthly review still leaves standing access between reviews.",
+    referenceUrl: "https://learn.microsoft.com/en-us/entra/id-governance/privileged-identity-management/pim-configure",
+    tags: ["PIM", "Privileged access", "Entra roles"]
+  },
+  {
+    id: "azure-az305-118",
+    difficulty: "hard",
+    certId: "azure-az305",
+    domainId: "d1",
+    domainName: "Design identity, governance, and monitoring solutions",
+    title: "Removing standing admin access without locking yourself out",
+    scenario: "A hospital is moving all Global Administrators to just-in-time access. The CISO worries that an MFA outage, a federation failure or a misconfigured Conditional Access policy could leave no one able to administer the tenant, and wants a design that avoids this while keeping standing privilege to an absolute minimum.",
+    question: "Which two actions should the architect recommend? (Choose two.)",
+    options: [
+      { id: 'A', text: "Make every day-to-day admin eligible for Global Administrator in PIM" },
+      { id: 'B', text: "Synchronise the emergency administrator accounts from on-premises AD" },
+      { id: 'C', text: "Keep two cloud-only emergency accounts as permanent Global Administrators" },
+      { id: 'D', text: "Give administrators one shared emergency account protected by SMS" },
+      { id: 'E', text: "Make the two emergency accounts eligible for Global Administrator in PIM too" }
+    ],
+    correctAnswers: ['A', 'C'],
+    type: "multiple",
+    explanation: "Day-to-day administrators become eligible in PIM, removing standing privilege, while two cloud-only emergency access accounts keep permanent Global Administrator so the tenant stays manageable if PIM activation, MFA or federation fails; they should use phishing-resistant credentials such as FIDO2 keys, be excluded from policies that could lock them out, and have their sign-ins monitored. Making the emergency accounts eligible means activation, and its dependencies, stand between you and recovery. Synchronised accounts depend on on-premises infrastructure that may be the thing that failed. A single account is a single point of failure, and SMS is a weak, carrier-dependent method.",
+    referenceUrl: "https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/security-emergency-access",
+    tags: ["Emergency access", "PIM", "Privileged access"]
+  },
+  {
+    id: "azure-az305-119",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d1",
+    domainName: "Design identity, governance, and monitoring solutions",
+    title: "Recertifying Owner access on production subscriptions",
+    scenario: "A fintech's auditors want every holder of Owner or Contributor on its 12 production subscriptions recertified every six months by the subscription's business owner. Access that is denied, or that the reviewer never looks at, must be removed without any manual clean-up by administrators.",
+    question: "What should the architect recommend?",
+    options: [
+      { id: 'A', text: "An entitlement management access package for Owner with a 180-day assignment expiry" },
+      { id: 'B', text: "An Azure Policy audit definition that reports Owner assignments on each subscription" },
+      { id: 'C', text: "A PIM access review of the Azure resource roles with auto-apply and remove on no response" },
+      { id: 'D', text: "A Resource Graph query of role assignments sent to each business owner every six months" }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "Access reviews of Azure resource roles, created from Privileged Identity Management, can recur every six months with the business owner as reviewer, and with auto-apply enabled and the no-response action set to remove access, denied and unreviewed assignments are removed automatically. Sending owners a Resource Graph report collects no decisions in the platform, so administrators must remove denied access by hand. Access packages cannot directly grant Azure resource roles such as Owner. Azure Policy can report on role assignments but cannot collect reviewer decisions or remove access.",
+    referenceUrl: "https://learn.microsoft.com/en-us/entra/id-governance/privileged-identity-management/pim-create-roles-and-resource-roles-review",
+    tags: ["Access reviews", "PIM", "Azure RBAC"]
+  },
+  {
+    id: "azure-az305-120",
+    difficulty: "hard",
+    certId: "azure-az305",
+    domainId: "d1",
+    domainName: "Design identity, governance, and monitoring solutions",
+    title: "Clearing out dormant guest accounts",
+    scenario: "An engineering firm has 9,000 guest accounts, almost all invited into Microsoft 365 groups and Teams, and many of them have not signed in for over a year. It wants guests with no sign-in in the last 90 days identified every quarter, their sponsors given a chance to keep them, and the rest blocked and then deleted automatically. The firm holds Microsoft Entra ID Governance licences.",
+    question: "What should the architect recommend?",
+    options: [
+      { id: 'A', text: "A recurring access review of inactive guests that blocks and later deletes denied users" },
+      { id: 'B', text: "A Conditional Access policy that blocks guests whose sign-in risk is rated as high" },
+      { id: 'C', text: "A dynamic group whose rule selects guests by last sign-in date, with a deletion runbook" },
+      { id: 'D', text: "A leaver lifecycle workflow triggered by each guest's employeeLeaveDateTime value" }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Access reviews can be scoped to guest users who have been inactive for a chosen number of days, recur quarterly with sponsors or managers as reviewers, and, for guests, apply a result that blocks sign-in and deletes the account after 30 days. Dynamic membership rules cannot use sign-in activity, and the runbook is custom code. Sign-in risk reflects suspicious sign-ins, not dormancy. Guests generally have no employeeLeaveDateTime, so a leaver workflow would never trigger for them.",
+    referenceUrl: "https://learn.microsoft.com/en-us/entra/id-governance/review-recommendations-access-reviews",
+    tags: ["Access reviews", "Guests", "Inactive users"]
+  },
+  {
+    id: "azure-az305-121",
+    difficulty: "easy",
+    certId: "azure-az305",
+    domainId: "d1",
+    domainName: "Design identity, governance, and monitoring solutions",
+    title: "Guests must accept a confidentiality notice",
+    scenario: "A pharmaceutical company's legal team requires every guest to accept a confidentiality notice before opening the clinical-trial portal, to re-accept it every year, and wants a record of who accepted and when. The company has Entra ID P1 licences.",
+    question: "What should the architect recommend?",
+    options: [
+      { id: 'A', text: "Create a terms of use and require it in a Conditional Access policy" },
+      { id: 'B', text: "Add the notice as a question in a quarterly access review of guests" },
+      { id: 'C', text: "Customise company branding to show the notice on the sign-in page" },
+      { id: 'D', text: "Attach the notice to the invitation email sent to each B2B guest" }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Entra terms of use presents a document that users must accept before access, can require re-acceptance on a schedule, records acceptance per user, and is enforced as a grant control in Conditional Access targeted at guests and the portal. Company branding only displays text and records nothing. Access reviews ask reviewers about access and are not an acceptance mechanism. The invitation email is sent once and captures no acceptance.",
+    referenceUrl: "https://learn.microsoft.com/en-us/entra/identity/conditional-access/terms-of-use",
+    tags: ["Terms of use", "Conditional Access", "Guests"]
+  },
+  {
+    id: "azure-az305-122",
+    difficulty: "hard",
+    certId: "azure-az305",
+    domainId: "d1",
+    domainName: "Design identity, governance, and monitoring solutions",
+    title: "Separating payment entry from payment approval",
+    scenario: "A manufacturer grants finance access through two entitlement management access packages: Invoice Entry and Payment Approval. Auditors require that no user ever holds both at once, including through a request that would be approved by different managers, and want existing conflicts identified.",
+    question: "What should the architect recommend?",
+    options: [
+      { id: 'A', text: "Set both access package policies so assignments expire after thirty days of access" },
+      { id: 'B', text: "Configure each of the two access packages to be marked incompatible with the other" },
+      { id: 'C', text: "Put both packages in separate catalogs so that each has a different catalog owner" },
+      { id: 'D', text: "Assign the same approver to both packages and instruct them to check for conflicts" }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "Entitlement management separation of duties lets you mark access packages, or groups, as incompatible: a user who holds one cannot request the other, regardless of approver, and reports show users who already have both. A single approver relies on manual checks. Short expiry reduces how long access lasts but does not stop the two being held together. Separate catalogs change who administers the packages, not who can hold them.",
+    referenceUrl: "https://learn.microsoft.com/en-us/entra/id-governance/entitlement-management-access-package-incompatible",
+    tags: ["Entitlement management", "Separation of duties"]
+  },
+  {
+    id: "azure-az305-123",
+    difficulty: "easy",
+    certId: "azure-az305",
+    domainId: "d1",
+    domainName: "Design identity, governance, and monitoring solutions",
+    title: "Knowing the moment an emergency account is used",
+    scenario: "A water utility keeps two emergency access accounts with permanent Global Administrator. Its security team wants to be paged immediately whenever either account signs in, successfully or not. Entra sign-in logs are already sent to a Log Analytics workspace.",
+    question: "What should the architect recommend?",
+    options: [
+      { id: 'A', text: "Create a log search alert on SigninLogs for the two accounts' object IDs" },
+      { id: 'B', text: "Review the Entra sign-in logs for the two accounts at every shift handover" },
+      { id: 'C', text: "Create an activity log alert that fires on any sign-in to the Azure portal" },
+      { id: 'D', text: "Configure a PIM alert that triggers when the accounts activate their role" }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "A log search alert rule that queries SigninLogs in the workspace for the emergency accounts' object IDs, running every few minutes with an action group that pages the team, catches every sign-in attempt. Manual review at shift handover is not immediate. The accounts hold permanent assignments, so they never activate anything in PIM. The Azure activity log records Resource Manager operations, not Entra sign-ins.",
+    referenceUrl: "https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/security-emergency-access",
+    tags: ["Emergency access", "Alerts", "Log Analytics"]
+  },
+  {
+    id: "azure-az305-124",
+    difficulty: "medium",
+    certId: "azure-az305",
+    domainId: "d1",
+    domainName: "Design identity, governance, and monitoring solutions",
+    title: "Owners and deadlines for security recommendations",
+    scenario: "A broadcaster's Defender for Cloud shows hundreds of open recommendations across 40 subscriptions, and nobody knows who should fix what. The CISO wants each recommendation automatically assigned to the resource's owner based on an Owner tag, with a due date by severity and weekly email reminders.",
+    question: "What should the architect recommend?",
+    options: [
+      { id: 'A', text: "Defender for Cloud workflow automation that opens a ticket per alert" },
+      { id: 'B', text: "An Azure Policy Modify effect that tags each resource with its owner" },
+      { id: 'C', text: "A Cost Management scheduled export of recommendations to each owner" },
+      { id: 'D', text: "Defender for Cloud governance rules that assign owners and due dates" }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Governance rules in Defender for Cloud assign recommendations to owners, including by reading a resource tag, set remediation timeframes by severity, send weekly progress emails and track overdue items. Workflow automation reacts to alerts or recommendations with Logic Apps but does not manage ownership and due dates by itself. A Modify policy sets tags but assigns no work. Cost Management exports cost data, not security recommendations.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/defender-for-cloud/governance-rules",
+    tags: ["Defender for Cloud", "Governance rules", "Security posture"]
+  },
+  {
+    id: "azure-az305-125",
+    difficulty: "hard",
+    certId: "azure-az305",
+    domainId: "d1",
+    domainName: "Design identity, governance, and monitoring solutions",
+    title: "Remediation tasks that fail with authorization errors",
+    scenario: "A platform team deploys a DeployIfNotExists initiative to a management group with Bicep. Compliance results appear correctly, but every remediation task fails with authorization errors, whereas the same initiative assigned through the portal in a test tenant remediated successfully.",
+    question: "Which two conditions must be in place for remediation to succeed? (Choose two.)",
+    options: [
+      { id: 'A', text: "That identity holds the roles listed in the definitions' roleDefinitionIds" },
+      { id: 'B', text: "Defender CSPM is enabled on every subscription below the management group" },
+      { id: 'C', text: "The assignment has a system-assigned or user-assigned managed identity" },
+      { id: 'D', text: "The assignment's enforcement mode is set to DoNotEnforce during remediation" },
+      { id: 'E', text: "A Mitigated exemption covers the resources that the tasks are trying to fix" }
+    ],
+    correctAnswers: ['A', 'C'],
+    type: "multiple",
+    explanation: "DeployIfNotExists and Modify remediation runs as the assignment's managed identity, which must hold the roles named in the definitions' roleDefinitionIds at the scope being remediated. The portal creates those role assignments automatically; Bicep, ARM, CLI and PowerShell deployments must create them explicitly, which explains the difference. DoNotEnforce stops automatic deployment and does not grant any permission. An exemption removes resources from evaluation, so nothing would be remediated. Defender CSPM is unrelated to Azure Policy remediation.",
+    referenceUrl: "https://learn.microsoft.com/en-us/azure/governance/policy/how-to/remediate-resources",
+    tags: ["Azure Policy", "Remediation", "Managed identities"]
+  }
+];
+
+export default AZURE_AZ305_QUESTIONS_5;
