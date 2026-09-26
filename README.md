@@ -20,30 +20,31 @@ every answer moves your difficulty band toward your actual level.
 
 ## Project status
 
-**All 30 live certifications hold 500 questions and 500 flashcards. Bank size is not the
+**All 37 live certifications hold 500 questions and 500 flashcards. Bank size is not the
 same as exam readiness, and the gap between them is measured rather than asserted — see
 [docs/EXAM-READINESS.md](docs/EXAM-READINESS.md).**
 
 | | |
 | --- | --- |
-| Certifications scaffolded | **95** across six disciplines (30 live, 62 planned, 3 retired) |
-| Live (launchable, with content) | **30** — including 18 of the Top 20 roadmap priorities plus AWS, Azure, GCP, GitHub, Kubernetes, CNCF, FinOps, and HashiCorp tracks |
-| Questions authored / live | **16,598** — 15,000 in live banks, 1,004 in the three retired Azure certifications, and 594 in planned certifications (500 in the withdrawn `cncf-opa`, 94 in starter packs), of a 46,000 target (500 × 92 live and planned) |
-| Flashcards authored / live | **16,573** — 15,000 in live banks, 1,004 in retired certifications, and 569 in planned certifications |
+| Certifications scaffolded | **95** across six disciplines (37 live, 55 planned, 3 retired) |
+| Live (launchable, with content) | **37** — including 19 of the Top 20 roadmap priorities plus AWS, Azure, GCP, GitHub, Kubernetes, CNCF, FinOps, and HashiCorp tracks |
+| Questions authored / live | **20,014** — 18,500 in live banks, 1,004 in the three retired Azure certifications, and 510 in planned certifications (500 in the withdrawn `cncf-opa`, 10 in starter packs), of a 46,000 target (500 × 92 live and planned) |
+| Flashcards authored / live | **20,014** — 18,500 in live banks, 1,004 in retired certifications, and 510 in planned certifications |
 
 Run `npm run stats` for detailed domain and difficulty distributions across the bank.
 
 Three audits qualify that count, and each is printed into every CI run's job summary.
-`npm run audit:distractors`: 25 of 39 banks give nothing away through the form of their
+`npm run audit:distractors`: 32 of 43 banks give nothing away through the form of their
 options. `npm run audit:filler`: 2,000 questions and 2,000 flashcards across 8 banks are
 templated placeholders whose answers cannot be verified. `npm run audit:repeats`: 29 of
-the 30 live banks serve the same item or card more than once — `hashicorp-vault` draws its 500
-questions from 21 distinct option sets — and only `aws-sap` does not. Nine certifications
-therefore need a bank authored from scratch. The first 75 questions and 50 flashcards of
-`azure-az305` and starter packs for `aws-aif`, `aws-dea`, `gcp-cdl`, and `linux-lfcs`
-are written to the standard `npm run lint:pack` enforces and pass it.
+the 37 live banks serve the same item or card more than once — `hashicorp-vault` draws its 500
+questions from 21 distinct option sets. Only `aws-sap` and the seven banks authored in the
+2026-09 wave (`azure-az305`, `azure-ai-apps-agents`, `aws-soa`, `aws-aif`, `cncf-kcna`,
+`cncf-kcsa`, `gcp-cdl`) do not; those seven pass every audit. Nine certifications therefore
+need a bank authored from scratch. Starter packs for `aws-dea` and `linux-lfcs` are written
+to the standard `npm run lint:pack` enforces and pass it.
 
-The 62 planned certifications appear on the roadmap panel but cannot be launched; 13 of
+The 55 planned certifications appear on the roadmap panel but cannot be launched; 13 of
 them still carry **placeholder blueprints**. Microsoft retired AZ-204, AI-102, and AZ-500 in
 2026; those three are marked `retired` and hidden from the catalogue, and their banks are kept. That is the honest state of things,
 and it is exactly where contributions land: see [CONTRIBUTING.md](CONTRIBUTING.md).
@@ -332,7 +333,7 @@ once on boot and then removed ([src/lib/storage.js](src/lib/storage.js)).
 
 ## Contributing
 
-The 30 live certifications hold 500 questions and 500 flashcards each (15,000 and 15,000 repo-wide). The most valuable contribution is not a new certification but a re-authored pack in one of the nine banks that need one, and `npm run lint:pack` scores a single pack before anything else runs. A **wrong answer is the highest-priority bug**, because it teaches someone the wrong thing before an exam they paid for. Start with [CONTRIBUTING.md](CONTRIBUTING.md) and [docs/EXAM-READINESS.md](docs/EXAM-READINESS.md).
+The 37 live certifications hold 500 questions and 500 flashcards each (18,500 and 18,500 repo-wide). The most valuable contribution is not a new certification but a re-authored pack in one of the nine banks that need one, and `npm run lint:pack` scores a single pack before anything else runs. A **wrong answer is the highest-priority bug**, because it teaches someone the wrong thing before an exam they paid for. Start with [CONTRIBUTING.md](CONTRIBUTING.md) and [docs/EXAM-READINESS.md](docs/EXAM-READINESS.md).
 
 ```bash
 npm run new:pack -- --cert <id> --kind questions --count 25
