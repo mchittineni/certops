@@ -10,7 +10,7 @@ export default {
   "title": "Kubernetes and Cloud Native Associate",
   "category": "Kubernetes & Cloud Native",
   "tier": "associate",
-  "status": "planned",
+  "status": "live",
   "priority": null,
   "badgeClass": "badge-k8s",
   "icon": "kubernetes",
