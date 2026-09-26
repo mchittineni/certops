@@ -12,7 +12,7 @@ export default {
   "title": "Microsoft Certified: Azure Solutions Architect Expert",
   "category": "Cloud Engineering",
   "tier": "professional",
-  "status": "planned",
+  "status": "live",
   "priority": null,
   "badgeClass": "badge-azure",
   "icon": "azure",
