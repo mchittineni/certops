@@ -10,7 +10,7 @@ export default {
   "title": "Kubernetes and Cloud Native Security Associate",
   "category": "DevSecOps & Security",
   "tier": "associate",
-  "status": "planned",
+  "status": "live",
   "priority": null,
   "badgeClass": "badge-k8s",
   "icon": "kubernetes",
