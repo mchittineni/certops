@@ -132,6 +132,9 @@ await check('a path shows roadmap steps without offering to start them', () => {
   const role = ROLES.find(r => r.path.some(s => statusOf(s.certId) === 'live') && r.path.some(s => statusOf(s.certId) === 'planned'));
   assert.ok(role, 'at least one role path should still mix live and planned certifications');
   const live = role.path.find(s => statusOf(s.certId) === 'live');
+  // set-role toggles, so start from no selection: the chosen role may be the one the
+  // previous check left active.
+  dom.click('clear-role');
   dom.click('set-role', { roleId: role.id });
   const html = dom.html();
   assert.ok(html.includes(`data-cert-id="${live.certId}"`), 'the ready step is launchable');
