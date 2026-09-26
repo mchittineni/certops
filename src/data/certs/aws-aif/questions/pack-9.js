@@ -1,0 +1,532 @@
+export const AWS_AIF_QUESTIONS_9 = [
+  {
+    id: "aws-aif-201",
+    difficulty: "easy",
+    certId: "aws-aif",
+    domainId: "d2",
+    domainName: "Fundamentals of Generative AI",
+    title: "Beating a competitor to launch",
+    scenario: "A fintech startup learns that a competitor will release an AI budgeting coach in two months. The startup wants its own version live first, and its plan assumes no time spent collecting training data, training a model, or building inference servers.",
+    question: "Which advantage of using AWS generative AI services does the plan depend on?",
+    options: [
+      { id: 'A', text: "Guaranteed accuracy, because managed models never produce incorrect budgeting advice." },
+      { id: 'B', text: "Exclusive access, because AWS offers each model to one customer per sector." },
+      { id: 'C', text: "Zero cost, because managed foundation models carry no charges for startup accounts." },
+      { id: 'D', text: "Speed to market, because ready-to-use models are available through a managed API." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Managed services such as Amazon Bedrock provide pre-trained foundation models behind an API, so a team can move from idea to working product in weeks by skipping data collection, training, and infrastructure; that is the speed-to-market advantage. No model guarantees accuracy, and financial advice still needs safeguards and review. Models are offered to all customers, not exclusively per industry. Usage is billed, typically per token; free tiers and credits may exist but are not the reason the plan works.",
+    referenceUrl: "https://aws.amazon.com/bedrock/",
+    tags: ["AWS generative AI advantages", "Speed to market"]
+  },
+  {
+    id: "aws-aif-202",
+    difficulty: "easy",
+    certId: "aws-aif",
+    domainId: "d2",
+    domainName: "Fundamentals of Generative AI",
+    title: "A web team with no data scientists",
+    scenario: "A regional newspaper's three-person web team wants to add article summaries and headline suggestions to its content system. Nobody on the team has machine learning training, and the paper cannot hire data scientists this year.",
+    question: "Which approach reflects the AWS advantage that makes this project feasible?",
+    options: [
+      { id: 'A', text: "EC2 GPU instances running a self-managed open model, giving the team full control." },
+      { id: 'B', text: "SageMaker Ground Truth labeling jobs that first build a training set of summaries." },
+      { id: 'C', text: "Amazon SageMaker AI training jobs, so the team can build its own summarization model." },
+      { id: 'D', text: "Calling capable pre-trained models through a managed API, with no ML expertise needed." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Managed generative AI services lower the barrier to entry: developers who know how to call an API can use strong foundation models through prompts, without training models or managing ML infrastructure, which is exactly what a three-person web team needs. SageMaker AI training jobs would require the team to design, train, and tune its own model, the ML expertise it lacks. Self-managing an open model on EC2 GPU instances adds model serving and operations work on top of ML knowledge. Labeling a training set with Ground Truth is the first step of building a custom model, which the team does not need when pre-trained models can already summarize and suggest headlines.",
+    referenceUrl: "https://aws.amazon.com/bedrock/",
+    tags: ["AWS generative AI advantages", "Lower barrier to entry"]
+  },
+  {
+    id: "aws-aif-203",
+    difficulty: "easy",
+    certId: "aws-aif",
+    domainId: "d2",
+    domainName: "Fundamentals of Generative AI",
+    title: "Trying six models before choosing one",
+    scenario: "A healthcare software vendor wants to trial six foundation models from four different providers for a clinical note assistant. It does not want to negotiate separate contracts, sign up with each provider, or commit to spending before it knows which model fits.",
+    question: "Which advantage of Amazon Bedrock addresses this?",
+    options: [
+      { id: 'A', text: "Access to many models requires a minimum annual spending commitment upfront." },
+      { id: 'B', text: "Accessibility: models from many providers through one service, paid as used." },
+      { id: 'C', text: "Each provider's model is only accessible through its own separate AWS account." },
+      { id: 'D', text: "A single model family is offered, so there is no choice to evaluate at all." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "Amazon Bedrock makes models from Amazon and several third-party providers accessible through one service, one API, and AWS billing, with on-demand pricing and no upfront commitment, so trialing six models is straightforward. Models are not tied to separate AWS accounts per provider. On-demand use carries no minimum annual commitment. Bedrock offers a broad choice of model families, which is the point of the trial.",
+    referenceUrl: "https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-bedrock.html",
+    tags: ["AWS generative AI advantages", "Accessibility", "Amazon Bedrock"]
+  },
+  {
+    id: "aws-aif-204",
+    difficulty: "easy",
+    certId: "aws-aif",
+    domainId: "d2",
+    domainName: "Fundamentals of Generative AI",
+    title: "A tax-season assistant used three months a year",
+    scenario: "An accounting firm's client assistant is busy from February to April and almost unused for the rest of the year. The firm compared buying GPU servers sized for the tax-season peak with using a managed generative AI service.",
+    question: "Why is the managed service likely to be more cost-effective?",
+    options: [
+      { id: 'A', text: "Managed services charge a flat annual fee regardless of how much traffic arrives." },
+      { id: 'B', text: "Owned GPU servers lose their value only during the months when they are in use." },
+      { id: 'C', text: "Pay-as-you-go pricing charges for actual usage, so quiet months cost very little." },
+      { id: 'D', text: "Managed services require buying reserved capacity for the full peak all year round." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "With on-demand, pay-as-you-go pricing the firm pays for the tokens it processes, so the nine quiet months cost almost nothing, while owned servers sized for the peak sit idle and still cost money. Managed generative AI services do not charge a flat annual fee by default. Owned hardware depreciates and needs power and support whether or not it is in use. Reserved capacity such as Provisioned Throughput is optional, not required, and would be a poor fit for this pattern.",
+    referenceUrl: "https://aws.amazon.com/bedrock/pricing/",
+    tags: ["AWS generative AI advantages", "Cost-effectiveness"]
+  },
+  {
+    id: "aws-aif-205",
+    difficulty: "medium",
+    certId: "aws-aif",
+    domainId: "d2",
+    domainName: "Fundamentals of Generative AI",
+    title: "Skipping the plumbing for a document chatbot",
+    scenario: "An engineering firm's developers estimated three months to build their own retrieval pipeline for a chatbot over design standards: document parsing, chunking, embedding, a vector store, and retrieval code. A manager asks how AWS could make the team more efficient.",
+    question: "Which approach best reflects the efficiency advantage of AWS generative AI services?",
+    options: [
+      { id: 'A', text: "Paste all the design standards into every prompt so no retrieval is necessary." },
+      { id: 'B', text: "Use Amazon Bedrock Knowledge Bases, which manages ingestion and retrieval steps." },
+      { id: 'C', text: "Build the same pipeline on EC2 instances so the team controls every component." },
+      { id: 'D', text: "Pre-train a new model on the design standards so no retrieval pipeline is needed." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "Amazon Bedrock Knowledge Bases is a managed RAG capability that handles ingestion, chunking, embedding, storage in a vector store, and retrieval, so developers spend their time on the application instead of undifferentiated plumbing. Pre-training a model is vastly more costly and still leaves answers ungrounded and stale when the standards change. Rebuilding on EC2 keeps the three months of work the manager wants to avoid. Pasting every document into each prompt is costly per request and usually exceeds the context window for a large library.",
+    referenceUrl: "https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html",
+    tags: ["AWS generative AI advantages", "Efficiency"]
+  },
+  {
+    id: "aws-aif-206",
+    difficulty: "medium",
+    certId: "aws-aif",
+    domainId: "d2",
+    domainName: "Fundamentals of Generative AI",
+    title: "A cost target that changed mid-project",
+    scenario: "Six months after launch, a travel company's finance team cuts the budget for its itinerary assistant by 40 percent while keeping the same quality bar. The assistant runs on Amazon Bedrock, and the product owner must meet the new target without rebuilding the application.",
+    question: "Which characteristic of Amazon Bedrock best helps the company meet this business objective?",
+    options: [
+      { id: 'A', text: "Bedrock requires a one-year Provisioned Throughput term, which fixes the monthly bill." },
+      { id: 'B', text: "Bedrock applications are tied to one model for life, so the budget cannot be changed." },
+      { id: 'C', text: "Model choice lets the team evaluate cheaper models behind the same API and switch." },
+      { id: 'D', text: "Every model in Bedrock costs the same per token, so switching models has no effect." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "Because Amazon Bedrock offers many models of different sizes and prices behind a common API, the team can evaluate smaller or cheaper models against the quality bar and switch with little code change, aligning the solution with a changed business objective. Prices differ widely by model and by input or output token. Provisioned Throughput is optional and offers no-commitment, one-month, and six-month terms, not a mandatory one-year term. Applications are not locked to one model; changing the model ID is often most of the work.",
+    referenceUrl: "https://docs.aws.amazon.com/bedrock/latest/userguide/models-supported.html",
+    tags: ["AWS generative AI advantages", "Business objectives", "Model choice"]
+  },
+  {
+    id: "aws-aif-207",
+    difficulty: "medium",
+    certId: "aws-aif",
+    domainId: "d2",
+    domainName: "Fundamentals of Generative AI",
+    title: "Self-hosting versus Amazon Bedrock for a chatbot",
+    scenario: "A car rental company's architects are comparing two designs for a customer chatbot: running an open-weight model on their own GPU cluster, or calling a model through Amazon Bedrock. The CIO asks for the advantages the managed option would bring.",
+    question: "Which two advantages does Amazon Bedrock offer over self-hosting here? (Choose two.)",
+    options: [
+      { id: 'A', text: "Full ownership of every proprietary model's underlying weights." },
+      { id: 'B', text: "No need to evaluate model quality before putting it into service." },
+      { id: 'C', text: "No servers to provision, patch, or scale for inference traffic." },
+      { id: 'D', text: "On-demand billing by tokens used instead of paying for idle GPUs." },
+      { id: 'E', text: "Guaranteed identical responses for identical customer questions." }
+    ],
+    correctAnswers: ['C', 'D'],
+    type: "multiple",
+    explanation: "Amazon Bedrock is serverless, so the company provisions, patches, and scales no inference servers, and on-demand pricing charges for tokens processed rather than for GPUs that sit idle between peaks. Generative output is not guaranteed identical for identical prompts on any platform. Proprietary models accessed through Bedrock do not hand their weights to customers. Every model still needs evaluation against the company's own requirements before launch, managed or not.",
+    referenceUrl: "https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-bedrock.html",
+    tags: ["AWS generative AI advantages", "Amazon Bedrock"]
+  },
+  {
+    id: "aws-aif-208",
+    difficulty: "easy",
+    certId: "aws-aif",
+    domainId: "d2",
+    domainName: "Fundamentals of Generative AI",
+    title: "Will our prompts train someone else's model?",
+    scenario: "A pharmaceutical company's legal team is reviewing Amazon Bedrock before staff paste confidential research summaries into prompts. The key question is whether those prompts and the model's responses could be used to improve the underlying models or be seen by the model providers.",
+    question: "What should the team be told?",
+    options: [
+      { id: 'A', text: "Prompts are used to train base models unless the customer opts out in writing." },
+      { id: 'B', text: "Bedrock doesn't use prompts or outputs to train models or share them with providers." },
+      { id: 'C', text: "Prompts are shared with the provider of each model to improve future versions." },
+      { id: 'D', text: "Prompts are published to a shared evaluation dataset available to all customers." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "Amazon Bedrock does not use customer prompts or model outputs to train AWS or third-party base models and does not distribute them to model providers, which is a core data privacy benefit of running generative AI on AWS. Providers do not receive customer prompts to improve their models. There is no default training on customer data that requires an opt-out. Customer prompts are never published to a shared dataset.",
+    referenceUrl: "https://docs.aws.amazon.com/bedrock/latest/userguide/data-protection.html",
+    tags: ["AWS infrastructure benefits", "Data privacy", "Amazon Bedrock"]
+  },
+  {
+    id: "aws-aif-209",
+    difficulty: "medium",
+    certId: "aws-aif",
+    domainId: "d2",
+    domainName: "Fundamentals of Generative AI",
+    title: "An auditor wants AWS's SOC 2 report",
+    scenario: "A payments company's external auditor, reviewing a new generative AI feature built on Amazon Bedrock, asks for AWS's current SOC 2 report and ISO 27001 certificate so she can assess the controls AWS operates beneath the application.",
+    question: "Where should the company obtain these documents?",
+    options: [
+      { id: 'A', text: "AWS Config, which evaluates resource settings against defined rules." },
+      { id: 'B', text: "AWS CloudTrail, which records every API call made in the account." },
+      { id: 'C', text: "Amazon Bedrock model evaluation reports produced for each model." },
+      { id: 'D', text: "AWS Artifact, the self-service portal for AWS compliance reports." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "AWS Artifact provides on-demand access to AWS security and compliance documents, including SOC reports and ISO certifications that cover services such as Amazon Bedrock, which auditors use to assess the controls AWS operates. CloudTrail supplies the customer's own API activity logs, not AWS's third-party audit reports. AWS Config assesses the customer's resource configurations. Model evaluation reports measure model quality and are not compliance attestations.",
+    referenceUrl: "https://docs.aws.amazon.com/artifact/latest/ug/what-is-aws-artifact.html",
+    tags: ["AWS infrastructure benefits", "Compliance", "AWS Artifact"]
+  },
+  {
+    id: "aws-aif-210",
+    difficulty: "easy",
+    certId: "aws-aif",
+    domainId: "d2",
+    domainName: "Fundamentals of Generative AI",
+    title: "Keeping Canadian citizen data in Canada",
+    scenario: "A Canadian provincial agency wants to build a generative AI assistant on AWS, but its policy requires that citizen data be processed and stored in Canada. The architect is checking how the AWS infrastructure supports this requirement.",
+    question: "Which characteristic of AWS infrastructure helps the agency meet the policy?",
+    options: [
+      { id: 'A', text: "All AWS services automatically replicate processed data to every Region worldwide." },
+      { id: 'B', text: "The model provider decides where the data is stored." },
+      { id: 'C', text: "AWS stores all generative AI data in a single central Region for simplicity." },
+      { id: 'D', text: "Customers choose the Region where their workloads and data are processed." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "AWS customers choose the Regions where they run workloads and store data, so the agency can use a Canadian Region where the required models are available and keep processing there, avoiding options such as global cross-Region routing. AWS does not replicate customer data to every Region; replication happens only when the customer configures it. There is no single central Region for generative AI data. In Amazon Bedrock the customer controls location through Region and inference profile choices, not the model provider.",
+    referenceUrl: "https://aws.amazon.com/about-aws/global-infrastructure/regions_az/",
+    tags: ["AWS infrastructure benefits", "Data residency", "Regions"]
+  },
+  {
+    id: "aws-aif-211",
+    difficulty: "medium",
+    certId: "aws-aif",
+    domainId: "d2",
+    domainName: "Fundamentals of Generative AI",
+    title: "Documentation on an Amazon model's intended uses",
+    scenario: "A university's AI governance board is considering an Amazon Nova model for student-facing tutoring. Before approving it, the board wants AWS's own documentation of the model's intended use cases, limitations, and responsible AI design choices.",
+    question: "Which AWS resource provides this information?",
+    options: [
+      { id: 'A', text: "AWS Service Quotas, which lists the usage limits for each AWS service." },
+      { id: 'B', text: "AWS AI Service Cards, which document intended uses and limitations." },
+      { id: 'C', text: "AWS Trusted Advisor, reporting cost and security best practice." },
+      { id: 'D', text: "AWS Health Dashboard, which lists service events affecting the account." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "AWS AI Service Cards are part of AWS's responsible AI resources: each card describes an AWS AI service or Amazon model's intended use cases, limitations, responsible AI design considerations, and deployment and performance best practices. Trusted Advisor checks accounts against cost, security, and resilience best practices. The Health Dashboard reports service events and scheduled changes. Service Quotas shows usage limits, not model behavior or intended use.",
+    referenceUrl: "https://aws.amazon.com/ai/responsible-ai/resources/",
+    tags: ["AWS infrastructure benefits", "Responsible AI", "AI Service Cards"]
+  },
+  {
+    id: "aws-aif-212",
+    difficulty: "hard",
+    certId: "aws-aif",
+    domainId: "d2",
+    domainName: "Fundamentals of Generative AI",
+    title: "Can a model provider see what we send?",
+    scenario: "A bank's CISO accepts that Amazon Bedrock hosts third-party models, but worries that a model provider could log or inspect the bank's prompts while its model processes them. She wants to know how Bedrock is designed to prevent this.",
+    question: "Which statement accurately describes the design?",
+    options: [
+      { id: 'A', text: "Prompts are anonymized before providers see them, so only the content is visible." },
+      { id: 'B', text: "Providers can view prompts for debugging after the bank grants each request." },
+      { id: 'C', text: "Each provider runs its model in its own data center and receives prompts over TLS." },
+      { id: 'D', text: "Models run in AWS-operated deployment accounts that the providers cannot access." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Amazon Bedrock runs each model copy in model deployment accounts owned and operated by the Bedrock service team, and model providers have no access to those accounts, so they cannot see customer prompts or completions. Providers do not host the models in their own data centers for Bedrock traffic. There is no debugging path by which providers view prompts with customer consent. Anonymization would still expose content to the provider, which the design avoids entirely.",
+    referenceUrl: "https://docs.aws.amazon.com/bedrock/latest/userguide/data-protection.html",
+    tags: ["AWS infrastructure benefits", "Security", "Amazon Bedrock"]
+  },
+  {
+    id: "aws-aif-213",
+    difficulty: "easy",
+    certId: "aws-aif",
+    domainId: "d2",
+    domainName: "Fundamentals of Generative AI",
+    title: "Who invoked which model, and when?",
+    scenario: "An insurer's compliance team must be able to show, for any day in the past year, which IAM identities called Amazon Bedrock APIs, which operations they called, and from where. It wants this record without instrumenting each application.",
+    question: "Which AWS service provides this record?",
+    options: [
+      { id: 'A', text: "AWS CloudTrail, which logs API calls to Bedrock as account events." },
+      { id: 'B', text: "AWS Artifact, which offers AWS compliance reports for download." },
+      { id: 'C', text: "Amazon Inspector, which scans workloads for software vulnerabilities." },
+      { id: 'D', text: "Amazon Macie, which discovers sensitive data stored in Amazon S3." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "AWS CloudTrail records API activity for Amazon Bedrock, including the identity, operation, time, and source IP of each call, and a trail can retain those events in Amazon S3 for as long as compliance requires, with no application changes. Amazon Inspector finds software vulnerabilities and network exposure. AWS Artifact provides AWS's own audit reports, not the customer's activity. Amazon Macie discovers sensitive data in S3 buckets.",
+    referenceUrl: "https://docs.aws.amazon.com/bedrock/latest/userguide/logging-using-cloudtrail.html",
+    tags: ["AWS infrastructure benefits", "Compliance", "AWS CloudTrail"]
+  },
+  {
+    id: "aws-aif-214",
+    difficulty: "medium",
+    certId: "aws-aif",
+    domainId: "d2",
+    domainName: "Fundamentals of Generative AI",
+    title: "The same safety policy for a self-hosted model",
+    scenario: "A retailer uses an Amazon Bedrock guardrail for its Bedrock chatbot and now also runs an open-weight model on a SageMaker AI endpoint for a second app. The safety team wants the second app's inputs and outputs checked against the same guardrail policies.",
+    question: "How can the team achieve this?",
+    options: [
+      { id: 'A', text: "Call the ApplyGuardrail API on the second app's inputs and outputs." },
+      { id: 'B', text: "Enable model invocation logging, which blocks unsafe content live." },
+      { id: 'C', text: "Guardrails work only with Bedrock models, so rewrite the policies." },
+      { id: 'D', text: "Fine-tune the open-weight model on the guardrail's denied topics." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "The ApplyGuardrail API evaluates text against an existing Amazon Bedrock guardrail without invoking a Bedrock model, so the same policies can protect models hosted on SageMaker AI, EC2, or elsewhere. Guardrails are therefore not limited to Bedrock-hosted models, and rewriting policies in another tool would duplicate effort and risk drift. Fine-tuning on denied topics is unreliable as a control and cannot be updated as quickly as a policy. Invocation logging records Bedrock requests for analysis; it does not inspect or block content.",
+    referenceUrl: "https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-use-independent-api.html",
+    tags: ["AWS infrastructure benefits", "Safety", "Amazon Bedrock Guardrails"]
+  },
+  {
+    id: "aws-aif-215",
+    difficulty: "easy",
+    certId: "aws-aif",
+    domainId: "d2",
+    domainName: "Fundamentals of Generative AI",
+    title: "Why the bill doubled when prompts got longer",
+    scenario: "A recruiting platform's on-demand Amazon Bedrock bill doubled after developers began including each candidate's full résumé and the complete job description in every prompt. The number of requests and the length of responses stayed about the same.",
+    question: "What explains the increase?",
+    options: [
+      { id: 'A', text: "On-demand requests are billed per request, and long ones are split up." },
+      { id: 'B', text: "On-demand pricing charges for input tokens as well as output tokens processed." },
+      { id: 'C', text: "On-demand pricing is based on the number of hours the application stays online." },
+      { id: 'D', text: "On-demand pricing charges a fee per distinct user who sends the application text." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "Amazon Bedrock on-demand pricing for text models charges per input token and per output token, so making prompts much longer raises cost even when request counts and response lengths stay flat; trimming irrelevant context or retrieving only relevant passages brings it down. Charges are not a flat fee per request. On-demand pricing is not hourly; hourly billing applies to Provisioned Throughput. There is no per-user fee for model inference.",
+    referenceUrl: "https://aws.amazon.com/bedrock/pricing/",
+    tags: ["Cost tradeoffs", "Token-based pricing"]
+  },
+  {
+    id: "aws-aif-216",
+    difficulty: "easy",
+    certId: "aws-aif",
+    domainId: "d2",
+    domainName: "Fundamentals of Generative AI",
+    title: "Verbose answers on a tight budget",
+    scenario: "A language learning app notices that its assistant writes 400-word answers when learners usually need two or three sentences. On the model it uses, output tokens are priced several times higher than input tokens.",
+    question: "Which change reduces cost most directly without changing models?",
+    options: [
+      { id: 'A', text: "Switch from on-demand to hourly Provisioned Throughput for the existing workload." },
+      { id: 'B', text: "Raise the temperature so the model varies the length of its answers more widely." },
+      { id: 'C', text: "Instruct the model to answer concisely and set a lower maximum output tokens value." },
+      { id: 'D', text: "Add more example answers to the prompt so the model understands the task better." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "Because output tokens cost more than input tokens on many models, cutting unnecessary output is the most direct saving: a concise-answer instruction shapes the response, and a lower maximum output tokens setting caps it. Temperature changes randomness, not a reliable change in length. Adding example answers lengthens every prompt, increasing input token cost. Provisioned Throughput is priced per hour for reserved capacity and makes sense for steady high volume, not as a fix for verbose answers.",
+    referenceUrl: "https://docs.aws.amazon.com/bedrock/latest/userguide/inference-parameters.html",
+    tags: ["Cost tradeoffs", "Token-based pricing", "Inference parameters"]
+  },
+  {
+    id: "aws-aif-217",
+    difficulty: "medium",
+    certId: "aws-aif",
+    domainId: "d2",
+    domainName: "Fundamentals of Generative AI",
+    title: "Steady heavy traffic that keeps getting throttled",
+    scenario: "A customer service platform sends a large, steady volume of requests to one Amazon Bedrock model around the clock. During peak hours some on-demand requests are throttled, and the business needs guaranteed throughput for the next six months.",
+    question: "Which option best meets the requirement?",
+    options: [
+      { id: 'A', text: "Provisioned Throughput with a six-month commitment for the chosen model." },
+      { id: 'B', text: "Model distillation to train a smaller student model from the chosen one." },
+      { id: 'C', text: "A smaller maximum output token setting on every on-demand model request." },
+      { id: 'D', text: "Batch inference jobs, which raise throughput by processing prompts asynchronously." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Provisioned Throughput reserves dedicated capacity in model units for a specific model, providing a guaranteed level of throughput; a six-month commitment carries a lower hourly rate than shorter terms and suits steady, predictable high volume. Batch inference is asynchronous and unsuitable for live customer conversations. Shorter outputs reduce tokens per request but do not guarantee capacity. Distillation may lower cost per request but does not reserve throughput, and the smaller model would still use on-demand capacity.",
+    referenceUrl: "https://docs.aws.amazon.com/bedrock/latest/userguide/prov-throughput.html",
+    tags: ["Cost tradeoffs", "Provisioned Throughput"]
+  },
+  {
+    id: "aws-aif-218",
+    difficulty: "medium",
+    certId: "aws-aif",
+    domainId: "d2",
+    domainName: "Fundamentals of Generative AI",
+    title: "Tagging a product archive over a weekend",
+    scenario: "An online marketplace needs to generate search tags for 2 million archived product listings. Results are needed by Monday morning, nobody is waiting on individual responses, and the team wants the lowest cost per token available for this job.",
+    question: "Which Amazon Bedrock inference option fits best?",
+    options: [
+      { id: 'A', text: "Real-time on-demand calls issued one by one from a script running all weekend." },
+      { id: 'B', text: "Batch inference, submitting the prompts from Amazon S3 as an asynchronous job." },
+      { id: 'C', text: "Provisioned Throughput with a one-month commitment to handle the weekend spike." },
+      { id: 'D', text: "Streaming inference responses, so each tag appears as soon as it is generated." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "Batch inference processes a large set of prompts stored in Amazon S3 as an asynchronous job and writes results back to S3, and for supported models it is priced at a discount compared with on-demand, which suits a deadline measured in days rather than seconds. Sequential on-demand calls pay the full on-demand rate and are slow. A one-month Provisioned Throughput commitment pays for capacity long after the weekend ends. Streaming improves perceived latency for interactive users, which this job does not have.",
+    referenceUrl: "https://docs.aws.amazon.com/bedrock/latest/userguide/batch-inference.html",
+    tags: ["Cost tradeoffs", "Batch inference"]
+  },
+  {
+    id: "aws-aif-219",
+    difficulty: "medium",
+    certId: "aws-aif",
+    domainId: "d2",
+    domainName: "Fundamentals of Generative AI",
+    title: "Budgeting for a fine-tuned model",
+    scenario: "A logistics company plans to fine-tune a model in Amazon Bedrock on its shipping correspondence. Finance asks what cost categories to budget for beyond the per-token prices it already pays for using base models on demand.",
+    question: "Which additional costs should the team include?",
+    options: [
+      { id: 'A', text: "Only the one-time training charge; storing and serving the custom model is free." },
+      { id: 'B', text: "A per-employee licence for each person who sends a prompt to the tuned model." },
+      { id: 'C', text: "A training charge by tokens processed, monthly model storage, and inference." },
+      { id: 'D', text: "None, since custom models are billed exactly like base models used on demand." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "Model customization in Amazon Bedrock is charged for the tokens processed during training (training data tokens multiplied by epochs), then a monthly storage fee for each custom model, plus the cost of running inference on it, which for many custom models means Provisioned Throughput. Custom models therefore do not cost the same as base models. Storage and serving are not free after training. Bedrock has no per-employee licence for model use.",
+    referenceUrl: "https://aws.amazon.com/bedrock/pricing/",
+    tags: ["Cost tradeoffs", "Custom models"]
+  },
+  {
+    id: "aws-aif-220",
+    difficulty: "hard",
+    certId: "aws-aif",
+    domainId: "d2",
+    domainName: "Fundamentals of Generative AI",
+    title: "Surviving Regional capacity crunches",
+    scenario: "A US ticketing company's assistant runs on Amazon Bedrock in one US Region. During major concert on-sales, requests are throttled when Regional capacity is exhausted. The company wants higher availability for these bursts without building multi-Region failover logic, and data may be processed anywhere in the US.",
+    question: "Which approach best meets the requirement, and how is it priced?",
+    options: [
+      { id: 'A', text: "A US cross-Region inference profile, billed at the source Region's price." },
+      { id: 'B', text: "A second application stack in another Region behind custom failover code." },
+      { id: 'C', text: "Batch inference for the on-sale traffic so no requests are ever throttled." },
+      { id: 'D', text: "A US cross-Region inference profile, billed at the highest Region's price." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Cross-Region inference with a US inference profile lets Amazon Bedrock route requests across several US Regions to use spare capacity during bursts, improving availability without custom failover code, and there is no additional routing charge because pricing is based on the Region where the request originates. It is not billed at the highest-priced destination Region. A second stack with custom failover is exactly the engineering the company wants to avoid. Batch inference is asynchronous and cannot serve shoppers waiting in real time.",
+    referenceUrl: "https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html",
+    tags: ["Cost tradeoffs", "Availability", "Cross-Region inference"]
+  },
+  {
+    id: "aws-aif-221",
+    difficulty: "medium",
+    certId: "aws-aif",
+    domainId: "d2",
+    domainName: "Fundamentals of Generative AI",
+    title: "The same long manual in every request",
+    scenario: "A field service app sends the same 30-page equipment manual as a prefix to every technician's question, followed by a short question that changes each time. Most requests arrive within minutes of each other, and both cost and response time are higher than the team would like.",
+    question: "Which Amazon Bedrock feature addresses both concerns?",
+    options: [
+      { id: 'A', text: "Batch inference, so the technicians' questions are combined into an overnight job." },
+      { id: 'B', text: "Provisioned Throughput, so the manual prefix is stored inside the model's weights." },
+      { id: 'C', text: "Prompt caching, so the repeated prefix is billed at a reduced rate and processed faster." },
+      { id: 'D', text: "A higher maximum output tokens value, so the model can quote the manual in full." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "Prompt caching in Amazon Bedrock stores a repeated prompt prefix for a short time, so later requests reuse it: cached input tokens are charged at a reduced rate and the model skips reprocessing them, lowering latency. Provisioned Throughput reserves capacity and does not embed documents in model weights. Batch inference would make technicians wait until the job finishes. More output tokens increase cost and do nothing about the repeated input.",
+    referenceUrl: "https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-caching.html",
+    tags: ["Cost tradeoffs", "Prompt caching", "Performance"]
+  },
+  {
+    id: "aws-aif-222",
+    difficulty: "medium",
+    certId: "aws-aif",
+    domainId: "d2",
+    domainName: "Fundamentals of Generative AI",
+    title: "The preferred model is missing from the nearest Region",
+    scenario: "A Brazilian e-commerce company prefers to run its assistant in the São Paulo Region for low latency, but the model that scored best in evaluation is not offered there. A slightly weaker model is available in São Paulo.",
+    question: "Which statement best describes the tradeoff?",
+    options: [
+      { id: 'A', text: "Using a distant Region always costs less, so the stronger model is the obvious choice." },
+      { id: 'B', text: "Region choice only affects price, so latency and data location are not part of it." },
+      { id: 'C', text: "Every model is offered in every Region, so the evaluation must have been misconfigured." },
+      { id: 'D', text: "Regional coverage varies, so it is weighing model quality against latency and location." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Model availability in Amazon Bedrock differs by Region, so choosing a Region trades model choice against network latency, data location requirements, and sometimes price. The company must decide whether the quality gap outweighs the latency and residency benefits of São Paulo. Models are not offered in every Region. Region choice affects latency and where data is processed, not only price. Prices vary by Region and are not always lower farther away.",
+    referenceUrl: "https://docs.aws.amazon.com/bedrock/latest/userguide/models-regions.html",
+    tags: ["Cost tradeoffs", "Regional coverage"]
+  },
+  {
+    id: "aws-aif-223",
+    difficulty: "medium",
+    certId: "aws-aif",
+    domainId: "d2",
+    domainName: "Fundamentals of Generative AI",
+    title: "Cutting the token bill for a meeting summarizer",
+    scenario: "A collaboration software company's meeting summarizer runs on demand in Amazon Bedrock and processes about 50,000 transcripts a day. Monthly costs have tripled, and evaluation shows a smaller model in the same family produces summaries users rate just as highly.",
+    question: "Which two actions would reduce cost most effectively? (Choose two.)",
+    options: [
+      { id: 'A', text: "Trim filler such as greetings and silence markers before sending transcripts." },
+      { id: 'B', text: "Enable model invocation logging to Amazon S3 for every summarizer request." },
+      { id: 'C', text: "Buy six-month Provisioned Throughput sized at triple the current volume." },
+      { id: 'D', text: "Switch to the smaller model that users rate as highly as the current one." },
+      { id: 'E', text: "Raise the temperature so the summaries become shorter and less repetitive." }
+    ],
+    correctAnswers: ['A', 'D'],
+    type: "multiple",
+    explanation: "Smaller models cost less per token, and evaluation shows no loss in quality, so switching is a direct saving; removing filler from transcripts reduces the input tokens billed on every one of 50,000 daily requests. Temperature controls randomness, not length, and higher values can make output less reliable. Invocation logging adds storage cost and saves nothing. Provisioned Throughput sized at three times current volume pays for capacity that would sit unused.",
+    referenceUrl: "https://aws.amazon.com/bedrock/pricing/",
+    tags: ["Cost tradeoffs", "Token-based pricing", "Model selection"]
+  },
+  {
+    id: "aws-aif-224",
+    difficulty: "hard",
+    certId: "aws-aif",
+    domainId: "d2",
+    domainName: "Fundamentals of Generative AI",
+    title: "Explaining Provisioned Throughput to finance",
+    scenario: "A media company's finance controller is reviewing a proposal to buy Amazon Bedrock Provisioned Throughput for a news summarization model. She asks the architect to confirm how the charges work before she signs off on the commitment.",
+    question: "Which two statements about Provisioned Throughput are accurate? (Choose two.)",
+    options: [
+      { id: 'A', text: "Longer commitment terms, such as six months, carry a lower hourly price per unit." },
+      { id: 'B', text: "It is billed per token processed, exactly like on-demand, but with higher quotas." },
+      { id: 'C', text: "It must be purchased before any base model in Bedrock can be invoked at all." },
+      { id: 'D', text: "It is billed hourly for the model units purchased, whether or not they are used." },
+      { id: 'E', text: "It scales to zero when idle, so a commitment costs nothing in quiet hours." }
+    ],
+    correctAnswers: ['A', 'D'],
+    type: "multiple",
+    explanation: "Provisioned Throughput is purchased in model units and billed hourly for the reserved capacity, regardless of how many requests arrive, and commitment options of one or six months are priced lower per hour than no-commitment capacity. It is not billed per token like on-demand. It does not scale to zero, which is why it suits steady, predictable workloads. Base models can be invoked on demand without purchasing any Provisioned Throughput.",
+    referenceUrl: "https://docs.aws.amazon.com/bedrock/latest/userguide/prov-throughput.html",
+    tags: ["Cost tradeoffs", "Provisioned Throughput"]
+  },
+  {
+    id: "aws-aif-225",
+    difficulty: "hard",
+    certId: "aws-aif",
+    domainId: "d2",
+    domainName: "Fundamentals of Generative AI",
+    title: "A steady baseline with unpredictable spikes",
+    scenario: "A national pharmacy chain's refill assistant handles a steady baseline of traffic all day, every day, and unpredictable spikes when health news breaks. The baseline must never be throttled, and finance wants to avoid paying for spike-sized reserved capacity that is idle most of the time.",
+    question: "Which pricing approach best balances these needs?",
+    options: [
+      { id: 'A', text: "Provisioned Throughput sized for the largest spike ever observed, kept all year." },
+      { id: 'B', text: "Provisioned Throughput for the baseline, with on-demand absorbing the spikes." },
+      { id: 'C', text: "On-demand for all traffic, accepting that the baseline may be throttled in spikes." },
+      { id: 'D', text: "Batch inference for all traffic, since the discount outweighs response delays." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "Reserving Provisioned Throughput for the predictable baseline guarantees that capacity, while routing overflow to on-demand pays per token only when spikes happen, so no spike-sized capacity sits idle. Sizing reserved capacity for the largest spike pays for idle units most of the year. Batch inference is asynchronous and cannot serve customers who expect immediate replies. Pure on-demand leaves the baseline exposed to throttling, which the requirement forbids.",
+    referenceUrl: "https://docs.aws.amazon.com/bedrock/latest/userguide/prov-throughput.html",
+    tags: ["Cost tradeoffs", "Provisioned Throughput", "On-demand"]
+  }
+];
+
+export default AWS_AIF_QUESTIONS_9;

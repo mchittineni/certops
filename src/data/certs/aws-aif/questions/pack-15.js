@@ -1,0 +1,532 @@
+export const AWS_AIF_QUESTIONS_15 = [
+  {
+    id: "aws-aif-351",
+    difficulty: "easy",
+    certId: "aws-aif",
+    domainId: "d4",
+    domainName: "Guidelines for Responsible AI",
+    title: "Weaker answers for customers who write in dialect",
+    scenario: "A bank's mortgage assistant gives detailed, accurate answers to customers who write in standard English, but noticeably shorter and less accurate answers to customers who write in regional dialects or non-native English. The questions themselves are equivalent in substance.",
+    question: "Which responsible AI dimension does this problem primarily concern?",
+    options: [
+      { id: 'A', text: "Fairness, because the quality of service differs across groups of users asking the same things." },
+      { id: 'B', text: "Controllability, because the bank cannot switch the assistant off for certain groups of users." },
+      { id: 'C', text: "Explainability, because the assistant does not tell customers how it produced each of its answers." },
+      { id: 'D', text: "Privacy and security, because the assistant may infer a customer's origin from the way they write." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Fairness concerns whether an AI system's impact and quality of service are equitable across groups of people. Giving worse answers to people who write in dialects or non-native English, for equivalent questions, is a fairness problem. Controllability concerns the ability to monitor and steer system behavior, which is not what fails here. Explainability concerns understanding how outputs are produced, not whether quality is equal. Privacy may be a secondary concern, but the observed harm is unequal service.",
+    referenceUrl: "https://aws.amazon.com/ai/responsible-ai/",
+    tags: ["Fairness", "Responsible AI dimensions"]
+  },
+  {
+    id: "aws-aif-352",
+    difficulty: "easy",
+    certId: "aws-aif",
+    domainId: "d4",
+    domainName: "Guidelines for Responsible AI",
+    title: "Research briefs citing papers that do not exist",
+    scenario: "A pharmaceutical company's literature assistant writes polished research briefs, but reviewers find that several cited journal articles do not exist and some study results are misstated. Leadership asks which responsible AI property the tool is failing to deliver.",
+    question: "Which property is it?",
+    options: [
+      { id: 'A', text: "Veracity, meaning that the system's outputs are truthful and correct." },
+      { id: 'B', text: "Inclusivity, meaning that the system serves users of every background equally." },
+      { id: 'C', text: "Transparency, meaning that users are told when AI is involved in producing it." },
+      { id: 'D', text: "Governance, meaning that policies and processes control how the tool is used." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Veracity is the property of producing correct, truthful outputs; invented citations and misstated results are hallucinations that violate it. AWS groups veracity with robustness as one of its responsible AI dimensions. Inclusivity concerns serving diverse users. Transparency concerns disclosing that AI is used and how, which would not make the citations real. Governance processes are needed to manage the risk but are not the property the output lacks.",
+    referenceUrl: "https://aws.amazon.com/ai/responsible-ai/",
+    tags: ["Veracity", "Hallucinations"]
+  },
+  {
+    id: "aws-aif-353",
+    difficulty: "medium",
+    certId: "aws-aif",
+    domainId: "d4",
+    domainName: "Guidelines for Responsible AI",
+    title: "An image classifier fooled by stickers",
+    scenario: "A warehouse uses a vision model to identify hazardous-materials labels on packages. Testing shows that a small sticker, a smudge, or unusual lighting can make the model miss a hazard label entirely, even though a person would still recognize it easily.",
+    question: "Which responsible AI property needs improvement?",
+    options: [
+      { id: 'A', text: "Fairness, because some kinds of packages are treated differently from others by the vision model." },
+      { id: 'B', text: "Robustness, because the model must keep working reliably under noisy or unexpected conditions." },
+      { id: 'C', text: "Transparency, because the warehouse has not told staff which AI model classifies the packages." },
+      { id: 'D', text: "Privacy, because images of packages can reveal information about the customers who shipped them." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "Robustness is the ability of an AI system to keep performing correctly when inputs are noisy, unusual, or deliberately manipulated. A classifier that misses hazard labels because of stickers, smudges, or lighting is not robust, and in a safety setting that failure matters. Nothing indicates groups of people are treated unequally, so this is not primarily fairness. Disclosing the model would not make it reliable. Privacy is not the failure described.",
+    referenceUrl: "https://aws.amazon.com/ai/responsible-ai/",
+    tags: ["Robustness", "Responsible AI dimensions"]
+  },
+  {
+    id: "aws-aif-354",
+    difficulty: "easy",
+    certId: "aws-aif",
+    domainId: "d4",
+    domainName: "Guidelines for Responsible AI",
+    title: "Fitness coach asked about extreme fasting",
+    scenario: "A fitness app's AI coach answers questions about workouts and nutrition. Product testers found that when asked, it will describe dangerous extreme-fasting regimens in detail. The company must prevent the coach from producing content that could harm users.",
+    question: "Which responsible AI dimension is most directly at stake?",
+    options: [
+      { id: 'A', text: "Safety, since the system must avoid outputs that could injure or endanger users." },
+      { id: 'B', text: "Explainability, since users need to see why the coach recommended a particular plan." },
+      { id: 'C', text: "Governance, since the company needs a written policy on how coaches are procured." },
+      { id: 'D', text: "Controllability, since the company must be able to scale the coach up and down." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Safety covers preventing harmful system output and misuse. Detailed instructions for dangerous fasting could lead users to hurt themselves, so safety is the dimension at stake, addressed with measures such as guardrails, topic restrictions, and testing. Explaining recommendations does not stop harmful ones. A procurement policy is a governance matter unrelated to this output. Controllability is about monitoring and steering behavior, not scaling capacity, and the core concern here is harm.",
+    referenceUrl: "https://aws.amazon.com/ai/responsible-ai/",
+    tags: ["Safety", "Responsible AI dimensions"]
+  },
+  {
+    id: "aws-aif-355",
+    difficulty: "easy",
+    certId: "aws-aif",
+    domainId: "d4",
+    domainName: "Guidelines for Responsible AI",
+    title: "A benefits assistant only some residents can use",
+    scenario: "A state agency's benefits assistant works only in English, requires fluent typing, and uses dense legal wording. Advocacy groups point out that residents with limited English, low literacy, or disabilities that make typing hard are effectively shut out of a public service.",
+    question: "Which responsible AI principle is the design falling short on?",
+    options: [
+      { id: 'A', text: "Inclusivity, designing so people of all languages, abilities, and reading levels can use it." },
+      { id: 'B', text: "Robustness, making sure the assistant keeps working correctly when the server load is very high." },
+      { id: 'C', text: "Controllability, making sure administrators can switch the assistant into a maintenance mode." },
+      { id: 'D', text: "Veracity, making sure that every answer about benefit rules is factually accurate and up to date." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Inclusivity means designing AI systems so that diverse people, including those with different languages, literacy levels, and abilities, can use and benefit from them. Supporting more languages, plain-language answers, and voice input would address the gap. Accuracy of answers is not the complaint. Resilience under load is an operational concern rather than the exclusion described. Maintenance controls do not widen who can use the service.",
+    referenceUrl: "https://aws.amazon.com/ai/responsible-ai/",
+    tags: ["Inclusivity", "Responsible AI"]
+  },
+  {
+    id: "aws-aif-356",
+    difficulty: "medium",
+    certId: "aws-aif",
+    domainId: "d4",
+    domainName: "Guidelines for Responsible AI",
+    title: "Being able to steer the system in production",
+    scenario: "A logistics company's AI routing assistant occasionally starts favoring routes that violate new driver-rest rules. The operations director insists on mechanisms to monitor the assistant's behavior in production and to adjust or override it quickly when it drifts from intended behavior.",
+    question: "Which AWS responsible AI dimension does this requirement describe?",
+    options: [
+      { id: 'A', text: "Controllability, having the means to observe and steer the assistant whenever it goes off course." },
+      { id: 'B', text: "Explainability, helping people understand and evaluate the reasons behind each of the system's outputs." },
+      { id: 'C', text: "Governance, incorporating best practices into the AI supply chain, including providers and deployers." },
+      { id: 'D', text: "Transparency, helping stakeholders make informed choices about how they engage with the AI system." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "AWS describes controllability as having mechanisms to monitor and steer AI system behavior, which matches the need to detect drift from intended behavior and adjust or override the assistant. Transparency is about enabling stakeholders to make informed choices about their engagement with an AI system. Explainability is about understanding and evaluating system outputs. Governance is about incorporating best practices across the AI supply chain; it supports controllability but is not the capability described.",
+    referenceUrl: "https://aws.amazon.com/ai/responsible-ai/",
+    tags: ["Controllability", "Responsible AI dimensions"]
+  },
+  {
+    id: "aws-aif-357",
+    difficulty: "hard",
+    certId: "aws-aif",
+    domainId: "d4",
+    domainName: "Guidelines for Responsible AI",
+    title: "Sorting a slide of AI principles",
+    scenario: "A consultant's slide lists five items as the responsible AI dimensions that AWS defines. A reviewer suspects that some items were copied from a cloud architecture framework instead and wants only the genuine responsible AI dimensions kept.",
+    question: "Which two items are responsible AI dimensions as defined by AWS? (Choose two.)",
+    options: [
+      { id: 'A', text: "Elasticity: acquiring resources as needed and releasing them when they are no longer required." },
+      { id: 'B', text: "Operational excellence: running and monitoring systems and improving processes and procedures." },
+      { id: 'C', text: "Privacy and security: appropriately obtaining, using, and protecting data and models." },
+      { id: 'D', text: "Veracity and robustness: achieving correct system outputs, even with unexpected or adversarial inputs." },
+      { id: 'E', text: "High availability: keeping workloads accessible by removing single points of failure." }
+    ],
+    correctAnswers: ['C', 'D'],
+    type: "multiple",
+    explanation: "AWS defines responsible AI dimensions including fairness, explainability, privacy and security, safety, controllability, veracity and robustness, governance, and transparency. Veracity and robustness, and privacy and security, are on that list. Elasticity is a cloud design principle for scaling resources. Operational excellence is a pillar of the AWS Well-Architected Framework. High availability is a reliability design goal. These are sound architecture concepts but not responsible AI dimensions.",
+    referenceUrl: "https://aws.amazon.com/ai/responsible-ai/",
+    tags: ["Responsible AI dimensions"]
+  },
+  {
+    id: "aws-aif-358",
+    difficulty: "easy",
+    certId: "aws-aif",
+    domainId: "d4",
+    domainName: "Guidelines for Responsible AI",
+    title: "Blocking hateful and violent replies on a teen forum",
+    scenario: "A homework-help platform for teenagers uses a foundation model in Amazon Bedrock. It must block hateful, insulting, sexual, and violent content in both student questions and model answers, with the ability to set how strictly each category is filtered.",
+    question: "Which Amazon Bedrock Guardrails feature should the platform configure?",
+    options: [
+      { id: 'A', text: "Contextual grounding checks, with a threshold for grounding and for relevance." },
+      { id: 'B', text: "Word filters, with a custom list of the exact words that students should avoid." },
+      { id: 'C', text: "Content filters, with separate strengths for hate, insults, violence, and others." },
+      { id: 'D', text: "Sensitive information filters, with masking enabled for names and phone numbers." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "Guardrails content filters detect harmful content in categories such as hate, insults, sexual, violence, and misconduct, and each category has a configurable strength, applied to prompts and responses. Sensitive information filters handle PII, not harmful content. Contextual grounding checks detect ungrounded or irrelevant answers in RAG scenarios. Word filters block exact words and phrases, which cannot reliably catch harmful content expressed in ordinary words.",
+    referenceUrl: "https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-content-filters.html",
+    tags: ["Guardrails", "Content filters"]
+  },
+  {
+    id: "aws-aif-359",
+    difficulty: "medium",
+    certId: "aws-aif",
+    domainId: "d4",
+    domainName: "Guidelines for Responsible AI",
+    title: "Warranty answers that drift from the source",
+    scenario: "An appliance maker's RAG assistant retrieves warranty documents and generates answers. Occasionally it adds terms that are not in the retrieved documents or answers a different question from the one asked. The company wants responses like these blocked automatically at runtime.",
+    question: "Which Amazon Bedrock Guardrails capability addresses this?",
+    options: [
+      { id: 'A', text: "A prompt attack filter, which detects attempts to override the assistant's original instructions." },
+      { id: 'B', text: "A contextual grounding check, which scores each answer for grounding in the source and relevance." },
+      { id: 'C', text: "A content filter set to high strength for misconduct, so that inaccurate warranty terms get blocked." },
+      { id: 'D', text: "A denied topic for warranty questions, so that the assistant declines to discuss warranties at all." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "Contextual grounding checks compare a model response with the reference source and the user query, producing a grounding score, which flags information not supported by the source, and a relevance score, which flags answers that do not address the query. Responses below the configured thresholds are blocked. A denied topic would stop the assistant from doing its job. The prompt attack filter targets jailbreak and injection attempts. Content filters detect harmful categories, not factual drift from a source document.",
+    referenceUrl: "https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-contextual-grounding-check.html",
+    tags: ["Guardrails", "Contextual grounding", "Veracity"]
+  },
+  {
+    id: "aws-aif-360",
+    difficulty: "hard",
+    certId: "aws-aif",
+    domainId: "d4",
+    domainName: "Guidelines for Responsible AI",
+    title: "Leave-policy answers that must be provably right",
+    scenario: "An airline's HR assistant answers questions about parental-leave eligibility, which is governed by precise rules on tenure, hours worked, and employment type. The HR director wants each answer checked against those rules using logical verification, with explanations of why an answer is valid or invalid, rather than relying on similarity scores.",
+    question: "Which Amazon Bedrock Guardrails capability fits best?",
+    options: [
+      { id: 'A', text: "Automated Reasoning checks, which verify answers with formal logic using a policy built from HR documents." },
+      { id: 'B', text: "Contextual grounding checks, which score how closely each answer is supported by the retrieved passages." },
+      { id: 'C', text: "Sensitive information filters, which detect and mask employee identifiers found in each of the answers." },
+      { id: 'D', text: "Denied topics, which block any question about parental leave so that HR can answer them all directly." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Automated Reasoning checks in Amazon Bedrock Guardrails translate policy documents into a formal logical representation and use mathematical, logic-based verification to determine whether a response is consistent with those rules, returning findings that explain why it is valid or invalid. That suits precise eligibility rules. Contextual grounding checks use model-based scoring of support and relevance, not formal logical proof. Sensitive information filters address PII. Denied topics would remove the assistant's purpose.",
+    referenceUrl: "https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-automated-reasoning-checks.html",
+    tags: ["Automated Reasoning checks", "Guardrails", "Veracity"]
+  },
+  {
+    id: "aws-aif-361",
+    difficulty: "medium",
+    certId: "aws-aif",
+    domainId: "d4",
+    domainName: "Guidelines for Responsible AI",
+    title: "Victims must be heard, violence must not be echoed",
+    scenario: "A domestic-abuse support service uses Amazon Bedrock for a first-contact chat. Users often need to describe violent incidents in their own words, and blocking those messages would fail them. The service must still ensure the assistant never produces violent content in its own replies.",
+    question: "How should the guardrail be configured?",
+    options: [
+      { id: 'A', text: "Set the violence filter low for prompts and high for responses, since strengths are set per direction." },
+      { id: 'B', text: "Set the violence filter to high strength on both prompts and replies, so all such content is stopped." },
+      { id: 'C', text: "Turn off the violence filter entirely, so users can describe incidents and replies are never checked at all." },
+      { id: 'D', text: "Add a denied topic for violence, so that any message or reply that mentions an incident is blocked." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Amazon Bedrock Guardrails content filters have separate strength settings for prompts and for responses, so the service can let users describe violent incidents while strictly filtering violence in the model's replies. Turning the filter off removes the protection on replies. A denied topic or high input strength would block the very messages users need to send.",
+    referenceUrl: "https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-content-filters.html",
+    tags: ["Guardrails", "Content filters", "Safety"]
+  },
+  {
+    id: "aws-aif-362",
+    difficulty: "easy",
+    certId: "aws-aif",
+    domainId: "d4",
+    domainName: "Guidelines for Responsible AI",
+    title: "Profanity and unreleased codenames in replies",
+    scenario: "A game studio's community assistant must never output profanity or mention three internal codenames for unreleased titles, which are specific made-up words. Everything else about the assistant's behavior is acceptable.",
+    question: "Which Amazon Bedrock Guardrails policy handles this most directly?",
+    options: [
+      { id: 'A', text: "A content filter for insults and profanity set to high strength on outgoing replies." },
+      { id: 'B', text: "A word filter with the managed profanity list plus the three terms added as custom entries." },
+      { id: 'C', text: "A sensitive information filter with three regex patterns for the studio's email addresses." },
+      { id: 'D', text: "A contextual grounding check that blocks replies not grounded in official news posts." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "Word filters block exact words and phrases: a managed profanity list is built in, and custom words can be added, which suits a short list of distinctive codenames. A grounding check addresses unsupported content, not specific terms. An insults filter targets demeaning language and would not catch codenames. A regex for email addresses targets a different kind of sensitive data.",
+    referenceUrl: "https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-word-filters.html",
+    tags: ["Guardrails", "Word filters"]
+  },
+  {
+    id: "aws-aif-363",
+    difficulty: "medium",
+    certId: "aws-aif",
+    domainId: "d4",
+    domainName: "Guidelines for Responsible AI",
+    title: "Users uploading photos to a multimodal assistant",
+    scenario: "A home-improvement retailer's assistant accepts photos from customers along with their questions. Some users have uploaded violent or sexually explicit images. The retailer wants the same guardrail that screens text to also screen the uploaded images for harmful content.",
+    question: "What should the retailer do?",
+    options: [
+      { id: 'A', text: "Configure a word filter with image-related terms so that the uploaded photos are blocked by keyword." },
+      { id: 'B', text: "Use a contextual grounding check so each uploaded photo is compared with the product catalog images." },
+      { id: 'C', text: "Resize every uploaded photo to a lower resolution so that explicit details are no longer recognizable." },
+      { id: 'D', text: "Enable image support in the content filters for categories such as violence and sexual content." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Amazon Bedrock Guardrails content filters can evaluate image content as well as text for supported categories such as hate, insults, sexual, violence, and misconduct, so one guardrail can screen both the question and the photo. Word filters match text and cannot inspect image pixels. Contextual grounding checks apply to text responses against a source. Downscaling images is not a moderation control and does not reliably remove harmful content.",
+    referenceUrl: "https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-mmfilter.html",
+    tags: ["Guardrails", "Image content filters"]
+  },
+  {
+    id: "aws-aif-364",
+    difficulty: "medium",
+    certId: "aws-aif",
+    domainId: "d4",
+    domainName: "Guidelines for Responsible AI",
+    title: "Was this campaign image made by our model?",
+    scenario: "A retailer generates marketing images with Amazon Titan Image Generator. A viral image claiming to be from the retailer's campaign is circulating, and the brand team needs to determine whether the image was generated by that Amazon model, to protect customer trust.",
+    question: "Which capability helps with this?",
+    options: [
+      { id: 'A', text: "Amazon Rekognition celebrity recognition, which identifies whether any famous people appear in it." },
+      { id: 'B', text: "Amazon Macie, which scans the image for sensitive data and reports which service created the file." },
+      { id: 'C', text: "Watermark detection in Amazon Bedrock, which checks for the invisible watermark the model embeds." },
+      { id: 'D', text: "AWS CloudTrail, which records the pixels of every image generated through Amazon Bedrock calls." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "Amazon Titan Image Generator embeds an invisible watermark in the images it creates, and Amazon Bedrock provides watermark detection to check whether an image was generated by the model, supporting transparency and helping counter misinformation; Amazon Nova Canvas similarly adds watermarks and content credentials. Celebrity recognition identifies famous people, not image provenance. Macie discovers sensitive data in S3 and does not determine which model produced an image. CloudTrail records API calls and metadata, not image content.",
+    referenceUrl: "https://docs.aws.amazon.com/bedrock/latest/userguide/titan-image-models.html",
+    tags: ["Watermarking", "Transparency", "Customer trust"]
+  },
+  {
+    id: "aws-aif-365",
+    difficulty: "easy",
+    certId: "aws-aif",
+    domainId: "d4",
+    domainName: "Guidelines for Responsible AI",
+    title: "A sustainability pledge meets a new chatbot",
+    scenario: "A company with a public commitment to reduce its carbon footprint is choosing a foundation model to classify incoming emails into eight categories. Two candidate models meet the accuracy target: one is a small, efficient model and the other is one of the largest models available.",
+    question: "Which choice best reflects responsible model selection?",
+    options: [
+      { id: 'A', text: "A newly pre-trained model built in-house, so that the company controls the energy it consumes." },
+      { id: 'B', text: "The largest model, because a larger model will always use its capacity to classify more accurately." },
+      { id: 'C', text: "The smaller model, because it meets the accuracy bar while using less compute and energy per request." },
+      { id: 'D', text: "Both models in parallel for every email, so their votes can be combined for extra accuracy." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "Responsible model selection includes environmental considerations: when a smaller model meets the requirement, it uses less compute and energy for each request, lowering the carbon footprint and usually the cost. The larger model offers no needed benefit here, since both meet the accuracy target. Running both doubles consumption for no required gain. Pre-training a new model from scratch consumes enormous energy compared with using an existing efficient model.",
+    referenceUrl: "https://docs.aws.amazon.com/wellarchitected/latest/sustainability-pillar/sustainability-pillar.html",
+    tags: ["Sustainability", "Model selection"]
+  },
+  {
+    id: "aws-aif-366",
+    difficulty: "medium",
+    certId: "aws-aif",
+    domainId: "d4",
+    domainName: "Guidelines for Responsible AI",
+    title: "Reporting the emissions of AI workloads",
+    scenario: "A retailer's sustainability office must report the estimated carbon emissions of its AWS usage, including its AI workloads, and track the trend over time as it moves inference to more efficient options. It wants an AWS-provided source for these estimates.",
+    question: "Which AWS tool should the office use?",
+    options: [
+      { id: 'A', text: "AWS Trusted Advisor, which reports the carbon emissions of each account by Region and service." },
+      { id: 'B', text: "AWS Cost Explorer, which turns usage costs into sustainability estimates with a per-dollar factor." },
+      { id: 'C', text: "Amazon CloudWatch, which publishes a standard metric for the kilowatt hours used by each model." },
+      { id: 'D', text: "The AWS Sustainability console, which estimates emissions attributable to the account's AWS usage." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "The AWS Sustainability service and console quantify the greenhouse gas emissions attributable to an account's own AWS usage and show trends over time, supporting sustainability reporting; it replaced the older Customer Carbon Footprint Tool in the Billing console, which was deprecated in mid-2026. Trusted Advisor provides best-practice checks on cost, security, performance, and resilience rather than emissions reports. CloudWatch has no standard metric for model energy consumption. Cost Explorer analyzes spending and does not estimate emissions.",
+    referenceUrl: "https://docs.aws.amazon.com/sustainability/latest/userguide/methodology-carbon.html",
+    tags: ["Sustainability", "Carbon footprint"]
+  },
+  {
+    id: "aws-aif-367",
+    difficulty: "medium",
+    certId: "aws-aif",
+    domainId: "d4",
+    domainName: "Guidelines for Responsible AI",
+    title: "Self-hosted inference with a smaller footprint",
+    scenario: "A media company self-hosts an open-weight model on Amazon EC2 GPU instances for high-volume inference. As part of an environmental commitment, it wants to lower the energy used per inference without changing the model's outputs, and it can recompile the model if needed.",
+    question: "What should the company consider?",
+    options: [
+      { id: 'A', text: "Re-running pre-training of the model monthly, so its weights stay tuned to the latest content." },
+      { id: 'B', text: "Moving inference to AWS Inferentia-based instances, which offer better performance per watt." },
+      { id: 'C', text: "Keeping extra idle instances running at all times, so traffic spikes never cause latency." },
+      { id: 'D', text: "Moving inference to larger GPU instances, so each request completes faster at any energy cost." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "AWS Inferentia is a purpose-built machine learning inference accelerator, and Inf2 instances deliver better performance per watt than comparable GPU-based instances, reducing energy per inference; models are compiled with the AWS Neuron SDK. Bigger GPU instances may be faster but do not target energy efficiency. Idle over-provisioning wastes energy, contrary to sustainability best practice. Monthly pre-training consumes enormous energy and changes the model, which the company does not want.",
+    referenceUrl: "https://aws.amazon.com/ai/machine-learning/inferentia/",
+    tags: ["Sustainability", "AWS Inferentia"]
+  },
+  {
+    id: "aws-aif-368",
+    difficulty: "medium",
+    certId: "aws-aif",
+    domainId: "d4",
+    domainName: "Guidelines for Responsible AI",
+    title: "An engineer's plan to train from nothing",
+    scenario: "An engineer at an insurance startup proposes pre-training a new language model from scratch to summarize claim notes, arguing it would be tailored exactly to their data. The CTO, mindful of the company's sustainability goals and budget, asks for a more responsible path to the same result.",
+    question: "Which alternative should the CTO favor?",
+    options: [
+      { id: 'A', text: "Pre-training from scratch but on a larger cluster so the job finishes and releases resources sooner." },
+      { id: 'B', text: "Starting from an existing pre-trained model and adapting it with prompting, RAG, or fine-tuning." },
+      { id: 'C', text: "Pre-training from scratch at night, when the company's office energy usage is lower." },
+      { id: 'D', text: "Pre-training two smaller models from scratch in parallel and keeping only the better one afterwards." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "Reusing an existing foundation model and adapting it through prompt engineering, RAG, or fine-tuning avoids the vast compute and energy of pre-training, which makes it the more sustainable and economical path to a summarization tool. Training two models from scratch doubles the footprint. A larger cluster finishes sooner but uses a similar or greater total amount of energy. The time of day in the company's offices does not change the energy an AWS training job consumes.",
+    referenceUrl: "https://docs.aws.amazon.com/wellarchitected/latest/sustainability-pillar/sustainability-pillar.html",
+    tags: ["Sustainability", "Model reuse"]
+  },
+  {
+    id: "aws-aif-369",
+    difficulty: "hard",
+    certId: "aws-aif",
+    domainId: "d4",
+    domainName: "Guidelines for Responsible AI",
+    title: "A selection checklist for a hospital's AI tools",
+    scenario: "A hospital system is writing a model selection checklist for generative AI tools used by clinical staff. The ethics committee wants criteria that reflect responsible AI practice, not just raw capability, and has been given five candidate criteria to choose from.",
+    question: "Which two criteria reflect responsible model selection? (Choose two.)",
+    options: [
+      { id: 'A', text: "Choose the most recently released model, since newer models are safer than older ones in every respect." },
+      { id: 'B', text: "Choose the model with the highest score on a public benchmark, whatever its documented limitations are." },
+      { id: 'C', text: "Choose the model with the most parameters, since size determines both safety and accuracy in the clinic." },
+      { id: 'D', text: "Review the provider's documentation of intended uses, limitations, and evaluation results for the model." },
+      { id: 'E', text: "Prefer the most efficient model that meets requirements, to limit energy use and environmental impact." }
+    ],
+    correctAnswers: ['D', 'E'],
+    type: "multiple",
+    explanation: "Responsible selection means understanding what a model was designed and evaluated for, including its limitations and known risks, from documentation such as AWS AI Service Cards or model cards, and weighing environmental impact by choosing the most efficient model that meets requirements. Choosing solely by benchmark score ignores documented limitations that may matter in a clinical setting. Newer models are not guaranteed to be safer in every respect. Parameter count does not determine safety or accuracy for a specific task.",
+    referenceUrl: "https://aws.amazon.com/ai/responsible-ai/resources/",
+    tags: ["Model selection", "Sustainability", "AI Service Cards"]
+  },
+  {
+    id: "aws-aif-370",
+    difficulty: "medium",
+    certId: "aws-aif",
+    domainId: "d4",
+    domainName: "Guidelines for Responsible AI",
+    title: "Worry about copyright claims over generated ads",
+    scenario: "A consumer brand plans to publish large volumes of AI-generated ad copy and images. Its legal team is concerned about third-party intellectual property infringement claims arising from model outputs and asks whether any option on AWS comes with contractual protection against such claims.",
+    question: "What should the team know?",
+    options: [
+      { id: 'A', text: "AWS offers uncapped IP indemnity for outputs of generally available Amazon Nova models it provides." },
+      { id: 'B', text: "Any model in Amazon Bedrock makes outputs public domain, so infringement claims cannot arise at all." },
+      { id: 'C', text: "Invisible watermarks in generated images make them exempt from third-party copyright infringement." },
+      { id: 'D', text: "Enabling a Bedrock guardrail transfers all liability for generated outputs to the model provider." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "AWS provides uncapped intellectual property indemnity coverage for outputs of generally available Amazon models such as Amazon Nova, subject to the terms, which directly addresses the legal team's concern about infringement claims. Outputs from Bedrock models do not automatically become public domain, and infringement risk remains. Guardrails filter content; they do not shift legal liability. Watermarks identify AI-generated content but give no exemption from copyright law.",
+    referenceUrl: "https://docs.aws.amazon.com/nova/latest/userguide/responsible-use.html",
+    tags: ["Legal risk", "Intellectual property", "Indemnification"]
+  },
+  {
+    id: "aws-aif-371",
+    difficulty: "easy",
+    certId: "aws-aif",
+    domainId: "d4",
+    domainName: "Guidelines for Responsible AI",
+    title: "A refund policy the chatbot made up",
+    scenario: "An airline's website chatbot told a grieving customer that bereavement fares could be refunded retroactively, which contradicted the airline's actual policy. When the customer sought the refund, a tribunal held the airline responsible for what its chatbot said.",
+    question: "Which generative AI legal risk does this illustrate?",
+    options: [
+      { id: 'A', text: "Liability for hallucinated output that customers reasonably relied on." },
+      { id: 'B', text: "Intellectual property infringement from copying a competitor's policy." },
+      { id: 'C', text: "Model theft by a competitor who extracted the chatbot's model weights." },
+      { id: 'D', text: "Data residency violations from storing chats in another jurisdiction." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "A hallucination, confidently stated but false output, can create legal liability when users rely on it, and organizations are generally accountable for what their AI systems tell customers. Grounding answers in authoritative policy, adding guardrails such as contextual grounding checks, and routing edge cases to people reduce the risk. Nothing was copied from a competitor. The case did not involve where data was stored. No model weights were stolen.",
+    referenceUrl: "https://aws.amazon.com/ai/responsible-ai/",
+    tags: ["Legal risk", "Hallucinations"]
+  },
+  {
+    id: "aws-aif-372",
+    difficulty: "medium",
+    certId: "aws-aif",
+    domainId: "d4",
+    domainName: "Guidelines for Responsible AI",
+    title: "A résumé summarizer that downplays some candidates",
+    scenario: "A staffing firm uses a generative model to write short candidate summaries for recruiters. An internal audit finds that summaries for women returning from career breaks consistently use weaker language than those for comparable male candidates. Counsel warns this could expose the firm legally.",
+    question: "What is the primary legal risk, and what should the firm do first?",
+    options: [
+      { id: 'A', text: "Model latency; the firm should switch to a faster model so recruiters see summaries sooner." },
+      { id: 'B', text: "IP infringement; the firm should license the résumé templates used in training the model." },
+      { id: 'C', text: "Data residency; the firm should move the model to the Region where most candidates live." },
+      { id: 'D', text: "Biased output leading to discrimination claims; pause and remediate the bias before reuse." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Biased model outputs that disadvantage a protected group in hiring can lead to discrimination claims and regulatory action, so the firm should stop relying on the summaries for decisions, investigate, and fix the bias through measures such as prompt changes, evaluation by subgroup, and human review before resuming. Licensing templates addresses IP, not unequal treatment. Region placement is a residency question unrelated to the audit finding. Latency has nothing to do with the legal exposure.",
+    referenceUrl: "https://aws.amazon.com/ai/responsible-ai/",
+    tags: ["Legal risk", "Bias", "Fairness"]
+  },
+  {
+    id: "aws-aif-373",
+    difficulty: "medium",
+    certId: "aws-aif",
+    domainId: "d4",
+    domainName: "Guidelines for Responsible AI",
+    title: "A launch-day screenshot that went viral",
+    scenario: "Hours after launch, a retailer's new shopping assistant was goaded by users into making offensive remarks, and screenshots spread widely on social media. The retailer took the assistant offline. For the relaunch, leadership wants to reduce the chance of another incident that damages customer trust.",
+    question: "Which approach should the retailer take before relaunching?",
+    options: [
+      { id: 'A', text: "Relaunch unchanged but limit the assistant to logged-in users, so fewer people see any bad replies." },
+      { id: 'B', text: "Switch to a larger model, since larger models cannot be goaded into making any offensive remarks." },
+      { id: 'C', text: "Remove the system prompt, so users have no instructions to push against in messages." },
+      { id: 'D', text: "Red-team the assistant with adversarial prompts and add guardrails for every harm it uncovers." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Loss of customer trust is a real business and legal risk of generative AI. Adversarial testing, or red teaming, before launch uncovers ways users can elicit harmful output, and guardrails such as content filters and prompt attack detection block those harms in production. Limiting access hides the problem without fixing it. No model is immune to manipulation because of size. Removing the system prompt removes behavioral guidance and makes misuse easier.",
+    referenceUrl: "https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails.html",
+    tags: ["Customer trust", "Red teaming", "Guardrails"]
+  },
+  {
+    id: "aws-aif-374",
+    difficulty: "easy",
+    certId: "aws-aif",
+    domainId: "d4",
+    domainName: "Guidelines for Responsible AI",
+    title: "A symptom checker that sounds like a doctor",
+    scenario: "A health startup's symptom-checker chatbot sometimes tells users with chest pain that they probably just have indigestion. Clinicians on the advisory board warn that a user could delay emergency care based on this advice.",
+    question: "Which risk is most serious here, and which mitigation fits?",
+    options: [
+      { id: 'A', text: "End-user harm; limit its scope, route red-flag symptoms to urgent-care guidance, and add medical review." },
+      { id: 'B', text: "Latency risk; add caching so users receive the indigestion advice faster during periods of high load." },
+      { id: 'C', text: "Intellectual property risk; license the medical textbooks that were used to pre-train the model." },
+      { id: 'D', text: "Cost risk; move the chatbot to a cheaper model so that each symptom check costs the startup less." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "End-user risk is the risk of harm to the people using an AI system. Advice that could delay emergency care is a severe instance of it, so the startup should narrow what the chatbot will answer, direct red-flag symptoms such as chest pain to emergency guidance, use guardrails, and involve clinicians in design and review. Licensing textbooks addresses IP, not safety. Cheaper inference does nothing about harmful advice. Faster delivery of dangerous advice makes the problem worse.",
+    referenceUrl: "https://aws.amazon.com/ai/responsible-ai/",
+    tags: ["End-user risk", "Safety", "Legal risk"]
+  },
+  {
+    id: "aws-aif-375",
+    difficulty: "hard",
+    certId: "aws-aif",
+    domainId: "d4",
+    domainName: "Guidelines for Responsible AI",
+    title: "Lowering legal exposure for generated marketing art",
+    scenario: "A toy company will use generative AI to produce packaging artwork for hundreds of products. Its general counsel wants to reduce the risk that published artwork infringes on existing characters or trademarks, which could lead to costly claims and recalls.",
+    question: "Which two measures reduce this risk? (Choose two.)",
+    options: [
+      { id: 'A', text: "Have designers and legal review artwork for resemblance to protected designs and marks before print." },
+      { id: 'B', text: "Use a model whose provider offers IP indemnity for outputs, such as generally available Amazon Nova." },
+      { id: 'C', text: "Remove invisible watermarks from the generated images so that the artwork cannot be traced to a model." },
+      { id: 'D', text: "Treat all AI-generated artwork as public domain, since machine-made images cannot infringe on existing IP." },
+      { id: 'E', text: "Prompt the model with famous character names to get recognizable styles that customers already like." }
+    ],
+    correctAnswers: ['A', 'B'],
+    type: "multiple",
+    explanation: "Contractual IP indemnity, such as the uncapped coverage AWS offers for outputs of generally available Amazon Nova models, shifts some financial risk of infringement claims, and human review by designers and legal before publication catches outputs that resemble protected characters or trademarks. AI-generated images can still infringe, so assuming they are public domain is wrong. Prompting with famous character names invites infringement. Removing provenance watermarks undermines transparency and does nothing to reduce infringement.",
+    referenceUrl: "https://docs.aws.amazon.com/nova/latest/userguide/responsible-use.html",
+    tags: ["Legal risk", "Intellectual property", "Human review"]
+  }
+];
+
+export default AWS_AIF_QUESTIONS_15;

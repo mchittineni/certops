@@ -1,0 +1,532 @@
+export const AWS_AIF_QUESTIONS_4 = [
+  {
+    id: "aws-aif-76",
+    difficulty: "easy",
+    certId: "aws-aif",
+    domainId: "d1",
+    domainName: "Fundamentals of AI and ML",
+    title: "A two-person startup that wants zero servers",
+    scenario: "A two-person startup wants to add image labeling to its mobile app. Neither founder has operations experience, and they do not want to provision, patch or scale any servers. They are happy to pay per request and accept the provider's model as it is.",
+    question: "Which way of using a model in production suits them?",
+    options: [
+      { id: 'A', text: "Self-host an open-source model in containers on Amazon EC2" },
+      { id: 'B', text: "Run the model on each phone and ship weight updates by hand" },
+      { id: 'C', text: "Call a managed API service that AWS operates on their behalf" },
+      { id: 'D', text: "Rent a GPU server in a colocation facility to host the model" }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "With a managed API service, such as Amazon Rekognition for image labels, the provider hosts, scales, patches and secures the model, and the customer simply calls an endpoint and pays per request, which fits a team with no operations capacity. Self-hosting on EC2 or in a colocation facility puts provisioning, scaling and patching on the founders. Running the model on each device is possible for some models, but it adds packaging and update work and still leaves the founders managing the model's lifecycle.",
+    referenceUrl: "https://docs.aws.amazon.com/rekognition/latest/dg/what-is.html",
+    tags: ["Managed API", "Model deployment", "Production"]
+  },
+  {
+    id: "aws-aif-77",
+    difficulty: "medium",
+    certId: "aws-aif",
+    domainId: "d1",
+    domainName: "Fundamentals of AI and ML",
+    title: "A model that must run in the bank's own data centre",
+    scenario: "A bank has fine-tuned an open-source language model for internal document review. Its regulator requires the model and all inference traffic to stay on servers inside the bank's own data centre, and the bank already runs a Kubernetes platform there with GPU nodes and an operations team.",
+    question: "How should the bank serve the model?",
+    options: [
+      { id: 'A', text: "Call a public managed API service that hosts the model on its behalf" },
+      { id: 'B', text: "Run batch transform jobs in the cloud and copy results back nightly" },
+      { id: 'C', text: "Deploy the model to a SageMaker serverless endpoint in one Region" },
+      { id: 'D', text: "Self-host the model behind its own API on the on-premises cluster" }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "When a model must run on infrastructure the organisation controls, it is self-hosted: the bank packages the model in a container, exposes its own inference API on its Kubernetes cluster, and takes responsibility for scaling, patching and availability, which its existing platform team can handle. A public managed API, a SageMaker serverless endpoint and cloud batch jobs all send inference traffic to infrastructure outside the bank's data centre, which the regulator forbids.",
+    referenceUrl: "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/deployment.html",
+    tags: ["Self-hosted API", "Model deployment", "Compliance"]
+  },
+  {
+    id: "aws-aif-78",
+    difficulty: "hard",
+    certId: "aws-aif",
+    domainId: "d1",
+    domainName: "Fundamentals of AI and ML",
+    title: "What moving off the managed API really costs",
+    scenario: "A retailer currently calls a managed model API and pays per request. To cut unit costs, the CTO proposes self-hosting an equivalent open-source model on Amazon EC2 GPU instances behind the company's own API. The finance lead asks which new responsibilities the engineering team would take on.",
+    question: "Which responsibilities move to the retailer? (Choose two.)",
+    options: [
+      { id: 'A', text: "Maintaining the physical security of the AWS data centres that host it" },
+      { id: 'B', text: "Retraining the base model from scratch before it can serve any request" },
+      { id: 'C', text: "Patching the OS, GPU drivers and serving software on its own servers" },
+      { id: 'D', text: "Scaling capacity and keeping the endpoint up during heavy traffic peaks" },
+      { id: 'E', text: "Paying per request instead of paying for the instance hours consumed" }
+    ],
+    correctAnswers: ['C', 'D'],
+    type: "multiple",
+    explanation: "Self-hosting shifts operational work from the provider to the customer: the retailer must scale instances for peaks, keep the API highly available, and patch the operating system, GPU drivers and serving stack. Physical data-centre security stays with AWS under the shared responsibility model even on EC2. Billing moves the other way, from per-request pricing to paying for instance hours whether or not they are busy. An open-source pre-trained model can serve requests without being retrained from scratch.",
+    referenceUrl: "https://aws.amazon.com/compliance/shared-responsibility-model/",
+    tags: ["Self-hosted API", "Managed API", "Operations"]
+  },
+  {
+    id: "aws-aif-79",
+    difficulty: "easy",
+    certId: "aws-aif",
+    domainId: "d1",
+    domainName: "Fundamentals of AI and ML",
+    title: "Cleaning data without writing Python",
+    scenario: "A business analyst needs to join sales and inventory tables, fill missing values, encode categories and check a quick data-quality report before a model is trained. She is comfortable with visual tools but does not write code, and she wants to stay inside SageMaker.",
+    question: "Which SageMaker capability should she use?",
+    options: [
+      { id: 'A', text: "SageMaker Model Monitor, for scheduled checks of endpoint data" },
+      { id: 'B', text: "SageMaker Feature Store, for serving features at low latency" },
+      { id: 'C', text: "SageMaker Model Registry, for approving the model versions to deploy" },
+      { id: 'D', text: "SageMaker Data Wrangler, for no-code data prep and quality reports" }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "SageMaker Data Wrangler, available in SageMaker Canvas, provides a visual interface with hundreds of built-in transformations for joining, cleaning and encoding data, plus data-quality and insights reports, with little or no code. Model Monitor watches deployed endpoints, not data being prepared for training. Feature Store stores and serves features once they have been engineered. Model Registry catalogues trained model versions and their approval status.",
+    referenceUrl: "https://docs.aws.amazon.com/sagemaker/latest/dg/canvas-data-prep.html",
+    tags: ["Data Wrangler", "Data preparation", "SageMaker"]
+  },
+  {
+    id: "aws-aif-80",
+    difficulty: "easy",
+    certId: "aws-aif",
+    domainId: "d1",
+    domainName: "Fundamentals of AI and ML",
+    title: "Three teams computing the same features",
+    scenario: "At an online bank, the fraud, marketing and credit teams each compute features such as a customer's average balance and transaction count over 30 days, each with slightly different code. The head of data wants one governed, central place where features are defined once, stored, discovered and reused by every team.",
+    question: "Which SageMaker capability fits this need?",
+    options: [
+      { id: 'A', text: "SageMaker Ground Truth, a managed service for labeling data" },
+      { id: 'B', text: "SageMaker Model Monitor, which checks deployed data quality" },
+      { id: 'C', text: "SageMaker Feature Store, a shared store for engineered inputs" },
+      { id: 'D', text: "SageMaker Clarify, which reports bias and feature importance" }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "SageMaker Feature Store is a managed repository to create, store, share and discover ML features, so teams reuse one definition instead of recomputing features in inconsistent ways. Ground Truth manages human labeling of training data. Clarify measures bias and explains which features drive predictions, but it does not store features. Model Monitor checks production data and predictions against a baseline after deployment.",
+    referenceUrl: "https://docs.aws.amazon.com/sagemaker/latest/dg/feature-store.html",
+    tags: ["Feature Store", "Feature reuse", "SageMaker"]
+  },
+  {
+    id: "aws-aif-81",
+    difficulty: "easy",
+    certId: "aws-aif",
+    domainId: "d1",
+    domainName: "Fundamentals of AI and ML",
+    title: "Noticing when live inputs stop looking like training data",
+    scenario: "A ride-hailing company's demand model has been live on a SageMaker endpoint for six months. The team wants to be alerted automatically if the statistical distribution of incoming requests starts to differ from the data the model was trained on, before accuracy visibly drops.",
+    question: "Which SageMaker capability provides this?",
+    options: [
+      { id: 'A', text: "SageMaker automatic model tuning, which searches for settings" },
+      { id: 'B', text: "SageMaker JumpStart, which offers pre-trained models to deploy" },
+      { id: 'C', text: "SageMaker Model Monitor, which detects drift against a baseline" },
+      { id: 'D', text: "SageMaker Data Wrangler, which prepares data with visual flow steps" }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "SageMaker Model Monitor captures endpoint data, compares it on a schedule with a baseline created from the training data, and raises violations and Amazon CloudWatch metrics when data quality or distributions drift. Data Wrangler prepares data before training. Automatic model tuning searches hyperparameters during development. JumpStart provides pre-trained models and solutions but does not watch live traffic.",
+    referenceUrl: "https://docs.aws.amazon.com/sagemaker/latest/dg/model-monitor.html",
+    tags: ["Model Monitor", "Data drift", "SageMaker"]
+  },
+  {
+    id: "aws-aif-82",
+    difficulty: "medium",
+    certId: "aws-aif",
+    domainId: "d1",
+    domainName: "Fundamentals of AI and ML",
+    title: "Features that differ between training and serving",
+    scenario: "A lender's model scored well offline, but in production its predictions are noticeably worse. Investigation shows that the training pipeline computed a customer's 90-day spend in a batch SQL job, while the live application recomputes it in Java with a slightly different date window, and the endpoint needs the value within milliseconds.",
+    question: "Which approach best prevents this problem?",
+    options: [
+      { id: 'A', text: "Define features once in Feature Store for both training and serving" },
+      { id: 'B', text: "Use Data Wrangler to rewrite the Java code in a visual data flow tool" },
+      { id: 'C', text: "Add a Model Monitor schedule so the difference raises an alarm later" },
+      { id: 'D', text: "Retrain the model more often so training adapts to the Java logic" }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "The problem is training-serving skew: the same feature is computed two different ways. SageMaker Feature Store keeps one feature definition and writes it to an offline store for building training datasets and an online store for low-latency lookups at inference, so both paths see identical values. Retraining more often does not remove the mismatch in logic. Model Monitor could detect the symptom, but it does not fix the cause. Data Wrangler prepares training data; it does not replace an application's real-time feature code.",
+    referenceUrl: "https://docs.aws.amazon.com/sagemaker/latest/dg/feature-store.html",
+    tags: ["Feature Store", "Training-serving skew", "MLOps"]
+  },
+  {
+    id: "aws-aif-83",
+    difficulty: "hard",
+    certId: "aws-aif",
+    domainId: "d1",
+    domainName: "Fundamentals of AI and ML",
+    title: "Accuracy checks once real outcomes arrive",
+    scenario: "An insurer's claims-fraud model runs on a SageMaker endpoint. Investigators confirm whether each flagged or unflagged claim was actually fraudulent within about two weeks, and the insurer wants SageMaker to compare predictions with those confirmed outcomes on a schedule and alert when precision or recall falls below agreed levels.",
+    question: "Which Model Monitor capability should the team configure?",
+    options: [
+      { id: 'A', text: "Model quality monitoring that joins ground truth labels to outputs" },
+      { id: 'B', text: "Feature attribution drift monitoring of each feature's importance" },
+      { id: 'C', text: "Bias drift monitoring of outcome differences between demographics" },
+      { id: 'D', text: "Data quality monitoring against statistics from the training data" }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Model quality monitoring ingests ground truth labels, merges them with captured predictions and computes metrics such as precision, recall, accuracy or RMSE on a schedule, alerting when they cross thresholds. Data quality monitoring compares input statistics with a baseline and cannot measure precision or recall because it never looks at outcomes. Feature attribution drift tracks changes in which features drive predictions, using SageMaker Clarify. Bias drift monitors fairness metrics across groups rather than overall predictive performance.",
+    referenceUrl: "https://docs.aws.amazon.com/sagemaker/latest/dg/model-monitor-model-quality.html",
+    tags: ["Model Monitor", "Model quality", "Ground truth"]
+  },
+  {
+    id: "aws-aif-84",
+    difficulty: "medium",
+    certId: "aws-aif",
+    domainId: "d1",
+    domainName: "Fundamentals of AI and ML",
+    title: "A retraining process that lives in one person's head",
+    scenario: "A retailer retrains its demand model every month by having one data scientist run eight notebooks in a particular order, adjusting paths as she goes. When she was on leave last month, nobody else could reproduce the process, and the model went stale.",
+    question: "Which MLOps practice addresses this problem?",
+    options: [
+      { id: 'A', text: "Move the eight notebooks onto a larger SageMaker notebook instance type" },
+      { id: 'B', text: "Store the eight notebooks in a shared folder with a written runbook" },
+      { id: 'C', text: "Automate the steps as a repeatable workflow in SageMaker Pipelines" },
+      { id: 'D', text: "Increase the training data volume so that retraining is needed less" }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "A core MLOps principle is repeatable, automated processes: SageMaker Pipelines defines data processing, training, evaluation and registration as a versioned workflow that anyone can run or schedule, with each run's steps and artifacts tracked. A bigger notebook instance makes the same manual process faster, not repeatable. More data does not remove the need for regular retraining as conditions change. A shared folder and runbook help, but the process still depends on a person executing manual steps correctly.",
+    referenceUrl: "https://docs.aws.amazon.com/sagemaker/latest/dg/pipelines.html",
+    tags: ["MLOps", "SageMaker Pipelines", "Repeatability"]
+  },
+  {
+    id: "aws-aif-85",
+    difficulty: "medium",
+    certId: "aws-aif",
+    domainId: "d1",
+    domainName: "Fundamentals of AI and ML",
+    title: "Which model version is live, and who approved it?",
+    scenario: "An insurer's auditors ask which version of the pricing model is in production, what data and metrics it was trained with, and who approved its release. The ML team currently stores model files in S3 folders with dates in their names and tracks approvals in email.",
+    question: "Which SageMaker capability should the team adopt?",
+    options: [
+      { id: 'A', text: "SageMaker Model Registry, to catalog versions and approval status" },
+      { id: 'B', text: "SageMaker Model Monitor, to record each production prediction" },
+      { id: 'C', text: "SageMaker Feature Store, to keep a history of every feature value" },
+      { id: 'D', text: "SageMaker Data Wrangler, to document how each dataset was built" }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "SageMaker Model Registry catalogues models in versioned model groups, stores metadata such as training metrics and lineage, and tracks an approval status that can gate deployment, which gives auditors a clear record of what is live and who approved it. Feature Store keeps feature values, not model versions and approvals. Data Wrangler records data preparation flows but not model releases. Model Monitor can capture predictions for drift analysis, but it does not manage versions or approvals.",
+    referenceUrl: "https://docs.aws.amazon.com/sagemaker/latest/dg/model-registry.html",
+    tags: ["Model Registry", "MLOps", "Governance"]
+  },
+  {
+    id: "aws-aif-86",
+    difficulty: "medium",
+    certId: "aws-aif",
+    domainId: "d1",
+    domainName: "Fundamentals of AI and ML",
+    title: "Forty training runs and no record of which was best",
+    scenario: "Over three weeks a data science team ran about forty training jobs with different feature sets, algorithms and hyperparameters. Nobody can now say which combination produced the best validation F1 score, and results live in scattered notebook cells and chat messages.",
+    question: "What should the team use going forward?",
+    options: [
+      { id: 'A', text: "Experiment tracking, such as managed MLflow on Amazon SageMaker" },
+      { id: 'B', text: "SageMaker Ground Truth to relabel the validation dataset" },
+      { id: 'C', text: "A larger training instance so that fewer runs are needed" },
+      { id: 'D', text: "SageMaker Model Monitor attached to each training job" }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Experimentation is a core MLOps activity, and experiment tracking records each run's parameters, code version, data and metrics so runs can be compared and reproduced; SageMaker offers managed MLflow for this. A larger instance speeds individual runs but records nothing. Model Monitor watches deployed endpoints, not training runs. Relabeling the validation data would change the benchmark itself and still leave results untracked.",
+    referenceUrl: "https://docs.aws.amazon.com/sagemaker/latest/dg/mlflow.html",
+    tags: ["Experimentation", "MLOps", "MLflow"]
+  },
+  {
+    id: "aws-aif-87",
+    difficulty: "hard",
+    certId: "aws-aif",
+    domainId: "d1",
+    domainName: "Fundamentals of AI and ML",
+    title: "Retraining automatically when drift is detected",
+    scenario: "A logistics company already has a SageMaker Pipelines workflow that retrains, evaluates and registers its ETA model, and a Model Monitor schedule on the production endpoint. Today an engineer reads drift reports and starts the pipeline by hand. The company wants retraining to start automatically when drift is detected.",
+    question: "Which design achieves this with managed services?",
+    options: [
+      { id: 'A', text: "Schedule the pipeline to run every hour so that it always retrains on the latest data" },
+      { id: 'B', text: "Alarm on the Model Monitor metric in CloudWatch and have EventBridge run the pipeline" },
+      { id: 'C', text: "Have Model Monitor overwrite the endpoint's model with the last registered version" },
+      { id: 'D', text: "Turn on automatic model tuning for the endpoint so that it adjusts its own weights" }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "Model Monitor publishes metrics to Amazon CloudWatch; an alarm on a drift metric can emit an event that an Amazon EventBridge rule uses to start the SageMaker pipeline, which closes the monitoring-to-retraining loop without manual steps. Hourly retraining wastes compute and can push unvalidated churn into production when nothing has changed. Model Monitor detects and reports issues; it does not deploy models, and redeploying an older version does not address new drift. Automatic model tuning is a training-time hyperparameter search, not a way for a live endpoint to update itself.",
+    referenceUrl: "https://docs.aws.amazon.com/sagemaker/latest/dg/pipeline-eventbridge.html",
+    tags: ["Model retraining", "MLOps", "Automation"]
+  },
+  {
+    id: "aws-aif-88",
+    difficulty: "medium",
+    certId: "aws-aif",
+    domainId: "d1",
+    domainName: "Fundamentals of AI and ML",
+    title: "Glue code that nobody dares to touch",
+    scenario: "A media company's recommendation system grew from a prototype. It now depends on dozens of undocumented scripts that pass CSV files between each other, several features that no longer improve accuracy, and an input table owned by another team that sometimes changes columns without notice. Every change breaks something.",
+    question: "Which MLOps concern does this situation illustrate, and what helps?",
+    options: [
+      { id: 'A', text: "Latency, reduced by moving the endpoint to a larger GPU instance" },
+      { id: 'B', text: "Underfitting, fixed by adding still more features to the model" },
+      { id: 'C', text: "Data labeling cost, reduced by moving the labels to Ground Truth" },
+      { id: 'D', text: "ML technical debt, eased by modular, versioned and tested steps" }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Undocumented glue code, unused features and unmanaged data dependencies are classic forms of ML technical debt, which make systems fragile and slow to change. MLOps reduces it with modular pipeline steps, version control for code, data and models, automated tests and data validation, and pruning of features that add no value. Adding more features increases the debt. The problem is not labeling or serving latency, so Ground Truth or a larger instance would not help.",
+    referenceUrl: "https://aws.amazon.com/what-is/mlops/",
+    tags: ["Technical debt", "MLOps", "Maintainability"]
+  },
+  {
+    id: "aws-aif-89",
+    difficulty: "easy",
+    certId: "aws-aif",
+    domainId: "d1",
+    domainName: "Fundamentals of AI and ML",
+    title: "Training data that outgrew a laptop",
+    scenario: "A start-up trains its model on a data scientist's laptop. The dataset has grown from 2 GB to 400 GB, training now takes four days, and the laptop cannot run anything else meanwhile. The team wants compute that scales with the job and shuts down when training ends.",
+    question: "Which approach supports this MLOps goal of scalable systems?",
+    options: [
+      { id: 'A', text: "Run SageMaker training jobs on on-demand instances" },
+      { id: 'B', text: "Buy a more powerful laptop for each data scientist" },
+      { id: 'C', text: "Train on a 1% sample of the data to fit the laptop" },
+      { id: 'D', text: "Move the training code into a SageMaker endpoint" }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "SageMaker training jobs provision the instance type and count requested, can distribute training across several instances, and release the compute automatically when the job finishes, so capacity scales with the workload and is billed only while running. A faster laptop postpones the problem and cannot scale out. Training on a 1% sample discards most of the data and likely hurts accuracy. An endpoint is for serving predictions, not for running training.",
+    referenceUrl: "https://docs.aws.amazon.com/sagemaker/latest/dg/how-it-works-training.html",
+    tags: ["Scalability", "MLOps", "SageMaker training"]
+  },
+  {
+    id: "aws-aif-90",
+    difficulty: "easy",
+    certId: "aws-aif",
+    domainId: "d1",
+    domainName: "Fundamentals of AI and ML",
+    title: "Reading an accuracy figure off a test run",
+    scenario: "A classifier that sorts parcels into damaged and undamaged was tested on 1,000 labeled images. It classified 920 images correctly and 80 incorrectly, and the product manager wants the headline accuracy figure for a status report.",
+    question: "What is the model's accuracy?",
+    options: [
+      { id: 'A', text: "80%, the number of errors expressed as a percentage" },
+      { id: 'B', text: "0.92 AUC, since accuracy and AUC are the same measure" },
+      { id: 'C', text: "8%, the share of images that it classified incorrectly" },
+      { id: 'D', text: "92%, the share of all test images given the right class" }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Accuracy is the number of correct predictions divided by the total number of predictions: 920 out of 1,000, or 92%. Eight percent is the error rate, the complement of accuracy. Treating the count of 80 errors as a percentage confuses a count with a rate. AUC is a different metric, the area under the ROC curve, which measures how well the model ranks positives above negatives across all thresholds, so it cannot be read off the accuracy figure.",
+    referenceUrl: "https://docs.aws.amazon.com/machine-learning/latest/dg/binary-model-insights.html",
+    tags: ["Accuracy", "Model metrics", "Evaluation"]
+  },
+  {
+    id: "aws-aif-91",
+    difficulty: "medium",
+    certId: "aws-aif",
+    domainId: "d1",
+    domainName: "Fundamentals of AI and ML",
+    title: "Ninety-nine percent accurate and useless",
+    scenario: "A card issuer's fraud model reports 99.4% accuracy on a test set in which only 0.6% of transactions are fraudulent. Investigators discover that it labels almost every transaction as legitimate and catches hardly any fraud.",
+    question: "What should the team use to judge the model instead?",
+    options: [
+      { id: 'A', text: "Training-set accuracy, which shows how well the model learned" },
+      { id: 'B', text: "Precision, recall and F1 on the rare class, not accuracy" },
+      { id: 'C', text: "Accuracy on a larger test set drawn with the same class mix" },
+      { id: 'D', text: "The mean predicted probability across all transactions" }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "With heavily imbalanced classes, a model that always predicts the majority class scores high accuracy while being useless. Precision (how many flagged transactions are really fraud), recall (how much fraud is caught) and their harmonic mean, F1, focus on the rare class that matters. A larger test set with the same mix gives the same misleading accuracy. Training-set accuracy is optimistic and has the same imbalance problem. The average predicted probability says nothing about whether fraud is caught.",
+    referenceUrl: "https://docs.aws.amazon.com/machine-learning/latest/dg/binary-model-insights.html",
+    tags: ["Class imbalance", "F1 score", "Model metrics"]
+  },
+  {
+    id: "aws-aif-92",
+    difficulty: "medium",
+    certId: "aws-aif",
+    domainId: "d1",
+    domainName: "Fundamentals of AI and ML",
+    title: "One number that balances false alarms and misses",
+    scenario: "A manufacturer's defect detector must be compared across three candidate models. Missing a defect means a faulty product ships, and false alarms stop the line for manual inspection; both are costly, and the plant manager wants a single metric that balances the two.",
+    question: "Which metric fits this requirement?",
+    options: [
+      { id: 'A', text: "Precision alone, since stoppages cost the most time" },
+      { id: 'B', text: "F1 score, the harmonic mean of precision and recall" },
+      { id: 'C', text: "Accuracy, since it counts every prediction the same" },
+      { id: 'D', text: "Recall alone, since shipping a defect is the costliest" }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "Precision penalises false alarms, recall penalises missed defects, and F1, their harmonic mean, is high only when both are high, so it balances the two costs in one number. Recall alone ignores false alarms, and precision alone ignores misses, while the scenario says both matter. Accuracy can look good on imbalanced data, where defects are rare, even when many defects are missed.",
+    referenceUrl: "https://docs.aws.amazon.com/machine-learning/latest/dg/binary-model-insights.html",
+    tags: ["F1 score", "Precision", "Recall"]
+  },
+  {
+    id: "aws-aif-93",
+    difficulty: "medium",
+    certId: "aws-aif",
+    domainId: "d1",
+    domainName: "Fundamentals of AI and ML",
+    title: "Comparing churn models before picking a threshold",
+    scenario: "Two churn classifiers output a probability for each customer, and the business has not yet decided which probability cutoff will trigger a retention offer. The data science lead wants to compare how well each model separates churners from non-churners across all possible cutoffs.",
+    question: "Which metric should the lead use?",
+    options: [
+      { id: 'A', text: "AUC, the area under the ROC curve over every threshold" },
+      { id: 'B', text: "Root mean squared error between probabilities and labels" },
+      { id: 'C', text: "Accuracy at a 0.5 cutoff, the default boundary" },
+      { id: 'D', text: "Precision at the single cutoff finance will likely choose" }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "AUC summarises the ROC curve, which plots true positive rate against false positive rate at every threshold, so it measures a model's ability to rank churners above non-churners independently of any cutoff; 0.5 is random and 1.0 is perfect separation. Accuracy or precision at one cutoff depends on a threshold the business has not chosen. RMSE is a regression metric and is not the standard way to compare classifiers' separating power.",
+    referenceUrl: "https://docs.aws.amazon.com/machine-learning/latest/dg/binary-model-insights.html",
+    tags: ["AUC", "ROC curve", "Model metrics"]
+  },
+  {
+    id: "aws-aif-94",
+    difficulty: "hard",
+    certId: "aws-aif",
+    domainId: "d1",
+    domainName: "Fundamentals of AI and ML",
+    title: "Screening scans where a miss is the worst outcome",
+    scenario: "A health-tech company builds a model that flags mammograms for a radiologist's second look. A missed cancer can be fatal, while a false flag only costs a few extra minutes of radiologist review, and the radiologists have capacity for more reviews.",
+    question: "Which metric should the team prioritize when choosing the threshold?",
+    options: [
+      { id: 'A', text: "Recall, so that as few actual cancers as possible go unflagged" },
+      { id: 'B', text: "Accuracy, so that total correct predictions are as high as possible" },
+      { id: 'C', text: "Precision, so nearly every flagged scan really shows cancer" },
+      { id: 'D', text: "Specificity, so that healthy scans are rarely flagged for review" }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Recall, or sensitivity, is the share of actual positives the model catches; when a false negative is far more costly than a false positive, as with a missed cancer, the threshold should favour high recall even at the price of more false flags. Optimising precision or specificity reduces false alarms, which the scenario says are cheap, at the cost of missing more cancers. Accuracy is dominated by the many healthy scans and can stay high while cancers are missed.",
+    referenceUrl: "https://docs.aws.amazon.com/machine-learning/latest/dg/binary-model-insights.html",
+    tags: ["Recall", "Threshold", "Healthcare"]
+  },
+  {
+    id: "aws-aif-95",
+    difficulty: "easy",
+    certId: "aws-aif",
+    domainId: "d1",
+    domainName: "Fundamentals of AI and ML",
+    title: "Was the claims model worth the money?",
+    scenario: "An insurer spent $400,000 building and running a claims-triage model in its first year. The model saved an estimated $1.2 million in adjuster time and faster settlements over the same period. The CFO wants the figure that expresses the net gain relative to what was spent.",
+    question: "Which business metric is the CFO asking for?",
+    options: [
+      { id: 'A', text: "F1 score, balancing the precision and recall of triage" },
+      { id: 'B', text: "Cost per user, spend divided by active users" },
+      { id: 'C', text: "Development cost, which here comes to $400,000 in total" },
+      { id: 'D', text: "Return on investment, which here comes to 200 percent" }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Return on investment compares the net gain with the cost: ($1.2 million minus $0.4 million) divided by $0.4 million, or 200%. F1 is a model performance metric and says nothing about money. Cost per user divides spend across users and does not include the benefit. Development cost is one input to ROI, not the net gain relative to spend.",
+    referenceUrl: "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/business-goal-identification.html",
+    tags: ["ROI", "Business metrics", "Evaluation"]
+  },
+  {
+    id: "aws-aif-96",
+    difficulty: "easy",
+    certId: "aws-aif",
+    domainId: "d1",
+    domainName: "Fundamentals of AI and ML",
+    title: "Budgeting a support assistant per customer",
+    scenario: "A telecom's ML-powered support assistant costs $60,000 a month to host and operate and serves 300,000 active customers. The pricing team wants to know how much the assistant costs for each customer it serves so they can compare it with the cost of human-agent contacts.",
+    question: "Which business metric should the team calculate?",
+    options: [
+      { id: 'A', text: "Accuracy, which measures the share of answers that are correct" },
+      { id: 'B', text: "Cost per user, which here works out to 20 cents per customer" },
+      { id: 'C', text: "AUC, comparing true and false positive rates" },
+      { id: 'D', text: "Return on investment, which needs the cost savings to be estimated" }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "Cost per user divides the total cost by the number of users served: $60,000 divided by 300,000 customers is $0.20 per customer per month, which the team can compare directly with the cost of agent contacts. AUC and accuracy are model performance metrics, not cost measures. ROI relates net benefit to cost and could come later, but it is not the per-customer cost the team asked for.",
+    referenceUrl: "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/business-goal-identification.html",
+    tags: ["Cost per user", "Business metrics", "Cost"]
+  },
+  {
+    id: "aws-aif-97",
+    difficulty: "medium",
+    certId: "aws-aif",
+    domainId: "d1",
+    domainName: "Fundamentals of AI and ML",
+    title: "Metrics for the steering committee",
+    scenario: "A retailer's steering committee reviews its product-recommendation model every quarter. The chair asks the data science team to report business metrics that show whether the model is paying off, and to leave technical model metrics for the engineering review.",
+    question: "Which metrics belong in the committee report? (Choose two.)",
+    options: [
+      { id: 'A', text: "Log loss of predicted click probabilities on validation sessions" },
+      { id: 'B', text: "Return on investment from the extra revenue the model generated" },
+      { id: 'C', text: "F1 score computed on last month's clicks treated as the positives" },
+      { id: 'D', text: "Customer feedback scores on how relevant recommendations seem" },
+      { id: 'E', text: "Area under the ROC curve measured on the latest holdout dataset" }
+    ],
+    correctAnswers: ['B', 'D'],
+    type: "multiple",
+    explanation: "Business metrics measure the model's effect on the organisation and its customers: ROI relates financial gain to cost, and customer feedback captures whether users find recommendations useful. AUC, F1 and log loss are model performance metrics that describe predictive quality on test data; they matter to engineers but do not show whether the model pays off.",
+    referenceUrl: "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/business-goal-identification.html",
+    tags: ["Business metrics", "ROI", "Customer feedback"]
+  },
+  {
+    id: "aws-aif-98",
+    difficulty: "medium",
+    certId: "aws-aif",
+    domainId: "d1",
+    domainName: "Fundamentals of AI and ML",
+    title: "Strong offline scores, falling basket size",
+    scenario: "A grocer replaced its recommendation model with one that scored a higher AUC offline. Two months after launch, average basket size has fallen, customer surveys call the suggestions repetitive, and marketing asks why the better model is hurting sales.",
+    question: "What lesson should the team draw?",
+    options: [
+      { id: 'A', text: "A still higher AUC will reverse the drop in basket size" },
+      { id: 'B', text: "Model metrics must be paired with business metrics" },
+      { id: 'C', text: "AUC is only valid for regression, so it should be ignored" },
+      { id: 'D', text: "The surveys should be dropped because they are subjective" }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "Model metrics such as AUC measure predictive quality on historical data, but they do not guarantee business outcomes; models should also be judged, ideally through controlled tests, on business metrics such as basket size, conversion and customer feedback. AUC is a classification metric, not a regression one, and it was computed correctly; it simply measured something different from what the business values. Customer feedback is a legitimate business metric and here points to the problem. Chasing higher AUC alone repeats the same mistake.",
+    referenceUrl: "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/model-evaluation.html",
+    tags: ["Business metrics", "AUC", "Evaluation"]
+  },
+  {
+    id: "aws-aif-99",
+    difficulty: "easy",
+    certId: "aws-aif",
+    domainId: "d1",
+    domainName: "Fundamentals of AI and ML",
+    title: "What the new MLOps team is for",
+    scenario: "A company's first three models took nine months each to reach production, and two of them degraded unnoticed after launch. The CIO is creating an MLOps function and needs a one-line description of what it will do for the organization.",
+    question: "Which description of MLOps is accurate?",
+    options: [
+      { id: 'A', text: "Applying DevOps practices to automate and govern the ML lifecycle" },
+      { id: 'B', text: "Labeling data sets with human workers before each training cycle" },
+      { id: 'C', text: "Choosing the most accurate algorithm for every new business problem" },
+      { id: 'D', text: "Collecting more training data for each model the company builds" }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "MLOps applies DevOps principles such as automation, version control, CI/CD, testing and monitoring to the ML lifecycle, so models reach production faster and more reliably and are monitored and retrained after launch, which targets both of the company's problems. Collecting data, choosing algorithms and labeling are individual data science activities that MLOps supports but does not define.",
+    referenceUrl: "https://aws.amazon.com/what-is/mlops/",
+    tags: ["MLOps", "ML lifecycle", "Terminology"]
+  },
+  {
+    id: "aws-aif-100",
+    difficulty: "medium",
+    certId: "aws-aif",
+    domainId: "d1",
+    domainName: "Fundamentals of AI and ML",
+    title: "Scoring a delivery-time regression model",
+    scenario: "A courier company has trained a model that predicts delivery time in minutes. The team needs metrics that describe how far, on average, predictions are from actual delivery times on the test set, and they want the results expressed in minutes where possible.",
+    question: "Which metrics are appropriate for this model? (Choose two.)",
+    options: [
+      { id: 'A', text: "Root mean squared error between predicted and actual minutes" },
+      { id: 'B', text: "F1 score computed after binning actual minutes into late and on time" },
+      { id: 'C', text: "Area under the ROC curve for the predicted times" },
+      { id: 'D', text: "Precision of the predicted delivery times on the test set" },
+      { id: 'E', text: "Mean absolute error between predicted and actual minutes" }
+    ],
+    correctAnswers: ['A', 'E'],
+    type: "multiple",
+    explanation: "Regression models are evaluated with error metrics on the numeric target. Mean absolute error is the average size of the errors in minutes, and root mean squared error, also in minutes, penalises large misses more heavily. F1, AUC and precision are classification metrics that require discrete classes, so they do not apply to a continuous prediction unless the problem is reframed as classification.",
+    referenceUrl: "https://docs.aws.amazon.com/machine-learning/latest/dg/regression-model-insights.html",
+    tags: ["Regression metrics", "RMSE", "MAE"]
+  }
+];
+
+export default AWS_AIF_QUESTIONS_4;

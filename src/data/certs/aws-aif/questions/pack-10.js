@@ -1,0 +1,532 @@
+export const AWS_AIF_QUESTIONS_10 = [
+  {
+    id: "aws-aif-226",
+    difficulty: "easy",
+    certId: "aws-aif",
+    domainId: "d3",
+    domainName: "Applications of Foundation Models",
+    title: "Guest reviews in thirty languages",
+    scenario: "A global hotel group receives guest reviews in about 30 languages, including Thai, Polish, and Arabic. It wants a weekly English summary of recurring complaints for each property, produced directly from the original reviews without a separate translation step.",
+    question: "Which selection criterion matters most when choosing the model?",
+    options: [
+      { id: 'A', text: "Image generation support so the summaries can include illustrations." },
+      { id: 'B', text: "Tested multilingual ability in each language used by guests." },
+      { id: 'C', text: "Support for continued pre-training on unlabeled English hotel text." },
+      { id: 'D', text: "The lowest latency, since guests read summaries live." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "The model must understand input in every language the reviews use, so multilingual capability, verified for the specific languages, is the deciding criterion; model documentation and a small evaluation in each language confirm it. Image generation adds nothing to a text summary. Summaries are produced weekly for staff, so latency is not critical. Continued pre-training on English text would not teach the model Thai, Polish, or Arabic.",
+    referenceUrl: "https://docs.aws.amazon.com/bedrock/latest/userguide/models-supported.html",
+    tags: ["Model selection", "Multilingual"]
+  },
+  {
+    id: "aws-aif-227",
+    difficulty: "medium",
+    certId: "aws-aif",
+    domainId: "d3",
+    domainName: "Applications of Foundation Models",
+    title: "Twenty-page reports that stop halfway",
+    scenario: "A consulting firm uses a model to draft complete 20-page market reports in a single response. Drafts consistently stop partway through the fourth section even though the maximum output tokens setting is already at the highest value the chosen model allows.",
+    question: "What should the firm consider when selecting a model for this task?",
+    options: [
+      { id: 'A', text: "A model with a higher temperature, so it writes longer." },
+      { id: 'B', text: "A model with a smaller context window, so more room is left for the output." },
+      { id: 'C', text: "A model with a larger maximum output length, as this one caps it." },
+      { id: 'D', text: "A model with stop sequences disabled, since they end each response early." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "Each model has a maximum number of tokens it can generate in one response, separate from its input context window; if the setting is already at that ceiling, only a model with a larger output limit, or splitting the report into several calls, will produce the full draft. Temperature controls randomness, not length. A smaller context window reduces capacity rather than freeing space for output. Stop sequences only end generation when a configured string appears; nothing suggests one is set, and the cutoff matches the token ceiling.",
+    referenceUrl: "https://docs.aws.amazon.com/bedrock/latest/userguide/inference-parameters.html",
+    tags: ["Model selection", "Output length"]
+  },
+  {
+    id: "aws-aif-228",
+    difficulty: "medium",
+    certId: "aws-aif",
+    domainId: "d3",
+    domainName: "Applications of Foundation Models",
+    title: "Multi-step tax reasoning where accuracy rules",
+    scenario: "A tax advisory firm needs a model to analyze complex cross-border cases that involve several treaties and multi-step reasoning. Advisors review each analysis the next day, so a response taking a minute is acceptable, but mistakes in reasoning are costly.",
+    question: "Which model choice best fits these criteria?",
+    options: [
+      { id: 'A', text: "A larger, more capable model, trading higher cost and latency for better reasoning." },
+      { id: 'B', text: "An embedding model, since it converts the treaties into vectors for comparison." },
+      { id: 'C', text: "A text-to-image model, since it can render treaty relationships as a flow diagram." },
+      { id: 'D', text: "The smallest, fastest model available, since response time is the key criterion." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Model size and complexity trade off against cost and latency. Here the task demands complex multi-step reasoning, errors are expensive, and latency is relaxed, so a larger, more capable model is justified. The smallest model optimizes for speed, which is not the stated priority, and typically reasons less reliably. An embedding model supports search and similarity but does not produce an analysis. A text-to-image model generates pictures, not legal reasoning.",
+    referenceUrl: "https://docs.aws.amazon.com/bedrock/latest/userguide/models-supported.html",
+    tags: ["Model selection", "Model size", "Complexity"]
+  },
+  {
+    id: "aws-aif-229",
+    difficulty: "easy",
+    certId: "aws-aif",
+    domainId: "d3",
+    domainName: "Applications of Foundation Models",
+    title: "Short promotional clips from a text brief",
+    scenario: "A tourism board wants to generate short promotional video clips, such as a drone-style sweep over a beach at sunset, from written briefs. It plans to use a foundation model in Amazon Bedrock rather than hire a film crew for every concept.",
+    question: "Which output modality must the chosen model support?",
+    options: [
+      { id: 'A', text: "Embedding output, such as Amazon Titan Text Embeddings for search." },
+      { id: 'B', text: "Text output, such as Amazon Nova Micro writing a video shot list." },
+      { id: 'C', text: "Image output only, such as a model producing one still per clip." },
+      { id: 'D', text: "Video output, such as Amazon Nova Reel." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Modality is a core selection criterion: the requirement is moving video, so the model must generate video output, which Amazon Nova Reel does from text (and optionally image) prompts. A text-only model can describe shots but cannot produce footage. An embedding model returns vectors for search and retrieval. A still-image model produces single frames, not clips.",
+    referenceUrl: "https://docs.aws.amazon.com/nova/latest/userguide/what-is-nova.html",
+    tags: ["Model selection", "Modality", "Video generation"]
+  },
+  {
+    id: "aws-aif-230",
+    difficulty: "hard",
+    certId: "aws-aif",
+    domainId: "d3",
+    domainName: "Applications of Foundation Models",
+    title: "A live interpreter for airport help desks",
+    scenario: "An airport operator is building a help-desk tool that translates spoken exchanges between staff and travelers in real time, across 15 languages. Travelers abandon the conversation if replies take more than about a second, and each exchange is only a sentence or two long.",
+    question: "Which two model selection criteria are decisive for this use case? (Choose two.)",
+    options: [
+      { id: 'A', text: "Low latency so translated replies arrive within a second." },
+      { id: 'B', text: "A very large context window that holds a million tokens of input." },
+      { id: 'C', text: "Support for fine-tuning jobs to train on the airport's documents." },
+      { id: 'D', text: "Image generation to make signs in each language." },
+      { id: 'E', text: "Tested translation quality across all fifteen required languages." }
+    ],
+    correctAnswers: ['A', 'E'],
+    type: "multiple",
+    explanation: "Travelers abandon slow replies, so latency is a hard constraint, and the tool is useless unless the model translates well in every one of the 15 languages, so multilingual quality must be tested. Each exchange is a sentence or two, so an enormous context window adds cost without benefit. Fine-tuning support may be nice later but is not decisive for general translation. Image generation is unrelated to spoken translation.",
+    referenceUrl: "https://docs.aws.amazon.com/bedrock/latest/userguide/models-supported.html",
+    tags: ["Model selection", "Latency", "Multilingual"]
+  },
+  {
+    id: "aws-aif-231",
+    difficulty: "medium",
+    certId: "aws-aif",
+    domainId: "d3",
+    domainName: "Applications of Foundation Models",
+    title: "Comparing two models' monthly token bills",
+    scenario: "A retailer expects one million requests a month, each with about 2,000 input tokens and 500 output tokens. Using hypothetical prices, Model X costs $3 per million input tokens and $15 per million output tokens; Model Y costs $0.80 and $4. Both pass the quality evaluation.",
+    question: "Which statement about the monthly inference cost is correct?",
+    options: [
+      { id: 'A', text: "Model X costs about $6,000 a month because output tokens are not billed." },
+      { id: 'B', text: "Both models cost about the same, since price depends only on requests." },
+      { id: 'C', text: "Model Y costs more, because smaller models are billed per request instead." },
+      { id: 'D', text: "Model X costs about $13,500 a month and Model Y about $3,600 a month." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "One million requests produce 2 billion input tokens and 500 million output tokens. For Model X that is 2,000 million times $3 per million, or $6,000, plus 500 million times $15 per million, or $7,500, totaling $13,500. For Model Y it is $1,600 plus $2,000, or $3,600. Token-based pricing depends on tokens, not request counts, so the two models do not cost the same. Output tokens are billed, usually at a higher rate than input. Smaller models are still priced per token, and here Model Y is far cheaper.",
+    referenceUrl: "https://aws.amazon.com/bedrock/pricing/",
+    tags: ["Model selection", "Cost", "Token-based pricing"]
+  },
+  {
+    id: "aws-aif-232",
+    difficulty: "easy",
+    certId: "aws-aif",
+    domainId: "d3",
+    domainName: "Applications of Foundation Models",
+    title: "A benefits assistant that improvises too much",
+    scenario: "An employer's benefits assistant answers questions such as how many vacation days carry over. Staff notice that the same question sometimes gets creatively reworded answers with added details that are not in the policy. The team wants focused, consistent answers.",
+    question: "How should the team adjust the temperature?",
+    options: [
+      { id: 'A', text: "Leave it, since temperature only affects how long each response is." },
+      { id: 'B', text: "Leave it, since temperature only affects the speed of each response." },
+      { id: 'C', text: "Raise it, so the model spreads probability across more possible tokens." },
+      { id: 'D', text: "Lower it, so the model favors the most probable tokens more strongly." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Temperature scales how sharply the model prefers likely tokens: a low value makes output more focused and consistent, which suits factual answers, while a high value increases diversity and creativity. Raising it would add more variation and embellishment. Temperature does not set response length, which is controlled by maximum output tokens and the prompt, and it does not meaningfully change generation speed.",
+    referenceUrl: "https://docs.aws.amazon.com/bedrock/latest/userguide/inference-parameters.html",
+    tags: ["Inference parameters", "Temperature"]
+  },
+  {
+    id: "aws-aif-233",
+    difficulty: "easy",
+    certId: "aws-aif",
+    domainId: "d3",
+    domainName: "Applications of Foundation Models",
+    title: "Brainstorming names for a new snack brand",
+    scenario: "A snack company's marketing team asks a model for 50 candidate names for a new line of seaweed chips. With the current settings, the suggestions are repetitive and many are near-duplicates of each other, and the team wants a more varied, inventive list.",
+    question: "Which change is most likely to help?",
+    options: [
+      { id: 'A', text: "Decrease the temperature so the model repeats its most confident name idea." },
+      { id: 'B', text: "Decrease the maximum output tokens so the list is shorter and more focused." },
+      { id: 'C', text: "Add a stop sequence after the first name so each response has only one idea." },
+      { id: 'D', text: "Increase the temperature so that less likely word choices appear more often." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "A higher temperature flattens the probability distribution, so less obvious tokens are sampled more often, producing more diverse and creative suggestions, which suits brainstorming. Lowering the temperature makes output more deterministic and would increase repetition. A stop sequence after the first name would cut the list to one idea. Fewer output tokens shorten the list but do not make it more varied.",
+    referenceUrl: "https://docs.aws.amazon.com/bedrock/latest/userguide/inference-parameters.html",
+    tags: ["Inference parameters", "Temperature"]
+  },
+  {
+    id: "aws-aif-234",
+    difficulty: "medium",
+    certId: "aws-aif",
+    domainId: "d3",
+    domainName: "Applications of Foundation Models",
+    title: "What changing top P actually does",
+    scenario: "A developer tuning a customer email assistant sees a top P setting of 0.9 in the Amazon Bedrock playground. A colleague suggests lowering it to 0.5 to make replies less rambling, and the developer wants to understand the effect before changing it.",
+    question: "What does lowering top P from 0.9 to 0.5 do?",
+    options: [
+      { id: 'A', text: "It makes the model stop once it is 50 percent confident the reply is complete." },
+      { id: 'B', text: "It samples only from the smallest set of tokens whose probabilities sum to 0.5." },
+      { id: 'C', text: "It halves the maximum number of tokens the model may generate in each reply." },
+      { id: 'D', text: "It limits sampling to exactly the five most likely tokens at every single step." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "Top P, or nucleus sampling, restricts each step's choice to the smallest group of most likely tokens whose cumulative probability reaches the threshold; at 0.5 the pool is much narrower than at 0.9, so replies become more focused and less varied. Top P does not change the maximum output length. Limiting the choice to a fixed number of tokens describes top K, not top P. No parameter stops generation based on the model's confidence that it has finished; stop sequences and maximum tokens end responses.",
+    referenceUrl: "https://docs.aws.amazon.com/bedrock/latest/userguide/inference-parameters.html",
+    tags: ["Inference parameters", "Top P"]
+  },
+  {
+    id: "aws-aif-235",
+    difficulty: "medium",
+    certId: "aws-aif",
+    domainId: "d3",
+    domainName: "Applications of Foundation Models",
+    title: "Capping the candidate pool at a fixed size",
+    scenario: "A game studio generates short item descriptions for its fantasy game. Occasionally a description contains an odd, out-of-place word. The designer wants the model to choose each next word only from a fixed number of the most likely candidates, such as the top 40.",
+    question: "Which inference parameter provides this control?",
+    options: [
+      { id: 'A', text: "Stop sequences, which remove unlikely words from the response." },
+      { id: 'B', text: "Top P, which limits sampling to a set count of likely tokens." },
+      { id: 'C', text: "Maximum output tokens, which bans rare words from each reply." },
+      { id: 'D', text: "Top K, which limits sampling to the K most likely next tokens." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Top K keeps only the K highest-probability tokens as candidates at each step, so setting it to 40 excludes the long tail of unlikely words that produce odd choices. Top P also narrows the pool, but by cumulative probability rather than a fixed count, so it does not match the designer's description. Stop sequences end generation when a given string appears; they do not filter vocabulary. Maximum output tokens limits length, not word choice.",
+    referenceUrl: "https://docs.aws.amazon.com/bedrock/latest/userguide/inference-parameters.html",
+    tags: ["Inference parameters", "Top K"]
+  },
+  {
+    id: "aws-aif-236",
+    difficulty: "easy",
+    certId: "aws-aif",
+    domainId: "d3",
+    domainName: "Applications of Foundation Models",
+    title: "Product FAQs cut off mid-sentence",
+    scenario: "An appliance maker generates FAQ answers for its website. Many answers end abruptly mid-sentence, and the API response reports that generation stopped because the length limit was reached. The model's context window is nowhere near full.",
+    question: "Which change fixes the truncated answers?",
+    options: [
+      { id: 'A', text: "Raise the maximum output tokens setting to allow longer responses." },
+      { id: 'B', text: "Add a stop sequence so the model knows where an answer should end." },
+      { id: 'C', text: "Lower the temperature so the model writes more compact sentences." },
+      { id: 'D', text: "Lower top P so that fewer tokens are considered at each step." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "The stop reason shows the responses hit the maximum output tokens limit, so raising that limit lets answers finish; the team can also ask for concise answers in the prompt. Temperature affects randomness, not whether generation is truncated at the limit. Lowering top P narrows word choice but does not extend the permitted length. A stop sequence can only end output earlier; it cannot let it run past the token limit.",
+    referenceUrl: "https://docs.aws.amazon.com/bedrock/latest/userguide/inference-parameters.html",
+    tags: ["Inference parameters", "Output length"]
+  },
+  {
+    id: "aws-aif-237",
+    difficulty: "medium",
+    certId: "aws-aif",
+    domainId: "d3",
+    domainName: "Applications of Foundation Models",
+    title: "A model that invents the customer's next line",
+    scenario: "A bank's chat simulator uses a prompt formatted as alternating 'Agent:' and 'Customer:' lines to generate the agent's next reply. The model often writes the agent's reply and then continues with an invented 'Customer:' line and further dialogue.",
+    question: "Which inference setting most directly prevents this?",
+    options: [
+      { id: 'A', text: "A higher temperature so that the model varies its reply length more." },
+      { id: 'B', text: "A larger context window so that the model sees the whole conversation." },
+      { id: 'C', text: "A higher top K value so that the model has more words to choose from." },
+      { id: 'D', text: "A stop sequence of 'Customer:' so generation ends before that label." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "A stop sequence tells the model to stop generating as soon as a specified string would appear, so setting 'Customer:' ends each response after the agent's turn. A higher top K widens word choice and does nothing to stop continuation. A higher temperature adds randomness and could make the problem worse. The model already sees the conversation; a larger context window does not tell it where to stop.",
+    referenceUrl: "https://docs.aws.amazon.com/bedrock/latest/userguide/inference-parameters.html",
+    tags: ["Inference parameters", "Stop sequences"]
+  },
+  {
+    id: "aws-aif-238",
+    difficulty: "hard",
+    certId: "aws-aif",
+    domainId: "d3",
+    domainName: "Applications of Foundation Models",
+    title: "Settings for dependable JSON extraction",
+    scenario: "An invoicing platform asks a model to return a small JSON object with vendor, date, and total from each invoice. Responses sometimes vary in field values between runs, and some are cut off before the closing brace, breaking the parser. The prompt is already clear.",
+    question: "Which two inference parameter changes address these problems? (Choose two.)",
+    options: [
+      { id: 'A', text: "Set the temperature at or near zero for more consistent outputs." },
+      { id: 'B', text: "Raise top P to 1.0 so that every token remains a candidate." },
+      { id: 'C', text: "Raise the temperature so the model retries the parse on its own." },
+      { id: 'D', text: "Lower maximum output tokens so the JSON stays short and valid." },
+      { id: 'E', text: "Raise maximum output tokens so the full JSON object can finish." }
+    ],
+    correctAnswers: ['A', 'E'],
+    type: "multiple",
+    explanation: "A temperature at or near zero makes the model pick its most likely tokens, so extracted values stay consistent across runs, and a sufficient maximum output tokens value lets each object finish instead of being truncated before the closing brace. Raising top P to 1.0 widens the candidate pool and increases variation. A higher temperature adds randomness; models do not retry parsing by themselves. Lowering the output limit would truncate more responses, not fewer.",
+    referenceUrl: "https://docs.aws.amazon.com/bedrock/latest/userguide/inference-parameters.html",
+    tags: ["Inference parameters", "Temperature", "Output length"]
+  },
+  {
+    id: "aws-aif-239",
+    difficulty: "medium",
+    certId: "aws-aif",
+    domainId: "d3",
+    domainName: "Applications of Foundation Models",
+    title: "An archive too large for one prompt",
+    scenario: "A property manager wants its assistant to answer tenant questions using all 3,000 of its lease documents. A developer tried placing every lease in the prompt and received an error that the input exceeds the model's context window.",
+    question: "What is the most appropriate way to handle this input length limit?",
+    options: [
+      { id: 'A', text: "Retrieve only the lease passages relevant to each question into the prompt." },
+      { id: 'B', text: "Lower the temperature so the model compresses the leases as it reads them." },
+      { id: 'C', text: "Send each lease in its own request and merge all 3,000 answers." },
+      { id: 'D', text: "Raise the maximum output tokens so the model can accept a longer input." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Input length is bounded by the context window, so the scalable approach is retrieval: index the leases and place only the passages relevant to each question in the prompt, which also lowers token cost. Maximum output tokens limits the response, not the input. Temperature has no effect on how much input fits. Running 3,000 requests per question would be slow and expensive, and merging thousands of partial answers is unreliable.",
+    referenceUrl: "https://aws.amazon.com/what-is/retrieval-augmented-generation/",
+    tags: ["Input length", "Context window", "RAG"]
+  },
+  {
+    id: "aws-aif-240",
+    difficulty: "easy",
+    certId: "aws-aif",
+    domainId: "d3",
+    domainName: "Applications of Foundation Models",
+    title: "Explaining RAG to a steering committee",
+    scenario: "A logistics company's steering committee keeps hearing that its planned customs assistant will use retrieval augmented generation. A committee member asks the architect for a plain description of what the technique does when an employee asks a question.",
+    question: "Which description should the architect give?",
+    options: [
+      { id: 'A', text: "It fetches relevant company content and adds it to the prompt first." },
+      { id: 'B', text: "It permanently retrains the model on company documents after each question." },
+      { id: 'C', text: "It converts every answer into a vector so answers can be compared over time." },
+      { id: 'D', text: "It routes each question to a human expert to answer." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Retrieval augmented generation searches a knowledge source, typically with embeddings in a vector store, for passages relevant to the question and adds them to the prompt, so the model answers from current company content without retraining. RAG does not change model weights; that would be fine-tuning. Embeddings in RAG represent the source content for retrieval, not the answers. Routing questions to people is a human workflow, not RAG.",
+    referenceUrl: "https://aws.amazon.com/what-is/retrieval-augmented-generation/",
+    tags: ["RAG"]
+  },
+  {
+    id: "aws-aif-241",
+    difficulty: "easy",
+    certId: "aws-aif",
+    domainId: "d3",
+    domainName: "Applications of Foundation Models",
+    title: "A managed way to ground answers in S3 manuals",
+    scenario: "A medical device maker keeps 12,000 product manuals as PDFs in Amazon S3. It wants a support assistant on Amazon Bedrock that answers from those manuals, and it prefers a managed capability that handles ingestion, embeddings, and retrieval rather than custom code.",
+    question: "Which capability fits?",
+    options: [
+      { id: 'A', text: "Amazon Bedrock Knowledge Bases, with the S3 bucket as a data source." },
+      { id: 'B', text: "Amazon Bedrock model distillation, training a smaller model on the manuals." },
+      { id: 'C', text: "Amazon Bedrock batch inference, summarizing manuals nightly." },
+      { id: 'D', text: "Amazon Bedrock Provisioned Throughput, reserving capacity for the manuals." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Amazon Bedrock Knowledge Bases is a fully managed RAG capability: it ingests documents from data sources such as Amazon S3, chunks and embeds them, stores the vectors, and retrieves relevant passages at query time to ground the model's answer. Distillation produces a smaller model from a teacher's responses and does not ground answers in manuals. Provisioned Throughput reserves inference capacity. Nightly batch summaries would not answer individual support questions.",
+    referenceUrl: "https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html",
+    tags: ["RAG", "Amazon Bedrock Knowledge Bases"]
+  },
+  {
+    id: "aws-aif-242",
+    difficulty: "medium",
+    certId: "aws-aif",
+    domainId: "d3",
+    domainName: "Applications of Foundation Models",
+    title: "Nurses who must verify every answer",
+    scenario: "A hospital's clinical policy assistant answers nurses' questions about procedures. Nursing leadership will approve it only if each answer shows exactly which policy document and passage it came from, so a nurse can open the source and confirm it before acting.",
+    question: "Which approach best satisfies this requirement?",
+    options: [
+      { id: 'A', text: "Ask the model, without retrieval, to name the policy it learned the answer from." },
+      { id: 'B', text: "Use Knowledge Bases with RetrieveAndGenerate, which returns source citations." },
+      { id: 'C', text: "Raise the temperature so the model lists more candidate source documents." },
+      { id: 'D', text: "Fine-tune the model on the policies so it memorizes each document by name." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "With Amazon Bedrock Knowledge Bases, the RetrieveAndGenerate operation grounds the answer in retrieved passages and returns citations that identify the source documents and text, so nurses can check the original. A fine-tuned model cannot reliably say which document a fact came from, and memorized content goes stale when policies change. A higher temperature increases randomness and does not create real citations. Asking a model without retrieval to name its source invites a fabricated citation.",
+    referenceUrl: "https://docs.aws.amazon.com/bedrock/latest/userguide/kb-test-retrieve-generate.html",
+    tags: ["RAG", "Citations", "Amazon Bedrock Knowledge Bases"]
+  },
+  {
+    id: "aws-aif-243",
+    difficulty: "medium",
+    certId: "aws-aif",
+    domainId: "d3",
+    domainName: "Applications of Foundation Models",
+    title: "Putting the RAG pipeline in order",
+    scenario: "A junior engineer is sketching the flow of a RAG system for an insurance FAQ bot. She has the right components on sticky notes but is unsure of their order across the ingestion phase and the question-answering phase.",
+    question: "Which sequence is correct?",
+    options: [
+      { id: 'A', text: "Chunk, embed, and store documents; then embed each question, retrieve, and generate." },
+      { id: 'B', text: "Generate an answer, embed it, store it, then retrieve documents that match it." },
+      { id: 'C', text: "Retrieve documents by keyword, fine-tune on them per question, then embed the answer." },
+      { id: 'D', text: "Embed the question, fine-tune the model on it, then chunk the documents for storage." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Ingestion splits source documents into chunks, converts each chunk to an embedding, and stores the vectors; at query time the question is embedded with the same model, the nearest chunks are retrieved, and they are added to the prompt so the model generates a grounded answer. Generating first and retrieving afterwards reverses the flow and grounds nothing. RAG does not fine-tune the model per question; it leaves weights unchanged. Embedding the answer at the end serves no retrieval purpose.",
+    referenceUrl: "https://docs.aws.amazon.com/bedrock/latest/userguide/kb-how-it-works.html",
+    tags: ["RAG", "Embeddings", "Chunking"]
+  },
+  {
+    id: "aws-aif-244",
+    difficulty: "hard",
+    certId: "aws-aif",
+    domainId: "d3",
+    domainName: "Applications of Foundation Models",
+    title: "Retrieval that keeps missing the right clause",
+    scenario: "An engineering firm's knowledge base holds long technical standards. Answers often miss the specific clause asked about. Inspection shows each chunk spans several pages covering many topics, so the relevant clause is diluted, and questions about one product line also pull in chunks from others.",
+    question: "Which change most directly improves retrieval quality?",
+    options: [
+      { id: 'A', text: "Use smaller or semantic chunks, and add product-line metadata to filter retrieval." },
+      { id: 'B', text: "Switch the generation model to a larger one and keep the same chunking and retrieval." },
+      { id: 'C', text: "Put the entire standards library into every prompt instead of retrieving any chunks." },
+      { id: 'D', text: "Raise the temperature so the model explores more of the retrieved chunks in answers." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Retrieval quality depends on how content is chunked and filtered. Smaller or semantic chunks, which Amazon Bedrock Knowledge Bases supports alongside fixed-size and hierarchical strategies, keep each vector focused on one topic, and metadata filtering limits results to the relevant product line. A larger generation model cannot use a clause that retrieval never returned. Temperature affects sampling, not which chunks are retrieved. Loading the whole library into every prompt exceeds context limits and multiplies cost.",
+    referenceUrl: "https://docs.aws.amazon.com/bedrock/latest/userguide/kb-chunking.html",
+    tags: ["RAG", "Chunking", "Metadata filtering"]
+  },
+  {
+    id: "aws-aif-245",
+    difficulty: "medium",
+    certId: "aws-aif",
+    domainId: "d3",
+    domainName: "Applications of Foundation Models",
+    title: "Only the passages, not a finished answer",
+    scenario: "A software company's application already builds its own carefully tested prompt and calls a model of its choosing. From its Amazon Bedrock knowledge base, it needs just the most relevant passages and their sources for each user question, which it will insert into that prompt.",
+    question: "Which Amazon Bedrock Knowledge Bases operation should the application call?",
+    options: [
+      { id: 'A', text: "Retrieve, which returns relevant chunks and their source locations." },
+      { id: 'B', text: "RetrieveAndGenerate, returning a generated, cited answer." },
+      { id: 'C', text: "InvokeModel, which returns the model's completion for a given prompt." },
+      { id: 'D', text: "StartIngestionJob, which syncs the data source into the vector store." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "The Retrieve operation queries the knowledge base and returns the most relevant chunks with their source metadata, leaving prompt construction and generation to the application. RetrieveAndGenerate also runs generation and returns a finished answer, which the application does not want. InvokeModel calls a model directly and performs no retrieval. StartIngestionJob syncs documents into the knowledge base; it does not answer queries.",
+    referenceUrl: "https://docs.aws.amazon.com/bedrock/latest/userguide/kb-test-retrieve.html",
+    tags: ["RAG", "Amazon Bedrock Knowledge Bases"]
+  },
+  {
+    id: "aws-aif-246",
+    difficulty: "easy",
+    certId: "aws-aif",
+    domainId: "d3",
+    domainName: "Applications of Foundation Models",
+    title: "A vector store with no servers to run",
+    scenario: "A startup is creating its first Amazon Bedrock knowledge base and has no existing database. It wants a vector store that it does not have to size or manage, and it is happy to let the console create one during setup.",
+    question: "Which vector store does the quick-create option set up?",
+    options: [
+      { id: 'A', text: "Amazon OpenSearch Serverless, with a vector search collection." },
+      { id: 'B', text: "Amazon Redshift, with a provisioned cluster of dense compute nodes." },
+      { id: 'C', text: "Amazon DynamoDB, with a global secondary index for the vectors." },
+      { id: 'D', text: "Amazon ElastiCache, with a single cache node holding each vector." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "When you let Amazon Bedrock create the vector store for a knowledge base, the default is a vector search collection in Amazon OpenSearch Serverless, which scales without servers to size or manage. DynamoDB secondary indexes do not provide vector similarity search. A provisioned Redshift cluster is a data warehouse that the startup would have to size and run, and it is not a knowledge base quick-create option. The console does not create an ElastiCache node as a knowledge base vector store.",
+    referenceUrl: "https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup.html",
+    tags: ["Vector databases", "Amazon OpenSearch Serverless"]
+  },
+  {
+    id: "aws-aif-247",
+    difficulty: "medium",
+    certId: "aws-aif",
+    domainId: "d3",
+    domainName: "Applications of Foundation Models",
+    title: "Vectors next to the existing product tables",
+    scenario: "An e-commerce company runs its catalog on Amazon Aurora PostgreSQL and its team knows SQL well. It wants to add semantic product search by storing embeddings alongside the existing product rows and joining vector results with price and stock columns in one query.",
+    question: "Which approach fits best?",
+    options: [
+      { id: 'A', text: "Store embeddings with the pgvector extension in Aurora PostgreSQL." },
+      { id: 'B', text: "Export the catalog from Aurora PostgreSQL to Neptune as a property graph." },
+      { id: 'C', text: "Store embeddings in Amazon S3 files and scan them per query." },
+      { id: 'D', text: "Move the catalog into Amazon DocumentDB and remodel rows as documents." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Aurora PostgreSQL supports the pgvector extension, which adds a vector data type and similarity search, so embeddings can live beside product rows and be combined with SQL filters and joins in one query, using skills the team already has. Neptune is a graph database and remodeling the catalog as a graph adds work without need. DocumentDB supports vector search, but migrating a relational catalog to documents is unnecessary here. Scanning embedding files in S3 for every query is slow and loses the relational join.",
+    referenceUrl: "https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraPostgreSQL.VectorDB.html",
+    tags: ["Vector databases", "Amazon Aurora", "pgvector"]
+  },
+  {
+    id: "aws-aif-248",
+    difficulty: "medium",
+    certId: "aws-aif",
+    domainId: "d3",
+    domainName: "Applications of Foundation Models",
+    title: "Answers that depend on relationships between entities",
+    scenario: "A pharmaceutical research team's questions often hinge on relationships, such as which compounds target proteins linked to a disease in several papers. Plain vector retrieval returns relevant passages but misses these multi-hop connections, and the team wants its knowledge base to use them.",
+    question: "Which vector store option for Amazon Bedrock Knowledge Bases addresses this?",
+    options: [
+      { id: 'A', text: "Amazon DocumentDB, storing each paper as a single JSON document." },
+      { id: 'B', text: "Amazon RDS for PostgreSQL with pgvector, using a larger instance class." },
+      { id: 'C', text: "Amazon Neptune Analytics, enabling GraphRAG over graphs and vectors." },
+      { id: 'D', text: "Amazon OpenSearch Serverless, with a higher number of retrieved results." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "Amazon Bedrock Knowledge Bases supports GraphRAG with Amazon Neptune Analytics, which builds a graph of entities and relationships from the documents and combines graph traversal with vector search, so answers can follow multi-hop connections across papers. A larger PostgreSQL instance speeds vector queries but adds no relationship modeling. Returning more OpenSearch results adds passages without connecting them. Storing papers as JSON documents does not capture relationships between entities across papers.",
+    referenceUrl: "https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-build-graphs.html",
+    tags: ["Vector databases", "Amazon Neptune", "GraphRAG"]
+  },
+  {
+    id: "aws-aif-249",
+    difficulty: "easy",
+    certId: "aws-aif",
+    domainId: "d3",
+    domainName: "Applications of Foundation Models",
+    title: "Similarity search for a JSON-based app",
+    scenario: "A recipe app stores all its content as JSON documents in Amazon DocumentDB (with MongoDB compatibility), and its developers use MongoDB-style queries daily. The team wants to add 'recipes like this one' recommendations using embeddings without adding another database.",
+    question: "Which approach fits the team's constraints?",
+    options: [
+      { id: 'A', text: "Stand up an Amazon OpenSearch Service domain and sync the recipes into it." },
+      { id: 'B', text: "Copy recipes from DocumentDB into Aurora PostgreSQL and use pgvector." },
+      { id: 'C', text: "Use vector search in Amazon DocumentDB on embeddings stored in the documents." },
+      { id: 'D', text: "Migrate recipe documents to Amazon Neptune so matches use graph traversal." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "Amazon DocumentDB supports vector search, so embeddings can be stored in the existing JSON documents and queried for similar recipes with familiar tooling and no extra database. Neptune, Aurora PostgreSQL with pgvector, and OpenSearch Service can all store and search vectors, but each would add a second database to operate and keep in sync, which is exactly what the team wants to avoid.",
+    referenceUrl: "https://docs.aws.amazon.com/documentdb/latest/developerguide/vector-search.html",
+    tags: ["Vector databases", "Amazon DocumentDB"]
+  },
+  {
+    id: "aws-aif-250",
+    difficulty: "hard",
+    certId: "aws-aif",
+    domainId: "d3",
+    domainName: "Applications of Foundation Models",
+    title: "Shortlisting stores for an embeddings index",
+    scenario: "A media company's architect is shortlisting AWS services to hold 50 million article embeddings and run nearest-neighbor similarity queries for a RAG application. A colleague has proposed five services, and the architect wants only those that can actually store and search vectors.",
+    question: "Which two services can store embeddings and run vector similarity search? (Choose two.)",
+    options: [
+      { id: 'A', text: "Amazon SQS, holding each embedding as a message for consumers to search." },
+      { id: 'B', text: "AWS Glue Data Catalog, recording each embedding as a table property." },
+      { id: 'C', text: "Amazon Kinesis Data Streams, keeping embeddings as stream records." },
+      { id: 'D', text: "Amazon OpenSearch Service, using its k-NN vector search capability." },
+      { id: 'E', text: "Amazon RDS for PostgreSQL, with the pgvector extension enabled." }
+    ],
+    correctAnswers: ['D', 'E'],
+    type: "multiple",
+    explanation: "Amazon OpenSearch Service provides k-NN vector search over indexed embeddings, and Amazon RDS for PostgreSQL supports the pgvector extension for storing vectors and running similarity queries; both appear in the exam guide as vector database options. SQS is a message queue: messages are consumed and deleted, and it has no query capability. The Glue Data Catalog stores metadata about datasets, not searchable vectors. Kinesis Data Streams carries streaming records for a limited retention period and cannot run similarity searches.",
+    referenceUrl: "https://docs.aws.amazon.com/opensearch-service/latest/developerguide/knn.html",
+    tags: ["Vector databases", "Amazon OpenSearch Service", "Amazon RDS"]
+  }
+];
+
+export default AWS_AIF_QUESTIONS_10;

@@ -1,0 +1,532 @@
+export const AWS_AIF_QUESTIONS_11 = [
+  {
+    id: "aws-aif-251",
+    difficulty: "easy",
+    certId: "aws-aif",
+    domainId: "d3",
+    domainName: "Applications of Foundation Models",
+    title: "HR assistant that must track weekly policy edits",
+    scenario: "A logistics company wants an internal assistant on Amazon Bedrock that answers employee questions from its HR policy handbook. The handbook is edited almost every week, the team has no machine learning engineers, and the budget does not allow for recurring training jobs.",
+    question: "Which approach gives accurate, current answers at the lowest ongoing cost?",
+    options: [
+      { id: 'A', text: "Index the handbook in an Amazon Bedrock knowledge base and retrieve the relevant passages for each question." },
+      { id: 'B', text: "Pre-train a new foundation model on the company's documents so it holds only the organization's own knowledge." },
+      { id: 'C', text: "Fine-tune a base model on question-and-answer pairs written from the handbook and repeat the job after each weekly edit." },
+      { id: 'D', text: "Run continued pre-training on the full handbook text so the model absorbs the policies into its own weights." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Retrieval Augmented Generation with a knowledge base pulls the relevant handbook passages into the prompt at query time, so a weekly edit only needs the data source to be re-synced, not a model to be retrained, and no training jobs or ML staff are needed. Fine-tuning bakes the policies into the weights, so every edit would require a new paid training job, which the budget rules out. Continued pre-training has the same staleness problem and needs even more compute. Pre-training a new model from scratch is by far the most expensive option and would still go stale after the next edit.",
+    referenceUrl: "https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html",
+    tags: ["RAG", "Knowledge Bases", "Customization cost"]
+  },
+  {
+    id: "aws-aif-252",
+    difficulty: "easy",
+    certId: "aws-aif",
+    domainId: "d3",
+    domainName: "Applications of Foundation Models",
+    title: "Consistent ticket summaries without a training budget",
+    scenario: "A support team wants a foundation model to summarize tickets in a fixed three-line layout: issue, cause, and next step. A lead has written ten good example summaries. The team has no budget for model training and wants to start this week.",
+    question: "Which customization approach fits these constraints?",
+    options: [
+      { id: 'A', text: "Put several of the example summaries in each prompt so the model copies the summary layout through in-context learning." },
+      { id: 'B', text: "Run continued pre-training on past tickets so the model learns the support vocabulary before summarizing." },
+      { id: 'C', text: "Fine-tune the model on the ten example summaries so that the layout is learned permanently in a custom model." },
+      { id: 'D', text: "Store the ten examples in a vector database and let the model retrieve them only when a ticket looks similar." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "In-context learning, supplying a few worked examples inside the prompt, changes the model's output format with no training job at all, so it costs nothing up front and can be used immediately. Fine-tuning requires a paid training job and ten examples is far too small a dataset to train on reliably. Continued pre-training teaches vocabulary from unlabeled text rather than an output layout, and it is also a paid training job. A vector database adds infrastructure to retrieve examples that the prompt could simply carry, and similarity retrieval would not guarantee the layout examples appear every time.",
+    referenceUrl: "https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-engineering-guidelines.html",
+    tags: ["In-context learning", "Customization cost"]
+  },
+  {
+    id: "aws-aif-253",
+    difficulty: "easy",
+    certId: "aws-aif",
+    domainId: "d3",
+    domainName: "Applications of Foundation Models",
+    title: "Board asks which option costs the most",
+    scenario: "The board of a media company is reviewing a proposal to give its writers an AI assistant that knows the company's style. Before approving a budget, the board asks the architect which customization approach typically needs the most compute, the most data, and the longest time to deliver.",
+    question: "Which approach should the architect name?",
+    options: [
+      { id: 'A', text: "Pre-training a new foundation model from scratch on a very large text corpus." },
+      { id: 'B', text: "Retrieval Augmented Generation over a knowledge base built from the company's style guides." },
+      { id: 'C', text: "Fine-tuning an existing foundation model on a few thousand labeled prompt-and-response pairs." },
+      { id: 'D', text: "Prompt engineering with a detailed style description and a few examples placed in every prompt." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Pre-training builds every weight of the model from nothing, which takes enormous unlabeled datasets, large accelerator clusters running for weeks or months, and specialist staff, so it sits at the top of the cost scale. Fine-tuning starts from an already trained model and adjusts it with a comparatively small labeled dataset, so it is far cheaper. RAG needs a vector store and retrieval but no training at all. Prompt engineering is the cheapest option of all, with costs limited to the extra tokens in each request.",
+    referenceUrl: "https://aws.amazon.com/what-is/foundation-models/",
+    tags: ["Pre-training", "Customization cost"]
+  },
+  {
+    id: "aws-aif-254",
+    difficulty: "medium",
+    certId: "aws-aif",
+    domainId: "d3",
+    domainName: "Applications of Foundation Models",
+    title: "Example block inflating every request",
+    scenario: "An insurer classifies claim emails with a foundation model. To get reliable labels, each request carries a 3,000-token block of labeled examples ahead of a 200-token email, and volume has grown to two million requests a month. The task definition has not changed in a year, and the insurer holds 20,000 labeled emails.",
+    question: "Which approach shifts most of the cost from per-request tokens to a one-time effort?",
+    options: [
+      { id: 'A', text: "Fine-tune a model on the historical examples so each request can drop the long example block entirely." },
+      { id: 'B', text: "Move the example block into a knowledge base so the right examples are retrieved into each request." },
+      { id: 'C', text: "Switch to a larger model with a longer context window so the example block fits more comfortably per call." },
+      { id: 'D', text: "Raise the temperature so the model generalizes from fewer examples and the example block can be trimmed." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "In-context learning pays for the example block on every one of the two million monthly requests. Because the task is stable and 20,000 labeled emails exist, fine-tuning teaches the classification behavior once, after which each request carries only the email, turning a recurring token cost into a one-time training cost. Retrieving examples from a knowledge base still sends example text on every request and adds retrieval charges. Temperature controls randomness, not how many examples the model needs, and higher values make labels less consistent. A larger model with a longer context window raises the per-token price and keeps the same long prompt.",
+    referenceUrl: "https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models.html",
+    tags: ["Fine-tuning", "In-context learning", "Customization cost"]
+  },
+  {
+    id: "aws-aif-255",
+    difficulty: "medium",
+    certId: "aws-aif",
+    domainId: "d3",
+    domainName: "Applications of Foundation Models",
+    title: "Decades of geology reports and no labels",
+    scenario: "A mining company has 40 years of unlabeled geological survey reports full of specialist terminology that general models handle poorly. It has no labeled prompt-and-response pairs and cannot afford to create them. It wants a model on Amazon Bedrock that is fluent in its domain language without the cost of building a model from nothing.",
+    question: "Which customization approach should the company use?",
+    options: [
+      { id: 'A', text: "Use zero-shot prompting and instruct the model to interpret the terminology the way a geologist would." },
+      { id: 'B', text: "Run continued pre-training on the raw reports so an existing model extends its vocabulary." },
+      { id: 'C', text: "Pre-train a new foundation model using only the survey reports so that its vocabulary is fully specialized." },
+      { id: 'D', text: "Fine-tune a base model using labeled prompt-and-response examples extracted from the reports by the team." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "Continued pre-training in Amazon Bedrock takes unlabeled text and continues training an existing foundation model on it, which is the way to build domain fluency from a raw corpus while reusing the general knowledge already in the model. Fine-tuning needs labeled prompt-and-response pairs, which the company cannot afford to create. Pre-training a new model from scratch is the most expensive route and 40 years of reports is far too small a corpus to produce a capable general model. Zero-shot instructions cannot give the model knowledge of terminology it never learned.",
+    referenceUrl: "https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models.html",
+    tags: ["Continued pre-training", "Customization cost"]
+  },
+  {
+    id: "aws-aif-256",
+    difficulty: "medium",
+    certId: "aws-aif",
+    domainId: "d3",
+    domainName: "Applications of Foundation Models",
+    title: "Price list that changes every morning",
+    scenario: "An electronics retailer fine-tuned a model on its product catalog three months ago. Prices and stock change every morning, and the chatbot now quotes out-of-date prices. Retraining daily would cost more than the chatbot is worth, but the retailer still needs answers that reflect today's catalog.",
+    question: "What should the retailer change?",
+    options: [
+      { id: 'A', text: "Lower the temperature of the fine-tuned model so that it stops inventing prices it cannot fully recall." },
+      { id: 'B', text: "Retrieve current catalog entries at query time and add them to the prompt using a RAG architecture." },
+      { id: 'C', text: "Run continued pre-training on the catalog each week and accept prices that are up to seven days old." },
+      { id: 'D', text: "Schedule the fine-tuning job to run nightly on the new catalog so the custom model always has current prices." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "Knowledge that changes daily belongs outside the model weights. With RAG, the application retrieves the current catalog entries for each question and passes them to the model as context, so the only daily cost is refreshing the index, not retraining. Nightly fine-tuning is exactly the recurring cost the retailer says it cannot justify. Lowering temperature reduces randomness but cannot make the model know a price it was never trained on. Weekly continued pre-training is still a recurring training cost and leaves prices up to a week stale, which fails the requirement.",
+    referenceUrl: "https://aws.amazon.com/what-is/retrieval-augmented-generation/",
+    tags: ["RAG", "Fine-tuning", "Data freshness"]
+  },
+  {
+    id: "aws-aif-257",
+    difficulty: "hard",
+    certId: "aws-aif",
+    domainId: "d3",
+    domainName: "Applications of Foundation Models",
+    title: "Weighing RAG against fine-tuning for a legal team",
+    scenario: "A law firm is choosing between RAG over its case library and fine-tuning a model on the same library. The case library grows by about 200 documents a week, and the managing partner wants the cost consequences of each approach laid out accurately before deciding.",
+    question: "Which two statements about the cost of these approaches are accurate? (Choose two.)",
+    options: [
+      { id: 'A', text: "Fine-tuning is always cheaper than RAG over time, because training happens once while retrieval must happen on each request." },
+      { id: 'B', text: "Fine-tuning removes all inference cost, because a custom model's knowledge is stored in its weights rather than retrieved from documents." },
+      { id: 'C', text: "Keeping a fine-tuned model current means paying for a new training job whenever the new material must be reflected in its answers." },
+      { id: 'D', text: "RAG requires a labeled dataset of questions and answers for every document before retrieval can return any relevant passages." },
+      { id: 'E', text: "RAG adds ongoing costs for embedding documents, running a vector store, and sending longer prompts that include the retrieved passages." }
+    ],
+    correctAnswers: ['C', 'E'],
+    type: "multiple",
+    explanation: "RAG has no training cost, but it does carry running costs: generating embeddings for new documents, operating the vector store, and paying for the extra input tokens of the retrieved passages in each prompt. Fine-tuning fixes knowledge at training time, so a library that grows weekly forces repeated paid training jobs to stay current. A custom model still incurs inference charges on every call, and on Amazon Bedrock hosting a custom model can add dedicated capacity costs. RAG works on unlabeled documents; only embeddings are needed, not labeled question-and-answer pairs. Whether fine-tuning is cheaper over time depends on volume and change rate, and with weekly updates the retraining cost usually outweighs it, so it is not always cheaper.",
+    referenceUrl: "https://docs.aws.amazon.com/prescriptive-guidance/latest/retrieval-augmented-generation-options/introduction.html",
+    tags: ["RAG", "Fine-tuning", "Customization cost"]
+  },
+  {
+    id: "aws-aif-258",
+    difficulty: "medium",
+    certId: "aws-aif",
+    domainId: "d3",
+    domainName: "Applications of Foundation Models",
+    title: "Sequencing experiments to keep spend low",
+    scenario: "A travel startup wants a model that answers questions about its destinations in the brand's voice. The CTO wants to try customization approaches in an order that spends the least money first and only moves to a costlier approach when the cheaper one proves insufficient.",
+    question: "Which sequence should the team follow?",
+    options: [
+      { id: 'A', text: "Continued pre-training first, then prompt engineering, then RAG over the destination guides for coverage." },
+      { id: 'B', text: "RAG over the guides first, then pre-training from scratch, then fine-tuning for brand voice." },
+      { id: 'C', text: "Prompt engineering first, then RAG over the destination guides, then fine-tuning for the brand voice." },
+      { id: 'D', text: "Fine-tuning first, then RAG over the destination guides, then prompt engineering to polish the brand voice." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "Prompt engineering needs no infrastructure or training and costs only tokens, so it is the cheapest first step. RAG adds a vector store and retrieval but still no training, making it the next step when the model lacks knowledge of the destinations. Fine-tuning requires labeled data and a paid training job, so it comes last, when voice or behavior still falls short. Starting with fine-tuning spends the most money before cheaper options are tried. Putting pre-training from scratch in the middle introduces the most expensive approach of all. Starting with continued pre-training also front-loads a training cost the cheaper steps might have made unnecessary.",
+    referenceUrl: "https://docs.aws.amazon.com/prescriptive-guidance/latest/retrieval-augmented-generation-options/introduction.html",
+    tags: ["Prompt engineering", "RAG", "Fine-tuning"]
+  },
+  {
+    id: "aws-aif-259",
+    difficulty: "easy",
+    certId: "aws-aif",
+    domainId: "d3",
+    domainName: "Applications of Foundation Models",
+    title: "Assistant that has to actually book the trip",
+    scenario: "A corporate travel team wants a generative AI assistant that takes a request such as a two-day trip to Denver next week, checks the flight and hotel APIs, compares options against the travel policy, and then makes the bookings. It must plan and carry out these steps on its own.",
+    question: "Which AWS capability is designed for this kind of multi-step task?",
+    options: [
+      { id: 'A', text: "Amazon Bedrock batch inference, which runs the flight and hotel API searches together as one large job." },
+      { id: 'B', text: "Amazon Bedrock Agents, which breaks the request into steps and calls the booking services through actions." },
+      { id: 'C', text: "Amazon Bedrock Knowledge Bases, which retrieves the travel policy so the model can answer questions on it." },
+      { id: 'D', text: "Amazon Bedrock Guardrails, which evaluates the steps of a request against the company's travel policy." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "An agent uses a foundation model to reason about a goal, break it into steps, and call external APIs through action groups until the task is done, which is exactly the plan-then-act pattern the travel team describes. Guardrails filter content and block undesirable topics or data; they do not plan or call APIs. A knowledge base could supply the travel policy as context, but on its own it only retrieves text and cannot make bookings. Batch inference runs many independent prompts asynchronously and has no notion of multi-step planning or tool calls.",
+    referenceUrl: "https://docs.aws.amazon.com/bedrock/latest/userguide/agents.html",
+    tags: ["Amazon Bedrock Agents", "Agents"]
+  },
+  {
+    id: "aws-aif-260",
+    difficulty: "easy",
+    certId: "aws-aif",
+    domainId: "d3",
+    domainName: "Applications of Foundation Models",
+    title: "Explaining agents to a product manager",
+    scenario: "A product manager already uses a chatbot that sends one prompt to a foundation model and shows the reply. She has heard that an agent could handle tasks like processing a refund end to end, and she asks what an agent does that the single-prompt chatbot does not.",
+    question: "Which description of an agent is accurate?",
+    options: [
+      { id: 'A', text: "It routes each prompt to the cheapest foundation model that can answer, which reduces the cost of every request." },
+      { id: 'B', text: "It fine-tunes the underlying model on each conversation so the next reply is more accurate than the one before it." },
+      { id: 'C', text: "It caches earlier replies and returns a stored answer whenever a new request matches one it has already served." },
+      { id: 'D', text: "It reasons about the goal, calls tools or APIs, checks each result, and keeps repeating until the whole task is done." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "An agent wraps a foundation model in a loop: the model reasons about what to do next, calls a tool or API, reads the result, and continues until the goal is met, which lets it complete multi-step work such as looking up an order, checking eligibility, and issuing a refund. Agents do not retrain the model during conversations. Returning stored answers for repeat requests is response caching, a cost optimization unrelated to agents. Sending prompts to the cheapest capable model is what Amazon Bedrock Intelligent Prompt Routing does, and it does not add planning or tool use.",
+    referenceUrl: "https://aws.amazon.com/what-is/ai-agents/",
+    tags: ["Agents", "Agentic AI"]
+  },
+  {
+    id: "aws-aif-261",
+    difficulty: "medium",
+    certId: "aws-aif",
+    domainId: "d3",
+    domainName: "Applications of Foundation Models",
+    title: "Letting an agent query the order system",
+    scenario: "A retailer is building an Amazon Bedrock agent to answer where-is-my-order questions. Order status lives in an internal REST API, and a developer has already written an AWS Lambda function that calls it. The agent must be able to decide when to call that API and with which order number.",
+    question: "What should the developer configure on the agent?",
+    options: [
+      { id: 'A', text: "A guardrail with a denied topic for order data so the agent routes those questions to the Lambda function." },
+      { id: 'B', text: "A prompt template that tells the model to print the API URL so users check order status themselves." },
+      { id: 'C', text: "A knowledge base that indexes nightly exports of the order table so the agent can look up status by number." },
+      { id: 'D', text: "An action group that defines the API in an OpenAPI schema and runs it through that Lambda function." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Action groups are how an Amazon Bedrock agent takes actions: the OpenAPI schema or function definition tells the model what operations exist and what parameters they need, and the Lambda function runs the call when the agent decides to invoke it. A knowledge base over nightly exports would return day-old status and cannot call the live API. Guardrail denied topics block subjects; they do not route requests to Lambda. Printing a URL pushes the work back to the user instead of letting the agent retrieve the status.",
+    referenceUrl: "https://docs.aws.amazon.com/bedrock/latest/userguide/agents-action-create.html",
+    tags: ["Amazon Bedrock Agents", "Action groups", "AWS Lambda"]
+  },
+  {
+    id: "aws-aif-262",
+    difficulty: "medium",
+    certId: "aws-aif",
+    domainId: "d3",
+    domainName: "Applications of Foundation Models",
+    title: "IT helpdesk agent that reads and acts",
+    scenario: "An IT department wants one Amazon Bedrock agent that answers questions from its internal troubleshooting guides and, when the guides do not resolve the problem, opens a ticket in the service desk system through that system's API. Both capabilities must be available to the agent within a single conversation.",
+    question: "Which two components should be associated with the agent? (Choose two.)",
+    options: [
+      { id: 'A', text: "A provisioned throughput purchase so the agent can hold the troubleshooting guides in its memory." },
+      { id: 'B', text: "A knowledge base that indexes the troubleshooting guides so the agent can retrieve relevant steps." },
+      { id: 'C', text: "A fine-tuned model trained on past tickets so the agent can create new tickets without any API." },
+      { id: 'D', text: "An action group that defines the create-ticket operation of the ticketing platform's API for the agent." },
+      { id: 'E', text: "A guardrail that allows only troubleshooting topics so the agent knows when it should open tickets." }
+    ],
+    correctAnswers: ['B', 'D'],
+    type: "multiple",
+    explanation: "An Amazon Bedrock agent can have knowledge bases and action groups associated with it at the same time: the knowledge base supplies retrieved passages from the troubleshooting guides, and the action group lets the agent call the service desk API to open a ticket when the guides fall short. Provisioned Throughput buys dedicated model capacity; it does not store documents. A guardrail restricts topics and content but does not tell the agent how to create tickets. A fine-tuned model can imitate ticket text but cannot create a record in the service desk system without an API call.",
+    referenceUrl: "https://docs.aws.amazon.com/bedrock/latest/userguide/agents-how.html",
+    tags: ["Amazon Bedrock Agents", "Knowledge Bases", "Action groups"]
+  },
+  {
+    id: "aws-aif-263",
+    difficulty: "hard",
+    certId: "aws-aif",
+    domainId: "d3",
+    domainName: "Applications of Foundation Models",
+    title: "Payroll calls that must run inside the app",
+    scenario: "A payroll software vendor is adding an Amazon Bedrock agent to its web application. Security policy says calls to the payroll engine must be made by the application's existing backend, which already holds the user's session and permissions, and must not be delegated to separate Lambda functions. The agent should still decide which payroll operation to run and with what parameters.",
+    question: "How should the vendor configure the agent's action group?",
+    options: [
+      { id: 'A', text: "Set the action group to return control, so the agent hands the chosen action and its inputs back to the app backend." },
+      { id: 'B', text: "Create a Lambda function that forwards each request to the backend and give the function the payroll credentials." },
+      { id: 'C', text: "Enable user confirmation on the action group so the user approves each payroll call before Lambda executes it." },
+      { id: 'D', text: "Attach a knowledge base of payroll API documentation so the model writes the calls that users then paste in." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "With return of control, the agent still reasons about which action to take and elicits the parameters, but instead of invoking a Lambda function it returns the action and parameters in the InvokeAgent response. The application's backend performs the call with its own session and permissions and sends the result back in the next request. Having users paste generated calls removes the automation and invites errors. A forwarding Lambda function is exactly the delegation the policy forbids. User confirmation adds an approval prompt but the call would still be executed by a Lambda function.",
+    referenceUrl: "https://docs.aws.amazon.com/bedrock/latest/userguide/agents-returncontrol.html",
+    tags: ["Amazon Bedrock Agents", "Return of control", "Action groups"]
+  },
+  {
+    id: "aws-aif-264",
+    difficulty: "medium",
+    certId: "aws-aif",
+    domainId: "d3",
+    domainName: "Applications of Foundation Models",
+    title: "Human sign-off before a refund is issued",
+    scenario: "A subscription business has an Amazon Bedrock agent with an action group that can issue refunds. Compliance requires that the customer explicitly approve the exact refund amount before the refund function runs, while lookups such as checking billing history should proceed without any prompt.",
+    question: "Which feature meets this requirement with the least custom code?",
+    options: [
+      { id: 'A', text: "Add a contextual grounding check in a guardrail so the refund amount is verified against the billing records." },
+      { id: 'B', text: "Route refunds to Amazon Augmented AI so that a human reviewer approves the amount in a separate work queue." },
+      { id: 'C', text: "Lower the agent's temperature so the refund function runs only when the model is confident in the amount." },
+      { id: 'D', text: "Turn on user confirmation for the refund function so the agent asks the customer first." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Amazon Bedrock Agents supports user confirmation per action group function: before invoking a function flagged for confirmation, the agent presents the action and its parameters and proceeds only if the user confirms, so the refund can require approval while billing lookups run freely. A contextual grounding check scores whether a response is supported by source text and does not collect approval from the customer. Amazon A2I sends items to a human reviewer workforce, not to the customer, and would need custom integration. Temperature affects randomness, not whether an action needs explicit consent.",
+    referenceUrl: "https://docs.aws.amazon.com/bedrock/latest/userguide/agents-userconfirmation.html",
+    tags: ["Amazon Bedrock Agents", "User confirmation", "Human in the loop"]
+  },
+  {
+    id: "aws-aif-265",
+    difficulty: "medium",
+    certId: "aws-aif",
+    domainId: "d3",
+    domainName: "Applications of Foundation Models",
+    title: "Mortgage workflow split across specialists",
+    scenario: "A bank is automating mortgage pre-approval. Separate teams have already built three Amazon Bedrock agents: one checks income documents, one pulls credit data, and one assesses property value. The bank now wants a single entry point that decides which of these agents to involve for each application and combines their findings.",
+    question: "Which approach should the bank take?",
+    options: [
+      { id: 'A', text: "Fine-tune one model on the transcripts of all three agents so it can reproduce their combined behavior." },
+      { id: 'B', text: "Use multi-agent collaboration, with a supervisor agent delegating to the three agents." },
+      { id: 'C', text: "Use a single knowledge base for the three teams' documents and query it directly from the web front end." },
+      { id: 'D', text: "Merge all three agents' action groups into one agent and delete the other two so only one model runs." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "Multi-agent collaboration in Amazon Bedrock lets a supervisor agent break a request down, delegate subtasks to specialized collaborator agents, and consolidate their responses, which reuses the three existing agents and gives the bank a single entry point. Merging every action group into one agent discards the teams' work and makes one agent's instructions and tool choices much harder to manage. Fine-tuning on transcripts would imitate past outputs but could not call the credit, income, or valuation APIs. A shared knowledge base only retrieves documents; it cannot run the checks the agents perform.",
+    referenceUrl: "https://docs.aws.amazon.com/bedrock/latest/userguide/agents-multi-agent-collaboration.html",
+    tags: ["Multi-agent collaboration", "Amazon Bedrock Agents"]
+  },
+  {
+    id: "aws-aif-266",
+    difficulty: "hard",
+    certId: "aws-aif",
+    domainId: "d3",
+    domainName: "Applications of Foundation Models",
+    title: "Agent keeps calling the wrong action",
+    scenario: "During testing, an Amazon Bedrock agent for a shipping company sometimes calls its cancel-shipment action when users only ask to change a delivery address. The developers need to see, step by step, the agent's rationale, the action it chose, the parameters it passed, and the observation it received, so they can fix the instructions.",
+    question: "What should the developers use?",
+    options: [
+      { id: 'A', text: "Model invocation logging for the account, which writes every agent step and rationale to Amazon S3 by default." },
+      { id: 'B', text: "Amazon CloudWatch metrics for the agent, which report the invocation count of each action group per minute." },
+      { id: 'C', text: "The agent trace, enabled on InvokeAgent, which shows each step's rationale, chosen action, and returned result." },
+      { id: 'D', text: "AWS CloudTrail data events for Amazon Bedrock, which record the rationale behind each action group call." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "An Amazon Bedrock agent's trace, returned when trace is enabled on InvokeAgent and shown in the console test window, breaks each turn into pre-processing, orchestration, and post-processing steps and exposes the model's rationale, the action group and parameters it chose, and the observation it received, which is exactly what is needed to diagnose a wrong tool choice. Model invocation logging is off by default and records model requests and responses rather than presenting the agent's step-by-step orchestration. CloudTrail records who called which API and when, not the reasoning behind a choice. CloudWatch metrics show counts and latency but no rationale or parameters.",
+    referenceUrl: "https://docs.aws.amazon.com/bedrock/latest/userguide/trace-events.html",
+    tags: ["Amazon Bedrock Agents", "Trace", "Troubleshooting"]
+  },
+  {
+    id: "aws-aif-267",
+    difficulty: "medium",
+    certId: "aws-aif",
+    domainId: "d3",
+    domainName: "Applications of Foundation Models",
+    title: "Travel agent that forgets last week's trip",
+    scenario: "Users of a hotel chain's Amazon Bedrock agent complain that each new session starts from nothing: the agent does not recall preferences such as a quiet room or an earlier unfinished booking. The chain wants the agent to carry a summary of prior sessions into new ones for each user, for up to 30 days.",
+    question: "Which capability should the chain enable?",
+    options: [
+      { id: 'A', text: "A knowledge base synced nightly from the chat logs, which the agent searches for anything about the user." },
+      { id: 'B', text: "Agent memory, which stores session summaries per memory ID and reuses them later." },
+      { id: 'C', text: "A larger context window model, which keeps every earlier session's messages available in later sessions." },
+      { id: 'D', text: "Prompt caching, which saves previous prompts so that the model can recall the user's past preferences." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "Amazon Bedrock Agents memory retention summarizes each session and stores the summary against a memory identifier, typically one per user, for a configurable retention period, then supplies those summaries in later sessions so the agent can pick up preferences and unfinished tasks. A larger context window only helps within one session; a new session starts empty regardless of window size. Prompt caching reduces latency and cost for repeated prompt prefixes and does not carry user facts between sessions. A knowledge base built from all chat logs would mix every user's history into one index and raise privacy and relevance problems.",
+    referenceUrl: "https://docs.aws.amazon.com/bedrock/latest/userguide/agents-memory.html",
+    tags: ["Amazon Bedrock Agents", "Memory"]
+  },
+  {
+    id: "aws-aif-268",
+    difficulty: "easy",
+    certId: "aws-aif",
+    domainId: "d3",
+    domainName: "Applications of Foundation Models",
+    title: "Generic replies to a gold-tier customer",
+    scenario: "A bank's reply-drafting prompt says only: Write a response to this customer email. Drafts come back generic, ignoring that the customer is a gold-tier client with two recent failed transfers and a preference for short replies. That information is available in the CRM.",
+    question: "Which prompt element should the team add?",
+    options: [
+      { id: 'A', text: "A negative prompt that tells the model not to write generic replies to gold-tier customers under any case." },
+      { id: 'B', text: "A stop sequence that ends the draft once it reaches the length a short reply for a customer should have." },
+      { id: 'C', text: "Context from the CRM about the customer's tier, the latest transfer failures, and how brief replies should be." },
+      { id: 'D', text: "A higher temperature setting so that the model varies its replies and avoids giving the same generic text." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "Context is the background information that lets the model tailor a response. The model cannot know the customer's tier, recent failures, or preferences unless the prompt supplies them, so adding that context from the CRM is what turns a generic draft into a relevant one. Telling the model not to be generic gives it no facts to work with. A higher temperature adds randomness, not relevance. A stop sequence truncates output at a marker and does not make the content more specific to the customer.",
+    referenceUrl: "https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-engineering-guidelines.html",
+    tags: ["Prompt engineering", "Context"]
+  },
+  {
+    id: "aws-aif-269",
+    difficulty: "easy",
+    certId: "aws-aif",
+    domainId: "d3",
+    domainName: "Applications of Foundation Models",
+    title: "Product shots keep showing watermarks",
+    scenario: "A furniture brand generates lifestyle images of its sofas with an image model on Amazon Bedrock. Many images include stray text, watermark-like marks, and people in the background, none of which the brand wants. The main prompt describing the scene is otherwise producing good results.",
+    question: "What should the designer add to the request?",
+    options: [
+      { id: 'A', text: "A longer positive prompt that repeats the words text, watermark, and people so the model pays attention to them." },
+      { id: 'B', text: "A negative prompt that lists text, watermarks, and people as the elements the image model should leave out." },
+      { id: 'C', text: "A lower image resolution so fine details such as text and watermarks are less likely to appear." },
+      { id: 'D', text: "A higher number of images per request so that some of the generated images happen to lack the unwanted marks." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "Image models on Amazon Bedrock, such as Amazon Nova Canvas and Amazon Titan Image Generator, accept a negative text prompt that describes what the output should not contain, which is the direct way to suppress text, watermarks, and people. Generating more images and hoping some are clean wastes cost and does not change the model's behavior. Repeating those words in the positive prompt tends to add the unwanted elements rather than remove them. Lowering resolution degrades the whole image and does not reliably remove the unwanted content.",
+    referenceUrl: "https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters-titan-image.html",
+    tags: ["Negative prompts", "Image generation"]
+  },
+  {
+    id: "aws-aif-270",
+    difficulty: "medium",
+    certId: "aws-aif",
+    domainId: "d3",
+    domainName: "Applications of Foundation Models",
+    title: "Confident answers about an unreleased product",
+    scenario: "Employees ask a general-purpose foundation model about Project Kestrel, an internal product that has never been described publicly. The model replies fluently with specifications that turn out to be invented. A manager asks why a capable model behaves this way.",
+    question: "Which explanation is correct?",
+    options: [
+      { id: 'A', text: "The model's context window is too short to fit the question, so it drops the product name and guesses instead." },
+      { id: 'B', text: "The model is overfitted to Project Kestrel documents, so it memorized their wording and now repeats it inexactly." },
+      { id: 'C', text: "Its latent space holds nothing about the product, so it generates plausible text from related patterns it learned." },
+      { id: 'D', text: "The model's temperature is set too low, which forces it to pick unlikely words rather than the facts it holds." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "A model's latent space is the internal representation of the patterns it learned during training. Because Project Kestrel was never in the training data, the model has no encoded knowledge of it and produces statistically plausible text from similar concepts, which is a hallucination; supplying the facts as context, for example through RAG, fixes this. Low temperature makes the model pick the most likely tokens, not unlikely ones. Overfitting to Kestrel documents is impossible because the model never saw them. A short question fits easily in any modern context window.",
+    referenceUrl: "https://aws.amazon.com/what-is/prompt-engineering/",
+    tags: ["Latent space", "Hallucinations", "Prompt engineering"]
+  },
+  {
+    id: "aws-aif-271",
+    difficulty: "medium",
+    certId: "aws-aif",
+    domainId: "d3",
+    domainName: "Applications of Foundation Models",
+    title: "Instructions lost inside long contracts",
+    scenario: "A procurement team pastes long supplier contracts into a prompt and asks the model to list termination clauses. The instructions and the contract are run together as one block of text, and the model sometimes summarizes the contract instead or follows wording inside the contract as if it were an instruction.",
+    question: "Which prompt change most directly addresses this?",
+    options: [
+      { id: 'A', text: "Split the contract into small pieces and send each piece in its own request without any instruction text." },
+      { id: 'B', text: "Wrap the contract in clear delimiters such as XML tags and state the instruction separately outside them." },
+      { id: 'C', text: "Move the instructions to the end of the contract and write them in capital letters so they stand out more." },
+      { id: 'D', text: "Raise the maximum output tokens so the model has room to both summarize and list the termination clauses." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "Separating the instruction from the input data with clear delimiters, such as XML tags or labeled sections, tells the model which text is the task and which text is material to operate on, which reduces both drift into summarizing and accidental obedience to text inside the contract. Capital letters at the end still leave instruction and data run together. Sending pieces without any instruction gives the model no task at all. More output tokens allow longer answers but do nothing to clarify what the model should do.",
+    referenceUrl: "https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-engineering-guidelines.html",
+    tags: ["Prompt engineering", "Instructions", "Delimiters"]
+  },
+  {
+    id: "aws-aif-272",
+    difficulty: "medium",
+    certId: "aws-aif",
+    domainId: "d3",
+    domainName: "Applications of Foundation Models",
+    title: "Release notes that miss the audience",
+    scenario: "A software company asks a model to write release notes from a list of Jira ticket titles. Output arrives as long technical paragraphs, although the notes are for non-technical customers and must be published as a bulleted list with at most one sentence per item.",
+    question: "Which two additions to the prompt address these problems? (Choose two.)",
+    options: [
+      { id: 'A', text: "State the audience: customers who need plain-language benefits rather than internal engineering details." },
+      { id: 'B', text: "Add the full source code diff for each ticket so the model understands exactly what changed in code." },
+      { id: 'C', text: "Increase the temperature so the model writes in a more varied, conversational style for the customers." },
+      { id: 'D', text: "Describe the layout: one bullet per ticket, with each bullet limited to a single brief line." },
+      { id: 'E', text: "Attach a guardrail word filter that blocks technical terms so they never appear in the published notes." }
+    ],
+    correctAnswers: ['A', 'D'],
+    type: "multiple",
+    explanation: "Stating the audience is context that steers vocabulary and emphasis toward plain-language benefits, and an explicit output indicator describing the bulleted, one-sentence format tells the model exactly what shape to produce. Raising temperature adds randomness but does not reliably change audience or structure. A word filter would block responses containing listed terms rather than rewrite them, and maintaining a list of every technical term is impractical. Adding code diffs pushes the output further toward technical detail, the opposite of what the customers need.",
+    referenceUrl: "https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-engineering-guidelines.html",
+    tags: ["Prompt engineering", "Output format", "Context"]
+  },
+  {
+    id: "aws-aif-273",
+    difficulty: "easy",
+    certId: "aws-aif",
+    domainId: "d3",
+    domainName: "Applications of Foundation Models",
+    title: "Ad copy that praises competitors",
+    scenario: "A sportswear brand uses a text model to draft product descriptions. Some drafts mention rival brands by name when comparing features, which the legal team forbids. Otherwise the drafts are on brand and well written.",
+    question: "Which prompt construct targets this problem most directly?",
+    options: [
+      { id: 'A', text: "A few-shot example set that contains descriptions comparing the brand's shoes with rival brands' shoes." },
+      { id: 'B', text: "A persona that tells the model to write as an independent reviewer comparing products across brands." },
+      { id: 'C', text: "A larger maximum output length so the model has space to describe features without making comparisons." },
+      { id: 'D', text: "An instruction that says what the model must leave out: never refer to or compare against other brands at all." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "A negative instruction states explicitly what the model should avoid, here any mention of or comparison with other brands, which targets the one defect while leaving the rest of the prompt that is working untouched. Examples that compare against rivals would teach the model to do more of what legal forbids. An independent-reviewer persona invites cross-brand comparison. A larger output length changes how much the model writes, not what it avoids.",
+    referenceUrl: "https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-engineering-guidelines.html",
+    tags: ["Negative prompts", "Instructions"]
+  },
+  {
+    id: "aws-aif-274",
+    difficulty: "easy",
+    certId: "aws-aif",
+    domainId: "d3",
+    domainName: "Applications of Foundation Models",
+    title: "Pasted meeting transcript with no task",
+    scenario: "An analyst pastes a meeting transcript into a model's prompt and sends it with nothing else. Sometimes the model summarizes it, sometimes it continues the dialogue with invented lines, and sometimes it answers a question someone asked in the meeting. The analyst actually wants a list of action items with owners.",
+    question: "What is missing from the prompt?",
+    options: [
+      { id: 'A', text: "A system prompt that assigns the model the role of a meeting participant so it understands the transcript." },
+      { id: 'B', text: "More context in the form of the previous three meetings' transcripts so the model can see ongoing threads." },
+      { id: 'C', text: "An explicit instruction naming the task, such as extracting the follow-ups and who owns each of them." },
+      { id: 'D', text: "A lower top P value so the model picks from fewer tokens and gives the same output every time." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "A prompt needs an instruction that states the task. With only input data, the model has to guess what is wanted, which explains the mix of summaries, continuations, and answers; asking explicitly for action items with owners in a list resolves it. A lower top P narrows token choices but cannot tell the model which task to perform. Casting the model as a participant encourages it to continue the dialogue, one of the unwanted behaviors. Adding more transcripts supplies more data without any clearer task.",
+    referenceUrl: "https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-engineering-guidelines.html",
+    tags: ["Prompt engineering", "Instructions"]
+  },
+  {
+    id: "aws-aif-275",
+    difficulty: "hard",
+    certId: "aws-aif",
+    domainId: "d3",
+    domainName: "Applications of Foundation Models",
+    title: "Clinical wording that yields sharper answers",
+    scenario: "A health-tech team notices that asking a general model about sore throat and fever returns consumer-level advice, while the same question phrased as acute pharyngitis with pyrexia, differential diagnosis requested, returns structured, clinician-level reasoning. No other settings differ between the two requests.",
+    question: "Which explanation best accounts for the difference?",
+    options: [
+      { id: 'A', text: "The clinical phrasing triggers a medical fine-tuned variant of the model that Amazon Bedrock selects in the background." },
+      { id: 'B', text: "The clinical phrasing uses more input tokens, and longer prompts always raise the model's reasoning ability." },
+      { id: 'C', text: "The clinical phrasing steers the model toward the part of its latent space learned from professional medical text." },
+      { id: 'D', text: "The clinical phrasing retrieves medical references from a built-in knowledge base that every model includes." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "A model's latent space encodes the patterns of everything it was trained on, including both consumer health content and professional clinical writing. Specialist terminology and an explicit request for a differential diagnosis steer generation toward the region learned from clinical text, so the response adopts that style and depth. Amazon Bedrock does not swap in a hidden fine-tuned variant based on wording; the model ID determines the model. Prompt length alone does not raise reasoning quality, and padding can degrade it. Models do not include a built-in knowledge base; retrieval happens only when an application configures it.",
+    referenceUrl: "https://aws.amazon.com/what-is/prompt-engineering/",
+    tags: ["Latent space", "Prompt engineering"]
+  }
+];
+
+export default AWS_AIF_QUESTIONS_11;

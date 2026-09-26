@@ -1,0 +1,532 @@
+export const AWS_AIF_QUESTIONS_3 = [
+  {
+    id: "aws-aif-51",
+    difficulty: "easy",
+    certId: "aws-aif",
+    domainId: "d1",
+    domainName: "Fundamentals of AI and ML",
+    title: "Suggesting the next film to watch",
+    scenario: "A video-on-demand service wants each viewer's home screen to show titles that match that person's taste, based on what they and similar viewers have watched, rated and abandoned. The service has millions of interaction records but no ML team, and it wants a managed AWS service built for this job.",
+    question: "Which service should the company use?",
+    options: [
+      { id: 'A', text: "Amazon Lex, to ask each viewer which genres they enjoy the most" },
+      { id: 'B', text: "Amazon Comprehend, to find the themes in each film's description" },
+      { id: 'C', text: "Amazon Personalize, to generate item recommendations for each user" },
+      { id: 'D', text: "Amazon Rekognition, to tag the faces that appear in each film" }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "Recommendation systems learn from user-item interactions to predict what each person is likely to engage with, and Amazon Personalize is AWS's fully managed service for building them from interaction data without ML expertise. Comprehend extracts insights from text, which could describe films but cannot learn individual viewers' tastes from their behavior. Rekognition analyses images and video, and recognising actors does not produce personalised rankings. A Lex chatbot could collect stated preferences, but it has no recommendation model and ignores the rich viewing history the company already has.",
+    referenceUrl: "https://docs.aws.amazon.com/personalize/latest/dg/what-is-personalize.html",
+    tags: ["Recommendation systems", "Amazon Personalize", "Use cases"]
+  },
+  {
+    id: "aws-aif-52",
+    difficulty: "easy",
+    certId: "aws-aif",
+    domainId: "d1",
+    domainName: "Fundamentals of AI and ML",
+    title: "Written records of recorded sales calls",
+    scenario: "An insurance broker records every sales call as an audio file in Amazon S3. Compliance officers want a written transcript of each call so that they can search it and review what advisers said, and nobody on the team wants to build or train a model.",
+    question: "Which AWS service meets this need?",
+    options: [
+      { id: 'A', text: "Amazon Textract, which extracts text from scanned documents" },
+      { id: 'B', text: "Amazon Polly, which turns written text into lifelike speech" },
+      { id: 'C', text: "Amazon Transcribe, which converts spoken words into text" },
+      { id: 'D', text: "Amazon Translate, which converts text between languages" }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "Speech recognition converts spoken audio into text, and Amazon Transcribe is AWS's managed automatic speech recognition service; it can process recordings stored in S3 without any model training. Polly works in the opposite direction, from text to speech. Translate needs text as input and changes its language, so it cannot start from audio. Textract extracts printed and handwritten text from documents and images, not from audio recordings.",
+    referenceUrl: "https://docs.aws.amazon.com/transcribe/latest/dg/what-is.html",
+    tags: ["Speech recognition", "Amazon Transcribe", "AWS AI services"]
+  },
+  {
+    id: "aws-aif-53",
+    difficulty: "medium",
+    certId: "aws-aif",
+    domainId: "d1",
+    domainName: "Fundamentals of AI and ML",
+    title: "Staffing a hotel for next month's nights",
+    scenario: "A hotel group wants to estimate how many rooms will be occupied on each night of the next 60 days at each property, so managers can schedule housekeeping staff. It has five years of nightly occupancy together with local event calendars and holidays, which strongly shape demand.",
+    question: "Which type of AI application fits this goal?",
+    options: [
+      { id: 'A', text: "Computer vision that counts guests in lobby camera footage" },
+      { id: 'B', text: "A recommendation system that ranks rooms for each past guest" },
+      { id: 'C', text: "Time-series forecasting that learns from history and known events" },
+      { id: 'D', text: "Sentiment analysis of guest reviews to judge future popularity" }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "Predicting a future numeric value per night from historical values and known drivers such as events and holidays is forecasting, which models time-ordered data with trend and seasonality; on AWS this can be built with SageMaker, for example in SageMaker Canvas or with the DeepAR algorithm. Counting guests on camera measures today's traffic rather than predicting next month's occupancy. Recommendations rank items for individual users and do not estimate total demand. Review sentiment might be a weak signal, but on its own it does not produce nightly occupancy figures.",
+    referenceUrl: "https://docs.aws.amazon.com/sagemaker/latest/dg/canvas-time-series.html",
+    tags: ["Forecasting", "Time-series data", "Use cases"]
+  },
+  {
+    id: "aws-aif-54",
+    difficulty: "medium",
+    certId: "aws-aif",
+    domainId: "d1",
+    domainName: "Fundamentals of AI and ML",
+    title: "Screening photos uploaded to a community app",
+    scenario: "A hobby community app lets members upload photos to public galleries. Trust and safety staff want uploads checked automatically for explicit or violent imagery, with anything flagged held for review, and they want a pre-trained AWS service rather than a model of their own.",
+    question: "Which service should the team use?",
+    options: [
+      { id: 'A', text: "Amazon Transcribe content redaction applied to each new upload" },
+      { id: 'B', text: "Amazon Comprehend toxicity detection on each uploaded file" },
+      { id: 'C', text: "Amazon Rekognition content moderation on each uploaded image" },
+      { id: 'D', text: "Amazon Textract analysis of each uploaded image before release" }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "Amazon Rekognition's content moderation detects explicit, suggestive, violent and other unsafe content in images and video and returns labels with confidence scores that can drive a human-review queue, with no model training. Comprehend's toxicity detection analyses text, not photographs. Textract extracts text and form data from documents; it does not judge whether imagery is unsafe. Transcribe redaction removes sensitive information from speech transcripts, which does not apply to photos.",
+    referenceUrl: "https://docs.aws.amazon.com/rekognition/latest/dg/moderation.html",
+    tags: ["Computer vision", "Amazon Rekognition", "Content moderation"]
+  },
+  {
+    id: "aws-aif-55",
+    difficulty: "easy",
+    certId: "aws-aif",
+    domainId: "d1",
+    domainName: "Fundamentals of AI and ML",
+    title: "How shoppers feel about a new blender",
+    scenario: "A kitchen-appliance brand collects about 20,000 written product reviews a month from its web store. The product team wants each review scored as positive, negative, neutral or mixed so they can track reactions to a new blender, and they want a pre-trained API rather than a custom model.",
+    question: "Which AWS service fits this requirement?",
+    options: [
+      { id: 'A', text: "Amazon Lex, asking each reviewer a follow-up rating question" },
+      { id: 'B', text: "Amazon Rekognition, detecting emotions in reviewers' photos" },
+      { id: 'C', text: "Amazon Comprehend, using its built-in sentiment analysis" },
+      { id: 'D', text: "Amazon Polly, reading each review aloud for the product team" }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "Amazon Comprehend is a natural language processing service whose pre-trained sentiment analysis returns positive, negative, neutral or mixed for each piece of text, which matches the requirement without training. Polly converts text to speech and does not analyse meaning. Rekognition can estimate facial expressions in images, but the reviews are text and most have no photo. Lex builds conversational bots; asking follow-up questions would not score the reviews already collected.",
+    referenceUrl: "https://docs.aws.amazon.com/comprehend/latest/dg/how-sentiment.html",
+    tags: ["NLP", "Amazon Comprehend", "Sentiment analysis"]
+  },
+  {
+    id: "aws-aif-56",
+    difficulty: "easy",
+    certId: "aws-aif",
+    domainId: "d1",
+    domainName: "Fundamentals of AI and ML",
+    title: "Live chat between Lisbon agents and Tokyo buyers",
+    scenario: "An e-commerce company's support agents speak Portuguese, but a growing share of chat messages arrive in Japanese, Korean and German. The company wants each message converted into the agent's language as it arrives, and the agent's reply converted back, without hiring more staff.",
+    question: "Which AWS service should handle the conversion?",
+    options: [
+      { id: 'A', text: "Amazon Translate, which performs neural machine translation" },
+      { id: 'B', text: "Amazon Comprehend, which identifies each message's language" },
+      { id: 'C', text: "Amazon Polly, which voices the replies in the buyer's language" },
+      { id: 'D', text: "Amazon Transcribe, which turns each chat message into text" }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Amazon Translate is a neural machine translation service that converts text between languages in real time through an API, which is exactly what two-way chat translation needs. Chat messages are already text, so speech-to-text with Transcribe adds nothing. Comprehend can detect which language a message is in, but it does not translate it. Polly produces speech from text, and the chat channel needs translated text rather than audio.",
+    referenceUrl: "https://docs.aws.amazon.com/translate/latest/dg/what-is.html",
+    tags: ["Machine translation", "Amazon Translate", "NLP"]
+  },
+  {
+    id: "aws-aif-57",
+    difficulty: "easy",
+    certId: "aws-aif",
+    domainId: "d1",
+    domainName: "Fundamentals of AI and ML",
+    title: "News articles for listeners on the move",
+    scenario: "A news publisher wants every article on its site to have a listen button that plays the story in a natural-sounding voice. Articles are published around the clock, so recording human narrators for each one is not practical.",
+    question: "Which AWS service should the publisher use?",
+    options: [
+      { id: 'A', text: "Amazon Transcribe, which turns spoken words into text" },
+      { id: 'B', text: "Amazon Polly, which converts text into lifelike speech" },
+      { id: 'C', text: "Amazon Lex, which runs voice and text chat conversations" },
+      { id: 'D', text: "Amazon Comprehend, which extracts key phrases from text" }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "Amazon Polly is AWS's text-to-speech service, producing natural-sounding audio from text in many voices and languages, so each article can be voiced automatically as it is published. Transcribe does the reverse, converting audio into text. Lex builds conversational interfaces with intents and slots, which is not needed to read an article aloud. Comprehend analyses text for entities, sentiment and key phrases but does not generate audio.",
+    referenceUrl: "https://docs.aws.amazon.com/polly/latest/dg/what-is.html",
+    tags: ["Text-to-speech", "Amazon Polly", "AWS AI services"]
+  },
+  {
+    id: "aws-aif-58",
+    difficulty: "easy",
+    certId: "aws-aif",
+    domainId: "d1",
+    domainName: "Fundamentals of AI and ML",
+    title: "Booking dental appointments by chat or phone",
+    scenario: "A chain of dental clinics wants patients to book, move or cancel appointments by typing in a web chat or speaking on the phone. The bot must recognise what the patient wants and collect details such as clinic, date and time before calling the booking system.",
+    question: "Which AWS service is designed for this?",
+    options: [
+      { id: 'A', text: "Amazon Translate, which converts the booking text for patients" },
+      { id: 'B', text: "Amazon Polly, which speaks the confirmation back to callers" },
+      { id: 'C', text: "Amazon Comprehend, which finds the dates mentioned in messages" },
+      { id: 'D', text: "Amazon Lex, which builds bots with intents and slots to fill" }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Amazon Lex builds conversational interfaces for voice and text: an intent captures what the user wants, such as booking an appointment, and slots collect the required details, such as clinic, date and time, after which the bot can call a backend through AWS Lambda. Polly only converts text to speech and has no conversation logic. Translate changes text between languages but cannot manage a dialogue. Comprehend can extract entities from text, yet it does not prompt for missing information or run a multi-turn conversation.",
+    referenceUrl: "https://docs.aws.amazon.com/lexv2/latest/dg/what-is.html",
+    tags: ["Conversational AI", "Amazon Lex", "Chatbots"]
+  },
+  {
+    id: "aws-aif-59",
+    difficulty: "medium",
+    certId: "aws-aif",
+    domainId: "d1",
+    domainName: "Fundamentals of AI and ML",
+    title: "Pulling company names from partner emails",
+    scenario: "A venture fund receives thousands of plain-text emails from founders and partners each week. Analysts want every email tagged automatically with the organizations, people, locations and monetary amounts it mentions so they can search deal flow, and they would like a managed API that needs no training.",
+    question: "Which service should the fund use?",
+    options: [
+      { id: 'A', text: "Amazon Comprehend, which detects named entities in plain text" },
+      { id: 'B', text: "Amazon Transcribe, which identifies names in audio recordings" },
+      { id: 'C', text: "Amazon Personalize, which learns which emails analysts open" },
+      { id: 'D', text: "Amazon Textract, which extracts text and tables from documents" }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Amazon Comprehend's pre-trained entity recognition finds organizations, people, locations, dates, quantities and other entity types in text through a simple API call. Textract is for extracting text, forms and tables from scanned documents and images; the emails are already plain text and need their meaning analysed, not their characters read. Transcribe works on audio, and while it can identify personal information in transcripts, there is no audio here. Personalize builds recommendations from interaction data and does not tag content.",
+    referenceUrl: "https://docs.aws.amazon.com/comprehend/latest/dg/how-entities.html",
+    tags: ["Named entity recognition", "Amazon Comprehend", "NLP"]
+  },
+  {
+    id: "aws-aif-60",
+    difficulty: "hard",
+    certId: "aws-aif",
+    domainId: "d1",
+    domainName: "Fundamentals of AI and ML",
+    title: "Who said what, with card numbers removed",
+    scenario: "A bank's quality team wants transcripts of recorded customer calls in which each line is attributed to either the agent or the customer. Card numbers and other personal details that customers read out must not appear in the stored transcripts, and the team wants to use managed AWS features rather than write its own processing code.",
+    question: "Which solution meets these requirements?",
+    options: [
+      { id: 'A', text: "Amazon Transcribe with speaker diarization and PII redaction turned on" },
+      { id: 'B', text: "Amazon Comprehend PII detection run directly on each audio recording" },
+      { id: 'C', text: "Amazon Polly with speech marks that label each speaker's lines in audio" },
+      { id: 'D', text: "Amazon Lex with slot obfuscation enabled on the recorded conversations" }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Amazon Transcribe can partition speakers, labelling which speaker said each segment, and can redact personally identifiable information such as card numbers from the transcript, all as configuration options on the transcription job. Comprehend can detect PII, but it works on text, so it cannot process audio directly and would require a separate transcription step plus custom code. Polly speech marks describe timing in speech that Polly itself synthesises; they do not analyse recordings. Lex slot obfuscation hides slot values in Lex's own conversation logs and does not apply to recordings of human agent calls.",
+    referenceUrl: "https://docs.aws.amazon.com/transcribe/latest/dg/pii-redaction.html",
+    tags: ["Amazon Transcribe", "PII redaction", "Speaker diarization"]
+  },
+  {
+    id: "aws-aif-61",
+    difficulty: "medium",
+    certId: "aws-aif",
+    domainId: "d1",
+    domainName: "Fundamentals of AI and ML",
+    title: "A museum audio guide in three languages",
+    scenario: "A museum's curators write exhibit descriptions in English. The museum wants visitors to hear each description on their phones in Spanish or Japanese as well as English, and it wants the audio generated automatically whenever curators update the text.",
+    question: "Which AWS services should the pipeline combine? (Choose two.)",
+    options: [
+      { id: 'A', text: "Amazon Transcribe, to convert the curators' text into Spanish audio" },
+      { id: 'B', text: "Amazon Polly, to synthesize speech from the text in each language" },
+      { id: 'C', text: "Amazon Lex, to hold a spoken English conversation about each exhibit" },
+      { id: 'D', text: "Amazon Comprehend, to detect whether each visitor speaks Japanese" },
+      { id: 'E', text: "Amazon Translate, to convert the English text into Spanish and Japanese" }
+    ],
+    correctAnswers: ['B', 'E'],
+    type: "multiple",
+    explanation: "The pipeline has two steps: translate the English text into Spanish and Japanese with Amazon Translate, then synthesise audio in each language with Amazon Polly, which offers voices for all three languages. Transcribe converts speech into text, the opposite direction, so it cannot produce audio from text. Comprehend detects the language of a piece of text, not of a visitor, and the target languages are already known. Lex builds interactive bots, whereas the guide only needs to play prepared descriptions.",
+    referenceUrl: "https://docs.aws.amazon.com/polly/latest/dg/what-is.html",
+    tags: ["Amazon Translate", "Amazon Polly", "AWS AI services"]
+  },
+  {
+    id: "aws-aif-62",
+    difficulty: "hard",
+    certId: "aws-aif",
+    domainId: "d1",
+    domainName: "Fundamentals of AI and ML",
+    title: "Episode transcripts tagged with guests and companies",
+    scenario: "A podcast network wants each new episode published with a full transcript and a list of the people, companies and places discussed, generated automatically from the audio file. The network has no data scientists and wants only pre-trained AWS services, with no custom models.",
+    question: "Which services should the network combine? (Choose two.)",
+    options: [
+      { id: 'A', text: "Amazon Textract, to read the spoken words out of each episode file" },
+      { id: 'B', text: "Amazon Comprehend, to detect the entities named in each transcript" },
+      { id: 'C', text: "Amazon Polly, to generate a transcript as it narrates each episode" },
+      { id: 'D', text: "Amazon Lex, to extract the guests' names as slots from each episode" },
+      { id: 'E', text: "Amazon Transcribe, to produce a text transcript from each episode" }
+    ],
+    correctAnswers: ['B', 'E'],
+    type: "multiple",
+    explanation: "Transcribe turns the episode audio into a transcript, and Comprehend's entity recognition then finds people, organizations and locations in that text; chaining speech recognition with NLP is the standard pattern. Textract extracts text from documents and images, not audio. Polly synthesises speech from text and produces no transcript of existing recordings. Lex slots capture values in a live bot conversation with a user; Lex does not analyse recorded episodes.",
+    referenceUrl: "https://docs.aws.amazon.com/comprehend/latest/dg/how-entities.html",
+    tags: ["Amazon Transcribe", "Amazon Comprehend", "Speech recognition"]
+  },
+  {
+    id: "aws-aif-63",
+    difficulty: "medium",
+    certId: "aws-aif",
+    domainId: "d1",
+    domainName: "Fundamentals of AI and ML",
+    title: "Predicting turbine faults from proprietary telemetry",
+    scenario: "An energy company wants to predict gearbox failures from its own turbine telemetry, a combination of vibration, temperature and maintenance fields that no off-the-shelf AI service understands. It has an in-house data science team and wants one managed environment to prepare data, train, tune and deploy its own model.",
+    question: "Which AWS service fits best?",
+    options: [
+      { id: 'A', text: "Amazon SageMaker, to build, train and deploy the custom model" },
+      { id: 'B', text: "Amazon Personalize, to deploy a ranking of turbines likely to fail" },
+      { id: 'C', text: "Amazon Comprehend, to train a classifier on the telemetry fields" },
+      { id: 'D', text: "Amazon Rekognition, to detect fault patterns in charted data" }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Amazon SageMaker is AWS's fully managed platform for the whole ML lifecycle, including data preparation, training, hyperparameter tuning, deployment and monitoring, and it suits a data science team building a custom model on proprietary data. Comprehend's classifiers work on text, not numeric sensor streams. Converting telemetry into chart images for Rekognition would discard information and misuse a vision service. Personalize ranks items for users from interaction data, which does not describe failure prediction from sensor readings.",
+    referenceUrl: "https://docs.aws.amazon.com/sagemaker/latest/dg/whatis.html",
+    tags: ["Amazon SageMaker", "Custom models", "AWS AI services"]
+  },
+  {
+    id: "aws-aif-64",
+    difficulty: "medium",
+    certId: "aws-aif",
+    domainId: "d1",
+    domainName: "Fundamentals of AI and ML",
+    title: "Sentiment scores by Friday with no ML staff",
+    scenario: "A mid-sized retailer's marketing team, with no data scientists, needs sentiment scores for customer survey comments in time for a board meeting on Friday. A contractor proposes collecting labeled comments, training a custom model in SageMaker and hosting it on an endpoint.",
+    question: "What should the team do instead?",
+    options: [
+      { id: 'A', text: "Train the custom model in SageMaker but on a smaller labeled set" },
+      { id: 'B', text: "Call a pre-trained AI service such as Amazon Comprehend directly" },
+      { id: 'C', text: "Cluster the comments with k-means and call the biggest one positive" },
+      { id: 'D', text: "Train a reinforcement learning agent that rewards positive scores" }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "AWS AI services such as Amazon Comprehend expose pre-trained models through an API, so a team without ML expertise can get sentiment scores within hours, with no data labeling, training or endpoint management. A custom SageMaker model makes sense when no pre-trained service fits, and shrinking the labeled set still leaves the work of building and hosting a model. Reinforcement learning does not apply to scoring existing text. Clustering finds groups, but cluster size says nothing about whether comments are positive.",
+    referenceUrl: "https://docs.aws.amazon.com/comprehend/latest/dg/what-is.html",
+    tags: ["AI services vs SageMaker", "Amazon Comprehend", "Time to value"]
+  },
+  {
+    id: "aws-aif-65",
+    difficulty: "easy",
+    certId: "aws-aif",
+    domainId: "d1",
+    domainName: "Fundamentals of AI and ML",
+    title: "Histograms and missing values before any model",
+    scenario: "A data scientist has just received a new table of 1.2 million insurance claims. Before building anything, she plots the distribution of each column, counts missing values, looks for extreme outliers and checks which columns are correlated with the claim amount.",
+    question: "Which stage of the ML pipeline is she performing?",
+    options: [
+      { id: 'A', text: "Hyperparameter tuning, since she is testing the columns" },
+      { id: 'B', text: "Model evaluation, since she is measuring the data's accuracy" },
+      { id: 'C', text: "Exploratory data analysis, to understand the data first" },
+      { id: 'D', text: "Deployment, since the claims data is now live in her tools" }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "Exploratory data analysis examines a dataset's distributions, missing values, outliers and correlations to understand it before any preprocessing or modeling decisions are made. Evaluation measures a trained model's performance, and no model exists yet. Hyperparameter tuning searches for the best training settings for a model. Deployment makes a trained model available for inference, which is at the other end of the pipeline.",
+    referenceUrl: "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/data-processing.html",
+    tags: ["EDA", "ML pipeline", "ML lifecycle"]
+  },
+  {
+    id: "aws-aif-66",
+    difficulty: "medium",
+    certId: "aws-aif",
+    domainId: "d1",
+    domainName: "Fundamentals of AI and ML",
+    title: "Blank ages and duplicate customers",
+    scenario: "While preparing a churn dataset, an analyst finds that 8% of rows have a blank age, some customers appear twice because of a CRM migration, and income ranges from 0 to several million while tenure ranges from 0 to 30. She fills the blanks, removes the duplicates and rescales the numeric columns to a common range.",
+    question: "Which pipeline stage do these steps belong to?",
+    options: [
+      { id: 'A', text: "Model monitoring, which watches production data for changes" },
+      { id: 'B', text: "Data collection, which gathers the raw records from the source" },
+      { id: 'C', text: "Data preprocessing, which cleans and transforms the raw data" },
+      { id: 'D', text: "Model evaluation, which checks the scores on held-out records" }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "Data preprocessing prepares raw data for training: imputing missing values, removing duplicates, correcting errors and scaling or normalising numeric ranges. Monitoring happens after deployment and compares live data and predictions with a baseline. Evaluation assesses a trained model on test data. Collection gathers the data in the first place; the analyst already has it and is cleaning it.",
+    referenceUrl: "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/data-processing.html",
+    tags: ["Data preprocessing", "ML pipeline", "Data quality"]
+  },
+  {
+    id: "aws-aif-67",
+    difficulty: "medium",
+    certId: "aws-aif",
+    domainId: "d1",
+    domainName: "Fundamentals of AI and ML",
+    title: "Turning raw timestamps into signals",
+    scenario: "A subscription company's raw data has one row per customer login with a timestamp. The data scientist creates new columns such as days since last login, logins in the past 30 days and whether logins fall mostly on weekends, because these capture engagement far better than raw timestamps.",
+    question: "What is this step called?",
+    options: [
+      { id: 'A', text: "Feature engineering, which derives informative inputs" },
+      { id: 'B', text: "Hyperparameter tuning, which picks the best model settings" },
+      { id: 'C', text: "Exploratory data analysis, which plots the raw login data" },
+      { id: 'D', text: "Data labeling, which attaches outcome tags to raw records" }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Feature engineering uses domain knowledge to create, transform or select input variables that make patterns easier for a model to learn, such as recency and frequency derived from raw login timestamps; SageMaker Feature Store can then store and share these features. Labeling attaches target outcomes, such as churned or not, rather than creating inputs. Hyperparameter tuning adjusts training settings, not columns. EDA explores data to understand it, but building new predictive columns is a distinct step.",
+    referenceUrl: "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/feature-engineering.html",
+    tags: ["Feature engineering", "ML pipeline", "Features"]
+  },
+  {
+    id: "aws-aif-68",
+    difficulty: "medium",
+    certId: "aws-aif",
+    domainId: "d1",
+    domainName: "Fundamentals of AI and ML",
+    title: "Searching for the best learning rate and tree depth",
+    scenario: "A team's XGBoost model performs noticeably better with some combinations of learning rate, maximum tree depth and number of rounds than others. Trying combinations by hand is taking days, and the team wants SageMaker to run many training jobs and find the best-performing settings automatically.",
+    question: "Which pipeline stage and SageMaker capability fit this need?",
+    options: [
+      { id: 'A', text: "Model monitoring with SageMaker Model Monitor baseline jobs" },
+      { id: 'B', text: "Data labeling with SageMaker Ground Truth workforce tasks" },
+      { id: 'C', text: "Hyperparameter tuning with SageMaker automatic model tuning" },
+      { id: 'D', text: "Feature engineering with SageMaker Feature Store feature groups" }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "Learning rate, tree depth and number of rounds are hyperparameters, settings chosen before training. SageMaker automatic model tuning runs many training jobs across the ranges you define, using strategies such as Bayesian optimisation, and selects the combination that best optimises the chosen objective metric. Feature Store stores and serves engineered features rather than training settings. Model Monitor watches deployed models for drift. Ground Truth manages labeling of training data.",
+    referenceUrl: "https://docs.aws.amazon.com/sagemaker/latest/dg/automatic-model-tuning.html",
+    tags: ["Hyperparameter tuning", "SageMaker", "ML pipeline"]
+  },
+  {
+    id: "aws-aif-69",
+    difficulty: "hard",
+    certId: "aws-aif",
+    domainId: "d1",
+    domainName: "Fundamentals of AI and ML",
+    title: "Putting a new team's pipeline steps in order",
+    scenario: "A newly formed ML team has written the stages of its first project on sticky notes: deployment, exploratory data analysis, model training, data collection, evaluation, feature engineering, hyperparameter tuning, monitoring and data preprocessing. The lead wants them arranged in the order a typical ML pipeline follows.",
+    question: "Which sequence is correct?",
+    options: [
+      { id: 'A', text: "Collection, EDA, preprocessing, feature engineering, training, tuning, evaluation, deployment, monitoring" },
+      { id: 'B', text: "Collection, EDA, feature engineering, training, deployment, evaluation, preprocessing, tuning, monitoring" },
+      { id: 'C', text: "Collection, preprocessing, training, EDA, feature engineering, evaluation, tuning, monitoring, deployment" },
+      { id: 'D', text: "EDA, collection, feature engineering, preprocessing, tuning, training, deployment, evaluation, monitoring" }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Data must be collected before it can be explored; EDA then informs how to clean and transform it in preprocessing; feature engineering builds on clean data; the model is trained and its hyperparameters tuned; the result is evaluated against held-out data before deployment; and monitoring follows deployment, feeding back into retraining. Running EDA after training skips understanding the data before modeling and puts monitoring before deployment. Exploring data before collecting it is impossible, and evaluating after deployment exposes users to an unvalidated model. Preprocessing after deployment reverses the dependency between clean data and training.",
+    referenceUrl: "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/model-development.html",
+    tags: ["ML pipeline", "ML lifecycle", "Process order"]
+  },
+  {
+    id: "aws-aif-70",
+    difficulty: "medium",
+    certId: "aws-aif",
+    domainId: "d1",
+    domainName: "Fundamentals of AI and ML",
+    title: "Proving the model is good enough to ship",
+    scenario: "A lender's risk team has trained and tuned a default-prediction model. Policy says no model can go live until it has been shown to meet an agreed performance threshold on loans it has never seen, and the results have been reviewed by a model-risk committee.",
+    question: "Which pipeline stage must happen next?",
+    options: [
+      { id: 'A', text: "Deployment, releasing the model to a small group of borrowers" },
+      { id: 'B', text: "Monitoring, tracking live predictions against real defaults" },
+      { id: 'C', text: "Feature engineering, adding columns until the threshold is met" },
+      { id: 'D', text: "Evaluation, scoring the model on a held-out test dataset" }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Evaluation measures a trained model's performance with appropriate metrics on held-out data it did not see during training or tuning, producing the evidence the committee reviews before any release. Monitoring applies to a model already in production, which policy forbids until evaluation passes. Adding features restarts development rather than proving the current model. Releasing even to a small group is deployment, which the policy explicitly says must wait.",
+    referenceUrl: "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/model-evaluation.html",
+    tags: ["Model evaluation", "ML pipeline", "Governance"]
+  },
+  {
+    id: "aws-aif-71",
+    difficulty: "easy",
+    certId: "aws-aif",
+    domainId: "d1",
+    domainName: "Fundamentals of AI and ML",
+    title: "A delivery model for a city with no history",
+    scenario: "A food-delivery company wants to predict delivery times in a city it launched in last week. Its existing model was built on data from other countries with different road networks, and it has almost no trips recorded in the new city yet.",
+    question: "Which pipeline stage is the most pressing gap?",
+    options: [
+      { id: 'A', text: "Model monitoring of the old model's predictions elsewhere" },
+      { id: 'B', text: "Data collection of representative trips from the new city" },
+      { id: 'C', text: "Model deployment to more servers in the new city's region" },
+      { id: 'D', text: "Hyperparameter tuning of the existing model on its old trips" }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "Every pipeline starts with data collection, and a model can learn only the patterns present in its data. Without representative trips from the new city, no amount of tuning will teach the model its roads and traffic. Deploying to more servers affects serving capacity, not what the model knows. Tuning adjusts training settings on the same unrepresentative data. Monitoring predictions in other countries says nothing about performance in the new city.",
+    referenceUrl: "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/data-collection.html",
+    tags: ["Data collection", "ML pipeline", "Representative data"]
+  },
+  {
+    id: "aws-aif-72",
+    difficulty: "medium",
+    certId: "aws-aif",
+    domainId: "d1",
+    domainName: "Fundamentals of AI and ML",
+    title: "Eight hundred labeled photos of rare birds",
+    scenario: "A conservation charity wants an image classifier for 20 rare bird species, but it has only about 800 labeled photos. Its first attempt, a network trained from random initial weights, performed poorly. A volunteer suggests a different starting point available in SageMaker JumpStart.",
+    question: "What approach should the charity take?",
+    options: [
+      { id: 'A', text: "Cluster the photos into 20 groups and name each group a species" },
+      { id: 'B', text: "Train a larger network from scratch on the same 800 photos" },
+      { id: 'C', text: "Use Amazon Polly to describe each photo and classify the audio" },
+      { id: 'D', text: "Fine-tune a pre-trained open-source vision model on the photos" }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "A model pre-trained on millions of general images has already learned edges, textures and shapes, so fine-tuning it on 800 labeled photos, known as transfer learning, typically performs far better than training from scratch; SageMaker JumpStart provides pre-trained open-source vision models that can be fine-tuned this way. A larger network trained from scratch on so little data would overfit even more. Clustering ignores the labels and will not reliably separate similar species. Polly converts text to speech and cannot describe or classify images.",
+    referenceUrl: "https://docs.aws.amazon.com/sagemaker/latest/dg/studio-jumpstart.html",
+    tags: ["Pre-trained models", "Transfer learning", "SageMaker JumpStart"]
+  },
+  {
+    id: "aws-aif-73",
+    difficulty: "hard",
+    certId: "aws-aif",
+    domainId: "d1",
+    domainName: "Fundamentals of AI and ML",
+    title: "A novel sensor that no public model has seen",
+    scenario: "A medical-device maker has developed a new type of sensor that records a proprietary signal format. It has collected 3 million expert-labeled recordings, no public or pre-trained model has ever been trained on similar data, and the signal is a core competitive advantage that must not leave its AWS account.",
+    question: "Which model source is most appropriate?",
+    options: [
+      { id: 'A', text: "Call Amazon Comprehend after converting each signal into a text string" },
+      { id: 'B', text: "Train a custom model on the company's own labeled data in SageMaker" },
+      { id: 'C', text: "Use Amazon Rekognition, since the sensor output can be plotted as images" },
+      { id: 'D', text: "Fine-tune a public speech model, since both signals are sampled over time" }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "Training a custom model is justified when the data is unique, no suitable pre-trained model exists, and the organisation has a large labeled dataset and the expertise to use it, all true here, and training in SageMaker keeps the data inside the company's account. Plotting signals as images for Rekognition's general-purpose labels would not recognise medical patterns in a novel format. A speech model's learned features are tuned to human voice and may transfer poorly to an unrelated signal, especially with 3 million labeled examples available. Turning signals into text strings for an NLP service discards the structure of the data.",
+    referenceUrl: "https://docs.aws.amazon.com/sagemaker/latest/dg/how-it-works-training.html",
+    tags: ["Custom models", "Model sources", "SageMaker"]
+  },
+  {
+    id: "aws-aif-74",
+    difficulty: "medium",
+    certId: "aws-aif",
+    domainId: "d1",
+    domainName: "Fundamentals of AI and ML",
+    title: "Starting from a pre-trained text model",
+    scenario: "A legal-tech startup plans to classify contract clauses. Its CTO proposes starting from an open-source pre-trained language model and fine-tuning it, rather than training a model from scratch, and asks the team to list the real benefits for the board.",
+    question: "Which benefits should the team list? (Choose two.)",
+    options: [
+      { id: 'A', text: "It removes any need to review the license before starting to use it" },
+      { id: 'B', text: "It guarantees the model is free of bias learned from its source data" },
+      { id: 'C', text: "It needs far less labeled training data than building a new model" },
+      { id: 'D', text: "It cuts development time and compute because pre-training is done" },
+      { id: 'E', text: "It means the fine-tuned model needs no evaluation before deployment" }
+    ],
+    correctAnswers: ['C', 'D'],
+    type: "multiple",
+    explanation: "A pre-trained model already encodes general language knowledge, so fine-tuning needs far fewer labeled examples and much less time and compute than training from scratch, where the expensive pre-training stage would have to be repeated. Open-source licenses vary, and some restrict commercial use, so they must be reviewed. Pre-trained models can carry biases from their training data, which is a reason to test them, not a guarantee against bias. Any fine-tuned model still needs evaluation on held-out data before deployment.",
+    referenceUrl: "https://docs.aws.amazon.com/sagemaker/latest/dg/jumpstart-fine-tune.html",
+    tags: ["Pre-trained models", "Open source", "Model sources"]
+  },
+  {
+    id: "aws-aif-75",
+    difficulty: "easy",
+    certId: "aws-aif",
+    domainId: "d1",
+    domainName: "Fundamentals of AI and ML",
+    title: "Counting people in shop-floor photos",
+    scenario: "A small chain of bookshops wants to know how many people appear in photos taken hourly by a ceiling camera in each shop, so it can compare busy periods. It has no ML staff, no labeled images and a small budget.",
+    question: "Which approach is most suitable?",
+    options: [
+      { id: 'A', text: "Collect and label thousands of photos to train a custom detector" },
+      { id: 'B', text: "Use Amazon Transcribe to count voices recorded near the tills" },
+      { id: 'C', text: "Call Amazon Rekognition's pre-trained detection on each photo" },
+      { id: 'D', text: "Use Amazon Comprehend to count the people in photo descriptions" }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "Amazon Rekognition offers pre-trained computer vision that detects and locates people in images through an API call, with no labeling, training or ML expertise required. A custom detector needs labeled data, skills and budget the chain does not have, for a problem a pre-trained service already solves. Counting voices with Transcribe is unreliable and is not what speech recognition is for. Comprehend analyses text, and nobody is writing descriptions of the photos.",
+    referenceUrl: "https://docs.aws.amazon.com/rekognition/latest/dg/labels.html",
+    tags: ["Pre-trained models", "Amazon Rekognition", "Computer vision"]
+  }
+];
+
+export default AWS_AIF_QUESTIONS_3;

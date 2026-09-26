@@ -1,0 +1,532 @@
+export const AWS_AIF_QUESTIONS_17 = [
+  {
+    id: "aws-aif-401",
+    difficulty: "easy",
+    certId: "aws-aif",
+    domainId: "d4",
+    domainName: "Guidelines for Responsible AI",
+    title: "One record of purpose, risk, and test results",
+    scenario: "A pharmaceutical company trains several models on SageMaker to predict clinical trial enrollment. Internal auditors ask for a single, consistent document per model that states its intended uses, its risk rating, how it was trained, and its evaluation results. The data science team wants to produce these records inside SageMaker.",
+    question: "Which SageMaker feature should the team use?",
+    options: [
+      { id: 'A', text: "SageMaker Feature Store, with an offline store holding the feature groups used for training." },
+      { id: 'B', text: "SageMaker Model Cards, filled in for each model and kept up to date as versions change." },
+      { id: 'C', text: "SageMaker Debugger, with training reports generated automatically at the end of each job." },
+      { id: 'D', text: "SageMaker Experiments, with each training run's parameters and metrics tracked in a list." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "SageMaker Model Cards are the purpose-built way to document a model's intended uses, risk rating, training details, and evaluation results in one place for governance and audit. Experiments tracks runs and metrics but not intended uses or risk ratings. Feature Store manages features, not model documentation. Debugger reports describe training behavior, not purpose or risk.",
+    referenceUrl: "https://docs.aws.amazon.com/sagemaker/latest/dg/model-cards.html",
+    tags: ["SageMaker Model Cards", "Documentation"]
+  },
+  {
+    id: "aws-aif-402",
+    difficulty: "easy",
+    certId: "aws-aif",
+    domainId: "d4",
+    domainName: "Guidelines for Responsible AI",
+    title: "What an AWS managed vision service is designed for",
+    scenario: "A city council is evaluating Amazon Rekognition for a proposed public-facing application and must publish a statement about the service's intended uses, known limitations, and the responsible deployment practices AWS recommends. The council's analyst wants AWS-authored documentation rather than third-party blog posts.",
+    question: "Which resource should the analyst use?",
+    options: [
+      { id: 'A', text: "The AWS AI Service Card for the relevant Rekognition capability, which covers intended uses, limitations, and design choices." },
+      { id: 'B', text: "The Amazon Rekognition API reference, which lists every operation, its limitations, and each request parameter the service supports." },
+      { id: 'C', text: "A SageMaker model card that the council writes itself to record the Rekognition model's intended architecture and training dataset." },
+      { id: 'D', text: "The AWS Artifact portal, which provides AWS SOC and ISO audit reports that cover the Rekognition service and its infrastructure." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "AWS AI Service Cards are AWS's transparency documentation for its AI services, describing intended use cases, limitations, design choices, and deployment best practices. The API reference documents operations, not responsible use. AWS Artifact supplies compliance reports about security controls, not intended uses or limitations. The council cannot author a model card describing a managed service's internal architecture and training data, which AWS does not expose.",
+    referenceUrl: "https://aws.amazon.com/ai/responsible-ai/resources/",
+    tags: ["AI Service Cards", "Transparency"]
+  },
+  {
+    id: "aws-aif-403",
+    difficulty: "medium",
+    certId: "aws-aif",
+    domainId: "d4",
+    domainName: "Guidelines for Responsible AI",
+    title: "A sign-off step for documented high-risk models",
+    scenario: "A bank's model risk team requires every model's documentation to go through review, with high-risk models flagged clearly, before the model can be used in production. Once approved, the documentation should be treated as the governed record. The bank documents its models with SageMaker Model Cards.",
+    question: "How should the team use Model Cards to support this process?",
+    options: [
+      { id: 'A', text: "Store each card as a tag on the model's S3 artifact and ask reviewers to confirm approval by updating the tag's value." },
+      { id: 'B', text: "Enable SageMaker Model Monitor on each endpoint so that a card is created automatically when the model goes into production." },
+      { id: 'C', text: "Record the risk rating as a hyperparameter in each training job so that it is visible in the SageMaker Experiments list." },
+      { id: 'D', text: "Set each card's risk rating and move it through the Draft, Pending review, and Approved statuses as reviewers sign off." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Model Cards include a risk rating field (unknown, low, medium, or high) and an approval status that moves from Draft through Pending review to Approved, which supports a documented sign-off workflow. Tags on an S3 artifact are not a governed documentation record. A hyperparameter does not describe risk and is not an approval mechanism. Model Monitor watches endpoint data and does not create model cards.",
+    referenceUrl: "https://docs.aws.amazon.com/sagemaker/latest/dg/model-cards.html",
+    tags: ["SageMaker Model Cards", "Risk rating", "Governance"]
+  },
+  {
+    id: "aws-aif-404",
+    difficulty: "easy",
+    certId: "aws-aif",
+    domainId: "d4",
+    domainName: "Guidelines for Responsible AI",
+    title: "Handing model documentation to an outside auditor",
+    scenario: "An insurer keeps SageMaker Model Cards for all of its pricing models. An external auditor who has no AWS account needs a copy of the card for one model, including its intended uses and evaluation results, to attach to the audit file.",
+    question: "What is the simplest way to provide the documentation?",
+    options: [
+      { id: 'A', text: "Share the SageMaker Studio domain with the auditor so they can browse the notebooks that trained the model." },
+      { id: 'B', text: "Create an IAM user for the auditor with SageMaker read access so they can open the card in the console." },
+      { id: 'C', text: "Export the model card as a PDF and share the file with the auditor through the insurer's normal channels." },
+      { id: 'D', text: "Copy the training job's CloudWatch log file to a shared S3 bucket and send the auditor a presigned URL." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "SageMaker Model Cards can be exported to PDF, which gives an auditor without AWS access a complete copy of the card. Creating an IAM user for an outside party adds access management and exposure that is unnecessary for a single document. Training logs are not the model's documentation and do not contain intended uses. Sharing a Studio domain exposes far more than required and still is not a document for the audit file.",
+    referenceUrl: "https://docs.aws.amazon.com/sagemaker/latest/dg/model-cards.html",
+    tags: ["SageMaker Model Cards", "Audit"]
+  },
+  {
+    id: "aws-aif-405",
+    difficulty: "medium",
+    certId: "aws-aif",
+    domainId: "d4",
+    domainName: "Guidelines for Responsible AI",
+    title: "Keeping documentation attached to each model version",
+    scenario: "A retailer registers every approved demand model version in SageMaker Model Registry. Reviewers have complained that documentation sometimes describes an older version than the one deployed. The team wants each registered version to carry its own documentation of purpose, training data, and evaluation.",
+    question: "What should the team do?",
+    options: [
+      { id: 'A', text: "Add the evaluation metrics to the endpoint's name so that reviewers can read them from the list of deployed endpoints." },
+      { id: 'B', text: "Write one wiki page per model family and update it by hand whenever a new model package version is registered." },
+      { id: 'C', text: "Register each version in SageMaker Feature Store so that the feature definitions document what each version was trained on." },
+      { id: 'D', text: "Create a model card for each registered model package version so the documentation is tied to that specific version." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Model cards can be created for model package versions in Model Registry, so each version carries documentation that matches it and reviewers can see exactly what was approved. A single wiki page per family is what drifts out of date today. Endpoint names cannot hold meaningful documentation. Feature Store stores features, not model versions or their evaluation results.",
+    referenceUrl: "https://docs.aws.amazon.com/sagemaker/latest/dg/model-registry.html",
+    tags: ["Model Registry", "SageMaker Model Cards", "Versioning"]
+  },
+  {
+    id: "aws-aif-406",
+    difficulty: "medium",
+    certId: "aws-aif",
+    domainId: "d4",
+    domainName: "Guidelines for Responsible AI",
+    title: "Shortlisting an open-weight model for a public agency",
+    scenario: "A public broadcaster wants to self-host an open-weight language model from SageMaker JumpStart for subtitle drafting. Its policy requires that it can explain to the public what the model was trained on and that its use is permitted for a commercial-style service that it may modify.",
+    question: "Which two factors should weigh most in shortlisting candidate models? (Choose two.)",
+    options: [
+      { id: 'A', text: "Availability only through a closed third-party API, so that the provider carries the responsibility for its behavior." },
+      { id: 'B', text: "The largest parameter count in the catalog, because the broadcaster's drafting quality generally improves with size." },
+      { id: 'C', text: "A license whose terms permit the broadcaster's intended commercial use and its modification of the model weights." },
+      { id: 'D', text: "The highest position on a public leaderboard for general knowledge, regardless of what the model was trained on." },
+      { id: 'E', text: "Published documentation, such as a model card, describing the model's training data sources and known limitations." }
+    ],
+    correctAnswers: ['C', 'E'],
+    type: "multiple",
+    explanation: "Transparency about training data comes from published documentation such as the provider's model card, and the license determines whether commercial use and modification are allowed; both are explicit policy requirements. Parameter count and leaderboard rank measure capability, not transparency or permitted use. A closed API model contradicts the self-hosting plan and does not shift the broadcaster's accountability for explaining its tools.",
+    referenceUrl: "https://docs.aws.amazon.com/sagemaker/latest/dg/jumpstart-foundation-models.html",
+    tags: ["Open-weight models", "Licensing", "Model selection"]
+  },
+  {
+    id: "aws-aif-407",
+    difficulty: "easy",
+    certId: "aws-aif",
+    domainId: "d4",
+    domainName: "Guidelines for Responsible AI",
+    title: "A research-only license on a promising model",
+    scenario: "A startup found an open-weight image generation model that performs well in its tests and plans to use it in a paid design product. A developer notices the model's license says the weights are provided for non-commercial research purposes only.",
+    question: "What should the startup do before launching?",
+    options: [
+      { id: 'A', text: "Choose a model whose license permits commercial use, or obtain a commercial license from the rights holder." },
+      { id: 'B', text: "Fine-tune the model on the startup's own images, because a fine-tuned model is no longer bound by the license." },
+      { id: 'C', text: "Launch as planned, because downloading open weights from a public hub grants permission for any purpose." },
+      { id: 'D', text: "Host the model in a private VPC, because the license terms apply only to models that are exposed to the internet." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Model licenses are legally binding terms; a non-commercial research license does not permit a paid product, so the startup must pick a commercially licensed model or negotiate a license. Public availability of weights does not grant unrestricted rights. Fine-tuning creates a derivative that typically remains bound by the original license. Where the model is hosted does not change what the license allows.",
+    referenceUrl: "https://docs.aws.amazon.com/sagemaker/latest/dg/jumpstart-foundation-models.html",
+    tags: ["Licensing", "Legal risk", "Open-weight models"]
+  },
+  {
+    id: "aws-aif-408",
+    difficulty: "medium",
+    certId: "aws-aif",
+    domainId: "d4",
+    domainName: "Guidelines for Responsible AI",
+    title: "A training corpus with unclear rights",
+    scenario: "A publishing group wants to fine-tune a model on a corpus of 40,000 articles bought from a data broker. The broker's contract is silent on machine learning use, and some articles were originally licensed from freelance writers. The responsible AI board must approve the dataset before training.",
+    question: "What should the board require?",
+    options: [
+      { id: 'A', text: "Deduplication of the corpus so that no article appears twice, since repeated text is the main source of copyright risk." },
+      { id: 'B', text: "A SageMaker Clarify pre-training bias report on the dataset, since balanced data removes any intellectual property risk." },
+      { id: 'C', text: "Confirmation of the dataset's provenance and licensing terms, including rights for model training, before approving it." },
+      { id: 'D', text: "Encryption of the corpus with a customer managed AWS KMS key, since encrypted data can be used without licensing review." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "Transparency about data includes knowing where it came from and what rights attach to it; unclear training rights create intellectual property infringement risk, so provenance and licensing must be confirmed first. A bias report addresses fairness, not rights to use content. Encryption protects confidentiality but grants no license. Deduplication improves data quality but does not resolve whether the articles may be used for training.",
+    referenceUrl: "https://aws.amazon.com/ai/responsible-ai/",
+    tags: ["Data licensing", "Provenance", "Legal risk"]
+  },
+  {
+    id: "aws-aif-409",
+    difficulty: "hard",
+    certId: "aws-aif",
+    domainId: "d4",
+    domainName: "Guidelines for Responsible AI",
+    title: "Open weights but a secret dataset",
+    scenario: "A government technology office favors open source models because it wants maximum transparency. A candidate model publishes its weights and architecture under a permissive license, but its provider discloses nothing about the training data beyond calling it a large web crawl. The office asks how transparent this model really is.",
+    question: "Which assessment is most accurate?",
+    options: [
+      { id: 'A', text: "It is not transparent at all, because a model can only be transparent if it is a linear model with readable coefficients." },
+      { id: 'B', text: "It is fully transparent, because anyone can download the open weights and inspect every parameter the model uses in each layer." },
+      { id: 'C', text: "It offers partial transparency: weights and license are open, but undisclosed training data limits assessment of bias and rights." },
+      { id: 'D', text: "It is fully transparent, because a permissive license obliges the provider to answer any question about the training data." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "Open weights and a permissive license are real transparency gains, allowing inspection, self-hosting, and modification, but without documentation of training data the office cannot assess likely biases, data quality, or whether copyrighted or personal data was used. Inspecting billions of parameters does not reveal what the model learned from. Interpretability of the model's logic is a separate question from openness of weights and data, so the model is not transparent in zero ways. A license grants usage rights and imposes no duty to disclose data.",
+    referenceUrl: "https://docs.aws.amazon.com/sagemaker/latest/dg/jumpstart-foundation-models.html",
+    tags: ["Open source models", "Transparency", "Training data"]
+  },
+  {
+    id: "aws-aif-410",
+    difficulty: "easy",
+    certId: "aws-aif",
+    domainId: "d4",
+    domainName: "Guidelines for Responsible AI",
+    title: "More accurate but harder to explain",
+    scenario: "A utility company tested two models for predicting equipment failures. A shallow decision tree reaches 81 percent recall and its rules can be printed on one page; a deep neural network reaches 89 percent recall but its reasoning cannot be read directly. Engineers ask what general principle this illustrates.",
+    question: "Which principle does this comparison illustrate?",
+    options: [
+      { id: 'A', text: "Model performance depends only on the dataset, so both models would score the same on a larger test set." },
+      { id: 'B', text: "Interpretability and performance always increase together, so the tree should be expanded to reach 89 percent." },
+      { id: 'C', text: "There is often a tradeoff between interpretability and performance, with more complex models harder to explain." },
+      { id: 'D', text: "Simpler models are always more accurate, so the neural network's higher recall must come from a test set error." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "The comparison shows the common interpretability versus performance tradeoff: complex models such as deep networks can capture more patterns but are harder to explain, while simple models are transparent but may be less accurate. Simpler models are not always more accurate. Expanding a tree tends to reduce its interpretability, so the two properties do not rise together. Model choice clearly affects performance; different algorithms learn different patterns from the same data.",
+    referenceUrl: "https://docs.aws.amazon.com/whitepapers/latest/model-explainability-aws-ai-ml/model-explainability-aws-ai-ml.html",
+    tags: ["Interpretability", "Performance", "Tradeoffs"]
+  },
+  {
+    id: "aws-aif-411",
+    difficulty: "medium",
+    certId: "aws-aif",
+    domainId: "d4",
+    domainName: "Guidelines for Responsible AI",
+    title: "Where to accept a black box and where not to",
+    scenario: "A retail bank runs two models: one ranks which promotional banner to show in its mobile app, and another decides whether to freeze a customer's account for suspected fraud. Both could use either a gradient boosted ensemble or a simple scorecard. The bank's AI policy asks teams to justify the explainability level of each model.",
+    question: "Which approach best reflects the interpretability-performance tradeoff?",
+    options: [
+      { id: 'A', text: "Use the simple scorecard for both models, because every model at the bank needs equal explainability." },
+      { id: 'B', text: "Use the ensemble for the banner ranking and require strong explainability for the account freeze decision." },
+      { id: 'C', text: "Use the scorecard for the banner ranking and the ensemble without explanations for the account freeze decision." },
+      { id: 'D', text: "Use the ensemble for both models, because higher performance always outweighs the need for any explanations." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "The right balance depends on impact: a banner ranking is low stakes, so optimizing performance with a black box is reasonable, while freezing an account seriously affects a customer and needs an interpretable model or robust explanations. Forcing the scorecard everywhere sacrifices performance where explainability matters little. Using the ensemble everywhere without explanations ignores the high-stakes decision. The last pairing inverts the priorities.",
+    referenceUrl: "https://docs.aws.amazon.com/whitepapers/latest/model-explainability-aws-ai-ml/model-explainability-aws-ai-ml.html",
+    tags: ["Tradeoffs", "Risk-based design", "Explainability"]
+  },
+  {
+    id: "aws-aif-412",
+    difficulty: "medium",
+    certId: "aws-aif",
+    domainId: "d4",
+    domainName: "Guidelines for Responsible AI",
+    title: "How much to reveal about a chatbot's safeguards",
+    scenario: "A telecom plans to publish a transparency page for its customer service assistant built on Amazon Bedrock. A draft includes the full system prompt, the list of denied topics, and the exact word filters configured in its guardrail. The security team objects to parts of the draft.",
+    question: "What is the best way to balance transparency and safety?",
+    options: [
+      { id: 'A', text: "Publish the system prompt and filter lists but remove the assistant's purpose and limitations to keep the page short." },
+      { id: 'B', text: "Publish nothing about the assistant, because any disclosure at all about an AI system increases the exact risk of attacks against it." },
+      { id: 'C', text: "Publish the full draft, because complete disclosure of every safeguard is required for an assistant to count as transparent." },
+      { id: 'D', text: "Describe the assistant's purpose, limitations, and the kinds of content it declines, but omit the exact prompts and filter lists." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Transparency and safety can conflict: exact system prompts and filter lists help attackers craft jailbreaks and prompt injections. Explaining purpose, limitations, and categories of declined content informs users without handing over a bypass guide. Full disclosure maximizes attack surface. Publishing nothing fails users and transparency expectations. Keeping the bypass-enabling details while dropping the user-relevant information gets both sides wrong.",
+    referenceUrl: "https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails.html",
+    tags: ["Safety vs transparency", "Guardrails"]
+  },
+  {
+    id: "aws-aif-413",
+    difficulty: "hard",
+    certId: "aws-aif",
+    domainId: "d4",
+    domainName: "Guidelines for Responsible AI",
+    title: "Researchers ask for the raw patient training data",
+    scenario: "A hospital consortium published a model that predicts sepsis risk. Academic researchers request the full de-identified training dataset so that they can verify the model's behavior. The consortium's privacy officer warns that detailed records, combined with access to the model, could let someone infer whether a particular patient was in the training set.",
+    question: "Which response best balances transparency with safety and privacy?",
+    options: [
+      { id: 'A', text: "Refuse all requests and publish no information about the data, because any detail could expose individual patients." },
+      { id: 'B', text: "Publish documentation of the data's sources, composition, and evaluation results, and offer controlled access under agreement." },
+      { id: 'C', text: "Release the full dataset publicly, because de-identification removes all risk of inferring a patient's participation." },
+      { id: 'D', text: "Release the dataset only after adding each patient's name back, so researchers can confirm the records are genuine." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "Releasing detailed training data can enable membership inference and re-identification, so full openness trades away privacy. Publishing documentation about sources, composition, and results gives transparency about the model, while controlled access under a data use agreement lets vetted researchers verify it. De-identification reduces but does not eliminate inference risk. Refusing everything abandons transparency entirely. Re-adding names is a direct privacy violation.",
+    referenceUrl: "https://aws.amazon.com/ai/responsible-ai/",
+    tags: ["Safety vs transparency", "Privacy", "Membership inference"]
+  },
+  {
+    id: "aws-aif-414",
+    difficulty: "medium",
+    certId: "aws-aif",
+    domainId: "d4",
+    domainName: "Guidelines for Responsible AI",
+    title: "Detailed scores exposed on a public fraud API",
+    scenario: "A payments company offers merchants a fraud-scoring API that returns a risk score with SHAP-style reason codes and exact probabilities to four decimal places. The security team notices a small number of accounts sending thousands of slightly varied transactions and recording the responses.",
+    question: "What risk does this detailed output create, and what is a reasonable mitigation?",
+    options: [
+      { id: 'A', text: "The API will become slower as more detail is returned; move the model to a larger instance type so the latency stays within target." },
+      { id: 'B', text: "The probabilities will overflow the response schema; round them to whole percentages and keep every other part of the response." },
+      { id: 'C', text: "Merchants get too little information to act on each score; add the full feature vector, reason codes, and model weights to each response." },
+      { id: 'D', text: "Attackers can probe the outputs to learn to evade the model or copy it; return coarser scores and reason codes and throttle probing." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Highly detailed explanations and precise scores help legitimate users but also let adversaries run many probes to learn decision boundaries, evade detection, or extract a copy of the model; coarser outputs, limited reason codes, and rate limiting reduce that risk while keeping useful transparency. Adding weights and features increases the exposure. Latency is not the concern raised by the probing behavior. Rounding alone addresses formatting, not the pattern of adversarial probing.",
+    referenceUrl: "https://docs.aws.amazon.com/whitepapers/latest/model-explainability-aws-ai-ml/model-explainability-aws-ai-ml.html",
+    tags: ["Safety vs transparency", "Model extraction"]
+  },
+  {
+    id: "aws-aif-415",
+    difficulty: "easy",
+    certId: "aws-aif",
+    domainId: "d4",
+    domainName: "Guidelines for Responsible AI",
+    title: "Why a regulator might accept lower accuracy",
+    scenario: "A national tax authority is replacing a deep learning model for selecting returns to audit with a simpler rules-based scoring model, even though the new model flags slightly fewer problem returns. Journalists ask why an agency would knowingly choose a less accurate model.",
+    question: "What is the most likely reason for the choice?",
+    options: [
+      { id: 'A', text: "The agency must be able to explain each audit selection, and the simpler model's logic can be shown and checked." },
+      { id: 'B', text: "Simpler models are never subject to bias, so the agency avoids all fairness reviews by adopting the new model." },
+      { id: 'C', text: "Simpler models need no training data at all, so they remove every privacy concern about taxpayer records." },
+      { id: 'D', text: "Deep learning models cannot be run on AWS infrastructure in government regions, so the agency had no choice." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "For high-impact public decisions, being able to explain and justify each outcome can outweigh a small accuracy gain, so the agency accepts the interpretability-performance tradeoff in favor of transparency. Rules-based and statistical models still rely on data and still raise privacy duties. Deep learning runs in AWS government Regions. Simple models can encode bias too and still need fairness review.",
+    referenceUrl: "https://docs.aws.amazon.com/whitepapers/latest/model-explainability-aws-ai-ml/model-explainability-aws-ai-ml.html",
+    tags: ["Interpretability", "Public sector", "Tradeoffs"]
+  },
+  {
+    id: "aws-aif-416",
+    difficulty: "medium",
+    certId: "aws-aif",
+    domainId: "d4",
+    domainName: "Guidelines for Responsible AI",
+    title: "Swapping a scorecard for a neural network",
+    scenario: "An auto lender is considering replacing its logistic regression scorecard with a deep neural network that improves default prediction by several points. The chief risk officer asks the team to list the realistic consequences of the change for transparency and oversight.",
+    question: "Which two statements are accurate consequences of the change? (Choose two.)",
+    options: [
+      { id: 'A', text: "The network will be inherently fairer than the scorecard, so bias testing can be dropped from the approval process." },
+      { id: 'B', text: "Explanations will no longer be needed, because a more accurate model produces fewer decisions that customers dispute." },
+      { id: 'C', text: "The network's coefficients can be printed in the same way as the scorecard's, so adverse action notices stay unchanged." },
+      { id: 'D', text: "Individual decisions will need post-hoc explanation methods, such as SHAP, because the network's logic cannot be read directly." },
+      { id: 'E', text: "Predictive performance may improve, but validating and explaining the model to regulators will require more effort than before." }
+    ],
+    correctAnswers: ['D', 'E'],
+    type: "multiple",
+    explanation: "Moving to a deep network trades transparency for performance: decisions become explainable only through post-hoc methods, and validation and regulatory explanation take more work. Complex models are not inherently fairer and still require bias testing. Neural networks do not have a small set of readable coefficients like a scorecard. Better accuracy does not remove the duty or need to explain adverse decisions.",
+    referenceUrl: "https://docs.aws.amazon.com/whitepapers/latest/model-explainability-aws-ai-ml/model-explainability-aws-ai-ml.html",
+    tags: ["Tradeoffs", "Explainability", "Lending"]
+  },
+  {
+    id: "aws-aif-417",
+    difficulty: "hard",
+    certId: "aws-aif",
+    domainId: "d4",
+    domainName: "Guidelines for Responsible AI",
+    title: "A simple model that imitates the black box",
+    scenario: "A logistics firm cannot replace its high-performing deep learning model for delivery-time promises, but managers want an understandable picture of how it behaves overall. A data scientist proposes training a shallow decision tree to mimic the deep model's predictions and presenting the tree's rules.",
+    question: "What must the team verify for this approach to be trustworthy?",
+    options: [
+      { id: 'A', text: "That the tree is deeper than the neural network, because a surrogate needs more layers than the model it is describing." },
+      { id: 'B', text: "That the tree reaches higher accuracy than the deep model, because the surrogate is meant to replace it in production." },
+      { id: 'C', text: "That the tree was trained on the original labels, because a surrogate should ignore the deep model's predictions entirely." },
+      { id: 'D', text: "That the tree agrees closely with the deep model on held-out data, because a low-fidelity surrogate misrepresents it." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "A global surrogate explains a black box only as well as it mimics it, so its fidelity, meaning agreement with the deep model's predictions on held-out data, must be measured; a low-fidelity surrogate produces a misleading story. A surrogate is trained on the black box's predictions, not the original labels. Depth comparisons between a tree and a neural network are meaningless, and a deep tree defeats interpretability. The surrogate explains the model; it is not intended to beat or replace it.",
+    referenceUrl: "https://docs.aws.amazon.com/whitepapers/latest/model-explainability-aws-ai-ml/model-explainability-aws-ai-ml.html",
+    tags: ["Surrogate models", "Explainability", "Tradeoffs"]
+  },
+  {
+    id: "aws-aif-418",
+    difficulty: "easy",
+    certId: "aws-aif",
+    domainId: "d4",
+    domainName: "Guidelines for Responsible AI",
+    title: "Supporting triage nurses under time pressure",
+    scenario: "An emergency department is adding an AI tool that suggests triage priority. Nurses make these calls in seconds while under stress, and hospital leadership insists the tool must help nurses decide faster and better without taking the decision away from them.",
+    question: "Which human-centered design principle is leadership describing?",
+    options: [
+      { id: 'A', text: "Design for maximum detail, showing every model feature and weight so nurses can inspect exactly how priorities are set." },
+      { id: 'B', text: "Design for amplified decision-making, giving clear, concise information that supports people in high-pressure decisions." },
+      { id: 'C', text: "Design for full automation, removing the nurse from the decision so that no time at all is lost when the department is busy." },
+      { id: 'D', text: "Design for data minimization, collecting as little information as possible so that no personal data is ever processed." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "Amplified decision-making is the human-centered principle of designing AI to support people making high-stakes decisions under pressure, with clear and concise information and the person staying in control. Full automation removes the human judgment leadership wants to keep. Overwhelming nurses with every feature and weight slows decisions in a stressful setting. Data minimization is a privacy principle, not a design approach for explainable decision support.",
+    referenceUrl: "https://aws.amazon.com/ai/responsible-ai/",
+    tags: ["Human-centered design", "Decision support"]
+  },
+  {
+    id: "aws-aif-419",
+    difficulty: "easy",
+    certId: "aws-aif",
+    domainId: "d4",
+    domainName: "Guidelines for Responsible AI",
+    title: "Helping reviewers notice their own blind spots",
+    scenario: "A university admissions office uses a model to score applications, and admissions officers make the final decisions. The office wants the review interface designed so that officers can recognize when either the model's score or their own judgment might be influenced by bias, and correct for it.",
+    question: "Which human-centered design principle does this goal reflect?",
+    options: [
+      { id: 'A', text: "Design for model compression, which shrinks the scoring model so officers see results faster, regardless of bias." },
+      { id: 'B', text: "Design for unbiased decision-making, which helps people identify and mitigate bias in both the AI and the human process." },
+      { id: 'C', text: "Design for human and AI learning, which focuses on the model learning from officers and officers learning from the model." },
+      { id: 'D', text: "Design for amplified decision-making, which focuses on reducing stress and speeding up decisions made under time pressure." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "Designing for unbiased decision-making means building processes and interfaces that help people recognize and mitigate bias, both in the model and in their own judgment, which is the office's goal. Amplified decision-making is about supporting fast, high-pressure decisions. Human and AI learning is about mutual improvement between experts and the system. Model compression is a deployment optimization, not a design principle for fairness.",
+    referenceUrl: "https://aws.amazon.com/ai/responsible-ai/",
+    tags: ["Human-centered design", "Bias"]
+  },
+  {
+    id: "aws-aif-420",
+    difficulty: "medium",
+    certId: "aws-aif",
+    domainId: "d4",
+    domainName: "Guidelines for Responsible AI",
+    title: "Experts and model improving each other",
+    scenario: "An aircraft maintenance company deploys a model that flags suspicious engine sensor patterns. Senior engineers' corrections are fed back to retrain the model, and junior engineers use the model's highlighted patterns and explanations to learn what experienced colleagues look for.",
+    question: "Which human-centered design approach does this setup demonstrate?",
+    options: [
+      { id: 'A', text: "Design for human and AI learning, such as cognitive apprenticeship, where the AI and people learn from one another." },
+      { id: 'B', text: "Design for unbiased decision-making, in which the tool mainly audits whether engineers treat each aircraft type equally." },
+      { id: 'C', text: "Design for amplified decision-making, in which the tool only reduces stress during time-critical maintenance decisions." },
+      { id: 'D', text: "Design for full autonomy, in which the model learns enough from senior engineers' corrections to replace them." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Designing for human and AI learning includes cognitive apprenticeship: the AI learns from expert corrections, and less experienced people learn from the AI's highlighted patterns and explanations. Amplified decision-making concerns supporting decisions under pressure, not mutual learning. Unbiased decision-making targets bias detection. Replacing engineers contradicts the human-centered goal of keeping people in the loop.",
+    referenceUrl: "https://aws.amazon.com/ai/responsible-ai/",
+    tags: ["Human-centered design", "Cognitive apprenticeship"]
+  },
+  {
+    id: "aws-aif-421",
+    difficulty: "medium",
+    certId: "aws-aif",
+    domainId: "d4",
+    domainName: "Guidelines for Responsible AI",
+    title: "Different explanations for different readers",
+    scenario: "An insurer's claims model is reviewed by three audiences: data scientists who validate it, adjusters who act on its recommendations, and claimants who receive decisions. The team is designing how explanations are presented, and early testing shows adjusters ignore dense technical charts.",
+    question: "Which design approach should the team adopt?",
+    options: [
+      { id: 'A', text: "Show explanations only to data scientists, because adjusters and claimants lack the background to use them correctly." },
+      { id: 'B', text: "Show every audience the same technical SHAP summary plot so that explanations are consistent across the whole organization." },
+      { id: 'C', text: "Show claimants the model's full feature list and weights so that they can recalculate the decision for themselves." },
+      { id: 'D', text: "Tailor explanations to each audience, from technical attributions for data scientists to plain-language reasons for claimants." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "Human-centered explainable AI personalizes explanations: the right level of detail depends on who is reading and what they need to do. Data scientists benefit from technical attributions, adjusters from concise key factors, and claimants from plain-language reasons. One technical plot for everyone fails the people who ignore it. Withholding explanations from adjusters and claimants removes transparency where decisions land. Full weights overwhelm claimants and expose the model.",
+    referenceUrl: "https://aws.amazon.com/ai/responsible-ai/",
+    tags: ["Human-centered design", "Personalization"]
+  },
+  {
+    id: "aws-aif-422",
+    difficulty: "medium",
+    certId: "aws-aif",
+    domainId: "d4",
+    domainName: "Guidelines for Responsible AI",
+    title: "Testing the explanation screen with real users",
+    scenario: "A software team built an explanation panel for a loan officer tool based on what the data scientists found useful. After launch, loan officers rarely open the panel and say the terms are confusing. The product owner wants the next version to succeed where this one failed.",
+    question: "What should the team do?",
+    options: [
+      { id: 'A', text: "Add more technical detail to the panel so that the officers can see the full reasoning behind every recommendation." },
+      { id: 'B', text: "Apply user-centered design: research the officers' tasks, prototype explanations with them, and iterate on their feedback." },
+      { id: 'C', text: "Remove the panel and rely on the officers' trust in the model's accuracy statistics published in the release notes." },
+      { id: 'D', text: "Keep the panel unchanged and send every loan officer on a data science course so that they understand its terminology." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "User-centered design involves the intended users throughout: understanding their tasks, prototyping explanations with them, and iterating on feedback, which directly addresses a panel designed for the wrong audience. More technical detail makes the confusion worse. Removing explanations leaves officers unable to judge individual recommendations. Training can help, but expecting users to adapt to a design built for someone else ignores the principle.",
+    referenceUrl: "https://aws.amazon.com/ai/responsible-ai/",
+    tags: ["Human-centered design", "User-centered design"]
+  },
+  {
+    id: "aws-aif-423",
+    difficulty: "easy",
+    certId: "aws-aif",
+    domainId: "d4",
+    domainName: "Guidelines for Responsible AI",
+    title: "Letting clinicians disagree with the model",
+    scenario: "A radiology group is rolling out an AI tool that highlights possible fractures on X-rays. Radiologists want to understand how sure the tool is about each finding and to reject a finding quickly when they disagree, with that disagreement captured for later review.",
+    question: "Which interface feature best supports these needs?",
+    options: [
+      { id: 'A', text: "Display a confidence indicator with each finding and a one-click override that records the radiologist's reason." },
+      { id: 'B', text: "Hide the confidence values so radiologists are not distracted and must accept or reject each whole report at once." },
+      { id: 'C', text: "Show the full network architecture diagram so radiologists can judge each finding from the model's structure." },
+      { id: 'D', text: "Automatically finalize the report when the tool is confident, so radiologists only review uncertain cases later." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Showing confidence helps clinicians calibrate their trust, and an easy override that captures the reason keeps the human in control and creates feedback for improving the model. Hiding confidence removes useful context and forces all-or-nothing decisions. Auto-finalizing takes the decision away from radiologists. An architecture diagram does not explain an individual finding and does not help the radiologist decide.",
+    referenceUrl: "https://docs.aws.amazon.com/sagemaker/latest/dg/a2i-use-augmented-ai-a2i-human-review-loops.html",
+    tags: ["Human-centered design", "Human oversight"]
+  },
+  {
+    id: "aws-aif-424",
+    difficulty: "medium",
+    certId: "aws-aif",
+    domainId: "d4",
+    domainName: "Guidelines for Responsible AI",
+    title: "Designing a benefits caseworker screen",
+    scenario: "A social services agency is building an interface in which caseworkers review a model's eligibility recommendation for each application. The agency wants caseworkers to understand recommendations quickly, stay accountable for outcomes, and help the model improve over time.",
+    question: "Which two design choices best follow human-centered design for explainable AI? (Choose two.)",
+    options: [
+      { id: 'A', text: "Approve applications automatically when the model is confident, so caseworkers see only the borderline cases." },
+      { id: 'B', text: "Display the raw SHAP value array for all 140 features so caseworkers can see the complete attribution data." },
+      { id: 'C', text: "Hide the model's recommendation until the caseworker has chosen, and then discard it so it cannot sway them." },
+      { id: 'D', text: "Show the few factors that most influenced each recommendation in plain language next to the applicant's details." },
+      { id: 'E', text: "Let caseworkers override a recommendation easily and capture their reason as feedback for later model review." }
+    ],
+    correctAnswers: ['D', 'E'],
+    type: "multiple",
+    explanation: "Concise, plain-language key factors help caseworkers understand each recommendation, and easy overrides with captured reasons keep humans accountable while feeding improvement. Automatic approval removes caseworker accountability for many decisions. A raw array of 140 attributions overwhelms rather than explains. Discarding the recommendation entirely throws away the decision support the tool exists to provide.",
+    referenceUrl: "https://aws.amazon.com/ai/responsible-ai/",
+    tags: ["Human-centered design", "Explainability"]
+  },
+  {
+    id: "aws-aif-425",
+    difficulty: "hard",
+    certId: "aws-aif",
+    domainId: "d4",
+    domainName: "Guidelines for Responsible AI",
+    title: "Reviewers who approve every AI suggestion",
+    scenario: "A bank requires analysts to review an AI model's money laundering alerts before accounts are escalated. An internal audit finds that analysts agree with the model's recommendation 99.6 percent of the time and spend an average of eight seconds per alert, including on cases the model later got wrong.",
+    question: "Which change best addresses the problem the audit uncovered?",
+    options: [
+      { id: 'A', text: "Hide the alerts' explanations from analysts, so that they spend more time reading raw transaction data themselves." },
+      { id: 'B', text: "Remove the human review step, since analysts add no value when they agree with the model's recommendation nearly every time." },
+      { id: 'C', text: "Redesign the review to show supporting evidence, prompt analysts to record their own judgment, and monitor agreement." },
+      { id: 'D', text: "Increase the model's accuracy so that analyst agreement with the model is justified in every case they review." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "The audit reveals automation bias: people over-trusting an AI recommendation and rubber-stamping it. A human-centered redesign presents the evidence behind each alert, asks analysts to record their own assessment, and monitors agreement and review time so meaningful oversight is restored. A more accurate model still makes mistakes that nobody catches. Removing review abandons human oversight in a regulated process. Hiding explanations makes review harder rather than more critical.",
+    referenceUrl: "https://docs.aws.amazon.com/sagemaker/latest/dg/a2i-use-augmented-ai-a2i-human-review-loops.html",
+    tags: ["Automation bias", "Human oversight", "Human-centered design"]
+  }
+];
+
+export default AWS_AIF_QUESTIONS_17;

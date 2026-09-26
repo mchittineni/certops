@@ -1,0 +1,532 @@
+export const AWS_AIF_QUESTIONS_20 = [
+  {
+    id: "aws-aif-476",
+    difficulty: "easy",
+    certId: "aws-aif",
+    domainId: "d5",
+    domainName: "Security, Compliance, and Governance for AI Solutions",
+    title: "Keeping a record of every prompt and response",
+    scenario: "A financial advisory firm's compliance rules require it to retain the full text of every prompt sent to, and every response returned by, the foundation models its advisors use in Amazon Bedrock, so supervisors can review conversations later. The firm has not configured anything beyond default settings.",
+    question: "What should the firm configure?",
+    options: [
+      { id: 'A', text: "AWS Config recording for Bedrock, which keeps a history of every prompt as a configuration item." },
+      { id: 'B', text: "AWS CloudTrail management events, which capture the full prompt and response text of each call." },
+      { id: 'C', text: "Bedrock model invocation logging, delivering request and response data to CloudWatch Logs or S3." },
+      { id: 'D', text: "Amazon CloudWatch metrics for Bedrock, which store the full text of each invocation for a year." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "Model invocation logging, which is disabled by default, captures the input and output data of Bedrock invocations and delivers it to CloudWatch Logs, Amazon S3, or both, creating the reviewable record compliance requires. CloudTrail records API activity metadata such as who called which operation, not the full prompt and response text. CloudWatch metrics hold counts and latencies, not content. Config tracks resource configurations, not individual requests.",
+    referenceUrl: "https://docs.aws.amazon.com/bedrock/latest/userguide/model-invocation-logging.html",
+    tags: ["Invocation logging", "Amazon Bedrock", "Logging"]
+  },
+  {
+    id: "aws-aif-477",
+    difficulty: "medium",
+    certId: "aws-aif",
+    domainId: "d5",
+    domainName: "Security, Compliance, and Governance for AI Solutions",
+    title: "Invocation logs that are full of personal data",
+    scenario: "A telehealth company enabled Bedrock model invocation logging to CloudWatch Logs for quality review. Its privacy officer notes the logs now contain patient names, dates of birth, and symptoms, and only two quality reviewers should ever see those details in clear text.",
+    question: "Which approach best governs these logs?",
+    options: [
+      { id: 'A', text: "Encrypt the log group with a KMS key, apply a data protection policy to mask identifiers, and restrict unmasking." },
+      { id: 'B', text: "Grant all support staff read access to the log group so that any of them can help with quality review when needed." },
+      { id: 'C', text: "Export the logs to an S3 bucket with a 30-day expiration rule so that the patient details are exposed only briefly." },
+      { id: 'D', text: "Disable invocation logging and use CloudWatch metrics for quality review, since metrics contain no patient details." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Logs are data too, and must be governed like the data they contain: a customer managed KMS key protects the log group, a CloudWatch Logs data protection policy masks sensitive identifiers for general viewers, and permission to view unmasked data is granted only to the two reviewers. Metrics hold counts and latencies, not conversation content, so disabling logging removes the quality review the company wants. A short expiration limits how long data is kept but leaves identifiers in clear text for anyone with bucket access. Granting all support staff access contradicts the requirement that only two reviewers see the details.",
+    referenceUrl: "https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/mask-sensitive-log-data.html",
+    tags: ["Logging", "Data protection", "CloudWatch Logs"]
+  },
+  {
+    id: "aws-aif-478",
+    difficulty: "easy",
+    certId: "aws-aif",
+    domainId: "d5",
+    domainName: "Security, Compliance, and Governance for AI Solutions",
+    title: "Customer data that must stay in Germany's region",
+    scenario: "A German bank is building a document summarization tool with Amazon Bedrock. Its data residency policy states that customer documents must be stored and processed only in the AWS Europe (Frankfurt) Region, and the bank wants a simple way to meet it.",
+    question: "What should the bank do?",
+    options: [
+      { id: 'A', text: "Use any Region with the lowest latency, since Bedrock replicates customer documents across every Region by default." },
+      { id: 'B', text: "Deploy the solution in the Frankfurt Region and invoke models available there, storing documents in S3 in that Region." },
+      { id: 'C', text: "Deploy the solution in any Region and encrypt the documents with a KMS key so that their location no longer matters." },
+      { id: 'D', text: "Deploy the solution in a US Region and enable S3 Cross-Region Replication to copy the documents to Frankfurt nightly." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "Data residency is governed by choosing the Region: resources created in Frankfurt, with in-Region model invocation and S3 storage, keep data stored and processed there. Bedrock does not replicate customer content across Regions by default, so picking another Region would place data outside policy. Processing in the US and copying to Frankfurt breaks the processing requirement. Encryption protects confidentiality but does not change where data is stored or processed.",
+    referenceUrl: "https://aws.amazon.com/compliance/data-privacy/",
+    tags: ["Data residency", "Regions"]
+  },
+  {
+    id: "aws-aif-479",
+    difficulty: "hard",
+    certId: "aws-aif",
+    domainId: "d5",
+    domainName: "Security, Compliance, and Governance for AI Solutions",
+    title: "Cross-Region inference under an EU residency rule",
+    scenario: "A French retailer runs its Bedrock chatbot in the Europe (Paris) Region and hits throughput limits during sales. Engineers propose cross-Region inference. The retailer's policy allows processing anywhere inside the European Union but not outside it.",
+    question: "Which configuration meets both the throughput goal and the policy?",
+    options: [
+      { id: 'A', text: "Use a global cross-Region inference profile, which routes requests to any supported commercial Region for maximum throughput." },
+      { id: 'B', text: "Keep single-Region invocation in Paris and raise the maximum output tokens so that each request finishes more quickly." },
+      { id: 'C', text: "Use an EU geographic cross-Region inference profile, which routes requests only among Regions within the EU geography." },
+      { id: 'D', text: "Copy the chatbot to a US Region and use Route 53 latency routing to send overflow sales traffic to the US deployment." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "Geographic cross-Region inference profiles, such as the EU profile, distribute requests across Regions within that geography, adding throughput while keeping processing inside the EU; data at rest stays in the source Region. A global profile can route to Regions outside the EU. A US overflow deployment processes data outside the EU. Raising output tokens makes requests longer, not faster, and adds no capacity.",
+    referenceUrl: "https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html",
+    tags: ["Cross-Region inference", "Data residency"]
+  },
+  {
+    id: "aws-aif-480",
+    difficulty: "easy",
+    certId: "aws-aif",
+    domainId: "d5",
+    domainName: "Security, Compliance, and Governance for AI Solutions",
+    title: "Raw training files kept forever by accident",
+    scenario: "A marketing analytics company stores raw clickstream exports in S3 for training recommendation models. Its data retention policy says raw exports must move to low-cost archival storage after 90 days and be permanently deleted after two years, but today nothing is ever removed.",
+    question: "Which S3 feature enforces this policy automatically?",
+    options: [
+      { id: 'A', text: "S3 Transfer Acceleration enabled on the bucket so exports can be uploaded faster from each source." },
+      { id: 'B', text: "S3 Lifecycle rules that transition objects to S3 Glacier after 90 days and expire them after two years." },
+      { id: 'C', text: "S3 Cross-Region Replication rules that copy each raw export to a second bucket in another Region." },
+      { id: 'D', text: "S3 Object Lock in compliance mode with a two-year retention period applied to each export after 90 days." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "S3 Lifecycle configurations transition objects between storage classes and expire them on a schedule, implementing both the archival and deletion stages of the retention policy. Object Lock prevents deletion during a retention period, which enforces keeping data but does not delete it afterward. Replication creates more copies, the opposite of the goal. Transfer Acceleration speeds uploads.",
+    referenceUrl: "https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lifecycle-mgmt.html",
+    tags: ["Data retention", "S3 Lifecycle"]
+  },
+  {
+    id: "aws-aif-481",
+    difficulty: "medium",
+    certId: "aws-aif",
+    domainId: "d5",
+    domainName: "Security, Compliance, and Governance for AI Solutions",
+    title: "Log groups that never expire",
+    scenario: "An insurer's governance review finds that CloudWatch log groups holding Bedrock invocation logs and SageMaker endpoint logs have grown for three years. Policy requires these logs to be kept for 400 days and then removed, and nobody has configured anything on the log groups.",
+    question: "What should the team do?",
+    options: [
+      { id: 'A', text: "Create a CloudTrail trail for the log groups, because CloudTrail deletes CloudWatch log events after 90 days." },
+      { id: 'B', text: "Enable Amazon Macie on the log groups, because Macie removes log data once it has classified its contents." },
+      { id: 'C', text: "Nothing, because CloudWatch Logs deletes log events automatically after 30 days unless retention is changed." },
+      { id: 'D', text: "Set a retention period on each log group that meets the 400-day requirement, since the default never expires." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "By default, CloudWatch Logs retains log events indefinitely; setting a retention period on each log group, choosing the supported value that satisfies 400 days, makes CloudWatch delete older events automatically. The default is not 30 days. CloudTrail records API activity and does not manage CloudWatch log retention. Macie discovers sensitive data in S3 and does not delete CloudWatch logs.",
+    referenceUrl: "https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.html",
+    tags: ["Data retention", "CloudWatch Logs"]
+  },
+  {
+    id: "aws-aif-482",
+    difficulty: "medium",
+    certId: "aws-aif",
+    domainId: "d5",
+    domainName: "Security, Compliance, and Governance for AI Solutions",
+    title: "A customer asks to be forgotten",
+    scenario: "A language-learning app fine-tuned a model on user essays and also indexes essays in a Bedrock knowledge base. A user exercises a right-to-erasure request. The data protection officer asks what the governance process must cover across the data lifecycle.",
+    question: "Which response is most complete?",
+    options: [
+      { id: 'A', text: "Encrypt the user's essays with a new KMS key, because encrypted data no longer counts as personal data under privacy law." },
+      { id: 'B', text: "Delete the user's account record only, because tuned models and knowledge base indexes never retain personal data." },
+      { id: 'C', text: "Use lineage records to find the user's data, delete it from sources and the knowledge base, and assess the tuned model." },
+      { id: 'D', text: "Move the user's essays to S3 Glacier Deep Archive, because archived data is exempt from erasure requests under most laws." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "Data lifecycle governance means knowing everywhere data went: lineage records locate the user's essays in raw storage, processed datasets, and the knowledge base, which can be deleted and re-synced, while a fine-tuned model may have learned from them and needs assessment, possibly retraining without the data. Fine-tuned models and indexes can retain personal data. Encryption does not remove data from scope. Archiving changes storage class, not legal obligations.",
+    referenceUrl: "https://docs.aws.amazon.com/bedrock/latest/userguide/kb-data-source-sync-ingest.html",
+    tags: ["Data lifecycle", "Right to erasure", "Data lineage"]
+  },
+  {
+    id: "aws-aif-483",
+    difficulty: "medium",
+    certId: "aws-aif",
+    domainId: "d5",
+    domainName: "Security, Compliance, and Governance for AI Solutions",
+    title: "Operational visibility for model usage",
+    scenario: "A software company runs several applications on Amazon Bedrock. Its platform team wants dashboards and alarms on invocation counts, latency, throttling, and input and output token volumes per model, so it can spot abnormal usage and capacity problems quickly.",
+    question: "Which service provides these metrics?",
+    options: [
+      { id: 'A', text: "AWS Config, which records invocation metrics as properties of each model resource and raises alarms." },
+      { id: 'B', text: "Amazon Macie, which reports how many tokens of sensitive data were sent to each model." },
+      { id: 'C', text: "Amazon CloudWatch, which receives Bedrock runtime metrics that can drive dashboards and alarms." },
+      { id: 'D', text: "AWS Artifact, which publishes monthly reports and dashboards on Bedrock usage for each account." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "Bedrock publishes runtime metrics such as invocations, invocation latency, throttles, errors, and input and output token counts to Amazon CloudWatch, where teams build dashboards and alarms. AWS Artifact provides compliance documents, not usage metrics. Macie scans S3 for sensitive data. Config records resource configuration, not request counts.",
+    referenceUrl: "https://docs.aws.amazon.com/bedrock/latest/userguide/monitoring.html",
+    tags: ["Monitoring", "CloudWatch", "Amazon Bedrock"]
+  },
+  {
+    id: "aws-aif-484",
+    difficulty: "easy",
+    certId: "aws-aif",
+    domainId: "d5",
+    domainName: "Security, Compliance, and Governance for AI Solutions",
+    title: "Preventing AI resources outside approved Regions",
+    scenario: "A pharmaceutical group permits AI workloads only in two EU Regions because of data residency commitments. Developers in its 40 AWS accounts have accidentally created SageMaker notebooks and Bedrock resources in US Regions. The group wants to prevent this across all accounts.",
+    question: "Which control should the cloud team apply?",
+    options: [
+      { id: 'A', text: "A service control policy that denies actions when aws:RequestedRegion is not one of the two EU Regions." },
+      { id: 'B', text: "An AWS Budgets alert that notifies the team when spending appears in any Region outside the EU." },
+      { id: 'C', text: "An S3 bucket policy on each training bucket that allows reads only from the two EU Regions." },
+      { id: 'D', text: "An AWS Trusted Advisor check that lists resources running outside the approved EU Regions each week." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "A service control policy using the aws:RequestedRegion condition key denies API calls to Regions outside the approved list in every member account, preventing resources from being created there. A budget alert and a Trusted Advisor listing only report after the fact. A bucket policy protects specific buckets but does not stop notebooks or Bedrock resources being created in other Regions.",
+    referenceUrl: "https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scps.html",
+    tags: ["Data residency", "Service control policies"]
+  },
+  {
+    id: "aws-aif-485",
+    difficulty: "medium",
+    certId: "aws-aif",
+    domainId: "d5",
+    domainName: "Security, Compliance, and Governance for AI Solutions",
+    title: "Governing the documents behind an HR assistant",
+    scenario: "A company's HR assistant answers employee questions from a Bedrock knowledge base fed by an S3 bucket of policy documents. An audit finds outdated policies still being cited and a folder of salary spreadsheets that was accidentally ingested.",
+    question: "Which two governance measures address these findings? (Choose two.)",
+    options: [
+      { id: 'A', text: "Increase the number of retrieved chunks so that newer policy documents are more likely to outrank the outdated ones." },
+      { id: 'B', text: "Raise the temperature of the generation model so that answers draw on a wider range of the indexed documents." },
+      { id: 'C', text: "Set review dates for source documents, remove superseded versions, and re-sync the knowledge base after changes." },
+      { id: 'D', text: "Classify documents before ingestion and restrict the data source to approved locations so sensitive files are excluded." },
+      { id: 'E', text: "Switch the knowledge base to a larger embeddings model so that it can tell current policies from outdated ones." }
+    ],
+    correctAnswers: ['C', 'D'],
+    type: "multiple",
+    explanation: "Lifecycle governance of source data, with review dates, removal of superseded documents, and re-syncing, stops outdated content being retrieved, and classification with restricted ingestion paths keeps sensitive files out of the index. Retrieving more chunks still retrieves outdated documents. An embeddings model measures semantic similarity, not currency or sensitivity. Temperature changes wording randomness, not which documents are indexed.",
+    referenceUrl: "https://docs.aws.amazon.com/bedrock/latest/userguide/kb-data-source-sync-ingest.html",
+    tags: ["Data governance", "Knowledge Bases", "Data lifecycle"]
+  },
+  {
+    id: "aws-aif-486",
+    difficulty: "hard",
+    certId: "aws-aif",
+    domainId: "d5",
+    domainName: "Security, Compliance, and Governance for AI Solutions",
+    title: "Litigation hold versus a deletion schedule",
+    scenario: "A lender's S3 bucket of model training data has lifecycle rules that expire objects after three years, and versioning is enabled. The legal department notifies the data team of a lawsuit and requires that specific training datasets be preserved, unaltered, until the case ends, date unknown.",
+    question: "What should the data team do?",
+    options: [
+      { id: 'A', text: "Place an S3 Object Lock legal hold on the relevant object versions, which stays until removed regardless of dates." },
+      { id: 'B', text: "Delete the lifecycle rules for the whole bucket and ask engineers to avoid touching the datasets until the case ends." },
+      { id: 'C', text: "Copy the datasets to a legal team bucket that has no lifecycle rules and keep using the original bucket as before." },
+      { id: 'D', text: "Apply S3 Object Lock compliance mode with a ten-year retention period to every object version in the bucket." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "An Object Lock legal hold protects specific object versions from being overwritten or deleted with no expiry date until someone with permission removes it, which fits a preservation requirement of unknown length, and lifecycle rules cannot permanently delete locked versions. Removing lifecycle rules and relying on engineers provides no enforcement and breaks retention for unrelated data. An unprotected copy can still be altered or deleted. Compliance mode for ten years on every object locks unrelated data and cannot be shortened if the case ends sooner.",
+    referenceUrl: "https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock-overview.html",
+    tags: ["Data retention", "Legal hold", "S3 Object Lock"]
+  },
+  {
+    id: "aws-aif-487",
+    difficulty: "medium",
+    certId: "aws-aif",
+    domainId: "d5",
+    domainName: "Security, Compliance, and Governance for AI Solutions",
+    title: "Noticing when production inputs drift",
+    scenario: "A logistics company's SageMaker endpoint predicts delivery delays. A new warehouse system changed how some input fields are formatted, and prediction quality quietly degraded for weeks before customers complained. Leadership wants ongoing observation that catches such changes early.",
+    question: "What should the team implement?",
+    options: [
+      { id: 'A', text: "Amazon Inspector scans of the endpoint's container image each time the warehouse system's data format is updated." },
+      { id: 'B', text: "AWS Trusted Advisor checks on the endpoint's instance type to find cheaper instances of the same quality." },
+      { id: 'C', text: "SageMaker Model Monitor data quality monitoring against a baseline from training data, with CloudWatch alerts." },
+      { id: 'D', text: "AWS Artifact downloads of the latest SOC reports each month to confirm SageMaker is operating as documented." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "SageMaker Model Monitor compares live endpoint data with a baseline built from training data and flags violations such as changed data types, missing values, or distribution shifts, raising CloudWatch alerts so problems are caught early. SOC reports describe AWS's controls, not your model's inputs. Trusted Advisor instance recommendations concern cost. Inspector finds vulnerabilities, not data drift.",
+    referenceUrl: "https://docs.aws.amazon.com/sagemaker/latest/dg/model-monitor.html",
+    tags: ["Monitoring", "Model Monitor", "Data drift"]
+  },
+  {
+    id: "aws-aif-488",
+    difficulty: "easy",
+    certId: "aws-aif",
+    domainId: "d5",
+    domainName: "Security, Compliance, and Governance for AI Solutions",
+    title: "Why keep logs from an AI assistant at all",
+    scenario: "A city government's IT director questions the cost of keeping detailed logs from its citizen-services chatbot and asks the governance lead to state the main reason logging is part of the AI governance strategy.",
+    question: "What is the strongest justification?",
+    options: [
+      { id: 'A', text: "Logs are required to train the underlying foundation model, which learns from every citizen conversation." },
+      { id: 'B', text: "Logs provide an audit trail for investigating incidents, demonstrating compliance, and reviewing model behavior." },
+      { id: 'C', text: "Logs make the model generate answers faster, because it can read earlier conversations from the log store." },
+      { id: 'D', text: "Logs replace the need for access controls, because any misuse of the chatbot can be seen in the audit trail afterward." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "Logging creates the evidence governance depends on: an audit trail for incident investigation, proof of compliance, and material for reviewing how the model behaves in practice. Logs do not speed up generation. Detective records complement preventive access controls rather than replacing them. Bedrock does not train base models on customer conversations, so logs are not for that purpose.",
+    referenceUrl: "https://docs.aws.amazon.com/bedrock/latest/userguide/model-invocation-logging.html",
+    tags: ["Logging", "Governance"]
+  },
+  {
+    id: "aws-aif-489",
+    difficulty: "easy",
+    certId: "aws-aif",
+    domainId: "d5",
+    domainName: "Security, Compliance, and Governance for AI Solutions",
+    title: "Staff pasting data into a public chatbot",
+    scenario: "Employees at an engineering firm have started using a free public generative AI chatbot website to draft emails and summarize documents. The chief information security officer wants to classify this usage with the Generative AI Security Scoping Matrix before writing policy.",
+    question: "Which scope describes this usage?",
+    options: [
+      { id: 'A', text: "Scope 5, self-trained models: a model the firm trains from scratch on its own dataset." },
+      { id: 'B', text: "Scope 4, fine-tuned models: a model the firm customizes with its own proprietary data." },
+      { id: 'C', text: "Scope 3, pre-trained models: an application the firm builds on a public model's API." },
+      { id: 'D', text: "Scope 1, a consumer app: a public third-party service used under its standard terms." }
+    ],
+    correctAnswers: ['D'],
+    type: "single",
+    explanation: "In the Generative AI Security Scoping Matrix, Scope 1 covers consumer applications, public third-party services used under standard terms where the organization has little control, so governance focuses on acceptable use and what data employees may enter. Scope 3 is building an application on a pre-trained model via API, Scope 4 is fine-tuning a model on your data, and Scope 5 is training your own model, none of which describe employees using a public website.",
+    referenceUrl: "https://aws.amazon.com/ai/generative-ai/security/scoping-matrix/",
+    tags: ["Scoping Matrix", "Governance frameworks"]
+  },
+  {
+    id: "aws-aif-490",
+    difficulty: "medium",
+    certId: "aws-aif",
+    domainId: "d5",
+    domainName: "Security, Compliance, and Governance for AI Solutions",
+    title: "Classifying a fine-tuned claims model",
+    scenario: "An insurer is moving from calling a foundation model in Amazon Bedrock with prompts to fine-tuning that model on 200,000 of its own historical claims notes. Its governance team uses the Generative AI Security Scoping Matrix to decide which additional controls apply.",
+    question: "How does the change affect the insurer's scope and responsibilities?",
+    options: [
+      { id: 'A', text: "It moves to Scope 2, because the insurer's claims staff are now using an enterprise application to do work." },
+      { id: 'B', text: "It moves to Scope 4, adding responsibility for governing the training data and the resulting custom model." },
+      { id: 'C', text: "It moves to Scope 5, because any customization means the insurer is now training a model from scratch." },
+      { id: 'D', text: "It stays in Scope 3, and nothing changes because the underlying model provider remains the same as before." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "Fine-tuning a foundation model on your own data is Scope 4 in the Scoping Matrix, which adds responsibility for the training data's classification and rights, access to the custom model, and how it may expose that data. Staying in Scope 3 ignores the new training data. Scope 2 describes using an enterprise SaaS application with built-in generative AI. Scope 5 means training a model from scratch, which fine-tuning is not.",
+    referenceUrl: "https://aws.amazon.com/ai/generative-ai/security/scoping-matrix/",
+    tags: ["Scoping Matrix", "Fine-tuning", "Governance frameworks"]
+  },
+  {
+    id: "aws-aif-491",
+    difficulty: "medium",
+    certId: "aws-aif",
+    domainId: "d5",
+    domainName: "Security, Compliance, and Governance for AI Solutions",
+    title: "Generative AI features inside a SaaS CRM",
+    scenario: "A sales organization's CRM vendor has added generative AI features that draft emails using customer records stored in the CRM. The organization did not build these features and has a business agreement with the vendor. The governance team is deciding what to review before enabling them.",
+    question: "Which review best fits this scope of usage?",
+    options: [
+      { id: 'A', text: "Retrain the CRM vendor's model on the organization's data to confirm that its outputs match the company's writing style." },
+      { id: 'B', text: "Review the vendor's terms on data use, retention, and model training, and set rules on which data features may use." },
+      { id: 'C', text: "Classify the usage as Scope 5 and run a full model training data audit on the vendor's foundation model." },
+      { id: 'D', text: "Build a guardrail in Amazon Bedrock and attach it to the CRM vendor's model so that all features pass through it." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "This is Scope 2 in the Scoping Matrix: an enterprise application with generative AI features under a business agreement. The organization controls little of the model, so governance focuses on the vendor's contractual terms for data use, retention, and training, plus internal rules on which data the features may process. The organization cannot retrain or attach its own guardrails to the vendor's model. Scope 5 applies to self-trained models.",
+    referenceUrl: "https://aws.amazon.com/ai/generative-ai/security/scoping-matrix/",
+    tags: ["Scoping Matrix", "Third-party risk"]
+  },
+  {
+    id: "aws-aif-492",
+    difficulty: "hard",
+    certId: "aws-aif",
+    domainId: "d5",
+    domainName: "Security, Compliance, and Governance for AI Solutions",
+    title: "What changes as scope moves from 1 to 5",
+    scenario: "An AI governance council is training business leaders on the Generative AI Security Scoping Matrix. A draft slide lists several statements about how responsibilities change from Scope 1, consumer apps, to Scope 5, self-trained models, and the council wants only accurate statements kept.",
+    question: "Which two statements should remain on the slide? (Choose two.)",
+    options: [
+      { id: 'A', text: "Security responsibilities are identical in every scope, so a single set of training and controls applies to all AI usage." },
+      { id: 'B', text: "In Scope 5 the organization owns the training data and the model, so it governs data sourcing, training, and deployment." },
+      { id: 'C', text: "In Scope 3 the organization is responsible for patching the servers that host the provider's foundation model." },
+      { id: 'D', text: "Moving toward Scope 5, the organization takes on more control over the model and more responsibility for securing it." },
+      { id: 'E', text: "In Scope 1 the organization controls how the provider trains its model, because employees accepted the terms of service." }
+    ],
+    correctAnswers: ['B', 'D'],
+    type: "multiple",
+    explanation: "The Scoping Matrix shows ownership and control increasing from consumer apps to self-trained models, and with it responsibility; in Scope 5 the organization owns the data and model end to end. In Scope 1 the provider controls its model and training under standard terms. Controls differ by scope, which is the point of the matrix. In Scope 3, using a model through a managed API, the provider manages the hosting infrastructure.",
+    referenceUrl: "https://aws.amazon.com/ai/generative-ai/security/scoping-matrix/",
+    tags: ["Scoping Matrix", "Shared responsibility"]
+  },
+  {
+    id: "aws-aif-493",
+    difficulty: "easy",
+    certId: "aws-aif",
+    domainId: "d5",
+    domainName: "Security, Compliance, and Governance for AI Solutions",
+    title: "A policy for which AI tools staff may use",
+    scenario: "A law firm's partners discovered associates using several unvetted AI tools with client documents. They want a written governance document that states which AI tools are approved, which data classifications may be used with each, and what uses are prohibited.",
+    question: "What kind of governance artifact is this?",
+    options: [
+      { id: 'A', text: "An AI acceptable use policy that defines approved tools, permitted data, and prohibited uses." },
+      { id: 'B', text: "A disaster recovery plan that defines how AI tools are restored and which steps are prohibited." },
+      { id: 'C', text: "A service level agreement that defines the uptime each approved AI vendor promises to deliver." },
+      { id: 'D', text: "A model card that documents one model's intended uses, risk rating, and evaluation results." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "An AI acceptable use policy sets organization-wide rules on which AI tools are approved, which data can be used with them, and which uses are forbidden, which is what the partners describe. A service level agreement covers vendor availability. A disaster recovery plan covers restoration after outages. A model card documents a single model rather than setting staff rules.",
+    referenceUrl: "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/responsible-ai-lens.html",
+    tags: ["Governance policies", "Acceptable use"]
+  },
+  {
+    id: "aws-aif-494",
+    difficulty: "medium",
+    certId: "aws-aif",
+    domainId: "d5",
+    domainName: "Security, Compliance, and Governance for AI Solutions",
+    title: "How often to re-review production models",
+    scenario: "A bank has 120 models in production, from marketing propensity scores to credit decision models. Its current governance policy reviews every model once every three years regardless of use. Regulators criticized the policy as inadequate for high-impact models.",
+    question: "Which review cadence approach should the bank adopt?",
+    options: [
+      { id: 'A', text: "Review every model monthly, because one high-impact cadence for all models is the simplest policy to explain." },
+      { id: 'B', text: "Keep the three-year cycle but have the model's own developers carry out each review to reduce the delays." },
+      { id: 'C', text: "Set cadence by risk tier, reviewing high-impact models more often and also after material changes." },
+      { id: 'D', text: "Stop scheduled reviews and review models only when a customer files a complaint about a specific decision." }
+    ],
+    correctAnswers: ['C'],
+    type: "single",
+    explanation: "A risk-based review cadence focuses effort where impact is greatest: high-risk models such as credit decisions are reviewed more frequently, and any model is re-reviewed on triggers such as material changes, performance drift, or new regulations. Monthly reviews of every model waste effort on low-risk models. Complaint-only reviews are purely reactive. Self-review by developers removes independence without fixing the cadence.",
+    referenceUrl: "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/responsible-ai-lens.html",
+    tags: ["Review cadence", "Model risk management"]
+  },
+  {
+    id: "aws-aif-495",
+    difficulty: "medium",
+    certId: "aws-aif",
+    domainId: "d5",
+    domainName: "Security, Compliance, and Governance for AI Solutions",
+    title: "Who should challenge a new underwriting model",
+    scenario: "An insurer's data science team has built a generative AI tool that drafts underwriting recommendations. The team has tested it extensively and wants to approve it for production itself. The chief risk officer insists on a stronger review strategy before launch.",
+    question: "Which review strategy best meets the chief risk officer's expectation?",
+    options: [
+      { id: 'A', text: "Independent review by a separate risk function, plus red teaming and human evaluation of sample outputs." },
+      { id: 'B', text: "Automated approval once accuracy on the team's own test set exceeds a threshold defined by the team itself." },
+      { id: 'C', text: "Approval by the foundation model vendor, since the vendor knows the model's risks better than anyone else." },
+      { id: 'D', text: "Approval by the data science team's manager, based on the test results that the team has already produced." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Strong review strategies separate building from approving: an independent function challenges the model, red teaming probes for harmful or manipulable behavior, and human evaluation checks output quality for the actual use case. A manager approving the team's own results lacks independence. The model vendor does not know the insurer's use case, data, or risk appetite. A threshold the team sets on its own test set is self-assessment.",
+    referenceUrl: "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/responsible-ai-lens.html",
+    tags: ["Review strategies", "Red teaming", "Independent review"]
+  },
+  {
+    id: "aws-aif-496",
+    difficulty: "medium",
+    certId: "aws-aif",
+    domainId: "d5",
+    domainName: "Security, Compliance, and Governance for AI Solutions",
+    title: "Telling people when AI is involved",
+    scenario: "A public utility is launching a generative AI assistant for billing questions and an AI model that helps prioritize repair requests. A citizen advocacy group asks what the utility will disclose about its AI use, and the board wants a transparency standard that applies to all AI systems.",
+    question: "Which transparency standard is most appropriate?",
+    options: [
+      { id: 'A', text: "Tell users when they interact with AI, publish plain-language descriptions of each system's purpose and limits." },
+      { id: 'B', text: "Publish model weights and full training data for both systems, since that is required for any AI transparency." },
+      { id: 'C', text: "Disclose only to regulators on request, because the public has no legitimate interest in how services are run." },
+      { id: 'D', text: "Disclose nothing, because explaining the use of AI could make customers less willing to use the utility's services." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "A practical transparency standard informs people when they are interacting with AI and publishes accessible documentation of each system's purpose, limitations, and how decisions can be questioned, in line with practices such as model and service cards. Disclosing nothing undermines trust and may breach disclosure duties. Publishing weights and training data is neither required nor usually appropriate, and can create security and privacy risks. Limiting disclosure to regulators ignores the people affected.",
+    referenceUrl: "https://aws.amazon.com/ai/responsible-ai/resources/",
+    tags: ["Transparency standards", "Disclosure"]
+  },
+  {
+    id: "aws-aif-497",
+    difficulty: "easy",
+    certId: "aws-aif",
+    domainId: "d5",
+    domainName: "Security, Compliance, and Governance for AI Solutions",
+    title: "Training before access to an internal AI platform",
+    scenario: "A manufacturer is rolling out an internal Amazon Bedrock platform to 3,000 employees. The governance committee has seen other companies suffer data leaks and harmful outputs because staff did not understand the tools, and it wants to reduce that risk before anyone gets access.",
+    question: "Which governance measure addresses this concern most directly?",
+    options: [
+      { id: 'A', text: "Require role-based training on responsible AI use, data handling, and the acceptable use policy before access." },
+      { id: 'B', text: "Require each employee to read the foundation model provider's research paper before they are granted access." },
+      { id: 'C', text: "Provide access to everyone at once and publish a frequently asked questions page on the intranet afterward." },
+      { id: 'D', text: "Limit the platform to employees with the most years of service, since their experience replaces formal training." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "Team training requirements are part of governance protocols: role-based training on responsible AI, data classification and handling, and the acceptable use policy, completed before access, directly reduces misuse. An after-the-fact FAQ does not ensure understanding. Seniority does not confer knowledge of AI risks. A research paper explains model internals rather than the organization's rules and safe practices.",
+    referenceUrl: "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/responsible-ai-lens.html",
+    tags: ["Training requirements", "Governance protocols"]
+  },
+  {
+    id: "aws-aif-498",
+    difficulty: "medium",
+    certId: "aws-aif",
+    domainId: "d5",
+    domainName: "Security, Compliance, and Governance for AI Solutions",
+    title: "Setting up AI governance at a growing company",
+    scenario: "A fast-growing insurtech has dozens of teams experimenting with generative AI and no consistent way to decide which use cases go to production. The CEO asks for a governance structure that scales without blocking innovation.",
+    question: "Which two elements should the structure include? (Choose two.)",
+    options: [
+      { id: 'A', text: "A rule that each engineering team decides for itself whether its use cases are safe, with no central record kept." },
+      { id: 'B', text: "A company-wide ban on all generative AI until regulators publish detailed rules for every insurance use case." },
+      { id: 'C', text: "A single annual review meeting at which every AI use case in the company is approved or rejected at the same time." },
+      { id: 'D', text: "A documented intake and approval workflow that tiers use cases by risk and applies stronger controls to higher tiers." },
+      { id: 'E', text: "A cross-functional AI governance committee of legal, security, risk, and business leaders with decision rights." }
+    ],
+    correctAnswers: ['D', 'E'],
+    type: "multiple",
+    explanation: "A cross-functional committee brings the needed perspectives and clear decision rights, and a risk-tiered intake and approval workflow lets low-risk ideas move quickly while high-risk ones get more scrutiny. Leaving decisions to each team with no record provides no oversight. A single annual meeting creates bottlenecks and ignores risk differences. A blanket ban blocks innovation and waits on rules that may never be use-case specific.",
+    referenceUrl: "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/responsible-ai-lens.html",
+    tags: ["Governance frameworks", "Risk tiering"]
+  },
+  {
+    id: "aws-aif-499",
+    difficulty: "hard",
+    certId: "aws-aif",
+    domainId: "d5",
+    domainName: "Security, Compliance, and Governance for AI Solutions",
+    title: "The provider retires the model you approved",
+    scenario: "A bank's approved customer-service assistant uses a specific model version in Amazon Bedrock. The bank receives notice that this version has moved to Legacy status and will reach end of life in six months, and a newer version from the same provider is available.",
+    question: "What should the bank's governance protocol require before switching?",
+    options: [
+      { id: 'A', text: "Re-run the approved evaluation and safety tests on the new version, update documentation, and obtain approval before cutover." },
+      { id: 'B', text: "Switch to the new version and rely on customer complaints during the first month to reveal any differences in its behavior." },
+      { id: 'C', text: "Keep using the legacy version past its end-of-life date, since the version the bank approved remains valid indefinitely." },
+      { id: 'D', text: "Switch immediately on the day of the notice, since a newer version from the same provider is assumed to be at least as safe." }
+    ],
+    correctAnswers: ['A'],
+    type: "single",
+    explanation: "A model version change is a material change: the governance protocol should trigger re-evaluation of the new version against the approved test and safety suites, updates to documentation such as model cards and risk assessments, and formal approval before cutover, all within the six-month window. A newer version can behave differently and must not be assumed equivalent. Models past end of life are no longer available, so continued use is not an option. Relying on complaints moves testing onto customers.",
+    referenceUrl: "https://docs.aws.amazon.com/bedrock/latest/userguide/model-lifecycle.html",
+    tags: ["Model lifecycle", "Change management", "Governance protocols"]
+  },
+  {
+    id: "aws-aif-500",
+    difficulty: "easy",
+    certId: "aws-aif",
+    domainId: "d5",
+    domainName: "Security, Compliance, and Governance for AI Solutions",
+    title: "An in-house app calling a managed foundation model",
+    scenario: "A travel company's developers are building their own itinerary-planning application that sends prompts to an Anthropic Claude model through the Amazon Bedrock API, grounding answers in the company's hotel data. They do not modify the model. The security team wants to place the project in the Generative AI Security Scoping Matrix.",
+    question: "Which scope applies to this project?",
+    options: [
+      { id: 'A', text: "Scope 2, an enterprise app: a third-party SaaS product with generative AI features built in." },
+      { id: 'B', text: "Scope 3, pre-trained models: an application the company builds on an existing model via an API." },
+      { id: 'C', text: "Scope 1, a consumer app: a free public chatbot used by employees under its standard terms." },
+      { id: 'D', text: "Scope 4, fine-tuned models: an application whose model is further trained on company data." }
+    ],
+    correctAnswers: ['B'],
+    type: "single",
+    explanation: "Building your own application on top of an existing foundation model accessed through an API, such as Amazon Bedrock, without changing the model is Scope 3 in the Scoping Matrix; grounding prompts with company data through retrieval does not change the model. Scope 2 is using a vendor's SaaS product with built-in generative AI. Scope 4 requires fine-tuning the model on your data. Scope 1 is employee use of a public consumer service.",
+    referenceUrl: "https://aws.amazon.com/ai/generative-ai/security/scoping-matrix/",
+    tags: ["Scoping Matrix", "Governance frameworks"]
+  }
+];
+
+export default AWS_AIF_QUESTIONS_20;
