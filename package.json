@@ -56,9 +56,9 @@
     "coverage:summary": "node scripts/coverage-summary.mjs"
   },
   "devDependencies": {
-    "@huggingface/hub": "2.17.2",
+    "@huggingface/hub": "2.17.5",
     "c8": "^12.0.0",
-    "simple-icons": "^16.31.0",
-    "vite": "^8.3.0"
+    "simple-icons": "^16.32.0",
+    "vite": "^8.3.1"
   }
 }
